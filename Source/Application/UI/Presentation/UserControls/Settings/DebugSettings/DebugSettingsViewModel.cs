@@ -5,27 +5,26 @@ using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings;
+
+public class DebugSettingsViewModel : TranslatableViewModelBase<DebugSettingsTranslation>, IWhitelisted, IMountable
 {
-    public class DebugSettingsViewModel : TranslatableViewModelBase<DebugSettingsTranslation>, IWhitelisted, IMountable
+    private readonly ICurrentSettings<ApplicationSettings> _applicationSettings;
+    private readonly IGpoSettings _gpoSettings;
+
+    public DebugSettingsViewModel(ITranslationUpdater translationUpdater, ICurrentSettings<ApplicationSettings> applicationSettings, IGpoSettings gpoSettings)
+        : base(translationUpdater)
     {
-        private readonly ICurrentSettings<ApplicationSettings> _applicationSettings;
-        private readonly IGpoSettings _gpoSettings;
+        _applicationSettings = applicationSettings;
+        _gpoSettings = gpoSettings;
+    }
 
-        public DebugSettingsViewModel(ITranslationUpdater translationUpdater, ICurrentSettings<ApplicationSettings> applicationSettings, IGpoSettings gpoSettings)
-            : base(translationUpdater)
-        {
-            _applicationSettings = applicationSettings;
-            _gpoSettings = gpoSettings;
-        }
+    public void MountView()
+    {
 
-        public void MountView()
-        {
-            
-        }
+    }
 
-        public void UnmountView()
-        {
-        }
+    public void UnmountView()
+    {
     }
 }

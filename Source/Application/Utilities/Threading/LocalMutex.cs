@@ -1,75 +1,88 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Threading;
+using NLog;
 
-namespace pdfforge.PDFCreator.Utilities.Threading
+namespace pdfforge.PDFCreator.Utilities.Threading;
+
+public class LocalMutex
 {
-    internal class LocalMutex
+    private readonly string _mutexName;
+    private Thread _mutexThread;
+    private readonly AutoResetEvent _mutexAcquiredEvent = new AutoResetEvent(false);
+    private readonly AutoResetEvent _releaseMutexEvent = new AutoResetEvent(false);
+    private bool _wasAcquired;
+    private static Logger _logger = LogManager.GetCurrentClassLogger();
+
+    public LocalMutex(string mutexName)
     {
-        private readonly string _mutexName;
-        private Thread _mutexThread;
-        private readonly AutoResetEvent _mutexAcquiredEvent = new AutoResetEvent(false);
-        private readonly AutoResetEvent _releaseMutexEvent = new AutoResetEvent(false);
-        private bool _wasAcquired;
-        private static Logger _logger = LogManager.GetCurrentClassLogger();
+        _mutexName = mutexName;
+    }
 
-        public LocalMutex(string mutexName)
+    public bool Acquire()
+    {
+        if (_mutexThread != null)
+            throw new InvalidOperationException("The mutex already was acquired!");
+
+        _mutexThread = new Thread(MutexThread);
+        _mutexThread.Start();
+
+        _mutexAcquiredEvent.WaitOne();
+
+        return _wasAcquired;
+    }
+
+
+    public bool Acquire(TimeSpan timespan)
+    {
+        if (_mutexThread != null)
+            throw new InvalidOperationException("The mutex already was acquired!");
+
+        _mutexThread = new Thread(MutexThread);
+        _mutexThread.Start();
+
+        _mutexAcquiredEvent.WaitOne(timespan);
+
+        return _wasAcquired;
+    }
+
+    private void MutexThread()
+    {
+        var mutex = new Mutex(false, _mutexName);
+
+        try
         {
-            _mutexName = mutexName;
-        }
-
-        public bool Acquire()
-        {
-            if (_mutexThread != null)
-                throw new InvalidOperationException("The mutex already was acquired!");
-
-            _mutexThread = new Thread(MutexThread);
-            _mutexThread.Start();
-
-            _mutexAcquiredEvent.WaitOne();
-
-            return _wasAcquired;
-        }
-
-        private void MutexThread()
-        {
-            var mutex = new Mutex(false, _mutexName);
-
             try
             {
-                try
+                var timeout = TimeSpan.FromSeconds(1);
+
+                var wasClaimed = mutex.WaitOne(timeout);
+
+                if (!wasClaimed)
                 {
-                    var timeout = TimeSpan.FromSeconds(1);
-
-                    var wasClaimed = mutex.WaitOne(timeout);
-
-                    if (!wasClaimed)
-                    {
-                        _logger.Info($"Could not claim local mutex {_mutexName} within {timeout.TotalSeconds}s");
-                        return;
-                    }
+                    _logger.Info($"Could not claim local mutex {_mutexName} within {timeout.TotalSeconds}s");
+                    return;
                 }
-                catch (AbandonedMutexException)
-                {
-                }
-
-                _wasAcquired = true;
-                _mutexAcquiredEvent.Set();
-
-                _releaseMutexEvent.WaitOne();
             }
-            finally
+            catch (AbandonedMutexException)
             {
-                if (_wasAcquired)
-                    mutex.ReleaseMutex();
-
-                _mutexThread = null;
             }
-        }
 
-        public void Release()
-        {
-            _releaseMutexEvent.Set();
+            _wasAcquired = true;
+            _mutexAcquiredEvent.Set();
+
+            _releaseMutexEvent.WaitOne();
         }
+        finally
+        {
+            if (_wasAcquired)
+                mutex.ReleaseMutex();
+
+            _mutexThread = null;
+        }
+    }
+
+    public void Release()
+    {
+        _releaseMutexEvent.Set();
     }
 }

@@ -3,285 +3,283 @@ using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
-using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement
+namespace pdfforge.PDFCreator.Core.SettingsManagement;
+
+public class PDFCreatorDefaultSettingsBuilder : DefaultSettingsBuilderBase
 {
-    public class PDFCreatorDefaultSettingsBuilder : DefaultSettingsBuilderBase
+    private readonly IActionOrderHelper _actionOrderHelper;
+
+    public bool WithEmailSignature { get; set; } = true;
+    public EncryptionLevel EncryptionLevel { get; set; }
+
+    public PDFCreatorDefaultSettingsBuilder(IActionOrderHelper actionOrderHelper)
     {
-        private readonly IActionOrderHelper _actionOrderHelper;
+        _actionOrderHelper = actionOrderHelper;
+    }
 
-        public bool WithEmailSignature { get; set; } = true;
-        public EncryptionLevel EncryptionLevel { get; set; }
+    /// <summary>
+    ///     Create an empty settings class with the proper registry storage attached
+    /// </summary>
+    /// <returns>An empty settings object</returns>
+    public override ISettings CreateEmptySettings()
+    {
+        var settings = new PdfCreatorSettings();
+        return settings;
+    }
 
-        public PDFCreatorDefaultSettingsBuilder(IActionOrderHelper actionOrderHelper)
+    public override IEditionSettings CreateDefaultSettings(ISettings currentSettings)
+    {
+        var pdfCreatorSettings = (PdfCreatorSettings)currentSettings;
+        var defaultSettings = (PdfCreatorSettings)CreateDefaultSettings(
+            pdfCreatorSettings.CreatorAppSettings.PrimaryPrinter,
+            pdfCreatorSettings.ApplicationSettings.Language
+            );
+
+        if (pdfCreatorSettings.ApplicationSettings.PrinterMappings?.Count > 0)
         {
-            _actionOrderHelper = actionOrderHelper;
-        }
-
-        /// <summary>
-        ///     Create an empty settings class with the proper registry storage attached
-        /// </summary>
-        /// <returns>An empty settings object</returns>
-        public override ISettings CreateEmptySettings()
-        {
-            var settings = new PdfCreatorSettings();
-            return settings;
-        }
-
-        public override IEditionSettings CreateDefaultSettings(ISettings currentSettings)
-        {
-            var pdfCreatorSettings = (PdfCreatorSettings)currentSettings;
-            var defaultSettings = (PdfCreatorSettings)CreateDefaultSettings(
-                pdfCreatorSettings.CreatorAppSettings.PrimaryPrinter,
-                pdfCreatorSettings.ApplicationSettings.Language
-                );
-
-            if (pdfCreatorSettings.ApplicationSettings.PrinterMappings?.Count > 0)
+            foreach (var printerMapping in pdfCreatorSettings.ApplicationSettings.PrinterMappings)
             {
-                foreach (var printerMapping in pdfCreatorSettings.ApplicationSettings.PrinterMappings)
-                {
-                    defaultSettings.ApplicationSettings.PrinterMappings.Add(new PrinterMapping(printerMapping.PrinterName, ProfileGuids.DEFAULT_PROFILE_GUID));
-                }
+                defaultSettings.ApplicationSettings.PrinterMappings.Add(new PrinterMapping(printerMapping.PrinterName, ProfileGuids.DEFAULT_PROFILE_GUID));
             }
-            else defaultSettings.ApplicationSettings.PrinterMappings.Add(new PrinterMapping("PDFCreator", ProfileGuids.DEFAULT_PROFILE_GUID));
+        }
+        else defaultSettings.ApplicationSettings.PrinterMappings.Add(new PrinterMapping("PDFCreator", ProfileGuids.DEFAULT_PROFILE_GUID));
 
-            if (pdfCreatorSettings.DefaultViewers.Count > 0)
+        if (pdfCreatorSettings.DefaultViewers.Count > 0)
+        {
+            foreach (var defaultViewer in pdfCreatorSettings.DefaultViewers)
             {
-                foreach (var defaultViewer in pdfCreatorSettings.DefaultViewers)
-                {
-                    defaultSettings.DefaultViewers.Add(new DefaultViewer() { OutputFormat = defaultViewer.OutputFormat });
-                }
+                defaultSettings.DefaultViewers.Add(new DefaultViewer() { OutputFormat = defaultViewer.OutputFormat });
             }
-
-            return defaultSettings;
         }
 
-        /// <summary>
-        ///     Creates a settings object with default settings and profiles
-        /// </summary>
-        /// <returns>The initialized settings object</returns>
-        public override IEditionSettings CreateDefaultSettings(string primaryPrinter, string defaultLanguage)
-        {
-            var settings = (PdfCreatorSettings)CreateEmptySettings();
+        return defaultSettings;
+    }
 
-            AddPrimaryPrinter(primaryPrinter, settings);
-            AddDefaultTimeServer(settings);
-            AddDefaultTitleReplacements(settings);
-            AddLanguage(defaultLanguage, settings);
-            AddDefaultProfiles(settings);
-            AddLastUsedProfileGuid(settings);
+    /// <summary>
+    ///     Creates a settings object with default settings and profiles
+    /// </summary>
+    /// <returns>The initialized settings object</returns>
+    public override IEditionSettings CreateDefaultSettings(string primaryPrinter, string defaultLanguage)
+    {
+        var settings = (PdfCreatorSettings)CreateEmptySettings();
 
-            return settings;
-        }
+        AddPrimaryPrinter(primaryPrinter, settings);
+        AddDefaultTimeServer(settings);
+        AddDefaultTitleReplacements(settings);
+        AddLanguage(defaultLanguage, settings);
+        AddDefaultProfiles(settings);
+        AddLastUsedProfileGuid(settings);
 
-        private void AddDefaultTitleReplacements(PdfCreatorSettings settings)
-        {
-            settings.ApplicationSettings.TitleReplacement = CreateDefaultTitleReplacements();
-        }
+        return settings;
+    }
 
-        private static void AddLastUsedProfileGuid(PdfCreatorSettings settings)
-        {
-            if (string.IsNullOrWhiteSpace(settings.CreatorAppSettings.LastUsedProfileGuid))
-                settings.CreatorAppSettings.LastUsedProfileGuid = ProfileGuids.DEFAULT_PROFILE_GUID;
-        }
+    private void AddDefaultTitleReplacements(PdfCreatorSettings settings)
+    {
+        settings.ApplicationSettings.TitleReplacement = CreateDefaultTitleReplacements();
+    }
 
-        private static void AddLanguage(string defaultLanguage, PdfCreatorSettings settings)
-        {
-            settings.ApplicationSettings.Language = defaultLanguage;
-        }
+    private static void AddLastUsedProfileGuid(PdfCreatorSettings settings)
+    {
+        if (string.IsNullOrWhiteSpace(settings.CreatorAppSettings.LastUsedProfileGuid))
+            settings.CreatorAppSettings.LastUsedProfileGuid = ProfileGuids.DEFAULT_PROFILE_GUID;
+    }
 
-        private static void AddPrimaryPrinter(string primaryPrinter, PdfCreatorSettings settings)
-        {
-            settings.CreatorAppSettings.PrimaryPrinter = primaryPrinter;
-        }
+    private static void AddLanguage(string defaultLanguage, PdfCreatorSettings settings)
+    {
+        settings.ApplicationSettings.Language = defaultLanguage;
+    }
 
-        private void AddDefaultProfiles(PdfCreatorSettings settings)
-        {
-            settings.ConversionProfiles.Add(CreateDefaultProfile());
-            settings.ConversionProfiles.Add(CreateHighCompressionProfile());
-            settings.ConversionProfiles.Add(CreateSecuredPdfProfile());
-            settings.ConversionProfiles.Add(CreateHighQualityProfile());
-            settings.ConversionProfiles.Add(CreateJpegProfile());
-            settings.ConversionProfiles.Add(CreatePdfaProfile());
-            settings.ConversionProfiles.Add(CreatePngProfile());
-            settings.ConversionProfiles.Add(CreatePrintProfile());
-            settings.ConversionProfiles.Add(CreateTiffProfile());
+    private static void AddPrimaryPrinter(string primaryPrinter, PdfCreatorSettings settings)
+    {
+        settings.CreatorAppSettings.PrimaryPrinter = primaryPrinter;
+    }
 
-            settings.SortConversionProfiles();
-        }
+    private void AddDefaultProfiles(PdfCreatorSettings settings)
+    {
+        settings.ConversionProfiles.Add(CreateDefaultProfile());
+        settings.ConversionProfiles.Add(CreateHighCompressionProfile());
+        settings.ConversionProfiles.Add(CreateSecuredPdfProfile());
+        settings.ConversionProfiles.Add(CreateHighQualityProfile());
+        settings.ConversionProfiles.Add(CreateJpegProfile());
+        settings.ConversionProfiles.Add(CreatePdfaProfile());
+        settings.ConversionProfiles.Add(CreatePngProfile());
+        settings.ConversionProfiles.Add(CreatePrintProfile());
+        settings.ConversionProfiles.Add(CreateTiffProfile());
 
-        private ConversionProfile CreateSecuredPdfProfile()
-        {
-            var profile = new ConversionProfile();
-            profile.Name = "Secured PDF";
-            profile.Guid = ProfileGuids.SECURED_PDF_PROFILE_GUID;
+        settings.SortConversionProfiles();
+    }
 
-            profile.OutputFormat = OutputFormat.Pdf;
-            _actionOrderHelper.EnsureValidOrder(profile.ActionOrder);
-            profile.PdfSettings.Security.Enabled = true;
-            profile.ActionOrder.Add(profile.PdfSettings.Security.GetType().Name);
-            profile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes256Bit;
-            profile.PdfSettings.Security.RequireUserPassword = true;
+    private ConversionProfile CreateSecuredPdfProfile()
+    {
+        var profile = new ConversionProfile();
+        profile.Name = "Secured PDF";
+        profile.Guid = ProfileGuids.SECURED_PDF_PROFILE_GUID;
 
-            profile.PdfSettings.Security.AllowToCopyContent = false;
-            profile.PdfSettings.Security.AllowPrinting = false;
-            profile.PdfSettings.Security.AllowScreenReader = false;
-            profile.PdfSettings.Security.AllowToEditAssembly = false;
-            profile.PdfSettings.Security.AllowToEditTheDocument = false;
-            profile.PdfSettings.Security.AllowToFillForms = false;
+        profile.OutputFormat = OutputFormat.Pdf;
+        _actionOrderHelper.EnsureValidOrder(profile.ActionOrder);
+        profile.PdfSettings.Security.Enabled = true;
+        profile.ActionOrder.Add(profile.PdfSettings.Security.GetType().Name);
+        profile.PdfSettings.Security.EncryptionLevel = EncryptionLevel.Aes256Bit;
+        profile.PdfSettings.Security.RequireUserPassword = true;
 
-            SetDefaultProperties(profile, true);
-            return profile;
-        }
+        profile.PdfSettings.Security.AllowToCopyContent = false;
+        profile.PdfSettings.Security.AllowPrinting = false;
+        profile.PdfSettings.Security.AllowScreenReader = false;
+        profile.PdfSettings.Security.AllowToEditAssembly = false;
+        profile.PdfSettings.Security.AllowToEditTheDocument = false;
+        profile.PdfSettings.Security.AllowToFillForms = false;
 
-        private ConversionProfile CreateTiffProfile()
-        {
-            var tiffProfile = new ConversionProfile();
-            tiffProfile.Name = "TIFF (multipage graphic file)";
-            tiffProfile.Guid = ProfileGuids.TIFF_PROFILE_GUID;
+        SetDefaultProperties(profile, true);
+        return profile;
+    }
 
-            tiffProfile.OutputFormat = OutputFormat.Tif;
-            tiffProfile.TiffSettings.Dpi = 150;
-            tiffProfile.TiffSettings.Color = TiffColor.Color24Bit;
+    private ConversionProfile CreateTiffProfile()
+    {
+        var tiffProfile = new ConversionProfile();
+        tiffProfile.Name = "TIFF (multipage graphic file)";
+        tiffProfile.Guid = ProfileGuids.TIFF_PROFILE_GUID;
 
-            SetDefaultProperties(tiffProfile, true);
-            return tiffProfile;
-        }
+        tiffProfile.OutputFormat = OutputFormat.Tif;
+        tiffProfile.TiffSettings.Dpi = 150;
+        tiffProfile.TiffSettings.Color = TiffColor.Color24Bit;
 
-        private ConversionProfile CreatePrintProfile()
-        {
-            var printProfile = new ConversionProfile();
-            printProfile.Name = "Print after saving";
-            printProfile.Guid = ProfileGuids.PRINT_PROFILE_GUID;
+        SetDefaultProperties(tiffProfile, true);
+        return tiffProfile;
+    }
 
-            printProfile.Printing.Enabled = true;
-            printProfile.ActionOrder.Add(printProfile.Printing.GetType().Name);
-            _actionOrderHelper.EnsureValidOrder(printProfile.ActionOrder);
-            printProfile.Printing.SelectPrinter = SelectPrinter.ShowDialog;
+    private ConversionProfile CreatePrintProfile()
+    {
+        var printProfile = new ConversionProfile();
+        printProfile.Name = "Print after saving";
+        printProfile.Guid = ProfileGuids.PRINT_PROFILE_GUID;
 
-            SetDefaultProperties(printProfile, true);
-            return printProfile;
-        }
+        printProfile.Printing.Enabled = true;
+        printProfile.ActionOrder.Add(printProfile.Printing.GetType().Name);
+        _actionOrderHelper.EnsureValidOrder(printProfile.ActionOrder);
+        printProfile.Printing.SelectPrinter = SelectPrinter.ShowDialog;
 
-        private ConversionProfile CreatePngProfile()
-        {
-            var pngProfile = new ConversionProfile();
-            pngProfile.Name = "PNG (graphic file)";
-            pngProfile.Guid = ProfileGuids.PNG_PROFILE_GUID;
+        SetDefaultProperties(printProfile, true);
+        return printProfile;
+    }
 
-            pngProfile.OutputFormat = OutputFormat.Png;
-            pngProfile.PngSettings.Dpi = 150;
-            pngProfile.PngSettings.Color = PngColor.Color24Bit;
+    private ConversionProfile CreatePngProfile()
+    {
+        var pngProfile = new ConversionProfile();
+        pngProfile.Name = "PNG (graphic file)";
+        pngProfile.Guid = ProfileGuids.PNG_PROFILE_GUID;
 
-            SetDefaultProperties(pngProfile, true);
-            return pngProfile;
-        }
+        pngProfile.OutputFormat = OutputFormat.Png;
+        pngProfile.PngSettings.Dpi = 150;
+        pngProfile.PngSettings.Color = PngColor.Color24Bit;
 
-        private ConversionProfile CreatePdfaProfile()
-        {
-            var pdfaProfile = new ConversionProfile();
-            pdfaProfile.Name = "PDF/A (long term preservation)";
-            pdfaProfile.Guid = ProfileGuids.PDFA_PROFILE_GUID;
+        SetDefaultProperties(pngProfile, true);
+        return pngProfile;
+    }
 
-            pdfaProfile.OutputFormat = OutputFormat.PdfA2B;
-            pdfaProfile.PdfSettings.CompressColorAndGray.Enabled = true;
-            pdfaProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
-            pdfaProfile.PdfSettings.CompressMonochrome.Enabled = true;
-            pdfaProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
+    private ConversionProfile CreatePdfaProfile()
+    {
+        var pdfaProfile = new ConversionProfile();
+        pdfaProfile.Name = "PDF/A (long term preservation)";
+        pdfaProfile.Guid = ProfileGuids.PDFA_PROFILE_GUID;
 
-            SetDefaultProperties(pdfaProfile, true);
-            return pdfaProfile;
-        }
+        pdfaProfile.OutputFormat = OutputFormat.PdfA2B;
+        pdfaProfile.PdfSettings.CompressColorAndGray.Enabled = true;
+        pdfaProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Automatic;
+        pdfaProfile.PdfSettings.CompressMonochrome.Enabled = true;
+        pdfaProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.CcittFaxEncoding;
 
-        private ConversionProfile CreateJpegProfile()
-        {
-            var jpegProfile = new ConversionProfile();
-            jpegProfile.Name = "JPEG (graphic file)";
-            jpegProfile.Guid = ProfileGuids.JPEG_PROFILE_GUID;
+        SetDefaultProperties(pdfaProfile, true);
+        return pdfaProfile;
+    }
 
-            jpegProfile.OutputFormat = OutputFormat.Jpeg;
-            jpegProfile.JpegSettings.Dpi = 150;
-            jpegProfile.JpegSettings.Color = JpegColor.Color24Bit;
-            jpegProfile.JpegSettings.Quality = 75;
+    private ConversionProfile CreateJpegProfile()
+    {
+        var jpegProfile = new ConversionProfile();
+        jpegProfile.Name = "JPEG (graphic file)";
+        jpegProfile.Guid = ProfileGuids.JPEG_PROFILE_GUID;
 
-            SetDefaultProperties(jpegProfile, true);
-            return jpegProfile;
-        }
+        jpegProfile.OutputFormat = OutputFormat.Jpeg;
+        jpegProfile.JpegSettings.Dpi = 150;
+        jpegProfile.JpegSettings.Color = JpegColor.Color24Bit;
+        jpegProfile.JpegSettings.Quality = 75;
 
-        private ConversionProfile CreateHighQualityProfile()
-        {
-            var highQualityProfile = new ConversionProfile();
-            highQualityProfile.Name = "High Quality (large files)";
-            highQualityProfile.Guid = ProfileGuids.HIGH_QUALITY_PROFILE_GUID;
+        SetDefaultProperties(jpegProfile, true);
+        return jpegProfile;
+    }
 
-            highQualityProfile.OutputFormat = OutputFormat.Pdf;
-            highQualityProfile.PdfSettings.CompressColorAndGray.Enabled = true;
-            highQualityProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Zip;
-            highQualityProfile.PdfSettings.CompressMonochrome.Enabled = true;
-            highQualityProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.Zip;
+    private ConversionProfile CreateHighQualityProfile()
+    {
+        var highQualityProfile = new ConversionProfile();
+        highQualityProfile.Name = "High Quality (large files)";
+        highQualityProfile.Guid = ProfileGuids.HIGH_QUALITY_PROFILE_GUID;
 
-            highQualityProfile.JpegSettings.Dpi = 300;
-            highQualityProfile.JpegSettings.Quality = 100;
-            highQualityProfile.JpegSettings.Color = JpegColor.Color24Bit;
+        highQualityProfile.OutputFormat = OutputFormat.Pdf;
+        highQualityProfile.PdfSettings.CompressColorAndGray.Enabled = true;
+        highQualityProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.Zip;
+        highQualityProfile.PdfSettings.CompressMonochrome.Enabled = true;
+        highQualityProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.Zip;
 
-            highQualityProfile.PngSettings.Dpi = 300;
-            highQualityProfile.PngSettings.Color = PngColor.Color32BitTransp;
+        highQualityProfile.JpegSettings.Dpi = 300;
+        highQualityProfile.JpegSettings.Quality = 100;
+        highQualityProfile.JpegSettings.Color = JpegColor.Color24Bit;
 
-            highQualityProfile.TiffSettings.Dpi = 300;
-            highQualityProfile.TiffSettings.Color = TiffColor.Color24Bit;
+        highQualityProfile.PngSettings.Dpi = 300;
+        highQualityProfile.PngSettings.Color = PngColor.Color32BitTransp;
 
-            SetDefaultProperties(highQualityProfile, true);
-            return highQualityProfile;
-        }
+        highQualityProfile.TiffSettings.Dpi = 300;
+        highQualityProfile.TiffSettings.Color = TiffColor.Color24Bit;
 
-        private ConversionProfile CreateHighCompressionProfile()
-        {
-            var highCompressionProfile = new ConversionProfile();
-            highCompressionProfile.Name = "High Compression (small files)";
-            highCompressionProfile.Guid = ProfileGuids.HIGH_COMPRESSION_PROFILE_GUID;
+        SetDefaultProperties(highQualityProfile, true);
+        return highQualityProfile;
+    }
 
-            highCompressionProfile.OutputFormat = OutputFormat.Pdf;
-            highCompressionProfile.PdfSettings.CompressColorAndGray.Enabled = true;
-            highCompressionProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.JpegMaximum;
+    private ConversionProfile CreateHighCompressionProfile()
+    {
+        var highCompressionProfile = new ConversionProfile();
+        highCompressionProfile.Name = "High Compression (small files)";
+        highCompressionProfile.Guid = ProfileGuids.HIGH_COMPRESSION_PROFILE_GUID;
 
-            highCompressionProfile.PdfSettings.CompressMonochrome.Enabled = true;
-            highCompressionProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.RunLengthEncoding;
+        highCompressionProfile.OutputFormat = OutputFormat.Pdf;
+        highCompressionProfile.PdfSettings.CompressColorAndGray.Enabled = true;
+        highCompressionProfile.PdfSettings.CompressColorAndGray.Compression = CompressionColorAndGray.JpegMaximum;
 
-            highCompressionProfile.JpegSettings.Dpi = 100;
-            highCompressionProfile.JpegSettings.Color = JpegColor.Color24Bit;
-            highCompressionProfile.JpegSettings.Quality = 50;
+        highCompressionProfile.PdfSettings.CompressMonochrome.Enabled = true;
+        highCompressionProfile.PdfSettings.CompressMonochrome.Compression = CompressionMonochrome.RunLengthEncoding;
 
-            highCompressionProfile.PngSettings.Dpi = 100;
-            highCompressionProfile.PngSettings.Color = PngColor.Color24Bit;
+        highCompressionProfile.JpegSettings.Dpi = 100;
+        highCompressionProfile.JpegSettings.Color = JpegColor.Color24Bit;
+        highCompressionProfile.JpegSettings.Quality = 50;
 
-            highCompressionProfile.TiffSettings.Dpi = 100;
-            highCompressionProfile.TiffSettings.Color = TiffColor.Color24Bit;
+        highCompressionProfile.PngSettings.Dpi = 100;
+        highCompressionProfile.PngSettings.Color = PngColor.Color24Bit;
 
-            SetDefaultProperties(highCompressionProfile, true);
-            return highCompressionProfile;
-        }
+        highCompressionProfile.TiffSettings.Dpi = 100;
+        highCompressionProfile.TiffSettings.Color = TiffColor.Color24Bit;
 
-        // can be used for all profiles
-        protected override void SetDefaultProperties(ConversionProfile profile, bool isDeletable)
-        {
-            base.SetDefaultProperties(profile, isDeletable);
-            profile.OpenViewer.Enabled = true;
-            profile.ActionOrder.Add(profile.OpenViewer.GetType().Name);
-            profile.OpenViewer.OpenWithPdfArchitect = true;
-            profile.PdfSettings.Security.EncryptionLevel = EncryptionLevel;
-            profile.EmailClientSettings.AddSignature = WithEmailSignature;
-            profile.EmailSmtpSettings.AddSignature = WithEmailSignature;
-            profile.EmailWebSettings.AddSignature = WithEmailSignature;
-        }
+        SetDefaultProperties(highCompressionProfile, true);
+        return highCompressionProfile;
+    }
 
-        public override ConversionProfile CreateDefaultProfile()
-        {
-            var defaultProfile = new ConversionProfile();
-            defaultProfile.Name = "<Default Profile>";
-            defaultProfile.Guid = ProfileGuids.DEFAULT_PROFILE_GUID;
-            SetDefaultProperties(defaultProfile, false);
-            return defaultProfile;
-        }
+    // can be used for all profiles
+    protected override void SetDefaultProperties(ConversionProfile profile, bool isDeletable)
+    {
+        base.SetDefaultProperties(profile, isDeletable);
+        profile.OpenViewer.Enabled = true;
+        profile.ActionOrder.Add(profile.OpenViewer.GetType().Name);
+        profile.OpenViewer.OpenWithPdfArchitect = true;
+        profile.PdfSettings.Security.EncryptionLevel = EncryptionLevel;
+        profile.EmailClientSettings.AddSignature = WithEmailSignature;
+        profile.EmailSmtpSettings.AddSignature = WithEmailSignature;
+        profile.EmailWebSettings.AddSignature = WithEmailSignature;
+    }
+
+    public override ConversionProfile CreateDefaultProfile()
+    {
+        var defaultProfile = new ConversionProfile();
+        defaultProfile.Name = "<Default Profile>";
+        defaultProfile.Guid = ProfileGuids.DEFAULT_PROFILE_GUID;
+        SetDefaultProperties(defaultProfile, false);
+        return defaultProfile;
     }
 }

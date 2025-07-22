@@ -1,16 +1,15 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings;
+
+/// <summary>
+///     Interaction logic for LoggingSettingView.xaml
+/// </summary>
+public partial class EventLogSettingView : UserControl
 {
-    /// <summary>
-    ///     Interaction logic for LoggingSettingView.xaml
-    /// </summary>
-    public partial class EventLogSettingView : UserControl
+    public EventLogSettingView(EventLogSettingsViewModel viewmodel)
     {
-        public EventLogSettingView(EventLogSettingsViewModel viewmodel)
-        {
-            InitializeComponent();
-            DataContext = viewmodel;
-        }
+        InitializeComponent();
+        DataContext = viewmodel;
     }
 }

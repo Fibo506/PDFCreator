@@ -1,9 +1,8 @@
 ﻿using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.Core.Services
+namespace pdfforge.PDFCreator.Core.Services;
+
+public interface IInitializedCommand<T> : ICommand
 {
-    public interface IInitializedCommand<T> : ICommand
-    {
-        void Init(T parameter);
-    }
+    void Init(T parameter);
 }

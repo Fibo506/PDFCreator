@@ -1,11 +1,10 @@
 ﻿using pdfforge.PDFCreator.Core.Services.Translation;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeErrorCodeInterpreter : ErrorCodeInterpreter
 {
-    public class DesignTimeErrorCodeInterpreter : ErrorCodeInterpreter
-    {
-        public DesignTimeErrorCodeInterpreter() : base(new TranslationFactory())
-        { }
-    }
+    public DesignTimeErrorCodeInterpreter() : base(new TranslationFactory())
+    { }
 }

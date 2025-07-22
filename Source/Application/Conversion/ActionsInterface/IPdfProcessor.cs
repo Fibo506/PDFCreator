@@ -1,28 +1,30 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Conversion.ActionsInterface
+namespace pdfforge.PDFCreator.Conversion.ActionsInterface;
+
+public interface IPdfProcessor
 {
-    public interface IPdfProcessor
-    {
-        void SignEncryptConvertPdfAAndWriteFile(Job job);
+    void SignEncryptConvertPdfAAndWriteFile(Job job);
 
-        int GetNumberOfPages(string pdfFile, string password = null);
+    int GetNumberOfPages(string pdfFile, string password = null);
 
-        string DeterminePdfVersion(ConversionProfile profile);
+    string DeterminePdfVersion(ConversionProfile profile);
 
-        void AddAttachment(Job job);
+    void AddAttachment(Job job);
 
-        void AddCover(Job job);
+    void AddCover(Job job);
 
-        void AddStamp(Job job);
+    void AddStamp(Job job);
 
-        void AddBackground(Job job);
+    void AddBackground(Job job);
 
-        void AddPageNumbers(Job job);
+    void AddPageNumbers(Job job);
 
-        void AddWatermark(Job job);
+    void AddWatermark(Job job);
 
-        void MergePDFs(string targetPdf, string sourcePdf);
-    }
+    void MergePDFs(string targetPdf, string sourcePdf, string pdfOwnerPassword);
+
+    void ApplyPreviewChanges(Job job, IList<PageMapping> pageMappings);
 }

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace pdfforge.PDFCreator.Core.Services.JobHistory
-{
-    public interface IJobHistoryStorage
-    {
-        List<HistoricJob> Load();
+namespace pdfforge.PDFCreator.Core.Services.JobHistory;
 
-        void Save(IList<HistoricJob> history);
-    }
+public interface IJobHistoryStorage
+{
+    List<HistoricJob> Load();
+
+    void Save(IList<HistoricJob> history);
 }

@@ -1,79 +1,88 @@
-﻿using pdfforge.PDFCreator.Core.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Translation;
-using pdfforge.PDFCreator.Core.SettingsManagement;
+using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.UI.Presentation.Help;
 using pdfforge.PDFCreator.Utilities;
 using pdfforge.PDFCreator.Utilities.UserGuide;
-using System;
-using System.Linq;
-using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.Helper;
+
+public class UserGuideHelper : IUserGuideHelper
 {
-    public class UserGuideHelper : IUserGuideHelper
+    private readonly IAssemblyHelper _assemblyHelper;
+    private readonly IDirectory _directoryWrapper;
+    private readonly IPath _pathWrapper;
+    private readonly IUserGuideLauncher _userGuideLauncher;
+    private readonly IApplicationLanguageProvider _applicationLanguageProvider;
+    private readonly ILanguageProvider _languageProvider;
+
+    public UserGuideHelper(IDirectory directoryWrapper, IPath pathWrapper, IAssemblyHelper assemblyHelper, IUserGuideLauncher userGuideLauncher, IApplicationLanguageProvider applicationLanguageProvider, ILanguageProvider languageProvider)
     {
-        private readonly IAssemblyHelper _assemblyHelper;
-        private readonly IFile _fileWrap;
-        private readonly IUserGuideLauncher _userGuideLauncher;
-        private readonly IApplicationLanguageProvider _applicationLanguageProvider;
-        private readonly ILanguageProvider _languageProvider;
+        _directoryWrapper = directoryWrapper;
+        _pathWrapper = pathWrapper;
+        _assemblyHelper = assemblyHelper;
+        _userGuideLauncher = userGuideLauncher;
+        _applicationLanguageProvider = applicationLanguageProvider;
+        _languageProvider = languageProvider;
 
-        public UserGuideHelper(IFile fileWrap, IAssemblyHelper assemblyHelper, IUserGuideLauncher userGuideLauncher, IApplicationLanguageProvider applicationLanguageProvider, ILanguageProvider languageProvider)
+        UpdateLanguage();
+
+        _applicationLanguageProvider.LanguageChanged += OnLanguageChanged;
+    }
+
+    private Language GetLanguage()
+    {
+        var englishLanguage = _languageProvider.FindBestLanguage("en");
+        var languageIso = _applicationLanguageProvider.GetApplicationLanguage();
+        var language = _languageProvider.GetAvailableLanguages().FirstOrDefault(lang => lang.Iso2 == languageIso);
+
+        return language ?? englishLanguage;
+    }
+
+    public void ShowHelp(HelpTopic topic)
+    {
+        _userGuideLauncher.ShowHelpTopic(topic);
+    }
+
+    private void OnLanguageChanged(object sender, EventArgs e)
+    {
+        UpdateLanguage();
+    }
+
+    public void UpdateLanguage()
+    {
+        var language = GetLanguage();
+
+        // used for debugging UserGuide by setting a custom location
+        var envVar = Environment.GetEnvironmentVariable("PDFCreatorUserGuideWebsite");
+        var applicationDir = _assemblyHelper.GetAssemblyDirectory();
+
+        var candidates = new[]
         {
-            _fileWrap = fileWrap;
-            _assemblyHelper = assemblyHelper;
-            _userGuideLauncher = userGuideLauncher;
-            _applicationLanguageProvider = applicationLanguageProvider;
-            _languageProvider = languageProvider;
-
-            UpdateLanguage();
-
-            _applicationLanguageProvider.LanguageChanged += OnLanguageChanged;
+            $"{applicationDir}\\UserGuide",
+            "..\\..\\..\\..\\..\\..\\..\\..\\packages\\test\\PDFCreator.UserGuide\\content\\inapp",
+            "C:\\Program Files\\PDFCreator\\UserGuide",
+            "C:\\Program Files\\PDFCreator Server\\UserGuide"
         }
+            .Select(_pathWrapper.GetFullPath)
+            .ToList();
 
-        private Language GetLanguage()
+        if (!string.IsNullOrWhiteSpace(envVar))
+            candidates.Insert(1, envVar);
+
+        foreach (var candidate in candidates)
         {
-            var englishLanguage = _languageProvider.FindBestLanguage("en");
-            var languageIso = _applicationLanguageProvider.GetApplicationLanguage();
-            var language = _languageProvider.GetAvailableLanguages().FirstOrDefault(lang => lang.Iso2 == languageIso);
-
-            return language ?? englishLanguage;
-        }
-
-        public void ShowHelp(HelpTopic topic)
-        {
-            _userGuideLauncher.ShowHelpTopic(topic);
-        }
-
-        private void OnLanguageChanged(object sender, EventArgs e)
-        {
-            UpdateLanguage();
-        }
-
-        public void UpdateLanguage()
-        {
-            var language = GetLanguage();
-
-            var applicationDir = _assemblyHelper.GetAssemblyDirectory();
-            var applicationUserGuideDir = PathSafe.Combine(applicationDir, "UserGuide");
-
-            var candidates = new[]
+            if (_directoryWrapper.Exists(PathSafe.Combine(candidate, language.Iso2)))
             {
-                PathSafe.Combine(applicationDir, $"PDFCreator_{language.CommonName}.chm"),
-                PathSafe.Combine(applicationUserGuideDir, $"PDFCreator_{language.CommonName}.chm"),
-                PathSafe.Combine(applicationDir, "PDFCreator_english.chm"),
-                PathSafe.Combine(applicationUserGuideDir, "PDFCreator_english.chm")
-            };
-
-            foreach (var candidate in candidates)
-            {
-                if (!_fileWrap.Exists(candidate))
-                    continue;
-
-                _userGuideLauncher.SetUserGuide(candidate);
-                break;
+                _userGuideLauncher.SetUserGuide(candidate, language.Iso2);
+                return;
             }
         }
+
+        _userGuideLauncher.SetLanguage("en");
     }
 }

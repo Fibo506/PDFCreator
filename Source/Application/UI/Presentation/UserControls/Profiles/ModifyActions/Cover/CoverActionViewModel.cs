@@ -1,4 +1,6 @@
-﻿using pdfforge.PDFCreator.Conversion.Actions.Actions;
+﻿using System.Collections.Generic;
+using System.Linq;
+using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Core.Services.Translation;
@@ -8,102 +10,99 @@ using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
 using pdfforge.PDFCreator.Utilities.Pdf;
 using pdfforge.PDFCreator.Utilities.Tokens;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Cover
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Cover;
+
+public class CoverActionViewModel : ActionViewModelBase<CoverAction, CoverSettingsTranslation>
 {
-    public class CoverActionViewModel : ActionViewModelBase<CoverAction, CoverSettingsTranslation>
+    private readonly ITokenHelper _tokenHelper;
+    private readonly IPdfVersionHelper _pdfVersionHelper;
+    private readonly ISelectFilesUserControlViewModelFactory _selectFilesUserControlViewModelFactory;
+
+    public TokenReplacer TokenReplacer { get; private set; }
+
+    public SelectFilesUserControlViewModel CoverPageSelectFilesUserControlViewModel { get; set; }
+
+    public CoverActionViewModel(IActionLocator actionLocator,
+        ErrorCodeInterpreter errorCodeInterpreter,
+        ITranslationUpdater translationUpdater,
+        ICurrentSettingsProvider currentSettingsProvider,
+        ITokenHelper tokenHelper,
+        IDispatcher dispatcher,
+        IPdfVersionHelper pdfVersionHelper,
+        ISelectFilesUserControlViewModelFactory selectFilesUserControlViewModelFactory,
+        IDefaultSettingsBuilder defaultSettingsBuilder,
+        IActionOrderHelper actionOrderHelper)
+        : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
     {
-        private readonly ITokenHelper _tokenHelper;
-        private readonly IPdfVersionHelper _pdfVersionHelper;
-        private readonly ISelectFilesUserControlViewModelFactory _selectFilesUserControlViewModelFactory;
+        _tokenHelper = tokenHelper;
+        _pdfVersionHelper = pdfVersionHelper;
+        _selectFilesUserControlViewModelFactory = selectFilesUserControlViewModelFactory;
+    }
 
-        public TokenReplacer TokenReplacer { get; private set; }
-
-        public SelectFilesUserControlViewModel CoverPageSelectFilesUserControlViewModel { get; set; }
-
-        public CoverActionViewModel(IActionLocator actionLocator,
-            ErrorCodeInterpreter errorCodeInterpreter,
-            ITranslationUpdater translationUpdater,
-            ICurrentSettingsProvider currentSettingsProvider,
-            ITokenHelper tokenHelper,
-            IDispatcher dispatcher,
-            IPdfVersionHelper pdfVersionHelper,
-            ISelectFilesUserControlViewModelFactory selectFilesUserControlViewModelFactory,
-            IDefaultSettingsBuilder defaultSettingsBuilder,
-            IActionOrderHelper actionOrderHelper)
-            : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
+    public override void MountView()
+    {
+        if (_tokenHelper != null)
         {
-            _tokenHelper = tokenHelper;
-            _pdfVersionHelper = pdfVersionHelper;
-            _selectFilesUserControlViewModelFactory = selectFilesUserControlViewModelFactory;
-        }
+            TokenReplacer = _tokenHelper.TokenReplacerWithPlaceHolders;
+            var tokens = _tokenHelper.GetTokenListForExternalFiles();
+            var filter = Translation.PDFFiles
+                         + @" (*.pdf)|*.pdf|"
+                         + Translation.AllFiles
+                         + @" (*.*)|*.*";
 
-        public override void MountView()
-        {
-            if (_tokenHelper != null)
-            {
-                TokenReplacer = _tokenHelper.TokenReplacerWithPlaceHolders;
-                var tokens = _tokenHelper.GetTokenListForExternalFiles();
-                var filter = Translation.PDFFiles
-                             + @" (*.pdf)|*.pdf|"
-                             + Translation.AllFiles
-                             + @" (*.*)|*.*";
-
-                CoverPageSelectFilesUserControlViewModel = _selectFilesUserControlViewModelFactory.Builder()
-                    .WithTitleGetter(() => Translation.SelectCoverFile)
-                    .WithFileListGetter(profile => profile.CoverPage.Files)
-                    .WithFileFilter(filter)
-                    .WithTokens(tokens)
-                    .WithPropertyChanged((s, a) =>
+            CoverPageSelectFilesUserControlViewModel = _selectFilesUserControlViewModelFactory.Builder()
+                .WithTitleGetter(() => Translation.SelectCoverFile)
+                .WithFileListGetter(profile => profile.CoverPage.Files)
+                .WithFileFilter(filter)
+                .WithTokens(tokens)
+                .WithPropertyChanged((s, a) =>
+                {
+                    if (a.PropertyName == nameof(CoverPageSelectFilesUserControlViewModel.FileList))
                     {
-                        if (a.PropertyName == nameof(CoverPageSelectFilesUserControlViewModel.FileList))
-                        {
-                            CheckIfVersionIsPdf20();
-                            StatusChanged(s, a);
-                        }
-                    })
-                    .Build();
+                        CheckIfVersionIsPdf20();
+                        StatusChanged(s, a);
+                    }
+                })
+                .Build();
 
-                RaisePropertyChanged(nameof(CoverPageSelectFilesUserControlViewModel));
-                CoverPageSelectFilesUserControlViewModel.MountView();
-            }
-
-            CheckIfVersionIsPdf20();
-
-            base.MountView();
+            RaisePropertyChanged(nameof(CoverPageSelectFilesUserControlViewModel));
+            CoverPageSelectFilesUserControlViewModel.MountView();
         }
 
-        public override void UnmountView()
+        CheckIfVersionIsPdf20();
+
+        base.MountView();
+    }
+
+    public override void UnmountView()
+    {
+        base.UnmountView();
+        CoverPageSelectFilesUserControlViewModel.UnmountView();
+    }
+
+    private void CheckIfVersionIsPdf20()
+    {
+        Pdf20Files = CurrentProfile.CoverPage.Files.FindAll(_pdfVersionHelper.CheckIfVersionIsPdf20);
+
+        RaisePropertyChanged(nameof(IsAnyPdf20));
+        RaisePropertyChanged(nameof(Pdf20Files));
+    }
+
+    public bool IsAnyPdf20 => Pdf20Files?.Any() ?? false;
+
+    public List<string> Pdf20Files
+    {
+        get;
+        set;
+    }
+
+    protected override string SettingsPreviewString
+    {
+        get
         {
-            base.UnmountView();
-            CoverPageSelectFilesUserControlViewModel.UnmountView();
-        }
-
-        private void CheckIfVersionIsPdf20()
-        {
-            Pdf20Files = CurrentProfile.CoverPage.Files.FindAll(_pdfVersionHelper.CheckIfVersionIsPdf20);
-
-            RaisePropertyChanged(nameof(IsAnyPdf20));
-            RaisePropertyChanged(nameof(Pdf20Files));
-        }
-
-        public bool IsAnyPdf20 => Pdf20Files?.Any() ?? false;
-
-        public List<string> Pdf20Files
-        {
-            get;
-            set;
-        }
-
-        protected override string SettingsPreviewString
-        {
-            get
-            {
-                return CurrentProfile.CoverPage.Files.DefaultIfEmpty()
-                    .Aggregate((current, next) => $"{current}\n{next}");
-            }
+            return CurrentProfile.CoverPage.Files.DefaultIfEmpty()
+                .Aggregate((current, next) => $"{current}\n{next}");
         }
     }
 }

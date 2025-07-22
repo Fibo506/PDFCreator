@@ -1,16 +1,15 @@
-﻿using pdfforge.PDFCreator.Core.DirectConversion;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Core.DirectConversion;
 
-namespace pdfforge.PDFCreator.Core.Controller
+namespace pdfforge.PDFCreator.Core.Controller;
+
+public interface IFileConversionAssistant
 {
-    public interface IFileConversionAssistant
-    {
-        /// <summary>
-        ///     Removes invalid files and launches print jobs for the files that needs to be printed.
-        ///     If successful, the direct convertible files are added to the current JobInfoQueue.
-        /// </summary>
-        void HandleFileList(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
+    /// <summary>
+    ///     Removes invalid files and launches print jobs for the files that needs to be printed.
+    ///     If successful, the direct convertible files are added to the current JobInfoQueue.
+    /// </summary>
+    void HandleFileList(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
 
-        void HandleFileListWithoutTooManyFilesWarning(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
-    }
+    void HandleFileListWithoutTooManyFilesWarning(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
 }

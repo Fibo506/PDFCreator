@@ -1,22 +1,21 @@
-﻿using pdfforge.PDFCreator.Core.Controller.Routing;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using pdfforge.PDFCreator.Core.Controller.Routing;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Routing
+namespace pdfforge.PDFCreator.UI.Presentation.Routing;
+
+public class StartupSelectTabAction : StartupAction
 {
-    public class StartupSelectTabAction : StartupAction
+    public readonly string TabRegion;
+    public readonly string TabName;
+
+    public StartupSelectTabAction(string tabRegion, string tabName)
     {
-        public readonly string TabRegion;
-        public readonly string TabName;
+        TabRegion = tabRegion;
+        TabName = tabName;
+    }
 
-        public StartupSelectTabAction(string tabRegion, string tabName)
-        {
-            TabRegion = tabRegion;
-            TabName = tabName;
-        }
-
-        public override Task Execute()
-        {
-            return Task.FromResult(false);
-        }
+    public override Task Execute()
+    {
+        return Task.FromResult(false);
     }
 }

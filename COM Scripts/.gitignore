@@ -1,0 +1,12 @@
+/*.suo
+/*.user
+/passwords.txt
+**/bin
+**/obj
+*.chm
+
+**/hx32.dll
+**/hx64.dll
+
+.paket/paket.exe
+packages

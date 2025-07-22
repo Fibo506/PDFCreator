@@ -1,9 +1,8 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public class AddActionOverlayInteraction : IInteraction
 {
-    public class AddActionOverlayInteraction : IInteraction
-    {
-        public bool Success { get; set; } = false;
-    }
+    public bool Success { get; set; } = false;
 }

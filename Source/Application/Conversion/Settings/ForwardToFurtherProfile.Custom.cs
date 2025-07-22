@@ -1,8 +1,7 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings.Workflow;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+namespace pdfforge.PDFCreator.Conversion.Settings;
+
+partial class ForwardToFurtherProfile : IProfileSetting, IFixedOrderAction
 {
-    partial class ForwardToFurtherProfile : IProfileSetting, IFixedOrderAction
-    {
-    }
 }

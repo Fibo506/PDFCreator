@@ -1,9 +1,8 @@
 ﻿using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Events
+namespace pdfforge.PDFCreator.UI.Presentation.Events;
+
+public class ProfileRenamedEvent : PubSubEvent
 {
-    public class ProfileRenamedEvent:PubSubEvent
-    {
-        
-    }
+
 }

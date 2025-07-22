@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Jobs
+﻿namespace pdfforge.PDFCreator.Conversion.Jobs;
+
+public interface IDispatcherFactory
 {
-    public interface IDispatcherFactory
-    {
-        IDispatcher CreateDispatcher();
-    }
+    IDispatcher CreateDispatcher();
 }

@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+﻿namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+public enum DisplaySignature
 {
-    public enum DisplaySignature
-    {
-        NoDisplay,
-        TextOnly,
-        ImageOnly,
-        ImageAndText
-    }
+    NoDisplay,
+    TextOnly,
+    ImageOnly,
+    ImageAndText
 }

@@ -1,52 +1,51 @@
-﻿using NLog;
+﻿using System;
+using NLog;
 using pdfforge.PDFCreator.Utilities;
-using System;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface
+namespace pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface;
+
+public interface IFontPathHelper
 {
-    public interface IFontPathHelper
+    bool TryGetFontPath(string fontFile, out string fontPath);
+}
+
+public class FontPathHelper : IFontPathHelper
+{
+    private Logger _logger = LogManager.GetCurrentClassLogger();
+    private readonly IFile _file;
+
+    public FontPathHelper(IFile file)
     {
-        bool TryGetFontPath(string fontFile, out string fontPath);
+        _file = file;
     }
 
-    public class FontPathHelper : IFontPathHelper
+    public bool TryGetFontPath(string fontFile, out string fontPath)
     {
-        private Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly IFile _file;
+        var globalFontFolder = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
 
-        public FontPathHelper(IFile file)
+        _logger.Trace("Global font folder: " + globalFontFolder);
+        if (string.IsNullOrEmpty(fontFile))
         {
-            _file = file;
+            fontFile = FontHelper.DEFAULT_FONT_FILE;
         }
 
-        public bool TryGetFontPath(string fontFile, out string fontPath)
+        fontPath = PathSafe.Combine(globalFontFolder, fontFile);
+        if (!_file.Exists(fontPath))
         {
-            var globalFontFolder = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
+            var userFontFolder = Environment.ExpandEnvironmentVariables(@"%LocalAppData%\Microsoft\Windows\Fonts");
+            _logger.Trace("User font folder: " + userFontFolder);
 
-            _logger.Trace("Global font folder: " + globalFontFolder);
-            if (string.IsNullOrEmpty(fontFile))
-            {
-                fontFile = FontHelper.DEFAULT_FONT_FILE;
-            }
-
-            fontPath = PathSafe.Combine(globalFontFolder, fontFile);
+            fontPath = PathSafe.Combine(userFontFolder, fontFile);
             if (!_file.Exists(fontPath))
             {
-                var userFontFolder = Environment.ExpandEnvironmentVariables(@"%LocalAppData%\Microsoft\Windows\Fonts");
-                _logger.Trace("User font folder: " + userFontFolder);
-
-                fontPath = PathSafe.Combine(userFontFolder, fontFile);
-                if (!_file.Exists(fontPath))
-                {
-                    _logger.Error($"Font file not found: {fontFile}");
-                    return false;
-                }
+                _logger.Error($"Font file not found: {fontFile}");
+                return false;
             }
-
-            _logger.Debug("Font path: " + fontPath);
-
-            return true;
         }
+
+        _logger.Debug("Font path: " + fontPath);
+
+        return true;
     }
 }

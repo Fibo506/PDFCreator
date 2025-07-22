@@ -1,42 +1,41 @@
-﻿using Microsoft.Xaml.Behaviors;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Xaml.Behaviors;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Styles.Behavior
+namespace pdfforge.PDFCreator.UI.Presentation.Styles.Behavior;
+
+public class TextBoxForceCaretToEndBehavior : Behavior<UIElement>
 {
-    public class TextBoxForceCaretToEndBehavior : Behavior<UIElement>
+    private TextBox _textBox;
+
+    protected override void OnAttached()
     {
-        private TextBox _textBox;
+        base.OnAttached();
 
-        protected override void OnAttached()
+        _textBox = AssociatedObject as TextBox;
+
+        if (_textBox == null)
         {
-            base.OnAttached();
-
-            _textBox = AssociatedObject as TextBox;
-
-            if (_textBox == null)
-            {
-                return;
-            }
-
-            _textBox.TextChanged += OnTextChanged;
+            return;
         }
 
-        protected override void OnDetaching()
-        {
-            if (_textBox == null)
-            {
-                return;
-            }
-            _textBox.GotFocus -= OnTextChanged;
+        _textBox.TextChanged += OnTextChanged;
+    }
 
-            base.OnDetaching();
-        }
-
-        private void OnTextChanged(object sender, RoutedEventArgs routedEventArgs)
+    protected override void OnDetaching()
+    {
+        if (_textBox == null)
         {
-            _textBox.CaretIndex = _textBox.Text.Length;
-            _textBox.TextChanged -= OnTextChanged;
+            return;
         }
+        _textBox.GotFocus -= OnTextChanged;
+
+        base.OnDetaching();
+    }
+
+    private void OnTextChanged(object sender, RoutedEventArgs routedEventArgs)
+    {
+        _textBox.CaretIndex = _textBox.Text.Length;
+        _textBox.TextChanged -= OnTextChanged;
     }
 }

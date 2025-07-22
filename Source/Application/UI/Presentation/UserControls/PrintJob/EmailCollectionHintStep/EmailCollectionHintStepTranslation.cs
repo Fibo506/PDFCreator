@@ -25,7 +25,7 @@ public class EmailCollectionHintStepTranslation : ITranslatable
     [Context("Enter your email to: ")]
     [TranslatorComment("Bullet point for the header 'Enter your email to:'")]
     public string BulletPointFourText { get; private set; } = "Help ensure PDFCreator Free stays free for everyone";
-    
+
     public string SkipButtonContent { get; private set; } = "Skip";
     public string SendButtonContent { get; private set; } = "Send";
     public string InvalidEmailErrorMessage { get; private set; } = "*Please provide a valid email address.";
@@ -37,6 +37,6 @@ public class EmailCollectionHintStepTranslation : ITranslatable
     [Context("... Privacy policy")]
     [TranslatorComment("Text before clickable 'Privacy policy'")]
     public string PrivacyPolicyText { get; private set; } = "The information you provide will be handled in accordance with our";
-    
+
     public string PrivacyPolicyLinkText { get; private set; } = "Privacy policy";
 }

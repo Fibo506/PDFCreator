@@ -4,21 +4,20 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActio
 using pdfforge.PDFCreator.Utilities.Threading;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeCsScriptActionViewModel : CsScriptActionViewModel
 {
-    public class DesignTimeCsScriptActionViewModel : CsScriptActionViewModel
-    {
-        public DesignTimeCsScriptActionViewModel() : base(
-            new TranslationUpdater(new TranslationFactory(), new ThreadManager()),
-            new DesignTimeDispatcher(),
-            null,
-            null,
-            new DesignTimeErrorCodeInterpreter(),
-            new DesignTimeCommandLocator(),
-            new DesignTimeActionLocator(),
-            new DesignTimeCurrentSettingsProvider(),
-            null,
-            null)
-        { }
-    }
+    public DesignTimeCsScriptActionViewModel() : base(
+        new TranslationUpdater(new TranslationFactory(), new ThreadManager()),
+        new DesignTimeDispatcher(),
+        null,
+        null,
+        new DesignTimeErrorCodeInterpreter(),
+        new DesignTimeCommandLocator(),
+        new DesignTimeActionLocator(),
+        new DesignTimeCurrentSettingsProvider(),
+        null,
+        null)
+    { }
 }

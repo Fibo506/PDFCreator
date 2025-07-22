@@ -2,20 +2,19 @@
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.ViewModelBases
+namespace pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
+
+public abstract class TranslatableAsyncCommandBase<TTranslatable> : AsyncCommandBase where TTranslatable : ITranslatable, new()
 {
-    public abstract class TranslatableAsyncCommandBase<TTranslatable> : AsyncCommandBase where TTranslatable : ITranslatable, new()
+    protected TTranslatable Translation;
+
+    public TranslatableAsyncCommandBase(ITranslationUpdater translationUpdater)
     {
-        protected TTranslatable Translation;
+        translationUpdater.RegisterAndSetTranslation(SetTranslationAction);
+    }
 
-        public TranslatableAsyncCommandBase(ITranslationUpdater translationUpdater)
-        {
-            translationUpdater.RegisterAndSetTranslation(SetTranslationAction);
-        }
-
-        private void SetTranslationAction(ITranslationFactory tf)
-        {
-            Translation = tf.UpdateOrCreateTranslation(Translation);
-        }
+    private void SetTranslationAction(ITranslationFactory tf)
+    {
+        Translation = tf.UpdateOrCreateTranslation(Translation);
     }
 }

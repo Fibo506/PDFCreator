@@ -1,12 +1,11 @@
 ﻿using pdfforge.PDFCreator.Utilities.Web;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeWebLinkLauncher : IWebLinkLauncher
 {
-    public class DesignTimeWebLinkLauncher : IWebLinkLauncher
+    public void Launch(string url)
     {
-        public void Launch(string url)
-        {
-            
-        }
+
     }
 }

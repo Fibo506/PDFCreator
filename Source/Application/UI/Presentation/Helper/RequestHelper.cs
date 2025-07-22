@@ -37,7 +37,7 @@ public class RequestHelper(IHashUtil hashUtil, IMachineId machineIdV2Generator) 
                     marketing_consent = marketingConsent,
                     is_update = isUpdate,
                     is_setup = isSetup,
-                    machine_id = machineId, 
+                    machine_id = machineId,
                     check = hashUtil.GetSha256Hash($"{emailAddress}{product}{marketingConsent}{isUpdate}{isSetup}{machineId}")
                 }),
                 Encoding.UTF8,

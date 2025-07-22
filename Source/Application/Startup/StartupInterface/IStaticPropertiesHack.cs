@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Core.StartupInterface
+﻿namespace pdfforge.PDFCreator.Core.StartupInterface;
+
+public interface IStaticPropertiesHack
 {
-    public interface IStaticPropertiesHack
-    {
-        void SetStaticProperties();
-    }
+    void SetStaticProperties();
 }

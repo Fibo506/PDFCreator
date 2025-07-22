@@ -2,78 +2,77 @@
 using SystemInterface.Diagnostics;
 using SystemWrapper.Diagnostics;
 
-namespace pdfforge.PDFCreator.Utilities.Process
+namespace pdfforge.PDFCreator.Utilities.Process;
+
+public interface IProcessStarter
 {
-    public interface IProcessStarter
+    IProcess Start(string fileName);
+
+    IProcess Start(string fileName, bool useShellExecute);
+
+    IProcess Start(string fileName, string arguments);
+
+    bool Start(IProcessStartInfo startInfo);
+
+    IProcess CreateProcess(string fileName);
+    IProcess StartWithSameElevation(ProcessStartInfo startInfo);
+
+}
+
+public class ProcessStarter : IProcessStarter
+{
+    public IProcess Start(string fileName)
     {
-        IProcess Start(string fileName);
+        var process = new ProcessWrap();
+        process.Start(fileName);
 
-        IProcess Start(string fileName, bool useShellExecute);
-
-        IProcess Start(string fileName, string arguments);
-
-        bool Start(IProcessStartInfo startInfo);
-
-        IProcess CreateProcess(string fileName);
-        IProcess StartWithSameElevation(ProcessStartInfo startInfo);
-
+        return process;
     }
 
-    public class ProcessStarter : IProcessStarter
+    public IProcess Start(string fileName, bool useShellExecute)
     {
-        public IProcess Start(string fileName)
+        var process = new ProcessWrap();
+
+        var startInfo = new ProcessStartInfoWrap
         {
-            var process = new ProcessWrap();
-            process.Start(fileName);
+            FileName = fileName,
+            UseShellExecute = useShellExecute
+        };
 
-            return process;
-        }
+        process.StartInfo = startInfo;
+        process.Start();
 
-        public IProcess Start(string fileName, bool useShellExecute)
-        {
-            var process = new ProcessWrap();
+        return process;
+    }
 
-            var startInfo = new ProcessStartInfoWrap
-            {
-                FileName = fileName,
-                UseShellExecute = useShellExecute
-            };
+    public IProcess Start(string fileName, string arguments)
+    {
+        var process = new ProcessWrap();
+        process.Start(fileName, arguments);
 
-            process.StartInfo = startInfo;
-            process.Start();
+        return process;
+    }
 
-            return process;
-        }
+    public bool Start(IProcessStartInfo startInfo)
+    {
+        var process = new ProcessWrap();
+        process.StartInfo = startInfo;
+        return process.Start();
+    }
 
-        public IProcess Start(string fileName, string arguments)
-        {
-            var process = new ProcessWrap();
-            process.Start(fileName, arguments);
+    public IProcess StartWithSameElevation(ProcessStartInfo startInfo)
+    {
+        var process = new ProcessWrap();
+        process.StartInfo = new ProcessStartInfoWrap(startInfo);
+        process.Start();
+        return process;
+    }
 
-            return process;
-        }
+    public IProcess CreateProcess(string fileName)
+    {
+        var process = new ProcessWrap();
+        process.StartInfo.FileName = fileName;
 
-        public bool Start(IProcessStartInfo startInfo)
-        {
-            var process = new ProcessWrap();
-            process.StartInfo = startInfo;
-            return process.Start();
-        }
-
-        public IProcess StartWithSameElevation(ProcessStartInfo startInfo)
-        {
-            var process = new ProcessWrap();
-            process.StartInfo = new ProcessStartInfoWrap(startInfo);
-            process.Start();
-            return process;
-        }
-
-        public IProcess CreateProcess(string fileName)
-        {
-            var process = new ProcessWrap();
-            process.StartInfo.FileName = fileName;
-
-            return process;
-        }
+        return process;
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace pdfforge.PDFCreator.UI.Presentation.Banner
+﻿namespace pdfforge.PDFCreator.UI.Presentation.Banner;
+
+internal static class BannerSlots
 {
-    internal static class BannerSlots
-    {
-        public const string Home = "pdfcreator_home";
-        public const string PrintJob = "pdfcreator_printjob";
-    }
+    public const string Home = "pdfcreator_home";
+    public const string PrintJob = "pdfcreator_printjob";
 }

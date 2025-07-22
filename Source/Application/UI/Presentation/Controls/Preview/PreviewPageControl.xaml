@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary Source="../../Styles/DefaultsDictionary.xaml" />
+                <ResourceDictionary Source="../../Styles/ListBox.xaml" />
+                <ResourceDictionary Source="../../Styles/HoverBorder.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse" TrueValue="Visible" FalseValue="Collapsed" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfTrue" TrueValue="Collapsed" FalseValue="Visible" />
+            <converter:ImagePathToBitmapConverter x:Key="ImagePathToBitmap" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border Style="{StaticResource RoundLineBorder}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            Height="126" Width="110"
+            IsHitTestVisible="{Binding ShowPreviewControls, RelativeSource={RelativeSource AncestorType=UserControl}}">
+        <Grid>
+            <DockPanel Margin="5 10 5 5" LastChildFill="True"
+                       Visibility="{Binding IsPreviewLoading, RelativeSource={RelativeSource AncestorType=UserControl}, 
+                                    Converter={StaticResource CollapsedIfTrue}}">
+                <TextBlock DockPanel.Dock="Bottom"
+                           Margin="0 5 0 0"
+                           Visibility="{Binding ShowPageNumber, RelativeSource={RelativeSource AncestorType=UserControl},
+                                Converter={StaticResource CollapsedIfFalse}}"
+                           Text="{Binding PreviewPage.PageNumber, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                           FontSize="10"
+                           HorizontalAlignment="Center" />
+                <Border DockPanel.Dock="Top" 
+                        Style="{StaticResource RoundLineBorder}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                    <Border.RenderTransformOrigin>0.5,0.5</Border.RenderTransformOrigin>
+                    <Border.RenderTransform>
+                        <RotateTransform Angle="{Binding CurrentRotation, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                    </Border.RenderTransform>
+                    <Image Stretch="Uniform"
+                               MaxWidth="92" MaxHeight="92"
+                               Source="{Binding PreviewImagePath, RelativeSource={RelativeSource AncestorType=UserControl}, 
+                                                              Converter={StaticResource ImagePathToBitmap}}"/>
+                </Border>
+            </DockPanel>
+            <mah:ProgressRing Visibility="{Binding IsPreviewLoading, RelativeSource={RelativeSource AncestorType=UserControl},
+                                    Converter={StaticResource CollapsedIfFalse}}"
+                                    Width="20" Height="20"  />
+            <Button x:Name="RotateButton"
+                    Visibility="{Binding ShowPreviewControls, RelativeSource={RelativeSource AncestorType=UserControl},
+                        Converter={StaticResource CollapsedIfFalse}}"
+                    Style="{StaticResource RotateButtonStyle}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="32"
+                    Height="32"
+                    Margin="0,5,5,0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Command="{Binding Path=RotatePageCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}">
+                <Viewbox Width="20" Height="20" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center">
+                    <ContentPresenter Content="{StaticResource RotateIcon}"/>
+                </Viewbox>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

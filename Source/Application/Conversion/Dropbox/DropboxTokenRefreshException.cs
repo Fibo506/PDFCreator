@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace pdfforge.PDFCreator.Conversion.Dropbox
+namespace pdfforge.PDFCreator.Conversion.Dropbox;
+
+public class DropboxTokenRefreshException : Exception
 {
-    public class DropboxTokenRefreshException : Exception
-    {
-    }
 }

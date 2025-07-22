@@ -1,71 +1,70 @@
-﻿using NLog;
+﻿using System.Diagnostics;
+using NLog;
 using pdfforge.Communication;
-using System.Diagnostics;
 
-namespace pdfforge.PDFCreator.Core.Communication
+namespace pdfforge.PDFCreator.Core.Communication;
+
+public interface IPipeServerManager
 {
-    public interface IPipeServerManager
+    bool StartServer();
+
+    bool IsServerRunning();
+
+    void PrepareShutdown();
+
+    void Shutdown();
+
+    bool TrySendPipeMessage(string message);
+}
+
+public class PipeServerManager : IPipeServerManager
+{
+    private readonly string _pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
+
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    private readonly IPipeMessageHandler _newPipeJobHandler;
+
+    private readonly PipeServer _pipeServer;
+
+    public PipeServerManager(IPipeMessageHandler newPipeJobHandler)
     {
-        bool StartServer();
-
-        bool IsServerRunning();
-
-        void PrepareShutdown();
-
-        void Shutdown();
-
-        bool TrySendPipeMessage(string message);
+        _newPipeJobHandler = newPipeJobHandler;
+        _pipeServer = new PipeServer(_pipeName, _pipeName);
     }
 
-    public class PipeServerManager : IPipeServerManager
+    public bool StartServer()
     {
-        private readonly string _pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
+        _logger.Debug("Starting pipe server thread");
 
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly IPipeMessageHandler _newPipeJobHandler;
+        if (!_pipeServer.Start())
+            return false;
 
-        private readonly PipeServer _pipeServer;
+        _pipeServer.OnNewMessage += (sender, args) => _newPipeJobHandler.HandlePipeMessage(args.Message);
 
-        public PipeServerManager(IPipeMessageHandler newPipeJobHandler)
-        {
-            _newPipeJobHandler = newPipeJobHandler;
-            _pipeServer = new PipeServer(_pipeName, _pipeName);
-        }
+        return true;
+    }
 
-        public bool StartServer()
-        {
-            _logger.Debug("Starting pipe server thread");
+    public bool TrySendPipeMessage(string message)
+    {
+        var pipeClient = new PipeClient(_pipeName);
+        return pipeClient.SendMessage(message);
+    }
 
-            if (!_pipeServer.Start())
-                return false;
+    public bool IsServerRunning()
+    {
+        return _pipeServer.IsServerRunning();
+    }
 
-            _pipeServer.OnNewMessage += (sender, args) => _newPipeJobHandler.HandlePipeMessage(args.Message);
+    public void PrepareShutdown()
+    {
+        _logger.Debug("Preparing PipeServer for ShutDown");
+        _pipeServer.PrepareShutdown();
+    }
 
-            return true;
-        }
+    public void Shutdown()
+    {
+        _logger.Debug("Stopping pipe server");
 
-        public bool TrySendPipeMessage(string message)
-        {
-            var pipeClient = new PipeClient(_pipeName);
-            return pipeClient.SendMessage(message);
-        }
-
-        public bool IsServerRunning()
-        {
-            return _pipeServer.IsServerRunning();
-        }
-
-        public void PrepareShutdown()
-        {
-            _logger.Debug("Preparing PipeServer for ShutDown");
-            _pipeServer.PrepareShutdown();
-        }
-
-        public void Shutdown()
-        {
-            _logger.Debug("Stopping pipe server");
-
-            _pipeServer.Stop();
-        }
+        _pipeServer.Stop();
     }
 }

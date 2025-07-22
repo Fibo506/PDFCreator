@@ -1,6 +1,5 @@
-﻿namespace pdfforge.PDFCreator.Core.Controller.Routing
+﻿namespace pdfforge.PDFCreator.Core.Controller.Routing;
+
+public interface IViewStartupAction : IStartupAction
 {
-    public interface IViewStartupAction : IStartupAction
-    {
-    }
 }

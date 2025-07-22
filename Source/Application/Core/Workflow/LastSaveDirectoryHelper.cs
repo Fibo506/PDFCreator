@@ -4,57 +4,56 @@ using pdfforge.PDFCreator.Core.SettingsManagement;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface ILastSaveDirectoryHelper
 {
-    public interface ILastSaveDirectoryHelper
+    bool IsEnabled(Job job);
+
+    string GetDirectory();
+
+    void Save(Job job);
+}
+
+public class LastSaveDirectoryHelper : ILastSaveDirectoryHelper
+{
+    private readonly ISettingsProvider _settingsProvider;
+    private readonly ISettingsManager _settingsManager;
+    private readonly ITempFolderProvider _tempFolderProvider;
+
+    public LastSaveDirectoryHelper(ISettingsProvider settingsProvider, ISettingsManager settingsManager, ITempFolderProvider tempFolderProvider)
     {
-        bool IsEnabled(Job job);
-
-        string GetDirectory();
-
-        void Save(Job job);
+        _settingsProvider = settingsProvider;
+        _settingsManager = settingsManager;
+        _tempFolderProvider = tempFolderProvider;
     }
 
-    public class LastSaveDirectoryHelper : ILastSaveDirectoryHelper
+    public bool IsEnabled(Job job)
     {
-        private readonly ISettingsProvider _settingsProvider;
-        private readonly ISettingsManager _settingsManager;
-        private readonly ITempFolderProvider _tempFolderProvider;
+        return string.IsNullOrWhiteSpace(job.Profile.TargetDirectory);
+    }
 
-        public LastSaveDirectoryHelper(ISettingsProvider settingsProvider, ISettingsManager settingsManager, ITempFolderProvider tempFolderProvider)
-        {
-            _settingsProvider = settingsProvider;
-            _settingsManager = settingsManager;
-            _tempFolderProvider = tempFolderProvider;
-        }
+    private bool IsTemp(string directory)
+    {
+        return directory.StartsWith(_tempFolderProvider.TempFolder);
+    }
 
-        public bool IsEnabled(Job job)
-        {
-            return string.IsNullOrWhiteSpace(job.Profile.TargetDirectory);
-        }
+    public string GetDirectory()
+    {
+        return _settingsProvider.Settings.CreatorAppSettings.LastSaveDirectory;
+    }
 
-        private bool IsTemp(string directory)
-        {
-            return directory.StartsWith(_tempFolderProvider.TempFolder);
-        }
+    public void Save(Job job)
+    {
+        if (!IsEnabled(job))
+            return;
 
-        public string GetDirectory()
-        {
-            return _settingsProvider.Settings.CreatorAppSettings.LastSaveDirectory;
-        }
+        var directory = PathSafe.GetDirectoryName(job.OutputFileTemplate);
 
-        public void Save(Job job)
-        {
-            if (!IsEnabled(job))
-                return;
+        if (IsTemp(directory))
+            return;
 
-            var directory = PathSafe.GetDirectoryName(job.OutputFileTemplate);
-
-            if (IsTemp(directory))
-                return;
-
-            _settingsProvider.Settings.CreatorAppSettings.LastSaveDirectory = directory;
-            _settingsManager.SaveCurrentSettings();
-        }
+        _settingsProvider.Settings.CreatorAppSettings.LastSaveDirectory = directory;
+        _settingsManager.SaveCurrentSettings();
     }
 }

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Swedish (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-04-10 03:59+0000\n"
+"PO-Revision-Date: 2025-06-21 11:43+0000\n"
 "Last-Translator: Marie Lennerljung <marie@lentec.se>\n"
 "Language-Team: Swedish <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/sv/>\n"
@@ -101,6 +101,10 @@ msgstr "RSS-feed kunde inte laddas. Var god kontrollera internetanslutningen."
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "News"
 msgstr "Nyheter"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+msgid "Upgrade Now"
+msgstr "Uppgradera nu"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Thank you for installing PDFCreator {0}."
@@ -386,243 +390,6 @@ msgstr "Visa inte detta fönster igen"
 msgid "Merge files"
 msgstr "Sammanfoga filer"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Your trial license has expired"
-msgstr "Eder provlicens har löpt ut"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Show license details"
-msgstr "Visa licensdetaljer"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "License details"
-msgstr "Licensdetaljer"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Purchase your license now if you haven't already!"
-msgstr "Förvärva nu Eder licens, ifall Ni inte redan gjort detta!"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Unlock here"
-msgstr "Lås upp här"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "License Activated"
-msgstr "Licens aktiverad"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr "Eder licens aktiverades framgångsrikt. Tack för att Ni använder {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr "Var god ange Eder licensnyckel för att fortsätta använda {0}"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Checking the license..."
-msgstr "Licensen kontrolleras..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"Licensnyckeln innehåller ogiltiga tecken. Giltiga tecken är: A-Z, 0-9 och "
-"bindestreck."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"Licensnyckeln består av 30 bokstäver eller siffror, t.ex. \"12345-67890-"
-"ABCDE-FGHIJ-KLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Never"
-msgstr "Aldrig"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Licensee:"
-msgstr "Licenstagare:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "Aktiveringen har löpt ut. Var god förnya aktiveringen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr "Datorn eller användaren är blockerad. Var god kontaka supporten."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Error while authenticating license."
-msgstr "Fel vid kontrollen av licensen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "Licensnyckeln är ogiltig. Mata in en ny licensnyckel."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "Licensen har löpt ut. Var god förnya din licens."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license trial period has expired."
-msgstr "Provperioden för Eder licens har löpt ut."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "Ingen licensnyckel är tillgänglig. Skriv in en ny licensnyckel."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Det uppstod problem med förbindelsen till licensservern."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "Licensen har uppnått det maximala antalet aktiverade datorer."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "Licensnyckeln är ej giltig för denna version av PDFCreator."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license is valid."
-msgstr "Licensen är giltig."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"Eder offline-aktivering har löpt ut. Var god återaktivera Eder licens "
-"omedelbart för att undvika att användningen blockeras."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"Eder interna licensserveraktivering har löpt ut. Var god återaktivera Eder "
-"licens omgående för att undvika blockering av användningen."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "Eder licens löper ut om {0} dag."
-msgstr[1] "Eder licens löper ut om {0} dagar."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The license is not valid for this version."
-msgstr "Licensen är ogiltig för denna version."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The activation code has a wrong format."
-msgstr "Aktiveringskoden har fel format."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "You don't have a valid license key?"
-msgstr "Ni har ingen giltig licensnyckel?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Purchase more activations here."
-msgstr "Förvärva flera aktiveringar här."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Renew your license here."
-msgstr "Förläng Eder licens här."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Manage your license here."
-msgstr "Hantera Eder licens här."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Please enter your license key."
-msgstr "Var god ange Eder licensnyckel."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Fel vid sparande av aktiveringen. Var god försök igen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid "The internal license server url is not valid."
-msgstr "URL:en för den interna licensservern är ogiltig."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"Licensen igenkännes icke av den interna licensservern.\n"
-"Vänligen importera licensen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.TrialExpiredTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"Licensen är avsedd att användas med den interna licensservern.\n"
-"Vänligen säkerställ, att parametern InternalLicenceServerUrl är satt."
-
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Dialogs.InputBoxWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password.PasswordOverlayTranslation
@@ -700,6 +467,319 @@ msgstr "Felkorrektioner"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Other changes"
 msgstr "Andra ändringar"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"Eder provlicens har löpt ut...\n"
+"Håll Edert arbetsflöde rullande"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "There was a problem with your license..."
+msgstr "Det uppstod problem med Eder licens..."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Kontrollera Eder licens, för att ha fortsatt tillgång till:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"Uppgradering säkerställer långsiktig produktivitet och ger tillgång till "
+"våra företagsutgåvor, inklusive avancerade automatiseringsfinesser såsom:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "User tokens"
+msgstr "Användarpoletter"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "CS-scripts"
+msgstr "CS-skript"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Profile forwarding"
+msgstr "Profilöverföring"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Priority support"
+msgstr "Prioriterad support"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "License details"
+msgstr "Licensdetaljer"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Behåll PDFCreator som en ständig del av Eder verktygsuppsättning."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Upgrade now"
+msgstr "Uppgradera nu"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Manage License"
+msgstr "Hantera licenser"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Offline Activation"
+msgstr "Offlineaktivering"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "License Activated"
+msgstr "Licens aktiverad"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr "Eder licens aktiverades framgångsrikt. Tack för att Ni använder {0}."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Your license was activated successfully."
+msgstr "Eder licens aktiverades framgångsrikt."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "Var god ange Eder licensnyckel för att fortsätta använda {0}"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr ""
+"Vill Ni göra Er aktivering tillgänglig för alla användare på Ert system?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "Var god dela Eder aktivering med alla användare av Edert sysyem."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Save activation for all users"
+msgstr "Spara aktiveringen för alla användare"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr ""
+"Vid sparande av licensaktiveringen för alla användare inträffade ett fel."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"PDFCreator Terminal Server kräver att licensen sparas för alla användare."
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Save activation for all users was successful."
+msgstr "Aktiveringen för alla användare sparades."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Checking the license..."
+msgstr "Licensen kontrolleras..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"Licensnyckeln innehåller ogiltiga tecken. Giltiga tecken är: A-Z, 0-9 och "
+"bindestreck."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"Licensnyckeln består av 30 bokstäver eller siffror, t.ex. \"12345-67890-"
+"ABCDE-FGHIJ-KLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Never"
+msgstr "Aldrig"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Licensee:"
+msgstr "Licenstagare:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "Aktiveringen har löpt ut. Var god förnya aktiveringen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "Datorn eller användaren är blockerad. Var god kontaka supporten."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Error while authenticating license."
+msgstr "Fel vid kontrollen av licensen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "Licensnyckeln är ogiltig. Mata in en ny licensnyckel."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "Licensen har löpt ut. Var god förnya din licens."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license trial period has expired."
+msgstr "Provperioden för Eder licens har löpt ut."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "Ingen licensnyckel är tillgänglig. Skriv in en ny licensnyckel."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Det uppstod problem med förbindelsen till licensservern."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "Licensen har uppnått det maximala antalet aktiverade datorer."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "Licensnyckeln är ej giltig för denna version av PDFCreator."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license is valid."
+msgstr "Licensen är giltig."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"Eder offline-aktivering har löpt ut. Var god återaktivera Eder licens "
+"omedelbart för att undvika att användningen blockeras."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"Eder interna licensserveraktivering har löpt ut. Var god återaktivera Eder "
+"licens omgående för att undvika blockering av användningen."
+
+#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "Eder licens löper ut om {0} dag."
+msgstr[1] "Eder licens löper ut om {0} dagar."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The license is not valid for this version."
+msgstr "Licensen är ogiltig för denna version."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The activation code has a wrong format."
+msgstr "Aktiveringskoden har fel format."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "You don't have a valid license key?"
+msgstr "Ni har ingen giltig licensnyckel?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Purchase more activations here."
+msgstr "Förvärva flera aktiveringar här."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Renew your license here."
+msgstr "Förläng Eder licens här."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Manage your license here."
+msgstr "Hantera Eder licens här."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Please enter your license key."
+msgstr "Var god ange Eder licensnyckel."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Fel vid sparande av aktiveringen. Var god försök igen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid "The internal license server url is not valid."
+msgstr "URL:en för den interna licensservern är ogiltig."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"Licensen igenkännes icke av den interna licensservern.\n"
+"Vänligen importera licensen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"Licensen är avsedd att användas med den interna licensservern.\n"
+"Vänligen säkerställ, att parametern InternalLicenceServerUrl är satt."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -805,6 +885,14 @@ msgstr "Fil:"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "An error occured while attempting to submit your feedback"
 msgstr "Vid försöket att sända Eder återkoppling inträffade ett fel"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
+msgid ""
+"Please note: This form is for feedback, not support.\r\n"
+"We may contact you to better understand your feedback."
+msgstr ""
+"Var god beakta: Detta formulär ar avsett för återkoppling, inte support.\n"
+"Vi kan komma att kontakta Er för att förstå er återkoppling bättre."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "PDFCreator Professional Required"
@@ -1241,15 +1329,6 @@ msgstr "Onlineaktivering"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
 msgid "Validating license..."
 msgstr "Licensens giltighet kontrolleras..."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr ""
-"Vill Ni göra Er aktivering tillgänglig för alla användare på Ert system?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "Var god dela Eder aktivering med alla användare av Edert sysyem."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
 msgid "An error occurred while storing license for all users."
@@ -3224,10 +3303,6 @@ msgid "Automatic saving with tray notification"
 msgstr "Automatisk lagring med tray meddelande"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-msgid "Priority support"
-msgstr "Prioriterad support"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
 msgstr "Adminvänlig"
 
@@ -4647,6 +4722,10 @@ msgid ""
 "These settings have been set by your administrator and can't be changed."
 msgstr "Dessa inställningar sattes av administratör och kan icke ändras."
 
+#: pdfforge.PDFCreator.UI.Presentation.Styles.Gpo.GpoTranslation
+msgid "Feature not available for PDFCreator Free"
+msgstr "Finesser ej tillgängliga i gratisversionen av PDFCreator"
+
 #: pdfforge.PDFCreator.UI.Presentation.Helper.MailSignatureHelperTranslation
 msgid "Email automatically created by the free PDFCreator"
 msgstr "Detta e-mail skapades automatiskt av PDFCreator i gratisversion"
@@ -4783,10 +4862,6 @@ msgstr "Programmet laddar fortfarande inställningarna."
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 msgid "Do you want to close the application anyway?"
 msgstr "Vill Ni trots allt stänga programmet?"
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-msgid "User tokens"
-msgstr "Användarpoletter"
 
 #: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
 msgid ""
@@ -5299,8 +5374,8 @@ msgstr ""
 "ominstallera PDFCreator Server för att lösa problemet."
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Startup.SingleUiInstanceTranslation
-msgid "Another instance of PDFCreator Server is already running!"
-msgstr "Ytterligare ett exemplar av PDFCreator Server körs!"
+msgid "Another administrator instance of PDFCreator Server is already running!"
+msgstr "Ytterligare ett administratörsexemplar av PDFCreator Server körs!"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainTabs.ErrorTabTranslation
 msgid "Error Reports"
@@ -6116,11 +6191,11 @@ msgstr "Internt Ghostscript-fel."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
-"You have printed a password-protected PDF file and Ghostscript ist not able "
-"to convert such files."
+"You tried to convert a password-protected PDF file without having access to "
+"it."
 msgstr ""
-"Ni har försökt skriva ut en lösenordskyddad PDF-fil. Ghostscript har ingen "
-"möjlighet att konvertera sådana filer."
+"Ni har försökt konvertera en lösenordskyddad PDF-fil utan att ha "
+"erforderliga rättigheter."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "Unknown internal error."
@@ -6654,6 +6729,10 @@ msgstr ""
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The output document has no pages. The conversion is aborted."
 msgstr "Utmatningsdokumentet saknar sidor. Konverteringen kommer att avbrytas."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "Failed to apply changes made in preview."
+msgstr "Misslyckades att tillämpa ändringar gjorda i förhandsvisning."
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
@@ -7198,11 +7277,8 @@ msgstr "Om angiven, visas ej längre tips på startsidan"
 msgid "Catalan"
 msgstr "Katalanska"
 
-msgid "Chinese (Simplified)"
-msgstr "Kinesiska (förenklad)"
-
-msgid "Chinese (Traditional)"
-msgstr "Kinesiska (traditionell)"
+msgid "Chinese"
+msgstr "Kinesiska"
 
 msgid "Corsican (France)"
 msgstr "Korsikanska (Frankrike)"
@@ -7231,9 +7307,6 @@ msgstr "Georgiska"
 msgid "German"
 msgstr "Tyska"
 
-msgid "Greek"
-msgstr "Grekiska"
-
 msgid "Hungarian"
 msgstr "Ungerska"
 
@@ -7246,11 +7319,14 @@ msgstr "Litauiska"
 msgid "Polish"
 msgstr "Polska"
 
+msgid "Portuguese (Brazil)"
+msgstr "Portugisiska (Brasilien)"
+
+msgid "Spanish"
+msgstr "Spanska"
+
 msgid "Swedish"
 msgstr "Svenska"
-
-msgid "Turkish"
-msgstr "Turkiska"
 
 msgid "Set language:"
 msgstr "Ange språk:"
@@ -7266,6 +7342,27 @@ msgstr "Ange loggningsnivå:"
 
 msgid "Allow users to define additional profiles"
 msgstr "Tillåt användare att definiera ytterligare profiler"
+
+#~ msgid "Show license details"
+#~ msgstr "Visa licensdetaljer"
+
+#~ msgid "Chinese (Simplified)"
+#~ msgstr "Kinesiska (förenklad)"
+
+#~ msgid "Chinese (Traditional)"
+#~ msgstr "Kinesiska (traditionell)"
+
+#~ msgid "Your trial license has expired"
+#~ msgstr "Eder provlicens har löpt ut"
+
+#~ msgid "Unlock here"
+#~ msgstr "Lås upp här"
+
+#~ msgid "Greek"
+#~ msgstr "Grekiska"
+
+#~ msgid "Turkish"
+#~ msgstr "Turkiska"
 
 #~ msgid ""
 #~ "PDFCreator was not able to repair your printers. Please contact your "
@@ -7373,9 +7470,6 @@ msgstr "Tillåt användare att definiera ytterligare profiler"
 #~ "Windows skrivarkö är inte i drift. Var god starta skrivarkön först.\n"
 #~ "\n"
 #~ "Programmet avslutas."
-
-#~ msgid "Spanish"
-#~ msgstr "Spanska"
 
 #~ msgid ""
 #~ "You do not have any PDFCreator printers installed. Most likely there was "
@@ -7525,9 +7619,6 @@ msgstr "Tillåt användare att definiera ytterligare profiler"
 
 #~ msgid "The watermark file path contains illegal characters."
 #~ msgstr "Vattenmärkesfilens sökväg innehåller ogiltiga tecken."
-
-#~ msgid "Manage license"
-#~ msgstr "Hantera licenser"
 
 #~ msgid "Your license has expired."
 #~ msgstr "Eder license har löpt ut."

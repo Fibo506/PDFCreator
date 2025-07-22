@@ -1,21 +1,20 @@
-﻿using pdfforge.PDFCreator.Conversion.ActionsInterface;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Settings;
-using System.Collections.Generic;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+
+public class DesignTimeActionOrderHelper : IActionOrderHelper
 {
-    public class DesignTimeActionOrderHelper : IActionOrderHelper
+    public DesignTimeActionOrderHelper()
     {
-        public DesignTimeActionOrderHelper()
-        {
-        }
+    }
 
-        public void EnsureValidOrder(List<string> currentActionOrderList)
-        {
-        }
+    public void EnsureValidOrder(List<string> currentActionOrderList)
+    {
+    }
 
-        public void CleanUpAndEnsureValidOrder(IEnumerable<ConversionProfile> profiles)
-        {
-        }
+    public void CleanUpAndEnsureValidOrder(IEnumerable<ConversionProfile> profiles)
+    {
     }
 }

@@ -1,42 +1,41 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.UI.Presentation.Assistants;
-using System;
+﻿using System;
 using System.Windows.Input;
+using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.Assistants;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands.IniCommands
+namespace pdfforge.PDFCreator.UI.Presentation.Commands.IniCommands;
+
+public class SaveSettingsToIniCommand : ICommand
 {
-    public class SaveSettingsToIniCommand : ICommand
+    private readonly IIniSettingsAssistant _iniSettingsAssistant;
+    private readonly ICurrentSettings<ApplicationSettings> _appSettings;
+
+    public SaveSettingsToIniCommand(
+        IIniSettingsAssistant iniSettingsAssistant,
+        ICurrentSettings<ApplicationSettings> appSettings
+        )
     {
-        private readonly IIniSettingsAssistant _iniSettingsAssistant;
-        private readonly ICurrentSettings<ApplicationSettings> _appSettings;
+        _iniSettingsAssistant = iniSettingsAssistant;
+        _appSettings = appSettings;
+    }
 
-        public SaveSettingsToIniCommand(
-            IIniSettingsAssistant iniSettingsAssistant,
-            ICurrentSettings<ApplicationSettings> appSettings
-            )
-        {
-            _iniSettingsAssistant = iniSettingsAssistant;
-            _appSettings = appSettings;
-        }
+    public bool CanExecute(object parameter)
+    {
+        return true;
+    }
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+    public void Execute(object parameter)
+    {
+        var removePasswords = false;
+        if (parameter is bool removePasswordsParam)
+            removePasswords = removePasswordsParam;
 
-        public void Execute(object parameter)
-        {
-            var removePasswords = false;
-            if (parameter is bool removePasswordsParam)
-                removePasswords = removePasswordsParam;
-
-            _iniSettingsAssistant.SaveIniSettings(removePasswords);
-        }
+        _iniSettingsAssistant.SaveIniSettings(removePasswords);
+    }
 
 #pragma warning disable 67
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore 67
-    }
 }

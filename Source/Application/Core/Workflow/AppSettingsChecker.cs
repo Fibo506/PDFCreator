@@ -3,32 +3,31 @@ using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface IAppSettingsChecker
 {
-    public interface IAppSettingsChecker
+    ActionResult CheckDefaultViewers(IEnumerable<DefaultViewer> defaultViewers);
+}
+
+public class AppSettingsChecker : IAppSettingsChecker
+{
+    private readonly IDefaultViewerCheck _defaultViewerCheck;
+
+    public AppSettingsChecker(IDefaultViewerCheck defaultViewerCheck)
     {
-        ActionResult CheckDefaultViewers(IEnumerable<DefaultViewer> defaultViewers);
+        _defaultViewerCheck = defaultViewerCheck;
     }
 
-    public class AppSettingsChecker : IAppSettingsChecker
+    public ActionResult CheckDefaultViewers(IEnumerable<DefaultViewer> defaultViewers)
     {
-        private readonly IDefaultViewerCheck _defaultViewerCheck;
+        var result = new ActionResult();
 
-        public AppSettingsChecker(IDefaultViewerCheck defaultViewerCheck)
+        foreach (var defaultViewer in defaultViewers)
         {
-            _defaultViewerCheck = defaultViewerCheck;
+            result.AddRange(_defaultViewerCheck.Check(defaultViewer));
         }
 
-        public ActionResult CheckDefaultViewers(IEnumerable<DefaultViewer> defaultViewers)
-        {
-            var result = new ActionResult();
-
-            foreach (var defaultViewer in defaultViewers)
-            {
-                result.AddRange(_defaultViewerCheck.Check(defaultViewer));
-            }
-
-            return result;
-        }
+        return result;
     }
 }

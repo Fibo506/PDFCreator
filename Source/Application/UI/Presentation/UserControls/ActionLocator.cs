@@ -1,26 +1,25 @@
 ﻿using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using SimpleInjector;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls;
+
+public interface IActionLocator
 {
-    public interface IActionLocator
+    IAction GetAction<T>() where T : class, IAction;
+}
+
+public class ActionLocator : IActionLocator
+{
+    private readonly Container _container;
+
+    public ActionLocator(Container container)
     {
-        IAction GetAction<T>() where T : class, IAction;
+        _container = container;
     }
 
-    public class ActionLocator : IActionLocator
+    public IAction GetAction<T>() where T : class, IAction
     {
-        private readonly Container _container;
-
-        public ActionLocator(Container container)
-        {
-            _container = container;
-        }
-
-        public IAction GetAction<T>() where T : class, IAction
-        {
-            var instance = _container.GetInstance<T>();
-            return instance;
-        }
+        var instance = _container.GetInstance<T>();
+        return instance;
     }
 }

@@ -1,65 +1,64 @@
-﻿using pdfforge.PDFCreator.Utilities;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
+using pdfforge.PDFCreator.Utilities;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement
-{
-    public interface IPDFCreatorNameProvider
-    {
-        string GetExeName();
+namespace pdfforge.PDFCreator.Core.SettingsManagement;
 
-        string GetPortApplicationPath();
+public interface IPDFCreatorNameProvider
+{
+    string GetExeName();
+
+    string GetPortApplicationPath();
+}
+
+public class PDFCreatorNameProvider : IPDFCreatorNameProvider
+{
+    private readonly IAssemblyHelper _assemblyHelper;
+    private readonly IDirectory _directory;
+
+    public PDFCreatorNameProvider(IAssemblyHelper assemblyHelper, IDirectory directory)
+    {
+        _assemblyHelper = assemblyHelper;
+        _directory = directory;
     }
 
-    public class PDFCreatorNameProvider : IPDFCreatorNameProvider
+    private string GetApplicationPath()
     {
-        private readonly IAssemblyHelper _assemblyHelper;
-        private readonly IDirectory _directory;
+        return _assemblyHelper.GetAssemblyDirectory();
+    }
 
-        public PDFCreatorNameProvider(IAssemblyHelper assemblyHelper, IDirectory directory)
+    public string GetPortApplicationPath()
+    {
+        var appPath = GetApplicationPath();
+
+        var candidates = _directory.EnumerateFiles(appPath, "PDFCreator-cli.exe").ToList();
+
+        if (candidates.Count == 0 && appPath.Contains(@"bin\Debug"))
         {
-            _assemblyHelper = assemblyHelper;
-            _directory = directory;
+            candidates = _directory.EnumerateFiles(appPath + @"\..\..\..\..\..\..\UI\PDFCreator.CLI\bin\Debug\net8.0-windows7.0\win-x64", "PDFCreator-cli.exe").ToList();
         }
 
-        private string GetApplicationPath()
-        {
-            return _assemblyHelper.GetAssemblyDirectory();
-        }
+        if (candidates.Count == 1)
+            return candidates.Single();
 
-        public string GetPortApplicationPath()
-        {
-            var appPath = GetApplicationPath();
+        return GetApplicationPath() + "\\" + GetExeName(); ;
+    }
 
-            var candidates = _directory.EnumerateFiles(appPath, "PDFCreator-cli.exe").ToList();
+    public string GetExeName()
+    {
+        // Get files that start with PDFCreator, end with exe and have only one dot (to exclude .vshost.exe and PDFCreator.LicenseService.exe)
+        var candidates = _directory.EnumerateFiles(GetApplicationPath(), "PDFCreator*.exe")
+            .Select(x => new FileInfo(x))
+            .Where(file => file.Extension == ".exe")
+            .Where(file => file.Name.Count(c => c == '.') == 1)
+            .Where(file => !file.Name.Contains("-cli"))
+            .ToList();
 
-            if (candidates.Count == 0 && appPath.Contains(@"bin\Debug"))
-            {
-                candidates = _directory.EnumerateFiles(appPath + @"\..\..\..\..\..\..\UI\PDFCreator.CLI\bin\Debug\net8.0-windows7.0\win-x64", "PDFCreator-cli.exe").ToList();
-            }
+        if (candidates.Count != 1)
+            throw new ApplicationException("The assembly directory contains more or less than one PDFCreator*.exe");
 
-            if (candidates.Count == 1)
-                return candidates.Single();
-
-            return GetApplicationPath() + "\\" + GetExeName(); ;
-        }
-
-        public string GetExeName()
-        {
-            // Get files that start with PDFCreator, end with exe and have only one dot (to exclude .vshost.exe and PDFCreator.LicenseService.exe)
-            var candidates = _directory.EnumerateFiles(GetApplicationPath(), "PDFCreator*.exe")
-                .Select(x => new FileInfo(x))
-                .Where(file => file.Extension == ".exe")
-                .Where(file => file.Name.Count(c => c == '.') == 1)
-                .Where(file => !file.Name.Contains("-cli"))
-                .ToList();
-
-            if (candidates.Count != 1)
-                throw new ApplicationException("The assembly directory contains more or less than one PDFCreator*.exe");
-
-            return candidates.First().Name;
-        }
+        return candidates.First().Name;
     }
 }

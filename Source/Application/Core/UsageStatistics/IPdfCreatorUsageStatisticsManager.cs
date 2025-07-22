@@ -1,10 +1,9 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System;
+﻿using System;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
+
+public interface IPdfCreatorUsageStatisticsManager
 {
-    public interface IPdfCreatorUsageStatisticsManager
-    {
-        void SendUsageStatistics(TimeSpan duration, Job job, string status);
-    }
+    void SendUsageStatistics(TimeSpan duration, Job job, string status);
 }

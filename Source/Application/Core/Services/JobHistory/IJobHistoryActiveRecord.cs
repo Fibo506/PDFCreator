@@ -1,31 +1,30 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.Core.Services.JobHistory
+namespace pdfforge.PDFCreator.Core.Services.JobHistory;
+
+public interface IJobHistoryActiveRecord
 {
-    public interface IJobHistoryActiveRecord
-    {
-        IList<HistoricJob> History { get; set; }
+    IList<HistoricJob> History { get; set; }
 
-        event EventHandler HistoryChanged;
+    event EventHandler HistoryChanged;
 
-        Task Load();
+    Task Load();
 
-        /// <param name="force">Set true to save history even is history is disabled (e.g. for deleting history)</param>
-        void Save(bool force = false);
+    /// <param name="force">Set true to save history even is history is disabled (e.g. for deleting history)</param>
+    void Save(bool force = false);
 
-        Task Refresh();
+    Task Refresh();
 
-        void Delete();
+    void Delete();
 
-        void Add(Job job);
+    void Add(Job job);
 
-        HistoricJob TransformToHistoricJob(Job job);
+    HistoricJob TransformToHistoricJob(Job job);
 
-        void Remove(HistoricJob historicJob);
+    void Remove(HistoricJob historicJob);
 
-        bool HistoryEnabled { get; set; }
-    }
+    bool HistoryEnabled { get; set; }
 }

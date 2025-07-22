@@ -1,21 +1,19 @@
 ﻿using Translatable;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+[Translatable]
+public enum UpdateInterval
 {
-    [Translatable]
-    public enum UpdateInterval
-    {
+    [Translation("Daily")]
+    Daily,
 
-        [Translation("Never")]
-        Never,
+    [Translation("Weekly")]
+    Weekly,
 
-        [Translation("Daily")]
-        Daily,
+    [Translation("Monthly")]
+    Monthly,
 
-        [Translation("Weekly")]
-        Weekly,
-
-        [Translation("Monthly")]
-        Monthly
-    }
+    [Translation("Never")]
+    Never
 }

@@ -1,31 +1,30 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings.Enums;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Data;
+using pdfforge.PDFCreator.Conversion.Settings.Enums;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken;
+
+public class SeparatorToExampleStringConverter : IMultiValueConverter
 {
-    public class SeparatorToExampleStringConverter : IMultiValueConverter
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        try
         {
-            try
-            {
-                var translation = values.First(v => v is UserTokenTranslation) as UserTokenTranslation;
-                var separator = (UserTokenSeparator)values.First(v => v is UserTokenSeparator);
+            var translation = values.First(v => v is UserTokenTranslation) as UserTokenTranslation;
+            var separator = (UserTokenSeparator)values.First(v => v is UserTokenSeparator);
 
-                return translation?.GetUserTokenDocumentExample(separator);
-            }
-            catch
-            {
-                return "";
-            }
+            return translation?.GetUserTokenDocumentExample(separator);
         }
-
-        public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)
+        catch
         {
-            throw new NotImplementedException();
+            return "";
         }
+    }
+
+    public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

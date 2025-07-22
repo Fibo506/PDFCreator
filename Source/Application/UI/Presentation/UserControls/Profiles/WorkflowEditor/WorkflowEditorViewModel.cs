@@ -1,16 +1,4 @@
-﻿using GongSolutions.Wpf.DragDrop;
-using pdfforge.Obsidian;
-using pdfforge.Obsidian.Trigger;
-using pdfforge.PDFCreator.Conversion.ActionsInterface;
-using pdfforge.PDFCreator.Conversion.Jobs;
-using pdfforge.PDFCreator.Conversion.Settings.Workflow;
-using pdfforge.PDFCreator.Core.Services;
-using pdfforge.PDFCreator.Core.Services.Macros;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
-using pdfforge.PDFCreator.UI.Presentation.Helper.ActionHelper;
-using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using Prism.Events;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -18,206 +6,216 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GongSolutions.Wpf.DragDrop;
+using pdfforge.Obsidian;
+using pdfforge.Obsidian.Trigger;
+using pdfforge.PDFCreator.Conversion.ActionsInterface;
+using pdfforge.PDFCreator.Conversion.Jobs;
+using pdfforge.PDFCreator.Conversion.Settings.Workflow;
+using pdfforge.PDFCreator.Core.Services;
+using pdfforge.PDFCreator.Core.Services.Macros;
+using pdfforge.PDFCreator.UI.Presentation.Helper.ActionHelper;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.Utilities;
+using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor;
+
+public class WorkflowEditorViewModel : ProfileUserControlViewModel<WorkflowEditorTranslation>, IMountable
 {
-    public class WorkflowEditorViewModel : ProfileUserControlViewModel<WorkflowEditorTranslation>, IMountable
+    public bool IsServer { get; private set; }
+
+    private readonly IInteractionRequest _interactionRequest;
+    private readonly IEventAggregator _eventAggregator;
+    private readonly ICommandLocator _commandLocator;
+
+    private IEnumerable<IPresenterActionFacade> ActionFacades { get; }
+    public DelegateCommand RemoveActionCommand { get; set; }
+    public IAsyncCommand EditActionCommand { get; set; }
+
+    public ObservableCollection<IPresenterActionFacade> PreparationActions { get; set; }
+    public ObservableCollection<IPresenterActionFacade> ModifyActions { get; set; }
+    public ObservableCollection<IPresenterActionFacade> SendActions { get; set; }
+
+    public ICommand OpenAddActionOverviewCommand { get; set; }
+
+    public IDropTarget PreparationDropTarget { get; private set; }
+    public IDropTarget ModifyDropTarget { get; private set; }
+    public IDropTarget SendDropTarget { get; private set; }
+    public IDragSource ModifyDragSourceHandler { get; }
+
+    private bool _wasInit = false;
+
+    public bool HasPreConversion => PreparationActions != null && PreparationActions.Count > 0;
+
+    public WorkflowEditorViewModel(ISelectedProfileProvider selectedProfileProvider,
+        ITranslationUpdater translationUpdater,
+        IEnumerable<IPresenterActionFacade> actionFacades,
+        IInteractionRequest interactionRequest,
+        IEventAggregator eventAggregator,
+        ICommandLocator commandLocator,
+        IWorkflowEditorSubViewProvider viewProvider,
+        ICommandBuilderProvider commandBuilderProvider,
+        IDispatcher dispatcher,
+        EditionHelper editionHelper
+    ) : base(translationUpdater, selectedProfileProvider, dispatcher)
     {
-        public bool IsServer { get; private set; }
+        IsServer = editionHelper.IsServer;
 
-        private readonly IInteractionRequest _interactionRequest;
-        private readonly IEventAggregator _eventAggregator;
-        private readonly ICommandLocator _commandLocator;
+        _interactionRequest = interactionRequest;
+        _eventAggregator = eventAggregator;
+        _commandLocator = commandLocator;
 
-        private IEnumerable<IPresenterActionFacade> ActionFacades { get; }
-        public DelegateCommand RemoveActionCommand { get; set; }
-        public IAsyncCommand EditActionCommand { get; set; }
+        ActionFacades = actionFacades;
 
-        public ObservableCollection<IPresenterActionFacade> PreparationActions { get; set; }
-        public ObservableCollection<IPresenterActionFacade> ModifyActions { get; set; }
-        public ObservableCollection<IPresenterActionFacade> SendActions { get; set; }
+        RemoveActionCommand = new DelegateCommand(ExecuteRemoveAction);
+        EditActionCommand = new AsyncCommand(ExecuteEditAction);
+        OpenAddActionOverviewCommand = new AsyncCommand(OpenAddActionOverview);
 
-        public ICommand OpenAddActionOverviewCommand { get; set; }
-
-        public IDropTarget PreparationDropTarget { get; private set; }
-        public IDropTarget ModifyDropTarget { get; private set; }
-        public IDropTarget SendDropTarget { get; private set; }
-        public IDragSource ModifyDragSourceHandler { get; }
-
-        private bool _wasInit = false;
-
-        public bool HasPreConversion => PreparationActions != null && PreparationActions.Count > 0;
-
-        public WorkflowEditorViewModel(ISelectedProfileProvider selectedProfileProvider,
-            ITranslationUpdater translationUpdater,
-            IEnumerable<IPresenterActionFacade> actionFacades,
-            IInteractionRequest interactionRequest,
-            IEventAggregator eventAggregator,
-            ICommandLocator commandLocator,
-            IWorkflowEditorSubViewProvider viewProvider,
-            ICommandBuilderProvider commandBuilderProvider,
-            IDispatcher dispatcher,
-            EditionHelper editionHelper
-        ) : base(translationUpdater, selectedProfileProvider, dispatcher)
+        PreparationDropTarget = new WorkflowEditorActionDropTargetHandler<IPreConversionAction>();
+        ModifyDropTarget = new WorkflowEditorActionDropTargetHandler<IConversionAction>();
+        ModifyDragSourceHandler = new WorkflowEditorActionDragSourceHandler(obj =>
         {
-            IsServer = editionHelper.IsServer;
+            var facade = (IPresenterActionFacade)obj;
+            var isAssignableFrom = typeof(IFixedOrderAction).IsAssignableFrom(facade.SettingsType);
+            return !isAssignableFrom;
+        });
 
-            _interactionRequest = interactionRequest;
-            _eventAggregator = eventAggregator;
-            _commandLocator = commandLocator;
+        SendDropTarget = new WorkflowEditorActionDropTargetHandler<IPostConversionAction>();
 
-            ActionFacades = actionFacades;
+        selectedProfileProvider.SelectedProfileChanged += SelectedProfileOnPropertyChanged;
 
-            RemoveActionCommand = new DelegateCommand(ExecuteRemoveAction);
-            EditActionCommand = new AsyncCommand(ExecuteEditAction);
-            OpenAddActionOverviewCommand = new AsyncCommand(OpenAddActionOverview);
+        eventAggregator.GetEvent<WorkflowSettingsChanged>().Subscribe(GenerateCollectionViewsOfActions);
+    }
 
-            PreparationDropTarget = new WorkflowEditorActionDropTargetHandler<IPreConversionAction>();
-            ModifyDropTarget = new WorkflowEditorActionDropTargetHandler<IConversionAction>();
-            ModifyDragSourceHandler = new WorkflowEditorActionDragSourceHandler(obj =>
-            {
-                var facade = (IPresenterActionFacade)obj;
-                var isAssignableFrom = typeof(IFixedOrderAction).IsAssignableFrom(facade.SettingsType);
-                return !isAssignableFrom;
-            });
-
-            SendDropTarget = new WorkflowEditorActionDropTargetHandler<IPostConversionAction>();
-
-            selectedProfileProvider.SelectedProfileChanged += SelectedProfileOnPropertyChanged;
-
-            eventAggregator.GetEvent<WorkflowSettingsChanged>().Subscribe(GenerateCollectionViewsOfActions);
-        }
-
-        private void SelectedProfileOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    private void SelectedProfileOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (_wasInit)
         {
-            if (_wasInit)
-            {
-                GenerateCollectionViewsOfActions();
-
-                UpdateActionProperties();
-            }
-        }
-
-        private void GenerateCollectionViewsOfActions()
-        {
-            if (PreparationActions != null)
-                PreparationActions.CollectionChanged -= OnActionCollectionChanged;
-
-            if (ModifyActions != null)
-                ModifyActions.CollectionChanged -= OnActionCollectionChanged;
-
-            if (SendActions != null)
-                SendActions.CollectionChanged -= OnActionCollectionChanged;
-
-            var actions = GenerateCollection();
-            PreparationActions = actions.Where(FilterActionFacadeByType<IPreConversionAction>()).ToObservableCollection();
-            ModifyActions = actions.Where(FilterActionFacadeByType<IConversionAction>()).ToObservableCollection();
-            SendActions = actions.Where(FilterActionFacadeByType<IPostConversionAction>()).ToObservableCollection();
-
-            PreparationActions.CollectionChanged += OnActionCollectionChanged;
-            ModifyActions.CollectionChanged += OnActionCollectionChanged;
-            SendActions.CollectionChanged += OnActionCollectionChanged;
+            GenerateCollectionViewsOfActions();
 
             UpdateActionProperties();
-            RaisePropertyChanged(nameof(HasPreConversion));
         }
+    }
 
-        private void OnActionCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    private void GenerateCollectionViewsOfActions()
+    {
+        if (PreparationActions != null)
+            PreparationActions.CollectionChanged -= OnActionCollectionChanged;
+
+        if (ModifyActions != null)
+            ModifyActions.CollectionChanged -= OnActionCollectionChanged;
+
+        if (SendActions != null)
+            SendActions.CollectionChanged -= OnActionCollectionChanged;
+
+        var actions = GenerateCollection();
+        PreparationActions = actions.Where(FilterActionFacadeByType<IPreConversionAction>()).ToObservableCollection();
+        ModifyActions = actions.Where(FilterActionFacadeByType<IConversionAction>()).ToObservableCollection();
+        SendActions = actions.Where(FilterActionFacadeByType<IPostConversionAction>()).ToObservableCollection();
+
+        PreparationActions.CollectionChanged += OnActionCollectionChanged;
+        ModifyActions.CollectionChanged += OnActionCollectionChanged;
+        SendActions.CollectionChanged += OnActionCollectionChanged;
+
+        UpdateActionProperties();
+        RaisePropertyChanged(nameof(HasPreConversion));
+    }
+
+    private void OnActionCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        UpdateOrder();
+    }
+
+    private void UpdateOrder()
+    {
+        CurrentProfile.ActionOrder.Clear();
+        var newOrder = CurrentProfile.ActionOrder;
+
+        foreach (IPresenterActionFacade action in PreparationActions)
         {
-            UpdateOrder();
+            newOrder.Add(action.SettingsType.Name);
         }
 
-        private void UpdateOrder()
+        foreach (IPresenterActionFacade action in ModifyActions)
         {
-            CurrentProfile.ActionOrder.Clear();
-            var newOrder = CurrentProfile.ActionOrder;
-
-            foreach (IPresenterActionFacade action in PreparationActions)
-            {
-                newOrder.Add(action.SettingsType.Name);
-            }
-
-            foreach (IPresenterActionFacade action in ModifyActions)
-            {
-                newOrder.Add(action.SettingsType.Name);
-            }
-
-            foreach (IPresenterActionFacade action in SendActions)
-            {
-                newOrder.Add(action.SettingsType.Name);
-            }
-
-            RaisePropertyChanged(nameof(HasPreConversion));
+            newOrder.Add(action.SettingsType.Name);
         }
 
-        private List<IPresenterActionFacade> GenerateCollection()
+        foreach (IPresenterActionFacade action in SendActions)
         {
-            var actionOrder = CurrentProfile.ActionOrder;
-            return actionOrder
-                .Select(GetActionFacadeByTypeName)
-                .Where(x => x != null)
-                .ToList();
+            newOrder.Add(action.SettingsType.Name);
         }
 
-        private IPresenterActionFacade GetActionFacadeByTypeName(string x)
-        {
-            return ActionFacades.FirstOrDefault(y => y.SettingsType.Name == x);
-        }
+        RaisePropertyChanged(nameof(HasPreConversion));
+    }
 
-        private Func<IPresenterActionFacade, bool> FilterActionFacadeByType<TType>() where TType : IAction
-        {
-            return x => x.ActionType.GetInterfaces().Contains(typeof(TType)) && x.IsEnabled;
-        }
+    private List<IPresenterActionFacade> GenerateCollection()
+    {
+        var actionOrder = CurrentProfile.ActionOrder;
+        return actionOrder
+            .Select(GetActionFacadeByTypeName)
+            .Where(x => x != null)
+            .ToList();
+    }
 
-        public override void MountView()
-        {
-            GenerateCollectionViewsOfActions();
+    private IPresenterActionFacade GetActionFacadeByTypeName(string x)
+    {
+        return ActionFacades.FirstOrDefault(y => y.SettingsType.Name == x);
+    }
 
-            _eventAggregator.GetEvent<ActionAddedToWorkflowEvent>().Subscribe(RefreshView);
-            _wasInit = true;
-        }
+    private Func<IPresenterActionFacade, bool> FilterActionFacadeByType<TType>() where TType : IAction
+    {
+        return x => x.ActionType.GetInterfaces().Contains(typeof(TType)) && x.IsEnabled;
+    }
 
-        private async Task OpenAddActionOverview(object obj)
-        {
-            await _interactionRequest.RaiseAsync(new AddActionOverlayInteraction());
-        }
+    public override void MountView()
+    {
+        GenerateCollectionViewsOfActions();
 
-        private void RefreshView()
-        {
-            GenerateCollectionViewsOfActions();
-        }
+        _eventAggregator.GetEvent<ActionAddedToWorkflowEvent>().Subscribe(RefreshView);
+        _wasInit = true;
+    }
 
-        private async Task ExecuteEditAction(object obj)
-        {
-            var actionFacade = (IPresenterActionFacade)obj;
-            var settingsCopy = actionFacade.GetCurrentSettingCopy();
-            var workflowEditorOverlayInteraction = new WorkflowEditorOverlayInteraction(actionFacade.Title, actionFacade.OverlayViewName, false, false);
+    private async Task OpenAddActionOverview(object obj)
+    {
+        await _interactionRequest.RaiseAsync(new AddActionOverlayInteraction());
+    }
 
-            await _interactionRequest.RaiseAsync(workflowEditorOverlayInteraction);
-            if (workflowEditorOverlayInteraction.Result != WorkflowEditorOverlayResult.Success)
-                actionFacade.ReplaceCurrentSetting(settingsCopy);
+    private void RefreshView()
+    {
+        GenerateCollectionViewsOfActions();
+    }
 
-            GenerateCollectionViewsOfActions();
-        }
+    private async Task ExecuteEditAction(object obj)
+    {
+        var actionFacade = (IPresenterActionFacade)obj;
+        var settingsCopy = actionFacade.GetCurrentSettingCopy();
+        var workflowEditorOverlayInteraction = new WorkflowEditorOverlayInteraction(actionFacade.Title, actionFacade.OverlayViewName, false, false);
 
-        private void UpdateActionProperties()
-        {
-            RaisePropertyChanged(nameof(PreparationActions));
-            RaisePropertyChanged(nameof(ModifyActions));
-            RaisePropertyChanged(nameof(SendActions));
-        }
+        await _interactionRequest.RaiseAsync(workflowEditorOverlayInteraction);
+        if (workflowEditorOverlayInteraction.Result != WorkflowEditorOverlayResult.Success)
+            actionFacade.ReplaceCurrentSetting(settingsCopy);
 
-        private void ExecuteRemoveAction(object actionFacade)
-        {
-            _commandLocator.GetCommand<RemoveActionCommand>().Execute(actionFacade);
+        GenerateCollectionViewsOfActions();
+    }
 
-            GenerateCollectionViewsOfActions();
-        }
+    private void UpdateActionProperties()
+    {
+        RaisePropertyChanged(nameof(PreparationActions));
+        RaisePropertyChanged(nameof(ModifyActions));
+        RaisePropertyChanged(nameof(SendActions));
+    }
 
-        public override void UnmountView()
-        {
-            _eventAggregator.GetEvent<ActionAddedToWorkflowEvent>().Unsubscribe(RefreshView);
-        }
+    private void ExecuteRemoveAction(object actionFacade)
+    {
+        _commandLocator.GetCommand<RemoveActionCommand>().Execute(actionFacade);
+
+        GenerateCollectionViewsOfActions();
+    }
+
+    public override void UnmountView()
+    {
+        _eventAggregator.GetEvent<ActionAddedToWorkflowEvent>().Unsubscribe(RefreshView);
     }
 }

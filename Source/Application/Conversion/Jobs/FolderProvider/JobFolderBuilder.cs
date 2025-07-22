@@ -3,38 +3,37 @@ using pdfforge.PDFCreator.Utilities.IO;
 using pdfforge.PDFCreator.Utilities.Spool;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Conversion.Jobs.FolderProvider
+namespace pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
+
+public interface IJobFolderBuilder
 {
-    public interface IJobFolderBuilder
+    string CreateJobFolderInSpool(string file);
+}
+
+public class JobFolderBuilder : IJobFolderBuilder
+{
+    private readonly Logger Logger = LogManager.GetCurrentClassLogger();
+    private readonly IDirectory _directory;
+    private readonly IUniqueDirectory _uniqueDirectory;
+    private readonly ISpoolerProvider _spoolerProvider;
+
+    public JobFolderBuilder(IDirectory directory, IUniqueDirectory uniqueDirectory, ISpoolerProvider spoolerProvider)
     {
-        string CreateJobFolderInSpool(string file);
+        _directory = directory;
+        _uniqueDirectory = uniqueDirectory;
+        _spoolerProvider = spoolerProvider;
     }
 
-    public class JobFolderBuilder : IJobFolderBuilder
+    public string CreateJobFolderInSpool(string file)
     {
-        private readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly IDirectory _directory;
-        private readonly IUniqueDirectory _uniqueDirectory;
-        private readonly ISpoolerProvider _spoolerProvider;
+        var psFilename = PathSafe.GetFileName(file);
+        if (psFilename.Length > 23)
+            psFilename = psFilename.Substring(0, 23);
+        var jobFolder = PathSafe.Combine(_spoolerProvider.SpoolFolder, psFilename).Trim();
+        jobFolder = _uniqueDirectory.MakeUniqueDirectory(jobFolder);
+        _directory.CreateDirectory(jobFolder);
+        Logger.Trace("Created spool directory for job: " + jobFolder);
 
-        public JobFolderBuilder(IDirectory directory, IUniqueDirectory uniqueDirectory, ISpoolerProvider spoolerProvider)
-        {
-            _directory = directory;
-            _uniqueDirectory = uniqueDirectory;
-            _spoolerProvider = spoolerProvider;
-        }
-
-        public string CreateJobFolderInSpool(string file)
-        {
-            var psFilename = PathSafe.GetFileName(file);
-            if (psFilename.Length > 23)
-                psFilename = psFilename.Substring(0, 23);
-            var jobFolder = PathSafe.Combine(_spoolerProvider.SpoolFolder, psFilename).Trim();
-            jobFolder = _uniqueDirectory.MakeUniqueDirectory(jobFolder);
-            _directory.CreateDirectory(jobFolder);
-            Logger.Trace("Created spool directory for job: " + jobFolder);
-
-            return jobFolder;
-        }
+        return jobFolder;
     }
 }

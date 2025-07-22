@@ -1,72 +1,70 @@
-﻿using pdfforge.Obsidian;
+﻿using System;
+using System.Linq;
+using pdfforge.Obsidian;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Core.Services;
+using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.UI.Interactions;
-using pdfforge.PDFCreator.UI.Interactions.Enums;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews;
 using pdfforge.PDFCreator.Utilities;
-using System;
-using System.Linq;
-using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Utilities.Messages;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands.QuickActions
+namespace pdfforge.PDFCreator.UI.Presentation.Commands.QuickActions;
+
+public class QuickActionOpenWithDefaultCommand : QuickActionCommandBase<FtpActionTranslation>
 {
-    public class QuickActionOpenWithDefaultCommand : QuickActionCommandBase<FtpActionTranslation>
+    protected readonly IOpenFileAction Action;
+    protected readonly IFileAssoc FileAssoc;
+    protected readonly ICommandLocator CommandLocator;
+    protected readonly ISettingsProvider SettingsProvider;
+    protected readonly IInteractionInvoker InteractionInvoker;
+
+    public QuickActionOpenWithDefaultCommand(ITranslationUpdater translationUpdater, IOpenFileAction action, IFileAssoc fileAssoc, ICommandLocator commandLocator, ISettingsProvider settingsProvider, IInteractionInvoker interactionInvoker) : base(translationUpdater)
+
     {
-        protected readonly IOpenFileAction Action;
-        protected readonly IFileAssoc FileAssoc;
-        protected readonly ICommandLocator CommandLocator;
-        protected readonly ISettingsProvider SettingsProvider;
-        protected readonly IInteractionInvoker InteractionInvoker;
+        Action = action;
+        FileAssoc = fileAssoc;
+        CommandLocator = commandLocator;
+        SettingsProvider = settingsProvider;
+        InteractionInvoker = interactionInvoker;
+    }
 
-        public QuickActionOpenWithDefaultCommand(ITranslationUpdater translationUpdater, IOpenFileAction action, IFileAssoc fileAssoc, ICommandLocator commandLocator, ISettingsProvider settingsProvider, IInteractionInvoker interactionInvoker) : base(translationUpdater)
+    public override void Execute(object obj)
+    {
+        var path = GetPaths(obj).FirstOrDefault();
 
+        if (!path.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
         {
-            Action = action;
-            FileAssoc = fileAssoc;
-            CommandLocator = commandLocator;
-            SettingsProvider = settingsProvider;
-            InteractionInvoker = interactionInvoker;
+            HandleActionResult(Action.OpenOutputFile(path));
         }
-
-        public override void Execute(object obj)
+        else
         {
-            var path = GetPaths(obj).FirstOrDefault();
-
-            if (!path.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
+            if (FileAssoc.HasOpen(".pdf") || SettingsProvider.Settings.GetDefaultViewerByOutputFormat(OutputFormat.Pdf).IsActive)
             {
                 HandleActionResult(Action.OpenOutputFile(path));
             }
             else
             {
-                if (FileAssoc.HasOpen(".pdf") || SettingsProvider.Settings.GetDefaultViewerByOutputFormat(OutputFormat.Pdf).IsActive)
-                {
-                    HandleActionResult(Action.OpenOutputFile(path));
-                }
-                else
-                {
-                    CommandLocator.GetCommand<QuickActionOpenWithPdfArchitectCommand>().Execute(obj);
-                }
+                CommandLocator.GetCommand<QuickActionOpenWithPdfArchitectCommand>().Execute(obj);
             }
         }
+    }
 
-        protected void HandleActionResult(ActionResult result)
+    protected void HandleActionResult(ActionResult result)
+    {
+        if (result.Contains(ErrorCode.DefaultViewer_Not_Found))
         {
-            if (result.Contains(ErrorCode.DefaultViewer_Not_Found))
-            {
-                ShowMessage(Translation.ErrorCustomViewNotFoundDesc, Translation.ErrorCustomViewNotFoundTitle, MessageOptions.Ok, MessageIcon.Error);
-            }
+            ShowMessage(Translation.ErrorCustomViewNotFoundDesc, Translation.ErrorCustomViewNotFoundTitle, MessageOptions.Ok, MessageIcon.Error);
         }
+    }
 
-        private MessageResponse ShowMessage(string message, string title, MessageOptions options, MessageIcon icon)
-        {
-            var interaction = new MessageInteraction(message, title, options, icon);
-            InteractionInvoker.Invoke(interaction);
-            return interaction.Response;
-        }
+    private MessageResponse ShowMessage(string message, string title, MessageOptions options, MessageIcon icon)
+    {
+        var interaction = new MessageInteraction(message, title, options, icon);
+        InteractionInvoker.Invoke(interaction);
+        return interaction.Response;
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Core.Workflow
+﻿namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface IManagePrintJobExceptionHandler
 {
-    public interface IManagePrintJobExceptionHandler
-    {
-        void HandleException();
-    }
+    void HandleException();
 }

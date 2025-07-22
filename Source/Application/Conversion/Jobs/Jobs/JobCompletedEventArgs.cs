@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs
-{
-    public class JobCompletedEventArgs : EventArgs
-    {
-        public JobCompletedEventArgs(Job job)
-        {
-            Job = job;
-        }
+namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-        public Job Job { get; private set; }
+public class JobCompletedEventArgs : EventArgs
+{
+    public JobCompletedEventArgs(Job job)
+    {
+        Job = job;
     }
+
+    public Job Job { get; private set; }
 }

@@ -1,45 +1,43 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs;
+﻿using System.ComponentModel;
+using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using System.ComponentModel;
 using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public class OutputFormatPdfViewModel : ProfileUserControlViewModel<OutputFormatTranslation>
 {
-    public class OutputFormatPdfViewModel : ProfileUserControlViewModel<OutputFormatTranslation>
+    private readonly EditionHelper _editionHelper;
+
+    public bool EditionContainsPdfAValidation => !_editionHelper.IsFreeEdition;
+
+    public OutputFormatPdfViewModel(ITranslationUpdater translationUpdater, ISelectedProfileProvider selectedProfile,
+                                EditionHelper editionHelper, IDispatcher dispatcher) : base(translationUpdater, selectedProfile, dispatcher)
     {
-        private readonly EditionHelper _editionHelper;
-
-        public bool EditionContainsPdfAValidation => !_editionHelper.IsFreeEdition;
-
-        public OutputFormatPdfViewModel(ITranslationUpdater translationUpdater, ISelectedProfileProvider selectedProfile,
-                                    EditionHelper editionHelper, IDispatcher dispatcher) : base(translationUpdater, selectedProfile, dispatcher)
+        _editionHelper = editionHelper;
+        CurrentProfileChanged += (sender, args) =>
         {
-            _editionHelper = editionHelper;
-            CurrentProfileChanged += (sender, args) =>
-            {
-                RaiseIsPdfOutputChanged();
-                CurrentProfile.PropertyChanged += RaiseIsPdfOutputChanged;
-                CurrentProfile.PdfSettings.PropertyChanged += RaiseIsPdfOutputChanged;
-            };
+            RaiseIsPdfOutputChanged();
+            CurrentProfile.PropertyChanged += RaiseIsPdfOutputChanged;
+            CurrentProfile.PdfSettings.PropertyChanged += RaiseIsPdfOutputChanged;
+        };
 
-            if (CurrentProfile != null)
-            {
-                CurrentProfile.PropertyChanged += RaiseIsPdfOutputChanged;
-                CurrentProfile.PdfSettings.PropertyChanged += RaiseIsPdfOutputChanged;
-            }
-        }
-
-        private void RaiseIsPdfOutputChanged(object sender = null, PropertyChangedEventArgs args = null)
+        if (CurrentProfile != null)
         {
-            RaisePropertyChanged(nameof(IsPdfOutput));
-            RaisePropertyChanged(nameof(IsPdfAOutput));
-            RaisePropertyChanged(nameof(HasNotSupportedColorModel));
+            CurrentProfile.PropertyChanged += RaiseIsPdfOutputChanged;
+            CurrentProfile.PdfSettings.PropertyChanged += RaiseIsPdfOutputChanged;
         }
-
-        public bool IsPdfOutput => CurrentProfile.OutputFormat.IsPdf();
-        public bool IsPdfAOutput => CurrentProfile.OutputFormat.IsPdfA();
-        public bool HasNotSupportedColorModel => (CurrentProfile.OutputFormat == OutputFormat.PdfX) && (CurrentProfile.PdfSettings.ColorModel == ColorModel.Rgb);
     }
+
+    private void RaiseIsPdfOutputChanged(object sender = null, PropertyChangedEventArgs args = null)
+    {
+        RaisePropertyChanged(nameof(IsPdfOutput));
+        RaisePropertyChanged(nameof(IsPdfAOutput));
+        RaisePropertyChanged(nameof(HasNotSupportedColorModel));
+    }
+
+    public bool IsPdfOutput => CurrentProfile.OutputFormat.IsPdf();
+    public bool IsPdfAOutput => CurrentProfile.OutputFormat.IsPdfA();
+    public bool HasNotSupportedColorModel => (CurrentProfile.OutputFormat == OutputFormat.PdfX) && (CurrentProfile.PdfSettings.ColorModel == ColorModel.Rgb);
 }

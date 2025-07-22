@@ -38,6 +38,6 @@ using System.Runtime.Versioning;
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("4.2.0.0")]
 
-[assembly: AssemblyVersion("6.0.0.0")]
-[assembly: AssemblyFileVersion("6.0.0.0")]
+[assembly: AssemblyVersion("6.1.0.0")]
+[assembly: AssemblyFileVersion("6.1.0.0")]
 [assembly: NeutralResourcesLanguage("en")]

@@ -1,16 +1,15 @@
-namespace pdfforge.PDFCreator.Utilities.Messages
+namespace pdfforge.PDFCreator.Utilities.Messages;
+
+public enum MessageOptions
 {
-    public enum MessageOptions
-    {
-        MoreInfoCancel,
-        Ok,
-        OkCancel,
-        OkCancelUac,
-        RetryCancel,
-        YesNoCancel,
-        YesNo,
-        YesNoUac,
-        YesCancel,
-        SaveDiscardBack
-    }
+    MoreInfoCancel,
+    Ok,
+    OkCancel,
+    OkCancelUac,
+    RetryCancel,
+    YesNoCancel,
+    YesNo,
+    YesNoUac,
+    YesCancel,
+    SaveDiscardBack
 }

@@ -1,8 +1,7 @@
-﻿namespace pdfforge.CustomScriptAction
+﻿namespace pdfforge.CustomScriptAction;
+
+public enum ScriptResult
 {
-    public enum ScriptResult
-    {
-        Success,
-        Abort
-    }
+    Success,
+    Abort
 }

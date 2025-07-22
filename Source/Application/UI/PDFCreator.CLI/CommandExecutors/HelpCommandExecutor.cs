@@ -1,29 +1,28 @@
-﻿using CommandLineParser;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CommandLineParser;
 
-namespace pdfforge.PDFCreator.UI.CLI.CommandExecutors
+namespace pdfforge.PDFCreator.UI.CLI.CommandExecutors;
+
+public class HelpCommandExecutor : ICommandExecutor
 {
-    public class HelpCommandExecutor : ICommandExecutor
+    private readonly HelpCommand _command;
+    private readonly CommandLineParser.CommandLineParser _commandLineParser;
+
+    public HelpCommandExecutor(HelpCommand command, CommandLineParser.CommandLineParser commandLineParser)
     {
-        private readonly HelpCommand _command;
-        private readonly CommandLineParser.CommandLineParser _commandLineParser;
+        _command = command;
+        _commandLineParser = commandLineParser;
+    }
 
-        public HelpCommandExecutor(HelpCommand command, CommandLineParser.CommandLineParser commandLineParser)
-        {
-            _command = command;
-            _commandLineParser = commandLineParser;
-        }
+    public void InitializeDependencies()
+    {
+    }
 
-        public void InitializeDependencies()
-        {
-        }
+    public CheckResult IsExecutable() => CheckResult.Success();
 
-        public CheckResult IsExecutable() => CheckResult.Success();
-
-        public Task<CommandResult> Execute()
-        {
-            HelpCommand.WriteHelpToConsole(_commandLineParser, _command);
-            return Task.FromResult(CommandResult.Success());
-        }
+    public Task<CommandResult> Execute()
+    {
+        HelpCommand.WriteHelpToConsole(_commandLineParser, _command);
+        return Task.FromResult(CommandResult.Success());
     }
 }

@@ -1,9 +1,8 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings;
 using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Events
+namespace pdfforge.PDFCreator.UI.Presentation.Events;
+
+public class EditSettingsFinishedEvent : PubSubEvent<ConversionProfile>
 {
-    public class EditSettingsFinishedEvent : PubSubEvent<ConversionProfile>
-    {
-    }
 }

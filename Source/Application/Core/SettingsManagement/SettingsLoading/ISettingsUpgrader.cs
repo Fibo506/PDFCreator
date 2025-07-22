@@ -1,11 +1,10 @@
-﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading
+﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
+
+public interface ISettingsUpgrader
 {
-    public interface ISettingsUpgrader
-    {
-        int NumberOfUpgradeMethods();
+    int NumberOfUpgradeMethods();
 
-        void Upgrade(int targetVersion);
+    void Upgrade(int targetVersion);
 
-        bool RequiresUpgrade(int targetVersion);
-    }
+    bool RequiresUpgrade(int targetVersion);
 }

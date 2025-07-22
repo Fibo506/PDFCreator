@@ -1,175 +1,174 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Controller.Routing;
 using pdfforge.PDFCreator.Core.ServiceLocator;
 using pdfforge.PDFCreator.UI.Presentation;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
 using Prism.Events;
 using Prism.Regions;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
 
-namespace pdfforge.PDFCreator.Editions.EditionBase
+namespace pdfforge.PDFCreator.Editions.EditionBase;
+
+public class ShellManager : IShellManager
 {
-    public class ShellManager : IShellManager
+    private readonly IRegionManager _regionManager;
+    private readonly IWhitelistedServiceLocator _serviceLocator;
+    private readonly IWpfTopMostHelper _topMostHelper;
+    private readonly IStartupRoutine _startupRoutine;
+    private readonly IEventAggregator _eventAggregator;
+    private DateTime _lastOpenWindowTime;
+    private bool wasStarted = false;
+    private bool _registeredMainShellViews;
+    private bool _registeredPrintJobShellViews;
+    private List<(string, Type)> _regionToViewRegister;
+    private List<(string, Type)> _printJobRegionToViewRegister;
+
+    public ShellManager(IWhitelistedServiceLocator serviceLocator, IRegionManager regionManager, IWpfTopMostHelper topMostHelper, IStartupRoutine startupActions, IEventAggregator eventAggregator)
     {
-        private readonly IRegionManager _regionManager;
-        private readonly IWhitelistedServiceLocator _serviceLocator;
-        private readonly IWpfTopMostHelper _topMostHelper;
-        private readonly IStartupRoutine _startupRoutine;
-        private readonly IEventAggregator _eventAggregator;
-        private DateTime _lastOpenWindowTime;
-        private bool wasStarted = false;
-        private bool _registeredMainShellViews;
-        private bool _registeredPrintJobShellViews;
-        private List<(string, Type)> _regionToViewRegister;
-        private List<(string, Type)> _printJobRegionToViewRegister;
+        _regionManager = regionManager;
+        _serviceLocator = serviceLocator;
+        _topMostHelper = topMostHelper;
+        _startupRoutine = startupActions;
+        _eventAggregator = eventAggregator;
+    }
 
-        public ShellManager(IWhitelistedServiceLocator serviceLocator, IRegionManager regionManager, IWpfTopMostHelper topMostHelper, IStartupRoutine startupActions, IEventAggregator eventAggregator)
+    private void RunStartup()
+    {
+        var startupActions = _startupRoutine.GetAllActions().Where(action => action is IDataStartupAction);
+        foreach (var startupAction in startupActions)
         {
-            _regionManager = regionManager;
-            _serviceLocator = serviceLocator;
-            _topMostHelper = topMostHelper;
-            _startupRoutine = startupActions;
-            _eventAggregator = eventAggregator;
+            startupAction.Execute();
         }
 
-        private void RunStartup()
+        wasStarted = true;
+    }
+
+    private MainShell MainShell { get; set; }
+    private PrintJobShell PrintJobShell { get; set; }
+    public bool PrintJobShellIsOpen => PrintJobShell != null;
+    public bool MainShellIsOpen => MainShell != null;
+
+    public void ShowMainShell()
+    {
+        lock (this)
         {
-            var startupActions = _startupRoutine.GetAllActions().Where(action => action is IDataStartupAction);
-            foreach (var startupAction in startupActions)
+            if (!wasStarted)
+                RunStartup();
+
+            if (MainShell == null)
             {
-                startupAction.Execute();
-            }
-
-            wasStarted = true;
-        }
-
-        private MainShell MainShell { get; set; }
-        private PrintJobShell PrintJobShell { get; set; }
-        public bool PrintJobShellIsOpen => PrintJobShell != null;
-        public bool MainShellIsOpen => MainShell != null;
-
-        public void ShowMainShell()
-        {
-            lock (this)
-            {
-                if (!wasStarted)
-                    RunStartup();
-
-                if (MainShell == null)
-                {
-                    MainShell = _serviceLocator.GetInstance<MainShell>();
-                    RegionManager.SetRegionManager(MainShell, _regionManager);
-                    RegionManager.UpdateRegions();
-                    RegisterStartingViewsInMainShellRegions();
-                }
-            }
-
-            AvoidWpfDesignerDeadlock();
-
-            try
-            {
-                _topMostHelper.ShowDialogTopMost(MainShell, true);
-            }
-            finally
-            {
-                UnregisterRegions(new RegionNames());
-                MainShell = null;
+                MainShell = _serviceLocator.GetInstance<MainShell>();
+                RegionManager.SetRegionManager(MainShell, _regionManager);
+                RegionManager.UpdateRegions();
+                RegisterStartingViewsInMainShellRegions();
             }
         }
 
-        private void AvoidWpfDesignerDeadlock()
+        AvoidWpfDesignerDeadlock();
+
+        try
         {
-            var timeSinceLastWindow = DateTime.Now - _lastOpenWindowTime;
-
-            //TODO This is required to avoid a deadlock in Visual Studio when XAML Diagnostics is enabled
-            if (timeSinceLastWindow.TotalMilliseconds < 1500 && Debugger.IsAttached)
-                Thread.Sleep(2500);
-
-            _lastOpenWindowTime = DateTime.Now;
+            _topMostHelper.ShowDialogTopMost(MainShell, true);
         }
-
-        public void ShowPrintJobShell(Job job)
+        finally
         {
-            lock (this)
-            {
-                if (!wasStarted)
-                    RunStartup();
+            UnregisterRegions(new RegionNames());
+            MainShell = null;
+        }
+    }
 
-                if (PrintJobShell == null)
-                {
-                    PrintJobShell = _serviceLocator.GetInstance<PrintJobShell>();
-                    RegionManager.SetRegionManager(PrintJobShell, _regionManager);
-                    RegionManager.UpdateRegions();
-                    RegisterViewsInPrintJobShell();
-                }
-            }
+    private void AvoidWpfDesignerDeadlock()
+    {
+        var timeSinceLastWindow = DateTime.Now - _lastOpenWindowTime;
 
-            AvoidWpfDesignerDeadlock();
+        //TODO This is required to avoid a deadlock in Visual Studio when XAML Diagnostics is enabled
+        if (timeSinceLastWindow.TotalMilliseconds < 1500 && Debugger.IsAttached)
+            Thread.Sleep(2500);
 
-            PrintJobShell.InteractiveWorkflowManager.Job = job;
-            try
+        _lastOpenWindowTime = DateTime.Now;
+    }
+
+    public void ShowPrintJobShell(Job job)
+    {
+        lock (this)
+        {
+            if (!wasStarted)
+                RunStartup();
+
+            if (PrintJobShell == null)
             {
-                _topMostHelper.ShowDialogTopMost(PrintJobShell, true);
-            }
-            finally
-            {
-                PrintJobShell?.Close();
-                UnregisterRegions(new PrintJobRegionNames());
-                PrintJobShell = null;
+                PrintJobShell = _serviceLocator.GetInstance<PrintJobShell>();
+                RegionManager.SetRegionManager(PrintJobShell, _regionManager);
+                RegionManager.UpdateRegions();
+                RegisterViewsInPrintJobShell();
             }
         }
 
-        public void MainShellToFront()
+        AvoidWpfDesignerDeadlock();
+
+        PrintJobShell.InteractiveWorkflowManager.Job = job;
+        try
         {
-            if (MainShell != null)
-            {
-                MainShell.Dispatcher.BeginInvoke(new Action(() => _topMostHelper.MakeTopMostWindow(MainShell, true)));
-            }
+            _topMostHelper.ShowDialogTopMost(PrintJobShell, true);
         }
-
-        private void UnregisterRegions(RegionNameCollection regionNameCollection)
+        finally
         {
-            var regions = regionNameCollection.GetRegionNames();
-            foreach (var region in regions)
-            {
-                _regionManager.Regions.Remove(region);
-            }
+            PrintJobShell?.Close();
+            UnregisterRegions(new PrintJobRegionNames());
+            PrintJobShell = null;
         }
+    }
 
-        public void SetPrintJobShellRegionToViewRegister(List<(string, Type)> regionToViewRegister)
+    public void MainShellToFront()
+    {
+        if (MainShell != null)
         {
-            _printJobRegionToViewRegister = regionToViewRegister;
+            MainShell.Dispatcher.BeginInvoke(new Action(() => _topMostHelper.MakeTopMostWindow(MainShell, true)));
         }
+    }
 
-        public void SetMainShellRegionToViewRegister(List<(string, Type)> regionToViewRegister)
+    private void UnregisterRegions(RegionNameCollection regionNameCollection)
+    {
+        var regions = regionNameCollection.GetRegionNames();
+        foreach (var region in regions)
         {
-            _regionToViewRegister = regionToViewRegister;
+            _regionManager.Regions.Remove(region);
         }
+    }
 
-        private void RegisterViewsInPrintJobShell()
+    public void SetPrintJobShellRegionToViewRegister(List<(string, Type)> regionToViewRegister)
+    {
+        _printJobRegionToViewRegister = regionToViewRegister;
+    }
+
+    public void SetMainShellRegionToViewRegister(List<(string, Type)> regionToViewRegister)
+    {
+        _regionToViewRegister = regionToViewRegister;
+    }
+
+    private void RegisterViewsInPrintJobShell()
+    {
+        if (_registeredPrintJobShellViews)
+            return;
+
+        _registeredPrintJobShellViews = true;
+        _printJobRegionToViewRegister.ForEach(action: x =>
+            _regionManager.RegisterViewWithRegion(x.Item1, x.Item2));
+    }
+
+    private void RegisterStartingViewsInMainShellRegions()
+    {
+        if (_registeredMainShellViews)
+            return;
+
+        _registeredMainShellViews = true;
+        _regionToViewRegister.ForEach(action: x =>
         {
-            if (_registeredPrintJobShellViews)
-                return;
-
-            _registeredPrintJobShellViews = true;
-            _printJobRegionToViewRegister.ForEach(action: x =>
-                _regionManager.RegisterViewWithRegion(x.Item1, x.Item2));
-        }
-
-        private void RegisterStartingViewsInMainShellRegions()
-        {
-            if (_registeredMainShellViews)
-                return;
-
-            _registeredMainShellViews = true;
-            _regionToViewRegister.ForEach(action: x =>
-            {
-                _regionManager.RegisterViewWithRegion(x.Item1, x.Item2);
-            });
-        }
+            _regionManager.RegisterViewWithRegion(x.Item1, x.Item2);
+        });
     }
 }

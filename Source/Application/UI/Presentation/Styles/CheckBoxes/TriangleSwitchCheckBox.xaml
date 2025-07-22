@@ -30,7 +30,7 @@
                                 </Style>
                             </ContentPresenter.Resources>
                         </ContentPresenter>
-                        <ContentControl Margin="5 0 0 0">
+                        <ContentControl Margin="5 1.1 0 0">
                             <ContentControl.Style>
                                     <Style TargetType="ContentControl">
                                         <Style.Triggers>

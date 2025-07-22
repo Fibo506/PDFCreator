@@ -1,64 +1,62 @@
-﻿using NLog;
-using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
-using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NLog;
+using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Utilities.Spool;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Conversion.Jobs
+namespace pdfforge.PDFCreator.Conversion.Jobs;
+
+public interface ISpooledJobFinder
 {
-    public interface ISpooledJobFinder
+    IEnumerable<JobInfo.JobInfo> GetJobs();
+}
+
+public class SpooledJobFinder : ISpooledJobFinder
+{
+    private readonly IDirectory _directory;
+    private readonly IJobInfoManager _jobInfoManager;
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    private readonly ISpoolerProvider _spoolerProvider;
+
+    public SpooledJobFinder(ISpoolerProvider spoolerProvider, IDirectory directory, IJobInfoManager jobInfoManager)
     {
-        IEnumerable<JobInfo.JobInfo> GetJobs();
+        _spoolerProvider = spoolerProvider;
+        _directory = directory;
+        _jobInfoManager = jobInfoManager;
     }
 
-    public class SpooledJobFinder : ISpooledJobFinder
+    public IEnumerable<JobInfo.JobInfo> GetJobs()
     {
-        private readonly IDirectory _directory;
-        private readonly IJobInfoManager _jobInfoManager;
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly ISpoolerProvider _spoolerProvider;
+        var spoolFolder = _spoolerProvider.SpoolFolder;
+        _logger.Debug("Looking for spooled jobs in '{0}'", spoolFolder);
 
-        public SpooledJobFinder(ISpoolerProvider spoolerProvider, IDirectory directory, IJobInfoManager jobInfoManager)
+        var jobs = new List<JobInfo.JobInfo>();
+
+        if (!_directory.Exists(spoolFolder))
         {
-            _spoolerProvider = spoolerProvider;
-            _directory = directory;
-            _jobInfoManager = jobInfoManager;
+            _logger.Error("Spool folder '{0}' does not exist!", spoolFolder);
+            return jobs;
         }
 
-        public IEnumerable<JobInfo.JobInfo> GetJobs()
+        var files = _directory.GetFiles(spoolFolder, "*.inf", SearchOption.AllDirectories);
+        foreach (var file in files)
         {
-            var spoolFolder = _spoolerProvider.SpoolFolder;
-            _logger.Debug("Looking for spooled jobs in '{0}'", spoolFolder);
-
-            var jobs = new List<JobInfo.JobInfo>();
-
-            if (!_directory.Exists(spoolFolder))
+            try
             {
-                _logger.Error("Spool folder '{0}' does not exist!", spoolFolder);
-                return jobs;
-            }
+                _logger.Debug("Found inf file: " + file);
+                var jobInfo = _jobInfoManager.ReadFromInfFile(file);
 
-            var files = _directory.GetFiles(spoolFolder, "*.inf", SearchOption.AllDirectories);
-            foreach (var file in files)
+                jobs.Add(jobInfo);
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    _logger.Debug("Found inf file: " + file);
-                    var jobInfo = _jobInfoManager.ReadFromInfFile(file);
-
-                    jobs.Add(jobInfo);
-                }
-                catch (Exception ex)
-                {
-                    _logger.Warn(ex, $"There was an error while reading the inf file '{file}': ");
-                }
+                _logger.Warn(ex, $"There was an error while reading the inf file '{file}': ");
             }
-
-            return jobs.OrderBy(job => job.PrintDateTime);
         }
+
+        return jobs.OrderBy(job => job.PrintDateTime);
     }
 }

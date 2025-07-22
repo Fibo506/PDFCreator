@@ -1,3 +1,1 @@
-﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls
-{
-}
+﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls;

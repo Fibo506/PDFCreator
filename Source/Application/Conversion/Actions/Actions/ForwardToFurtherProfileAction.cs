@@ -1,23 +1,22 @@
 ﻿using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 
-namespace pdfforge.PDFCreator.Conversion.Actions.Actions
+namespace pdfforge.PDFCreator.Conversion.Actions.Actions;
+
+public class ForwardToFurtherProfileAction : ForwardToFurtherProfileActionBase
 {
-    public class ForwardToFurtherProfileAction : ForwardToFurtherProfileActionBase
+    private readonly IJobInfoQueue _jobInfoQueue;
+
+    public ForwardToFurtherProfileAction(IJobInfoQueue jobInfoQueue, IJobInfoDuplicator jobInfoDuplicator)
     {
-        private readonly IJobInfoQueue _jobInfoQueue;
+        _jobInfoQueue = jobInfoQueue;
+        JobInfoDuplicator = jobInfoDuplicator;
+    }
 
-        public ForwardToFurtherProfileAction(IJobInfoQueue jobInfoQueue, IJobInfoDuplicator jobInfoDuplicator)
-        {
-            _jobInfoQueue = jobInfoQueue;
-            JobInfoDuplicator = jobInfoDuplicator;
-        }
+    protected override IJobInfoDuplicator JobInfoDuplicator { get; }
 
-        protected override IJobInfoDuplicator JobInfoDuplicator { get; }
-
-        protected override void Enqueue(JobInfo jobInfo)
-        {
-            _jobInfoQueue.AddFirst(jobInfo);
-        }
+    protected override void Enqueue(JobInfo jobInfo)
+    {
+        _jobInfoQueue.AddFirst(jobInfo);
     }
 }

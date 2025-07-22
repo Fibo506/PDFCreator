@@ -1,19 +1,18 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript
-{
-    /// <summary>
-    /// Interaction logic for CsScriptView.xaml
-    /// </summary>
-    public partial class CsScriptActionView : UserControl, IActionView
-    {
-        public IActionViewModel ViewModel { get; }
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript;
 
-        public CsScriptActionView(CsScriptActionViewModel actionViewModel)
-        {
-            DataContext = actionViewModel;
-            ViewModel = actionViewModel;
-            InitializeComponent();
-        }
+/// <summary>
+/// Interaction logic for CsScriptView.xaml
+/// </summary>
+public partial class CsScriptActionView : UserControl, IActionView
+{
+    public IActionViewModel ViewModel { get; }
+
+    public CsScriptActionView(CsScriptActionViewModel actionViewModel)
+    {
+        DataContext = actionViewModel;
+        ViewModel = actionViewModel;
+        InitializeComponent();
     }
 }

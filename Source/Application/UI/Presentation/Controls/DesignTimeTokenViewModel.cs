@@ -1,14 +1,13 @@
-﻿using Optional;
-using pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Optional;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Controls
+namespace pdfforge.PDFCreator.UI.Presentation.Controls;
+
+internal class DesignTimeTokenViewModel : TokenViewModel<string>
 {
-    internal class DesignTimeTokenViewModel : TokenViewModel<string>
+    public DesignTimeTokenViewModel() : base(s => s, "Text", new List<string>() { "some", "strings", "test" }, s => s + "_replaced", new List<Func<string, Option<string>>>())
     {
-        public DesignTimeTokenViewModel() : base(s => s, "Text", new List<string>() { "some", "strings", "test" }, s => s + "_replaced", new List<Func<string, Option<string>>>())
-        {
-        }
     }
 }

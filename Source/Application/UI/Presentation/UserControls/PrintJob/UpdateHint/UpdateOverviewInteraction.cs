@@ -1,8 +1,7 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.UpdateHint
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.UpdateHint;
+
+public class UpdateOverviewInteraction : IInteraction
 {
-    public class UpdateOverviewInteraction : IInteraction
-    {
-    }
 }

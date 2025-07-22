@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.ConverterInterface
+﻿namespace pdfforge.PDFCreator.Conversion.ConverterInterface;
+
+public interface IPsConverterFactory
 {
-    public interface IPsConverterFactory
-    {
-        IConverter BuildPsConverter();
-    }
+    IConverter BuildPsConverter();
 }

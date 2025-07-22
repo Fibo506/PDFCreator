@@ -16,6 +16,7 @@
                    xmlns:help="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Help"
                    xmlns:userControls="clr-namespace:pdfforge.PDFCreator.UI.Presentation.UserControls"
                    xmlns:contextMenuButton="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Styles.ContextMenuButton"
+                   xmlns:utilities="clr-namespace:pdfforge.PDFCreator.Utilities;assembly=PDFCreator.Utilities"
                    mc:Ignorable="d"
                    Title="{Binding ApplicationNameAndVersion}"
                    TitleCharacterCasing="Normal"
@@ -45,6 +46,7 @@
                 <ResourceDictionary Source="Styles/Icons/pdfforgeLogos.xaml" />
                 <ResourceDictionary Source="Styles/Icons/PDFArchitectIcons.xaml" />
                 <ResourceDictionary Source="Styles/Buttons/SquaredIconButton.xaml" />
+                <ResourceDictionary Source="Styles/Buttons/BusinessFeatureButtons.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalseConverter" TrueValue="Visible" FalseValue="Collapsed" />
             <converter:BoolNegationConverter x:Key="BoolNegationConverter" />
@@ -231,9 +233,19 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0"
+                                    Width="108"
+                                    Height="32"
+                                    Content="{Binding Translation.UpgradeNow}"
+                                    Style="{StaticResource MainGreenGradientButton}"
+                                    Command="{Binding OpenUrlCommand}"
+                                    CommandParameter="{Binding Source={x:Static utilities:Urls.BusinessHintLink}}"
+                                    Visibility="{Binding ShowUpgradeNowButton, Converter={StaticResource CollapsedIfFalse}}"
+                                    />
                             <Button Margin="10 0 0 0"
-                                    Grid.Column="0"
+                                    Grid.Column="1"
                                     help:HelpProvider.HelpTopic="General"
 
                                     Background="{ Binding ActivePath,
@@ -252,7 +264,7 @@
                             </Button>
 
                             <userControls:FeedbackButton Margin="10 0 0 0"
-                                                         Grid.Column="1" />
+                                                         Grid.Column="2" />
                         </Grid>
                     </Grid>
 

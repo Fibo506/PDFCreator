@@ -1,12 +1,11 @@
 ﻿using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeTimeServerAccountViewModel : TimeServerAccountViewModel
 {
-    public class DesignTimeTimeServerAccountViewModel : TimeServerAccountViewModel
+    public DesignTimeTimeServerAccountViewModel() : base(new DesignTimeTranslationUpdater())
     {
-        public DesignTimeTimeServerAccountViewModel() : base(new DesignTimeTranslationUpdater())
-        {
-        }
     }
 }

@@ -1,74 +1,73 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.UI.Presentation.Annotations;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.Annotations;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Wrapper
+namespace pdfforge.PDFCreator.UI.Presentation.Wrapper;
+
+public class PrinterMappingWrapper : INotifyPropertyChanged
 {
-    public class PrinterMappingWrapper : INotifyPropertyChanged
+    private ConversionProfileWrapper _conversionProfile;
+    private string _primaryPrinter;
+    private string _printerName;
+
+    public PrinterMappingWrapper(PrinterMapping printerMapping, IEnumerable<ConversionProfileWrapper> profiles)
     {
-        private ConversionProfileWrapper _conversionProfile;
-        private string _primaryPrinter;
-        private string _printerName;
+        PrinterMapping = printerMapping;
+        PrinterName = printerMapping.PrinterName;
+        Profile = profiles.FirstOrDefault(p => p.ConversionProfile.Guid == printerMapping.ProfileGuid);
+    }
 
-        public PrinterMappingWrapper(PrinterMapping printerMapping, IEnumerable<ConversionProfileWrapper> profiles)
+    public PrinterMapping PrinterMapping { get; }
+
+    public string PrinterName
+    {
+        get { return _printerName; }
+        set
         {
-            PrinterMapping = printerMapping;
-            PrinterName = printerMapping.PrinterName;
-            Profile = profiles.FirstOrDefault(p => p.ConversionProfile.Guid == printerMapping.ProfileGuid);
+            _printerName = value;
+            PrinterMapping.PrinterName = _printerName;
+            OnPropertyChanged(nameof(PrinterName));
+            OnPropertyChanged(nameof(IsPrimaryPrinter));
         }
+    }
 
-        public PrinterMapping PrinterMapping { get; }
-
-        public string PrinterName
+    public ConversionProfileWrapper Profile
+    {
+        get { return _conversionProfile; }
+        set
         {
-            get { return _printerName; }
-            set
-            {
-                _printerName = value;
-                PrinterMapping.PrinterName = _printerName;
-                OnPropertyChanged(nameof(PrinterName));
-                OnPropertyChanged(nameof(IsPrimaryPrinter));
-            }
+            _conversionProfile = value;
+            PrinterMapping.ProfileGuid = _conversionProfile == null ? "" : _conversionProfile.ConversionProfile.Guid;
+            OnPropertyChanged(nameof(Profile));
         }
+    }
 
-        public ConversionProfileWrapper Profile
+    public bool IsPrimaryPrinter
+    {
+        get { return PrinterName != null && PrinterName == PrimaryPrinter; }
+    }
+
+    public string PrimaryPrinter
+    {
+        get { return _primaryPrinter; }
+        set
         {
-            get { return _conversionProfile; }
-            set
-            {
-                _conversionProfile = value;
-                PrinterMapping.ProfileGuid = _conversionProfile == null ? "" : _conversionProfile.ConversionProfile.Guid;
-                OnPropertyChanged(nameof(Profile));
-            }
+            //if (value == _primaryPrinter) return; //Don't! Primaryprinter must always be updated to prevent default behaviour of bound checkbox!
+            _primaryPrinter = value;
+            OnPropertyChanged(nameof(PrimaryPrinter));
+            OnPropertyChanged(nameof(IsPrimaryPrinter));
         }
+    }
 
-        public bool IsPrimaryPrinter
-        {
-            get { return PrinterName != null && PrinterName == PrimaryPrinter; }
-        }
+    public event PropertyChangedEventHandler PropertyChanged;
 
-        public string PrimaryPrinter
-        {
-            get { return _primaryPrinter; }
-            set
-            {
-                //if (value == _primaryPrinter) return; //Don't! Primaryprinter must always be updated to prevent default behaviour of bound checkbox!
-                _primaryPrinter = value;
-                OnPropertyChanged(nameof(PrimaryPrinter));
-                OnPropertyChanged(nameof(IsPrimaryPrinter));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+    [NotifyPropertyChangedInvocator]
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

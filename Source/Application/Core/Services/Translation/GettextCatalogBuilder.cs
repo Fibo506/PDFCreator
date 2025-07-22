@@ -1,33 +1,32 @@
 ﻿using System.Globalization;
-using NGettext;
 using System.IO;
+using NGettext;
 
-namespace pdfforge.PDFCreator.Core.Services.Translation
+namespace pdfforge.PDFCreator.Core.Services.Translation;
+
+public interface IGettextCatalogBuilder
 {
-    public interface IGettextCatalogBuilder
+    ICatalog GetCatalog(string messageDomain, string languageName, CultureInfo cultureInfo);
+}
+
+public class GettextCatalogBuilder : IGettextCatalogBuilder
+{
+    private readonly string _localeFolder;
+
+    public GettextCatalogBuilder(string localeFolder)
     {
-        ICatalog GetCatalog(string messageDomain, string languageName, CultureInfo cultureInfo);
+        _localeFolder = localeFolder;
     }
 
-    public class GettextCatalogBuilder : IGettextCatalogBuilder
+    public ICatalog GetCatalog(string messageDomain, string languageName, CultureInfo cultureInfo)
     {
-        private readonly string _localeFolder;
+        var messageFile = $"{_localeFolder}\\{languageName}\\LC_MESSAGES\\{messageDomain}.mo";
+        if (!File.Exists(messageFile))
+            return new Catalog(new CultureInfo("en"));
 
-        public GettextCatalogBuilder(string localeFolder)
+        using (var s = File.OpenRead(messageFile))
         {
-            _localeFolder = localeFolder;
-        }
-
-        public ICatalog GetCatalog(string messageDomain, string languageName, CultureInfo cultureInfo)
-        {
-            var messageFile = $"{_localeFolder}\\{languageName}\\LC_MESSAGES\\{messageDomain}.mo";
-            if (!File.Exists(messageFile))
-                return new Catalog(new CultureInfo("en"));
-
-            using (var s = File.OpenRead(messageFile))
-            {
-                return new Catalog(s, cultureInfo);
-            }
+            return new Catalog(s, cultureInfo);
         }
     }
 }

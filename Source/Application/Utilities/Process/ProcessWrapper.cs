@@ -1,43 +1,42 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace pdfforge.PDFCreator.Utilities.Process
+namespace pdfforge.PDFCreator.Utilities.Process;
+
+public class ProcessWrapper
 {
-    public class ProcessWrapper
+    private System.Diagnostics.Process _process;
+
+    public ProcessWrapper(ProcessStartInfo startInfo)
     {
-        private System.Diagnostics.Process _process;
+        StartInfo = startInfo;
+    }
 
-        public ProcessWrapper(ProcessStartInfo startInfo)
+    public ProcessStartInfo StartInfo { get; }
+
+    public virtual bool HasExited
+    {
+        get
         {
-            StartInfo = startInfo;
+            if (_process == null)
+                return false;
+
+            return _process.HasExited;
         }
+    }
 
-        public ProcessStartInfo StartInfo { get; }
+    public virtual void Start()
+    {
+        _process = System.Diagnostics.Process.Start(StartInfo);
+    }
 
-        public virtual bool HasExited
-        {
-            get
-            {
-                if (_process == null)
-                    return false;
+    public virtual void WaitForExit(TimeSpan timeSpan)
+    {
+        _process.WaitForExit((int)timeSpan.TotalMilliseconds);
+    }
 
-                return _process.HasExited;
-            }
-        }
-
-        public virtual void Start()
-        {
-            _process = System.Diagnostics.Process.Start(StartInfo);
-        }
-
-        public virtual void WaitForExit(TimeSpan timeSpan)
-        {
-            _process.WaitForExit((int)timeSpan.TotalMilliseconds);
-        }
-
-        public virtual void Kill()
-        {
-            _process.Kill();
-        }
+    public virtual void Kill()
+    {
+        _process.Kill();
     }
 }

@@ -1,46 +1,45 @@
 ﻿using System.Collections.Generic;
 
-namespace pdfforge.PDFCreator.UI.Presentation.NavigationChecks
-{
-    public interface ITabSwitchSettingsCheck
-    {
-        SettingsCheckResult CheckAffectedSettings();
+namespace pdfforge.PDFCreator.UI.Presentation.NavigationChecks;
 
-        SettingsCheckResult CheckAllSettings();
+public interface ITabSwitchSettingsCheck
+{
+    SettingsCheckResult CheckAffectedSettings();
+
+    SettingsCheckResult CheckAllSettings();
+}
+
+public class TabSwitchSettingsCheck : ITabSwitchSettingsCheck
+{
+    private readonly IRegionHelper _regionHelper;
+    private readonly IEnumerable<ISettingsNavigationCheck> _settingsNavigationChecks;
+
+    public TabSwitchSettingsCheck(IRegionHelper regionHelper, IEnumerable<ISettingsNavigationCheck> settingsNavigationChecks)
+    {
+        _settingsNavigationChecks = settingsNavigationChecks;
+        _regionHelper = regionHelper;
     }
 
-    public class TabSwitchSettingsCheck : ITabSwitchSettingsCheck
+    public SettingsCheckResult CheckAffectedSettings()
     {
-        private readonly IRegionHelper _regionHelper;
-        private readonly IEnumerable<ISettingsNavigationCheck> _settingsNavigationChecks;
-
-        public TabSwitchSettingsCheck(IRegionHelper regionHelper, IEnumerable<ISettingsNavigationCheck> settingsNavigationChecks)
+        var currentRegion = _regionHelper.CurrentRegionName;
+        foreach (var check in _settingsNavigationChecks)
         {
-            _settingsNavigationChecks = settingsNavigationChecks;
-            _regionHelper = regionHelper;
-        }
-
-        public SettingsCheckResult CheckAffectedSettings()
-        {
-            var currentRegion = _regionHelper.CurrentRegionName;
-            foreach (var check in _settingsNavigationChecks)
+            if (check.IsRelevantForRegion(currentRegion))
             {
-                if (check.IsRelevantForRegion(currentRegion))
-                {
-                    return check.CheckSettings();
-                }
+                return check.CheckSettings();
             }
-            return new SettingsCheckResult();
         }
+        return new SettingsCheckResult();
+    }
 
-        public SettingsCheckResult CheckAllSettings()
+    public SettingsCheckResult CheckAllSettings()
+    {
+        var result = new SettingsCheckResult();
+        foreach (var check in _settingsNavigationChecks)
         {
-            var result = new SettingsCheckResult();
-            foreach (var check in _settingsNavigationChecks)
-            {
-                result.Merge(check.CheckSettings());
-            }
-            return result;
+            result.Merge(check.CheckSettings());
         }
+        return result;
     }
 }

@@ -1,28 +1,27 @@
 ﻿using System;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public interface IProgramDataDirectoryHelper
 {
-    public interface IProgramDataDirectoryHelper
+    string GetDir();
+}
+
+public class ProgramDataDirectoryHelper : IProgramDataDirectoryHelper
+{
+    private readonly string _applicationName;
+
+    public ProgramDataDirectoryHelper(string applicationName)
     {
-        string GetDir();
+        _applicationName = applicationName;
     }
 
-    public class ProgramDataDirectoryHelper : IProgramDataDirectoryHelper
+    public string GetDir()
     {
-        private readonly string _applicationName;
+        var pdfforgeProgramData = @"%ProgramData%\pdfforge\";
+        var applicationProgramData = PathSafe.Combine(pdfforgeProgramData, _applicationName);
 
-        public ProgramDataDirectoryHelper(string applicationName)
-        {
-            _applicationName = applicationName;
-        }
-
-        public string GetDir()
-        {
-            var pdfforgeProgramData = @"%ProgramData%\pdfforge\";
-            var applicationProgramData = PathSafe.Combine(pdfforgeProgramData, _applicationName);
-
-            return Environment.ExpandEnvironmentVariables(applicationProgramData);
-        }
+        return Environment.ExpandEnvironmentVariables(applicationProgramData);
     }
 }

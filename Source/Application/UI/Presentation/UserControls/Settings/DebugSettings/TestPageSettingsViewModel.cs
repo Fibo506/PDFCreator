@@ -14,93 +14,92 @@ using pdfforge.PDFCreator.UI.Presentation.Helper.TestPage;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings;
+
+public class TestPageSettingsViewModelBase : ADebugSettingsItemControlModel
 {
-    public class TestPageSettingsViewModelBase : ADebugSettingsItemControlModel
+    public TestPageSettingsViewModelBase(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings) : base(translationUpdater, gpoSettings)
     {
-        public TestPageSettingsViewModelBase(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings) : base(translationUpdater, gpoSettings)
-        {
-        }
-
-        public virtual bool CanBeShown => true;
     }
 
-    public class ServerTestPageSettingsViewModel : TestPageSettingsViewModelBase
-    {
-        public ServerTestPageSettingsViewModel(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings) : base(translationUpdater, gpoSettings)
-        {
-        }
+    public virtual bool CanBeShown => true;
+}
 
-        public override bool CanBeShown => false;
+public class ServerTestPageSettingsViewModel : TestPageSettingsViewModelBase
+{
+    public ServerTestPageSettingsViewModel(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings) : base(translationUpdater, gpoSettings)
+    {
     }
 
-    public class CreatorTestPageSettingsViewModel : TestPageSettingsViewModelBase
+    public override bool CanBeShown => false;
+}
+
+public class CreatorTestPageSettingsViewModel : TestPageSettingsViewModelBase
+{
+    protected readonly IPrinterHelper _printerHelper;
+    private readonly IPdfProcessor _pdfProcessor;
+    protected readonly ITestPageHelper _testPageHelper;
+    protected readonly ICurrentSettings<CreatorAppSettings> _settingsProvider;
+    protected readonly ICurrentSettings<ApplicationSettings> _applicationSettingsProvider;
+
+    public CreatorTestPageSettingsViewModel(
+        ITestPageHelper testPageHelper,
+        ICurrentSettings<CreatorAppSettings> settingsProvider,
+        ICurrentSettings<ApplicationSettings> applicationSettingsProvider,
+        IPrinterHelper printerHelper,
+        ITranslationUpdater translationUpdater,
+        IGpoSettings gpoSettings,
+        IPdfProcessor pdfProcessor) :
+        base(translationUpdater, gpoSettings)
     {
-        protected readonly IPrinterHelper _printerHelper;
-        private readonly IPdfProcessor _pdfProcessor;
-        protected readonly ITestPageHelper _testPageHelper;
-        protected readonly ICurrentSettings<CreatorAppSettings> _settingsProvider;
-        protected readonly ICurrentSettings<ApplicationSettings> _applicationSettingsProvider;
-
-        public CreatorTestPageSettingsViewModel(
-            ITestPageHelper testPageHelper,
-            ICurrentSettings<CreatorAppSettings> settingsProvider,
-            ICurrentSettings<ApplicationSettings> applicationSettingsProvider,
-            IPrinterHelper printerHelper,
-            ITranslationUpdater translationUpdater,
-            IGpoSettings gpoSettings,
-            IPdfProcessor pdfProcessor) :
-            base(translationUpdater, gpoSettings)
-        {
-            PrintPdfCreatorTestPageCommand = new AsyncCommand(PdfCreatorTestPageExecute);
-            PrintWindowsTestPageCommand = new AsyncCommand(WindowsTestPageExecute);
-            _printerHelper = printerHelper;
-            _pdfProcessor = pdfProcessor;
-            _testPageHelper = testPageHelper;
-            _settingsProvider = settingsProvider;
-            _applicationSettingsProvider = applicationSettingsProvider;
-        }
-
-        public ICommand PrintPdfCreatorTestPageCommand { get; protected set; }
-        public ICommand PrintWindowsTestPageCommand { get; }
-
-        protected virtual async Task PdfCreatorTestPageExecute(object o)
-        {
-
-            await Task.Run(() =>
-            {
-                LoggingHelper.ChangeLogLevel(_applicationSettingsProvider.Settings.LoggingLevel);
-                _testPageHelper.CreateAndPrintTestPage();
-            });
-
-
-        }
-
-        private async Task WindowsTestPageExecute(object o)
-        {
-            await Task.Run(() =>
-            {
-                LoggingHelper.ChangeLogLevel(_applicationSettingsProvider.Settings.LoggingLevel);
-                _printerHelper.PrintWindowsTestPage(_settingsProvider.Settings.PrimaryPrinter);
-            });
-        }
+        PrintPdfCreatorTestPageCommand = new AsyncCommand(PdfCreatorTestPageExecute);
+        PrintWindowsTestPageCommand = new AsyncCommand(WindowsTestPageExecute);
+        _printerHelper = printerHelper;
+        _pdfProcessor = pdfProcessor;
+        _testPageHelper = testPageHelper;
+        _settingsProvider = settingsProvider;
+        _applicationSettingsProvider = applicationSettingsProvider;
     }
 
-    public class WorkflowTestPageSettingsViewModel :  TranslatableViewModelBase<DebugSettingsTranslation>
-    {
-        public WorkflowTestPageSettingsViewModel(
-            ICommandLocator commandLocator,
-            ITranslationUpdater translationUpdater) : base(translationUpdater)
-        {
-            PrintPdfCreatorTestPageCommand = commandLocator
-                                                .CreateMacroCommand()
-                                                .AddCommand<EvaluateSavingRelevantSettingsAndNotifyUserCommand>()
-                                                .AddCommand<AskForSavingCommand>()
-                                                .AddCommand<ISaveChangedSettingsCommand>()
-                                                .AddCommand<IPrintTestPageAsyncCommand>()
-                                                .Build();
-        }
+    public ICommand PrintPdfCreatorTestPageCommand { get; protected set; }
+    public ICommand PrintWindowsTestPageCommand { get; }
 
-        public IMacroCommand PrintPdfCreatorTestPageCommand { get; private set; }
+    protected virtual async Task PdfCreatorTestPageExecute(object o)
+    {
+
+        await Task.Run(() =>
+        {
+            LoggingHelper.ChangeLogLevel(_applicationSettingsProvider.Settings.LoggingLevel);
+            _testPageHelper.CreateAndPrintTestPage();
+        });
+
+
     }
+
+    private async Task WindowsTestPageExecute(object o)
+    {
+        await Task.Run(() =>
+        {
+            LoggingHelper.ChangeLogLevel(_applicationSettingsProvider.Settings.LoggingLevel);
+            _printerHelper.PrintWindowsTestPage(_settingsProvider.Settings.PrimaryPrinter);
+        });
+    }
+}
+
+public class WorkflowTestPageSettingsViewModel : TranslatableViewModelBase<DebugSettingsTranslation>
+{
+    public WorkflowTestPageSettingsViewModel(
+        ICommandLocator commandLocator,
+        ITranslationUpdater translationUpdater) : base(translationUpdater)
+    {
+        PrintPdfCreatorTestPageCommand = commandLocator
+                                            .CreateMacroCommand()
+                                            .AddCommand<EvaluateSavingRelevantSettingsAndNotifyUserCommand>()
+                                            .AddCommand<AskForSavingCommand>()
+                                            .AddCommand<ISaveChangedSettingsCommand>()
+                                            .AddCommand<IPrintTestPageAsyncCommand>()
+                                            .Build();
+    }
+
+    public IMacroCommand PrintPdfCreatorTestPageCommand { get; private set; }
 }

@@ -1,8 +1,7 @@
 ﻿using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor;
+
+public class ActionAddedToWorkflowEvent : PubSubEvent
 {
-    public class ActionAddedToWorkflowEvent : PubSubEvent
-    {
-    }
 }

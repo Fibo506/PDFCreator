@@ -1,14 +1,13 @@
-﻿namespace pdfforge.PDFCreator.Core.Controller
+﻿namespace pdfforge.PDFCreator.Core.Controller;
+
+public interface IMainWindowThreadLauncher
 {
-    public interface IMainWindowThreadLauncher
-    {
-        /// <summary>
-        ///     Add the Main Window thread to the thread list and start it
-        /// </summary>
-        void LaunchMainWindow();
+    /// <summary>
+    ///     Add the Main Window thread to the thread list and start it
+    /// </summary>
+    void LaunchMainWindow();
 
-        bool IsPrintJobShellOpen();
+    bool IsPrintJobShellOpen();
 
-        void SwitchPrintJobShellToMergeWindow();
-    }
+    void SwitchPrintJobShellToMergeWindow();
 }

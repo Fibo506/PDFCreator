@@ -1,25 +1,24 @@
-﻿using pdfforge.Obsidian;
+﻿using System.Windows.Input;
+using pdfforge.Obsidian;
 using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Macros;
-using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeCommandLocator : ICommandLocator
 {
-    public class DesignTimeCommandLocator : ICommandLocator
+    public ICommand GetInitializedCommand<TCommand, TParameter>(TParameter parameter) where TCommand : class, IInitializedCommand<TParameter>
     {
-        public ICommand GetInitializedCommand<TCommand, TParameter>(TParameter parameter) where TCommand : class, IInitializedCommand<TParameter>
-        {
-            return new DelegateCommand(o => { });
-        }
+        return new DelegateCommand(o => { });
+    }
 
-        public IMacroCommandBuilder CreateMacroCommand()
-        {
-            return new DesignTimeCommandBuilder();
-        }
+    public IMacroCommandBuilder CreateMacroCommand()
+    {
+        return new DesignTimeCommandBuilder();
+    }
 
-        public ICommand GetCommand<T>() where T : class, ICommand
-        {
-            return new DelegateCommand(o => { });
-        }
+    public ICommand GetCommand<T>() where T : class, ICommand
+    {
+        return new DelegateCommand(o => { });
     }
 }

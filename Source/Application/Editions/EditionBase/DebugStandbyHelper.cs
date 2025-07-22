@@ -1,40 +1,39 @@
-﻿using pdfforge.Communication;
-using pdfforge.PDFCreator.Utilities.Threading;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Threading;
+using pdfforge.Communication;
+using pdfforge.PDFCreator.Utilities.Threading;
 
-namespace pdfforge.PDFCreator.Editions.EditionBase
-{
+namespace pdfforge.PDFCreator.Editions.EditionBase;
+
 #if DEBUG
 
-    public static class DebugStandbyHelper
+public static class DebugStandbyHelper
+{
+    public static bool IsStandbyRunning()
     {
-        public static bool IsStandbyRunning()
+        var mutex = new Mutex(false, "Global\\" + ThreadManager.StandbyMutexName);
+
+        try
         {
-            var mutex = new Mutex(false, "Global\\" + ThreadManager.StandbyMutexName);
+            var acquired = mutex.WaitOne(0);
+            if (acquired)
+                mutex.ReleaseMutex();
 
-            try
-            {
-                var acquired = mutex.WaitOne(0);
-                if (acquired)
-                    mutex.ReleaseMutex();
-
-                return !acquired;
-            }
-            catch (AbandonedMutexException)
-            {
-                return false;
-            }
+            return !acquired;
         }
-
-        public static void TerminateStandby()
+        catch (AbandonedMutexException)
         {
-            var pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
-            var pipeClient = new PipeClient(pipeName);
-
-            pipeClient.SendMessage("StopHotStandby|", 500);
+            return false;
         }
     }
 
-#endif
+    public static void TerminateStandby()
+    {
+        var pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
+        var pipeClient = new PipeClient(pipeName);
+
+        pipeClient.SendMessage("StopHotStandby|", 500);
+    }
 }
+
+#endif

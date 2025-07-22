@@ -23,12 +23,12 @@ public class MicrosoftActionHelper
         _httpClient = new HttpClient();
     }
 
-    public void SetupHttpClient(HttpClient httpClient,string accessToken)
+    public void SetupHttpClient(HttpClient httpClient, string accessToken)
     {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
     }
 
-    public async Task<FileUploadResult> UploadFile(string uploadSessionUrl,string filePath, string accessToken, bool needsUploadSessionMessages = false)
+    public async Task<FileUploadResult> UploadFile(string uploadSessionUrl, string filePath, string accessToken, bool needsUploadSessionMessages = false)
     {
         SetupHttpClient(_httpClient, accessToken);
 
@@ -56,7 +56,7 @@ public class MicrosoftActionHelper
             for (var i = 0; i <= totalChunks; i++)
             {
                 var chunkStartingPosition = i * ChunkSize;
-                var chunkArraySize = (int)Math.Min(file.Length - chunkStartingPosition, ChunkSize); 
+                var chunkArraySize = (int)Math.Min(file.Length - chunkStartingPosition, ChunkSize);
                 var lastArrayIndex = chunkStartingPosition + chunkArraySize - 1;
                 var buffer = new byte[chunkArraySize];
                 await file.ReadAsync(buffer, 0, chunkArraySize);

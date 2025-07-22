@@ -1,15 +1,14 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public partial class MetadataView : UserControl
 {
-    public partial class MetadataView : UserControl
+    public MetadataView(MetadataViewModel viewModel)
     {
-        public MetadataView(MetadataViewModel viewModel)
-        {
-            DataContext = viewModel;
-            TransposerHelper.Register(this, viewModel);
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        TransposerHelper.Register(this, viewModel);
+        InitializeComponent();
     }
 }

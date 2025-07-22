@@ -1,16 +1,15 @@
 ﻿using pdfforge.DataStorage;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
-{
-    public partial class SmtpAccount
-    {
-        public string AccountInfo => Address;
+namespace pdfforge.PDFCreator.Conversion.Settings;
 
-        public void CopyTo(SmtpAccount targetAccount)
-        {
-            var data = Data.CreateDataStorage();
-            StoreValues(data, "");
-            targetAccount.ReadValues(data, "");
-        }
+public partial class SmtpAccount
+{
+    public string AccountInfo => Address;
+
+    public void CopyTo(SmtpAccount targetAccount)
+    {
+        var data = Data.CreateDataStorage();
+        StoreValues(data, "");
+        targetAccount.ReadValues(data, "");
     }
 }

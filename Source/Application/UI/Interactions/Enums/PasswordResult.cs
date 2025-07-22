@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.UI.Interactions.Enums
+﻿namespace pdfforge.PDFCreator.UI.Interactions.Enums;
+
+public enum PasswordResult
 {
-    public enum PasswordResult
-    {
-        Cancel,
-        StorePassword,
-        RemovePassword,
-        Skip
-    }
+    Cancel,
+    StorePassword,
+    RemovePassword,
+    Skip
 }

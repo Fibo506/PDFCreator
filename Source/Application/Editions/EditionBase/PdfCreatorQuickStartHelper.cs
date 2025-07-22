@@ -1,32 +1,31 @@
-﻿using pdfforge.Communication;
-using System;
+﻿using System;
 using System.Diagnostics;
+using pdfforge.Communication;
 
-namespace pdfforge.PDFCreator.Editions.EditionBase
+namespace pdfforge.PDFCreator.Editions.EditionBase;
+
+internal static class PdfCreatorQuickStartHelper
 {
-    internal static class PdfCreatorQuickStartHelper
+    public static bool TryActivateRunningPDFCreatorInstance(string[] args)
     {
-        public static bool TryActivateRunningPDFCreatorInstance(string[] args)
+        // We only try this is no arguments were passed to PDFCreator
+        if (args.Length != 0)
+            return false;
+
+        try
         {
-            // We only try this is no arguments were passed to PDFCreator
-            if (args.Length != 0)
+            var pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
+            var pipeServer = new PipeServer(pipeName, pipeName);
+            var pipe = new PipeClient(pipeName);
+
+            if (!pipeServer.IsServerRunning())
                 return false;
 
-            try
-            {
-                var pipeName = "PDFCreator-" + Process.GetCurrentProcess().SessionId;
-                var pipeServer = new PipeServer(pipeName, pipeName);
-                var pipe = new PipeClient(pipeName);
-
-                if (!pipeServer.IsServerRunning())
-                    return false;
-
-                return pipe.SendMessage("ShowMain|", 500);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return pipe.SendMessage("ShowMain|", 500);
+        }
+        catch (Exception)
+        {
+            return false;
         }
     }
 }

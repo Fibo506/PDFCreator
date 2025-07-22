@@ -1,13 +1,12 @@
-﻿namespace pdfforge.PDFCreator.Core.Workflow
-{
-    public interface IWorkflowFactory
-    {
-        IConversionWorkflow CreateWorkflow(WorkflowModeEnum mode);
-    }
+﻿namespace pdfforge.PDFCreator.Core.Workflow;
 
-    public enum WorkflowModeEnum
-    {
-        Interactive,
-        Autosave
-    }
+public interface IWorkflowFactory
+{
+    IConversionWorkflow CreateWorkflow(WorkflowModeEnum mode);
+}
+
+public enum WorkflowModeEnum
+{
+    Interactive,
+    Autosave
 }

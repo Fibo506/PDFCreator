@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public partial class Scripting : IProfileSetting
 {
-    public partial class  Scripting : IProfileSetting
-    {
-    }
 }
 

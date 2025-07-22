@@ -30,7 +30,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
     private readonly MicrosoftActionHelper _microsoftActionHelper;
     private HttpClient _httpClient;
 
-    public SharepointAction(IGraphManager graphManager, IUniqueFilenameFactory uniqueFilenameFactory, MicrosoftActionHelper microsoftActionHelper, IWebLinkLauncher webLinkLauncher, IPathUtil pathUtil) : 
+    public SharepointAction(IGraphManager graphManager, IUniqueFilenameFactory uniqueFilenameFactory, MicrosoftActionHelper microsoftActionHelper, IWebLinkLauncher webLinkLauncher, IPathUtil pathUtil) :
         base(p => p.SharepointSettings)
     {
         _graphManager = graphManager;
@@ -56,11 +56,11 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
         var destinationFolder = GetDestinationFolder(job);
 
         var (success, privateUrl) = ProcessJobFiles(job, destinationFolder, authenticationResult.AccessToken, ensureUniqueFilenames).GetAwaiter().GetResult();
-        if(!success)
+        if (!success)
             actionResult.Add(new ActionResult(ErrorCode.Sharepoint_Upload_Failed));
 
         job.ShareLinks.SharepointPrivateUrl = privateUrl;
-        
+
 
         if (job.Profile.SharepointSettings.OpenUploadedFile)
         {
@@ -99,7 +99,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
 
         return (success, privatePath);
     }
-     
+
     private async Task<string> GetItemWebUrl(ItemReference itemReference, string accessToken)
     {
         var itemUrl = $"{GraphManager.BaseURL}/drives/{itemReference.DriveId}/items/{itemReference.Id}";
@@ -119,13 +119,13 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
     private string GetDestinationFolder(Job job)
     {
         var destinationFolder = job.Profile.SharepointSettings.SharedFolder;
-        
+
         if (job.OutputFiles.Count > 1)
         {
             var nestedFolderName = Path.GetFileNameWithoutExtension(job.OutputFileTemplate);
             destinationFolder = $"{destinationFolder}/{nestedFolderName}";
         }
-        
+
         return destinationFolder;
     }
 
@@ -133,7 +133,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
     {
         var fileExists = await DoesFileExistOnDrive(job, fileName, destinationFolder, accessToken);
 
-        if (!fileExists) 
+        if (!fileExists)
             return fileName;
 
         var uniquePath = _uniqueFilenameFactory.Build(fileName);
@@ -141,7 +141,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
 
         bool UniqueFilenameCondition(string s)
         {
-            return DoesFileExistOnDrive(job,s, destinationFolder, accessToken).GetAwaiter().GetResult();
+            return DoesFileExistOnDrive(job, s, destinationFolder, accessToken).GetAwaiter().GetResult();
         }
     }
 
@@ -192,7 +192,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
             {
                 if (!profile.UserTokens.Enabled)
                     result.Add(ErrorCode.Sharepoint_SharedFolder_RequiresUserTokenAction);
-                
+
                 return result;
             }
 
@@ -200,7 +200,7 @@ public class SharepointAction : ActionBase<SharepointSettings>, IPostConversionA
                 return result;
         }
 
-        if(string.IsNullOrEmpty(profile.SharepointSettings.AccountId))
+        if (string.IsNullOrEmpty(profile.SharepointSettings.AccountId))
             result.Add(ErrorCode.Sharepoint_Missing_Account);
 
         if (string.IsNullOrEmpty(profile.SharepointSettings.SiteId))

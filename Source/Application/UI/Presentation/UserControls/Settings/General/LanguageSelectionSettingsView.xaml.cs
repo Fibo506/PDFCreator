@@ -1,16 +1,15 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General;
+
+/// <summary>
+///     Interaction logic for LanguageSelectionSettingsView.xaml
+/// </summary>
+public partial class LanguageSelectionSettingsView : UserControl
 {
-    /// <summary>
-    ///     Interaction logic for LanguageSelectionSettingsView.xaml
-    /// </summary>
-    public partial class LanguageSelectionSettingsView : UserControl
+    public LanguageSelectionSettingsView(LanguageSelectionSettingsViewModel vm)
     {
-        public LanguageSelectionSettingsView(LanguageSelectionSettingsViewModel vm)
-        {
-            DataContext = vm;
-            InitializeComponent();
-        }
+        DataContext = vm;
+        InitializeComponent();
     }
 }

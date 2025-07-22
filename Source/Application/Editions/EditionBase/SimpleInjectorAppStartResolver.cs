@@ -2,20 +2,19 @@
 using pdfforge.PDFCreator.Core.StartupInterface;
 using SimpleInjector;
 
-namespace pdfforge.PDFCreator.Editions.EditionBase
+namespace pdfforge.PDFCreator.Editions.EditionBase;
+
+internal class SimpleInjectorAppStartResolver : IAppStartResolver
 {
-    internal class SimpleInjectorAppStartResolver : IAppStartResolver
+    private readonly Container _container;
+
+    public SimpleInjectorAppStartResolver(Container container)
     {
-        private readonly Container _container;
+        _container = container;
+    }
 
-        public SimpleInjectorAppStartResolver(Container container)
-        {
-            _container = container;
-        }
-
-        public T ResolveAppStart<T>() where T : IAppStart
-        {
-            return (T)_container.GetInstance(typeof(T));
-        }
+    public T ResolveAppStart<T>() where T : IAppStart
+    {
+        return (T)_container.GetInstance(typeof(T));
     }
 }

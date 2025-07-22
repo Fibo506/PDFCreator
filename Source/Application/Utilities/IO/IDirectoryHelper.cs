@@ -1,9 +1,8 @@
-﻿namespace pdfforge.PDFCreator.Utilities.IO
-{
-    public interface IDirectoryHelper
-    {
-        bool CreateDirectory(string directory);
+﻿namespace pdfforge.PDFCreator.Utilities.IO;
 
-        bool DeleteCreatedDirectories();
-    }
+public interface IDirectoryHelper
+{
+    bool CreateDirectory(string directory);
+
+    bool DeleteCreatedDirectories();
 }

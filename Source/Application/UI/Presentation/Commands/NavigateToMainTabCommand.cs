@@ -1,45 +1,44 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Events;
+﻿using System;
+using System.Windows.Input;
+using pdfforge.PDFCreator.UI.Presentation.Events;
 using Prism.Events;
 using Prism.Regions;
-using System;
-using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands
+namespace pdfforge.PDFCreator.UI.Presentation.Commands;
+
+public class NavigateToMainTabCommand : ICommand
 {
-    public class NavigateToMainTabCommand : ICommand
+    private readonly IRegionManager _regionManager;
+    private readonly IEventAggregator _aggregator;
+
+    public NavigateToMainTabCommand(IRegionManager regionManager, IEventAggregator aggregator)
     {
-        private readonly IRegionManager _regionManager;
-        private readonly IEventAggregator _aggregator;
+        _regionManager = regionManager;
+        _aggregator = aggregator;
+    }
 
-        public NavigateToMainTabCommand(IRegionManager regionManager, IEventAggregator aggregator)
-        {
-            _regionManager = regionManager;
-            _aggregator = aggregator;
-        }
+    //public set to overwrite MainRegionName for PDFCreator Server
+    public string MainRegionName { get; set; } = RegionNames.MainRegion;
 
-        //public set to overwrite MainRegionName for PDFCreator Server
-        public string MainRegionName { get; set; } = RegionNames.MainRegion;
+    public bool CanExecute(object parameter)
+    {
+        return true;
+    }
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+    public void Execute(object parameter)
+    {
+        _regionManager.RequestNavigate(MainRegionName, parameter.ToString(), OnNavigateMainTab);
+    }
 
-        public void Execute(object parameter)
-        {
-            _regionManager.RequestNavigate(MainRegionName, parameter.ToString(), OnNavigateMainTab);
-        }
-
-        private void OnNavigateMainTab(NavigationResult navigationResult)
-        {
-            var navigateMainTabEvent = _aggregator.GetEvent<NavigateMainTabEvent>();
-            navigateMainTabEvent.Publish(navigationResult.Context.Uri.ToString());
-        }
+    private void OnNavigateMainTab(NavigationResult navigationResult)
+    {
+        var navigateMainTabEvent = _aggregator.GetEvent<NavigateMainTabEvent>();
+        navigateMainTabEvent.Publish(navigationResult.Context.Uri.ToString());
+    }
 
 #pragma warning disable 67
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore 67
-    }
 }

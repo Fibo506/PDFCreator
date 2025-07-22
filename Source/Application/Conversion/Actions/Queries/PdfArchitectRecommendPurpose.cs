@@ -1,9 +1,8 @@
-namespace pdfforge.PDFCreator.Conversion.Actions.Queries
+namespace pdfforge.PDFCreator.Conversion.Actions.Queries;
+
+public enum PdfArchitectRecommendPurpose
 {
-    public enum PdfArchitectRecommendPurpose
-    {
-        NoPdfViewer,
-        UpdateRequired,
-        NotInstalled
-    }
+    NoPdfViewer,
+    UpdateRequired,
+    NotInstalled
 }

@@ -248,6 +248,8 @@ paket-files/*
 # Ionide - VS Code integration
 .ionide
 
+**/launchSettings.json
+
 build
 signatures
 build-cache

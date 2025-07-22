@@ -3,12 +3,11 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using pdfforge.PDFCreator.UI.Interactions.Enums;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.Feedback
-{
-    public interface IFeedbackSender
-    {
-        MultipartFormDataContent GetFormDataContent(string feedbackText, FeedbackType selectedType, CompositeCollection uploadedFiles, string messageTitle);
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.Feedback;
 
-        Task<HttpResponseMessage> SendFeedbackAsync(MultipartFormDataContent content);
-    }
+public interface IFeedbackSender
+{
+    MultipartFormDataContent GetFormDataContent(string email, string feedbackText, FeedbackType selectedType, CompositeCollection uploadedFiles, string messageTitle);
+
+    Task<HttpResponseMessage> SendFeedbackAsync(MultipartFormDataContent content);
 }

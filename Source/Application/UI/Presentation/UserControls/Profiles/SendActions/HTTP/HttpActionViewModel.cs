@@ -1,4 +1,8 @@
-﻿using pdfforge.Obsidian;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Data;
+using pdfforge.Obsidian;
 using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
@@ -11,103 +15,98 @@ using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows.Data;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.HTTP
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.HTTP;
+
+public class HttpActionViewModel : ActionViewModelBase<HttpAction, HttpTranslation>
 {
-    public class HttpActionViewModel : ActionViewModelBase<HttpAction, HttpTranslation>
+    public ICollectionView HttpAccountsView { get; }
+
+    private ObservableCollection<HttpAccount> _httpAccounts;
+    public IMacroCommand EditAccountCommand { get; }
+    public IMacroCommand AddAccountCommand { get; }
+
+    private readonly IGpoSettings _gpoSettings;
+    public bool EditAccountsIsDisabled => !_gpoSettings.DisableAccountsTab;
+
+    public HttpActionViewModel(ITranslationUpdater translationUpdater,
+        IActionLocator actionLocator, ErrorCodeInterpreter errorCodeInterpreter,
+        ICurrentSettingsProvider currentSettingsProvider,
+        ICommandLocator commandLocator,
+        IDispatcher dispatcher,
+        IGpoSettings gpoSettings,
+        IDefaultSettingsBuilder defaultSettingsBuilder,
+        IActionOrderHelper actionOrderHelper)
+        : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
     {
-        public ICollectionView HttpAccountsView { get; }
+        _gpoSettings = gpoSettings;
+        _httpAccounts = currentSettingsProvider.CheckSettings.Accounts.HttpAccounts;
 
-        private ObservableCollection<HttpAccount> _httpAccounts;
-        public IMacroCommand EditAccountCommand { get; }
-        public IMacroCommand AddAccountCommand { get; }
+        HttpAccountsView = new ListCollectionView(_httpAccounts);
+        HttpAccountsView.SortDescriptions.Add(new SortDescription(nameof(HttpAccount.AccountInfo), ListSortDirection.Ascending));
+        HttpAccountsView.CurrentChanged += (sender, args) => RaisePropertyChanged(nameof(ShowAutosaveRequiresPasswords));
 
-        private readonly IGpoSettings _gpoSettings;
-        public bool EditAccountsIsDisabled => !_gpoSettings.DisableAccountsTab;
+        AddAccountCommand = commandLocator.CreateMacroCommand()
+            .AddCommand<HttpAccountAddCommand>()
+            .AddCommand(new DelegateCommand(o => SelectNewAccountInView()))
+            .Build();
 
-        public HttpActionViewModel(ITranslationUpdater translationUpdater,
-            IActionLocator actionLocator, ErrorCodeInterpreter errorCodeInterpreter,
-            ICurrentSettingsProvider currentSettingsProvider,
-            ICommandLocator commandLocator,
-            IDispatcher dispatcher,
-            IGpoSettings gpoSettings,
-            IDefaultSettingsBuilder defaultSettingsBuilder,
-            IActionOrderHelper actionOrderHelper)
-            : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
+        EditAccountCommand = commandLocator.CreateMacroCommand()
+            .AddCommand<HttpAccountEditCommand>()
+            .AddCommand(new DelegateCommand(o => RefreshAccountsView()))
+            .AddCommand(new DelegateCommand(o => StatusChanged()))
+            .Build();
+    }
+
+    private void SelectNewAccountInView()
+    {
+        var latestAccount = _httpAccounts.Last();
+        HttpAccountsView.MoveCurrentTo(latestAccount);
+    }
+
+    private void RefreshAccountsView()
+    {
+        HttpAccountsView.Refresh();
+    }
+
+    public bool ShowAutosaveRequiresPasswords
+    {
+        get
         {
-            _gpoSettings = gpoSettings;
-            _httpAccounts = currentSettingsProvider.CheckSettings.Accounts.HttpAccounts;
+            if (CurrentProfile == null)
+                return false;
 
-            HttpAccountsView = new ListCollectionView(_httpAccounts);
-            HttpAccountsView.SortDescriptions.Add(new SortDescription(nameof(HttpAccount.AccountInfo), ListSortDirection.Ascending));
-            HttpAccountsView.CurrentChanged += (sender, args) => RaisePropertyChanged(nameof(ShowAutosaveRequiresPasswords));
+            if (!CurrentProfile.AutoSave.Enabled)
+                return false;
 
-            AddAccountCommand = commandLocator.CreateMacroCommand()
-                .AddCommand<HttpAccountAddCommand>()
-                .AddCommand(new DelegateCommand(o => SelectNewAccountInView()))
-                .Build();
+            if (!(HttpAccountsView.CurrentItem is HttpAccount currentAccount))
+                return false;
 
-            EditAccountCommand = commandLocator.CreateMacroCommand()
-                .AddCommand<HttpAccountEditCommand>()
-                .AddCommand(new DelegateCommand(o => RefreshAccountsView()))
-                .AddCommand(new DelegateCommand(o => StatusChanged()))
-                .Build();
+            if (!currentAccount.IsBasicAuthentication)
+                return false;
+
+            return string.IsNullOrWhiteSpace(currentAccount.Password);
         }
+    }
 
-        private void SelectNewAccountInView()
+    protected override string SettingsPreviewString
+    {
+        get
         {
-            var latestAccount = _httpAccounts.Last();
-            HttpAccountsView.MoveCurrentTo(latestAccount);
+            var httpAccount = Accounts.HttpAccounts.FirstOrDefault(x => x.AccountId == CurrentProfile.HttpSettings.AccountId);
+            return httpAccount != null ? httpAccount.Url : string.Empty;
         }
+    }
 
-        private void RefreshAccountsView()
-        {
-            HttpAccountsView.Refresh();
-        }
+    public override void MountView()
+    {
+        EditAccountCommand.MountView();
+        base.MountView();
+    }
 
-        public bool ShowAutosaveRequiresPasswords
-        {
-            get
-            {
-                if (CurrentProfile == null)
-                    return false;
-
-                if (!CurrentProfile.AutoSave.Enabled)
-                    return false;
-
-                if (!(HttpAccountsView.CurrentItem is HttpAccount currentAccount))
-                    return false;
-
-                if (!currentAccount.IsBasicAuthentication)
-                    return false;
-
-                return string.IsNullOrWhiteSpace(currentAccount.Password);
-            }
-        }
-
-        protected override string SettingsPreviewString
-        {
-            get
-            {
-                var httpAccount = Accounts.HttpAccounts.FirstOrDefault(x => x.AccountId == CurrentProfile.HttpSettings.AccountId);
-                return httpAccount != null ? httpAccount.Url : string.Empty;
-            }
-        }
-
-        public override void MountView()
-        {
-            EditAccountCommand.MountView();
-            base.MountView();
-        }
-
-        public override void UnmountView()
-        {
-            base.UnmountView();
-            EditAccountCommand.UnmountView();
-        }
+    public override void UnmountView()
+    {
+        base.UnmountView();
+        EditAccountCommand.UnmountView();
     }
 }

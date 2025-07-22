@@ -1,60 +1,59 @@
 ﻿using System.Collections.Generic;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public class CommandLineParser
 {
-    public class CommandLineParser
+    private readonly Dictionary<string, string> _args;
+
+    public CommandLineParser(IEnumerable<string> args)
     {
-        private readonly Dictionary<string, string> _args;
+        _args = AnalyzeCommandLine(args);
+    }
 
-        public CommandLineParser(IEnumerable<string> args)
+    public bool HasArgument(string key)
+    {
+        return _args.ContainsKey(key.ToLowerInvariant());
+    }
+
+    public bool HasArgumentWithValue(string key)
+    {
+        var normalizedKey = key.ToLowerInvariant();
+        return _args.ContainsKey(normalizedKey) && !string.IsNullOrEmpty(_args[normalizedKey]);
+    }
+
+    public string GetArgument(string key)
+    {
+        return _args[key.ToLowerInvariant()];
+    }
+
+    private static Dictionary<string, string> AnalyzeCommandLine(IEnumerable<string> args)
+    {
+        var arguments = new Dictionary<string, string>();
+
+        foreach (var arg in args)
         {
-            _args = AnalyzeCommandLine(args);
-        }
+            if (string.IsNullOrEmpty(arg))
+                continue;
 
-        public bool HasArgument(string key)
-        {
-            return _args.ContainsKey(key.ToLowerInvariant());
-        }
+            var c = arg[0];
+            if ((c != '/') && (c != '-'))
+                continue;
 
-        public bool HasArgumentWithValue(string key)
-        {
-            var normalizedKey = key.ToLowerInvariant();
-            return _args.ContainsKey(normalizedKey) && !string.IsNullOrEmpty(_args[normalizedKey]);
-        }
+            var s = arg.Substring(1);
+            var pos = s.IndexOf('=');
 
-        public string GetArgument(string key)
-        {
-            return _args[key.ToLowerInvariant()];
-        }
-
-        private static Dictionary<string, string> AnalyzeCommandLine(IEnumerable<string> args)
-        {
-            var arguments = new Dictionary<string, string>();
-
-            foreach (var arg in args)
+            if (pos < 0)
             {
-                if (string.IsNullOrEmpty(arg))
-                    continue;
-
-                var c = arg[0];
-                if ((c != '/') && (c != '-'))
-                    continue;
-
-                var s = arg.Substring(1);
-                var pos = s.IndexOf('=');
-
-                if (pos < 0)
-                {
-                    arguments.Add(s.ToLowerInvariant(), null);
-                }
-                else
-                {
-                    var argPair = s.Split(new[] { '=' }, 2);
-                    arguments.Add(argPair[0].ToLowerInvariant(), argPair[1]);
-                }
+                arguments.Add(s.ToLowerInvariant(), null);
             }
-
-            return arguments;
+            else
+            {
+                var argPair = s.Split(new[] { '=' }, 2);
+                arguments.Add(argPair[0].ToLowerInvariant(), argPair[1]);
+            }
         }
+
+        return arguments;
     }
 }

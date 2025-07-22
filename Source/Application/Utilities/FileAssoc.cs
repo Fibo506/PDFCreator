@@ -1,252 +1,251 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using NLog;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public interface IFileAssoc
 {
-    public interface IFileAssoc
+    /// <summary>
+    ///     Tests if a file extension has the print verb associated.
+    /// </summary>
+    /// <param name="assoc">
+    ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
+    ///     automatically.
+    ///     There may not be any further dots in the string though.
+    /// </param>
+    /// <returns>true, if the association is registered</returns>
+    bool HasPrint(string assoc);
+
+    /// <summary>
+    ///     Tests if a file extension has the printto verb associated.
+    /// </summary>
+    /// <param name="assoc">
+    ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
+    ///     automatically.
+    ///     There may not be any further dots in the string though.
+    /// </param>
+    /// <returns>true, if the association is registered</returns>
+    bool HasPrintTo(string assoc);
+
+    /// <summary>
+    ///     Tests if a file extension has the open verb associated.
+    /// </summary>
+    /// <param name="assoc">
+    ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
+    ///     automatically.
+    ///     There may not be any further dots in the string though.
+    /// </param>
+    /// <returns>true, if the association is registered</returns>
+    bool HasOpen(string assoc);
+
+    /// <summary>
+    /// Gets the ShellCommand to call a shell verb for a given file extension
+    /// </summary>
+    /// <param name="assoc">
+    ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
+    ///     automatically.
+    ///     There may not be any further dots in the string though.
+    /// </param>
+    /// <param name="verb">The shell verb to query, i.e. print or printto</param>
+    /// <returns></returns>
+    ShellCommand GetShellCommand(string assoc, string verb);
+
+    void RegisterSpecialFileTypes(List<SpecialShellCommand> specialFileTypes);
+}
+
+public class FileAssoc : IFileAssoc
+{
+    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+    private List<SpecialShellCommand> _specialFileTypes;
+
+    /// <inheritdoc />
+    public bool HasPrint(string assoc)
     {
-        /// <summary>
-        ///     Tests if a file extension has the print verb associated.
-        /// </summary>
-        /// <param name="assoc">
-        ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
-        ///     automatically.
-        ///     There may not be any further dots in the string though.
-        /// </param>
-        /// <returns>true, if the association is registered</returns>
-        bool HasPrint(string assoc);
-
-        /// <summary>
-        ///     Tests if a file extension has the printto verb associated.
-        /// </summary>
-        /// <param name="assoc">
-        ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
-        ///     automatically.
-        ///     There may not be any further dots in the string though.
-        /// </param>
-        /// <returns>true, if the association is registered</returns>
-        bool HasPrintTo(string assoc);
-
-        /// <summary>
-        ///     Tests if a file extension has the open verb associated.
-        /// </summary>
-        /// <param name="assoc">
-        ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
-        ///     automatically.
-        ///     There may not be any further dots in the string though.
-        /// </param>
-        /// <returns>true, if the association is registered</returns>
-        bool HasOpen(string assoc);
-
-        /// <summary>
-        /// Gets the ShellCommand to call a shell verb for a given file extension
-        /// </summary>
-        /// <param name="assoc">
-        ///     The file association as string. It should start with a dot (.). If the initial dot is missing, it will be inserted
-        ///     automatically.
-        ///     There may not be any further dots in the string though.
-        /// </param>
-        /// <param name="verb">The shell verb to query, i.e. print or printto</param>
-        /// <returns></returns>
-        ShellCommand GetShellCommand(string assoc, string verb);
-
-        void RegisterSpecialFileTypes(List<SpecialShellCommand> specialFileTypes);
+        return FileAssocHasVerb(assoc, "print");
     }
 
-    public class FileAssoc : IFileAssoc
+    /// <inheritdoc />
+    public bool HasPrintTo(string assoc)
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        return FileAssocHasVerb(assoc, "printto");
+    }
 
-        private List<SpecialShellCommand> _specialFileTypes;
+    /// <inheritdoc />
+    public bool HasOpen(string assoc)
+    {
+        return FileAssocHasVerb(assoc, "open");
+    }
 
-        /// <inheritdoc />
-        public bool HasPrint(string assoc)
+    private bool FileAssocHasVerb(string assoc, string verb)
+    {
+        return GetShellCommand(assoc, verb) != null;
+    }
+
+    /// <inheritdoc />
+    public ShellCommand GetShellCommand(string assoc, string verb)
+    {
+        assoc = MakeValidExtension(assoc);
+
+        var fileType = GetFileTypeKey(assoc, verb);
+        var fileTypeRegKey = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey($"{fileType}\\shell\\{verb}\\command");
+        var command = fileTypeRegKey?.GetValue("") as string;
+
+        if (string.IsNullOrWhiteSpace(command))
         {
-            return FileAssocHasVerb(assoc, "print");
+            if (fileType == null || _specialFileTypes == null || _specialFileTypes.Count == 0)
+                return null;
+
+            var specialCommand = _specialFileTypes.FirstOrDefault(x => x.FileType == fileType && x.ShellVerb == verb);
+            return specialCommand == null ? null : new ShellCommand(specialCommand.CommandLine, specialCommand.Arguments, verb);
         }
 
-        /// <inheritdoc />
-        public bool HasPrintTo(string assoc)
+        var commandArgs = CommandLineToArgs(command);
+        var commandParams = commandArgs.Skip(1).ToArray();
+
+        return new ShellCommand(commandArgs[0], commandParams, verb);
+    }
+
+    public void RegisterSpecialFileTypes(List<SpecialShellCommand> specialFileTypes)
+    {
+        _specialFileTypes = specialFileTypes;
+    }
+
+    private string MakeValidExtension(string assoc)
+    {
+        if (string.IsNullOrEmpty(assoc))
         {
-            return FileAssocHasVerb(assoc, "printto");
+            throw new ArgumentNullException(nameof(assoc));
         }
 
-        /// <inheritdoc />
-        public bool HasOpen(string assoc)
+        if (!assoc.StartsWith("."))
         {
-            return FileAssocHasVerb(assoc, "open");
+            assoc = "." + assoc;
         }
 
-        private bool FileAssocHasVerb(string assoc, string verb)
+        if (assoc.Length < 2)
         {
-            return GetShellCommand(assoc, verb) != null;
+            throw new ArgumentException("The file extension must at least have a dot and one other character");
         }
 
-        /// <inheritdoc />
-        public ShellCommand GetShellCommand(string assoc, string verb)
+        if (assoc.IndexOf(".", 1, StringComparison.Ordinal) > 0)
         {
-            assoc = MakeValidExtension(assoc);
+            throw new ArgumentException(
+                "The file extension must start with a dot (.) and must not contain any dots after the first character");
+        }
 
-            var fileType = GetFileTypeKey(assoc, verb);
-            var fileTypeRegKey = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey($"{fileType}\\shell\\{verb}\\command");
-            var command = fileTypeRegKey?.GetValue("") as string;
+        return assoc;
+    }
 
-            if (string.IsNullOrWhiteSpace(command))
+    private static string GetFileTypeKey(string extension, string verb)
+    {
+        if (verb == "open")
+        {
+            using (var extensionRegKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey($"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\{extension}\\UserChoice"))
             {
-                if (fileType == null || _specialFileTypes == null || _specialFileTypes.Count == 0)
-                    return null;
-
-                var specialCommand = _specialFileTypes.FirstOrDefault(x => x.FileType == fileType && x.ShellVerb == verb);
-                return specialCommand == null ? null : new ShellCommand(specialCommand.CommandLine, specialCommand.Arguments, verb);
-            }
-
-            var commandArgs = CommandLineToArgs(command);
-            var commandParams = commandArgs.Skip(1).ToArray();
-
-            return new ShellCommand(commandArgs[0], commandParams, verb);
-        }
-
-        public void RegisterSpecialFileTypes(List<SpecialShellCommand> specialFileTypes)
-        {
-            _specialFileTypes = specialFileTypes;
-        }
-
-        private string MakeValidExtension(string assoc)
-        {
-            if (string.IsNullOrEmpty(assoc))
-            {
-                throw new ArgumentNullException(nameof(assoc));
-            }
-
-            if (!assoc.StartsWith("."))
-            {
-                assoc = "." + assoc;
-            }
-
-            if (assoc.Length < 2)
-            {
-                throw new ArgumentException("The file extension must at least have a dot and one other character");
-            }
-
-            if (assoc.IndexOf(".", 1, StringComparison.Ordinal) > 0)
-            {
-                throw new ArgumentException(
-                    "The file extension must start with a dot (.) and must not contain any dots after the first character");
-            }
-
-            return assoc;
-        }
-
-        private static string GetFileTypeKey(string extension, string verb)
-        {
-            if (verb == "open")
-            {
-                using (var extensionRegKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey($"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\{extension}\\UserChoice"))
+                var fileTypeKey = extensionRegKey?.GetValue("ProgId") as string;
+                if (!string.IsNullOrEmpty(fileTypeKey))
                 {
-                    var fileTypeKey = extensionRegKey?.GetValue("ProgId") as string;
-                    if (!string.IsNullOrEmpty(fileTypeKey))
-                    {
-                        Logger.Debug($"Found {fileTypeKey} in UserChoice");
-                        return fileTypeKey;
-                    }
+                    Logger.Debug($"Found {fileTypeKey} in UserChoice");
+                    return fileTypeKey;
                 }
             }
-
-            using (var extensionRegKey = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(extension))
-            {
-                var fileTypeKey = extensionRegKey?.GetValue("") as string;
-                Logger.Debug($"Found {fileTypeKey} in ClassesRoot");
-                return fileTypeKey;
-            }
         }
 
-        [DllImport("shell32.dll", SetLastError = true)]
-        private static extern IntPtr CommandLineToArgvW(
-            [MarshalAs(UnmanagedType.LPWStr)] string lpCmdLine, out int pNumArgs);
-
-        private static string[] CommandLineToArgs(string commandLine)
+        using (var extensionRegKey = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(extension))
         {
-            int argc;
-            var argv = CommandLineToArgvW(commandLine, out argc);
-            if (argv == IntPtr.Zero)
-                throw new System.ComponentModel.Win32Exception();
+            var fileTypeKey = extensionRegKey?.GetValue("") as string;
+            Logger.Debug($"Found {fileTypeKey} in ClassesRoot");
+            return fileTypeKey;
+        }
+    }
+
+    [DllImport("shell32.dll", SetLastError = true)]
+    private static extern IntPtr CommandLineToArgvW(
+        [MarshalAs(UnmanagedType.LPWStr)] string lpCmdLine, out int pNumArgs);
+
+    private static string[] CommandLineToArgs(string commandLine)
+    {
+        int argc;
+        var argv = CommandLineToArgvW(commandLine, out argc);
+        if (argv == IntPtr.Zero)
+            throw new System.ComponentModel.Win32Exception();
+        try
+        {
+            var args = new string[argc];
+            for (var i = 0; i < args.Length; i++)
+            {
+                var p = Marshal.ReadIntPtr(argv, i * IntPtr.Size);
+                args[i] = Marshal.PtrToStringUni(p);
+            }
+
+            return args;
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(argv);
+        }
+    }
+}
+
+public class ShellCommand
+{
+    public ShellCommand(string command, string[] arguments, string verb)
+    {
+        Command = command;
+        Arguments = arguments;
+        Verb = verb;
+    }
+
+    public string Command { get; }
+    public string[] Arguments { get; }
+    public string Verb { get; }
+
+    private string ReplaceArgs(string arg, string[] placeholders)
+    {
+        if (arg.StartsWith("%") && arg.Length == 2)
+        {
             try
             {
-                var args = new string[argc];
-                for (var i = 0; i < args.Length; i++)
-                {
-                    var p = Marshal.ReadIntPtr(argv, i * IntPtr.Size);
-                    args[i] = Marshal.PtrToStringUni(p);
-                }
-
-                return args;
+                var paramNumber = int.Parse(arg[1].ToString()) - 1;
+                if (paramNumber >= placeholders.Length)
+                    return "";
+                return "\"" + placeholders[paramNumber] + "\"";
             }
-            finally
+            catch
             {
-                Marshal.FreeHGlobal(argv);
+                return arg;
             }
         }
+        return arg;
     }
 
-    public class ShellCommand
+    public string GetReplacedCommandArgs(params string[] placeholders)
     {
-        public ShellCommand(string command, string[] arguments, string verb)
-        {
-            Command = command;
-            Arguments = arguments;
-            Verb = verb;
-        }
+        var argList = Arguments
+            .Select(arg => ReplaceArgs(arg, placeholders))
+            .Where(arg => !string.IsNullOrWhiteSpace(arg))
+            .ToList();
 
-        public string Command { get; }
-        public string[] Arguments { get; }
-        public string Verb { get; }
-
-        private string ReplaceArgs(string arg, string[] placeholders)
-        {
-            if (arg.StartsWith("%") && arg.Length == 2)
-            {
-                try
-                {
-                    var paramNumber = int.Parse(arg[1].ToString()) - 1;
-                    if (paramNumber >= placeholders.Length)
-                        return "";
-                    return "\"" + placeholders[paramNumber] + "\"";
-                }
-                catch
-                {
-                    return arg;
-                }
-            }
-            return arg;
-        }
-
-        public string GetReplacedCommandArgs(params string[] placeholders)
-        {
-            var argList = Arguments
-                .Select(arg => ReplaceArgs(arg, placeholders))
-                .Where(arg => !string.IsNullOrWhiteSpace(arg))
-                .ToList();
-
-            return string.Join(" ", argList);
-        }
+        return string.Join(" ", argList);
     }
+}
 
-    public class SpecialShellCommand
+public class SpecialShellCommand
+{
+    public SpecialShellCommand(string fileType, string shellVerb, string commandLine, string[] arguments)
     {
-        public SpecialShellCommand(string fileType, string shellVerb, string commandLine, string[] arguments)
-        {
-            FileType = fileType;
-            CommandLine = commandLine;
-            Arguments = arguments;
-            ShellVerb = shellVerb;
-        }
-
-        public string FileType { get; }
-        public string CommandLine { get; }
-        public string[] Arguments { get; }
-        public string ShellVerb { get; }
+        FileType = fileType;
+        CommandLine = commandLine;
+        Arguments = arguments;
+        ShellVerb = shellVerb;
     }
+
+    public string FileType { get; }
+    public string CommandLine { get; }
+    public string[] Arguments { get; }
+    public string ShellVerb { get; }
 }

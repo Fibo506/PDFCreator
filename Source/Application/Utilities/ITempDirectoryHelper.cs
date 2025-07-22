@@ -1,9 +1,8 @@
-﻿namespace pdfforge.PDFCreator.Utilities
-{
-    public interface ITempDirectoryHelper
-    {
-        void CleanUp();
+﻿namespace pdfforge.PDFCreator.Utilities;
 
-        string CreateTestFileDirectory();
-    }
+public interface ITempDirectoryHelper
+{
+    void CleanUp();
+
+    string CreateTestFileDirectory();
 }

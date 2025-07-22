@@ -1,22 +1,21 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagementInterface
+namespace pdfforge.PDFCreator.Core.SettingsManagementInterface;
+
+public class LanguageChangedEventArgs : EventArgs
 {
-    public class LanguageChangedEventArgs : EventArgs
+    private readonly ApplicationSettings _appSettings;
+    private readonly IEnumerable<ConversionProfile> _profiles;
+
+    public LanguageChangedEventArgs(ApplicationSettings appSettings, IEnumerable<ConversionProfile> profiles)
     {
-        private readonly ApplicationSettings _appSettings;
-        private readonly IEnumerable<ConversionProfile> _profiles;
-
-        public LanguageChangedEventArgs(ApplicationSettings appSettings, IEnumerable<ConversionProfile> profiles)
-        {
-            _appSettings = appSettings;
-            _profiles = profiles;
-        }
-
-        public ApplicationSettings AppSettings => _appSettings;
-
-        public IEnumerable<ConversionProfile> Profiles => _profiles;
+        _appSettings = appSettings;
+        _profiles = profiles;
     }
+
+    public ApplicationSettings AppSettings => _appSettings;
+
+    public IEnumerable<ConversionProfile> Profiles => _profiles;
 }

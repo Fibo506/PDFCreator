@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Utilities.UserGuide
+﻿namespace pdfforge.PDFCreator.Utilities.UserGuide;
+
+public class HelpTopicAttribute : StringValueAttribute
 {
-    public class HelpTopicAttribute : StringValueAttribute
+    public HelpTopicAttribute(string value)
+        : base(value)
     {
-        public HelpTopicAttribute(string value)
-            : base(value)
-        {
-        }
     }
 }

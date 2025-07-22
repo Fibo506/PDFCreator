@@ -1,21 +1,20 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings;
+
+public partial class CreatorSettingsButtonsView : UserControl
 {
-    public partial class CreatorSettingsButtonsView : UserControl
+    public CreatorSettingsButtonsView(CreatorSettingsButtonsViewModel vm)
     {
-        public CreatorSettingsButtonsView(CreatorSettingsButtonsViewModel vm)
-        {
-            DataContext = vm;
-            InitializeComponent();
-            TransposerHelper.Register(this, vm);
-        }
+        DataContext = vm;
+        InitializeComponent();
+        TransposerHelper.Register(this, vm);
+    }
 
-        private void CreatorSettingsButtons_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            GeneralSettingsButton.Command?.Execute(GeneralSettingsButton.CommandParameter);
-        }
+    private void CreatorSettingsButtons_OnLoaded(object sender, RoutedEventArgs e)
+    {
+        GeneralSettingsButton.Command?.Execute(GeneralSettingsButton.CommandParameter);
     }
 }

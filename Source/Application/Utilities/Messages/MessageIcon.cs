@@ -1,14 +1,13 @@
-namespace pdfforge.PDFCreator.Utilities.Messages
+namespace pdfforge.PDFCreator.Utilities.Messages;
+
+public enum MessageIcon
 {
-    public enum MessageIcon
-    {
-        PDFCreator,
-        PDFForge,
-        Warning,
-        Error,
-        Exclamation,
-        Question,
-        Info,
-        None
-    }
+    PDFCreator,
+    PDFForge,
+    Warning,
+    Error,
+    Exclamation,
+    Question,
+    Info,
+    None
 }

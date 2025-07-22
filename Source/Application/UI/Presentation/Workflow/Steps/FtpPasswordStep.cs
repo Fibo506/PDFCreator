@@ -1,30 +1,28 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
-using System.Linq;
+﻿using System.Linq;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow.Steps
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow.Steps;
+
+public class FtpPasswordStep : WorkflowStepBase
 {
-    public class FtpPasswordStep : WorkflowStepBase
+    public override string NavigationUri => nameof(FtpPasswordStepView);
+
+    public override bool IsStepRequired(Job job)
     {
-        public override string NavigationUri => nameof(FtpPasswordStepView);
+        if (!job.Profile.Ftp.Enabled)
+            return false;
 
-        public override bool IsStepRequired(Job job)
+        var ftpAccount = job.Accounts?.FtpAccounts?.FirstOrDefault(x => x.AccountId == job.Profile.Ftp.AccountId);
+
+        if (ftpAccount?.AuthenticationType == AuthenticationType.KeyFileAuthentication)
         {
-            if (!job.Profile.Ftp.Enabled)
-                return false;
-
-            var ftpAccount = job.Accounts?.FtpAccounts?.FirstOrDefault(x => x.AccountId == job.Profile.Ftp.AccountId);
-
-            if (ftpAccount?.AuthenticationType == AuthenticationType.KeyFileAuthentication)
-            {
-                return string.IsNullOrEmpty(job.Passwords.FtpPassword)
-                       && !string.IsNullOrWhiteSpace(ftpAccount.PrivateKeyFile)
-                       && ftpAccount.KeyFileRequiresPass;
-            }
-
-            return string.IsNullOrEmpty(job.Passwords.FtpPassword);
+            return string.IsNullOrEmpty(job.Passwords.FtpPassword)
+                   && !string.IsNullOrWhiteSpace(ftpAccount.PrivateKeyFile)
+                   && ftpAccount.KeyFileRequiresPass;
         }
+
+        return string.IsNullOrEmpty(job.Passwords.FtpPassword);
     }
 }

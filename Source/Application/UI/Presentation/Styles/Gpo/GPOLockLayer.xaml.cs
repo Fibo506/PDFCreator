@@ -2,45 +2,44 @@
 using System.Windows.Controls;
 using pdfforge.PDFCreator.Core.ServiceLocator;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Styles.Gpo
+namespace pdfforge.PDFCreator.UI.Presentation.Styles.Gpo;
+
+/// <summary>
+/// Interaction logic for GPOLockLayer.xaml
+/// </summary>
+public partial class GPOLockLayer : UserControl
 {
-    /// <summary>
-    /// Interaction logic for GPOLockLayer.xaml
-    /// </summary>
-    public partial class GPOLockLayer : UserControl
+    public static readonly DependencyProperty IsLockedByGpoDependencyProperty = DependencyProperty.Register(
+        "IsLockedByGpo",
+        typeof(bool),
+        typeof(GPOLockLayer), new PropertyMetadata(false, PropertyChangedCallback));
+
+    private static void PropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
     {
-        public static readonly DependencyProperty IsLockedByGpoDependencyProperty = DependencyProperty.Register(
-            "IsLockedByGpo",
-            typeof(bool),
-            typeof(GPOLockLayer), new PropertyMetadata(false, PropertyChangedCallback));
+    }
 
-        private static void PropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+    public bool IsLockedByGpo
+    {
+        get
         {
+            var value = GetValue(IsLockedByGpoDependencyProperty);
+            return value != null && (bool)value;
+        }
+        set
+        {
+            SetValue(IsLockedByGpoDependencyProperty, value);
+        }
+    }
+
+    public GpoLockLayerViewModel ViewModel { get; }
+
+    public GPOLockLayer()
+    {
+        if (RestrictedServiceLocator.IsLocationProviderSet)
+        {
+            ViewModel = RestrictedServiceLocator.Current.GetInstance<GpoLockLayerViewModel>();
         }
 
-        public bool IsLockedByGpo
-        {
-            get
-            {
-                var value = GetValue(IsLockedByGpoDependencyProperty);
-                return value != null && (bool)value;
-            }
-            set
-            {
-                SetValue(IsLockedByGpoDependencyProperty, value);
-            }
-        }
-
-        public GpoLockLayerViewModel ViewModel { get; }
-
-        public GPOLockLayer()
-        {
-            if (RestrictedServiceLocator.IsLocationProviderSet)
-            {
-                ViewModel = RestrictedServiceLocator.Current.GetInstance<GpoLockLayerViewModel>();
-            }
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

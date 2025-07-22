@@ -10,64 +10,63 @@ using pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Assistants
+namespace pdfforge.PDFCreator.UI.Presentation.Assistants;
+
+public class CreatorIniSettingsAssistant : IniSettingsAssistantBase
 {
-    public class CreatorIniSettingsAssistant : IniSettingsAssistantBase
+    private readonly IIniSettingsLoader _iniSettingsLoader;
+    private readonly IActionOrderHelper _actionOrderHelper;
+    private readonly ISettingsManager _settingsManager;
+    private readonly ISettingsProvider _settingsProvider;
+
+    public CreatorIniSettingsAssistant
+        (
+        IInteractionInvoker interactionInvoker,
+        IInteractionRequest interactionRequest,
+        ITranslationUpdater translationUpdater,
+        ISettingsManager settingsManager,
+        IDataStorageFactory dataStorageFactory,
+        IIniSettingsLoader iniSettingsLoader,
+        IPrinterProvider printerProvider,
+        IUacAssistant uacAssistant,
+        IActionOrderHelper actionOrderHelper)
+        : base(printerProvider, uacAssistant, interactionInvoker, interactionRequest, dataStorageFactory, translationUpdater)
     {
-        private readonly IIniSettingsLoader _iniSettingsLoader;
-        private readonly IActionOrderHelper _actionOrderHelper;
-        private readonly ISettingsManager _settingsManager;
-        private readonly ISettingsProvider _settingsProvider;
+        _settingsManager = settingsManager;
+        _settingsProvider = settingsManager.GetSettingsProvider();
+        _iniSettingsLoader = iniSettingsLoader;
+        _actionOrderHelper = actionOrderHelper;
+    }
 
-        public CreatorIniSettingsAssistant
-            (
-            IInteractionInvoker interactionInvoker,
-            IInteractionRequest interactionRequest,
-            ITranslationUpdater translationUpdater,
-            ISettingsManager settingsManager,
-            IDataStorageFactory dataStorageFactory,
-            IIniSettingsLoader iniSettingsLoader,
-            IPrinterProvider printerProvider,
-            IUacAssistant uacAssistant,
-            IActionOrderHelper actionOrderHelper)
-            : base(printerProvider, uacAssistant, interactionInvoker, interactionRequest, dataStorageFactory, translationUpdater)
+    protected override string ProductName => "PDFCreator";
+
+    protected override async Task<bool> DoLoadIniSettings(string fileName)
+    {
+        if (_iniSettingsLoader.LoadIniSettings(fileName) is PdfCreatorSettings settings)
         {
-            _settingsManager = settingsManager;
-            _settingsProvider = settingsManager.GetSettingsProvider();
-            _iniSettingsLoader = iniSettingsLoader;
-            _actionOrderHelper = actionOrderHelper;
-        }
-
-        protected override string ProductName => "PDFCreator";
-
-        protected override async Task<bool> DoLoadIniSettings(string fileName)
-        {
-            if (_iniSettingsLoader.LoadIniSettings(fileName) is PdfCreatorSettings settings)
+            if (!_settingsProvider.CheckValidSettings(settings))
             {
-                if (!_settingsProvider.CheckValidSettings(settings))
-                {
-                    await DisplayInvalidSettingsWarning();
-                    return false;
-                }
-
-                await SyncPrinterMappingWithInstalledPrintersQuery(settings.ApplicationSettings.PrinterMappings);
-
-                _actionOrderHelper.CleanUpAndEnsureValidOrder(settings.ConversionProfiles);
-
-                foreach (var profile in settings.ConversionProfiles)
-                {
-                    profile.Properties.IsShared = false;
-                }
-
-                _settingsManager.ApplyAndSaveSettings(settings);
+                await DisplayInvalidSettingsWarning();
+                return false;
             }
 
-            return true;
+            await SyncPrinterMappingWithInstalledPrintersQuery(settings.ApplicationSettings.PrinterMappings);
+
+            _actionOrderHelper.CleanUpAndEnsureValidOrder(settings.ConversionProfiles);
+
+            foreach (var profile in settings.ConversionProfiles)
+            {
+                profile.Properties.IsShared = false;
+            }
+
+            _settingsManager.ApplyAndSaveSettings(settings);
         }
 
-        protected override ISettings GetSettingsCopy()
-        {
-            return _settingsProvider.Settings.Copy();
-        }
+        return true;
+    }
+
+    protected override ISettings GetSettingsCopy()
+    {
+        return _settingsProvider.Settings.Copy();
     }
 }

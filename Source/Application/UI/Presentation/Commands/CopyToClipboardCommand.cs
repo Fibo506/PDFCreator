@@ -1,36 +1,35 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System;
+﻿using System;
 using System.Windows.Input;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands
+namespace pdfforge.PDFCreator.UI.Presentation.Commands;
+
+public class CopyToClipboardCommand : ICommand
 {
-    public class CopyToClipboardCommand : ICommand
+    private readonly IClipboardService _clipboardService;
+
+    public CopyToClipboardCommand(IClipboardService clipboardService)
     {
-        private readonly IClipboardService _clipboardService;
+        _clipboardService = clipboardService;
+    }
 
-        public CopyToClipboardCommand(IClipboardService clipboardService)
-        {
-            _clipboardService = clipboardService;
-        }
+    public bool CanExecute(object parameter)
+    {
+        return true;
+    }
 
-        public bool CanExecute(object parameter)
+    public void Execute(object parameter)
+    {
+        try
         {
-            return true;
+            _clipboardService.SetDataObject(parameter);
         }
-
-        public void Execute(object parameter)
-        {
-            try
-            {
-                _clipboardService.SetDataObject(parameter);
-            }
-            catch { }
-        }
+        catch { }
+    }
 
 #pragma warning disable CS0067
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore CS0067
-    }
 }

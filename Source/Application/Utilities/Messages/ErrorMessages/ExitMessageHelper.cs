@@ -2,36 +2,35 @@
 using System.Collections.Generic;
 using NLog;
 
-namespace pdfforge.PDFCreator.Utilities.Messages.ErrorMessages
+namespace pdfforge.PDFCreator.Utilities.Messages.ErrorMessages;
+
+public interface IExitMessageHelper
 {
-    public interface IExitMessageHelper
+    void ShowMessage(int errorCode);
+}
+
+public class ExitMessageHelper : IExitMessageHelper
+{
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    private readonly Dictionary<int, IExitMessageHandler> _errorMessageHandler = new();
+    public ExitMessageHelper(IEnumerable<IExitMessageHandler> messageHandlers)
     {
-        void ShowMessage(int errorCode);
+        if (messageHandlers == null)
+            throw new ArgumentNullException(nameof(messageHandlers));
+
+        foreach (var errorMessageHandler in messageHandlers)
+            _errorMessageHandler.Add(errorMessageHandler.GetExitCode(), errorMessageHandler);
     }
 
-    public class ExitMessageHelper : IExitMessageHelper
+    public void ShowMessage(int errorCode)
     {
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly Dictionary<int, IExitMessageHandler> _errorMessageHandler = new();
-        public ExitMessageHelper(IEnumerable<IExitMessageHandler> messageHandlers)
+        if (_errorMessageHandler.TryGetValue(errorCode, out var value))
         {
-            if(messageHandlers == null)
-                throw new ArgumentNullException(nameof(messageHandlers));
-
-            foreach (var errorMessageHandler in messageHandlers)
-                _errorMessageHandler.Add(errorMessageHandler.GetExitCode(), errorMessageHandler);
+            value.HandleExitMessage();
         }
-
-        public void ShowMessage(int errorCode)
+        else
         {
-            if (_errorMessageHandler.TryGetValue(errorCode, out var value))
-            {
-                value.HandleExitMessage();
-            }
-            else
-            {
-                _logger.Error($@"Error: {errorCode}");
-            }
+            _logger.Error($@"Error: {errorCode}");
         }
     }
 }

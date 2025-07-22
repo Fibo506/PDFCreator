@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.UI.RssFeed
+﻿namespace pdfforge.PDFCreator.UI.RssFeed;
+
+public interface IRssHttpClientFactory
 {
-    public interface IRssHttpClientFactory
-    {
-        IRssHttpClient CreateHttpClient();
-    }
+    IRssHttpClient CreateHttpClient();
 }

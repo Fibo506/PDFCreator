@@ -1,20 +1,19 @@
-﻿using GongSolutions.Wpf.DragDrop;
-using System;
+﻿using System;
+using GongSolutions.Wpf.DragDrop;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor;
+
+public class WorkflowEditorActionDragSourceHandler : DefaultDragHandler
 {
-    public class WorkflowEditorActionDragSourceHandler : DefaultDragHandler
+    private readonly Predicate<object> _typeFilter;
+
+    public WorkflowEditorActionDragSourceHandler(Predicate<object> typeFilter)
     {
-        private readonly Predicate<object> _typeFilter;
+        _typeFilter = typeFilter;
+    }
 
-        public WorkflowEditorActionDragSourceHandler(Predicate<object> typeFilter)
-        {
-            _typeFilter = typeFilter;
-        }
-
-        public override bool CanStartDrag(IDragInfo dragInfo)
-        {
-            return _typeFilter.Invoke(dragInfo.SourceItem);
-        }
+    public override bool CanStartDrag(IDragInfo dragInfo)
+    {
+        return _typeFilter.Invoke(dragInfo.SourceItem);
     }
 }

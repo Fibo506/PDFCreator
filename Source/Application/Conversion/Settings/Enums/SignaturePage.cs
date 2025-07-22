@@ -1,17 +1,16 @@
 ﻿using Translatable;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+[Translatable]
+public enum SignaturePage
 {
-    [Translatable]
-    public enum SignaturePage
-    {
-        [Translation("First page")]
-        FirstPage,
+    [Translation("First page")]
+    FirstPage,
 
-        [Translation("Last page")]
-        LastPage,
+    [Translation("Last page")]
+    LastPage,
 
-        [Translation("Custom page")]
-        CustomPage
-    }
+    [Translation("Custom page")]
+    CustomPage
 }

@@ -1,33 +1,32 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.Tokens
-{
-    public interface ITokenViewModelFactory
-    {
-        TokenViewModelBuilder<ConversionProfile> BuilderWithSelectedProfile();
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
 
-        TokenViewModelBuilder<T> Builder<T>();
+public interface ITokenViewModelFactory
+{
+    TokenViewModelBuilder<ConversionProfile> BuilderWithSelectedProfile();
+
+    TokenViewModelBuilder<T> Builder<T>();
+}
+
+public class TokenViewModelFactory : ITokenViewModelFactory
+{
+    private readonly ISelectedProfileProvider _selectedProfileProvider;
+    private readonly ITokenHelper _tokenHelper;
+
+    public TokenViewModelFactory(ISelectedProfileProvider selectedProfileProvider, ITokenHelper tokenHelper)
+    {
+        _selectedProfileProvider = selectedProfileProvider;
+        _tokenHelper = tokenHelper;
     }
 
-    public class TokenViewModelFactory : ITokenViewModelFactory
+    public TokenViewModelBuilder<ConversionProfile> BuilderWithSelectedProfile()
     {
-        private readonly ISelectedProfileProvider _selectedProfileProvider;
-        private readonly ITokenHelper _tokenHelper;
+        return new SelectedProfileTokenViewModelBuilder(_selectedProfileProvider, _tokenHelper);
+    }
 
-        public TokenViewModelFactory(ISelectedProfileProvider selectedProfileProvider, ITokenHelper tokenHelper)
-        {
-            _selectedProfileProvider = selectedProfileProvider;
-            _tokenHelper = tokenHelper;
-        }
-
-        public TokenViewModelBuilder<ConversionProfile> BuilderWithSelectedProfile()
-        {
-            return new SelectedProfileTokenViewModelBuilder(_selectedProfileProvider, _tokenHelper);
-        }
-
-        public TokenViewModelBuilder<T> Builder<T>()
-        {
-            return new TokenViewModelBuilder<T>(_tokenHelper);
-        }
+    public TokenViewModelBuilder<T> Builder<T>()
+    {
+        return new TokenViewModelBuilder<T>(_tokenHelper);
     }
 }

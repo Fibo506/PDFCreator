@@ -1,40 +1,38 @@
 ﻿using pdfforge.PDFCreator.Utilities.Process;
-using SystemWrapper.Diagnostics;
 
-namespace pdfforge.PDFCreator.Utilities.Web
+namespace pdfforge.PDFCreator.Utilities.Web;
+
+public interface IWebLinkLauncher
 {
-    public interface IWebLinkLauncher
+    /// <summary>
+    /// Launch an URL in the main web browser
+    /// </summary>
+    /// <param name="url">The URL that will be opened</param>
+    void Launch(string url);
+}
+
+public class WebLinkLauncher : IWebLinkLauncher
+{
+    private readonly IProcessStarter _processStarter;
+    private readonly TrackingParameters _trackingParameters;
+
+    public WebLinkLauncher(TrackingParameters trackingParameters, IProcessStarter processStarter)
     {
-        /// <summary>
-        /// Launch an URL in the main web browser
-        /// </summary>
-        /// <param name="url">The URL that will be opened</param>
-        void Launch(string url);
+        _processStarter = processStarter;
+        _trackingParameters = trackingParameters;
     }
 
-    public class WebLinkLauncher : IWebLinkLauncher
+    public void Launch(string url)
     {
-        private readonly IProcessStarter _processStarter;
-        private readonly TrackingParameters _trackingParameters;
-
-        public WebLinkLauncher(TrackingParameters trackingParameters, IProcessStarter processStarter)
+        try
         {
-            _processStarter = processStarter;
-            _trackingParameters = trackingParameters;
+            var urlWithParams = _trackingParameters.CleanUpParamsAndAppendToUrl(url);
+
+            _processStarter.Start(urlWithParams, true);
         }
-
-        public void Launch(string url)
+        catch
         {
-            try
-            {
-                var urlWithParams = _trackingParameters.CleanUpParamsAndAppendToUrl(url);
-
-                _processStarter.Start(urlWithParams, true);
-            }
-            catch
-            {
-                // ignore exceptions
-            }
+            // ignore exceptions
         }
     }
 }

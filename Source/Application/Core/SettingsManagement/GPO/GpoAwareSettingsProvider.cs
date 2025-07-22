@@ -1,30 +1,29 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement.GPO
+namespace pdfforge.PDFCreator.Core.SettingsManagement.GPO;
+
+public class GpoAwareSettingsProvider : SettingsProvider
 {
-    public class GpoAwareSettingsProvider : SettingsProvider
+    private readonly IGpoSettings _gpoSettings;
+
+    public GpoAwareSettingsProvider(IGpoSettings gpoSettings)
     {
-        private readonly IGpoSettings _gpoSettings;
+        _gpoSettings = gpoSettings;
+    }
 
-        public GpoAwareSettingsProvider(IGpoSettings gpoSettings)
+    public override string GetApplicationLanguage()
+    {
+        if (!string.IsNullOrWhiteSpace(_gpoSettings.Language))
         {
-            _gpoSettings = gpoSettings;
+            return _gpoSettings.Language;
         }
 
-        public override string GetApplicationLanguage()
-        {
-            if (!string.IsNullOrWhiteSpace(_gpoSettings.Language))
-            {
-                return _gpoSettings.Language;
-            }
+        return CurrentLanguage;
+    }
 
-            return CurrentLanguage;
-        }
-
-        protected override void SetDontRecommendArchitect(PdfCreatorSettings settings)
-        {
-            settings.CreatorAppSettings.DontRecommendArchitect = true;
-        }
+    protected override void SetDontRecommendArchitect(PdfCreatorSettings settings)
+    {
+        settings.CreatorAppSettings.DontRecommendArchitect = true;
     }
 }

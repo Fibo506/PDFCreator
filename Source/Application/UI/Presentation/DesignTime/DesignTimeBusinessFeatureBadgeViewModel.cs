@@ -1,12 +1,11 @@
 ﻿using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+internal class DesignTimeBusinessFeatureBadgeViewModel : BusinessFeatureBadgeViewModel
 {
-    internal class DesignTimeBusinessFeatureBadgeViewModel : BusinessFeatureBadgeViewModel
+    public DesignTimeBusinessFeatureBadgeViewModel() : base(new DesignTimeEditionHelper(), new DesignTimeCommandLocator(), new DesignTimeTranslationUpdater())
     {
-        public DesignTimeBusinessFeatureBadgeViewModel() : base(new DesignTimeEditionHelper(), new DesignTimeCommandLocator(), new DesignTimeTranslationUpdater())
-        {
-        }
     }
 }

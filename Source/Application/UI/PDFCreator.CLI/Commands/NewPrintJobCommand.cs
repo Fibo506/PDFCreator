@@ -1,9 +1,8 @@
 ﻿using CommandLineParser;
 
-namespace pdfforge.PDFCreator.UI.CLI.Commands
+namespace pdfforge.PDFCreator.UI.CLI.Commands;
+
+internal class NewPrintJobCommand : ICommand
 {
-    internal class NewPrintJobCommand : ICommand
-    {
-        public string InfFilePath { get; set; }
-    }
+    public string InfFilePath { get; set; }
 }

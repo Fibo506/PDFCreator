@@ -1,47 +1,46 @@
 ﻿using System.Threading.Tasks;
 using pdfforge.PDFCreator.Utilities.Update;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeUpdateHelper : IUpdateHelper
 {
-    public class DesignTimeUpdateHelper : IUpdateHelper
+    public bool UpdatesEnabled => true;
+
+    public void SkipVersion()
     {
-        public bool UpdatesEnabled => true;
+    }
 
-        public void SkipVersion()
-        {
-        }
+    public void SetNewUpdateTime()
+    {
+    }
 
-        public void SetNewUpdateTime()
-        {
-        }
+    public Task<bool> IsUpdateAvailableAsync(bool checkNecessity)
+    {
+        return Task.FromResult(true);
+    }
 
-        public Task<bool> IsUpdateAvailableAsync(bool checkNecessity)
-        {
-            return Task.FromResult(true);
-        }
+    public Task<bool> IsUpdateAvailableAsync()
+    {
+        return Task.FromResult(true);
+    }
 
-        public Task<bool> IsUpdateAvailableAsync()
-        {
-            return Task.FromResult(true);
-        }
+    public Task UpdateCheckAsync(bool checkNecessity)
+    {
+        return Task.FromResult(false);
+    }
 
-        public Task UpdateCheckAsync(bool checkNecessity)
-        {
-            return Task.FromResult(false);
-        }
+    public bool UpdateShouldBeShown()
+    {
+        return false;
+    }
 
-        public bool UpdateShouldBeShown()
-        {
-            return false;
-        }
+    public void ShowLater()
+    {
+    }
 
-        public void ShowLater()
-        {
-        }
-
-        public bool IsTimeForNextUpdate()
-        {
-            return true;
-        }
+    public bool IsTimeForNextUpdate()
+    {
+        return true;
     }
 }

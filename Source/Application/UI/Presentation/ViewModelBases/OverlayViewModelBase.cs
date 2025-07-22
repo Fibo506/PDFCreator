@@ -2,33 +2,32 @@
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.ViewModelBases
+namespace pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
+
+public abstract class OverlayViewModelBase<TInteraction, TTranslatable>
+    : InteractionAwareViewModelBase<TInteraction>, ITranslatableViewModel<TTranslatable>
+    where TTranslatable : ITranslatable, new()
+    where TInteraction : class, IInteraction
 {
-    public abstract class OverlayViewModelBase<TInteraction, TTranslatable>
-        : InteractionAwareViewModelBase<TInteraction>, ITranslatableViewModel<TTranslatable>
-        where TTranslatable : ITranslatable, new()
-        where TInteraction : class, IInteraction
+    private TTranslatable _translation;
+
+    public TTranslatable Translation
     {
-        private TTranslatable _translation;
-
-        public TTranslatable Translation
+        get { return _translation; }
+        set
         {
-            get { return _translation; }
-            set
-            {
-                _translation = value;
-                RaisePropertyChanged(nameof(Translation));
-                OnTranslationChanged();
-            }
+            _translation = value;
+            RaisePropertyChanged(nameof(Translation));
+            OnTranslationChanged();
         }
+    }
 
-        protected OverlayViewModelBase(ITranslationUpdater translationUpdater)
-        {
-            translationUpdater.RegisterAndSetTranslation(this);
-        }
+    protected OverlayViewModelBase(ITranslationUpdater translationUpdater)
+    {
+        translationUpdater.RegisterAndSetTranslation(this);
+    }
 
-        protected virtual void OnTranslationChanged()
-        {
-        }
+    protected virtual void OnTranslationChanged()
+    {
     }
 }

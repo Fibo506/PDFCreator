@@ -1,130 +1,129 @@
-using pdfforge.LicenseValidator.Interface;
-using pdfforge.PDFCreator.Core.Services.Logging;
-using pdfforge.PDFCreator.ErrorReport;
-using pdfforge.PDFCreator.Utilities;
-using Sentry;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using pdfforge.LicenseValidator.Interface;
+using pdfforge.PDFCreator.Core.Services.Logging;
+using pdfforge.PDFCreator.ErrorReport;
+using pdfforge.PDFCreator.Utilities;
+using Sentry;
 
-namespace pdfforge.PDFCreator.Core.Services
+namespace pdfforge.PDFCreator.Core.Services;
+
+public interface IErrorReportHelper
 {
-    public interface IErrorReportHelper
+    void ShowErrorReport(Exception ex);
+    void ShowErrorReportInNewProcess(Exception ex);
+    ErrorHelper ErrorHelper { get; set; }
+    void SetLicenseChecker(ILicenseChecker licenseChecker);
+}
+
+public class ErrorReportHelper : IErrorReportHelper
+{
+    private readonly InMemoryLogger _inMemoryLogger;
+    private readonly IAssemblyHelper _assemblyHelper;
+    private static ILicenseChecker _licenseChecker;
+    private static IErrorReportHelper _instance;
+    public ErrorHelper ErrorHelper { get; set; }
+
+    private ErrorReportHelper(InMemoryLogger inMemoryLogger, IAssemblyHelper assemblyHelper, ErrorHelper errorHelper)
     {
-        void ShowErrorReport(Exception ex);
-        void ShowErrorReportInNewProcess(Exception ex);
-        ErrorHelper ErrorHelper { get; set; }
-        void SetLicenseChecker(ILicenseChecker licenseChecker);
+        _inMemoryLogger = inMemoryLogger;
+        _assemblyHelper = assemblyHelper;
+        ErrorHelper = errorHelper;
     }
 
-    public class ErrorReportHelper : IErrorReportHelper
+    public static IErrorReportHelper GetInstance(InMemoryLogger inMemoryLogger, IAssemblyHelper assemblyHelper, ErrorHelper errorHelper)
     {
-        private readonly InMemoryLogger _inMemoryLogger;
-        private readonly IAssemblyHelper _assemblyHelper;
-        private static ILicenseChecker _licenseChecker;
-        private static IErrorReportHelper _instance;
-        public ErrorHelper ErrorHelper { get; set; }
+        return _instance ??= new ErrorReportHelper(inMemoryLogger, assemblyHelper, errorHelper);
+    }
 
-        private ErrorReportHelper(InMemoryLogger inMemoryLogger, IAssemblyHelper assemblyHelper, ErrorHelper errorHelper)
-        {
-            _inMemoryLogger = inMemoryLogger;
-            _assemblyHelper = assemblyHelper;
-            ErrorHelper = errorHelper;
-        }
+    public static IErrorReportHelper GetInstance()
+    {
+        return _instance;
+    }
 
-        public static IErrorReportHelper GetInstance(InMemoryLogger inMemoryLogger, IAssemblyHelper assemblyHelper, ErrorHelper errorHelper)
-        {
-            return _instance ??= new ErrorReportHelper(inMemoryLogger, assemblyHelper, errorHelper);
-        }
+    public void SetLicenseChecker(ILicenseChecker licenseChecker)
+    {
+        _licenseChecker = licenseChecker;
+    }
 
-        public static IErrorReportHelper GetInstance()
-        {
-            return _instance;
-        }
+    private Dictionary<string, string> BuildAdditionalEntries()
+    {
+        var additionalEntries = new Dictionary<string, string>();
 
-        public void SetLicenseChecker(ILicenseChecker licenseChecker)
-        {
-            _licenseChecker = licenseChecker;
-        }
+        if (!string.IsNullOrWhiteSpace(Thread.CurrentThread.Name))
+            additionalEntries[SentryTagNames.ThreadName] = Thread.CurrentThread.Name;
 
-        private Dictionary<string, string> BuildAdditionalEntries()
-        {
-            var additionalEntries = new Dictionary<string, string>();
-
-            if (!string.IsNullOrWhiteSpace(Thread.CurrentThread.Name))
-                additionalEntries[SentryTagNames.ThreadName] = Thread.CurrentThread.Name;
-
-            if (_licenseChecker == null)
-                return additionalEntries;
-
-            var activation = _licenseChecker.GetSavedActivation();
-            activation
-                .MatchSome(a =>
-            {
-                additionalEntries[SentryTagNames.LicenseKey] = a.Key;
-                additionalEntries[SentryTagNames.MachineId] = a.MachineId;
-            });
-
+        if (_licenseChecker == null)
             return additionalEntries;
+
+        var activation = _licenseChecker.GetSavedActivation();
+        activation
+            .MatchSome(a =>
+        {
+            additionalEntries[SentryTagNames.LicenseKey] = a.Key;
+            additionalEntries[SentryTagNames.MachineId] = a.MachineId;
+        });
+
+        return additionalEntries;
+    }
+
+    private SentryEvent CreateReport(ErrorHelper errorHelper, Exception ex)
+    {
+        var report = errorHelper.BuildReport(ex, BuildAdditionalEntries());
+
+        foreach (var logEntry in _inMemoryLogger.LogEntries)
+        {
+            report.AddBreadcrumb(logEntry);
         }
 
-        private SentryEvent CreateReport(ErrorHelper errorHelper, Exception ex)
+        return report;
+    }
+
+    private bool IsIgnoredException(Exception ex)
+    {
+        if (ex is TaskCanceledException && ex.StackTrace.Contains("MS.Internal.WeakEventTable.OnShutDown()"))
+            return true;
+
+        return false;
+    }
+
+    public void ShowErrorReport(Exception ex)
+    {
+        if (IsIgnoredException(ex))
+            return;
+
+        var report = CreateReport(ErrorHelper, ex);
+
+        var assistant = new ErrorAssistant();
+        assistant.ShowErrorWindow(report, ErrorHelper);
+    }
+
+    public void ShowErrorReportInNewProcess(Exception ex)
+    {
+        if (IsIgnoredException(ex))
+            return;
+
+        var report = CreateReport(ErrorHelper, ex);
+
+        var errorReporterPath = _assemblyHelper.GetAssemblyDirectory();
+        errorReporterPath = Path.Combine(errorReporterPath, "ErrorReport.exe");
+
+        if (!File.Exists(errorReporterPath))
+            return;
+
+        try
         {
-            var report = errorHelper.BuildReport(ex, BuildAdditionalEntries());
-
-            foreach (var logEntry in _inMemoryLogger.LogEntries)
-            {
-                report.AddBreadcrumb(logEntry);
-            }
-
-            return report;
+            var errorFile = Path.GetTempPath() + Guid.NewGuid() + ".err";
+            ErrorHelper.SaveReport(report, errorFile);
+            var arguments = "\"" + errorFile + "\"" + " " + "\"" + ErrorHelper.SentryDsnUrl + "\"";
+            Process.Start(new ProcessStartInfo { FileName = errorReporterPath, Arguments = arguments, UseShellExecute = true });
         }
-
-        private bool IsIgnoredException(Exception ex)
+        catch
         {
-            if (ex is TaskCanceledException && ex.StackTrace.Contains("MS.Internal.WeakEventTable.OnShutDown()"))
-                return true;
-
-            return false;
-        }
-
-        public void ShowErrorReport(Exception ex)
-        {
-            if (IsIgnoredException(ex))
-                return;
-
-            var report = CreateReport(ErrorHelper, ex);
-
-            var assistant = new ErrorAssistant();
-            assistant.ShowErrorWindow(report, ErrorHelper);
-        }
-
-        public void ShowErrorReportInNewProcess(Exception ex)
-        {
-            if (IsIgnoredException(ex))
-                return;
-
-            var report = CreateReport(ErrorHelper, ex);
-
-            var errorReporterPath = _assemblyHelper.GetAssemblyDirectory();
-            errorReporterPath = Path.Combine(errorReporterPath, "ErrorReport.exe");
-
-            if (!File.Exists(errorReporterPath))
-                return;
-
-            try
-            {
-                var errorFile = Path.GetTempPath() + Guid.NewGuid() + ".err";
-                ErrorHelper.SaveReport(report, errorFile);
-                var arguments = "\"" + errorFile + "\"" + " " + "\"" + ErrorHelper.SentryDsnUrl + "\"";
-                Process.Start(errorReporterPath, arguments);
-            }
-            catch
-            {
-            }
         }
     }
 }

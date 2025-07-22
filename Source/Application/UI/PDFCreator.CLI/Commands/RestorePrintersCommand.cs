@@ -1,8 +1,7 @@
 ﻿using CommandLineParser;
 
-namespace pdfforge.PDFCreator.UI.CLI.Commands
+namespace pdfforge.PDFCreator.UI.CLI.Commands;
+
+public class RestorePrintersCommand : ICommand
 {
-    public class RestorePrintersCommand : ICommand
-    {
-    }
 }

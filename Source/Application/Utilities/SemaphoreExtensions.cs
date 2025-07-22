@@ -2,50 +2,49 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public static class SemaphoreExtensions
 {
-    public static class SemaphoreExtensions
+    public static async Task RunSynchronized(this SemaphoreSlim semaphore, Func<Task> func)
     {
-        public static async Task RunSynchronized(this SemaphoreSlim semaphore, Func<Task> func)
-        {
-            await semaphore.WaitAsync();
+        await semaphore.WaitAsync();
 
-            try
-            {
-                await func();
-            }
-            finally
-            {
-                semaphore.Release(1);
-            }
+        try
+        {
+            await func();
         }
-
-        public static async Task<T> RunSynchronized<T>(this SemaphoreSlim semaphore, Func<Task<T>> func)
+        finally
         {
-            await semaphore.WaitAsync();
-
-            try
-            {
-                return await func();
-            }
-            finally
-            {
-                semaphore.Release(1);
-            }
+            semaphore.Release(1);
         }
+    }
 
-        public static async Task RunSynchronized(this SemaphoreSlim semaphore, Action action)
+    public static async Task<T> RunSynchronized<T>(this SemaphoreSlim semaphore, Func<Task<T>> func)
+    {
+        await semaphore.WaitAsync();
+
+        try
         {
-            await semaphore.WaitAsync();
+            return await func();
+        }
+        finally
+        {
+            semaphore.Release(1);
+        }
+    }
 
-            try
-            {
-                action();
-            }
-            finally
-            {
-                semaphore.Release(1);
-            }
+    public static async Task RunSynchronized(this SemaphoreSlim semaphore, Action action)
+    {
+        await semaphore.WaitAsync();
+
+        try
+        {
+            action();
+        }
+        finally
+        {
+            semaphore.Release(1);
         }
     }
 }

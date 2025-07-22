@@ -1,45 +1,44 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 
-namespace pdfforge.PDFCreator.Conversion.Jobs
+namespace pdfforge.PDFCreator.Conversion.Jobs;
+
+public interface ITitleReplacerProvider
 {
-    public interface ITitleReplacerProvider
+    TitleReplacer BuildTitleReplacer();
+}
+
+public class SettingsTitleReplacerProvider : ITitleReplacerProvider
+{
+    private readonly ISettingsProvider _settingsProvider;
+
+    public SettingsTitleReplacerProvider(ISettingsProvider settingsProvider)
     {
-        TitleReplacer BuildTitleReplacer();
+        _settingsProvider = settingsProvider;
     }
 
-    public class SettingsTitleReplacerProvider : ITitleReplacerProvider
+    public TitleReplacer BuildTitleReplacer()
     {
-        private readonly ISettingsProvider _settingsProvider;
+        var titleReplacer = new TitleReplacer();
+        titleReplacer.AddReplacements(_settingsProvider.Settings.ApplicationSettings.TitleReplacement);
+        return titleReplacer;
+    }
+}
 
-        public SettingsTitleReplacerProvider(ISettingsProvider settingsProvider)
-        {
-            _settingsProvider = settingsProvider;
-        }
+public class LocalTitleReplacerProvider : ITitleReplacerProvider
+{
+    private readonly IEnumerable<TitleReplacement> _titleReplacements;
 
-        public TitleReplacer BuildTitleReplacer()
-        {
-            var titleReplacer = new TitleReplacer();
-            titleReplacer.AddReplacements(_settingsProvider.Settings.ApplicationSettings.TitleReplacement);
-            return titleReplacer;
-        }
+    public LocalTitleReplacerProvider(IEnumerable<TitleReplacement> titleReplacements)
+    {
+        _titleReplacements = titleReplacements;
     }
 
-    public class LocalTitleReplacerProvider : ITitleReplacerProvider
+    public TitleReplacer BuildTitleReplacer()
     {
-        private readonly IEnumerable<TitleReplacement> _titleReplacements;
-
-        public LocalTitleReplacerProvider(IEnumerable<TitleReplacement> titleReplacements)
-        {
-            _titleReplacements = titleReplacements;
-        }
-
-        public TitleReplacer BuildTitleReplacer()
-        {
-            var titleReplacer = new TitleReplacer();
-            titleReplacer.AddReplacements(_titleReplacements);
-            return titleReplacer;
-        }
+        var titleReplacer = new TitleReplacer();
+        titleReplacer.AddReplacements(_titleReplacements);
+        return titleReplacer;
     }
 }

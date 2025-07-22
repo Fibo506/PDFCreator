@@ -1,17 +1,16 @@
 ﻿using pdfforge.Obsidian.Interaction;
 using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings;
+
+public class TitleReplacementEditInteraction : IInteraction
 {
-    public class TitleReplacementEditInteraction : IInteraction
+    public TitleReplacementEditInteraction(TitleReplacement replacement)
     {
-        public TitleReplacementEditInteraction(TitleReplacement replacement)
-        {
-            Replacement = replacement;
-        }
-
-        public TitleReplacement Replacement { get; set; }
-
-        public bool Success { get; set; }
+        Replacement = replacement;
     }
+
+    public TitleReplacement Replacement { get; set; }
+
+    public bool Success { get; set; }
 }

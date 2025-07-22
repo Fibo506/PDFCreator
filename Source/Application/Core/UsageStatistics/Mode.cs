@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
+
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Mode
 {
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Mode
-    {
-        Interactive,
-        AutoSave,
-        Com
-    }
+    Interactive,
+    AutoSave,
+    Com
 }

@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Ghostscript.OutputDevices
+﻿namespace pdfforge.PDFCreator.Conversion.Ghostscript.OutputDevices;
+
+public enum ConversionMode
 {
-    public enum ConversionMode
-    {
-        PdfConversion,
-        ImmediateConversion,
-        IntermediateConversion,
-        IntermediateToTargetConversion
-    }
+    PdfConversion,
+    ImmediateConversion,
+    IntermediateConversion,
+    IntermediateToTargetConversion
 }

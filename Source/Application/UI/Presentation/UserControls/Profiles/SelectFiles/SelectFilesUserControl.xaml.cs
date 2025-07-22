@@ -1,12 +1,11 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
+
+public partial class SelectFilesUserControl : UserControl
 {
-    public partial class SelectFilesUserControl : UserControl
+    public SelectFilesUserControl()
     {
-        public SelectFilesUserControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

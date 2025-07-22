@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.UI.Presentation.RegionManager
+﻿namespace pdfforge.PDFCreator.UI.Presentation.RegionManager;
+
+public static class PrismConstants
 {
-    public static class PrismConstants
-    {
-        public static string NavigationParameterPayload = "Payload";
-    }
+    public static string NavigationParameterPayload = "Payload";
 }

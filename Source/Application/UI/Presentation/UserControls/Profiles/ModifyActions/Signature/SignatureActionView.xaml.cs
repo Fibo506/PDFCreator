@@ -1,22 +1,21 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 using Prism.Regions;
-using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature;
+
+public partial class SignatureActionView : UserControl, IRegionMemberLifetime, IActionView
 {
-    public partial class SignatureActionView : UserControl, IRegionMemberLifetime, IActionView
+    public bool KeepAlive { get; } = true;
+
+    public SignatureActionView(SignatureActionViewModel actionViewModel)
     {
-        public bool KeepAlive { get; } = true;
+        DataContext = actionViewModel;
+        ViewModel = actionViewModel;
+        TransposerHelper.Register(this, actionViewModel);
 
-        public SignatureActionView(SignatureActionViewModel actionViewModel)
-        {
-            DataContext = actionViewModel;
-            ViewModel = actionViewModel;
-            TransposerHelper.Register(this, actionViewModel);
-
-            InitializeComponent();
-        }
-
-        public IActionViewModel ViewModel { get; }
+        InitializeComponent();
     }
+
+    public IActionViewModel ViewModel { get; }
 }

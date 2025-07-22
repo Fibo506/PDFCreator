@@ -1,9 +1,8 @@
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
+
+public class ProgressViewTranslation : ITranslatable
 {
-    public class ProgressViewTranslation : ITranslatable
-    {
-        public string ConvertingText { get; private set; } = "Converting...";
-    }
+    public string ConvertingText { get; private set; } = "Converting...";
 }

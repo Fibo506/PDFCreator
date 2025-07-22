@@ -1,11 +1,10 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading
-{
-    public interface ISettingsLoader
-    {
-        PdfCreatorSettings LoadPdfCreatorSettings();
+namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 
-        void SaveSettingsInRegistry(PdfCreatorSettings settings);
-    }
+public interface ISettingsLoader
+{
+    PdfCreatorSettings LoadPdfCreatorSettings();
+
+    void SaveSettingsInRegistry(PdfCreatorSettings settings);
 }

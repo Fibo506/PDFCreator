@@ -1,13 +1,12 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings.Enums;
-using System;
+﻿using System;
+using pdfforge.PDFCreator.Conversion.Settings.Enums;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement.Helper
+namespace pdfforge.PDFCreator.Core.SettingsManagement.Helper;
+
+public static class PageSizeHelper
 {
-    public static class PageSizeHelper
+    public static PageSize ParsePageSize(string pageSize)
     {
-        public static PageSize ParsePageSize(string pageSize)
-        {
-            return (PageSize)Enum.Parse(typeof(PageSize), pageSize, true);
-        }
+        return (PageSize)Enum.Parse(typeof(PageSize), pageSize, true);
     }
 }

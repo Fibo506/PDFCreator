@@ -1,8 +1,5 @@
-﻿using System.ComponentModel;
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+public partial class OneDriveSettings : IProfileSetting
 {
-    public partial class OneDriveSettings : IProfileSetting
-    {
-    }
 }

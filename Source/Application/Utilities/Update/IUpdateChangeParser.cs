@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace pdfforge.PDFCreator.Utilities.Update
+namespace pdfforge.PDFCreator.Utilities.Update;
+
+public interface IUpdateChangeParser
 {
-    public interface IUpdateChangeParser
-    {
-        List<ReleaseInfo> Parse(string json);
-    }
+    List<ReleaseInfo> Parse(string json);
 }

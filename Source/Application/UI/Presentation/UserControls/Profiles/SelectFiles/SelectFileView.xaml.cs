@@ -1,19 +1,19 @@
-﻿using Prism.Regions;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using Prism.Regions;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
+
+/// <summary>
+/// Interaction logic for EditMailAttachment.xaml
+/// </summary>
+public partial class SelectFileView : UserControl, IRegionMemberLifetime
 {
-    /// <summary>
-    /// Interaction logic for EditMailAttachment.xaml
-    /// </summary>
-    public partial class SelectFileView : UserControl, IRegionMemberLifetime
+    public SelectFileView(SelectFileViewModel vm)
     {
-        public SelectFileView(SelectFileViewModel vm)
-        {
-            DataContext = vm;
-            InitializeComponent();
-        }
-
-        public bool KeepAlive { get; } = true;
+        DataContext = vm;
+        InitializeComponent();
     }
+
+    public bool KeepAlive { get; } = true;
+
 }

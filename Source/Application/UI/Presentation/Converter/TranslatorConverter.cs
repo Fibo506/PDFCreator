@@ -1,35 +1,42 @@
-﻿using pdfforge.PDFCreator.Core.ServiceLocator;
-using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using pdfforge.PDFCreator.Core.ServiceLocator;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.Styles.Gpo;
+using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Converter
+namespace pdfforge.PDFCreator.UI.Presentation.Converter;
+
+public class TranslatorConverter : IValueConverter
 {
-    public class TranslatorConverter : IValueConverter
+    private GpoTranslation _translation = new GpoTranslation();
+    private readonly ApplicationNameProvider _applicationNameProvider;
+
+    public TranslatorConverter()
     {
-        private GpoTranslation _translation = new GpoTranslation();
-
-        public TranslatorConverter()
+        if (RestrictedServiceLocator.IsLocationProviderSet)
         {
-            if (RestrictedServiceLocator.IsLocationProviderSet)
-            {
-                var translationUpdater = RestrictedServiceLocator.Current.GetInstance<ITranslationUpdater>();
-                translationUpdater.RegisterAndSetTranslation(tf => _translation = tf.UpdateOrCreateTranslation(_translation));
-            }
-        }
+            var translationUpdater = RestrictedServiceLocator.Current.GetInstance<ITranslationUpdater>();
+            translationUpdater.RegisterAndSetTranslation(tf => _translation = tf.UpdateOrCreateTranslation(_translation));
 
-        public object Convert(object value, Type targetType, object parameter,
-            CultureInfo culture)
-        {
-            return _translation.SetByAdministrator;
+            _applicationNameProvider = RestrictedServiceLocator.Current.GetInstance<ApplicationNameProvider>();
         }
+    }
 
-        public object ConvertBack(object value, Type targetType, object parameter,
-            CultureInfo culture)
+    public object Convert(object value, Type targetType, object parameter,
+        CultureInfo culture)
+    {
+        if (_applicationNameProvider.EditionName == "Free")
         {
-            throw new NotSupportedException();
+            return _translation.NotAvailableOnFree;
         }
+        return _translation.SetByAdministrator;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter,
+        CultureInfo culture)
+    {
+        throw new NotSupportedException();
     }
 }

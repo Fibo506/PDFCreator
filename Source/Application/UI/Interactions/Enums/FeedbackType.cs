@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.UI.Interactions.Enums
+﻿namespace pdfforge.PDFCreator.UI.Interactions.Enums;
+
+public enum FeedbackType
 {
-    public enum FeedbackType
-    {
-        PositiveFeedback = 0,
-        ReportIssue = 1,
-        FeatureSuggestion = 2,
-        None = 3
-    }
+    PositiveFeedback = 0,
+    ReportIssue = 1,
+    FeatureSuggestion = 2,
+    None = 3
 }

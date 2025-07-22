@@ -1,35 +1,34 @@
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Core.Services.Translation;
-using pdfforge.PDFCreator.Utilities.Messages;
 using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Misc;
+using pdfforge.PDFCreator.Utilities.Messages;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+// ReSharper disable once ClassNeverInstantiated.Global
+public class DesignTimeMessageViewModel : MessageViewModel
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
-    public class DesignTimeMessageViewModel : MessageViewModel
+    public DesignTimeMessageViewModel() : this(true) //Set true to view Errors in Designer
+    { }
+
+    public DesignTimeMessageViewModel(bool withErrors) : base(new DesignTimeTranslationUpdater(), new DesignTimeSoundPlayer(), new ErrorCodeInterpreter(new TranslationFactory()), null)
     {
-        public DesignTimeMessageViewModel() : this(true) //Set true to view Errors in Designer
-        { }
+        var messageInteraction = new MessageInteraction("The Message is Love", "The Title", MessageOptions.Ok, MessageIcon.PDFForge);
 
-        public DesignTimeMessageViewModel(bool withErrors) : base(new DesignTimeTranslationUpdater(), new DesignTimeSoundPlayer(), new ErrorCodeInterpreter(new TranslationFactory()), null)
+        if (withErrors)
         {
-            var messageInteraction = new MessageInteraction("The Message is Love", "The Title", MessageOptions.Ok, MessageIcon.PDFForge);
-
-            if (withErrors)
-            {
-                var actionResultDict = new ActionResultDict();
-                var actionResult = new ActionResult(ErrorCode.Conversion_UnknownError) { ErrorCode.Conversion_UnknownError };
-                actionResultDict.Add("ProfileName ", actionResult);
-                actionResultDict.Add("Some other Profile", actionResult);
-                messageInteraction = new MessageInteraction("You have defective or incomplete settings.", "The Title", MessageOptions.YesNoCancel, MessageIcon.Warning,
-                    actionResultDict, "Are you sure you want to proceed?");
-            }
-
-            SetInteraction(messageInteraction);
+            var actionResultDict = new ActionResultDict();
+            var actionResult = new ActionResult(ErrorCode.Conversion_UnknownError) { ErrorCode.Conversion_UnknownError };
+            actionResultDict.Add("ProfileName ", actionResult);
+            actionResultDict.Add("Some other Profile", actionResult);
+            messageInteraction = new MessageInteraction("You have defective or incomplete settings.", "The Title", MessageOptions.YesNoCancel, MessageIcon.Warning,
+                actionResultDict, "Are you sure you want to proceed?");
         }
+
+        SetInteraction(messageInteraction);
     }
 }

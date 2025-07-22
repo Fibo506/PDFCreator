@@ -4,7 +4,6 @@ using System.Windows.Input;
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Services;
-using pdfforge.PDFCreator.Utilities.Messages;
 using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
@@ -13,6 +12,7 @@ using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
 using pdfforge.PDFCreator.Utilities;
+using pdfforge.PDFCreator.Utilities.Messages;
 using DelegateCommand = Prism.Commands.DelegateCommand;
 
 namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep;

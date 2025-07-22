@@ -1,91 +1,90 @@
-﻿using NLog;
+﻿using System;
+using System.IO;
+using NLog;
 using NLog.Config;
 using NLog.Layouts;
 using NLog.Targets;
-using System;
-using System.IO;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Core.Services.Logging
+namespace pdfforge.PDFCreator.Core.Services.Logging;
+
+internal class FileLogger : ILogger
 {
-    internal class FileLogger : ILogger
+    public static string TraceLogLayout =
+        "${shortdate} ${date:format=HH\\:mm\\:ss.ffff} [${level}] ${processid}-${threadid} (${threadname}) ${callsite}: ${message} ${exception:innerFormat=type,message:maxInnerExceptionLevel=1:format=tostring}";
+
+    public static string ShortLogLayout =
+        "${shortdate} ${date:format=HH\\:mm\\:ss.ffff} [${level}] ${callsite}: ${message} ${exception:innerFormat=type,message:maxInnerExceptionLevel=1:format=tostring}";
+
+    private readonly FileTarget _fileTarget;
+    private readonly string _logFile;
+    private LoggingRule _loggingRule;
+
+    public FileLogger(string applicationName, LogLevel logLevel, string logFilePath = null)
     {
-        public static string TraceLogLayout =
-            "${shortdate} ${date:format=HH\\:mm\\:ss.ffff} [${level}] ${processid}-${threadid} (${threadname}) ${callsite}: ${message} ${exception:innerFormat=type,message:maxInnerExceptionLevel=1:format=tostring}";
+        var config = LogManager.Configuration ?? new LoggingConfiguration();
 
-        public static string ShortLogLayout =
-            "${shortdate} ${date:format=HH\\:mm\\:ss.ffff} [${level}] ${callsite}: ${message} ${exception:innerFormat=type,message:maxInnerExceptionLevel=1:format=tostring}";
+        _fileTarget = new FileTarget();
+        _fileTarget.Layout = ShortLogLayout;
+        _fileTarget.ArchiveAboveSize = 10485760; // 10MB
+        _fileTarget.MaxArchiveFiles = 2;
 
-        private readonly FileTarget _fileTarget;
-        private readonly string _logFile;
-        private LoggingRule _loggingRule;
+        _fileTarget.Layout = GetLayoutForLogLevel(logLevel);
 
-        public FileLogger(string applicationName, LogLevel logLevel, string logFilePath = null)
+        _logFile = GetLogFilePathAndMakeSureDirectoryExists(applicationName, logFilePath);
+        _fileTarget.FileName = _logFile;
+
+        config.AddTarget("file", _fileTarget);
+
+        _loggingRule = new LoggingRule("*", logLevel, _fileTarget);
+        config.LoggingRules.Add(_loggingRule);
+
+        LogManager.Configuration = config;
+    }
+
+    public void ChangeLogLevel(LogLevel logLevel)
+    {
+        _fileTarget.Layout = GetLayoutForLogLevel(logLevel);
+
+        LogManager.Configuration?.LoggingRules.Remove(_loggingRule);
+
+        _loggingRule = new LoggingRule("*", logLevel, _fileTarget);
+        LogManager.Configuration?.LoggingRules.Add(_loggingRule);
+
+        LogManager.ReconfigExistingLoggers();
+    }
+
+    public string GetLogPath()
+    {
+        return _logFile;
+    }
+
+    private Layout GetLayoutForLogLevel(LogLevel logLevel)
+    {
+        return logLevel == LogLevel.Trace ? TraceLogLayout : ShortLogLayout;
+    }
+
+    private string GetLogFilePathAndMakeSureDirectoryExists(string applicationName, string logFilePath)
+    {
+        if (Path.GetDirectoryName(logFilePath) == null)
         {
-            var config = LogManager.Configuration ?? new LoggingConfiguration();
-
-            _fileTarget = new FileTarget();
-            _fileTarget.Layout = ShortLogLayout;
-            _fileTarget.ArchiveAboveSize = 10485760; // 10MB
-            _fileTarget.MaxArchiveFiles = 2;
-
-            _fileTarget.Layout = GetLayoutForLogLevel(logLevel);
-
-            _logFile = GetLogFilePathAndMakeSureDirectoryExists(applicationName, logFilePath);
-            _fileTarget.FileName = _logFile;
-
-            config.AddTarget("file", _fileTarget);
-
-            _loggingRule = new LoggingRule("*", logLevel, _fileTarget);
-            config.LoggingRules.Add(_loggingRule);
-
-            LogManager.Configuration = config;
+            logFilePath = GetDefaultLogFilePath(applicationName);
         }
 
-        public void ChangeLogLevel(LogLevel logLevel)
-        {
-            _fileTarget.Layout = GetLayoutForLogLevel(logLevel);
+        var dir = Path.GetDirectoryName(logFilePath);
 
-            LogManager.Configuration?.LoggingRules.Remove(_loggingRule);
+        if (!Directory.Exists(dir))
+            Directory.CreateDirectory(dir);
 
-            _loggingRule = new LoggingRule("*", logLevel, _fileTarget);
-            LogManager.Configuration?.LoggingRules.Add(_loggingRule);
+        return logFilePath;
+    }
 
-            LogManager.ReconfigExistingLoggers();
-        }
+    private string GetDefaultLogFilePath(string applicationName)
+    {
+        var localAppDataFolderBase = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        var logFileDir = PathSafe.Combine(localAppDataFolderBase, "pdfforge", "PDFCreator");
 
-        public string GetLogPath()
-        {
-            return _logFile;
-        }
-
-        private Layout GetLayoutForLogLevel(LogLevel logLevel)
-        {
-            return logLevel == LogLevel.Trace ? TraceLogLayout : ShortLogLayout;
-        }
-
-        private string GetLogFilePathAndMakeSureDirectoryExists(string applicationName, string logFilePath)
-        {
-            if (Path.GetDirectoryName(logFilePath) == null)
-            {
-                logFilePath = GetDefaultLogFilePath(applicationName);
-            }
-
-            var dir = Path.GetDirectoryName(logFilePath);
-
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-
-            return logFilePath;
-        }
-
-        private string GetDefaultLogFilePath(string applicationName)
-        {
-            var localAppDataFolderBase = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var logFileDir = PathSafe.Combine(localAppDataFolderBase, "pdfforge", "PDFCreator");
-
-            var fileName = PathSafe.Combine(logFileDir, applicationName + ".log");
-            return fileName;
-        }
+        var fileName = PathSafe.Combine(logFileDir, applicationName + ".log");
+        return fileName;
     }
 }

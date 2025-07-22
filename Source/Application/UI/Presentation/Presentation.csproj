@@ -6,7 +6,6 @@
     <RootNamespace>pdfforge.PDFCreator.UI.Presentation</RootNamespace>
     <AssemblyName>PDFCreator.Presentation</AssemblyName>
     <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
@@ -21,6 +20,7 @@
     <Resource Include="Fonts\yorktennormregular.otf" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\WebViewer\WebViewer.csproj" />
     <ProjectReference Include="..\..\Conversion\ActionsInterface\ActionsInterface.csproj" />
     <ProjectReference Include="..\..\Conversion\Actions\Actions.csproj" />
     <ProjectReference Include="..\..\Conversion\CustomScriptAction\CustomScriptAction.csproj" />
@@ -52,11 +52,11 @@
     <Resource Include="Resources\BackgroundWaves.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\architect_info.png" />
-    <Resource Include="Styles\Images\email_collection_visual.png" />
+    <Resource Include="Resources\LicenseExpiredBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Styles\Images\trial_expired_women_bg.jpg" />
+    <Resource Include="Resources\architect_info.png" />
+    <Resource Include="Styles\Images\email_collection_visual.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Styles\Images\laptop_pdfc_topten.png" />
@@ -64,16 +64,7 @@
   <ItemGroup>
     <Folder Include="UserControls\Preview\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\Help\PDFCreator_english.chm">
-      <Link>PDFCreator_english.chm</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\..\..\Help\PDFCreator_german.chm">
-      <Link>PDFCreator_german.chm</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <PackageReference Include="AvalonEdit">
       <Version>6.3.0.90</Version>

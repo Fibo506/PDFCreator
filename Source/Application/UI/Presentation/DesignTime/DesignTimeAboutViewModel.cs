@@ -1,15 +1,13 @@
 ﻿using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeAboutViewModel : AboutViewModel
 {
-    public class DesignTimeAboutViewModel : AboutViewModel
+    public DesignTimeAboutViewModel() : base(new DesignTimeVersionHelper(), new DesignTimeTranslationUpdater(), new DesignTimeCommandLocator(),
+        new DesignTimeApplicationNameProvider(), new GpoSettingsDefaults())
     {
-        public DesignTimeAboutViewModel() : base(new DesignTimeVersionHelper(), new DesignTimeTranslationUpdater(), new DesignTimeCommandLocator(),
-            new DesignTimeApplicationNameProvider(), new GpoSettingsDefaults() )
-        {
-        }
     }
 }

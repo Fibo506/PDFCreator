@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs
+﻿namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+
+public class JobShareLinks
 {
-    public class JobShareLinks
-    {
-        public string DropboxShareUrl { get; set; }
-        public string OneDriveShareUrl { get; set; }
-        public string OneDrivePrivateUrl { get; set; }
-        public string SharepointPrivateUrl { get; set; }
-    }
+    public string DropboxShareUrl { get; set; }
+    public string OneDriveShareUrl { get; set; }
+    public string OneDrivePrivateUrl { get; set; }
+    public string SharepointPrivateUrl { get; set; }
 }

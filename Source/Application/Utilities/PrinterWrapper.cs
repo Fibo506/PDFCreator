@@ -1,37 +1,36 @@
 ﻿using System.Drawing.Printing;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public interface IPrinterWrapper
 {
-    public interface IPrinterWrapper
+    string PrinterName { get; set; }
+    bool IsValid { get; }
+    bool CanDuplex { get; }
+}
+
+public class PrinterWrapper : IPrinterWrapper
+{
+    private readonly PrinterSettings _printer;
+
+    public PrinterWrapper()
     {
-        string PrinterName { get; set; }
-        bool IsValid { get; }
-        bool CanDuplex { get; }
+        _printer = new PrinterSettings();
     }
 
-    public class PrinterWrapper : IPrinterWrapper
+    public virtual string PrinterName
     {
-        private readonly PrinterSettings _printer;
+        get { return _printer.PrinterName; }
+        set { _printer.PrinterName = value; }
+    }
 
-        public PrinterWrapper()
-        {
-            _printer = new PrinterSettings();
-        }
+    public virtual bool IsValid
+    {
+        get { return _printer.IsValid; }
+    }
 
-        public virtual string PrinterName
-        {
-            get { return _printer.PrinterName; }
-            set { _printer.PrinterName = value; }
-        }
-
-        public virtual bool IsValid
-        {
-            get { return _printer.IsValid; }
-        }
-
-        public virtual bool CanDuplex
-        {
-            get { return _printer.CanDuplex; }
-        }
+    public virtual bool CanDuplex
+    {
+        get { return _printer.CanDuplex; }
     }
 }

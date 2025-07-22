@@ -1,8 +1,7 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+﻿namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+public enum AuthenticationType
 {
-    public enum AuthenticationType
-    {
-        NormalAuthentication,
-        KeyFileAuthentication
-    }
+    NormalAuthentication,
+    KeyFileAuthentication
 }

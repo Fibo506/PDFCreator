@@ -1,113 +1,111 @@
-﻿using pdfforge.Obsidian.Trigger;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Query;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Core.Services.Macros;
 using pdfforge.PDFCreator.Core.Workflow.Queries;
 using pdfforge.PDFCreator.UI.Interactions;
-using pdfforge.PDFCreator.UI.Interactions.Enums;
 using pdfforge.PDFCreator.Utilities.IO;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using pdfforge.PDFCreator.Utilities.Messages;
 using SystemInterface.IO;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow
-{
-    public interface IBrowseFileCommandBuilder
-    {
-        void Init(Func<Job> getJob, Action updateUi, Func<string> getLastConfirmedPath, Action<string> setLastConfirmedPath);
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow;
 
-        IMacroCommand BuildCommand(IList<ICommand> postExecutionCommands = default, Predicate<object> canExecute = null);
+public interface IBrowseFileCommandBuilder
+{
+    void Init(Func<Job> getJob, Action updateUi, Func<string> getLastConfirmedPath, Action<string> setLastConfirmedPath);
+
+    IMacroCommand BuildCommand(IList<ICommand> postExecutionCommands = default, Predicate<object> canExecute = null);
+}
+
+public class BrowseFileCommandBuilder : IBrowseFileCommandBuilder
+{
+    private BrowseFileCommandTranslation _translation;
+
+    private readonly IDirectoryHelper _directoryHelper;
+    private readonly IFileNameQuery _fileNameQuery;
+    private readonly IInteractionRequest _interactionRequest;
+    private readonly ITranslationFactory _translationFactory;
+
+    private Action _updateUi;
+    private Func<Job> _getJob;
+    private Func<string> _getLastConfirmedPath;
+    private Action<string> _setLastConfirmedPath;
+
+    public BrowseFileCommandBuilder(IDirectoryHelper directoryHelper, IFileNameQuery fileNameQuery, IInteractionRequest interactionRequest, ITranslationFactory translationFactory)
+    {
+        _directoryHelper = directoryHelper;
+        _fileNameQuery = fileNameQuery;
+        _interactionRequest = interactionRequest;
+        _translationFactory = translationFactory;
     }
 
-    public class BrowseFileCommandBuilder : IBrowseFileCommandBuilder
+    public void Init(Func<Job> getJob, Action updateUi, Func<string> getLastConfirmedPath, Action<string> setLastConfirmedPath)
     {
-        private BrowseFileCommandTranslation _translation;
+        _updateUi = updateUi;
+        _getJob = getJob;
+        _setLastConfirmedPath = setLastConfirmedPath;
+        _getLastConfirmedPath = getLastConfirmedPath;
+    }
 
-        private readonly IDirectoryHelper _directoryHelper;
-        private readonly IFileNameQuery _fileNameQuery;
-        private readonly IInteractionRequest _interactionRequest;
-        private readonly ITranslationFactory _translationFactory;
+    public IMacroCommand BuildCommand(IList<ICommand> postExecutionCommands, Predicate<object> canExecute = null)
+    {
+        if (_getJob == null || _updateUi == null || _setLastConfirmedPath == null || _getLastConfirmedPath == null)
+            throw new InvalidOperationException($"Call {nameof(BrowseFileCommandBuilder)}.Init first to set communication functions.");
 
-        private Action _updateUi;
-        private Func<Job> _getJob;
-        private Func<string> _getLastConfirmedPath;
-        private Action<string> _setLastConfirmedPath;
+        var waitableAsyncCommand = new WaitableAsyncCommand(BrowseFileWithNotificationForTooLongInput, canExecute);
 
-        public BrowseFileCommandBuilder(IDirectoryHelper directoryHelper, IFileNameQuery fileNameQuery, IInteractionRequest interactionRequest, ITranslationFactory translationFactory)
+        var commandList = new List<ICommand> { waitableAsyncCommand };
+        if (postExecutionCommands != null)
+            commandList.AddRange(postExecutionCommands);
+
+        return new MacroCommand(commandList);
+    }
+
+    private async Task<MacroCommandIsDoneEventArgs> BrowseFileWithNotificationForTooLongInput(object arg)
+    {
+        var job = _getJob();
+        var inputFilePath = job.OutputFileTemplate;
+
+        var inputDirectory = PathSafe.GetDirectoryName(inputFilePath);
+        var inputFilename = PathSafe.GetFileName(inputFilePath);
+
+        _directoryHelper.CreateDirectory(inputDirectory);
+
+        var result = await GetFileOrRetry(inputDirectory, inputFilename, job.Profile.OutputFormat);
+
+        if (result is { Success: true })
         {
-            _directoryHelper = directoryHelper;
-            _fileNameQuery = fileNameQuery;
-            _interactionRequest = interactionRequest;
-            _translationFactory = translationFactory;
+            job.OutputFileTemplate = result.Data.Filepath;
+            job.Profile.OutputFormat = result.Data.OutputFormat;
+            _updateUi();
+            _setLastConfirmedPath(result.Data.Filepath);
+            return new MacroCommandIsDoneEventArgs(ResponseStatus.Success);
         }
 
-        public void Init(Func<Job> getJob, Action updateUi, Func<string> getLastConfirmedPath, Action<string> setLastConfirmedPath)
+        _setLastConfirmedPath("");
+        return new MacroCommandIsDoneEventArgs(ResponseStatus.Cancel);
+    }
+
+    private async Task<QueryResult<OutputFilenameResult>> GetFileOrRetry(string dir, string file, OutputFormat format)
+    {
+        while (true)
         {
-            _updateUi = updateUi;
-            _getJob = getJob;
-            _setLastConfirmedPath = setLastConfirmedPath;
-            _getLastConfirmedPath = getLastConfirmedPath;
-        }
-
-        public IMacroCommand BuildCommand(IList<ICommand> postExecutionCommands, Predicate<object> canExecute = null)
-        {
-            if (_getJob == null || _updateUi == null || _setLastConfirmedPath == null || _getLastConfirmedPath == null)
-                throw new InvalidOperationException($"Call {nameof(BrowseFileCommandBuilder)}.Init first to set communication functions.");
-
-            var waitableAsyncCommand = new WaitableAsyncCommand(BrowseFileWithNotificationForTooLongInput, canExecute);
-
-            var commandList = new List<ICommand> { waitableAsyncCommand };
-            if (postExecutionCommands != null)
-                commandList.AddRange(postExecutionCommands);
-
-            return new MacroCommand(commandList);
-        }
-
-        private async Task<MacroCommandIsDoneEventArgs> BrowseFileWithNotificationForTooLongInput(object arg)
-        {
-            var job = _getJob();
-            var inputFilePath = job.OutputFileTemplate;
-
-            var inputDirectory = PathSafe.GetDirectoryName(inputFilePath);
-            var inputFilename = PathSafe.GetFileName(inputFilePath);
-
-            _directoryHelper.CreateDirectory(inputDirectory);
-
-            var result = await GetFileOrRetry(inputDirectory, inputFilename, job.Profile.OutputFormat);
-
-            if (result is { Success: true })
+            try
             {
-                job.OutputFileTemplate = result.Data.Filepath;
-                job.Profile.OutputFormat = result.Data.OutputFormat;
-                _updateUi();
-                _setLastConfirmedPath(result.Data.Filepath);
-                return new MacroCommandIsDoneEventArgs(ResponseStatus.Success);
+                return _fileNameQuery.GetFileName(dir, file, format, false);
             }
-
-            _setLastConfirmedPath("");
-            return new MacroCommandIsDoneEventArgs(ResponseStatus.Cancel);
-        }
-
-        private async Task<QueryResult<OutputFilenameResult>> GetFileOrRetry(string dir, string file, OutputFormat format)
-        {
-            while (true)
+            catch (PathTooLongException)
             {
-                try
-                {
-                    return _fileNameQuery.GetFileName(dir, file, format, false);
-                }
-                catch (PathTooLongException)
-                {
-                    _translation = _translationFactory.UpdateOrCreateTranslation(_translation);
-                    var interaction = new MessageInteraction(_translation.PathTooLongText, _translation.PathTooLongTitle, MessageOptions.Ok, MessageIcon.Exclamation);
-                    await _interactionRequest.RaiseAsync(interaction);
-                }
+                _translation = _translationFactory.UpdateOrCreateTranslation(_translation);
+                var interaction = new MessageInteraction(_translation.PathTooLongText, _translation.PathTooLongTitle, MessageOptions.Ok, MessageIcon.Exclamation);
+                await _interactionRequest.RaiseAsync(interaction);
             }
         }
     }

@@ -1,43 +1,42 @@
-﻿using pdfforge.PDFCreator.Core.ServiceLocator;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using pdfforge.PDFCreator.Core.ServiceLocator;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Misc
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Misc;
+
+public partial class TokenHintPanel : UserControl
 {
-    public partial class TokenHintPanel : UserControl
+    public static readonly DependencyProperty TextWithTokenProperty = DependencyProperty.Register(
+        "TextWithToken", typeof(string), typeof(TokenHintPanel), new PropertyMetadata("", TextWithTokenChanged));
+
+    private static void TextWithTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        public static readonly DependencyProperty TextWithTokenProperty = DependencyProperty.Register(
-            "TextWithToken", typeof(string), typeof(TokenHintPanel), new PropertyMetadata("", TextWithTokenChanged));
+        var panel = d as TokenHintPanel;
+        panel?.RaiseTextChanged();
+    }
 
-        private static void TextWithTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    public string TextWithToken
+    {
+        get { return GetValue(TextWithTokenProperty) as string; }
+        set { SetValue(TextWithTokenProperty, value); }
+    }
+
+    private void RaiseTextChanged()
+    {
+        var tokenHintPanelViewModel = DataContext as TokenHintPanelViewModel;
+        tokenHintPanelViewModel?.OnTextChanged(GetValue(TextWithTokenProperty).ToString());
+    }
+
+    public TokenHintPanel()
+    {
+        // Initialize TokenHelper with empty Translator to avoid exception in converter
+        if (RestrictedServiceLocator.IsLocationProviderSet)
         {
-            var panel = d as TokenHintPanel;
-            panel?.RaiseTextChanged();
+            DataContext = RestrictedServiceLocator.Current.GetInstance<TokenHintPanelViewModel>();
+            TransposerHelper.Register(this, DataContext as TokenHintPanelViewModel);
         }
 
-        public string TextWithToken
-        {
-            get { return GetValue(TextWithTokenProperty) as string; }
-            set { SetValue(TextWithTokenProperty, value); }
-        }
-
-        private void RaiseTextChanged()
-        {
-            var tokenHintPanelViewModel = DataContext as TokenHintPanelViewModel;
-            tokenHintPanelViewModel?.OnTextChanged(GetValue(TextWithTokenProperty).ToString());
-        }
-
-        public TokenHintPanel()
-        {
-            // Initialize TokenHelper with empty Translator to avoid exception in converter
-            if (RestrictedServiceLocator.IsLocationProviderSet)
-            {
-                DataContext = RestrictedServiceLocator.Current.GetInstance<TokenHintPanelViewModel>();
-                TransposerHelper.Register(this, DataContext as TokenHintPanelViewModel);
-            }
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,40 +1,39 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using System;
-using SystemInterface.IO;
+﻿using System;
+using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.SettingsManagement.Helper;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
+using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement
+namespace pdfforge.PDFCreator.Core.SettingsManagement;
+
+public interface ISettingsBackup
 {
-    public interface ISettingsBackup
+    void SaveSettings(PdfCreatorSettings settings);
+}
+
+public class SettingsBackup : ISettingsBackup
+{
+    private readonly IDataStorageFactory _storageFactory;
+    private readonly IDirectory _directory;
+    private readonly IAppDataProvider _appDataProvider;
+
+    public SettingsBackup(IDataStorageFactory storageFactory, IDirectory directory, IAppDataProvider appDataProvider)
     {
-        void SaveSettings(PdfCreatorSettings settings);
+        _storageFactory = storageFactory;
+        _directory = directory;
+        _appDataProvider = appDataProvider;
     }
 
-    public class SettingsBackup : ISettingsBackup
+    public void SaveSettings(PdfCreatorSettings settings)
     {
-        private readonly IDataStorageFactory _storageFactory;
-        private readonly IDirectory _directory;
-        private readonly IAppDataProvider _appDataProvider;
+        var path = _appDataProvider.LocalAppDataFolder;
 
-        public SettingsBackup(IDataStorageFactory storageFactory, IDirectory directory, IAppDataProvider appDataProvider)
-        {
-            _storageFactory = storageFactory;
-            _directory = directory;
-            _appDataProvider = appDataProvider;
-        }
+        var backupFile = DateTime.Now.ToString("yyyyMMdd") + "_backup.ini";
+        backupFile = PathSafe.Combine(path, backupFile);
 
-        public void SaveSettings(PdfCreatorSettings settings)
-        {
-            var path = _appDataProvider.LocalAppDataFolder;
+        _directory.CreateDirectory(path);
 
-            var backupFile = DateTime.Now.ToString("yyyyMMdd") + "_backup.ini";
-            backupFile = PathSafe.Combine(path, backupFile);
-
-            _directory.CreateDirectory(path);
-
-            var storage = _storageFactory.BuildIniStorage(backupFile);
-            settings.SaveData(storage);
-        }
+        var storage = _storageFactory.BuildIniStorage(backupFile);
+        settings.SaveData(storage);
     }
 }

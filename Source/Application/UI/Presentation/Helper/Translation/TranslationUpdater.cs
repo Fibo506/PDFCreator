@@ -1,93 +1,92 @@
-﻿using pdfforge.PDFCreator.Core.ServiceLocator;
-using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
-using pdfforge.PDFCreator.Utilities.Threading;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using pdfforge.PDFCreator.Core.ServiceLocator;
+using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
+using pdfforge.PDFCreator.Utilities.Threading;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.Translation
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
+
+public interface ITranslationUpdater : IWhitelisted
 {
-    public interface ITranslationUpdater : IWhitelisted
+    void RegisterAndSetTranslation<T>(ITranslatableViewModel<T> model) where T : ITranslatable, new();
+
+    void RegisterAndSetTranslation(Action<ITranslationFactory> setTranslationAction);
+
+    void CleanUp(object sender, ThreadFinishedEventArgs e);
+
+    void Clear();
+}
+
+public class TranslationUpdater : ITranslationUpdater
+{
+    private readonly Dictionary<Action<ITranslationFactory>, Thread> _threadLookup = new Dictionary<Action<ITranslationFactory>, Thread>();
+    private readonly ITranslationFactory _translationFactory;
+
+    public TranslationUpdater(ITranslationFactory translationFactory, IThreadManager threadManager)
     {
-        void RegisterAndSetTranslation<T>(ITranslatableViewModel<T> model) where T : ITranslatable, new();
-
-        void RegisterAndSetTranslation(Action<ITranslationFactory> setTranslationAction);
-
-        void CleanUp(object sender, ThreadFinishedEventArgs e);
-
-        void Clear();
+        _translationFactory = translationFactory;
+        translationFactory.TranslationChanged += (sender, args) => UpdateTranslations();
+        threadManager.CleanUpAfterThreadClosed += CleanUp;
     }
 
-    public class TranslationUpdater : ITranslationUpdater
+    public void RegisterAndSetTranslation<T>(ITranslatableViewModel<T> model) where T : ITranslatable, new()
     {
-        private readonly Dictionary<Action<ITranslationFactory>, Thread> _threadLookup = new Dictionary<Action<ITranslationFactory>, Thread>();
-        private readonly ITranslationFactory _translationFactory;
-
-        public TranslationUpdater(ITranslationFactory translationFactory, IThreadManager threadManager)
+        lock (this)
         {
-            _translationFactory = translationFactory;
-            translationFactory.TranslationChanged += (sender, args) => UpdateTranslations();
-            threadManager.CleanUpAfterThreadClosed += CleanUp;
+            UpdateTranslation(_translationFactory, model);
+            _threadLookup.Add(tf => UpdateTranslation(tf, model), Thread.CurrentThread);
         }
+    }
 
-        public void RegisterAndSetTranslation<T>(ITranslatableViewModel<T> model) where T : ITranslatable, new()
+    public void RegisterAndSetTranslation(Action<ITranslationFactory> setTranslationAction)
+    {
+        lock (this)
         {
-            lock (this)
+            setTranslationAction(_translationFactory);
+            _threadLookup.Add(setTranslationAction, Thread.CurrentThread);
+        }
+    }
+
+    public void CleanUp(object sender, ThreadFinishedEventArgs e)
+    {
+        lock (this)
+        {
+            var keyValuePairs = _threadLookup.Where(pair => pair.Value == e.SynchronizedThread.Thread).ToList();
+
+            foreach (var result in keyValuePairs)
             {
-                UpdateTranslation(_translationFactory, model);
-                _threadLookup.Add(tf => UpdateTranslation(tf, model), Thread.CurrentThread);
+                _threadLookup.Remove(result.Key);
             }
         }
+    }
 
-        public void RegisterAndSetTranslation(Action<ITranslationFactory> setTranslationAction)
+    private void UpdateTranslations()
+    {
+        lock (this)
         {
-            lock (this)
+            // Convert to array to prevent race condition
+            var updateTranslationActions = _threadLookup.Keys.ToArray();
+
+            foreach (var updateTranslationAction in updateTranslationActions)
             {
-                setTranslationAction(_translationFactory);
-                _threadLookup.Add(setTranslationAction, Thread.CurrentThread);
+                updateTranslationAction(_translationFactory);
             }
         }
+    }
 
-        public void CleanUp(object sender, ThreadFinishedEventArgs e)
+    public void Clear()
+    {
+        lock (this)
         {
-            lock (this)
-            {
-                var keyValuePairs = _threadLookup.Where(pair => pair.Value == e.SynchronizedThread.Thread).ToList();
-
-                foreach (var result in keyValuePairs)
-                {
-                    _threadLookup.Remove(result.Key);
-                }
-            }
+            _threadLookup.Clear();
         }
+    }
 
-        private void UpdateTranslations()
-        {
-            lock (this)
-            {
-                // Convert to array to prevent race condition
-                var updateTranslationActions = _threadLookup.Keys.ToArray();
-
-                foreach (var updateTranslationAction in updateTranslationActions)
-                {
-                    updateTranslationAction(_translationFactory);
-                }
-            }
-        }
-
-        public void Clear()
-        {
-            lock (this)
-            {
-                _threadLookup.Clear();
-            }
-        }
-
-        protected virtual void UpdateTranslation<T>(ITranslationFactory translationFactory, ITranslatableViewModel<T> viewModel) where T : ITranslatable, new()
-        {
-            viewModel.Translation = translationFactory.UpdateOrCreateTranslation(viewModel.Translation);
-        }
+    protected virtual void UpdateTranslation<T>(ITranslationFactory translationFactory, ITranslatableViewModel<T> viewModel) where T : ITranslatable, new()
+    {
+        viewModel.Translation = translationFactory.UpdateOrCreateTranslation(viewModel.Translation);
     }
 }

@@ -1,8 +1,7 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Interactions
+namespace pdfforge.PDFCreator.UI.Interactions;
+
+public class ManagePrintJobsInteraction : IInteraction
 {
-    public class ManagePrintJobsInteraction : IInteraction
-    {
-    }
 }

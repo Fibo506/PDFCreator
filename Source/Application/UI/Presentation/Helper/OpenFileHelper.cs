@@ -1,73 +1,72 @@
-﻿using Optional;
-using pdfforge.Obsidian;
-using pdfforge.Obsidian.Interaction.DialogInteractions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Optional;
+using pdfforge.Obsidian;
+using pdfforge.Obsidian.Interaction.DialogInteractions;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.Helper;
+
+public interface IOpenFileInteractionHelper
 {
-    public interface IOpenFileInteractionHelper
+    Option<string> StartOpenFileInteraction(string currentPath, string title, string filter);
+    Option<List<string>> StartOpenMultipleFilesInteraction(string currentPath, string title, string filter);
+}
+
+public class OpenFileInteractionHelper : IOpenFileInteractionHelper
+{
+    private readonly IInteractionInvoker _interactionInvoker;
+
+    public OpenFileInteractionHelper(IInteractionInvoker interactionInvoker)
     {
-        Option<string> StartOpenFileInteraction(string currentPath, string title, string filter);
-        Option<List<string>> StartOpenMultipleFilesInteraction(string currentPath, string title, string filter);
+        _interactionInvoker = interactionInvoker;
     }
 
-    public class OpenFileInteractionHelper : IOpenFileInteractionHelper
+    public Option<string> StartOpenFileInteraction(string currentPath, string title, string filter)
     {
-        private readonly IInteractionInvoker _interactionInvoker;
+        var interaction = new OpenFileInteraction();
+        interaction.Title = title;
+        interaction.Filter = filter;
 
-        public OpenFileInteractionHelper(IInteractionInvoker interactionInvoker)
+        if (!string.IsNullOrWhiteSpace(currentPath))
         {
-            _interactionInvoker = interactionInvoker;
-        }
-
-        public Option<string> StartOpenFileInteraction(string currentPath, string title, string filter)
-        {
-            var interaction = new OpenFileInteraction();
-            interaction.Title = title;
-            interaction.Filter = filter;
-
-            if (!string.IsNullOrWhiteSpace(currentPath))
+            try
             {
-                try
-                {
-                    interaction.FileName = Path.GetFileName(currentPath);
-                    interaction.InitialDirectory = Path.GetDirectoryName(currentPath);
-                }
-                catch (ArgumentException)
-                {
-                }
+                interaction.FileName = Path.GetFileName(currentPath);
+                interaction.InitialDirectory = Path.GetDirectoryName(currentPath);
             }
-
-            _interactionInvoker.Invoke(interaction);
-
-            return interaction.Success ? Option.Some(interaction.FileName) : Option.None<string>();
-        }
-
-        public Option<List<string>> StartOpenMultipleFilesInteraction(string currentPath, string title, string filter)
-        {
-            var interaction = new OpenFileInteraction();
-            interaction.Title = title;
-            interaction.Filter = filter;
-            interaction.Multiselect = true;
-
-            if (!string.IsNullOrWhiteSpace(currentPath))
+            catch (ArgumentException)
             {
-                try
-                {
-                    interaction.FileName = Path.GetFileName(currentPath);
-                    interaction.InitialDirectory = Path.GetDirectoryName(currentPath);
-                }
-                catch (ArgumentException)
-                {
-                }
             }
-
-            _interactionInvoker.Invoke(interaction);
-
-            return interaction.Success ? Option.Some(interaction.FileNames.ToList()) : Option.None<List<string>>();
         }
+
+        _interactionInvoker.Invoke(interaction);
+
+        return interaction.Success ? Option.Some(interaction.FileName) : Option.None<string>();
+    }
+
+    public Option<List<string>> StartOpenMultipleFilesInteraction(string currentPath, string title, string filter)
+    {
+        var interaction = new OpenFileInteraction();
+        interaction.Title = title;
+        interaction.Filter = filter;
+        interaction.Multiselect = true;
+
+        if (!string.IsNullOrWhiteSpace(currentPath))
+        {
+            try
+            {
+                interaction.FileName = Path.GetFileName(currentPath);
+                interaction.InitialDirectory = Path.GetDirectoryName(currentPath);
+            }
+            catch (ArgumentException)
+            {
+            }
+        }
+
+        _interactionInvoker.Invoke(interaction);
+
+        return interaction.Success ? Option.Some(interaction.FileNames.ToList()) : Option.None<List<string>>();
     }
 }

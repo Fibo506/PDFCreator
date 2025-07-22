@@ -1,13 +1,12 @@
-﻿using pdfforge.PDFCreator.Core.Printing.Printer;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Core.Printing.Printer;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+
+public class DesignTimePrinterProvider : IPrinterProvider
 {
-    public class DesignTimePrinterProvider : IPrinterProvider
+    public IList<string> GetPDFCreatorPrinters()
     {
-        public IList<string> GetPDFCreatorPrinters()
-        {
-            return new[] { "PDFCreator", "PDFCreator2" };
-        }
+        return new[] { "PDFCreator", "PDFCreator2" };
     }
 }

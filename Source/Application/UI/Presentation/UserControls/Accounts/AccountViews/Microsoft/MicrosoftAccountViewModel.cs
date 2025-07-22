@@ -7,7 +7,6 @@ using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Macros;
 using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.Utilities;
@@ -33,7 +32,7 @@ public class MicrosoftAccountViewModel : AccountViewModelBase<MicrosoftAccountIn
     private bool _initialHasOWA;
     private bool _initialHasOWASend;
 
-    public MicrosoftAccountViewModel(ITranslationUpdater translationUpdater, ICommandLocator commandLocator, 
+    public MicrosoftAccountViewModel(ITranslationUpdater translationUpdater, ICommandLocator commandLocator,
         ICurrentSettings<Conversion.Settings.Accounts> accountProvider, EditionHelper editionHelper) : base(translationUpdater)
     {
         _accountProvider = accountProvider;
@@ -44,7 +43,7 @@ public class MicrosoftAccountViewModel : AccountViewModelBase<MicrosoftAccountIn
             .Build();
     }
 
-    public bool IsSharePointSupported => !_editionHelper.IsFreeEdition; 
+    public bool IsSharePointSupported => !_editionHelper.IsFreeEdition;
 
     public IMacroCommand RequestPermissionCommand { get; set; }
 

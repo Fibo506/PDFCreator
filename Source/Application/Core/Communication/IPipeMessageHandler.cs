@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Core.Communication
+﻿namespace pdfforge.PDFCreator.Core.Communication;
+
+public interface IPipeMessageHandler
 {
-    public interface IPipeMessageHandler
-    {
-        void HandlePipeMessage(string message);
-    }
+    void HandlePipeMessage(string message);
 }

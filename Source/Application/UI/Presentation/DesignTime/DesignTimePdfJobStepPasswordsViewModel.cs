@@ -3,12 +3,11 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
 using pdfforge.PDFCreator.Utilities.Threading;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+internal class DesignTimeSecurityPasswordsStepViewModel : SecurityPasswordsStepViewModel
 {
-    internal class DesignTimeSecurityPasswordsStepViewModel : SecurityPasswordsStepViewModel
+    public DesignTimeSecurityPasswordsStepViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
     {
-        public DesignTimeSecurityPasswordsStepViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
-        {
-        }
     }
 }

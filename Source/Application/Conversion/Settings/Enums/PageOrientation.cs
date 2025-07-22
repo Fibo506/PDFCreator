@@ -1,15 +1,14 @@
 ﻿using Translatable;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+[Translatable]
+public enum PageOrientation
 {
-    [Translatable]
-    public enum PageOrientation
-    {
-        [Translation("Auto-Detect")]
-        Automatic,
-        [Translation("Portrait")]
-        Portrait,
-        [Translation("Landscape")]
-        Landscape
-    }
+    [Translation("Auto-Detect")]
+    Automatic,
+    [Translation("Portrait")]
+    Portrait,
+    [Translation("Landscape")]
+    Landscape
 }

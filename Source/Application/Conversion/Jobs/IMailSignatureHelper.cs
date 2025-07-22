@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Jobs
+﻿namespace pdfforge.PDFCreator.Conversion.Jobs;
+
+public interface IMailSignatureHelper
 {
-    public interface IMailSignatureHelper
-    {
-        string ComposeMailSignature();
-    }
+    string ComposeMailSignature();
 }

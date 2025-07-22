@@ -1,25 +1,24 @@
 ﻿using System.Media;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.Helper;
+
+public interface ISoundPlayer
 {
-    public interface ISoundPlayer
-    {
-        void Play(SystemSound sound);
-    }
+    void Play(SystemSound sound);
+}
 
-    public class SoundPlayer : ISoundPlayer
+public class SoundPlayer : ISoundPlayer
+{
+    public void Play(SystemSound sound)
     {
-        public void Play(SystemSound sound)
-        {
-            sound.Play();
-        }
+        sound.Play();
     }
+}
 
-    public class DesignTimeSoundPlayer : ISoundPlayer
+public class DesignTimeSoundPlayer : ISoundPlayer
+{
+    public void Play(SystemSound sound)
     {
-        public void Play(SystemSound sound)
-        {
-            //Play no f***ing sound!
-        }
+        //Play no f***ing sound!
     }
 }

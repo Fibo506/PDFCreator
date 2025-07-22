@@ -1,4 +1,8 @@
-﻿using CommonServiceLocator;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
+using System.Windows.Markup;
+using CommonServiceLocator;
 using NLog;
 using pdfforge.PDFCreator.Core.ServiceLocator;
 using pdfforge.PDFCreator.Core.SettingsManagement;
@@ -10,108 +14,103 @@ using Prism;
 using Prism.Ioc;
 using Prism.Regions;
 using SimpleInjector;
-using System.Globalization;
-using System.Threading;
-using System.Windows;
-using System.Windows.Markup;
 
-namespace pdfforge.PDFCreator.Editions.EditionBase
+namespace pdfforge.PDFCreator.Editions.EditionBase;
+
+public class SimpleInjectorPrismApplication : PrismApplicationBase
 {
-    public class SimpleInjectorPrismApplication : PrismApplicationBase
+    private readonly Container _container;
+
+    private IAppStart _appStart;
+    private ISettingsManager _settingsManager;
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
+    public SimpleInjectorPrismApplication(Container container)
     {
-        private readonly Container _container;
+        _container = container;
+    }
 
-        private IAppStart _appStart;
-        private ISettingsManager _settingsManager;
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    public void InitApplication(IAppStart appStart, HelpCommandHandler helpCommandHandler, ISettingsManager settingsManager)
+    {
+        _appStart = appStart;
+        _settingsManager = settingsManager;
+        helpCommandHandler.RegisterHelpCommandBinding();
+        ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-        public SimpleInjectorPrismApplication(Container container)
+        RegisterXamlCulture();
+    }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        try
         {
-            _container = container;
+            // Load settings to have the proper translation available
+            _settingsManager.LoadAllSettings();
+
+            _appStart.CheckApplicationConditions();
+        }
+        catch (StartupConditionFailedException ex)
+        {
+            _logger.Error($"Error while starting the application: {ex.Message} ({ex.ExitCode})");
+            Shutdown(ex.ExitCode);
+            return;
         }
 
-        public void InitApplication(IAppStart appStart, HelpCommandHandler helpCommandHandler, ISettingsManager settingsManager)
-        {
-            _appStart = appStart;
-            _settingsManager = settingsManager;
-            helpCommandHandler.RegisterHelpCommandBinding();
-            ShutdownMode = ShutdownMode.OnExplicitShutdown;
+        var exitCode = RunAppStart(_appStart);
 
-            RegisterXamlCulture();
-        }
+        Shutdown((int)exitCode);
+    }
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            try
-            {
-                // Load settings to have the proper translation available
-                _settingsManager.LoadAllSettings();
+    private ExitCode RunAppStart(IAppStart appStart)
+    {
+        // Run this in a separate thread to avoid deadlocks
 
-                _appStart.CheckApplicationConditions();
-            }
-            catch (StartupConditionFailedException ex)
-            {
-                _logger.Error($"Error while starting the application: {ex.Message} ({ex.ExitCode})");
-                Shutdown(ex.ExitCode);
-                return;
-            }
+        var exitCode = ExitCode.Ok;
+        var thread = new Thread(() => exitCode = appStart.Run().GetAwaiter().GetResult());
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        thread.Join();
 
-            var exitCode = RunAppStart(_appStart);
+        return exitCode;
+    }
 
-            Shutdown((int)exitCode);
-        }
+    protected override IContainerExtension CreateContainerExtension()
+    {
+        return new SimpleInjectorContainerExtension(_container);
+    }
 
-        private ExitCode RunAppStart(IAppStart appStart)
-        {
-            // Run this in a separate thread to avoid deadlocks
+    protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
+    {
+        base.RegisterRequiredTypes(containerRegistry);
 
-            var exitCode = ExitCode.Ok;
-            var thread = new Thread(() => exitCode = appStart.Run().GetAwaiter().GetResult());
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-            thread.Join();
+        _container.RegisterSingleton<IServiceLocator, SimpleInjectorServiceLocator>();
 
-            return exitCode;
-        }
+        var whitelistedServiceLocator = new WhitelistedServiceLocator(_container);
+        RestrictedServiceLocator.Current = whitelistedServiceLocator;
+        _container.RegisterSingleton<IWhitelistedServiceLocator>(() => whitelistedServiceLocator);
 
-        protected override IContainerExtension CreateContainerExtension()
-        {
-            return new SimpleInjectorContainerExtension(_container);
-        }
+        _container.RegisterSingleton<IShellManager, ShellManager>();
 
-        protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
-        {
-            base.RegisterRequiredTypes(containerRegistry);
+        _container.RegisterSingleton<IRegionNavigationContentLoader, RegionNavigationContentLoader>();
+    }
 
-            _container.RegisterSingleton<IServiceLocator, SimpleInjectorServiceLocator>();
+    protected override void RegisterTypes(IContainerRegistry containerRegistry)
+    {
+    }
 
-            var whitelistedServiceLocator = new WhitelistedServiceLocator(_container);
-            RestrictedServiceLocator.Current = whitelistedServiceLocator;
-            _container.RegisterSingleton<IWhitelistedServiceLocator>(() => whitelistedServiceLocator);
+    private void RegisterXamlCulture()
+    {
+        // Ensure the current culture passed into bindings is the OS culture.
+        // By default, WPF uses en-US as the culture, regardless of the system settings.
+        FrameworkElement.LanguageProperty.OverrideMetadata(
+            typeof(FrameworkElement),
+            new FrameworkPropertyMetadata(
+                XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
+    }
 
-            _container.RegisterSingleton<IShellManager, ShellManager>();
-
-            _container.RegisterSingleton<IRegionNavigationContentLoader, RegionNavigationContentLoader>();
-        }
-
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-        }
-
-        private void RegisterXamlCulture()
-        {
-            // Ensure the current culture passed into bindings is the OS culture.
-            // By default, WPF uses en-US as the culture, regardless of the system settings.
-            FrameworkElement.LanguageProperty.OverrideMetadata(
-                typeof(FrameworkElement),
-                new FrameworkPropertyMetadata(
-                    XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
-        }
-
-        protected override Window CreateShell()
-        {
-            // null to prevent Prism from creating an unused window
-            return null;
-        }
+    protected override Window CreateShell()
+    {
+        // null to prevent Prism from creating an unused window
+        return null;
     }
 }

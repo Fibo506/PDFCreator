@@ -4,39 +4,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace pdfforge.PDFCreator.UI.RssFeed
+namespace pdfforge.PDFCreator.UI.RssFeed;
+
+public class RssService : IRssService
 {
-    public class RssService : IRssService
+    private readonly IRssHttpClientFactory _rssHttpClientFactory;
+
+    public RssService(IRssHttpClientFactory rssHttpClientFactory)
     {
-        private readonly IRssHttpClientFactory _rssHttpClientFactory;
+        _rssHttpClientFactory = rssHttpClientFactory;
+    }
 
-        public RssService(IRssHttpClientFactory rssHttpClientFactory)
+    public async Task<List<FeedItem>> FetchFeedAsync(string url)
+    {
+        try
         {
-            _rssHttpClientFactory = rssHttpClientFactory;
+            var result = await _rssHttpClientFactory.CreateHttpClient().GetStringAsync(url);
+            var document = XDocument.Parse(result);
+
+            var feedItems = document.Descendants("item")
+                .Select(x => new FeedItem()
+                {
+                    Title = (string)x.Element("title"),
+                    Link = (string)x.Element("link"),
+                    Description = (string)x.Element("description"),
+                    PublishDate = DateTime.Parse((string)x.Element("pubDate"))
+                }).ToList();
+
+            return feedItems;
         }
-
-        public async Task<List<FeedItem>> FetchFeedAsync(string url)
+        catch
         {
-            try
-            {
-                var result = await _rssHttpClientFactory.CreateHttpClient().GetStringAsync(url);
-                var document = XDocument.Parse(result);
-
-                var feedItems = document.Descendants("item")
-                    .Select(x => new FeedItem()
-                    {
-                        Title = (string)x.Element("title"),
-                        Link = (string)x.Element("link"),
-                        Description = (string)x.Element("description"),
-                        PublishDate = DateTime.Parse((string)x.Element("pubDate"))
-                    }).ToList();
-
-                return feedItems;
-            }
-            catch
-            {
-                return new List<FeedItem>();
-            }
+            return new List<FeedItem>();
         }
     }
 }

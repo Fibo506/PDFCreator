@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.Core.Services.Macros
+namespace pdfforge.PDFCreator.Core.Services.Macros;
+
+public interface IMacroCommandBuilder
 {
-    public interface IMacroCommandBuilder
-    {
-        IMacroCommand Build();
+    IMacroCommand Build();
 
-        IMacroCommandBuilder AddCommand(ICommand command);
+    IMacroCommandBuilder AddCommand(ICommand command);
 
-        IMacroCommandBuilder AddCommand<T>() where T : class, ICommand;
+    IMacroCommandBuilder AddCommand<T>() where T : class, ICommand;
 
-        IMacroCommandBuilder AddInitializedCommand<T>(Action<T> initAction) where T : class, ICommand;
-    }
+    IMacroCommandBuilder AddInitializedCommand<T>(Action<T> initAction) where T : class, ICommand;
 }

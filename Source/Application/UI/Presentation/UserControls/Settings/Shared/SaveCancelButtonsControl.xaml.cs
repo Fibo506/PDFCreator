@@ -1,16 +1,15 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.Shared
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.Shared;
+
+/// <summary>
+///     Interaction logic for SettingControlsView.xaml
+/// </summary>
+public partial class SaveCancelButtonsControl : UserControl
 {
-    /// <summary>
-    ///     Interaction logic for SettingControlsView.xaml
-    /// </summary>
-    public partial class SaveCancelButtonsControl : UserControl
+    public SaveCancelButtonsControl(SettingControlsViewModel viewModel)
     {
-        public SaveCancelButtonsControl(SettingControlsViewModel viewModel)
-        {
-            InitializeComponent();
-            DataContext = viewModel;
-        }
+        InitializeComponent();
+        DataContext = viewModel;
     }
 }

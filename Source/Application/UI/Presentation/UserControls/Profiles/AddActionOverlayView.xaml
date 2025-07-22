@@ -18,13 +18,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary  Source="../../Styles/Buttons/DefaultButtons.xaml" />
                 <ResourceDictionary Source="../../Styles/ListBox.xaml" />
+                <ResourceDictionary Source="../../Styles/Buttons/BusinessFeatureButtons.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <converter:BoolNegationConverter x:Key="BoolNegationConverter" />
             <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalseConverter" TrueValue="Visible" FalseValue="Collapsed" />
-            <Style x:Key="AddActionButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButton}">
-                <Setter Property="Focusable" Value="False" />
-                <Setter Property="Margin" Value="2" />
-            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Margin="10">
@@ -50,7 +47,7 @@
                         <Button Content="{Binding Title}"
                                 Command="{Binding DataContext.TriggerAddActionCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
                                 CommandParameter="{Binding}"
-                                Style="{StaticResource AddActionButtonStyle}"
+                                Style="{StaticResource AddActionButtonWithBusinessFeatureHighlight}"
                                 ToolTipService.ShowOnDisabled="True"
                                 ToolTipService.IsEnabled="{Binding AddActionToolTip.IsEnabled}"
                                 ToolTipService.ToolTip="{Binding AddActionToolTip.Text}">
@@ -82,7 +79,7 @@
                         <Button Content="{Binding Title}"
                                 Command="{Binding DataContext.TriggerAddActionCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
                                 CommandParameter="{Binding}"
-                                Style="{StaticResource AddActionButtonStyle}"
+                                Style="{StaticResource AddActionButtonWithBusinessFeatureHighlight}"
                                 ToolTipService.ShowOnDisabled="True"
                                 ToolTipService.IsEnabled="{Binding AddActionToolTip.IsEnabled}"
                                 ToolTipService.ToolTip="{Binding AddActionToolTip.Text}">
@@ -113,7 +110,7 @@
                         <Button Content="{Binding Title}"
                                 Command="{Binding DataContext.TriggerAddActionCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
                                 CommandParameter="{Binding}"
-                                Style="{StaticResource AddActionButtonStyle}"
+                                Style="{StaticResource AddActionButtonWithBusinessFeatureHighlight}"
                                 ToolTipService.ShowOnDisabled="True"
                                 ToolTipService.IsEnabled="{Binding AddActionToolTip.IsEnabled}"
                                 ToolTipService.ToolTip="{Binding AddActionToolTip.Text}">

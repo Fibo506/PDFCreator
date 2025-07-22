@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public partial class HttpSettings : IProfileSetting
 {
-    public partial class  HttpSettings : IProfileSetting
-    {
-    }
 }
 

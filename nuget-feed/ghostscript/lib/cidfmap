@@ -3,13 +3,13 @@
 %   C:/WINDOWS/Fonts
 
 % Substitutions
-/NSimSun << /FileType /TrueType /CSI [(GB1) 2] /SubfontID 1 /Path (C:/WINDOWS/Fonts/simsun.ttc) >> ;
-/MalgunGothicBold << /FileType /TrueType /CSI [(Korea1) 3] /SubfontID 0 /Path (C:/WINDOWS/Fonts/malgunbd.ttf) >> ;
-/SimSun << /FileType /TrueType /CSI [(GB1) 2] /SubfontID 0 /Path (C:/WINDOWS/Fonts/simsun.ttc) >> ;
-/MalgunGothicRegular << /FileType /TrueType /CSI [(Korea1) 3] /SubfontID 0 /Path (C:/WINDOWS/Fonts/malgun.ttf) >> ;
-/MS-UI-Gothic << /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 2 /Path (C:/WINDOWS/Fonts/msgothic.ttc) >> ;
-/MS-Gothic << /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 0 /Path (C:/WINDOWS/Fonts/msgothic.ttc) >> ;
-/MS-PGothic << /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 1 /Path (C:/WINDOWS/Fonts/msgothic.ttc) >> ;
+/NSimSun << /Path (C:/WINDOWS/Fonts/simsun.ttc) /FileType /TrueType /CSI [(GB1) 2] /SubfontID 1 >> ;
+/MalgunGothicBold << /Path (C:/WINDOWS/Fonts/malgunbd.ttf) /FileType /TrueType /CSI [(Korea1) 3] /SubfontID 0 >> ;
+/SimSun << /Path (C:/WINDOWS/Fonts/simsun.ttc) /FileType /TrueType /CSI [(GB1) 2] /SubfontID 0 >> ;
+/MalgunGothicRegular << /Path (C:/WINDOWS/Fonts/malgun.ttf) /FileType /TrueType /CSI [(Korea1) 3] /SubfontID 0 >> ;
+/MS-UI-Gothic << /Path (C:/WINDOWS/Fonts/msgothic.ttc) /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 2 >> ;
+/MS-Gothic << /Path (C:/WINDOWS/Fonts/msgothic.ttc) /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 0 >> ;
+/MS-PGothic << /Path (C:/WINDOWS/Fonts/msgothic.ttc) /FileType /TrueType /CSI [(Japan1) 3] /SubfontID 1 >> ;
 
 % Aliases
 /HYGoThic-Medium /MalgunGothicRegular ;

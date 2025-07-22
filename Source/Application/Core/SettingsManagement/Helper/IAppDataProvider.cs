@@ -1,9 +1,8 @@
-﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.Helper
-{
-    public interface IAppDataProvider
-    {
-        string LocalAppDataFolder { get; }
+﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.Helper;
 
-        string RoamingAppDataFolder { get; }
-    }
+public interface IAppDataProvider
+{
+    string LocalAppDataFolder { get; }
+
+    string RoamingAppDataFolder { get; }
 }

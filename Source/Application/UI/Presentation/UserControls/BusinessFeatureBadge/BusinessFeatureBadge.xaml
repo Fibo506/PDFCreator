@@ -42,7 +42,7 @@
         <ContentControl
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            Background="{StaticResource BusinessFeatureBadgeBackground}"
+            Background="{StaticResource MainGreenGradient}"
             Foreground="White"
             FontSize="9"
             FontWeight="Bold"

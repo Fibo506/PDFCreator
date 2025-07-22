@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public interface IProfileSetting : INotifyPropertyChanged
 {
-    public interface IProfileSetting : INotifyPropertyChanged
-    {
-        bool Enabled { get; set; }
-    }
+    bool Enabled { get; set; }
 }

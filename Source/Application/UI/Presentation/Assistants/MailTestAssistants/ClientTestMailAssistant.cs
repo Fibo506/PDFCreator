@@ -1,4 +1,5 @@
-﻿using pdfforge.Obsidian.Trigger;
+﻿using System.Threading.Tasks;
+using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
@@ -7,42 +8,40 @@ using pdfforge.PDFCreator.Core.Services.Translation;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.Utilities;
-using System.Threading.Tasks;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Assistants
+namespace pdfforge.PDFCreator.UI.Presentation.Assistants;
+
+public interface IClientTestMailAssistant
 {
-    public interface IClientTestMailAssistant
+    Task SendTestEmail(EmailClientSettings emailClientSettings);
+}
+
+public class ClientTestMailAssistant : TestMailAssistantBase<EmailClientSettings>, IClientTestMailAssistant
+{
+    public ClientTestMailAssistant(ITranslationUpdater translationUpdater, ITokenHelper tokenHelper,
+        ITestFileDummyHelper testFileDummyHelper, IEMailClientAction mailAction,
+        ErrorCodeInterpreter errorCodeInterpreter, IInteractionRequest interactionRequest, IFile file, IPdfProcessor processor)
+        : base(translationUpdater, tokenHelper, testFileDummyHelper, mailAction, errorCodeInterpreter, interactionRequest, file, processor)
+    { }
+
+    protected override void SetMailActionSettings(ConversionProfile profile, EmailClientSettings emailClientSettings)
     {
-        Task SendTestEmail(EmailClientSettings emailClientSettings);
+        profile.EmailClientSettings = emailClientSettings;
     }
 
-    public class ClientTestMailAssistant : TestMailAssistantBase<EmailClientSettings>, IClientTestMailAssistant
+    protected override void ShowSuccess(Job job)
     {
-        public ClientTestMailAssistant(ITranslationUpdater translationUpdater, ITokenHelper tokenHelper,
-            ITestFileDummyHelper testFileDummyHelper, IEMailClientAction mailAction,
-            ErrorCodeInterpreter errorCodeInterpreter, IInteractionRequest interactionRequest, IFile file, IPdfProcessor processor)
-            : base(translationUpdater, tokenHelper, testFileDummyHelper, mailAction, errorCodeInterpreter, interactionRequest, file, processor)
-        { }
+        //Nothing to to here. The opened mail client ist the success response.
+    }
 
-        protected override void SetMailActionSettings(ConversionProfile profile, EmailClientSettings emailClientSettings)
-        {
-            profile.EmailClientSettings = emailClientSettings;
-        }
+    protected override Task<bool> TrySetJobPasswords(Job job)
+    {
+        return Task.FromResult(true);
+    }
 
-        protected override void ShowSuccess(Job job)
-        {
-            //Nothing to to here. The opened mail client ist the success response.
-        }
-
-        protected override Task<bool> TrySetJobPasswords(Job job)
-        {
-            return Task.FromResult(true);
-        }
-
-        public async Task SendTestEmail(EmailClientSettings emailClientSettings)
-        {
-            await SendTestEmail(emailClientSettings, new Accounts());
-        }
+    public async Task SendTestEmail(EmailClientSettings emailClientSettings)
+    {
+        await SendTestEmail(emailClientSettings, new Accounts());
     }
 }

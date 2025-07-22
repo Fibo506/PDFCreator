@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.UI.RssFeed
+namespace pdfforge.PDFCreator.UI.RssFeed;
+
+public interface IRssService
 {
-    public interface IRssService
-    {
-        Task<List<FeedItem>> FetchFeedAsync(string url);
-    }
+    Task<List<FeedItem>> FetchFeedAsync(string url);
 }

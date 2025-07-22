@@ -1,10 +1,9 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow;
+
+public interface IWorkflowViewModel
 {
-    public interface IWorkflowViewModel
-    {
-        Task ExecuteWorkflowStep(Job job);
-    }
+    Task ExecuteWorkflowStep(Job job);
 }

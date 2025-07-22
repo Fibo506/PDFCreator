@@ -2,17 +2,16 @@
 using pdfforge.PDFCreator.UI.Presentation.DesignTime;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 
-namespace pdfforge.PDFCreator.UI.RssFeed
+namespace pdfforge.PDFCreator.UI.RssFeed;
+
+public class DesignTimeRssFeedViewModel : RssFeedViewModel
 {
-    public class DesignTimeRssFeedViewModel : RssFeedViewModel
-    {
-        public DesignTimeRssFeedViewModel() : base(
-            new DesignTimeCommandLocator(),
-            new DesignTimeCurrentSettings<Conversion.Settings.RssFeed>(),
-            new GpoSettingsDefaults(),
-            new DesignTimeTranslationUpdater(),
-            null, null, null, null, null,
-            new DesignTimeVersionHelper(), new DesignTimeApplicationNameProvider())
-        { }
-    }
+    public DesignTimeRssFeedViewModel() : base(
+        new DesignTimeCommandLocator(),
+        new DesignTimeCurrentSettings<Conversion.Settings.RssFeed>(),
+        new GpoSettingsDefaults(),
+        new DesignTimeTranslationUpdater(),
+        null, null, null, null, null,
+        new DesignTimeVersionHelper(), new DesignTimeApplicationNameProvider())
+    { }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -32,7 +31,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
     private readonly MicrosoftActionHelper _microsoftActionHelper;
     private HttpClient _httpClient;
 
-    public OneDriveAction(IGraphManager graphManager, IUniqueFilenameFactory uniqueFilenameFactory, MicrosoftActionHelper microsoftActionHelper, IWebLinkLauncher webLinkLauncher, IPathUtil pathUtil) : 
+    public OneDriveAction(IGraphManager graphManager, IUniqueFilenameFactory uniqueFilenameFactory, MicrosoftActionHelper microsoftActionHelper, IWebLinkLauncher webLinkLauncher, IPathUtil pathUtil) :
         base(p => p.OneDriveSettings)
     {
         _graphManager = graphManager;
@@ -59,7 +58,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
         var destinationFolder = GetDestinationFolder(job);
 
         var (success, privateUrl, sharePath) = ProcessJobFiles(job, destinationFolder, authenticationResult.AccessToken, ensureUniqueFilenames).GetAwaiter().GetResult();
-        if(!success)
+        if (!success)
             actionResult.Add(new ActionResult(ErrorCode.OneDrive_Upload_Failed));
 
         if (createShareLink)
@@ -121,7 +120,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
 
         return (success, privatePath, sharePath);
     }
-     
+
     private async Task<string> GetItemWebUrl(ItemReference itemReference, string accessToken)
     {
         var itemUrl = $"{GraphManager.BaseURL}/drives/{itemReference.DriveId}/items/{itemReference.Id}";
@@ -154,13 +153,13 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
     private string GetDestinationFolder(Job job)
     {
         var destinationFolder = job.Profile.OneDriveSettings.SharedFolder;
-        
+
         if (job.OutputFiles.Count > 1)
         {
             var nestedFolderName = Path.GetFileNameWithoutExtension(job.OutputFileTemplate);
             destinationFolder = $"{destinationFolder}/{nestedFolderName}";
         }
-        
+
         return destinationFolder;
     }
 
@@ -168,7 +167,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
     {
         var fileExists = await DoesFileExistOnOneDrive(fileName, destinationFolder, accessToken);
 
-        if (!fileExists) 
+        if (!fileExists)
             return fileName;
 
         var uniquePath = _uniqueFilenameFactory.Build(fileName);
@@ -217,7 +216,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
 
         return await GetItemIdFromResponse(response);
     }
-    
+
     private static HttpRequestMessage GetRequestMessage(string accessToken, string relativeApiUrl)
     {
         var requestUrl = new Uri(GraphManager.BaseURL + relativeApiUrl);
@@ -229,19 +228,19 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
             JsonConvert.SerializeObject(
                 new
                 {
-                    Type = "view", 
+                    Type = "view",
                     Scope = "anonymous"
-                }), 
-            Encoding.UTF8, 
+                }),
+            Encoding.UTF8,
             mediaType: "application/json");
-        
+
         return httpRequest;
     }
 
     private static async Task<string> GetItemIdFromResponse(HttpResponseMessage response)
     {
         var responseContent = await response.Content.ReadAsStringAsync();
-        var jsonObject = (JObject) JsonConvert.DeserializeObject(responseContent);
+        var jsonObject = (JObject)JsonConvert.DeserializeObject(responseContent);
         return jsonObject?["id"]?.ToString();
     }
 
@@ -287,7 +286,7 @@ public class OneDriveAction : ActionBase<OneDriveSettings>, IPostConversionActio
             {
                 if (!profile.UserTokens.Enabled)
                     result.Add(ErrorCode.OneDrive_SharedFolder_RequiresUserTokenAction);
-                
+
                 return result;
             }
 

@@ -8,27 +8,30 @@ using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings;
+
+public class EventLogSettingsViewModel : ADebugSettingsItemControlModel
 {
-    public class EventLogSettingsViewModel : ADebugSettingsItemControlModel
+    public ICurrentSettings<ApplicationSettings> ApplicationSettings { get; }
+    public string EventLogName { get; set; } = "PDFCreator Server";
+
+    public EventLogSettingsViewModel(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings, ICurrentSettings<ApplicationSettings> applicationSettings)
+        : base(translationUpdater, gpoSettings)
     {
-        public ICurrentSettings<ApplicationSettings> ApplicationSettings { get; }
-        public string EventLogName { get; set; } = "PDFCreator Server";
+        ApplicationSettings = applicationSettings;
+        ShowLogFileCommand = new DelegateCommand(ShowLogFileExecute);
+    }
+    public IEnumerable<LoggingLevel> LoggingValues => Enum.GetValues(typeof(LoggingLevel)) as LoggingLevel[];
 
-        public EventLogSettingsViewModel(ITranslationUpdater translationUpdater, IGpoSettings gpoSettings, ICurrentSettings<ApplicationSettings> applicationSettings)
-            : base(translationUpdater, gpoSettings)
+    public ICommand ShowLogFileCommand { get; }
+
+    private void ShowLogFileExecute(object o)
+    {
+        Process.Start(new ProcessStartInfo
         {
-            ApplicationSettings = applicationSettings;
-            ShowLogFileCommand = new DelegateCommand(ShowLogFileExecute);
-        }
-        public IEnumerable<LoggingLevel> LoggingValues => Enum.GetValues(typeof(LoggingLevel)) as LoggingLevel[];
-
-        public ICommand ShowLogFileCommand { get; }
-
-        private void ShowLogFileExecute(object o)
-        {
-            var cmd = $"/c:\"{EventLogName}\"";
-            Process.Start("eventvwr.msc", cmd);
-        }
+            FileName = "eventvwr.msc",
+            Arguments = $"/c:\"{EventLogName}\"",
+            UseShellExecute = true
+        });
     }
 }

@@ -3,13 +3,12 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
 using pdfforge.PDFCreator.Utilities.Threading;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeFtpPasswordStepViewModel : FtpPasswordStepViewModel
 {
-    public class DesignTimeFtpPasswordStepViewModel : FtpPasswordStepViewModel
+    public DesignTimeFtpPasswordStepViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
     {
-        public DesignTimeFtpPasswordStepViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
-        {
-            FtpAccountInfo = "test-user@localhost";
-        }
+        FtpAccountInfo = "test-user@localhost";
     }
 }

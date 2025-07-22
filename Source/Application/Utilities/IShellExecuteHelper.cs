@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public interface IShellExecuteHelper
 {
-    public interface IShellExecuteHelper
-    {
-        ShellExecuteResult RunAsAdmin(string path, string arguments);
-        Task<ShellExecuteResult> RunAsAdminAsync(string path, string arguments);
-    }
+    ShellExecuteResult RunAsAdmin(string path, string arguments);
+    Task<ShellExecuteResult> RunAsAdminAsync(string path, string arguments);
 }

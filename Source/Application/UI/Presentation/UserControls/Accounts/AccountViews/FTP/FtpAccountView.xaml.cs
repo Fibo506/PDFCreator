@@ -1,18 +1,17 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews;
+
+/// <summary>
+/// Interaction logic for FtpAccountView.xaml
+/// </summary>
+public partial class FtpAccountView : UserControl
 {
-    /// <summary>
-    /// Interaction logic for FtpAccountView.xaml
-    /// </summary>
-    public partial class FtpAccountView : UserControl
+    public FtpAccountView(FtpAccountViewModel vm)
     {
-        public FtpAccountView(FtpAccountViewModel vm)
-        {
-            DataContext = vm;
-            TransposerHelper.Register(this, vm);
-            InitializeComponent();
-        }
+        DataContext = vm;
+        TransposerHelper.Register(this, vm);
+        InitializeComponent();
     }
 }

@@ -1,47 +1,46 @@
-﻿using pdfforge.PDFCreator.Conversion.Actions.Actions;
+﻿using System.Collections.ObjectModel;
+using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using System.Collections.ObjectModel;
 
-namespace pdfforge.PDFCreator.UI.Presentation.NavigationChecks
+namespace pdfforge.PDFCreator.UI.Presentation.NavigationChecks;
+
+public class NavigateDefaultViewerCheck : ISettingsNavigationCheck
 {
-    public class NavigateDefaultViewerCheck : ISettingsNavigationCheck
+    private readonly ICurrentSettings<ObservableCollection<DefaultViewer>> _defaultViewerSettings;
+    private readonly IDefaultViewerCheck _defaultViewerCheck;
+    private EvaluateSettingsAndNotifyUserTranslation _translation;
+
+    public string ApplicationSettingsRegionName { get; set; } = RegionViewName.ApplicationSettingsView;
+
+    public NavigateDefaultViewerCheck(ICurrentSettings<ObservableCollection<DefaultViewer>> defaultViewerSettings, IDefaultViewerCheck defaultViewerCheck, ITranslationUpdater translationUpdater)
     {
-        private readonly ICurrentSettings<ObservableCollection<DefaultViewer>> _defaultViewerSettings;
-        private readonly IDefaultViewerCheck _defaultViewerCheck;
-        private EvaluateSettingsAndNotifyUserTranslation _translation;
+        _defaultViewerSettings = defaultViewerSettings;
+        _defaultViewerCheck = defaultViewerCheck;
+        translationUpdater.RegisterAndSetTranslation(tf => _translation = tf.UpdateOrCreateTranslation(_translation));
+    }
 
-        public string ApplicationSettingsRegionName { get; set; } = RegionViewName.ApplicationSettingsView;
+    public SettingsCheckResult CheckSettings()
+    {
+        var result = new ActionResult();
 
-        public NavigateDefaultViewerCheck(ICurrentSettings<ObservableCollection<DefaultViewer>> defaultViewerSettings, IDefaultViewerCheck defaultViewerCheck, ITranslationUpdater translationUpdater)
+        foreach (var defaultViewer in _defaultViewerSettings.Settings)
         {
-            _defaultViewerSettings = defaultViewerSettings;
-            _defaultViewerCheck = defaultViewerCheck;
-            translationUpdater.RegisterAndSetTranslation(tf => _translation = tf.UpdateOrCreateTranslation(_translation));
+            result.AddRange(_defaultViewerCheck.Check(defaultViewer));
         }
 
-        public SettingsCheckResult CheckSettings()
+        var resultDict = new ActionResultDict
         {
-            var result = new ActionResult();
+            { _translation.DefaultViewer, result }
+        };
 
-            foreach (var defaultViewer in _defaultViewerSettings.Settings)
-            {
-                result.AddRange(_defaultViewerCheck.Check(defaultViewer));
-            }
+        return new SettingsCheckResult(resultDict, false);
+    }
 
-            var resultDict = new ActionResultDict
-            {
-                { _translation.DefaultViewer, result }
-            };
-
-            return new SettingsCheckResult(resultDict, false);
-        }
-
-        public bool IsRelevantForRegion(string region)
-        {
-            return region == ApplicationSettingsRegionName;
-        }
+    public bool IsRelevantForRegion(string region)
+    {
+        return region == ApplicationSettingsRegionName;
     }
 }

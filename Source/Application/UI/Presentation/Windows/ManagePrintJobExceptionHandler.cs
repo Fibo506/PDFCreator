@@ -2,20 +2,19 @@
 using pdfforge.PDFCreator.Core.Workflow;
 using pdfforge.PDFCreator.UI.Interactions;
 
-namespace pdfforge.PDFCreator.UI.ViewModels
+namespace pdfforge.PDFCreator.UI.ViewModels;
+
+public class ManagePrintJobExceptionHandler : IManagePrintJobExceptionHandler
 {
-    public class ManagePrintJobExceptionHandler : IManagePrintJobExceptionHandler
+    private readonly IInteractionInvoker _interactionInvoker;
+
+    public ManagePrintJobExceptionHandler(IInteractionInvoker interactionInvoker)
     {
-        private readonly IInteractionInvoker _interactionInvoker;
+        _interactionInvoker = interactionInvoker;
+    }
 
-        public ManagePrintJobExceptionHandler(IInteractionInvoker interactionInvoker)
-        {
-            _interactionInvoker = interactionInvoker;
-        }
-
-        public void HandleException()
-        {
-            _interactionInvoker.Invoke(new ManagePrintJobsInteraction());
-        }
+    public void HandleException()
+    {
+        _interactionInvoker.Invoke(new ManagePrintJobsInteraction());
     }
 }

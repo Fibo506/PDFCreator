@@ -1,13 +1,12 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Assistants.Update
+namespace pdfforge.PDFCreator.UI.Presentation.Assistants.Update;
+
+public partial class RestartApplicationInteractionView : UserControl
 {
-    public partial class RestartApplicationInteractionView : UserControl
+    public RestartApplicationInteractionView(RestartApplicationInteractionViewModel viewModel)
     {
-        public RestartApplicationInteractionView(RestartApplicationInteractionViewModel viewModel)
-        {
-            DataContext = viewModel;
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        InitializeComponent();
     }
 }

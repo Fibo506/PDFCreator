@@ -1,16 +1,15 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay;
+
+/// <summary>
+/// Interaction logic for OverwriteOrAppendOverlay.xaml
+/// </summary>
+public partial class OverwriteOrAppendOverlay : UserControl
 {
-    /// <summary>
-    /// Interaction logic for OverwriteOrAppendOverlay.xaml
-    /// </summary>
-    public partial class OverwriteOrAppendOverlay : UserControl
+    public OverwriteOrAppendOverlay(OverwriteOrAppendViewModel viewModel)
     {
-        public OverwriteOrAppendOverlay(OverwriteOrAppendViewModel viewModel)
-        {
-            DataContext = viewModel;
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        InitializeComponent();
     }
 }

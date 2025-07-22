@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Core.Controller
+﻿namespace pdfforge.PDFCreator.Core.Controller;
+
+public interface IApplicationCloser
 {
-    public interface IApplicationCloser
-    {
-        void CloseApplication();
-    }
+    void CloseApplication();
 }

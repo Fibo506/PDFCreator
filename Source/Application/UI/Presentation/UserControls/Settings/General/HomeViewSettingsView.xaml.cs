@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General;
+
+
+public partial class HomeViewSettingsView : UserControl
 {
-    
-    public partial class HomeViewSettingsView : UserControl
+    public HomeViewSettingsView(HomeViewSettingsViewModel viewModel)
     {
-        public HomeViewSettingsView(HomeViewSettingsViewModel viewModel)
-        {
-            DataContext = viewModel;
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        InitializeComponent();
     }
 }

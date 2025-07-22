@@ -1,6 +1,5 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public partial class Ftp : IProfileSetting
 {
-    public partial class Ftp : IProfileSetting
-    {
-    }
 }

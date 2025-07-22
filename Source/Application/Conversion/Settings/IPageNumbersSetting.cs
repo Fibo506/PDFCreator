@@ -1,29 +1,28 @@
 ﻿using System.Drawing;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+namespace pdfforge.PDFCreator.Conversion.Settings;
+
+interface IPageNumbersSetting
 {
-    interface IPageNumbersSetting
-    {
-        bool Enabled { get; set; }
-        Color FontColor { get; set; }
+    bool Enabled { get; set; }
+    Color FontColor { get; set; }
 
-        string FontName { get; set; }
+    string FontName { get; set; }
 
-        string FontFile { get; set; }
+    string FontFile { get; set; }
 
-        float FontSize { get; set; }
+    float FontSize { get; set; }
 
-        string Format { get; set; }
+    string Format { get; set; }
 
-        float HorizontalOffset { get; set; }
+    float HorizontalOffset { get; set; }
 
-        PageNumberPosition Position { get; set; }
+    PageNumberPosition Position { get; set; }
 
-        bool UseRomanNumerals { get; set; }
+    bool UseRomanNumerals { get; set; }
 
-        float VerticalOffset { get; set; }
+    float VerticalOffset { get; set; }
 
-        bool AlternateCorner { get; set; }
-    }
+    bool AlternateCorner { get; set; }
 }

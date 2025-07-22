@@ -1,12 +1,11 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Controls
+namespace pdfforge.PDFCreator.UI.Presentation.Controls;
+
+public partial class TokenControl : UserControl
 {
-    public partial class TokenControl : UserControl
+    public TokenControl()
     {
-        public TokenControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

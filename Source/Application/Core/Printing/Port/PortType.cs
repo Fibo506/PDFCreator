@@ -1,8 +1,7 @@
-﻿namespace pdfforge.PDFCreator.Core.Printing.Port
+﻿namespace pdfforge.PDFCreator.Core.Printing.Port;
+
+public enum PortType
 {
-    public enum PortType
-    {
-        PostScript,
-        Xps
-    }
+    PostScript,
+    Xps
 }

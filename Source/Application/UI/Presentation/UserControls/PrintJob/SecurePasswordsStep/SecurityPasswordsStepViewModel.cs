@@ -1,80 +1,79 @@
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
+
+public class SecurityPasswordsStepViewModel : JobStepPasswordViewModelBase<SecurityPasswordsStepTranslation>
 {
-    public class SecurityPasswordsStepViewModel : JobStepPasswordViewModelBase<SecurityPasswordsStepTranslation>
+    private string _ownerPassword = "";
+    private string _userPassword = "";
+    private bool _askOwnerPassword = true;
+    private bool _askUserPassword = true;
+
+    public bool AskOwnerPassword
     {
-        private string _ownerPassword = "";
-        private string _userPassword = "";
-        private bool _askOwnerPassword = true;
-        private bool _askUserPassword = true;
+        get { return _askOwnerPassword; }
+        set { SetProperty(ref _askOwnerPassword, value); }
+    }
 
-        public bool AskOwnerPassword
+    public bool AskUserPassword
+    {
+        get { return _askUserPassword; }
+        set { SetProperty(ref _askUserPassword, value); }
+    }
+
+    public string OwnerPassword
+    {
+        get { return _ownerPassword; }
+        set
         {
-            get { return _askOwnerPassword; }
-            set { SetProperty(ref _askOwnerPassword, value); }
+            SetProperty(ref _ownerPassword, value);
+            ContinueCommand.RaiseCanExecuteChanged();
         }
+    }
 
-        public bool AskUserPassword
+    public string UserPassword
+    {
+        get { return _userPassword; }
+        set
         {
-            get { return _askUserPassword; }
-            set { SetProperty(ref _askUserPassword, value); }
+            SetProperty(ref _userPassword, value);
+            ContinueCommand.RaiseCanExecuteChanged();
         }
+    }
 
-        public string OwnerPassword
-        {
-            get { return _ownerPassword; }
-            set
-            {
-                SetProperty(ref _ownerPassword, value);
-                ContinueCommand.RaiseCanExecuteChanged();
-            }
-        }
+    public SecurityPasswordsStepViewModel(ITranslationUpdater translationUpdater) : base(translationUpdater)
+    {
+    }
 
-        public string UserPassword
-        {
-            get { return _userPassword; }
-            set
-            {
-                SetProperty(ref _userPassword, value);
-                ContinueCommand.RaiseCanExecuteChanged();
-            }
-        }
+    protected override void DisableAction()
+    {
+        Job.Profile.PdfSettings.Security.Enabled = false;
+    }
 
-        public SecurityPasswordsStepViewModel(ITranslationUpdater translationUpdater) : base(translationUpdater)
-        {
-        }
+    protected override void InitializeWorkflowStep()
+    {
+        var securitySettings = Job.Profile.PdfSettings.Security;
+        AskOwnerPassword = securitySettings.OwnerPassword == "";
+        AskUserPassword = securitySettings.RequireUserPassword && securitySettings.UserPassword == "";
+    }
 
-        protected override void DisableAction()
-        {
-            Job.Profile.PdfSettings.Security.Enabled = false;
-        }
+    protected override void StorePasswordsInJobPasswords()
+    {
+        Job.Passwords.PdfUserPassword = UserPassword;
+        Job.Passwords.PdfOwnerPassword = OwnerPassword;
+    }
 
-        protected override void InitializeWorkflowStep()
-        {
-            var securitySettings = Job.Profile.PdfSettings.Security;
-            AskOwnerPassword = securitySettings.OwnerPassword == "";
-            AskUserPassword = securitySettings.RequireUserPassword && securitySettings.UserPassword == "";
-        }
+    protected override bool ContinueCanExecute(object obj)
+    {
+        if (AskOwnerPassword)
+            if (string.IsNullOrWhiteSpace(OwnerPassword))
+                return false;
 
-        protected override void StorePasswordsInJobPasswords()
-        {
-            Job.Passwords.PdfUserPassword = UserPassword;
-            Job.Passwords.PdfOwnerPassword = OwnerPassword;
-        }
+        if (AskUserPassword)
+            if (string.IsNullOrWhiteSpace(UserPassword))
+                return false;
 
-        protected override bool ContinueCanExecute(object obj)
-        {
-            if (AskOwnerPassword)
-                if (string.IsNullOrWhiteSpace(OwnerPassword))
-                    return false;
-
-            if (AskUserPassword)
-                if (string.IsNullOrWhiteSpace(UserPassword))
-                    return false;
-
-            return true;
-        }
+        return true;
     }
 }

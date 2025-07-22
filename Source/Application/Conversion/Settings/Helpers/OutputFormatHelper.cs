@@ -4,120 +4,119 @@ using System.Linq;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Helpers
+namespace pdfforge.PDFCreator.Conversion.Settings.Helpers;
+
+public class OutputFormatHelper
 {
-    public class OutputFormatHelper
+    public List<OutputFormat> ListOfOutputFormats { get; } = Enum.GetValues(typeof(OutputFormat)).Cast<OutputFormat>().ToList();
+    private List<string> KnownFileExtensions { get; }
+
+    public OutputFormatHelper()
     {
-        public List<OutputFormat> ListOfOutputFormats { get; } = Enum.GetValues(typeof(OutputFormat)).Cast<OutputFormat>().ToList();
-        private List<string> KnownFileExtensions { get; }
+        KnownFileExtensions = ListOfOutputFormats.Select(GetValidExtensions).SelectMany(s => s).Distinct().ToList();
+    }
 
-        public OutputFormatHelper()
-        {
-            KnownFileExtensions = ListOfOutputFormats.Select(GetValidExtensions).SelectMany(s => s).Distinct().ToList();
-        }
+    public bool HasValidExtension(string file, OutputFormat outputFormat)
+    {
+        var extension = PathSafe.GetExtension(file);
 
-        public bool HasValidExtension(string file, OutputFormat outputFormat)
-        {
-            var extension = PathSafe.GetExtension(file);
-
-            if (extension == null)
-                return false;
-
-            var validExtensions = GetValidExtensions(outputFormat);
-
-            return validExtensions.Contains(extension.ToLower());
-        }
-
-        public bool HasKnownExtension(string path)
-        {
-            foreach (var outputFormat in Enum.GetValues(typeof(OutputFormat)).Cast<OutputFormat>())
-            {
-                if (HasValidExtension(path, outputFormat))
-                    return true;
-            }
-
+        if (extension == null)
             return false;
+
+        var validExtensions = GetValidExtensions(outputFormat);
+
+        return validExtensions.Contains(extension.ToLower());
+    }
+
+    public bool HasKnownExtension(string path)
+    {
+        foreach (var outputFormat in Enum.GetValues(typeof(OutputFormat)).Cast<OutputFormat>())
+        {
+            if (HasValidExtension(path, outputFormat))
+                return true;
         }
 
-        public string EnsureValidExtension(string file, OutputFormat outputFormat)
+        return false;
+    }
+
+    public string EnsureValidExtension(string file, OutputFormat outputFormat)
+    {
+        if (HasValidExtension(file, outputFormat))
+            return file;
+
+        var validExtension = GetValidExtensions(outputFormat).First();
+
+        if (!HasKnownExtension(file))
+            file = file + validExtension;
+
+        return PathSafe.ChangeExtension(file, validExtension);
+    }
+
+    private string[] GetValidExtensions(OutputFormat outputFormat)
+    {
+        if (outputFormat.IsPdf())
+            return new[] { ".pdf" };
+
+        switch (outputFormat)
         {
-            if (HasValidExtension(file, outputFormat))
-                return file;
+            case OutputFormat.Jpeg:
+                return new[] { ".jpg", ".jpeg" };
 
-            var validExtension = GetValidExtensions(outputFormat).First();
+            case OutputFormat.Png:
+                return new[] { ".png" };
 
-            if (!HasKnownExtension(file))
-                file = file + validExtension;
+            case OutputFormat.Tif:
+                return new[] { ".tif", ".tiff" };
 
-            return PathSafe.ChangeExtension(file, validExtension);
+            case OutputFormat.Txt:
+                return new[] { ".txt" };
         }
 
-        private string[] GetValidExtensions(OutputFormat outputFormat)
-        {
-            if (outputFormat.IsPdf())
-                return new[] { ".pdf" };
+        throw new NotImplementedException($"OutputFormat '{outputFormat}' is not known to {nameof(OutputFormatHelper)}!");
+    }
 
-            switch (outputFormat)
+    public string GetExtension(OutputFormat outputFormat)
+    {
+        return GetValidExtensions(outputFormat)[0];
+    }
+
+    public OutputFormat GetOutputFormatByPath(string path)
+    {
+        var ext = PathSafe.GetExtension(path);
+        if (ext != null)
+        {
+            switch (ext.ToLower())
             {
-                case OutputFormat.Jpeg:
-                    return new[] { ".jpg", ".jpeg" };
+                case ".jpg":
+                case ".jpeg":
+                    return OutputFormat.Jpeg;
 
-                case OutputFormat.Png:
-                    return new[] { ".png" };
+                case ".png":
+                    return OutputFormat.Png;
 
-                case OutputFormat.Tif:
-                    return new[] { ".tif", ".tiff" };
+                case ".tif":
+                case ".tiff":
+                    return OutputFormat.Tif;
 
-                case OutputFormat.Txt:
-                    return new[] { ".txt" };
+                case ".txt":
+                    return OutputFormat.Txt;
+
+                case ".pdf":
+                    return OutputFormat.Pdf;
             }
-
-            throw new NotImplementedException($"OutputFormat '{outputFormat}' is not known to {nameof(OutputFormatHelper)}!");
         }
+        throw new NotImplementedException($"OutputFormat '{ext}' is not known to {nameof(OutputFormatHelper)}!");
+    }
 
-        public string GetExtension(OutputFormat outputFormat)
+    public string RemoveKnownFileExtension(string fileName)
+    {
+        var output = fileName;
+        var end = fileName.LastIndexOf('.');
+        if (end > -1 && KnownFileExtensions.Contains(fileName.Substring(end)))
         {
-            return GetValidExtensions(outputFormat)[0];
+            output = fileName.Substring(0, end);
         }
 
-        public OutputFormat GetOutputFormatByPath(string path)
-        {
-            var ext = PathSafe.GetExtension(path);
-            if (ext != null)
-            {
-                switch (ext.ToLower())
-                {
-                    case ".jpg":
-                    case ".jpeg":
-                        return OutputFormat.Jpeg;
-
-                    case ".png":
-                        return OutputFormat.Png;
-
-                    case ".tif":
-                    case ".tiff":
-                        return OutputFormat.Tif;
-
-                    case ".txt":
-                        return OutputFormat.Txt;
-
-                    case ".pdf":
-                        return OutputFormat.Pdf;
-                }
-            }
-            throw new NotImplementedException($"OutputFormat '{ext}' is not known to {nameof(OutputFormatHelper)}!");
-        }
-
-        public string RemoveKnownFileExtension(string fileName)
-        {
-            var output = fileName;
-            var end = fileName.LastIndexOf('.');
-            if (end > -1 && KnownFileExtensions.Contains(fileName.Substring(end)))
-            {
-                output = fileName.Substring(0, end);
-            }
-
-            return output;
-        }
+        return output;
     }
 }

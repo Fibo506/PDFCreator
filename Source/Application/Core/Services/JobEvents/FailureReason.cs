@@ -1,8 +1,7 @@
-﻿namespace pdfforge.PDFCreator.Core.Services.JobEvents
+﻿namespace pdfforge.PDFCreator.Core.Services.JobEvents;
+
+public enum FailureReason
 {
-    public enum FailureReason
-    {
-        AbortedByUser,
-        Error
-    }
+    AbortedByUser,
+    Error
 }

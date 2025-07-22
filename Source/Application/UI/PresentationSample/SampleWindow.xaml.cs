@@ -1,30 +1,29 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
+using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
 
-namespace PresentationSample
+namespace PresentationSample;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public ObservableCollection<ConversionProfileWrapper> Profiles => new ObservableCollection<ConversionProfileWrapper> {
+            new ConversionProfileWrapper(new ConversionProfile { Name = "Profile One" }),
+            new ConversionProfileWrapper(new ConversionProfile { Name = "Profile Two" }),
+            new ConversionProfileWrapper(new ConversionProfile { Name = "Profile Three" })
+        };
+
+
+    public MainWindow()
     {
-        public ObservableCollection<ConversionProfileWrapper> Profiles => new ObservableCollection<ConversionProfileWrapper> {
-                new ConversionProfileWrapper(new ConversionProfile { Name = "Profile One" }),
-                new ConversionProfileWrapper(new ConversionProfile { Name = "Profile Two" }),
-                new ConversionProfileWrapper(new ConversionProfile { Name = "Profile Three" })
-            };
+        // dummy reference to force GongSolutions.Wpf.DragDrop to be copied to bin folder
+        var t = typeof(GongSolutions.Wpf.DragDrop.DragDrop);
+        // same for MahApps IconPacks
+        var t2 = typeof(MahApps.Metro.IconPacks.MaterialDesignExtension);
 
-
-        public MainWindow()
-        {
-            // dummy reference to force GongSolutions.Wpf.DragDrop to be copied to bin folder
-            var t = typeof(GongSolutions.Wpf.DragDrop.DragDrop);
-            // same for MahApps IconPacks
-            var t2 = typeof(MahApps.Metro.IconPacks.MaterialDesignExtension);
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

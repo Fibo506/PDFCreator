@@ -1,46 +1,45 @@
-﻿using NLog;
-using System.IO;
+﻿using System.IO;
+using NLog;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.Utilities
+namespace pdfforge.PDFCreator.Utilities;
+
+public class TempDirectoryHelper : ITempDirectoryHelper
 {
-    public class TempDirectoryHelper : ITempDirectoryHelper
+    private readonly IDirectory _directory;
+    private readonly IPath _path;
+    private static Logger Logger = LogManager.GetCurrentClassLogger();
+    private string TempDirectoryName => PathSafe.Combine(_path.GetTempPath(), "PDFCreatorTempFiles");
+
+    public string CreateTestFileDirectory()
     {
-        private readonly IDirectory _directory;
-        private readonly IPath _path;
-        private static Logger Logger = LogManager.GetCurrentClassLogger();
-        private string TempDirectoryName => PathSafe.Combine(_path.GetTempPath(), "PDFCreatorTempFiles");
+        var path = TempDirectoryName;
 
-        public string CreateTestFileDirectory()
+        if (!_directory.Exists(path))
+            _directory.CreateDirectory(path);
+
+        return path;
+    }
+
+    public TempDirectoryHelper(IDirectory directory, IPath path)
+    {
+        _directory = directory;
+        _path = path;
+    }
+
+    public void CleanUp()
+    {
+        try
         {
-            var path = TempDirectoryName;
+            if (!_directory.Exists(TempDirectoryName))
+                return;
 
-            if (!_directory.Exists(path))
-                _directory.CreateDirectory(path);
-
-            return path;
+            Directory.Delete(TempDirectoryName, true);
         }
-
-        public TempDirectoryHelper(IDirectory directory, IPath path)
+        catch (IOException exception)
         {
-            _directory = directory;
-            _path = path;
-        }
-
-        public void CleanUp()
-        {
-            try
-            {
-                if (!_directory.Exists(TempDirectoryName))
-                    return;
-
-                Directory.Delete(TempDirectoryName, true);
-            }
-            catch (IOException exception)
-            {
-                Logger.Warn($"Was not able to delete folder : {TempDirectoryName}");
-                Logger.Warn(exception);
-            }
+            Logger.Warn($"Was not able to delete folder : {TempDirectoryName}");
+            Logger.Warn(exception);
         }
     }
 }

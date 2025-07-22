@@ -2,18 +2,17 @@ using System;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement
+namespace pdfforge.PDFCreator.Core.SettingsManagement;
+
+public interface ISettingsManager
 {
-    public interface ISettingsManager
-    {
-        ISettingsProvider GetSettingsProvider();
+    ISettingsProvider GetSettingsProvider();
 
-        void SaveCurrentSettings();
+    void SaveCurrentSettings();
 
-        void ApplyAndSaveSettings(PdfCreatorSettings settings);
+    void ApplyAndSaveSettings(PdfCreatorSettings settings);
 
-        void LoadAllSettings();
+    void LoadAllSettings();
 
-        event EventHandler SettingsSaved;
-    }
+    event EventHandler SettingsSaved;
 }

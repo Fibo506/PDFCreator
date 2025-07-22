@@ -1,70 +1,69 @@
-﻿using iText.Kernel.Pdf;
-using NLog;
-using pdfforge.PDFCreator.Conversion.Jobs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using iText.Kernel.Pdf;
+using NLog;
+using pdfforge.PDFCreator.Conversion.Jobs;
 
-namespace pdfforge.PDFCreator.Conversion.Processing.ITextProcessing
+namespace pdfforge.PDFCreator.Conversion.Processing.ITextProcessing;
+
+public class ITextPdfMerger
 {
-    public class ITextPdfMerger
+    private enum MergeMode
     {
-        private enum MergeMode
+        Prepend,
+        Append
+    }
+
+    private Logger _logger = LogManager.GetCurrentClassLogger();
+
+    public void AddCover(PdfDocument document, params string[] cover)
+    {
+        try
         {
-            Prepend,
-            Append
+            _logger.Debug("Start adding cover.");
+            DoMergePdfs(document, cover, MergeMode.Prepend, new ReaderProperties());
+        }
+        catch (Exception ex)
+        {
+            var errorMessage = ex.GetType() + " while adding cover.";
+            throw new ProcessingException(errorMessage, ErrorCode.Cover_GenericError, ex);
+        }
+    }
+
+    public void AddAttachment(PdfDocument document, ReaderProperties readerProperties, params string[] attachment)
+    {
+        try
+        {
+            _logger.Debug("Start adding attachment.");
+            DoMergePdfs(document, attachment, MergeMode.Append, readerProperties);
+        }
+        catch (Exception ex)
+        {
+            var errorMessage = ex.GetType() + " while adding attachment.";
+            throw new ProcessingException(errorMessage, ErrorCode.Attachment_GenericError, ex);
+        }
+    }
+
+    private void DoMergePdfs(PdfDocument document, IList<string> pdfLocations, MergeMode position, ReaderProperties readerProperties)
+    {
+        if (pdfLocations.Count <= 0)
+        {
+            return;
         }
 
-        private Logger _logger = LogManager.GetCurrentClassLogger();
-
-        public void AddCover(PdfDocument document, params string[] cover)
+        foreach (var file in pdfLocations)
         {
-            try
-            {
-                _logger.Debug("Start adding cover.");
-                DoMergePdfs(document, cover, MergeMode.Prepend);
-            }
-            catch (Exception ex)
-            {
-                var errorMessage = ex.GetType() + " while adding cover.";
-                throw new ProcessingException(errorMessage, ErrorCode.Cover_GenericError, ex);
-            }
-        }
+            _logger.Trace("Merge document with: " + file);
+            PdfReader reader = new PdfReader(file, readerProperties);
+            var doc = new PdfDocument(reader);
 
-        public void AddAttachment(PdfDocument document, params string[] attachment)
-        {
-            try
-            {
-                _logger.Debug("Start adding attachment.");
-                DoMergePdfs(document, attachment, MergeMode.Append);
-            }
-            catch (Exception ex)
-            {
-                var errorMessage = ex.GetType() + " while adding attachment.";
-                throw new ProcessingException(errorMessage, ErrorCode.Attachment_GenericError, ex);
-            }
-        }
+            var startIndex = position == MergeMode.Prepend ? 1 : document.GetNumberOfPages() + 1;
 
-        private void DoMergePdfs(PdfDocument document, IList<string> pdfLocations, MergeMode position)
-        {
-            if (pdfLocations.Count <= 0)
-            {
-                return;
-            }
+            doc.CopyPagesTo(Enumerable.Range(1, doc.GetNumberOfPages()).ToList(), document, startIndex);
 
-            foreach (var file in pdfLocations)
-            {
-                _logger.Trace("Merge document with: " + file);
-                PdfReader reader = new PdfReader(file);
-                var doc = new PdfDocument(reader);
-
-                var startIndex = position == MergeMode.Prepend ? 1 : document.GetNumberOfPages() + 1;
-
-                doc.CopyPagesTo(Enumerable.Range(1, doc.GetNumberOfPages()).ToList(), document, startIndex);
-
-                reader.Close();
-                doc.Close();
-            }
+            reader.Close();
+            doc.Close();
         }
     }
 }

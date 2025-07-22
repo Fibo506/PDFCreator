@@ -354,4 +354,33 @@
 
     </Style>
 
+    <Style x:Key="RotateButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource RotateButtonWhiteBackgroundBrush}"/>
+        <Setter Property="BorderThickness" Value="0.7"/>
+        <Setter Property="BorderBrush" Value="{StaticResource RotateButtonBorderBrush}"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="Foreground" Value="{StaticResource RotateButtonNotFocusedForegroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Border}}" Value="True">
+                            <Setter Property="Opacity" Value="1.0"/>
+                            <Setter Property="Foreground" Value="{StaticResource PreviewFocusedRotateButtonForegroundBrush}"/>
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource RotateButtonFocusedForegroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

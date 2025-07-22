@@ -1,5 +1,4 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
-using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+﻿using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.Controller;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
@@ -7,44 +6,43 @@ using pdfforge.PDFCreator.Utilities.Spool;
 using SystemInterface.Diagnostics;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.TestPage
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.TestPage;
+
+public class TestPageHelper : TestPageHelperBase
 {
-    public class TestPageHelper : TestPageHelperBase
+    private readonly IJobInfoManager _jobInfoManager;
+    private readonly IJobInfoQueue _jobInfoQueue;
+    private readonly string _spoolFolder;
+
+    public TestPageHelper(ISpoolerProvider spoolerProvider, IJobInfoQueue jobInfoQueue, IJobInfoManager jobInfoManager,
+        ITestPageCreator testPageCreator, IDirectory directory, IProcess process) : base(testPageCreator, directory, process)
     {
-        private readonly IJobInfoManager _jobInfoManager;
-        private readonly IJobInfoQueue _jobInfoQueue;
-        private readonly string _spoolFolder;
+        _jobInfoQueue = jobInfoQueue;
+        _jobInfoManager = jobInfoManager;
+        _spoolFolder = spoolerProvider.SpoolFolder;
+    }
 
-        public TestPageHelper(ISpoolerProvider spoolerProvider, IJobInfoQueue jobInfoQueue, IJobInfoManager jobInfoManager,
-            ITestPageCreator testPageCreator, IDirectory directory, IProcess process) : base(testPageCreator, directory, process)
+    protected override string GetSpoolFolder() => _spoolFolder;
+
+    protected override void PrintTestPage(string infFilePath, ConversionProfile profile = null)
+    {
+        var jobInfo = GetJobInfo(infFilePath, profile);
+        _jobInfoQueue.Add(jobInfo);
+    }
+
+    protected override void CleanUp(string tempFolderPath)
+    {
+        // Clean up is done when the job finishes (non-server)
+    }
+
+    private JobInfo GetJobInfo(string infFilePath, ConversionProfile profile)
+    {
+        var testPageJobInfo = _jobInfoManager.ReadFromInfFile(infFilePath);
+        if (profile != null)
         {
-            _jobInfoQueue = jobInfoQueue;
-            _jobInfoManager = jobInfoManager;
-            _spoolFolder = spoolerProvider.SpoolFolder;
+            testPageJobInfo.ProfileParameter = profile.Name;
         }
 
-        protected override string GetSpoolFolder() => _spoolFolder;
-
-        protected override void PrintTestPage(string infFilePath, ConversionProfile profile = null)
-        {
-            var jobInfo = GetJobInfo(infFilePath, profile);
-            _jobInfoQueue.Add(jobInfo);
-        }
-
-        protected override void CleanUp(string tempFolderPath)
-        {
-            // Clean up is done when the job finishes (non-server)
-        }
-
-        private JobInfo GetJobInfo(string infFilePath, ConversionProfile profile)
-        {
-            var testPageJobInfo = _jobInfoManager.ReadFromInfFile(infFilePath);
-            if (profile != null)
-            {
-                testPageJobInfo.ProfileParameter = profile.Name;
-            }
-
-            return testPageJobInfo;
-        }
+        return testPageJobInfo;
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public partial class CreatorAppSettings
 {
-    public partial class CreatorAppSettings
-    {
-        public static int ApplicationSettingsVersion => new CreatorAppSettings().SettingsVersion;
-    }
+    public static int ApplicationSettingsVersion => new CreatorAppSettings().SettingsVersion;
 }

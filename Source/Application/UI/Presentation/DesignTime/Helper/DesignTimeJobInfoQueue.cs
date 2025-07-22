@@ -1,80 +1,79 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
-using pdfforge.PDFCreator.Core.JobInfoQueue;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+using pdfforge.PDFCreator.Core.JobInfoQueue;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+
+public class DesignTimeJobInfoQueue : IJobInfoQueue
 {
-    public class DesignTimeJobInfoQueue : IJobInfoQueue
+    public DesignTimeJobInfoQueue()
     {
-        public DesignTimeJobInfoQueue()
+        JobInfos.Add(new JobInfo
         {
-            JobInfos.Add(new JobInfo
+            PrintDateTime = DateTime.Now,
+            Metadata = new Metadata { PrintJobName = "Print Job 1" },
+            SourceFiles = new ObservableCollection<SourceFileInfo>
             {
-                PrintDateTime = DateTime.Now,
-                Metadata = new Metadata { PrintJobName = "Print Job 1" },
-                SourceFiles = new ObservableCollection<SourceFileInfo>
+                new SourceFileInfo()
                 {
-                    new SourceFileInfo()
-                    {
-                        DocumentTitle = "Print Job 1",
-                        TotalPages = 4,
-                        JobCounter = 1
-                    }
+                    DocumentTitle = "Print Job 1",
+                    TotalPages = 4,
+                    JobCounter = 1
                 }
-            });
-            JobInfos.Add(new JobInfo
+            }
+        });
+        JobInfos.Add(new JobInfo
+        {
+            PrintDateTime = DateTime.Now,
+            Metadata = new Metadata { PrintJobName = "Print Job 2" },
+            SourceFiles = new ObservableCollection<SourceFileInfo>
             {
-                PrintDateTime = DateTime.Now,
-                Metadata = new Metadata { PrintJobName = "Print Job 2" },
-                SourceFiles = new ObservableCollection<SourceFileInfo>
+                new SourceFileInfo()
                 {
-                    new SourceFileInfo()
-                    {
-                        DocumentTitle = "Print Job 2",
-                        TotalPages = 2,
-                        JobCounter = 2
-                    }
+                    DocumentTitle = "Print Job 2",
+                    TotalPages = 2,
+                    JobCounter = 2
                 }
-            });
-        }
+            }
+        });
+    }
 
-        public IList<JobInfo> JobInfos { get; } = new List<JobInfo>();
-        public int Count { get; } = 42;
-        public JobInfo NextJob { get; }
-        public bool IsEmpty { get; } = true;
+    public IList<JobInfo> JobInfos { get; } = new List<JobInfo>();
+    public int Count { get; } = 42;
+    public JobInfo NextJob { get; }
+    public bool IsEmpty { get; } = true;
 
-        public bool Remove(JobInfo jobInfo, bool deleteFiles)
-        {
-            return true;
-        }
+    public bool Remove(JobInfo jobInfo, bool deleteFiles)
+    {
+        return true;
+    }
 
-        public void Clear()
-        {
-        }
+    public void Clear()
+    {
+    }
 
-        public void Add(IEnumerable<JobInfo> jobInfos)
-        {
-        }
+    public void Add(IEnumerable<JobInfo> jobInfos)
+    {
+    }
 
-        public bool Remove(JobInfo jobInfo)
-        {
-            return true;
-        }
+    public bool Remove(JobInfo jobInfo)
+    {
+        return true;
+    }
 
-        public void Add(JobInfo jobInfo)
-        {
-        }
+    public void Add(JobInfo jobInfo)
+    {
+    }
 
-        public void AddFirst(JobInfo jobInfo)
-        {
-        }
+    public void AddFirst(JobInfo jobInfo)
+    {
+    }
 
 #pragma warning disable CS0067
 
-        public event EventHandler<NewJobInfoEventArgs> OnNewJobInfo;
+    public event EventHandler<NewJobInfoEventArgs> OnNewJobInfo;
 
 #pragma warning restore CS0067
-    }
 }

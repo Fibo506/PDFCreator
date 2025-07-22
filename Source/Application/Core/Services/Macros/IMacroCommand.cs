@@ -2,16 +2,15 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.Core.Services.Macros
+namespace pdfforge.PDFCreator.Core.Services.Macros;
+
+public interface IMacroCommand : ICommand, IMountable
 {
-    public interface IMacroCommand : ICommand, IMountable
-    {
-        event EventHandler MacroIsDone;
+    event EventHandler MacroIsDone;
 
-        ICommand GetCommand(int index);
+    ICommand GetCommand(int index);
 
-        Task<ResponseStatus> ExecuteAsync(object parameter);
+    Task<ResponseStatus> ExecuteAsync(object parameter);
 
-        BooleanMacroResult ExecuteWithResult(object parameter);
-    }
+    BooleanMacroResult ExecuteWithResult(object parameter);
 }

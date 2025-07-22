@@ -1,11 +1,10 @@
-﻿namespace pdfforge.CustomScriptAction
+﻿namespace pdfforge.CustomScriptAction;
+
+public interface ICustomScriptLoader
 {
-    public interface ICustomScriptLoader
-    {
-        string ScriptFolder { get; }
+    string ScriptFolder { get; }
 
-        LoadScriptResult LoadScriptWithValidation(string scriptFile, bool enableDebugging = false);
+    LoadScriptResult LoadScriptWithValidation(string scriptFile, bool enableDebugging = false);
 
-        LoadScriptResult ReLoadScriptWithValidation(string scriptFile);
-    }
+    LoadScriptResult ReLoadScriptWithValidation(string scriptFile);
 }

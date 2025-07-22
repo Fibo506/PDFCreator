@@ -1,20 +1,19 @@
 ﻿using pdfforge.PDFCreator.Core.ServiceLocator;
 using SimpleInjector;
 
-namespace pdfforge.PDFCreator.UI.PrismHelper.Prism.SimpleInjector
+namespace pdfforge.PDFCreator.UI.PrismHelper.Prism.SimpleInjector;
+
+public class WhitelistedServiceLocator : IWhitelistedServiceLocator
 {
-    public class WhitelistedServiceLocator : IWhitelistedServiceLocator
+    private readonly Container _container;
+
+    public WhitelistedServiceLocator(Container container)
     {
-        private readonly Container _container;
+        _container = container;
+    }
 
-        public WhitelistedServiceLocator(Container container)
-        {
-            _container = container;
-        }
-
-        public T GetInstance<T>() where T : class, IWhitelisted
-        {
-            return _container.GetInstance<T>();
-        }
+    public T GetInstance<T>() where T : class, IWhitelisted
+    {
+        return _container.GetInstance<T>();
     }
 }

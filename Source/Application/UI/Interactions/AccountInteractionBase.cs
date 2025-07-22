@@ -1,10 +1,9 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Interactions
+namespace pdfforge.PDFCreator.UI.Interactions;
+
+public abstract class AccountInteractionBase : IInteraction
 {
-    public abstract class AccountInteractionBase : IInteraction
-    {
-        public virtual bool Success { get; set; }
-        public string Title { get; set; }
-    }
+    public virtual bool Success { get; set; }
+    public string Title { get; set; }
 }

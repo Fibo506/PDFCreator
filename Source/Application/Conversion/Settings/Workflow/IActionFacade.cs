@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Workflow
-{
-    public interface IActionFacadeWEG
-    {
-        Type Action { get; }
+namespace pdfforge.PDFCreator.Conversion.Settings.Workflow;
 
-        Type SettingsType { get; }
-    }
+public interface IActionFacadeWEG
+{
+    Type Action { get; }
+
+    Type SettingsType { get; }
 }

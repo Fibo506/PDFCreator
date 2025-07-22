@@ -1,10 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Dropbox
+﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Dropbox;
+
+public class DropboxUserInfo
 {
-    public class DropboxUserInfo
-    {
-        public string AccessToken { get; set; }
-        public string AccountInfo { get; set; }
-        public string AccountId { get; set; }
-        public string RefreshToken { get; set; }
-    }
+    public string AccessToken { get; set; }
+    public string AccountInfo { get; set; }
+    public string AccountId { get; set; }
+    public string RefreshToken { get; set; }
 }

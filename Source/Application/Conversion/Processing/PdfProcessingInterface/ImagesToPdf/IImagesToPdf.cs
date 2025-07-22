@@ -1,10 +1,9 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.ImagesToPdf
+namespace pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.ImagesToPdf;
+
+public interface IImagesToPdf
 {
-    public interface IImagesToPdf
-    {
-        void ConvertImage2Pdf(IList<string> directConversionFiles, ApplicationSettings appSettings, string outputFile);
-    }
+    void ConvertImage2Pdf(IList<string> directConversionFiles, ApplicationSettings appSettings, string outputFile);
 }

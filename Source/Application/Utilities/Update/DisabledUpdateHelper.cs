@@ -1,41 +1,40 @@
 using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Utilities.Update
+namespace pdfforge.PDFCreator.Utilities.Update;
+
+public class DisabledUpdateHelper : IUpdateHelper
 {
-    public class DisabledUpdateHelper : IUpdateHelper
+    public bool UpdatesEnabled => false;
+
+    public void SkipVersion()
     {
-        public bool UpdatesEnabled => false;
+    }
 
-        public void SkipVersion()
-        {
-        }
+    public void SetNewUpdateTime()
+    {
+    }
 
-        public void SetNewUpdateTime()
-        {
-        }
+    public Task<bool> IsUpdateAvailableAsync(bool checkNecessity)
+    {
+        return Task.FromResult(false);
+    }
 
-        public Task<bool> IsUpdateAvailableAsync(bool checkNecessity)
-        {
-            return Task.FromResult(false);
-        }
+    public Task UpdateCheckAsync(bool checkNecessity)
+    {
+        return Task.FromResult(false);
+    }
 
-        public Task UpdateCheckAsync(bool checkNecessity)
-        {
-            return Task.FromResult(false);
-        }
+    public bool UpdateShouldBeShown()
+    {
+        return false;
+    }
 
-        public bool UpdateShouldBeShown()
-        {
-            return false;
-        }
+    public void ShowLater()
+    {
+    }
 
-        public void ShowLater()
-        {
-        }
-
-        public bool IsTimeForNextUpdate()
-        {
-            return false;
-        }
+    public bool IsTimeForNextUpdate()
+    {
+        return false;
     }
 }

@@ -1,8 +1,7 @@
-namespace pdfforge.PDFCreator.UI.Interactions
+namespace pdfforge.PDFCreator.UI.Interactions;
+
+public enum PasswordMiddleButton
 {
-    public enum PasswordMiddleButton
-    {
-        Remove,
-        None
-    }
+    Remove,
+    None
 }

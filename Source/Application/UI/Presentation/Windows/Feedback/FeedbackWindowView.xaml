@@ -71,7 +71,7 @@
 		</ResourceDictionary>
 	</controls:MetroWindow.Resources>
 
-	<Grid Margin="20 40 20 20" 
+	<Grid Margin="40 40 20 20" 
           IsEnabled="{Binding IsSending, Converter={StaticResource BoolNegationConverter}}">
 		<Grid.RowDefinitions>
 			<!-- Feedback Type -->
@@ -100,7 +100,7 @@
 
 		<!-- Feedback Type -->
 		<DockPanel Grid.Row="0" Grid.Column="0"
-                    Margin="20 0 0 0"
+                    Margin="0 0 0 0"
                     LastChildFill="True">
 			<Label DockPanel.Dock="Top" 
                    Content="{Binding Translation.FeedbackType}" />
@@ -132,7 +132,7 @@
 		<!-- Email -->
 		<StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     Orientation="Vertical"
-                    Margin="20 20 73 0">
+                    Margin="0 20 73 0">
 			<Label Content="{Binding Translation.EmailLabel}" />
 			<Grid>
                 <TextBox Margin="0 10 0 0"
@@ -170,7 +170,7 @@
 		<!-- Feedback Text and Files -->
 		<StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
                     Orientation="Vertical"
-                    Margin="20 30 0 0">
+                    Margin="0 20 0 0">
 			<Label Content="{Binding Translation.DescribeYourFeedback}" />
 			<DockPanel LastChildFill="True">
 				<!-- Attach File -->
@@ -329,6 +329,13 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
+
+        <Label Grid.Row="6" Grid.Column="0" 
+               Style="{StaticResource LightLabel}">
+            <TextBlock Text="{Binding Translation.NoSupportHint}"
+                       Foreground="{StaticResource LightLabelForegroundBrush}"
+                       TextWrapping="Wrap" />
+        </Label>
 
 		<!-- Send Button -->
 		<Border Grid.Row="6" Grid.Column="1"

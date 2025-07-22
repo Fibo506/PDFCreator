@@ -1,11 +1,10 @@
 ﻿using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+
+public class DesignTimeApplicationNameProvider : ApplicationNameProvider
 {
-    public class DesignTimeApplicationNameProvider : ApplicationNameProvider
+    public DesignTimeApplicationNameProvider() : base("Free")
     {
-        public DesignTimeApplicationNameProvider() : base("Free")
-        {
-        }
     }
 }

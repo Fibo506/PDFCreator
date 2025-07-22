@@ -5,68 +5,65 @@ using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General;
+
+public class HotStandbySettingsViewModel : AGeneralSettingsItemControlModel
 {
-    public class HotStandbySettingsViewModel : AGeneralSettingsItemControlModel
+    public ICurrentSettings<CreatorAppSettings> ApplicationSettingsProvider { get; }
+
+    public bool StandbyIsEditable => GpoSettings.HotStandbyMinutes == null;
+
+    public StandbySetting StandbySetting
     {
-        public ICurrentSettings<CreatorAppSettings> ApplicationSettingsProvider { get; }
-
-        public bool StandbyIsEditable => GpoSettings.HotStandbyMinutes == null;
-
-        public StandbySetting StandbySetting
+        get
         {
-            get
-            {
-                if (GpoSettings.HotStandbyMinutes != null)
-                    return GetSetting(GpoSettings.HotStandbyMinutes.Value);
+            if (GpoSettings.HotStandbyMinutes != null)
+                return GetSetting(GpoSettings.HotStandbyMinutes.Value);
 
-                return GetSetting(ApplicationSettingsProvider.Settings.HotStandbyMinutes);
-            }
-            set
-            {
-                if (GpoSettings.HotStandbyMinutes != null)
-                    return;
-                
-                ApplicationSettingsProvider.Settings.HotStandbyMinutes = (int) value;
-            }
+            return GetSetting(ApplicationSettingsProvider.Settings.HotStandbyMinutes);
         }
-
-        private StandbySetting GetSetting(int minutes)
+        set
         {
-            foreach (var setting in Enum.GetValues(typeof(StandbySetting)).Cast<StandbySetting>())
-            {
-                if ((int) setting == minutes)
-                    return setting;
-            }
+            if (GpoSettings.HotStandbyMinutes != null)
+                return;
 
-            return StandbySetting.Medium;
-        }
-
-        public HotStandbySettingsViewModel(
-            ICurrentSettings<CreatorAppSettings> applicationSettingsProvider,
-            ITranslationUpdater translationUpdater,
-            ICurrentSettingsProvider settingsProvider,
-            IGpoSettings gpoSettings) : base(translationUpdater, settingsProvider, gpoSettings)
-        {
-            ApplicationSettingsProvider = applicationSettingsProvider;
+            ApplicationSettingsProvider.Settings.HotStandbyMinutes = (int)value;
         }
     }
 
-    [Translatable]
-
-    public enum StandbySetting
+    private StandbySetting GetSetting(int minutes)
     {
-        [Translation("No standby")]
-        Disabled = 0,
-        [Translation("30 minutes")]
-        Short = 30,
-        [Translation("2 hours")]
-        Medium = 120,
-        [Translation("1 day")]
-        Long = 60 * 24,
-        [Translation("No limit")]
-        Infinite = 60 * 24 * 365
+        foreach (var setting in Enum.GetValues(typeof(StandbySetting)).Cast<StandbySetting>())
+        {
+            if ((int)setting == minutes)
+                return setting;
+        }
+
+        return StandbySetting.Medium;
     }
 
+    public HotStandbySettingsViewModel(
+        ICurrentSettings<CreatorAppSettings> applicationSettingsProvider,
+        ITranslationUpdater translationUpdater,
+        ICurrentSettingsProvider settingsProvider,
+        IGpoSettings gpoSettings) : base(translationUpdater, settingsProvider, gpoSettings)
+    {
+        ApplicationSettingsProvider = applicationSettingsProvider;
+    }
+}
 
+[Translatable]
+
+public enum StandbySetting
+{
+    [Translation("No standby")]
+    Disabled = 0,
+    [Translation("30 minutes")]
+    Short = 30,
+    [Translation("2 hours")]
+    Medium = 120,
+    [Translation("1 day")]
+    Long = 60 * 24,
+    [Translation("No limit")]
+    Infinite = 60 * 24 * 365
 }

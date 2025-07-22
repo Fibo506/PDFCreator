@@ -3,13 +3,12 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
 using pdfforge.PDFCreator.Utilities.Threading;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeSmtpJobStepPasswordViewModel : SmtpJobStepPasswordViewModel
 {
-    public class DesignTimeSmtpJobStepPasswordViewModel : SmtpJobStepPasswordViewModel
+    public DesignTimeSmtpJobStepPasswordViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
     {
-        public DesignTimeSmtpJobStepPasswordViewModel() : base(new TranslationUpdater(new TranslationFactory(), new ThreadManager()))
-        {
-            SmtpAccountInfo = "Hier könnte Ihr Smtp-Account stehen.";
-        }
+        SmtpAccountInfo = "Hier könnte Ihr Smtp-Account stehen.";
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Core.Services
+namespace pdfforge.PDFCreator.Core.Services;
+
+public interface IMountable
 {
-    public interface IMountable
-    {
-        void MountView();
+    void MountView();
 
-        void UnmountView();
-    }
+    void UnmountView();
+}
 
-    public interface IMountableAsync
-    {
-        Task MountViewAsync();
+public interface IMountableAsync
+{
+    Task MountViewAsync();
 
-        Task UnmountViewAsync();
-    }
+    Task UnmountViewAsync();
 }

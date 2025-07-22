@@ -1,6 +1,5 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Interface
+﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
+
+public interface IBusinessFeatureAction
 {
-    public interface IBusinessFeatureAction
-    {
-    }
 }

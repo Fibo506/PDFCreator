@@ -1,74 +1,72 @@
-using pdfforge.PDFCreator.UI.Presentation.Assistants;
+using System.Collections.Generic;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
 using pdfforge.PDFCreator.UI.Presentation.Workflow.Steps;
 using pdfforge.PDFCreator.Utilities;
-using Prism.Regions;
-using System.Collections.Generic;
 using pdfforge.PDFCreator.Utilities.Update;
+using Prism.Regions;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow;
+
+public interface IInteractiveWorkflowManagerFactory
 {
-    public interface IInteractiveWorkflowManagerFactory
+    InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider);
+}
+
+public class InteractiveWorkflowManagerFactory : IInteractiveWorkflowManagerFactory
+{
+    private readonly IWorkflowNavigationHelper _workflowNavigationHelper;
+    private readonly ISignaturePasswordCheck _signaturePasswordCheck;
+    private readonly IUpdateHelper _updateHelper;
+
+    protected List<IWorkflowStep> WorkflowSteps;
+    protected IErrorStep ErrorStep;
+
+    public InteractiveWorkflowManagerFactory(IWorkflowNavigationHelper workflowNavigationHelper, ISignaturePasswordCheck signaturePasswordCheck, IUpdateHelper updateHelper)
     {
-        InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider);
+        _workflowNavigationHelper = workflowNavigationHelper;
+        _signaturePasswordCheck = signaturePasswordCheck;
+        _updateHelper = updateHelper;
     }
 
-    public class InteractiveWorkflowManagerFactory : IInteractiveWorkflowManagerFactory
+    public virtual InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider)
     {
-        private readonly IWorkflowNavigationHelper _workflowNavigationHelper;
-        private readonly ISignaturePasswordCheck _signaturePasswordCheck;
-        private readonly IUpdateHelper _updateHelper;
+        WorkflowSteps = new List<IWorkflowStep>();
 
-        protected List<IWorkflowStep> WorkflowSteps;
-        protected IErrorStep ErrorStep;
+        WorkflowSteps.Add(WorkflowStep.Create<PrintJobView>(job => !job.Profile.SkipPrintDialog));
+        WorkflowSteps.Add(new PdfPasswordsStep());
+        WorkflowSteps.Add(new FtpPasswordStep());
+        WorkflowSteps.Add(new SmtpPasswordStep());
+        WorkflowSteps.Add(new HttpPasswordStep());
+        WorkflowSteps.Add(new SignaturePasswordStep(_signaturePasswordCheck));
+        WorkflowSteps.Add(WorkflowStep.Create<ProgressView>());
+        WorkflowSteps.Add(new UpdateHintStep(_updateHelper));
+        WorkflowSteps.Add(new QuickActionStep());
 
-        public InteractiveWorkflowManagerFactory(IWorkflowNavigationHelper workflowNavigationHelper, ISignaturePasswordCheck signaturePasswordCheck, IUpdateHelper updateHelper)
-        {
-            _workflowNavigationHelper = workflowNavigationHelper;
-            _signaturePasswordCheck = signaturePasswordCheck;
-            _updateHelper = updateHelper;
-        }
+        ErrorStep = new ErrorStep();
 
-        public virtual InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider)
-        {
-            WorkflowSteps = new List<IWorkflowStep>();
+        return new InteractiveWorkflowManager(_workflowNavigationHelper, regionManager, WorkflowSteps, ErrorStep);
+    }
+}
 
-            WorkflowSteps.Add(WorkflowStep.Create<PrintJobView>(job => !job.Profile.SkipPrintDialog));
-            WorkflowSteps.Add(new PdfPasswordsStep());
-            WorkflowSteps.Add(new FtpPasswordStep());
-            WorkflowSteps.Add(new SmtpPasswordStep());
-            WorkflowSteps.Add(new HttpPasswordStep());
-            WorkflowSteps.Add(new SignaturePasswordStep(_signaturePasswordCheck));
-            WorkflowSteps.Add(WorkflowStep.Create<ProgressView>());
-            WorkflowSteps.Add(new UpdateHintStep(_updateHelper));
-            WorkflowSteps.Add(new QuickActionStep());
+public class InteractiveWorkflowManagerFactoryWithConditionalHintSteps : InteractiveWorkflowManagerFactory
+{
+    private readonly IWorkflowNavigationHelper _workflowNavigationHelper;
+    private readonly IConditionalHintManager _conditionalHintManager;
 
-            ErrorStep = new ErrorStep();
-
-            return new InteractiveWorkflowManager(_workflowNavigationHelper, regionManager, WorkflowSteps, ErrorStep);
-        }
+    public InteractiveWorkflowManagerFactoryWithConditionalHintSteps(IWorkflowNavigationHelper workflowNavigationHelper, IConditionalHintManager conditionalHintManager, ISignaturePasswordCheck signaturePasswordCheck, IUpdateHelper updateHelper)
+        : base(workflowNavigationHelper, signaturePasswordCheck, updateHelper)
+    {
+        _workflowNavigationHelper = workflowNavigationHelper;
+        _conditionalHintManager = conditionalHintManager;
     }
 
-    public class InteractiveWorkflowManagerFactoryWithConditionalHintSteps : InteractiveWorkflowManagerFactory
+    public override InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider)
     {
-        private readonly IWorkflowNavigationHelper _workflowNavigationHelper;
-        private readonly IConditionalHintManager _conditionalHintManager;
+        base.CreateInteractiveWorkflowManager(regionManager, currentSettingsProvider);
+        WorkflowSteps.Add(new ProfessionalHintStep(_conditionalHintManager));
+        WorkflowSteps.Add(new EmailCollectionHintStep(_conditionalHintManager));
 
-        public InteractiveWorkflowManagerFactoryWithConditionalHintSteps(IWorkflowNavigationHelper workflowNavigationHelper, IConditionalHintManager conditionalHintManager, ISignaturePasswordCheck signaturePasswordCheck, IUpdateHelper updateHelper)
-            : base(workflowNavigationHelper, signaturePasswordCheck, updateHelper)
-        {
-            _workflowNavigationHelper = workflowNavigationHelper;
-            _conditionalHintManager = conditionalHintManager;
-        }
-
-        public override InteractiveWorkflowManager CreateInteractiveWorkflowManager(IRegionManager regionManager, ICurrentSettingsProvider currentSettingsProvider)
-        {
-            base.CreateInteractiveWorkflowManager(regionManager, currentSettingsProvider);
-            WorkflowSteps.Add(new ProfessionalHintStep(_conditionalHintManager));
-            WorkflowSteps.Add(new EmailCollectionHintStep(_conditionalHintManager));
-
-            return new InteractiveWorkflowManager(_workflowNavigationHelper, regionManager, WorkflowSteps, ErrorStep);
-        }
+        return new InteractiveWorkflowManager(_workflowNavigationHelper, regionManager, WorkflowSteps, ErrorStep);
     }
 }

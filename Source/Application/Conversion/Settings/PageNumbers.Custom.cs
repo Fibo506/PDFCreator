@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+partial class PageNumbers : IProfileSetting, IPageNumbersSetting
 {
-    partial class PageNumbers : IProfileSetting, IPageNumbersSetting
-    {
-    }
 }

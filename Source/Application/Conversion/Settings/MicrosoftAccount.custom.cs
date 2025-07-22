@@ -1,40 +1,34 @@
-﻿using pdfforge.DataStorage;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using pdfforge.DataStorage;
 
-namespace pdfforge.PDFCreator.Conversion.Settings
+namespace pdfforge.PDFCreator.Conversion.Settings;
+
+partial class MicrosoftAccount
 {
-    partial class MicrosoftAccount
+    public MicrosoftAccount() { }
+
+    public void CopyTo(MicrosoftAccount targetAccount)
     {
-        public MicrosoftAccount() { }
+        var data = Data.CreateDataStorage();
+        StoreValues(data, "");
+        targetAccount.ReadValues(data, "");
+    }
 
-        public void CopyTo(MicrosoftAccount targetAccount)
+    public bool HasPermissions(params MicrosoftAccountPermission[] permissions)
+    {
+        foreach (var accountPermission in permissions)
         {
-            var data = Data.CreateDataStorage();
-            StoreValues(data, "");
-            targetAccount.ReadValues(data, "");
+            if (!PermissionScopes.Contains(accountPermission.ToPermissionString()))
+                return false;
         }
 
-        public bool HasPermissions(params MicrosoftAccountPermission[] permissions)
-        {
-            foreach (var accountPermission in permissions)
-            {
-                if (!PermissionScopes.Contains(accountPermission.ToPermissionString()))
-                    return false;
-            }
+        return true;
+    }
 
-            return true;
-        }
-
-        public bool HasExpiredPermissions(DateTime now)
-        {
-            if (ExpirationDate == 0)
-                    return false;
-            return DateTimeOffset.FromUnixTimeSeconds(ExpirationDate).DateTime < now;
-        }
+    public bool HasExpiredPermissions(DateTime now)
+    {
+        if (ExpirationDate == 0)
+            return false;
+        return DateTimeOffset.FromUnixTimeSeconds(ExpirationDate).DateTime < now;
     }
 }

@@ -1,17 +1,16 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Ftp
+﻿namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Ftp;
+
+public interface IFtpClient
 {
-    public interface IFtpClient
-    {
-        void Connect();
+    void Connect();
 
-        void Disconnect();
+    void Disconnect();
 
-        bool FileExists(string filePath);
+    bool FileExists(string filePath);
 
-        void CreateDirectory(string path);
+    void CreateDirectory(string path);
 
-        bool DirectoryExists(string directory);
+    bool DirectoryExists(string directory);
 
-        void UploadFile(string file, string path);
-    }
+    void UploadFile(string file, string path);
 }

@@ -8,94 +8,93 @@ using pdfforge.PDFCreator.Utilities.Messages;
 using SystemInterface.IO;
 using Translatable;
 
-namespace pdfforge.PDFCreator.Core.Printing
+namespace pdfforge.PDFCreator.Core.Printing;
+
+
+public class RepairPrinterAssistant : IRepairPrinterAssistant
 {
+    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-    public class RepairPrinterAssistant : IRepairPrinterAssistant
+    private readonly IAssemblyHelper _assemblyHelper;
+    private readonly IPDFCreatorNameProvider _nameProvider;
+    private readonly IMessageHelper _messageHelper;
+    private readonly IPrinterHelper _printerHelper;
+    private readonly PrintingTranslation _translation;
+    private readonly IShellExecuteHelper _shellExecuteHelper;
+    private readonly IFile _file;
+
+    public RepairPrinterAssistant(IPrinterHelper printerHelper, IShellExecuteHelper shellExecuteHelper, IFile file, IAssemblyHelper assemblyHelper, IPDFCreatorNameProvider nameProvider, ITranslationFactory iTranslationFactory, IMessageHelper messageHelper)
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        _printerHelper = printerHelper;
+        _translation = iTranslationFactory.CreateTranslation<PrintingTranslation>(); ;
+        _shellExecuteHelper = shellExecuteHelper;
+        _file = file;
+        _assemblyHelper = assemblyHelper;
+        _nameProvider = nameProvider;
+        _messageHelper = messageHelper;
+    }
 
-        private readonly IAssemblyHelper _assemblyHelper;
-        private readonly IPDFCreatorNameProvider _nameProvider;
-        private readonly IMessageHelper _messageHelper;
-        private readonly IPrinterHelper _printerHelper;
-        private readonly PrintingTranslation _translation;
-        private readonly IShellExecuteHelper _shellExecuteHelper;
-        private readonly IFile _file;
+    public string DefaultPrinterName { get; set; } = "PDFCreator";
 
-        public RepairPrinterAssistant(IPrinterHelper printerHelper, IShellExecuteHelper shellExecuteHelper, IFile file, IAssemblyHelper assemblyHelper, IPDFCreatorNameProvider nameProvider, ITranslationFactory iTranslationFactory, IMessageHelper messageHelper)
+    public bool TryRepairPrinter(IEnumerable<string> printerNames)
+    {
+        Logger.Error("It looks like the printers are broken. This needs to be fixed to allow PDFCreator to work properly");
+
+        var title = _translation.RepairPrinterNoPrintersInstalled;
+        var message = _translation.RepairPrinterAskUserUac;
+
+        Logger.Debug("Asking to start repair..");
+
+        var response = _messageHelper.ShowMessage(message, title, MessageOptions.YesNo, MessageIcon.Exclamation, MessageResponse.Yes);
+        if (response == MessageResponse.Yes)
         {
-            _printerHelper = printerHelper;
-            _translation = iTranslationFactory.CreateTranslation<PrintingTranslation>(); ;
-            _shellExecuteHelper = shellExecuteHelper;
-            _file = file;
-            _assemblyHelper = assemblyHelper;
-            _nameProvider = nameProvider;
-            _messageHelper = messageHelper;
-        }
+            var applicationPath = _assemblyHelper.GetAssemblyDirectory();
+            var printerHelperPath = PathSafe.Combine(applicationPath, "PrinterHelper.exe");
 
-        public string DefaultPrinterName { get; set; } = "PDFCreator";
-
-        public bool TryRepairPrinter(IEnumerable<string> printerNames)
-        {
-            Logger.Error("It looks like the printers are broken. This needs to be fixed to allow PDFCreator to work properly");
-
-            var title = _translation.RepairPrinterNoPrintersInstalled;
-            var message = _translation.RepairPrinterAskUserUac;
-
-            Logger.Debug("Asking to start repair..");
-
-            var response = _messageHelper.ShowMessage(message, title, MessageOptions.YesNo, MessageIcon.Exclamation, MessageResponse.Yes);
-            if (response == MessageResponse.Yes)
+            if (!_file.Exists(printerHelperPath))
             {
-                var applicationPath = _assemblyHelper.GetAssemblyDirectory();
-                var printerHelperPath = PathSafe.Combine(applicationPath, "PrinterHelper.exe");
+                Logger.Error("PrinterHelper.exe does not exist!");
+                title = _translation.Error;
+                message = _translation.GetSetupFileMissingMessage(PathSafe.GetFileName(printerHelperPath));
 
-                if (!_file.Exists(printerHelperPath))
-                {
-                    Logger.Error("PrinterHelper.exe does not exist!");
-                    title = _translation.Error;
-                    message = _translation.GetSetupFileMissingMessage(PathSafe.GetFileName(printerHelperPath));
-
-                    _messageHelper.ShowMessage(message, title, MessageOptions.Ok, MessageIcon.Error, MessageResponse.Ok);
-                    return false;
-                }
-
-                Logger.Debug("Reinstalling Printers...");
-                var portApplicationPath = _nameProvider.GetPortApplicationPath();
-
-                var printerNameString = GetPrinterNameString(printerNames);
-
-                var installParams = $"RepairPrinter -name={printerNameString} -PortApplication=\"{portApplicationPath}\"";
-                var installResult = _shellExecuteHelper.RunAsAdmin(printerHelperPath, installParams);
-                Logger.Debug("Done: {0}", installResult);
-            }
-
-            Logger.Debug("Now we'll check again, if the printer is installed");
-            if (IsRepairRequired())
-            {
-                Logger.Warn("The printer could not be repaired.");
+                _messageHelper.ShowMessage(message, title, MessageOptions.Ok, MessageIcon.Error, MessageResponse.Ok);
                 return false;
             }
 
-            Logger.Info("The printer was repaired successfully");
+            Logger.Debug("Reinstalling Printers...");
+            var portApplicationPath = _nameProvider.GetPortApplicationPath();
 
-            return true;
+            var printerNameString = GetPrinterNameString(printerNames);
+
+            var installParams = $"RepairPrinter -name={printerNameString} -PortApplication=\"{portApplicationPath}\"";
+            var installResult = _shellExecuteHelper.RunAsAdmin(printerHelperPath, installParams);
+            Logger.Debug("Done: {0}", installResult);
         }
 
-        public bool IsRepairRequired()
+        Logger.Debug("Now we'll check again, if the printer is installed");
+        if (IsRepairRequired())
         {
-            return !_printerHelper.GetPDFCreatorPrinters().Any();
+            Logger.Warn("The printer could not be repaired.");
+            return false;
         }
 
-        private string GetPrinterNameString(IEnumerable<string> printerNames)
-        {
-            var printers = printerNames.ToList();
+        Logger.Info("The printer was repaired successfully");
 
-            if (!printers.Any())
-                printers.Add(DefaultPrinterName);
+        return true;
+    }
 
-            return string.Join(",", printers.Select(printerName => $"\"{printerName}\""));
-        }
+    public bool IsRepairRequired()
+    {
+        return !_printerHelper.GetPDFCreatorPrinters().Any();
+    }
+
+    private string GetPrinterNameString(IEnumerable<string> printerNames)
+    {
+        var printers = printerNames.ToList();
+
+        if (!printers.Any())
+            printers.Add(DefaultPrinterName);
+
+        return string.Join(",", printers.Select(printerName => $"\"{printerName}\""));
     }
 }

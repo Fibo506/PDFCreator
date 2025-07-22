@@ -1,4 +1,11 @@
-﻿using pdfforge.Obsidian;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using pdfforge.Obsidian;
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
@@ -24,558 +31,555 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
 using pdfforge.PDFCreator.Utilities;
+using pdfforge.PDFCreator.Utilities.Tokens;
 using Prism.Events;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using SystemInterface.IO;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
+
+public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslation>, IWorkflowViewModel, IMountable
 {
-    public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslation>, IWorkflowViewModel, IMountable
+    private readonly TaskCompletionSource<object> _taskCompletionSource = new();
+    private IGpoSettings GpoSettings { get; }
+    private readonly ISettingsProvider _settingsProvider;
+    private readonly ISelectedProfileProvider _selectedProfileProvider;
+    private readonly ICurrentSettings<ObservableCollection<ConversionProfile>> _profilesProvider;
+    private readonly ITargetFilePathComposer _targetFilePathComposer;
+    private readonly IJobInfoManager _jobInfoManager;
+    private readonly IChangeJobCheckAndProceedCommandBuilder _changeJobCheckAndProceedCommandBuilder;
+    private readonly IEventAggregator _eventAggregator;
+    private readonly IDispatcher _dispatcher;
+    private readonly IJobDataUpdater _jobDataUpdater;
+    private readonly IInteractionRequest _interactionRequest;
+    private readonly IProfileChecker _profileChecker;
+    private readonly ApplicationNameProvider _applicationNameProvider;
+    private string _lastConfirmedFilePath = "";
+    private readonly OutputFormatHelper _outputFormatHelper = new OutputFormatHelper();
+    private readonly IJobInfoQueue _jobInfoQueue;
+
+    public ICampaignHelper CampaignHelper { get; private set; }
+    public IPreviewManager PreviewManager { get; }
+
+    public string TrialExtendLink => CampaignHelper.GetTrialExtendLink(ExtendLicenseFallbackUrl);
+
+    private string ExtendLicenseFallbackUrl => Urls.GetExtendLicenseFallbackUrl(_applicationNameProvider.EditionName);
+
+    public bool SaveFileTemporaryIsEnabled => SelectedProfileWrapper?.ConversionProfile?.SaveFileTemporary ?? false;
+
+    public PrintJobViewModel(
+        ISettingsProvider settingsProvider,
+        ITranslationUpdater translationUpdater,
+        IJobInfoQueue jobInfoQueue,
+        ICommandLocator commandLocator,
+        IEventAggregator eventAggregator,
+        ISelectedProfileProvider selectedProfileProvider,
+        ICurrentSettings<ObservableCollection<ConversionProfile>> profilesProvider,
+        IGpoSettings gpoSettings,
+        ITargetFilePathComposer targetFilePathComposer,
+        IJobInfoManager jobInfoManager,
+        IChangeJobCheckAndProceedCommandBuilder changeJobCheckAndProceedCommandBuilder,
+        IBrowseFileCommandBuilder browseFileCommandBuilder,
+        IDispatcher dispatcher,
+        IJobDataUpdater jobDataUpdater,
+        IInteractionRequest interactionRequest,
+        ICampaignHelper campaignHelper,
+        IProfileChecker profileChecker,
+        IPreviewManager previewManager,
+        ApplicationNameProvider applicationNameProvider)
+        : base(translationUpdater)
     {
-        private readonly TaskCompletionSource<object> _taskCompletionSource = new();
-        private IGpoSettings GpoSettings { get; }
-        private readonly ISettingsProvider _settingsProvider;
-        private readonly ISelectedProfileProvider _selectedProfileProvider;
-        private readonly ICurrentSettings<ObservableCollection<ConversionProfile>> _profilesProvider;
-        private readonly ITargetFilePathComposer _targetFilePathComposer;
-        private readonly IJobInfoManager _jobInfoManager;
-        private readonly IChangeJobCheckAndProceedCommandBuilder _changeJobCheckAndProceedCommandBuilder;
-        private readonly IEventAggregator _eventAggregator;
-        private readonly IDispatcher _dispatcher;
-        private readonly IJobDataUpdater _jobDataUpdater;
-        private readonly IInteractionRequest _interactionRequest;
-        private readonly IProfileChecker _profileChecker;
-        private readonly ApplicationNameProvider _applicationNameProvider;
-        private string _lastConfirmedFilePath = "";
-        private readonly OutputFormatHelper _outputFormatHelper = new OutputFormatHelper();
-        private readonly IJobInfoQueue _jobInfoQueue;
+        GpoSettings = gpoSettings;
+        _settingsProvider = settingsProvider;
+        var commandLocator1 = commandLocator;
+        _eventAggregator = eventAggregator;
+        _selectedProfileProvider = selectedProfileProvider;
+        _profilesProvider = profilesProvider;
+        _targetFilePathComposer = targetFilePathComposer;
+        _jobInfoManager = jobInfoManager;
+        _changeJobCheckAndProceedCommandBuilder = changeJobCheckAndProceedCommandBuilder;
+        _dispatcher = dispatcher;
+        _jobDataUpdater = jobDataUpdater;
+        _interactionRequest = interactionRequest;
+        _applicationNameProvider = applicationNameProvider;
+        _profileChecker = profileChecker;
+        _changeJobCheckAndProceedCommandBuilder.Init(() => Job, CallFinishInteraction, () => _lastConfirmedFilePath, s => _lastConfirmedFilePath = s);
 
-        public ICampaignHelper CampaignHelper { get; private set; }
-        public IPreviewManager PreviewManager { get; }
+        CampaignHelper = campaignHelper;
+        PreviewManager = previewManager;
+        SetOutputFormatCommand = new DelegateCommand(SetOutputFormatExecute);
 
-        public string TrialExtendLink => CampaignHelper.GetTrialExtendLink(ExtendLicenseFallbackUrl);
+        browseFileCommandBuilder.Init(() => Job, UpdateUiForJobOutputFileTemplate, () => _lastConfirmedFilePath, s => _lastConfirmedFilePath = s);
+        var existingFileBehaviourQueryCommand = new AsyncCommand(ExistingFileBehaviourQuery);
+        var browseFileCommand = browseFileCommandBuilder.BuildCommand(new List<ICommand> { existingFileBehaviourQueryCommand });
 
-        private string ExtendLicenseFallbackUrl => Urls.GetExtendLicenseFallbackUrl(_applicationNameProvider.EditionName);
+        BrowseFileCommand = browseFileCommand;
+        SetupEditProfileCommand(commandLocator1, eventAggregator);
 
-        public bool SaveFileTemporaryIsEnabled => SelectedProfileWrapper?.ConversionProfile?.SaveFileTemporary ?? false;
+        SetupSaveCommands(translationUpdater);
 
-        public PrintJobViewModel(
-            ISettingsProvider settingsProvider,
-            ITranslationUpdater translationUpdater,
-            IJobInfoQueue jobInfoQueue,
-            ICommandLocator commandLocator,
-            IEventAggregator eventAggregator,
-            ISelectedProfileProvider selectedProfileProvider,
-            ICurrentSettings<ObservableCollection<ConversionProfile>> profilesProvider,
-            IGpoSettings gpoSettings,
-            ITargetFilePathComposer targetFilePathComposer,
-            IJobInfoManager jobInfoManager,
-            IChangeJobCheckAndProceedCommandBuilder changeJobCheckAndProceedCommandBuilder,
-            IBrowseFileCommandBuilder browseFileCommandBuilder,
-            IDispatcher dispatcher,
-            IJobDataUpdater jobDataUpdater,
-            IInteractionRequest interactionRequest,
-            ICampaignHelper campaignHelper,
-            IProfileChecker profileChecker,
-            IPreviewManager previewManager,
-            ApplicationNameProvider applicationNameProvider)
-            : base(translationUpdater)
+        EmailCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(EnableEmailSettings);
+        SendEmailWithoutSavingCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(SendEmailWithoutSavingExecute);
+
+        MergeCommand = new DelegateCommand(MergeExecute);
+        MergeAllCommand = new AsyncCommand(MergeAllExecuteAsync, o => jobInfoQueue.Count > 1);
+        CancelCommand = new DelegateCommand(CancelExecute);
+        CancelAllCommand = new DelegateCommand(CancelAllExecute, o => jobInfoQueue.Count > 1);
+
+        DisableSaveTempOnlyCommand = new DelegateCommand(DisableSaveFileTemporaryExecute);
+        OpenUrlCommand = commandLocator1.GetCommand<UrlOpenCommand>();
+
+        _jobInfoQueue = jobInfoQueue;
+        _jobInfoQueue.OnNewJobInfo += (sender, args) => UpdateNumberOfPrintJobsHint(jobInfoQueue.Count);
+    }
+
+    private async Task ExistingFileBehaviourQuery(object obj)
+    {
+        // file does not exist
+        if (!File.Exists(_lastConfirmedFilePath))
+            return;
+
+        var interaction = new OverwriteOrAppendInteraction { MergeIsSupported = Job.Profile.OutputFormat.IsPdf() };
+
+        var result = await _interactionRequest.RaiseAsync(interaction);
+        switch (result.Chosen)
         {
-            GpoSettings = gpoSettings;
-            _settingsProvider = settingsProvider;
-            var commandLocator1 = commandLocator;
-            _eventAggregator = eventAggregator;
-            _selectedProfileProvider = selectedProfileProvider;
-            _profilesProvider = profilesProvider;
-            _targetFilePathComposer = targetFilePathComposer;
-            _jobInfoManager = jobInfoManager;
-            _changeJobCheckAndProceedCommandBuilder = changeJobCheckAndProceedCommandBuilder;
-            _dispatcher = dispatcher;
-            _jobDataUpdater = jobDataUpdater;
-            _interactionRequest = interactionRequest;
-            _applicationNameProvider = applicationNameProvider;
-            _profileChecker = profileChecker;
-            _changeJobCheckAndProceedCommandBuilder.Init(() => Job, CallFinishInteraction, () => _lastConfirmedFilePath, s => _lastConfirmedFilePath = s);
-            
-            CampaignHelper = campaignHelper;
-            PreviewManager = previewManager;
-            SetOutputFormatCommand = new DelegateCommand(SetOutputFormatExecute);
+            case ExistingFileBehaviour.Overwrite:
+                Job.ExistingFileBehavior = ExistingFileBehaviour.Overwrite;
+                break;
 
-            browseFileCommandBuilder.Init(() => Job, UpdateUiForJobOutputFileTemplate, () => _lastConfirmedFilePath, s => _lastConfirmedFilePath = s);
-            var existingFileBehaviourQueryCommand = new AsyncCommand(ExistingFileBehaviourQuery);
-            var browseFileCommand = browseFileCommandBuilder.BuildCommand(new List<ICommand> { existingFileBehaviourQueryCommand });
+            case ExistingFileBehaviour.Merge:
+                Job.ExistingFileBehavior = ExistingFileBehaviour.Merge;
+                break;
 
-            BrowseFileCommand = browseFileCommand;
-            SetupEditProfileCommand(commandLocator1, eventAggregator);
-
-            SetupSaveCommands(translationUpdater);
-
-            EmailCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(EnableEmailSettings);
-            SendEmailWithoutSavingCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(SendEmailWithoutSavingExecute);
-
-            MergeCommand = new DelegateCommand(MergeExecute);
-            MergeAllCommand = new AsyncCommand(MergeAllExecuteAsync, o => jobInfoQueue.Count > 1);
-            CancelCommand = new DelegateCommand(CancelExecute);
-            CancelAllCommand = new DelegateCommand(CancelAllExecute, o => jobInfoQueue.Count > 1);
-
-            DisableSaveTempOnlyCommand = new DelegateCommand(DisableSaveFileTemporaryExecute);
-            OpenUrlCommand = commandLocator1.GetCommand<UrlOpenCommand>();
-
-            jobInfoQueue.OnNewJobInfo += (sender, args) => UpdateNumberOfPrintJobsHint(jobInfoQueue.Count);
-            _jobInfoQueue = jobInfoQueue;
-            UpdateNumberOfPrintJobsHint(jobInfoQueue.Count);
-            OnTranslationChanged();
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
-        private async Task ExistingFileBehaviourQuery(object obj)
+        if (result.Cancel)
+            await BrowseFileCommand.ExecuteAsync(null);
+    }
+
+    private void ManagePrintJobEvent()
+    {
+        _dispatcher.BeginInvoke(() => MergeExecute(null));
+    }
+
+    private void EnableEmailSettings(object o)
+    {
+        Job.Profile.EmailClientSettings.Enabled = true;
+        Job.Profile.OpenViewer.Enabled = false;
+        if (!Job.Profile.ActionOrder.Contains(nameof(EmailClientSettings)))
+            Job.Profile.ActionOrder.Insert(0, nameof(EmailClientSettings));
+    }
+
+    private void SendEmailWithoutSavingExecute(object o)
+    {
+        //Set FilenameTemplate and SaveFileTemporary to consider it in following ComposeTargetFilePath
+        Job.Profile.SaveFileTemporary = true;
+        Job.Profile.FileNameTemplate = OutputFilename;
+        Job.OutputFileTemplate = _targetFilePathComposer.ComposeTargetFilePath(Job);
+
+        Job.Profile.EmailClientSettings.Enabled = true;
+        Job.Profile.OpenViewer.Enabled = false;
+        if (!Job.Profile.ActionOrder.Contains(nameof(EmailClientSettings)))
+            Job.Profile.ActionOrder.Insert(0, nameof(EmailClientSettings));
+    }
+
+    private void DisableSaveFileTemporaryExecute(object obj)
+    {
+        SelectedProfileWrapper.ConversionProfile.SaveFileTemporary = false;
+        OutputFolder = Job.Profile.TargetDirectory;
+        RaisePropertyChanged(nameof(SaveFileTemporaryIsEnabled));
+    }
+
+    private void EnableSaveToDesktop(Job job)
+    {
+        job.Profile.SaveFileTemporary = false;
+        var filename = PathSafe.GetFileName(job.OutputFileTemplate);
+        var desktopFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        job.OutputFileTemplate = PathSafe.Combine(desktopFolder, filename);
+    }
+
+    private void SetupSaveCommands(ITranslationUpdater translationUpdater)
+    {
+        SaveCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(j =>
         {
-            // file does not exist
-            if (!File.Exists(_lastConfirmedFilePath))
+            _jobDataUpdater.UpdateTokensAndMetadata(j);
+        });
+
+        SaveAsCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(DisableSaveFileTemporaryExecute, BrowseFileCommand);
+        SaveToDesktopCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(EnableSaveToDesktop);
+    }
+
+    private void SetupEditProfileCommand(ICommandLocator commandsLocator, IEventAggregator eventAggregator)
+    {
+        eventAggregator.GetEvent<EditSettingsFinishedEvent>().Subscribe(p =>
+        {
+            if (Job == null)
                 return;
 
-            var interaction = new OverwriteOrAppendInteraction { MergeIsSupported = Job.Profile.OutputFormat.IsPdf() };
+            Job.Profile = p;
+            InitCombobox();
+        });
 
-            var result = await _interactionRequest.RaiseAsync(interaction);
-            switch (result.Chosen)
-            {
-                case ExistingFileBehaviour.Overwrite:
-                    Job.ExistingFileBehavior = ExistingFileBehaviour.Overwrite;
-                    break;
+        if (commandsLocator != null)
+        {
+            EditProfileCommand = commandsLocator.CreateMacroCommand()
+                .AddCommand(new DelegateCommand(x => eventAggregator.GetEvent<CloseMainWindowEvent>().Publish()))
+                .AddCommand(new DelegateCommand(StartEditing))
+                .AddCommand<ShowLockLayerCommand>()
+                .AddCommand<WaitMainShellClosedCommand>()
+                .AddCommand<OpenProfileCommand>()
+                .AddCommand<WaitProfileModificationCommand>()
+                .AddCommand(new DelegateCommand(x => eventAggregator.GetEvent<CloseMainWindowEvent>().Publish()))
+                .AddCommand<HideLockLayerCommand>()
+                .Build();
+        }
+    }
 
-                case ExistingFileBehaviour.Merge:
-                    Job.ExistingFileBehavior = ExistingFileBehaviour.Merge;
-                    break;
+    private void StartEditing(object obj)
+    {
+        _selectedProfileProvider.SelectedProfile = _profilesProvider.Settings.First(profile => profile.Guid == Job.Profile.Guid);
 
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+        ProfilesWrapper = null;
+    }
 
-            if (result.Cancel)
-                await BrowseFileCommand.ExecuteAsync(null);
+    private void SetOutputFormatExecute(object parameter)
+    {
+        OutputFormat = (OutputFormat)parameter;
+    }
+
+    private string EnsureValidExtensionInFilename(string fileName, OutputFormat format)
+    {
+        if (Job?.Profile?.OutputFormat == null)
+            return "";
+
+        return _outputFormatHelper.EnsureValidExtension(fileName, format);
+    }
+
+    public Metadata Metadata => Job?.JobInfo?.Metadata;
+
+    private void UpdateMetadata()
+    {
+        Job.InitMetadataWithTemplatesFromProfile();
+        Job.ReplaceTokensInMetadata();
+        RaisePropertyChanged(nameof(Metadata));
+    }
+
+    private void UpdateNumberOfPrintJobsHint(int numberOfPrintJobs)
+    {
+        if (numberOfPrintJobs <= 1)
+            NumberOfPrintJobsHint = "";
+        else if (numberOfPrintJobs > 99)
+        {
+            NumberOfPrintJobsHint = "99+";
+        }
+        else
+        {
+            NumberOfPrintJobsHint = numberOfPrintJobs.ToString();
         }
 
-        private void ManagePrintJobEvent()
+        RaisePropertyChanged(nameof(NumberOfPrintJobsHint));
+    }
+
+    public Task ExecuteWorkflowStep(Job job)
+    {
+        Job = job;
+        return _taskCompletionSource.Task;
+    }
+
+    private void CallFinishInteraction()
+    {
+        Job.Passwords = JobPasswordHelper.GetJobPasswords(Job.Profile, Job.Accounts); // Set passwords in case the profile has changed
+        FinishInteraction();
+    }
+
+    private void CancelExecute(object obj)
+    {
+        PreviewManager.AbortAndCleanUpPreview(JobInfo.SourceFiles);
+
+        // This needs to be called before the exceptions are thrown
+        FinishInteraction();
+        throw new AbortWorkflowException("User cancelled in the PrintJobView");
+    }
+
+    private void CancelAllExecute(object obj)
+    {
+        foreach (var jobInfo in _jobInfoQueue.JobInfos)
+            PreviewManager.AbortAndCleanUpPreview(jobInfo.SourceFiles);
+
+        _jobInfoQueue.Clear();
+        CancelExecute(obj);
+    }
+
+    private void MergeExecute(object obj)
+    {
+        // This needs to be called before the exceptions are thrown
+        FinishInteraction();
+        throw new ManagePrintJobsException();
+    }
+
+    private async Task MergeAllExecuteAsync(object arg)
+    {
+        await Task.Run(MergeAllExecute);
+        UpdateNumberOfPrintJobsHint(_jobInfoQueue.JobInfos.Count);
+        //await SetSelectedProfileAsync(Job.Profile);
+        Job.TokenReplacer.AddNumberToken(TokenNames.NumberOfPages, Job.JobInfo.TotalPages);
+        await UpdateProfileData();
+    }
+
+    private bool MergeAllExecute()
+    {
+        var jobInfosCopy = _jobInfoQueue.JobInfos.ToList();
+        var first = jobInfosCopy.First();
+
+        foreach (var jobObject in jobInfosCopy.Skip(1))
         {
-            _dispatcher.BeginInvoke(() => MergeExecute(null));
+            var job = (JobInfo)jobObject;
+            if (job.JobType != first.JobType)
+                continue;
+            _jobInfoManager.Merge(first, job);
+            _jobInfoQueue.Remove(job, false);
+            _jobInfoManager.DeleteInf(job);
         }
 
-        private void EnableEmailSettings(object o)
+        JobInfo = first;
+
+        _jobInfoManager.SaveToInfFile(first);
+
+        return true;
+    }
+
+    private void FinishInteraction()
+    {
+        _taskCompletionSource.SetResult(null);
+    }
+
+    private Job _job;
+
+    public Job Job
+    {
+        get { return _job; }
+        private set
         {
-            Job.Profile.EmailClientSettings.Enabled = true;
-            Job.Profile.OpenViewer.Enabled = false;
-            if (!Job.Profile.ActionOrder.Contains(nameof(EmailClientSettings)))
-                Job.Profile.ActionOrder.Insert(0, nameof(EmailClientSettings));
+            if (value == null)
+                return;
+
+            _job = value;
+            RaisePropertyChanged();
+            JobInfo = _job.JobInfo;
         }
+    }
 
-        private void SendEmailWithoutSavingExecute(object o)
+    //Had to be separated to update preview
+    private JobInfo _jobInfo;
+    public JobInfo JobInfo
+    {
+        get { return _jobInfo; }
+        set
         {
-            //Set FilenameTemplate and SaveFileTemporary to consider it in following ComposeTargetFilePath
-            Job.Profile.SaveFileTemporary = true;
-            Job.Profile.FileNameTemplate = OutputFilename;
-            Job.OutputFileTemplate = _targetFilePathComposer.ComposeTargetFilePath(Job);
-            
-            Job.Profile.EmailClientSettings.Enabled = true;
-            Job.Profile.OpenViewer.Enabled = false;
-            if (!Job.Profile.ActionOrder.Contains(nameof(EmailClientSettings)))
-                Job.Profile.ActionOrder.Insert(0, nameof(EmailClientSettings));
+            if (value == null)
+                return;
+            //Copy to have new instance for RaisePropertyChanged
+            var copy = new JobInfo { SourceFiles = value.SourceFiles };
+            _jobInfo = copy;
+            RaisePropertyChanged();
         }
+    }
 
-        private void DisableSaveFileTemporaryExecute(object obj)
+    public void UpdateUiForJobOutputFileTemplate()
+    {
+        RaisePropertyChanged(nameof(OutputFormat));
+        RaisePropertyChanged(nameof(OutputFilename));
+        RaisePropertyChanged(nameof(OutputFolder));
+    }
+
+    public async Task SetSelectedProfileAsync(ConversionProfile profile)
+    {
+        IsUpdatingProfile = true;
+        RaisePropertyChanged(nameof(IsUpdatingProfile));
+
+        Job.Profile = profile;
+
+        await UpdateProfileData();
+
+        IsUpdatingProfile = false;
+        RaisePropertyChanged(nameof(IsUpdatingProfile));
+    }
+
+    private async Task UpdateProfileData()
+    {
+        await _jobDataUpdater.UpdateTokensAndMetadataAsync(Job);
+
+        JobInfo = Job.JobInfo; //Trigger JobInfo Update for Preview 
+
+        Job.OutputFileTemplate = _targetFilePathComposer.ComposeTargetFilePath(Job);
+        OutputFilename = EnsureValidExtensionInFilename(OutputFilename, OutputFormat);
+        UpdateUiForJobOutputFileTemplate();
+
+        RaisePropertyChanged(nameof(SaveFileTemporaryIsEnabled));
+        UpdateMetadata();
+    }
+
+    public string NumberOfPrintJobsHint { get; private set; }
+
+    public DelegateCommand SetOutputFormatCommand { get; }
+
+    public ICommand OpenUrlCommand { get; }
+
+    public IAsyncCommand SaveCommand { get; private set; }
+    public IAsyncCommand SaveAsCommand { get; private set; }
+    public IAsyncCommand SaveToDesktopCommand { get; private set; }
+
+    public ICommand EmailCommand { get; }
+    public ICommand SendEmailWithoutSavingCommand { get; }
+
+    public IMacroCommand BrowseFileCommand { get; }
+    public ICommand MergeCommand { get; }
+    public AsyncCommand MergeAllCommand { get; }
+
+    public ICommand CancelCommand { get; }
+    public DelegateCommand CancelAllCommand { get; }
+
+    public ICommand EditProfileCommand { get; private set; }
+    public ICommand DisableSaveTempOnlyCommand { get; set; }
+
+    private ConversionProfileWrapper _selectedProfileWrapper = null;
+
+    public bool IsUpdatingProfile { get; private set; }
+
+    public ConversionProfileWrapper SelectedProfileWrapper
+    {
+        get { return _selectedProfileWrapper; }
+        set
         {
-            SelectedProfileWrapper.ConversionProfile.SaveFileTemporary = false;
-            OutputFolder = Job.Profile.TargetDirectory;
-            RaisePropertyChanged(nameof(SaveFileTemporaryIsEnabled));
+            if (value == null)
+                return;
+            if (value == _selectedProfileWrapper)
+                return;
+
+            _dispatcher.InvokeAsync(async () => await SetSelectedProfileAsync(value.ConversionProfile));
+            _selectedProfileWrapper = value;
+
+            AreActionsRestricted = _profileChecker.DoesProfileContainRestrictedActions(value.ConversionProfile);
+            RaisePropertyChanged(nameof(SelectedProfileWrapper));
         }
+    }
 
-        private void EnableSaveToDesktop(Job job)
+    public ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; set; }
+
+    public OutputFormat OutputFormat
+    {
+        get => Job?.Profile?.OutputFormat ?? OutputFormat.Pdf;
+        set
         {
-            job.Profile.SaveFileTemporary = false;
-            var filename = PathSafe.GetFileName(job.OutputFileTemplate);
-            var desktopFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            job.OutputFileTemplate = PathSafe.Combine(desktopFolder, filename);
+            Job.Profile.OutputFormat = value;
+            OutputFilename = EnsureValidExtensionInFilename(OutputFilename, OutputFormat);
+            AreActionsRestricted = _profileChecker.DoesProfileContainRestrictedActions(Job.Profile);
+            RaisePropertyChanged();
         }
+    }
 
-        private void SetupSaveCommands(ITranslationUpdater translationUpdater)
+    public string OutputFolder
+    {
+        get
         {
-            SaveCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(j =>
-            {
-                _jobDataUpdater.UpdateTokensAndMetadata(j);
-            });
-
-            SaveAsCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(DisableSaveFileTemporaryExecute, BrowseFileCommand);
-            SaveToDesktopCommand = _changeJobCheckAndProceedCommandBuilder.BuildCommand(EnableSaveToDesktop);
-        }
-
-        private void SetupEditProfileCommand(ICommandLocator commandsLocator, IEventAggregator eventAggregator)
-        {
-            eventAggregator.GetEvent<EditSettingsFinishedEvent>().Subscribe(p =>
-            {
-                if (Job == null)
-                    return;
-
-                Job.Profile = p;
-                InitCombobox();
-            });
-
-            if (commandsLocator != null)
-            {
-                EditProfileCommand = commandsLocator.CreateMacroCommand()
-                    .AddCommand(new DelegateCommand(x => eventAggregator.GetEvent<CloseMainWindowEvent>().Publish()))
-                    .AddCommand(new DelegateCommand(StartEditing))
-                    .AddCommand<ShowLockLayerCommand>()
-                    .AddCommand<WaitMainShellClosedCommand>()
-                    .AddCommand<OpenProfileCommand>()
-                    .AddCommand<WaitProfileModificationCommand>()
-                    .AddCommand(new DelegateCommand(x => eventAggregator.GetEvent<CloseMainWindowEvent>().Publish()))
-                    .AddCommand<HideLockLayerCommand>()
-                    .Build();
-            }
-        }
-
-        private void StartEditing(object obj)
-        {
-            _selectedProfileProvider.SelectedProfile = _profilesProvider.Settings.First(profile => profile.Guid == Job.Profile.Guid);
-
-            ProfilesWrapper = null;
-        }
-
-        private void SetOutputFormatExecute(object parameter)
-        {
-            OutputFormat = (OutputFormat)parameter;
-        }
-
-        private string EnsureValidExtensionInFilename(string fileName, OutputFormat format)
-        {
-            if (Job?.Profile?.OutputFormat == null)
+            if (Job == null)
                 return "";
 
-            return _outputFormatHelper.EnsureValidExtension(fileName, format);
+            if (Job.Profile.SaveFileTemporary)
+                return "";
+
+            return PathSafe.GetDirectoryName(Job.OutputFileTemplate);
         }
-
-        public Metadata Metadata => Job?.JobInfo?.Metadata;
-
-        private void UpdateMetadata()
+        set
         {
-            Job.InitMetadataWithTemplatesFromProfile();
-            Job.ReplaceTokensInMetadata();
-            RaisePropertyChanged(nameof(Metadata));
+            Job.OutputFileTemplate = PathSafe.Combine(value, OutputFilename);
+            RaisePropertyChanged();
         }
+    }
 
-        private void UpdateNumberOfPrintJobsHint(int numberOfPrintJobs)
+    public string OutputFilename
+    {
+        get => Job == null ? "" : PathSafe.GetFileName(Job.OutputFileTemplate);
+        set
         {
-            if (numberOfPrintJobs <= 1)
-                NumberOfPrintJobsHint = "";
-            else if (numberOfPrintJobs > 99)
-            {
-                NumberOfPrintJobsHint = "99+";
-            }
+            if (Job.Profile.SaveFileTemporary)
+                Job.OutputFileTemplate = PathSafe.Combine(Job.OutputFileTemplate, value);
             else
-            {
-                NumberOfPrintJobsHint = numberOfPrintJobs.ToString();
-            }
-
-            RaisePropertyChanged(nameof(NumberOfPrintJobsHint));
+                Job.OutputFileTemplate = PathSafe.Combine(OutputFolder, value);
+            RaisePropertyChanged();
         }
+    }
 
-        public Task ExecuteWorkflowStep(Job job)
+    public bool EditButtonEnabledByGpo => GpoSettings == null || !GpoSettings.DisableProfileManagement;
+
+    private bool _hasBanner;
+
+    public bool HasBanner
+    {
+        get => _hasBanner;
+        set
         {
-            Job = job;
-            return _taskCompletionSource.Task;
+            _hasBanner = value;
+            RaisePropertyChanged();
         }
+    }
 
-        private void CallFinishInteraction()
+    public string TrialRemainingDaysInfoText => Translation.GetTrialRemainingDaysInfoText(CampaignHelper.TrialRemainingDays);
+
+    public bool ShowTrialRemainingDaysInfo => CampaignHelper.IsTrial;
+
+    private bool _areActionsRestricted;
+
+    public bool AreActionsRestricted
+    {
+        get => _areActionsRestricted;
+        set
         {
-            Job.Passwords = JobPasswordHelper.GetJobPasswords(Job.Profile, Job.Accounts); // Set passwords in case the profile has changed
-            FinishInteraction();
+            _areActionsRestricted = value;
+            RaisePropertyChanged();
         }
+    }
 
-        private void CancelExecute(object obj)
-        {
-            PreviewManager.AbortAndCleanUpPreview(JobInfo.SourceFiles);
+    private void InitCombobox()
+    {
+        ProfilesWrapper = _settingsProvider.Settings?.ConversionProfiles.Select(x => new ConversionProfileWrapper(x.Copy())).ToObservableCollection();
 
-            // This needs to be called before the exceptions are thrown
-            FinishInteraction();
-            throw new AbortWorkflowException("User cancelled in the PrintJobView");
-        }
+        SelectedProfileWrapper = ProfilesWrapper.FirstOrDefault(x => x.ConversionProfile.Guid == Job?.Profile.Guid)
+                              ?? ProfilesWrapper.FirstOrDefault();
 
-        private void CancelAllExecute(object obj)
-        {
-            foreach (var jobInfo in _jobInfoQueue.JobInfos)
-                PreviewManager.AbortAndCleanUpPreview(jobInfo.SourceFiles);
-            
-            _jobInfoQueue.Clear();
-            CancelExecute(obj);
-        }
+        // Important: RaisePropertyChanged for ProfilesWrapper must be called at the end.
+        // Otherwise, the UI will update the binding source and overwrite the selected profile.
+        RaisePropertyChanged(nameof(ProfilesWrapper));
+    }
 
-        private void MergeExecute(object obj)
-        {
-            // This needs to be called before the exceptions are thrown
-            FinishInteraction();
-            throw new ManagePrintJobsException();
-        }
+    public void MountView()
+    {
+        InitCombobox();
 
-        private async Task MergeAllExecuteAsync(object arg)
-        {
-            await Task.Run(MergeAllExecute);
-            UpdateNumberOfPrintJobsHint(_jobInfoQueue.JobInfos.Count);
-        }
+        _eventAggregator.GetEvent<ManagePrintJobEvent>().Subscribe(ManagePrintJobEvent);
+        _eventAggregator.GetEvent<TrialStatusChangedEvent>().Subscribe(OnTrialStatusChanged);
 
-        private bool MergeAllExecute()
-        {
-            var jobInfosCopy = _jobInfoQueue.JobInfos.ToList();
-            var first = jobInfosCopy.First();
+        UpdateNumberOfPrintJobsHint(_jobInfoQueue.Count);
+        OnTranslationChanged();
+    }
 
-            foreach (var jobObject in jobInfosCopy.Skip(1))
-            {
-                var job = (JobInfo)jobObject;
-                if (job.JobType != first.JobType)
-                    continue;
-                _jobInfoManager.Merge(first, job);
-                _jobInfoQueue.Remove(job, false);
-                _jobInfoManager.DeleteInf(job);
-            }
+    private void OnTrialStatusChanged()
+    {
+        RaisePropertyChanged(nameof(ShowTrialRemainingDaysInfo));
+        RaisePropertyChanged(nameof(HasBanner));
+    }
 
-            JobInfo = first;
-            _jobInfoManager.SaveToInfFile(first);
+    public void UnmountView()
+    {
+        _eventAggregator.GetEvent<ManagePrintJobEvent>().Unsubscribe(ManagePrintJobEvent);
+        _eventAggregator.GetEvent<TrialStatusChangedEvent>().Unsubscribe(OnTrialStatusChanged);
+    }
 
-            return true;
-        }
-
-        private void FinishInteraction()
-        {
-            _taskCompletionSource.SetResult(null);
-        }
-
-        private Job _job;
-
-        public Job Job
-        {
-            get { return _job; }
-            private set
-            {
-                if (value == null)
-                    return;
-                
-                _job = value;
-                RaisePropertyChanged();
-                JobInfo = _job.JobInfo;
-            }
-        }
-
-        //Had to be separated to update preview
-        private JobInfo _jobInfo;
-        public JobInfo JobInfo
-        {
-            get { return _jobInfo;}
-            set
-            {
-                if (value == null)
-                    return;
-                //Copy to have new instance for RaisePropertyChanged
-                var copy = new JobInfo { SourceFiles = value.SourceFiles };
-                _jobInfo = copy;
-                RaisePropertyChanged();
-            }
-        }
-
-        public void UpdateUiForJobOutputFileTemplate()
-        {
-            RaisePropertyChanged(nameof(OutputFormat));
-            RaisePropertyChanged(nameof(OutputFilename));
-            RaisePropertyChanged(nameof(OutputFolder));
-        }
-
-        public async Task SetSelectedProfileAsync(ConversionProfile profile)
-        {
-            IsUpdatingProfile = true;
-            RaisePropertyChanged(nameof(IsUpdatingProfile));
-
-            Job.Profile = profile;
-            await UpdateProfileData();
-
-            IsUpdatingProfile = false;
-            RaisePropertyChanged(nameof(IsUpdatingProfile));
-        }
-
-        private async Task UpdateProfileData()
-        {
-            await _jobDataUpdater.UpdateTokensAndMetadataAsync(Job);
-
-            JobInfo = Job.JobInfo; //Trigger JobInfo Update for Preview 
-
-            //Keep current output directory if Profile.TargetDirectory is empty 
-            if (!string.IsNullOrEmpty(Job.Profile.TargetDirectory) && !string.IsNullOrEmpty(Job.OutputFileTemplate))
-                Job.OutputFileTemplate = _targetFilePathComposer.ComposeTargetFilePath(Job);
-            OutputFilename = EnsureValidExtensionInFilename(OutputFilename, OutputFormat);
-            UpdateUiForJobOutputFileTemplate();
-
-            RaisePropertyChanged(nameof(SaveFileTemporaryIsEnabled));
-            UpdateMetadata();
-        }
-
-        public string NumberOfPrintJobsHint { get; private set; }
-
-        public DelegateCommand SetOutputFormatCommand { get; }
-
-        public ICommand OpenUrlCommand { get; }
-
-        public IAsyncCommand SaveCommand { get; private set; }
-        public IAsyncCommand SaveAsCommand { get; private set; }
-        public IAsyncCommand SaveToDesktopCommand { get; private set; }
-
-        public ICommand EmailCommand { get; }
-        public ICommand SendEmailWithoutSavingCommand { get; }
-
-        public IMacroCommand BrowseFileCommand { get; }
-        public ICommand MergeCommand { get; }
-        public AsyncCommand MergeAllCommand { get; }
-
-        public ICommand CancelCommand { get; }
-        public DelegateCommand CancelAllCommand { get; }
-
-        public ICommand EditProfileCommand { get; private set; }
-        public ICommand DisableSaveTempOnlyCommand { get; set; }
-
-        private ConversionProfileWrapper _selectedProfileWrapper = null;
-
-        public bool IsUpdatingProfile { get; private set; }
-
-        public ConversionProfileWrapper SelectedProfileWrapper
-        {
-            get { return _selectedProfileWrapper; }
-            set
-            {
-                if (value == null)
-                    return;
-                if (value == _selectedProfileWrapper)
-                    return;
-
-                _dispatcher.InvokeAsync(async () => await SetSelectedProfileAsync(value.ConversionProfile));
-                _selectedProfileWrapper = value;
-
-                AreActionsRestricted = _profileChecker.DoesProfileContainRestrictedActions(value.ConversionProfile);
-                RaisePropertyChanged(nameof(SelectedProfileWrapper));
-            }
-        }
-
-        public ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; set; }
-
-        public OutputFormat OutputFormat
-        {
-            get => Job?.Profile?.OutputFormat ?? OutputFormat.Pdf;
-            set
-            {
-                Job.Profile.OutputFormat = value;
-                OutputFilename = EnsureValidExtensionInFilename(OutputFilename, OutputFormat);
-                AreActionsRestricted = _profileChecker.DoesProfileContainRestrictedActions(Job.Profile);
-                RaisePropertyChanged();
-            }
-        }
-
-        public string OutputFolder
-        {
-            get
-            {
-                if (Job == null)
-                    return "";
-
-                if (Job.Profile.SaveFileTemporary)
-                    return "";
-
-                return PathSafe.GetDirectoryName(Job.OutputFileTemplate);
-            }
-            set
-            {
-                Job.OutputFileTemplate = PathSafe.Combine(value, OutputFilename);
-                RaisePropertyChanged();
-            }
-        }
-
-        public string OutputFilename
-        {
-            get => Job == null ? "" : PathSafe.GetFileName(Job.OutputFileTemplate);
-            set
-            {
-                if (Job.Profile.SaveFileTemporary)
-                    Job.OutputFileTemplate = PathSafe.Combine(Job.OutputFileTemplate, value);
-                else
-                    Job.OutputFileTemplate = PathSafe.Combine(OutputFolder, value);
-                RaisePropertyChanged();
-            }
-        }
-
-        public bool EditButtonEnabledByGpo => GpoSettings == null || !GpoSettings.DisableProfileManagement;
-
-        private bool _hasBanner;
-
-        public bool HasBanner
-        {
-            get => _hasBanner;
-            set
-            {
-                _hasBanner = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string TrialRemainingDaysInfoText => Translation.GetTrialRemainingDaysInfoText(CampaignHelper.TrialRemainingDays);
-
-        public bool ShowTrialRemainingDaysInfo => CampaignHelper.IsTrial;
-
-        private bool _areActionsRestricted;
-
-        public bool AreActionsRestricted
-        {
-            get => _areActionsRestricted;
-            set
-            {
-                _areActionsRestricted = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        private void InitCombobox()
-        {
-            ProfilesWrapper = _settingsProvider.Settings?.ConversionProfiles.Select(x => new ConversionProfileWrapper(x.Copy())).ToObservableCollection();
-
-            SelectedProfileWrapper = ProfilesWrapper.FirstOrDefault(x => x.ConversionProfile.Guid == Job.Profile.Guid)
-                                  ?? ProfilesWrapper.FirstOrDefault();
-
-            // Important: RaisePropertyChanged for ProfilesWrapper must be called at the end.
-            // Otherwise, the UI will update the binding source and overwrite the selected profile.
-            RaisePropertyChanged(nameof(ProfilesWrapper));
-        }
-
-        public void MountView()
-        {
-            InitCombobox();
-
-            _eventAggregator.GetEvent<ManagePrintJobEvent>().Subscribe(ManagePrintJobEvent);
-            _eventAggregator.GetEvent<TrialStatusChangedEvent>().Subscribe(OnTrialStatusChanged);
-        }
-
-        private void OnTrialStatusChanged()
-        {
-            RaisePropertyChanged(nameof(ShowTrialRemainingDaysInfo));
-            RaisePropertyChanged(nameof(HasBanner));
-        }
-
-        public void UnmountView()
-        {
-            _eventAggregator.GetEvent<ManagePrintJobEvent>().Unsubscribe(ManagePrintJobEvent);
-            _eventAggregator.GetEvent<TrialStatusChangedEvent>().Unsubscribe(OnTrialStatusChanged);
-        }
-
-        protected override void OnTranslationChanged()
-        {
-            if (CampaignHelper != null)
-                RaisePropertyChanged(TrialRemainingDaysInfoText);
-        }
+    protected override void OnTranslationChanged()
+    {
+        if (CampaignHelper != null)
+            RaisePropertyChanged(nameof(TrialRemainingDaysInfoText));
     }
 }

@@ -1,14 +1,13 @@
 ﻿using pdfforge.UsageStatistics;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
-{
-    public class ServiceStoppedMetric : UsageMetricBase
-    {
-        public override string EventName => "ServiceMetric";
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
 
-        public int TotalDocuments { get; set; }
-        public int TotalUsers { get; set; }
-        public string OperatingSystem { get; set; }
-        public long ServiceUptime { get; set; }
-    }
+public class ServiceStoppedMetric : UsageMetricBase
+{
+    public override string EventName => "ServiceMetric";
+
+    public int TotalDocuments { get; set; }
+    public int TotalUsers { get; set; }
+    public string OperatingSystem { get; set; }
+    public long ServiceUptime { get; set; }
 }

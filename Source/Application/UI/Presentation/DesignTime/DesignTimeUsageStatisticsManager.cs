@@ -1,22 +1,21 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using pdfforge.PDFCreator.Core.UsageStatistics;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Core.UsageStatistics;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeUsageStatisticsManager : IUsageStatisticsManager
 {
-    public class DesignTimeUsageStatisticsManager : IUsageStatisticsManager
+    public Task SendUsageStatistics(TimeSpan duration, Job job, string status)
     {
-        public Task SendUsageStatistics(TimeSpan duration, Job job, string status)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task SendServiceStatistics(TimeSpan duration)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EnableUsageStatistics { get; set; }
+        throw new NotImplementedException();
     }
+
+    public Task SendServiceStatistics(TimeSpan duration)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool EnableUsageStatistics { get; set; }
 }

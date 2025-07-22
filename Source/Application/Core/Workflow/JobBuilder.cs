@@ -4,86 +4,85 @@ using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface IJobBuilder
 {
-    public interface IJobBuilder
+    Job BuildJobFromJobInfo(JobInfo jobInfo, PdfCreatorSettings settings);
+}
+
+public abstract class JobBuilder : IJobBuilder
+{
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    private readonly IVersionHelper _versionHelper;
+    private readonly ApplicationNameProvider _applicationNameProvider;
+    private readonly IJobInfoToProfileMapper _jobInfoToProfileMapper;
+
+    public JobBuilder(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
     {
-        Job BuildJobFromJobInfo(JobInfo jobInfo, PdfCreatorSettings settings);
+        _versionHelper = versionHelper;
+        _applicationNameProvider = applicationNameProvider;
+        _jobInfoToProfileMapper = jobInfoToProfileMapper;
     }
 
-    public abstract class JobBuilder : IJobBuilder
+    public abstract Job SkipPrintDialog(Job job);
+
+    public Job BuildJobFromJobInfo(JobInfo jobInfo, PdfCreatorSettings settings)
     {
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly IVersionHelper _versionHelper;
-        private readonly ApplicationNameProvider _applicationNameProvider;
-        private readonly IJobInfoToProfileMapper _jobInfoToProfileMapper;
+        _logger.Trace("Building Job from JobInfo");
 
-        public JobBuilder(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
-        {
-            _versionHelper = versionHelper;
-            _applicationNameProvider = applicationNameProvider;
-            _jobInfoToProfileMapper = jobInfoToProfileMapper;
-        }
+        var preselectedProfile = _jobInfoToProfileMapper.GetPreselectedProfile(jobInfo, settings).Copy();
 
-        public abstract Job SkipPrintDialog(Job job);
+        _logger.Debug("Profile: {0} (GUID {1})", preselectedProfile.Name, preselectedProfile.Guid);
+        var producer = _applicationNameProvider.ApplicationNameWithEdition + " " + _versionHelper.FormatWithThreeDigits();
 
-        public Job BuildJobFromJobInfo(JobInfo jobInfo, PdfCreatorSettings settings)
-        {
-            _logger.Trace("Building Job from JobInfo");
+        var currentSettings = new CurrentJobSettings(settings.ConversionProfiles, settings.ApplicationSettings.PrinterMappings, settings.ApplicationSettings.Accounts);
 
-            var preselectedProfile = _jobInfoToProfileMapper.GetPreselectedProfile(jobInfo, settings).Copy();
+        var job = new Job(jobInfo, preselectedProfile, currentSettings, producer);
 
-            _logger.Debug("Profile: {0} (GUID {1})", preselectedProfile.Name, preselectedProfile.Guid);
-            var producer = _applicationNameProvider.ApplicationNameWithEdition + " " + _versionHelper.FormatWithThreeDigits();
+        SkipPrintDialog(job);
 
-            var currentSettings = new CurrentJobSettings(settings.ConversionProfiles, settings.ApplicationSettings.PrinterMappings, settings.ApplicationSettings.Accounts);
+        return job;
+    }
+}
 
-            var job = new Job(jobInfo, preselectedProfile, currentSettings, producer);
-
-            SkipPrintDialog(job);
-
-            return job;
-        }
+public class JobBuilderFree : JobBuilder
+{
+    public JobBuilderFree(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
+        : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
+    {
     }
 
-    public class JobBuilderFree : JobBuilder
+    public override Job SkipPrintDialog(Job job)
     {
-        public JobBuilderFree(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
-            : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
-        {
-        }
+        job.Profile.SkipPrintDialog = false;
+        return job;
+    }
+}
 
-        public override Job SkipPrintDialog(Job job)
-        {
-            job.Profile.SkipPrintDialog = false;
-            return job;
-        }
+public class JobBuilderProfessional : JobBuilder
+{
+    public JobBuilderProfessional(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
+        : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
+    {
     }
 
-    public class JobBuilderProfessional : JobBuilder
+    public override Job SkipPrintDialog(Job job)
     {
-        public JobBuilderProfessional(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
-            : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
-        {
-        }
+        return job;
+    }
+}
 
-        public override Job SkipPrintDialog(Job job)
-        {
-            return job;
-        }
+public class JobBuilderServer : JobBuilder
+{
+    public JobBuilderServer(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
+        : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
+    {
     }
 
-    public class JobBuilderServer : JobBuilder
+    public override Job SkipPrintDialog(Job job)
     {
-        public JobBuilderServer(IVersionHelper versionHelper, ApplicationNameProvider applicationNameProvider, IJobInfoToProfileMapper jobInfoToProfileMapper)
-            : base(versionHelper, applicationNameProvider, jobInfoToProfileMapper)
-        {
-        }
-
-        public override Job SkipPrintDialog(Job job)
-        {
-            job.Profile.SkipPrintDialog = true;
-            return job;
-        }
+        job.Profile.SkipPrintDialog = true;
+        return job;
     }
 }

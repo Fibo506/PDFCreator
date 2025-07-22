@@ -1,46 +1,45 @@
-using Optional;
-using pdfforge.PDFCreator.Conversion.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using Optional;
+using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.Tokens
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
+
+public class MountableTokenViewModel : TokenViewModel<ConversionProfile>
 {
-    public class MountableTokenViewModel : TokenViewModel<ConversionProfile>
+    private readonly ISelectedProfileProvider _profileProvider;
+
+    public MountableTokenViewModel(ISelectedProfileProvider profileProvider, Expression<Func<ConversionProfile, string>> selector, ConversionProfile initialValue, IList<string> tokens, Func<string, string> generatePreview, IList<Func<string, Option<string>>> buttonCommandFunction = null) : base(selector, initialValue, tokens, generatePreview, buttonCommandFunction)
     {
-        private readonly ISelectedProfileProvider _profileProvider;
+        _profileProvider = profileProvider;
+    }
 
-        public MountableTokenViewModel(ISelectedProfileProvider profileProvider, Expression<Func<ConversionProfile, string>> selector, ConversionProfile initialValue, IList<string> tokens, Func<string, string> generatePreview, IList<Func<string, Option<string>>> buttonCommandFunction = null) : base(selector, initialValue, tokens, generatePreview, buttonCommandFunction)
-        {
-            _profileProvider = profileProvider;
-        }
+    public override void MountView()
+    {
+        base.MountView();
 
-        public override void MountView()
-        {
-            base.MountView();
+        _profileProvider.SettingsChanged += ProfileProviderOnSettingsChanged;
+        _profileProvider.SelectedProfileChanged += OnProfileProviderOnSelectedProfileChanged;
+        CurrentValue = _profileProvider.SelectedProfile;
+    }
 
-            _profileProvider.SettingsChanged += ProfileProviderOnSettingsChanged;
-            _profileProvider.SelectedProfileChanged += OnProfileProviderOnSelectedProfileChanged;
-            CurrentValue = _profileProvider.SelectedProfile;
-        }
+    private void OnProfileProviderOnSelectedProfileChanged(object sender, PropertyChangedEventArgs args)
+    {
+        CurrentValue = _profileProvider.SelectedProfile;
+    }
 
-        private void OnProfileProviderOnSelectedProfileChanged(object sender, PropertyChangedEventArgs args)
-        {
-            CurrentValue = _profileProvider.SelectedProfile;
-        }
+    private void ProfileProviderOnSettingsChanged(object sender, EventArgs e)
+    {
+        CurrentValue = _profileProvider.SelectedProfile;
+    }
 
-        private void ProfileProviderOnSettingsChanged(object sender, EventArgs e)
-        {
-            CurrentValue = _profileProvider.SelectedProfile;
-        }
+    public override void UnmountView()
+    {
+        base.UnmountView();
 
-        public override void UnmountView()
-        {
-            base.UnmountView();
-
-            _profileProvider.SettingsChanged -= ProfileProviderOnSettingsChanged;
-            _profileProvider.SelectedProfileChanged -= OnProfileProviderOnSelectedProfileChanged;
-        }
+        _profileProvider.SettingsChanged -= ProfileProviderOnSettingsChanged;
+        _profileProvider.SelectedProfileChanged -= OnProfileProviderOnSelectedProfileChanged;
     }
 }

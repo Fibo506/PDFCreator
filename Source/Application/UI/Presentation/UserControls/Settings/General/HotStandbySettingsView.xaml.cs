@@ -1,13 +1,12 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General;
+
+public partial class HotStandbySettingsView : UserControl
 {
-    public partial class HotStandbySettingsView : UserControl
+    public HotStandbySettingsView(HotStandbySettingsViewModel vm)
     {
-        public HotStandbySettingsView(HotStandbySettingsViewModel vm)
-        {
-            DataContext = vm;
-            InitializeComponent();
-        }
+        DataContext = vm;
+        InitializeComponent();
     }
 }

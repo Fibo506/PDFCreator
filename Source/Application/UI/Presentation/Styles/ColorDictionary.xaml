@@ -28,10 +28,13 @@
     <Color x:Key="IconLightGreyColor">#B9B9B9</Color>
     <Color x:Key="DarkGreyColor">#FF808080</Color>
     <Color x:Key="OffWhite">#FCFCFD</Color>
-
+    <Color x:Key="HoverOnRed">#F3BFBF</Color>
+    <Color x:Key="HighlightRed">#E77E7E</Color>
 
     <Color x:Key="PDFCreatorProfessionalColor">#FF316489</Color>
     <SolidColorBrush x:Key="PDFCreatorProfessionalBrush" Color="{StaticResource PDFCreatorProfessionalColor}" options:Freeze="true"/>
+
+    <SolidColorBrush x:Key="WhiteBrush" Color="White" options:Freeze="true"/>
 
     <Color x:Key="NavigationLightGreyColor">#EEEEEE</Color>
     <SolidColorBrush x:Key="NavigationLightGreyColorBrush" Color="{StaticResource NavigationLightGreyColor}" options:Freeze="true"/>
@@ -239,7 +242,18 @@
     <!-- TriangleToggle -->
     <SolidColorBrush x:Key="TriangleSwitchCheckBoxBrush" Color="{StaticResource AccentBlue}" options:Freeze="true"/>
     <SolidColorBrush x:Key="TriangleSwitchCheckBoxDisabledBrush" Color="{StaticResource LightAccentBlue}" options:Freeze="true"/>
-
+    
+    
+    <!-- DatePicker Calendar -->
+    <SolidColorBrush x:Key="CalendarBorderBrush" Color="{StaticResource PdfforgeDarkGreyColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="CalendarRedBrush" Color="{StaticResource PdfforgeRedColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="CalendarHoverOnRedBrush" Color="{StaticResource HoverOnRed}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="CalendarHighlightRedBrush" Color="{StaticResource HighlightRed}" options:Freeze="true"/>
+    
+    <!-- DataGrid -->
+    <SolidColorBrush x:Key="DataGridCellSelectedBrush" Color="{StaticResource PdfforgeLightGreyColor2}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="DataGridCellHoverOnBrush" Color="{StaticResource PdfforgeLightGreyColor}" options:Freeze="true"/>
+    
     <!--Blocked in environment colours-->
     <Color x:Key="BackgroundBlue">#50BCF1</Color>
     <Color x:Key="HoverOnBlueButtonColor">#88AAFF</Color>
@@ -262,7 +276,40 @@
     <SolidColorBrush x:Key="DisabledBlueHighlightButtonBrush" Color="{StaticResource PdfforgeGreyColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="ChromeBrush" Color="{StaticResource ChromeColor}" options:Freeze="True" />
 
+    <!--Preview colours-->
+    <Color x:Key="RotateButtonWhiteBackgroundColour">#FFFFFF</Color>
 
+    <!--Preview brushes-->
+    <SolidColorBrush x:Key="RotateButtonWhiteBackgroundBrush" Color="{StaticResource RotateButtonWhiteBackgroundColour}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="RotateButtonBorderBrush" Color="{StaticResource PdfforgeGreyColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="RotateButtonNotFocusedForegroundBrush" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="PreviewFocusedRotateButtonForegroundBrush" Color="{StaticResource DarkGreyBackgroundColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="RotateButtonFocusedForegroundBrush" Color="{StaticResource AccentBlue}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="PreviewFocusedBackgroundBlueBrush" Color="{StaticResource AccentBlue}" Opacity=".2" options:Freeze="true"/>
+
+
+    <!--Business features redesigned colours-->
+    <Color x:Key="BrandDarkBlue">#316489</Color>
+    <Color x:Key="BrandGreen">#06C668</Color>
+    <Color x:Key="BrandDarkBlueDull">#2A5470</Color>
+    <Color x:Key="BrandGreenDull">#05A555</Color>
+    <Color x:Key="BrandDarkBlueFaded">#66316489</Color>
+    <Color x:Key="BrandGreenFaded">#6606C668</Color>
+
+    <LinearGradientBrush x:Key="MainGreenGradient" StartPoint="1,1" EndPoint="0,0" options:Freeze="true">
+        <GradientStop Color="{StaticResource BrandDarkBlue}" Offset="0"/>
+        <GradientStop Color="{StaticResource BrandGreen}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MainGreenGradientDull" StartPoint="1,1" EndPoint="0,0" options:Freeze="true">
+        <GradientStop Color="{StaticResource BrandDarkBlueDull}" Offset="0"/>
+        <GradientStop Color="{StaticResource BrandGreenDull}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="FadedMainGreenGradient" StartPoint="1,0" EndPoint="0,1" options:Freeze="true">
+        <GradientStop Color="{StaticResource BrandDarkBlueFaded}" Offset="0"/>
+        <GradientStop Color="{StaticResource BrandGreenFaded}" Offset="1"/>
+    </LinearGradientBrush>
 
     <!-- ######################### -->
     <!-- ## DEBUG COLOR BRUSHES ## -->

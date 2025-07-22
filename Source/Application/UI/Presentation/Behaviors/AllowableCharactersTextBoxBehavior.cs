@@ -1,80 +1,79 @@
-﻿using Microsoft.Xaml.Behaviors;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Xaml.Behaviors;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Behaviors
+namespace pdfforge.PDFCreator.UI.Presentation.Behaviors;
+
+public class AllowableCharactersTextBoxBehavior : Behavior<TextBox>
 {
-    public class AllowableCharactersTextBoxBehavior : Behavior<TextBox>
+    public static readonly DependencyProperty MaxValueProperty =
+        DependencyProperty.Register(nameof(MaxValue), typeof(int), typeof(AllowableCharactersTextBoxBehavior),
+            new FrameworkPropertyMetadata(int.MinValue));
+
+    public int MaxValue
     {
-        public static readonly DependencyProperty MaxValueProperty =
-            DependencyProperty.Register(nameof(MaxValue), typeof(int), typeof(AllowableCharactersTextBoxBehavior),
-                new FrameworkPropertyMetadata(int.MinValue));
+        get { return (int)base.GetValue(MaxValueProperty); }
+        set { base.SetValue(MaxValueProperty, value); }
+    }
 
-        public int MaxValue
+    public static readonly DependencyProperty MinValueProperty =
+        DependencyProperty.Register(nameof(MinValue), typeof(int), typeof(AllowableCharactersTextBoxBehavior),
+            new FrameworkPropertyMetadata(int.MinValue));
+
+    public int MinValue
+    {
+        get { return (int)base.GetValue(MinValueProperty); }
+        set { base.SetValue(MinValueProperty, value); }
+    }
+
+    protected override void OnAttached()
+    {
+        base.OnAttached();
+        AssociatedObject.PreviewTextInput += OnPreviewTextInput;
+        DataObject.AddPastingHandler(AssociatedObject, OnPaste);
+    }
+
+    private void OnPaste(object sender, DataObjectPastingEventArgs e)
+    {
+        if (e.DataObject.GetDataPresent(DataFormats.Text))
         {
-            get { return (int)base.GetValue(MaxValueProperty); }
-            set { base.SetValue(MaxValueProperty, value); }
-        }
+            string text = Convert.ToString(e.DataObject.GetData(DataFormats.Text));
 
-        public static readonly DependencyProperty MinValueProperty =
-            DependencyProperty.Register(nameof(MinValue), typeof(int), typeof(AllowableCharactersTextBoxBehavior),
-                new FrameworkPropertyMetadata(int.MinValue));
-
-        public int MinValue
-        {
-            get { return (int)base.GetValue(MinValueProperty); }
-            set { base.SetValue(MinValueProperty, value); }
-        }
-
-        protected override void OnAttached()
-        {
-            base.OnAttached();
-            AssociatedObject.PreviewTextInput += OnPreviewTextInput;
-            DataObject.AddPastingHandler(AssociatedObject, OnPaste);
-        }
-
-        private void OnPaste(object sender, DataObjectPastingEventArgs e)
-        {
-            if (e.DataObject.GetDataPresent(DataFormats.Text))
-            {
-                string text = Convert.ToString(e.DataObject.GetData(DataFormats.Text));
-
-                if (!IsValid(text))
-                {
-                    e.CancelCommand();
-                }
-            }
-            else
+            if (!IsValid(text))
             {
                 e.CancelCommand();
             }
         }
-
-        private void OnPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        else
         {
-            if (sender is TextBox textBox)
-                e.Handled = !IsValid(textBox.Text + e.Text);
+            e.CancelCommand();
         }
+    }
 
-        protected override void OnDetaching()
-        {
-            base.OnDetaching();
-            AssociatedObject.PreviewTextInput -= OnPreviewTextInput;
-            DataObject.RemovePastingHandler(AssociatedObject, OnPaste);
-        }
+    private void OnPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+    {
+        if (sender is TextBox textBox)
+            e.Handled = !IsValid(textBox.Text + e.Text);
+    }
 
-        private bool IsValid(string newText)
-        {
-            if (!int.TryParse(newText, out var integerValue))
-                return false;
+    protected override void OnDetaching()
+    {
+        base.OnDetaching();
+        AssociatedObject.PreviewTextInput -= OnPreviewTextInput;
+        DataObject.RemovePastingHandler(AssociatedObject, OnPaste);
+    }
 
-            if (integerValue < MinValue)
-                return false;
-            if (integerValue > MaxValue)
-                return false;
+    private bool IsValid(string newText)
+    {
+        if (!int.TryParse(newText, out var integerValue))
+            return false;
 
-            return true;
-        }
+        if (integerValue < MinValue)
+            return false;
+        if (integerValue > MaxValue)
+            return false;
+
+        return true;
     }
 }

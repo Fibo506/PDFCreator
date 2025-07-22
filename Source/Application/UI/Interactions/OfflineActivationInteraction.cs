@@ -1,19 +1,18 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Interactions
+namespace pdfforge.PDFCreator.UI.Interactions;
+
+public class OfflineActivationInteraction : IInteraction
 {
-    public class OfflineActivationInteraction : IInteraction
+    public OfflineActivationInteraction(string licenseKey)
     {
-        public OfflineActivationInteraction(string licenseKey)
-        {
-            LicenseKey = licenseKey;
-            LicenseServerAnswer = "";
-        }
-
-        public bool Success { get; set; }
-
-        public string LicenseKey { get; set; }
-
-        public string LicenseServerAnswer { get; set; }
+        LicenseKey = licenseKey;
+        LicenseServerAnswer = "";
     }
+
+    public bool Success { get; set; }
+
+    public string LicenseKey { get; set; }
+
+    public string LicenseServerAnswer { get; set; }
 }

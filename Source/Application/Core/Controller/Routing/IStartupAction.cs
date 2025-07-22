@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Core.Controller.Routing
+namespace pdfforge.PDFCreator.Core.Controller.Routing;
+
+public interface IStartupAction
 {
-    public interface IStartupAction
-    {
-        Task Execute();
-    }
+    Task Execute();
 }

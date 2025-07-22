@@ -1,3 +1,10 @@
+root = true
+
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
 [*.{cs,vb}]
 # NU1901: Security vulnerabilities in used nuget package
 dotnet_diagnostic.NU1901.severity = suggestion
@@ -5,7 +12,19 @@ dotnet_diagnostic.NU1902.severity = suggestion
 dotnet_diagnostic.NU1903.severity = suggestion
 dotnet_diagnostic.NU1904.severity = suggestion
 
+[*.cs]
+indent_size = 4
+# Remove unused usings
+dotnet_diagnostic.IDE0005.severity = warning
+# Organize usings
+dotnet_sort_system_directives_first = true
+# Use file-scoped namespaces
+csharp_style_namespace_declarations = file_scoped
+dotnet_diagnostic.IDE0161.severity = warning
 
 [*.csproj]
 indent_size = 2
 insert_style = space
+
+[*.{json,yml,yaml}]
+indent_size = 2

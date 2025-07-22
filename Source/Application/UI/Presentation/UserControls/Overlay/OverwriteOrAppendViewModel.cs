@@ -1,51 +1,50 @@
-﻿using pdfforge.Obsidian;
+﻿using System.Windows.Input;
+using pdfforge.Obsidian;
 using pdfforge.Obsidian.Interaction;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
-using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay;
+
+public class OverwriteOrAppendViewModel : InteractionAwareViewModelBase<OverwriteOrAppendInteraction>, ITranslatableViewModel<OverwriteOrAppendTranslation>
 {
-    public class OverwriteOrAppendViewModel : InteractionAwareViewModelBase<OverwriteOrAppendInteraction>, ITranslatableViewModel<OverwriteOrAppendTranslation>
+    public override string Title => Translation?.Title;
+    public OverwriteOrAppendTranslation Translation { get; set; }
+    public ICommand MergeCommand { get; }
+    public ICommand OverwriteCommand { get; }
+    public ICommand CancelCommand { get; }
+
+    public OverwriteOrAppendViewModel(ITranslationUpdater translationUpdater)
     {
-        public override string Title => Translation?.Title;
-        public OverwriteOrAppendTranslation Translation { get; set; }
-        public ICommand MergeCommand { get; }
-        public ICommand OverwriteCommand { get; }
-        public ICommand CancelCommand { get; }
+        translationUpdater.RegisterAndSetTranslation(this);
 
-        public OverwriteOrAppendViewModel(ITranslationUpdater translationUpdater)
+        MergeCommand = new DelegateCommand(o =>
         {
-            translationUpdater.RegisterAndSetTranslation(this);
+            Interaction.Chosen = ExistingFileBehaviour.Merge;
+            Interaction.Cancel = false;
+            FinishInteraction.Invoke();
+        });
 
-            MergeCommand = new DelegateCommand(o =>
-            {
-                Interaction.Chosen = ExistingFileBehaviour.Merge;
-                Interaction.Cancel = false;
-                FinishInteraction.Invoke();
-            });
+        OverwriteCommand = new DelegateCommand(o =>
+        {
+            Interaction.Chosen = ExistingFileBehaviour.Overwrite;
+            Interaction.Cancel = false;
+            FinishInteraction.Invoke();
+        });
 
-            OverwriteCommand = new DelegateCommand(o =>
-            {
-                Interaction.Chosen = ExistingFileBehaviour.Overwrite;
-                Interaction.Cancel = false;
-                FinishInteraction.Invoke();
-            });
-
-            CancelCommand = new DelegateCommand(o =>
-            {
-                Interaction.Cancel = true;
-                FinishInteraction.Invoke();
-            });
-        }
+        CancelCommand = new DelegateCommand(o =>
+        {
+            Interaction.Cancel = true;
+            FinishInteraction.Invoke();
+        });
     }
+}
 
-    public class DesignTimeOverwriteOrAppendViewModel : OverwriteOrAppendViewModel
+public class DesignTimeOverwriteOrAppendViewModel : OverwriteOrAppendViewModel
+{
+    public DesignTimeOverwriteOrAppendViewModel() : base(new DesignTimeTranslationUpdater())
     {
-        public DesignTimeOverwriteOrAppendViewModel() : base(new DesignTimeTranslationUpdater())
-        {
-        }
     }
 }

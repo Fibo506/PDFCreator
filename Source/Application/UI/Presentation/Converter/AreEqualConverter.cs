@@ -3,32 +3,31 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Converter
+namespace pdfforge.PDFCreator.UI.Presentation.Converter;
+
+public class AreEqualConverter : DependencyObject, IValueConverter
 {
-    public class AreEqualConverter : DependencyObject, IValueConverter
+    public static readonly DependencyProperty ReferenceProperty = DependencyProperty.Register("Reference", typeof(object), typeof(AreEqualConverter));
+
+    public object Reference
     {
-        public static readonly DependencyProperty ReferenceProperty = DependencyProperty.Register("Reference", typeof(object), typeof(AreEqualConverter));
+        get { return GetValue(ReferenceProperty); }
+        set { SetValue(ReferenceProperty, value); }
+    }
 
-        public object Reference
-        {
-            get { return GetValue(ReferenceProperty); }
-            set { SetValue(ReferenceProperty, value); }
-        }
+    public object EqualValue { get; set; }
+    public object NotEqualValue { get; set; }
 
-        public object EqualValue { get; set; }
-        public object NotEqualValue { get; set; }
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (Reference == null)
+            return NotEqualValue;
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (Reference == null)
-                return NotEqualValue;
+        return Reference.Equals(value) ? EqualValue : NotEqualValue;
+    }
 
-            return Reference.Equals(value) ? EqualValue : NotEqualValue;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

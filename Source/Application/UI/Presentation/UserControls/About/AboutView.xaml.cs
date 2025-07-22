@@ -1,13 +1,12 @@
 ﻿using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls;
+
+public partial class AboutView : UserControl
 {
-    public partial class AboutView : UserControl
+    public AboutView(AboutViewModel viewModel)
     {
-        public AboutView(AboutViewModel viewModel)
-        {
-            DataContext = viewModel;
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        InitializeComponent();
     }
 }

@@ -1,54 +1,53 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+internal class DesignTimeSelectFilesUserControlViewModelFactory : ISelectFilesUserControlViewModelFactory
 {
-    internal class DesignTimeSelectFilesUserControlViewModelFactory : ISelectFilesUserControlViewModelFactory
+    public ISelectFilesUserControlViewModelBuilder Builder()
     {
-        public ISelectFilesUserControlViewModelBuilder Builder()
-        {
-            return new DesignTimeSelectFilesUserControlViewModelBuilder();
-        }
+        return new DesignTimeSelectFilesUserControlViewModelBuilder();
+    }
+}
+
+internal class DesignTimeSelectFilesUserControlViewModelBuilder : ISelectFilesUserControlViewModelBuilder
+{
+    public ISelectFilesUserControlViewModelBuilder WithTitleGetter(Func<string> getSelectFileInteractionTitle)
+    {
+        return this;
     }
 
-    internal class DesignTimeSelectFilesUserControlViewModelBuilder : ISelectFilesUserControlViewModelBuilder
+    public ISelectFilesUserControlViewModelBuilder WithAddFileButtonTextGetter(Func<string> getAddFileButtonText)
     {
-        public ISelectFilesUserControlViewModelBuilder WithTitleGetter(Func<string> getSelectFileInteractionTitle)
-        {
-            return this;
-        }
+        return this;
+    }
 
-        public ISelectFilesUserControlViewModelBuilder WithAddFileButtonTextGetter(Func<string> getAddFileButtonText)
-        {
-            return this;
-        }
+    public ISelectFilesUserControlViewModelBuilder WithFileListGetter(Func<ConversionProfile, List<string>> getFileList)
+    {
+        return this;
+    }
 
-        public ISelectFilesUserControlViewModelBuilder WithFileListGetter(Func<ConversionProfile, List<string>> getFileList)
-        {
-            return this;
-        }
+    public ISelectFilesUserControlViewModelBuilder WithFileFilter(string filter)
+    {
+        return this;
+    }
 
-        public ISelectFilesUserControlViewModelBuilder WithFileFilter(string filter)
-        {
-            return this;
-        }
+    public ISelectFilesUserControlViewModelBuilder WithTokens(List<string> tokens)
+    {
+        return this;
+    }
 
-        public ISelectFilesUserControlViewModelBuilder WithTokens(List<string> tokens)
-        {
-            return this;
-        }
+    public ISelectFilesUserControlViewModelBuilder WithPropertyChanged(PropertyChangedEventHandler propertyChanged)
+    {
+        return this;
+    }
 
-        public ISelectFilesUserControlViewModelBuilder WithPropertyChanged(PropertyChangedEventHandler propertyChanged)
-        {
-            return this;
-        }
-
-        public SelectFilesUserControlViewModel Build()
-        {
-            return new DesignTimeSelectFilesUserControlViewModel();
-        }
+    public SelectFilesUserControlViewModel Build()
+    {
+        return new DesignTimeSelectFilesUserControlViewModel();
     }
 }

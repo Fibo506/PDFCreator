@@ -1,13 +1,12 @@
-﻿using Prism.Events;
-using System;
+﻿using System;
+using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+
+public class DesignTimeEventAggregator : IEventAggregator
 {
-    public class DesignTimeEventAggregator : IEventAggregator
+    public TEventType GetEvent<TEventType>() where TEventType : EventBase, new()
     {
-        public TEventType GetEvent<TEventType>() where TEventType : EventBase, new()
-        {
-            return Activator.CreateInstance<TEventType>();
-        }
+        return Activator.CreateInstance<TEventType>();
     }
 }

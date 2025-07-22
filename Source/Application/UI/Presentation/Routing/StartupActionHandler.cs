@@ -1,37 +1,36 @@
-﻿using pdfforge.PDFCreator.Core.Controller.Routing;
-using Prism.Regions;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
+using pdfforge.PDFCreator.Core.Controller.Routing;
+using Prism.Regions;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Routing
+namespace pdfforge.PDFCreator.UI.Presentation.Routing;
+
+public interface IStartupActionHandler
 {
-    public interface IStartupActionHandler
-    {
-        void HandleStartupActions(IRegionManager regionManager, IStartupRoutine startupRoutine);
-    }
+    void HandleStartupActions(IRegionManager regionManager, IStartupRoutine startupRoutine);
+}
 
-    public class StartupActionHandler : IStartupActionHandler
+public class StartupActionHandler : IStartupActionHandler
+{
+    public void HandleStartupActions(IRegionManager regionManager, IStartupRoutine startupRoutine)
     {
-        public void HandleStartupActions(IRegionManager regionManager, IStartupRoutine startupRoutine)
+        foreach (var action in startupRoutine.GetAllActions())
         {
-            foreach (var action in startupRoutine.GetAllActions())
+            switch (action)
             {
-                switch (action)
-                {
-                    case StartupNavigationAction navigationAction:
-                        regionManager.RequestNavigate(navigationAction.Region, navigationAction.Target);
-                        break;
+                case StartupNavigationAction navigationAction:
+                    regionManager.RequestNavigate(navigationAction.Region, navigationAction.Target);
+                    break;
 
-                    case StartupSelectTabAction tabAction:
-                        var region = regionManager.Regions[tabAction.TabRegion];
-                        var view = region.Views.Where(v => v is TabItem).Cast<TabItem>().FirstOrDefault(t => t.Name == tabAction.TabName);
+                case StartupSelectTabAction tabAction:
+                    var region = regionManager.Regions[tabAction.TabRegion];
+                    var view = region.Views.Where(v => v is TabItem).Cast<TabItem>().FirstOrDefault(t => t.Name == tabAction.TabName);
 
-                        if (view != null)
-                            region.Activate(view);
-                        else
-                            regionManager.RequestNavigate(tabAction.TabRegion, tabAction.TabName);
-                        break;
-                }
+                    if (view != null)
+                        region.Activate(view);
+                    else
+                        regionManager.RequestNavigate(tabAction.TabRegion, tabAction.TabName);
+                    break;
             }
         }
     }

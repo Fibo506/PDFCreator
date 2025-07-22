@@ -2,47 +2,46 @@
 using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading
+namespace pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
+
+public interface IIniSettingsLoader
 {
-    public interface IIniSettingsLoader
-    {
-        ISettings LoadIniSettings(string iniFile);
+    ISettings LoadIniSettings(string iniFile);
 
-        int SettingsVersion { set; }
+    int SettingsVersion { set; }
+}
+
+public class IniSettingsLoader : IIniSettingsLoader
+{
+    private readonly IDataStorageFactory _dataStorageFactory;
+    private readonly IDefaultSettingsBuilder _settingsBuilder;
+    private readonly IMigrationStorageFactory _migrationStorageFactory;
+    private readonly ISettingsBackup _settingsBackup;
+
+    public IniSettingsLoader(IDataStorageFactory dataStorageFactory, IDefaultSettingsBuilder settingsBuilder, IMigrationStorageFactory migrationStorageFactory, ISettingsBackup settingsBackup)
+    {
+        _dataStorageFactory = dataStorageFactory;
+        _settingsBuilder = settingsBuilder;
+        _migrationStorageFactory = migrationStorageFactory;
+        _settingsBackup = settingsBackup;
     }
 
-    public class IniSettingsLoader : IIniSettingsLoader
+    public ISettings LoadIniSettings(string iniFile)
     {
-        private readonly IDataStorageFactory _dataStorageFactory;
-        private readonly IDefaultSettingsBuilder _settingsBuilder;
-        private readonly IMigrationStorageFactory _migrationStorageFactory;
-        private readonly ISettingsBackup _settingsBackup;
+        if (string.IsNullOrWhiteSpace(iniFile))
+            return null;
 
-        public IniSettingsLoader(IDataStorageFactory dataStorageFactory, IDefaultSettingsBuilder settingsBuilder, IMigrationStorageFactory migrationStorageFactory, ISettingsBackup settingsBackup)
-        {
-            _dataStorageFactory = dataStorageFactory;
-            _settingsBuilder = settingsBuilder;
-            _migrationStorageFactory = migrationStorageFactory;
-            _settingsBackup = settingsBackup;
-        }
+        var iniStorage = _dataStorageFactory.BuildIniStorage(iniFile);
 
-        public ISettings LoadIniSettings(string iniFile)
-        {
-            if (string.IsNullOrWhiteSpace(iniFile))
-                return null;
+        var settings = _settingsBuilder.CreateEmptySettings();
 
-            var iniStorage = _dataStorageFactory.BuildIniStorage(iniFile);
 
-            var settings = _settingsBuilder.CreateEmptySettings();
-            
+        var storage = _migrationStorageFactory.GetMigrationStorage(iniStorage, SettingsVersion, _settingsBackup);
 
-            var storage = _migrationStorageFactory.GetMigrationStorage(iniStorage, SettingsVersion, _settingsBackup);
+        settings.LoadData(storage);
 
-            settings.LoadData(storage);
-
-            return settings;
-        }
-
-        public int SettingsVersion { get; set; }
+        return settings;
     }
+
+    public int SettingsVersion { get; set; }
 }

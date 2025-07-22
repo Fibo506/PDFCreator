@@ -1,49 +1,48 @@
-﻿using pdfforge.Obsidian.Trigger;
-using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using pdfforge.Obsidian.Trigger;
+using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands.TitleReplacements
+namespace pdfforge.PDFCreator.UI.Presentation.Commands.TitleReplacements;
+
+public class TitleReplacementEditCommand : ICommand
 {
-    public class TitleReplacementEditCommand : ICommand
+    private readonly IInteractionRequest _interactionRequest;
+    private readonly ICurrentSettings<ObservableCollection<TitleReplacement>> _settingsProvider;
+
+    public TitleReplacementEditCommand(IInteractionRequest interactionRequest, ICurrentSettings<ObservableCollection<TitleReplacement>> settingsProvider)
     {
-        private readonly IInteractionRequest _interactionRequest;
-        private readonly ICurrentSettings<ObservableCollection<TitleReplacement>> _settingsProvider;
+        _interactionRequest = interactionRequest;
+        _settingsProvider = settingsProvider;
+    }
 
-        public TitleReplacementEditCommand(IInteractionRequest interactionRequest, ICurrentSettings<ObservableCollection<TitleReplacement>> settingsProvider)
-        {
-            _interactionRequest = interactionRequest;
-            _settingsProvider = settingsProvider;
-        }
+    public bool CanExecute(object parameter)
+    {
+        return parameter is TitleReplacement;
+    }
 
-        public bool CanExecute(object parameter)
-        {
-            return parameter is TitleReplacement;
-        }
+    public void Execute(object parameter)
+    {
+        var editTitleReplacementInteraction = new TitleReplacementEditInteraction(parameter as TitleReplacement);
+        _interactionRequest.Raise(editTitleReplacementInteraction, EditInteractionCallback);
+    }
 
-        public void Execute(object parameter)
+    private void EditInteractionCallback(TitleReplacementEditInteraction obj)
+    {
+        if (obj.Success)
         {
-            var editTitleReplacementInteraction = new TitleReplacementEditInteraction(parameter as TitleReplacement);
-            _interactionRequest.Raise(editTitleReplacementInteraction, EditInteractionCallback);
+            //todo find a better solution to trigger PropertyChanged of the ObservableCollection
+            var titleReplacementList = _settingsProvider.Settings;
+            titleReplacementList.Remove(obj.Replacement);
+            titleReplacementList.Add(obj.Replacement);
         }
-
-        private void EditInteractionCallback(TitleReplacementEditInteraction obj)
-        {
-            if (obj.Success)
-            {
-                //todo find a better solution to trigger PropertyChanged of the ObservableCollection
-                var titleReplacementList = _settingsProvider.Settings;
-                titleReplacementList.Remove(obj.Replacement);
-                titleReplacementList.Add(obj.Replacement);
-            }
-        }
+    }
 
 #pragma warning disable CS0067
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore CS0067
-    }
 }

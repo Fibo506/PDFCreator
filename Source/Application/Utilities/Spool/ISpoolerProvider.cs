@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Utilities.Spool
+﻿namespace pdfforge.PDFCreator.Utilities.Spool;
+
+public interface ISpoolerProvider
 {
-    public interface ISpoolerProvider
-    {
-        string SpoolFolder { get; }
-    }
+    string SpoolFolder { get; }
 }

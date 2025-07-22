@@ -1,56 +1,55 @@
-﻿using pdfforge.PDFCreator.Conversion.ActionsInterface;
+﻿using System;
+using System.Linq;
+using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
-using System;
-using System.Linq;
 
-namespace pdfforge.PDFCreator.Conversion.Actions.Actions
+namespace pdfforge.PDFCreator.Conversion.Actions.Actions;
+
+public abstract class RetypePasswordActionBase<TSetting> : ActionBase<TSetting> where TSetting : class, IProfileSetting
 {
-    public abstract class RetypePasswordActionBase<TSetting> : ActionBase<TSetting> where TSetting : class, IProfileSetting
+    protected RetypePasswordActionBase(Func<ConversionProfile, TSetting> settingsGetter)
+        : base(settingsGetter)
+    { }
+
+    protected abstract ActionResult DoActionProcessing(Job job);
+
+    //todo: Test this
+    protected override ActionResult DoProcessJob(Job job, IPdfProcessor processor)
     {
-        protected RetypePasswordActionBase(Func<ConversionProfile, TSetting> settingsGetter)
-            : base(settingsGetter)
-        { }
+        var settings = new CurrentCheckSettings(job.AvailableProfiles, job.PrinterMappings, job.Accounts);
+        var actionResult = Check(job.Profile, settings, CheckLevel.RunningJob);
+        if (!actionResult)
+            return actionResult;
 
-        protected abstract ActionResult DoActionProcessing(Job job);
+        actionResult = DoActionProcessing(job);
 
-        //todo: Test this
-        protected override ActionResult DoProcessJob(Job job, IPdfProcessor processor)
+        while (actionResult.Contains(ErrorCode.PasswordAction_Login_Error))
         {
-            var settings = new CurrentCheckSettings(job.AvailableProfiles, job.PrinterMappings, job.Accounts);
-            var actionResult = Check(job.Profile, settings, CheckLevel.RunningJob);
-            if (!actionResult)
-                return actionResult;
+            LoginQueryResult? abortReason = null;
 
-            actionResult = DoActionProcessing(job);
+            job.OnErrorDuringLogin(password => SetPassword(job, password),
+                                    reason => abortReason = reason, PasswordText);
 
-            while (actionResult.Contains(ErrorCode.PasswordAction_Login_Error))
+            if (abortReason != null)
             {
-                LoginQueryResult? abortReason = null;
-
-                job.OnErrorDuringLogin(password => SetPassword(job, password),
-                                        reason => abortReason = reason, PasswordText);
-
-                if (abortReason != null)
+                if (abortReason == LoginQueryResult.AbortedByUser)
                 {
-                    if (abortReason == LoginQueryResult.AbortedByUser)
-                    {
-                        // if the user decides to abort, we don't want to see this as error. If there is no way to requery (i.e. during autosave), we want to keep this error!
-                        actionResult.Remove(actionResult.First(code => code == ErrorCode.PasswordAction_Login_Error));
-                    }
-
-                    break;
+                    // if the user decides to abort, we don't want to see this as error. If there is no way to requery (i.e. during autosave), we want to keep this error!
+                    actionResult.Remove(actionResult.First(code => code == ErrorCode.PasswordAction_Login_Error));
                 }
 
-                actionResult = DoActionProcessing(job);
+                break;
             }
 
-            return actionResult;
+            actionResult = DoActionProcessing(job);
         }
 
-        protected abstract void SetPassword(Job job, string password);
-
-        protected abstract string PasswordText { get; }
+        return actionResult;
     }
+
+    protected abstract void SetPassword(Job job, string password);
+
+    protected abstract string PasswordText { get; }
 }

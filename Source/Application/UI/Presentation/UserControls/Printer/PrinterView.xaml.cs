@@ -1,15 +1,14 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Printer
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Printer;
+
+public partial class PrinterView : UserControl
 {
-    public partial class PrinterView : UserControl
+    public PrinterView(PrinterViewModel viewModel)
     {
-        public PrinterView(PrinterViewModel viewModel)
-        {
-            DataContext = viewModel;
-            TransposerHelper.Register(this, viewModel);
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        TransposerHelper.Register(this, viewModel);
+        InitializeComponent();
     }
 }

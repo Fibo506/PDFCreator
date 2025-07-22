@@ -1,18 +1,17 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption;
+
+public partial class EncryptionPasswordsOverlay : UserControl
 {
-    public partial class EncryptionPasswordsOverlay : UserControl
+    public EncryptionPasswordsOverlay(EncryptionPasswordsOverlayViewModel viewModel)
     {
-        public EncryptionPasswordsOverlay(EncryptionPasswordsOverlayViewModel viewModel)
-        {
-            DataContext = viewModel;
+        DataContext = viewModel;
 
-            Loaded += (sender, e) =>
-                MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+        Loaded += (sender, e) =>
+            MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
 
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="WebViewer.WebViewerMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="User Guide" MinHeight="768" MinWidth="1024" Width="1200" Height="900"
+        Loaded="MainWindow_OnLoaded"
+        Unloaded="MainWindow_OnUnloaded"
+        Closing="WebViewerMainWindow_OnClosing">
+
+
+    <DockPanel LastChildFill="True">
+        <wv2:WebView2
+            x:Name="webView"
+        />
+    </DockPanel>
+</Window>

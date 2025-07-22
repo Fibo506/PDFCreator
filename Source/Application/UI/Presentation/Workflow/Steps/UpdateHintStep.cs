@@ -2,21 +2,20 @@
 using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.UpdateHint;
 using pdfforge.PDFCreator.Utilities.Update;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow.Steps
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow.Steps;
+
+public class UpdateHintStep : WorkflowStepBase
 {
-    public class UpdateHintStep : WorkflowStepBase
+    private readonly IUpdateHelper _updateHelper;
+    public override string NavigationUri => nameof(UpdateHintView);
+
+    public UpdateHintStep(IUpdateHelper updateHelper)
     {
-        private readonly IUpdateHelper _updateHelper;
-        public override string NavigationUri => nameof(UpdateHintView);
+        _updateHelper = updateHelper;
+    }
 
-        public UpdateHintStep(IUpdateHelper updateHelper)
-        {
-            _updateHelper = updateHelper;
-        }
-
-        public override bool IsStepRequired(Job job)
-        {
-            return _updateHelper.UpdateShouldBeShown();
-        }
+    public override bool IsStepRequired(Job job)
+    {
+        return _updateHelper.UpdateShouldBeShown();
     }
 }

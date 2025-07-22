@@ -1,32 +1,31 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Events;
-using Prism.Events;
-using System;
+﻿using System;
 using System.Windows.Input;
+using pdfforge.PDFCreator.UI.Presentation.Events;
+using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands
+namespace pdfforge.PDFCreator.UI.Presentation.Commands;
+
+public class RaiseEditSettingsFinishedEventCommand : ICommand
 {
-    public class RaiseEditSettingsFinishedEventCommand : ICommand
+    private readonly IEventAggregator _eventAggregator;
+    private readonly ISelectedProfileProvider _selectedProfileProvider;
+
+    public RaiseEditSettingsFinishedEventCommand(IEventAggregator eventAggregator, ISelectedProfileProvider selectedProfileProvider)
     {
-        private readonly IEventAggregator _eventAggregator;
-        private readonly ISelectedProfileProvider _selectedProfileProvider;
+        _eventAggregator = eventAggregator;
+        _selectedProfileProvider = selectedProfileProvider;
+    }
 
-        public RaiseEditSettingsFinishedEventCommand(IEventAggregator eventAggregator, ISelectedProfileProvider selectedProfileProvider)
-        {
-            _eventAggregator = eventAggregator;
-            _selectedProfileProvider = selectedProfileProvider;
-        }
+    public bool CanExecute(object parameter) => true;
 
-        public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
-        {
-            _eventAggregator.GetEvent<EditSettingsFinishedEvent>().Publish(_selectedProfileProvider.SelectedProfile);
-        }
+    public void Execute(object parameter)
+    {
+        _eventAggregator.GetEvent<EditSettingsFinishedEvent>().Publish(_selectedProfileProvider.SelectedProfile);
+    }
 
 #pragma warning disable 67
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore 67
-    }
 }

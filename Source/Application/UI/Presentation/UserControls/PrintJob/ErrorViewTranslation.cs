@@ -1,9 +1,8 @@
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
+
+public class ErrorViewTranslation : ITranslatable
 {
-    public class ErrorViewTranslation : ITranslatable
-    {
-        public string OkButtonContent { get; private set; } = "Ok";
-    }
+    public string OkButtonContent { get; private set; } = "Ok";
 }

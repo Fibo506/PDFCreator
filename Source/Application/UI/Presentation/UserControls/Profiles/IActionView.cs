@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public interface IActionView
 {
-    public interface IActionView
-    {
-        IActionViewModel ViewModel { get; }
-    }
+    IActionViewModel ViewModel { get; }
 }

@@ -1,15 +1,14 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public partial class OutputFormatTextView : UserControl
 {
-    public partial class OutputFormatTextView : UserControl
+    public OutputFormatTextView(OutputFormatViewModel vm)
     {
-        public OutputFormatTextView(OutputFormatViewModel vm)
-        {
-            DataContext = vm;
-            TransposerHelper.Register(this, vm);
-            InitializeComponent();
-        }
+        DataContext = vm;
+        TransposerHelper.Register(this, vm);
+        InitializeComponent();
     }
 }

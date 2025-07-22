@@ -1,8 +1,7 @@
 ﻿using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Events
+namespace pdfforge.PDFCreator.UI.Presentation.Events;
+
+internal class SettingsLoadingEvent : PubSubEvent<bool>
 {
-    internal class SettingsLoadingEvent : PubSubEvent<bool>
-    {
-    }
 }

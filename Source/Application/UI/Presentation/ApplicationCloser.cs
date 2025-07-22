@@ -2,20 +2,19 @@
 using pdfforge.PDFCreator.UI.Presentation.Events;
 using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation
+namespace pdfforge.PDFCreator.UI.Presentation;
+
+public class ApplicationCloser : IApplicationCloser
 {
-    public class ApplicationCloser : IApplicationCloser
+    private readonly IEventAggregator _eventAggregator;
+
+    public ApplicationCloser(IEventAggregator eventAggregator)
     {
-        private readonly IEventAggregator _eventAggregator;
+        _eventAggregator = eventAggregator;
+    }
 
-        public ApplicationCloser(IEventAggregator eventAggregator)
-        {
-            _eventAggregator = eventAggregator;
-        }
-
-        public void CloseApplication()
-        {
-            _eventAggregator.GetEvent<TryCloseApplicationEvent>().Publish();
-        }
+    public void CloseApplication()
+    {
+        _eventAggregator.GetEvent<TryCloseApplicationEvent>().Publish();
     }
 }

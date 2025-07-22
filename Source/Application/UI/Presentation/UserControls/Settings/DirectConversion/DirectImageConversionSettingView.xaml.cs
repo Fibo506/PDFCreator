@@ -1,19 +1,18 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion;
+
+/// <summary>
+/// Interaction logic for DirectImageConversionSettingView.xaml
+/// </summary>
+public partial class DirectImageConversionSettingView : UserControl
 {
-    /// <summary>
-    /// Interaction logic for DirectImageConversionSettingView.xaml
-    /// </summary>
-    public partial class DirectImageConversionSettingView : UserControl
+    public DirectImageConversionSettingView(DirectImageConversionSettingsViewModel vm)
     {
-        public DirectImageConversionSettingView(DirectImageConversionSettingsViewModel vm)
-        {
-            DataContext = vm;
-            InitializeComponent();
-            TransposerHelper.Register(this, vm);
-        }
+        DataContext = vm;
+        InitializeComponent();
+        TransposerHelper.Register(this, vm);
     }
 }

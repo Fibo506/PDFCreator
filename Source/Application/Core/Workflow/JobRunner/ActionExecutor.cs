@@ -1,134 +1,133 @@
-﻿using NLog;
+﻿using System.Collections.Generic;
+using System.Linq;
+using NLog;
 using pdfforge.CustomScriptAction;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface IActionExecutor
 {
-    public interface IActionExecutor
+    void ApplyRestrictions(Job job);
+
+    bool IsProcessingRequired(Job job);
+
+    void CallPreConversionActions(Job job);
+
+    void CallConversionActions(Job job);
+
+    void CallPostConversionActions(Job job);
+}
+
+public class ActionExecutor : IActionExecutor
+{
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
+    private readonly IActionManager _actionManager;
+    private readonly IPdfProcessor _pdfProcessor;
+
+    public ActionExecutor(IActionManager actionManager, IPdfProcessor pdfProcessor)
     {
-        void ApplyRestrictions(Job job);
-
-        bool IsProcessingRequired(Job job);
-
-        void CallPreConversionActions(Job job);
-
-        void CallConversionActions(Job job);
-
-        void CallPostConversionActions(Job job);
+        _actionManager = actionManager;
+        _pdfProcessor = pdfProcessor;
     }
 
-    public class ActionExecutor : IActionExecutor
+    public void ApplyRestrictions(Job job)
     {
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        var actions = _actionManager.GetEnabledActionsInCurrentOrder<IAction>(job);
+        foreach (var action in actions)
+            action.ApplyRestrictions(job);
+    }
 
-        private readonly IActionManager _actionManager;
-        private readonly IPdfProcessor _pdfProcessor;
+    public bool IsProcessingRequired(Job job)
+    {
+        if (job.Profile.OutputFormat.IsPdfA())
+            return true;
 
-        public ActionExecutor(IActionManager actionManager, IPdfProcessor pdfProcessor)
+        if (job.Profile.UserTokens.Enabled)
+            return true;
+
+        var actions = _actionManager.GetEnabledActionsInCurrentOrder<IConversionAction>(job);
+        foreach (var action in actions)
         {
-            _actionManager = actionManager;
-            _pdfProcessor = pdfProcessor;
+            if (!action.IsRestricted(job.Profile))
+                return true;
         }
 
-        public void ApplyRestrictions(Job job)
+        return false;
+    }
+
+    public void CallPreConversionActions(Job job)
+    {
+        _logger.Trace("Setting up pre conversion actions");
+
+        //Call PreConversionScriptAction separately ahead for the possibility to change the ActionOrder
+        var preConversionScriptAction = _actionManager.GetEnabledActionsInCurrentOrder<PreConversionScriptAction>(job);
+        CallActions(job, preConversionScriptAction);
+
+        var preConversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IPreConversionAction>(job)
+            .Where(x => !(x is PreConversionScriptAction));
+        //Remove CsScriptAction because it was already executed
+
+        CallActions(job, preConversionActions);
+    }
+
+    public void CallConversionActions(Job job)
+    {
+        if (IsProcessingRequired(job))
         {
-            var actions = _actionManager.GetEnabledActionsInCurrentOrder<IAction>(job);
-            foreach (var action in actions)
-                action.ApplyRestrictions(job);
-        }
+            _logger.Trace("Setting up conversion actions");
+            var conversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IConversionAction>(job);
 
-        public bool IsProcessingRequired(Job job)
-        {
-            if (job.Profile.OutputFormat.IsPdfA())
-                return true;
-
-            if (job.Profile.UserTokens.Enabled)
-                return true;
-
-            var actions = _actionManager.GetEnabledActionsInCurrentOrder<IConversionAction>(job);
-            foreach (var action in actions)
-            {
+            foreach (var action in conversionActions)
                 if (!action.IsRestricted(job.Profile))
-                    return true;
-            }
+                {
+                    action.ProcessJob(job, _pdfProcessor);
+                }
+            //Todo: User CallActions when InjectProcessor is removed
 
-            return false;
+            _pdfProcessor.SignEncryptConvertPdfAAndWriteFile(job);
         }
+    }
 
-        public void CallPreConversionActions(Job job)
+    public void CallPostConversionActions(Job job)
+    {
+        _logger.Trace("Setting up post conversion actions");
+
+        //Call PostConversionScriptAction separately ahead for the possibility to change the ActionOrder
+        var postConversionScriptAction = _actionManager.GetEnabledActionsInCurrentOrder<PostConversionScriptAction>(job);
+        CallActions(job, postConversionScriptAction);
+
+        var postConversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IPostConversionAction>(job)
+            .Where(x => !(x is PostConversionScriptAction));
+        //Remove CsScriptAction because it was already executed
+
+        var profile = job.Profile;
+        CallActions(job, postConversionActions, profile.SkipSendFailures);
+    }
+
+    private void CallActions(Job job, IEnumerable<IAction> actions, bool skipFailures = false)
+    {
+        _logger.Trace("Starting Actions");
+        var failureList = new ActionResult();
+        foreach (var action in actions)
         {
-            _logger.Trace("Setting up pre conversion actions");
+            if (action.IsRestricted(job.Profile))
+                continue;
 
-            //Call PreConversionScriptAction separately ahead for the possibility to change the ActionOrder
-            var preConversionScriptAction = _actionManager.GetEnabledActionsInCurrentOrder<PreConversionScriptAction>(job);
-            CallActions(job, preConversionScriptAction);
-
-            var preConversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IPreConversionAction>(job)
-                .Where(x => !(x is PreConversionScriptAction));
-            //Remove CsScriptAction because it was already executed
-
-            CallActions(job, preConversionActions);
+            var result = action.ProcessJob(job, _pdfProcessor);
+            if (result)
+                _logger.Trace("Action {0} completed", action.GetType().Name);
+            else if (skipFailures)
+                failureList.Add(result);
+            else
+                throw new ProcessingException("An action failed.", result[0]);
         }
 
-        public void CallConversionActions(Job job)
-        {
-            if (IsProcessingRequired(job))
-            {
-                _logger.Trace("Setting up conversion actions");
-                var conversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IConversionAction>(job);
-
-                foreach (var action in conversionActions)
-                    if (!action.IsRestricted(job.Profile))
-                    {
-                        action.ProcessJob(job, _pdfProcessor);
-                    }
-                //Todo: User CallActions when InjectProcessor is removed
-
-                _pdfProcessor.SignEncryptConvertPdfAAndWriteFile(job);
-            }
-        }
-
-        public void CallPostConversionActions(Job job)
-        {
-            _logger.Trace("Setting up post conversion actions");
-
-            //Call PostConversionScriptAction separately ahead for the possibility to change the ActionOrder
-            var postConversionScriptAction = _actionManager.GetEnabledActionsInCurrentOrder<PostConversionScriptAction>(job);
-            CallActions(job, postConversionScriptAction);
-
-            var postConversionActions = _actionManager.GetEnabledActionsInCurrentOrder<IPostConversionAction>(job)
-                .Where(x => !(x is PostConversionScriptAction));
-            //Remove CsScriptAction because it was already executed
-
-            var profile = job.Profile;
-            CallActions(job, postConversionActions, profile.SkipSendFailures);
-        }
-
-        private void CallActions(Job job, IEnumerable<IAction> actions, bool skipFailures = false)
-        {
-            _logger.Trace("Starting Actions");
-            var failureList = new ActionResult();
-            foreach (var action in actions)
-            {
-                if (action.IsRestricted(job.Profile))
-                    continue;
-
-                var result = action.ProcessJob(job, _pdfProcessor);
-                if (result)
-                    _logger.Trace("Action {0} completed", action.GetType().Name);
-                else if (skipFailures)
-                    failureList.Add(result);
-                else
-                    throw new ProcessingException("An action failed.", result[0]);
-            }
-
-            if (!failureList)
-                throw new AggregateProcessingException("One or more actions failed.", failureList);
-        }
+        if (!failureList)
+            throw new AggregateProcessingException("One or more actions failed.", failureList);
     }
 }

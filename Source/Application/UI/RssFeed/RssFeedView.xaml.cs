@@ -1,15 +1,14 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
 
-namespace pdfforge.PDFCreator.UI.RssFeed
+namespace pdfforge.PDFCreator.UI.RssFeed;
+
+public partial class RssFeedView : UserControl
 {
-    public partial class RssFeedView : UserControl
+    public RssFeedView(RssFeedViewModel vm)
     {
-        public RssFeedView(RssFeedViewModel vm)
-        {
-            DataContext = vm;
-            TransposerHelper.Register(this, vm);
-            InitializeComponent();
-        }
+        DataContext = vm;
+        TransposerHelper.Register(this, vm);
+        InitializeComponent();
     }
 }

@@ -1,88 +1,93 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
+﻿using System;
+using System.Linq;
+using pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
+using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
-using System;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Helper.ActionHelper
+namespace pdfforge.PDFCreator.UI.Presentation.Helper.ActionHelper;
+
+public interface IPresenterActionFacade
 {
-    public interface IPresenterActionFacade
+    Type ActionType { get; }
+
+    Type SettingsType { get; }
+
+    string OverlayViewName { get; }
+
+    IActionViewModel ActionViewModel { get; }
+
+    string Title { get; }
+
+    string InfoText { get; }
+
+    bool IsEnabled { get; }
+
+    bool IsRestricted { get; }
+
+    AddActionToolTip AddActionToolTip { get; }
+
+    IProfileSetting GetCurrentSettingCopy();
+
+    void ReplaceCurrentSetting(IProfileSetting profileSetting);
+
+    void AddAction();
+
+    void RemoveAction();
+
+    bool IsBusinessFeature { get; }
+}
+
+public class PresenterActionFacade<TActionUserControl, TActionViewModel> : IPresenterActionFacade
+    where TActionUserControl : IActionView
+    where TActionViewModel : IActionViewModel
+{
+    public PresenterActionFacade(TActionViewModel viewModel)
     {
-        Type ActionType { get; }
-
-        Type SettingsType { get; }
-
-        string OverlayViewName { get; }
-
-        IActionViewModel ActionViewModel { get; }
-
-        string Title { get; }
-
-        string InfoText { get; }
-
-        bool IsEnabled { get; }
-
-        bool IsRestricted { get; }
-
-        AddActionToolTip AddActionToolTip { get; }
-
-        IProfileSetting GetCurrentSettingCopy();
-
-        void ReplaceCurrentSetting(IProfileSetting profileSetting);
-
-        void AddAction();
-
-        void RemoveAction();
+        OverlayViewName = typeof(TActionUserControl).Name;
+        ActionViewModel = viewModel;
     }
 
-    public class PresenterActionFacade<TActionUserControl, TActionViewModel> : IPresenterActionFacade
-        where TActionUserControl : IActionView
-        where TActionViewModel : IActionViewModel
+    public string OverlayViewName { get; }
+
+    public IActionViewModel ActionViewModel { get; }
+
+    public Type ActionType => ActionViewModel.Action.GetType();
+
+    public Type SettingsType => ActionViewModel.Action.SettingsType;
+
+    public string Title => ActionViewModel.Title;
+
+    public string InfoText => ActionViewModel.InfoText;
+
+    public bool IsEnabled => ActionViewModel.IsEnabled;
+    public bool IsRestricted => ActionViewModel.IsRestricted;
+    public AddActionToolTip AddActionToolTip => ActionViewModel.AddActionToolTip;
+
+    public void ReplaceCurrentSetting(IProfileSetting profileSetting)
     {
-        public PresenterActionFacade(TActionViewModel viewModel)
-        {
-            OverlayViewName = typeof(TActionUserControl).Name;
-            ActionViewModel = viewModel;
-        }
+        ActionViewModel.ReplaceCurrentSetting(profileSetting);
+    }
 
-        public string OverlayViewName { get; }
+    public IProfileSetting GetCurrentSettingCopy()
+    {
+        return ActionViewModel.GetCurrentSettingCopy();
+    }
 
-        public IActionViewModel ActionViewModel { get; }
+    public void AddAction()
+    {
+        ActionViewModel.AddAction();
+    }
 
-        public Type ActionType => ActionViewModel.Action.GetType();
+    public void RemoveAction()
+    {
+        ActionViewModel.RemoveAction();
+    }
 
-        public Type SettingsType => ActionViewModel.Action.SettingsType;
+    public bool IsBusinessFeature => ActionType.GetInterfaces().Contains(typeof(IBusinessFeatureAction));
 
-        public string Title => ActionViewModel.Title;
-
-        public string InfoText => ActionViewModel.InfoText;
-
-        public bool IsEnabled => ActionViewModel.IsEnabled;
-        public bool IsRestricted => ActionViewModel.IsRestricted;
-        public AddActionToolTip AddActionToolTip => ActionViewModel.AddActionToolTip;
-
-        public void ReplaceCurrentSetting(IProfileSetting profileSetting)
-        {
-            ActionViewModel.ReplaceCurrentSetting(profileSetting);
-        }
-
-        public IProfileSetting GetCurrentSettingCopy()
-        {
-            return ActionViewModel.GetCurrentSettingCopy();
-        }
-
-        public void AddAction()
-        {
-            ActionViewModel.AddAction();
-        }
-
-        public void RemoveAction()
-        {
-            ActionViewModel.RemoveAction();
-        }
-
-        public override string ToString()
-        {
-            // changed for Debug
-            return $"Action Facade:{ActionViewModel.Action.GetType().Name}";
-        }
+    public override string ToString()
+    {
+        // changed for Debug
+        return $"Action Facade:{ActionViewModel.Action.GetType().Name}";
     }
 }

@@ -1,56 +1,55 @@
-﻿using NLog;
-using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.Core.Services.JobEvents
+namespace pdfforge.PDFCreator.Core.Services.JobEvents;
+
+public interface IJobEventsManager
 {
-    public interface IJobEventsManager
+    void RaiseJobStarted(Job job, string currentThreadName);
+
+    void RaiseJobCompleted(Job job, TimeSpan duration);
+
+    void RaiseJobFailed(Job job, TimeSpan duration, FailureReason reason);
+}
+
+public class JobEventsManager : IJobEventsManager
+{
+    private readonly Lazy<List<IJobEventsHandler>> _eventHandlers;
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
+    public JobEventsManager(IEnumerable<IJobEventsHandler> eventHandlers)
     {
-        void RaiseJobStarted(Job job, string currentThreadName);
-
-        void RaiseJobCompleted(Job job, TimeSpan duration);
-
-        void RaiseJobFailed(Job job, TimeSpan duration, FailureReason reason);
+        // expand IEnumerable on first use to prevent lifetime issues
+        _eventHandlers = new Lazy<List<IJobEventsHandler>>(eventHandlers.ToList);
     }
 
-    public class JobEventsManager : IJobEventsManager
+    public void RaiseJobStarted(Job job, string currentThreadName)
     {
-        private readonly Lazy<List<IJobEventsHandler>> _eventHandlers;
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobStarted(job, currentThreadName)));
+    }
 
-        public JobEventsManager(IEnumerable<IJobEventsHandler> eventHandlers)
+    public void RaiseJobCompleted(Job job, TimeSpan duration)
+    {
+        _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobCompleted(job, duration)));
+    }
+
+    public void RaiseJobFailed(Job job, TimeSpan duration, FailureReason reason)
+    {
+        _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobFailed(job, duration, reason)));
+    }
+
+    private void LogOnException(Action action)
+    {
+        try
         {
-            // expand IEnumerable on first use to prevent lifetime issues
-            _eventHandlers = new Lazy<List<IJobEventsHandler>>(eventHandlers.ToList);
+            action();
         }
-
-        public void RaiseJobStarted(Job job, string currentThreadName)
+        catch (Exception ex)
         {
-            _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobStarted(job, currentThreadName)));
-        }
-
-        public void RaiseJobCompleted(Job job, TimeSpan duration)
-        {
-            _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobCompleted(job, duration)));
-        }
-
-        public void RaiseJobFailed(Job job, TimeSpan duration, FailureReason reason)
-        {
-            _eventHandlers.Value.ForEach(handler => LogOnException(() => handler.HandleJobFailed(job, duration, reason)));
-        }
-
-        private void LogOnException(Action action)
-        {
-            try
-            {
-                action();
-            }
-            catch (Exception ex)
-            {
-                _logger.Warn(ex, "Error while handling job events!");
-            }
+            _logger.Warn(ex, "Error while handling job events!");
         }
     }
 }

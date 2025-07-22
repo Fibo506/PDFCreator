@@ -1,5 +1,4 @@
-﻿using pdfforge.PDFCreator.UI.Interactions.Enums;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -10,73 +9,72 @@ using System.Windows.Media.Imaging;
 using pdfforge.PDFCreator.Utilities.Messages;
 using Image = System.Windows.Controls.Image;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Converter
+namespace pdfforge.PDFCreator.UI.Presentation.Converter;
+
+public class MessageIconToIconConverter : IValueConverter
 {
-    public class MessageIconToIconConverter : IValueConverter
+    private readonly ResourceDictionary _resourceDictionary;
+
+    public MessageIconToIconConverter()
     {
-        private readonly ResourceDictionary _resourceDictionary;
+        _resourceDictionary = new ResourceDictionary { Source = new Uri("PDFCreator.Presentation;component/Styles/Icons/MessageIcons.xaml", UriKind.Relative) };
+    }
 
-        public MessageIconToIconConverter()
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is MessageIcon)
         {
-            _resourceDictionary = new ResourceDictionary { Source = new Uri("PDFCreator.Presentation;component/Styles/Icons/MessageIcons.xaml", UriKind.Relative) };
-        }
+            var icon = (MessageIcon)value;
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is MessageIcon)
+            var img = new Image();
+            switch (icon)
             {
-                var icon = (MessageIcon)value;
+                case MessageIcon.Error:
+                    return GetResourceAsSomething("Error");
 
-                var img = new Image();
-                switch (icon)
-                {
-                    case MessageIcon.Error:
-                        return GetResourceAsSomething("Error");
+                case MessageIcon.Warning:
+                    return GetResourceAsSomething("Warning");
 
-                    case MessageIcon.Warning:
-                        return GetResourceAsSomething("Warning");
+                case MessageIcon.Exclamation:
+                    return GetResourceAsSomething("Warning");
 
-                    case MessageIcon.Exclamation:
-                        return GetResourceAsSomething("Warning");
+                case MessageIcon.Question:
+                    return GetResourceAsSomething("Question");
 
-                    case MessageIcon.Question:
-                        return GetResourceAsSomething("Question");
+                case MessageIcon.Info:
+                    return GetResourceAsSomething("Info");
 
-                    case MessageIcon.Info:
-                        return GetResourceAsSomething("Info");
+                case MessageIcon.PDFCreator:
+                    return GetResourceAsSomething("PDFCreatorLogo");
 
-                    case MessageIcon.PDFCreator:
-                        return GetResourceAsSomething("PDFCreatorLogo");
-
-                    case MessageIcon.PDFForge:
-                        return GetResourceAsSomething("RedFlame");
-                }
+                case MessageIcon.PDFForge:
+                    return GetResourceAsSomething("RedFlame");
             }
-
-            throw new NotImplementedException();
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
+    }
 
-        private object GetResourceAsSomething(string resourceString)
-        {
-            return _resourceDictionary[resourceString];
-        }
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
 
-        private BitmapImage ConvertBitmap(Bitmap value)
-        {
-            var ms = new MemoryStream();
-            value.Save(ms, ImageFormat.Png);
-            var image = new BitmapImage();
-            image.BeginInit();
-            ms.Seek(0, SeekOrigin.Begin);
-            image.StreamSource = ms;
-            image.EndInit();
+    private object GetResourceAsSomething(string resourceString)
+    {
+        return _resourceDictionary[resourceString];
+    }
 
-            return image;
-        }
+    private BitmapImage ConvertBitmap(Bitmap value)
+    {
+        var ms = new MemoryStream();
+        value.Save(ms, ImageFormat.Png);
+        var image = new BitmapImage();
+        image.BeginInit();
+        ms.Seek(0, SeekOrigin.Begin);
+        image.StreamSource = ms;
+        image.EndInit();
+
+        return image;
     }
 }

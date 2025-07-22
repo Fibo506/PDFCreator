@@ -1,32 +1,31 @@
-﻿using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
 using pdfforge.UsageStatistics;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
+
+public interface IUsageStatisticsJsonSerializer
 {
-    public interface IUsageStatisticsJsonSerializer
-    {
-        string Serialize(IUsageMetric usageMetric);
-    }
+    string Serialize(IUsageMetric usageMetric);
+}
 
-    public  class UsageStatisticsJsonSerializer : IUsageStatisticsJsonSerializer
+public class UsageStatisticsJsonSerializer : IUsageStatisticsJsonSerializer
+{
+    public string Serialize(IUsageMetric usageMetric)
     {
-        public string Serialize(IUsageMetric usageMetric)
+        var contractResolver = new DefaultContractResolver()
         {
-            var contractResolver = new DefaultContractResolver()
-            {
-                NamingStrategy = new SnakeCaseNamingStrategy(),
-            };
+            NamingStrategy = new SnakeCaseNamingStrategy(),
+        };
 
-            var settings = new JsonSerializerSettings()
-            {
-                ContractResolver = contractResolver,
-                Formatting = Formatting.Indented
-            };
-            settings.Converters.Add(new StringEnumConverter { NamingStrategy = new CamelCaseNamingStrategy() });
+        var settings = new JsonSerializerSettings()
+        {
+            ContractResolver = contractResolver,
+            Formatting = Formatting.Indented
+        };
+        settings.Converters.Add(new StringEnumConverter { NamingStrategy = new CamelCaseNamingStrategy() });
 
-            return JsonConvert.SerializeObject(usageMetric, settings);
-        }
+        return JsonConvert.SerializeObject(usageMetric, settings);
     }
 }

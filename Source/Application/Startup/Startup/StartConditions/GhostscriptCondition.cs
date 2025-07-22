@@ -3,34 +3,33 @@ using pdfforge.PDFCreator.Core.Startup.Translations;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using Translatable;
 
-namespace pdfforge.PDFCreator.Core.Startup.StartConditions
+namespace pdfforge.PDFCreator.Core.Startup.StartConditions;
+
+public class GhostscriptCondition : IStartupCondition
 {
-    public class GhostscriptCondition : IStartupCondition
+    private readonly IGhostscriptDiscovery _ghostscriptDiscovery;
+    private readonly StartupTranslation _translation;
+
+    public bool CanRequestUserInteraction => false;
+
+    public GhostscriptCondition(IGhostscriptDiscovery ghostscriptDiscovery, ITranslationFactory translationFactory)
     {
-        private readonly IGhostscriptDiscovery _ghostscriptDiscovery;
-        private readonly StartupTranslation _translation;
+        _ghostscriptDiscovery = ghostscriptDiscovery;
+        _translation = translationFactory.CreateTranslation<StartupTranslation>();
+    }
 
-        public bool CanRequestUserInteraction => false;
+    public StartupConditionResult Check()
+    {
+        if (!GhoscriptIsInstalled())
+            return StartupConditionResult.BuildErrorWithMessage((int)ExitCode.GhostScriptNotFound, _translation.NoSupportedGSFound);
 
-        public GhostscriptCondition(IGhostscriptDiscovery ghostscriptDiscovery, ITranslationFactory translationFactory)
-        {
-            _ghostscriptDiscovery = ghostscriptDiscovery;
-            _translation = translationFactory.CreateTranslation<StartupTranslation>();
-        }
+        return StartupConditionResult.BuildSuccess();
+    }
 
-        public StartupConditionResult Check()
-        {
-            if (!GhoscriptIsInstalled())
-                return StartupConditionResult.BuildErrorWithMessage((int)ExitCode.GhostScriptNotFound, _translation.NoSupportedGSFound);
+    private bool GhoscriptIsInstalled()
+    {
+        var gsVersion = _ghostscriptDiscovery.GetGhostscriptInstance();
 
-            return StartupConditionResult.BuildSuccess();
-        }
-
-        private bool GhoscriptIsInstalled()
-        {
-            var gsVersion = _ghostscriptDiscovery.GetGhostscriptInstance();
-
-            return gsVersion != null;
-        }
+        return gsVersion != null;
     }
 }

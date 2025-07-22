@@ -2,39 +2,37 @@
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.Core.Services.Trial;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime;
-using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using Prism.Mvvm;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Banner
+namespace pdfforge.PDFCreator.UI.Presentation.Banner;
+
+public class BannerViewModel : BindableBase
 {
-    public class BannerViewModel : BindableBase
+    public ICampaignHelper CampaignHelper { get; }
+
+    private readonly ICurrentSettings<ApplicationSettings> _applicationSettings;
+    private readonly IGpoSettings _gpoSettings;
+
+    public bool FrequentBannerIsVisible => _applicationSettings.Settings.EnableTips && !_gpoSettings.DisableTips;
+    public FrequentTipsControlViewModel FrequentTipsControlViewModel { get; private set; }
+
+    public BannerViewModel(FrequentTipsControlViewModel frequentTipsControlViewModel, ICurrentSettings<ApplicationSettings> applicationSettings, IGpoSettings gpoSettings, ICampaignHelper campaignHelper)
     {
-        public ICampaignHelper CampaignHelper { get; }
-
-        private readonly ICurrentSettings<ApplicationSettings> _applicationSettings;
-        private readonly IGpoSettings _gpoSettings;
-
-        public bool FrequentBannerIsVisible => _applicationSettings.Settings.EnableTips && !_gpoSettings.DisableTips;
-        public FrequentTipsControlViewModel FrequentTipsControlViewModel { get; private set; }
-
-        public BannerViewModel(FrequentTipsControlViewModel frequentTipsControlViewModel, ICurrentSettings<ApplicationSettings> applicationSettings, IGpoSettings gpoSettings, ICampaignHelper campaignHelper)
+        FrequentTipsControlViewModel = frequentTipsControlViewModel;
+        CampaignHelper = campaignHelper;
+        _applicationSettings = applicationSettings;
+        _gpoSettings = gpoSettings;
+        applicationSettings.SettingsChanged += (sender, args) =>
         {
-            FrequentTipsControlViewModel = frequentTipsControlViewModel;
-            CampaignHelper = campaignHelper;
-            _applicationSettings = applicationSettings;
-            _gpoSettings = gpoSettings;
-            applicationSettings.SettingsChanged += (sender, args) =>
-            {
-                RaisePropertyChanged(nameof(FrequentBannerIsVisible));
-            };
-        }
+            RaisePropertyChanged(nameof(FrequentBannerIsVisible));
+        };
     }
+}
 
-    public class DesignTimeBannerViewModel : BannerViewModel
+public class DesignTimeBannerViewModel : BannerViewModel
+{
+    public DesignTimeBannerViewModel() : base(new DesignTimeFrequentTipsControlViewModel(), new DesignTimeCurrentSettings<ApplicationSettings>(), null, new CampaignHelper())
     {
-        public DesignTimeBannerViewModel() : base(new DesignTimeFrequentTipsControlViewModel(), new DesignTimeCurrentSettings<ApplicationSettings>(), null, new CampaignHelper())
-        {
-            //FrequentBannerIsVisible = true;
-        }
+        //FrequentBannerIsVisible = true;
     }
 }

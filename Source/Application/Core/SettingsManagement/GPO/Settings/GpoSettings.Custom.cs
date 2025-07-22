@@ -1,6 +1,5 @@
-﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.GPO.Settings
+﻿namespace pdfforge.PDFCreator.Core.SettingsManagement.GPO.Settings;
+
+public partial class GpoSettings : IGeneratedGpoSettings
 {
-    public partial class GpoSettings : IGeneratedGpoSettings
-    {
-    }
 }

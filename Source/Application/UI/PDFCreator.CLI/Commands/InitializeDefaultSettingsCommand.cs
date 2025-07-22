@@ -1,9 +1,8 @@
 ﻿using CommandLineParser;
 
-namespace pdfforge.PDFCreator.UI.CLI.Commands
+namespace pdfforge.PDFCreator.UI.CLI.Commands;
+
+public class InitializeDefaultSettingsCommand : ICommand
 {
-    public class InitializeDefaultSettingsCommand : ICommand
-    {
-        public string SettingsFile { get; set; }
-    }
+    public string SettingsFile { get; set; }
 }

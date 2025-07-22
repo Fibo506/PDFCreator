@@ -1,355 +1,352 @@
-﻿using pdfforge.Obsidian;
-using pdfforge.PDFCreator.Core.Services.Translation;
-using pdfforge.PDFCreator.UI.Interactions;
-using pdfforge.PDFCreator.UI.Interactions.Enums;
-using pdfforge.PDFCreator.UI.Presentation.Assistants;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
-using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using pdfforge.Obsidian;
+using pdfforge.PDFCreator.Core.Services.Translation;
+using pdfforge.PDFCreator.UI.Interactions;
+using pdfforge.PDFCreator.UI.Presentation.Helper;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
+using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.Utilities.Messages;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Misc
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Misc;
+
+public class MessageViewModel : OverlayViewModelBase<MessageInteraction, MessageViewTranslation>
 {
-    public class MessageViewModel : OverlayViewModelBase<MessageInteraction, MessageViewTranslation>
+    private readonly ISoundPlayer _soundPlayer;
+    private readonly ErrorCodeInterpreter _errorCodeInterpreter;
+    private readonly IClipboardService _clipboardService;
+
+    public MessageViewModel(ITranslationUpdater translationUpdater, ISoundPlayer soundPlayer,
+        ErrorCodeInterpreter errorCodeInterpreter, IClipboardService clipboardService) : base(translationUpdater)
     {
-        private readonly ISoundPlayer _soundPlayer;
-        private readonly ErrorCodeInterpreter _errorCodeInterpreter;
-        private readonly IClipboardService _clipboardService;
+        _soundPlayer = soundPlayer;
+        _errorCodeInterpreter = errorCodeInterpreter;
+        _clipboardService = clipboardService;
 
-        public MessageViewModel(ITranslationUpdater translationUpdater, ISoundPlayer soundPlayer,
-            ErrorCodeInterpreter errorCodeInterpreter, IClipboardService clipboardService) : base(translationUpdater)
+        LeftButtonCommand = new DelegateCommand(ButtonLeftExecute);
+        MiddleButtonCommand = new DelegateCommand(MiddleButtonExecute, MiddleButtonCanExecute);
+        RightButtonCommand = new DelegateCommand(RightButtonExecute, RightButtonCanExecute);
+    }
+
+    private Func<MessageViewTranslation, string> GetIdentifier { get; set; } = translation => translation.Profile;
+
+    public void Init(Func<MessageViewTranslation, string> getIdentifier)
+    {
+        GetIdentifier = getIdentifier;
+    }
+
+    public IList<ErrorWithRegion> ErrorList { get; private set; }
+    public Visibility ErrorListVisibility { get; private set; }
+    public Visibility SecondTextVisibility { get; private set; }
+
+    public DelegateCommand LeftButtonCommand { get; }
+    public DelegateCommand MiddleButtonCommand { get; }
+    public DelegateCommand RightButtonCommand { get; }
+
+    public int IconSize { get; set; } = 32;
+
+    public string LeftButtonContent { get; set; }
+    public bool ShowUacShield { get; set; }
+    public string MiddleButtonContent { get; set; }
+    public string RightButtonContent { get; set; }
+
+    private void ButtonLeftExecute(object obj)
+    {
+        switch (Interaction.Buttons)
         {
-            _soundPlayer = soundPlayer;
-            _errorCodeInterpreter = errorCodeInterpreter;
-            _clipboardService = clipboardService;
+            case MessageOptions.Ok:
+            case MessageOptions.OkCancel:
+            case MessageOptions.OkCancelUac:
+                Interaction.Response = MessageResponse.Ok;
+                break;
 
-            LeftButtonCommand = new DelegateCommand(ButtonLeftExecute);
-            MiddleButtonCommand = new DelegateCommand(MiddleButtonExecute, MiddleButtonCanExecute);
-            RightButtonCommand = new DelegateCommand(RightButtonExecute, RightButtonCanExecute);
+            case MessageOptions.MoreInfoCancel:
+                Interaction.Response = MessageResponse.MoreInfo;
+                break;
+
+            case MessageOptions.RetryCancel:
+                Interaction.Response = MessageResponse.Retry;
+                break;
+
+            case MessageOptions.YesNo:
+            case MessageOptions.YesNoUac:
+            case MessageOptions.YesNoCancel:
+            case MessageOptions.YesCancel:
+                Interaction.Response = MessageResponse.Yes;
+                break;
+
+            case MessageOptions.SaveDiscardBack:
+                Interaction.Response = MessageResponse.Save;
+                break;
+        }
+        FinishInteraction();
+    }
+
+    private void MiddleButtonExecute(object obj)
+    {
+        switch (Interaction.Buttons)
+        {
+            case MessageOptions.YesNoCancel:
+                Interaction.Response = MessageResponse.No;
+                break;
+
+            case MessageOptions.SaveDiscardBack:
+                Interaction.Response = MessageResponse.Discard;
+                break;
+        }
+        FinishInteraction();
+    }
+
+    private void RightButtonExecute(object obj)
+    {
+        switch (Interaction.Buttons)
+        {
+            case MessageOptions.OkCancel:
+            case MessageOptions.OkCancelUac:
+            case MessageOptions.RetryCancel:
+            case MessageOptions.MoreInfoCancel:
+            case MessageOptions.YesNoCancel:
+            case MessageOptions.YesCancel:
+                Interaction.Response = MessageResponse.Cancel;
+                break;
+
+            case MessageOptions.YesNo:
+            case MessageOptions.YesNoUac:
+                Interaction.Response = MessageResponse.No;
+                break;
+
+            case MessageOptions.SaveDiscardBack:
+                Interaction.Response = MessageResponse.Back;
+                break;
+        }
+        FinishInteraction();
+    }
+
+    private bool MiddleButtonCanExecute(object obj)
+    {
+        if (Interaction?.Buttons == MessageOptions.YesNoCancel)
+        {
+            return Interaction?.Buttons == MessageOptions.YesNoCancel;
+        }
+        else
+        {
+            return Interaction?.Buttons == MessageOptions.SaveDiscardBack;
         }
 
-        private Func<MessageViewTranslation, string> GetIdentifier { get; set; } = translation => translation.Profile;
+    }
+    private bool RightButtonCanExecute(object obj)
+    {
+        return Interaction?.Buttons != MessageOptions.Ok;
+    }
 
-        public void Init(Func<MessageViewTranslation, string> getIdentifier)
+    protected override void HandleInteractionObjectChanged()
+    {
+        SetButtonContent(Interaction.Buttons);
+
+        RightButtonCommand.RaiseCanExecuteChanged();
+        MiddleButtonCommand.RaiseCanExecuteChanged();
+
+        SetIcon();
+
+        ApplyActionResultOverview();
+
+        ApplySecondText();
+    }
+
+    public override string Title => Interaction.Title;
+
+    private void SetIcon()
+    {
+        switch (Interaction.Icon)
         {
-            GetIdentifier = getIdentifier;
+            case MessageIcon.Error:
+                _soundPlayer.Play(SystemSounds.Hand);
+                break;
+
+            case MessageIcon.Exclamation:
+                _soundPlayer.Play(SystemSounds.Exclamation);
+                break;
+
+            case MessageIcon.Info:
+                _soundPlayer.Play(SystemSounds.Asterisk);
+                break;
+
+            case MessageIcon.Question:
+                _soundPlayer.Play(SystemSounds.Question);
+                break;
+
+            case MessageIcon.Warning:
+                _soundPlayer.Play(SystemSounds.Exclamation);
+                break;
+
+            case MessageIcon.PDFCreator:
+                IconSize = 45;
+                break;
+
+            case MessageIcon.PDFForge:
+                IconSize = 45;
+                break;
         }
 
-        public IList<ErrorWithRegion> ErrorList { get; private set; }
-        public Visibility ErrorListVisibility { get; private set; }
-        public Visibility SecondTextVisibility { get; private set; }
+        RaisePropertyChanged(nameof(IconSize));
+    }
 
-        public DelegateCommand LeftButtonCommand { get; }
-        public DelegateCommand MiddleButtonCommand { get; }
-        public DelegateCommand RightButtonCommand { get; }
+    private void SetButtonContent(MessageOptions option)
+    {
+        ShowUacShield = false;
 
-        public int IconSize { get; set; } = 32;
-
-        public string LeftButtonContent { get; set; }
-        public bool ShowUacShield { get; set; }
-        public string MiddleButtonContent { get; set; }
-        public string RightButtonContent { get; set; }
-
-        private void ButtonLeftExecute(object obj)
+        switch (option)
         {
-            switch (Interaction.Buttons)
-            {
-                case MessageOptions.Ok:
-                case MessageOptions.OkCancel:
-                case MessageOptions.OkCancelUac:
-                    Interaction.Response = MessageResponse.Ok;
-                    break;
+            case MessageOptions.MoreInfoCancel:
+                LeftButtonContent = Translation.MoreInfo;
+                RightButtonContent = Translation.Cancel;
+                break;
 
-                case MessageOptions.MoreInfoCancel:
-                    Interaction.Response = MessageResponse.MoreInfo;
-                    break;
+            case MessageOptions.Ok:
+                LeftButtonContent = Translation.Ok;
+                break;
 
-                case MessageOptions.RetryCancel:
-                    Interaction.Response = MessageResponse.Retry;
-                    break;
+            case MessageOptions.OkCancel:
+                LeftButtonContent = Translation.Ok;
+                RightButtonContent = Translation.Cancel;
+                break;
 
-                case MessageOptions.YesNo:
-                case MessageOptions.YesNoUac:
-                case MessageOptions.YesNoCancel:
-                case MessageOptions.YesCancel:
-                    Interaction.Response = MessageResponse.Yes;
-                    break;
+            case MessageOptions.OkCancelUac:
+                ShowUacShield = true;
+                LeftButtonContent = Translation.Ok;
+                RightButtonContent = Translation.Cancel;
+                break;
 
-                case MessageOptions.SaveDiscardBack:
-                    Interaction.Response = MessageResponse.Save;
-                    break;
-            }
-            FinishInteraction();
+            case MessageOptions.RetryCancel:
+                LeftButtonContent = Translation.Retry;
+                RightButtonContent = Translation.Cancel;
+                break;
+
+            case MessageOptions.YesNo:
+                LeftButtonContent = Translation.Yes;
+                RightButtonContent = Translation.No;
+                break;
+
+            case MessageOptions.YesNoUac:
+                ShowUacShield = true;
+                LeftButtonContent = Translation.Yes;
+                RightButtonContent = Translation.No;
+                break;
+
+            case MessageOptions.YesNoCancel:
+                LeftButtonContent = Translation.Yes;
+                RightButtonContent = Translation.Cancel;
+                MiddleButtonContent = Translation.No;
+                break;
+
+            case MessageOptions.YesCancel:
+                LeftButtonContent = Translation.Yes;
+                RightButtonContent = Translation.Cancel;
+                break;
+
+            case MessageOptions.SaveDiscardBack:
+                LeftButtonContent = Translation.Save;
+                RightButtonContent = Translation.Back;
+                MiddleButtonContent = Translation.Discard;
+
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException(nameof(option), option, null);
         }
 
-        private void MiddleButtonExecute(object obj)
+        RaisePropertyChanged(nameof(ShowUacShield));
+        RaisePropertyChanged(nameof(RightButtonContent));
+        RaisePropertyChanged(nameof(MiddleButtonContent));
+        RaisePropertyChanged(nameof(LeftButtonContent));
+    }
+
+    private void ApplyActionResultOverview()
+    {
+        if (Interaction.ActionResultDict == null || Interaction.ActionResultDict)
         {
-            switch (Interaction.Buttons)
-            {
-                case MessageOptions.YesNoCancel:
-                    Interaction.Response = MessageResponse.No;
-                    break;
-
-                case MessageOptions.SaveDiscardBack:
-                    Interaction.Response = MessageResponse.Discard;
-                    break;
-            }
-            FinishInteraction();
-        }
-
-        private void RightButtonExecute(object obj)
-        {
-            switch (Interaction.Buttons)
-            {
-                case MessageOptions.OkCancel:
-                case MessageOptions.OkCancelUac:
-                case MessageOptions.RetryCancel:
-                case MessageOptions.MoreInfoCancel:
-                case MessageOptions.YesNoCancel:
-                case MessageOptions.YesCancel:
-                    Interaction.Response = MessageResponse.Cancel;
-                    break;
-
-                case MessageOptions.YesNo:
-                case MessageOptions.YesNoUac:
-                    Interaction.Response = MessageResponse.No;
-                    break;
-
-                case MessageOptions.SaveDiscardBack:
-                    Interaction.Response = MessageResponse.Back;
-                    break;
-            }
-            FinishInteraction();
-        }
-
-        private bool MiddleButtonCanExecute(object obj)
-        {
-            if (Interaction?.Buttons == MessageOptions.YesNoCancel)
-            {
-                return Interaction?.Buttons == MessageOptions.YesNoCancel;
-            }
-            else
-            {
-                return Interaction?.Buttons == MessageOptions.SaveDiscardBack;
-            }
-
-        }
-        private bool RightButtonCanExecute(object obj)
-        {
-            return Interaction?.Buttons != MessageOptions.Ok;
-        }
-
-        protected override void HandleInteractionObjectChanged()
-        {
-            SetButtonContent(Interaction.Buttons);
-
-            RightButtonCommand.RaiseCanExecuteChanged();
-            MiddleButtonCommand.RaiseCanExecuteChanged();
-
-            SetIcon();
-
-            ApplyActionResultOverview();
-
-            ApplySecondText();
-        }
-
-        public override string Title => Interaction.Title;
-
-        private void SetIcon()
-        {
-            switch (Interaction.Icon)
-            {
-                case MessageIcon.Error:
-                    _soundPlayer.Play(SystemSounds.Hand);
-                    break;
-
-                case MessageIcon.Exclamation:
-                    _soundPlayer.Play(SystemSounds.Exclamation);
-                    break;
-
-                case MessageIcon.Info:
-                    _soundPlayer.Play(SystemSounds.Asterisk);
-                    break;
-
-                case MessageIcon.Question:
-                    _soundPlayer.Play(SystemSounds.Question);
-                    break;
-
-                case MessageIcon.Warning:
-                    _soundPlayer.Play(SystemSounds.Exclamation);
-                    break;
-
-                case MessageIcon.PDFCreator:
-                    IconSize = 45;
-                    break;
-
-                case MessageIcon.PDFForge:
-                    IconSize = 45;
-                    break;
-            }
-
-            RaisePropertyChanged(nameof(IconSize));
-        }
-
-        private void SetButtonContent(MessageOptions option)
-        {
-            ShowUacShield = false;
-
-            switch (option)
-            {
-                case MessageOptions.MoreInfoCancel:
-                    LeftButtonContent = Translation.MoreInfo;
-                    RightButtonContent = Translation.Cancel;
-                    break;
-
-                case MessageOptions.Ok:
-                    LeftButtonContent = Translation.Ok;
-                    break;
-
-                case MessageOptions.OkCancel:
-                    LeftButtonContent = Translation.Ok;
-                    RightButtonContent = Translation.Cancel;
-                    break;
-
-                case MessageOptions.OkCancelUac:
-                    ShowUacShield = true;
-                    LeftButtonContent = Translation.Ok;
-                    RightButtonContent = Translation.Cancel;
-                    break;
-
-                case MessageOptions.RetryCancel:
-                    LeftButtonContent = Translation.Retry;
-                    RightButtonContent = Translation.Cancel;
-                    break;
-
-                case MessageOptions.YesNo:
-                    LeftButtonContent = Translation.Yes;
-                    RightButtonContent = Translation.No;
-                    break;
-
-                case MessageOptions.YesNoUac:
-                    ShowUacShield = true;
-                    LeftButtonContent = Translation.Yes;
-                    RightButtonContent = Translation.No;
-                    break;
-
-                case MessageOptions.YesNoCancel:
-                    LeftButtonContent = Translation.Yes;
-                    RightButtonContent = Translation.Cancel;
-                    MiddleButtonContent = Translation.No;
-                    break;
-
-                case MessageOptions.YesCancel:
-                    LeftButtonContent = Translation.Yes;
-                    RightButtonContent = Translation.Cancel;
-                    break;
-
-                case MessageOptions.SaveDiscardBack:
-                    LeftButtonContent = Translation.Save;
-                    RightButtonContent = Translation.Back;
-                    MiddleButtonContent = Translation.Discard;
-
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(option), option, null);
-            }
-
-            RaisePropertyChanged(nameof(ShowUacShield));
-            RaisePropertyChanged(nameof(RightButtonContent));
-            RaisePropertyChanged(nameof(MiddleButtonContent));
-            RaisePropertyChanged(nameof(LeftButtonContent));
-        }
-
-        private void ApplyActionResultOverview()
-        {
-            if (Interaction.ActionResultDict == null || Interaction.ActionResultDict)
-            {
-                ErrorListVisibility = Visibility.Collapsed;
-                RaisePropertyChanged(nameof(ErrorListVisibility));
-                return;
-            }
-
-            ErrorListVisibility = Visibility.Visible;
+            ErrorListVisibility = Visibility.Collapsed;
             RaisePropertyChanged(nameof(ErrorListVisibility));
-
-            ErrorList = new List<ErrorWithRegion>();
-
-            foreach (var profileNameActionResult in Interaction.ActionResultDict)
-            {
-                foreach (var actionResult in profileNameActionResult.Value)
-                {
-                    var region = GetIdentifier(Translation) + ": " + profileNameActionResult.Key;
-                    var error = _errorCodeInterpreter.GetErrorText(actionResult, false);
-                    ErrorList.Add(new ErrorWithRegion(region, error));
-                }
-            }
-
-            RaisePropertyChanged(nameof(ErrorList));
-
-            var view = (CollectionView)CollectionViewSource.GetDefaultView(ErrorList);
-            var groupDescription = new PropertyGroupDescription(nameof(ErrorWithRegion.Region));
-            view.GroupDescriptions.Add(groupDescription);
+            return;
         }
 
-        private void ApplySecondText()
+        ErrorListVisibility = Visibility.Visible;
+        RaisePropertyChanged(nameof(ErrorListVisibility));
+
+        ErrorList = new List<ErrorWithRegion>();
+
+        foreach (var profileNameActionResult in Interaction.ActionResultDict)
         {
-            if (string.IsNullOrEmpty(Interaction.SecondText))
+            foreach (var actionResult in profileNameActionResult.Value)
             {
-                SecondTextVisibility = Visibility.Collapsed;
-                RaisePropertyChanged(nameof(SecondTextVisibility));
-                return;
+                var region = GetIdentifier(Translation) + ": " + profileNameActionResult.Key;
+                var error = _errorCodeInterpreter.GetErrorText(actionResult, false);
+                ErrorList.Add(new ErrorWithRegion(region, error));
             }
-
-            SecondTextVisibility = Visibility.Visible;
-            RaisePropertyChanged(nameof(SecondTextVisibility));
         }
 
-        public void CopyToClipboard_CommandBinding(object sender, ExecutedRoutedEventArgs e)
-        {
-            var text = new StringBuilder();
+        RaisePropertyChanged(nameof(ErrorList));
 
-            text.AppendLine(Interaction.Text);
-
-            if (ErrorList != null)
-            {
-                var previousProfile = "";
-
-                foreach (var profileError in ErrorList)
-                {
-                    if (previousProfile != profileError.Region)
-                    {
-                        text.AppendLine(profileError.Region);
-                        previousProfile = profileError.Region;
-                    }
-
-                    text.AppendLine("- " + profileError.Error);
-                }
-            }
-
-            if (!string.IsNullOrEmpty(Interaction.SecondText))
-                text.AppendLine(Interaction.SecondText);
-
-            _clipboardService.SetDataObject(text.ToString());
-        }
+        var view = (CollectionView)CollectionViewSource.GetDefaultView(ErrorList);
+        var groupDescription = new PropertyGroupDescription(nameof(ErrorWithRegion.Region));
+        view.GroupDescriptions.Add(groupDescription);
     }
 
-    public class ErrorWithRegion
+    private void ApplySecondText()
     {
-        public ErrorWithRegion(string region, string error)
+        if (string.IsNullOrEmpty(Interaction.SecondText))
         {
-            Region = region;
-            Error = error;
+            SecondTextVisibility = Visibility.Collapsed;
+            RaisePropertyChanged(nameof(SecondTextVisibility));
+            return;
         }
 
-        public string Error { get; set; }
-        public string Region { get; set; }
+        SecondTextVisibility = Visibility.Visible;
+        RaisePropertyChanged(nameof(SecondTextVisibility));
     }
+
+    public void CopyToClipboard_CommandBinding(object sender, ExecutedRoutedEventArgs e)
+    {
+        var text = new StringBuilder();
+
+        text.AppendLine(Interaction.Text);
+
+        if (ErrorList != null)
+        {
+            var previousProfile = "";
+
+            foreach (var profileError in ErrorList)
+            {
+                if (previousProfile != profileError.Region)
+                {
+                    text.AppendLine(profileError.Region);
+                    previousProfile = profileError.Region;
+                }
+
+                text.AppendLine("- " + profileError.Error);
+            }
+        }
+
+        if (!string.IsNullOrEmpty(Interaction.SecondText))
+            text.AppendLine(Interaction.SecondText);
+
+        _clipboardService.SetDataObject(text.ToString());
+    }
+}
+
+public class ErrorWithRegion
+{
+    public ErrorWithRegion(string region, string error)
+    {
+        Region = region;
+        Error = error;
+    }
+
+    public string Error { get; set; }
+    public string Region { get; set; }
 }

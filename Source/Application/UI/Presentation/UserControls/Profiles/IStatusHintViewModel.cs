@@ -1,9 +1,8 @@
-﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles
+﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+
+public interface IStatusHintViewModel
 {
-    public interface IStatusHintViewModel
-    {
-        string StatusText { get; }
-        bool HasWarning { get; }
-        bool HideStatusInOverlay { get; }
-    }
+    string StatusText { get; }
+    bool HasWarning { get; }
+    bool HideStatusInOverlay { get; }
 }

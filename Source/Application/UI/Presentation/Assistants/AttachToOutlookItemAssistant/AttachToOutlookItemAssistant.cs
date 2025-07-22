@@ -1,61 +1,60 @@
-﻿using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Actions.AttachToOutlookItem;
-using pdfforge.PDFCreator.Utilities.Messages;
 using pdfforge.PDFCreator.UI.Interactions;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
+using pdfforge.PDFCreator.Utilities.Messages;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Assistants
+namespace pdfforge.PDFCreator.UI.Presentation.Assistants;
+
+public interface IAttachToOutlookItemAssistant
 {
-    public interface IAttachToOutlookItemAssistant
+    IList<string> GetOutlookItemCaptions();
+    void ExportToOutlookItem(string itemCaption, IList<string> attachmentFiles);
+}
+
+public class AttachToOutlookItemAssistant : IAttachToOutlookItemAssistant
+{
+    private readonly IAttachToOutlookItem _attachToOutlookItem;
+    private readonly IInteractionRequest _interactionRequest;
+    private AttachToOutlookItemTranslation Translation { get; set; }
+
+    public AttachToOutlookItemAssistant(ITranslationUpdater translationUpdater, IAttachToOutlookItem attachToOutlookItem, IInteractionRequest interactionRequest)
     {
-        IList<string> GetOutlookItemCaptions();
-        void ExportToOutlookItem(string itemCaption, IList<string> attachmentFiles);
+        translationUpdater.RegisterAndSetTranslation(tf => Translation = tf.UpdateOrCreateTranslation(Translation));
+        _attachToOutlookItem = attachToOutlookItem;
+        _interactionRequest = interactionRequest;
     }
 
-    public class AttachToOutlookItemAssistant : IAttachToOutlookItemAssistant
+    public IList<string> GetOutlookItemCaptions()
     {
-        private readonly IAttachToOutlookItem _attachToOutlookItem;
-        private readonly IInteractionRequest _interactionRequest;
-        private AttachToOutlookItemTranslation Translation { get; set; }
+        return _attachToOutlookItem.GetOutlookItemCaptions();
+    }
 
-        public AttachToOutlookItemAssistant(ITranslationUpdater translationUpdater, IAttachToOutlookItem attachToOutlookItem, IInteractionRequest interactionRequest)
+    public void ExportToOutlookItem(string itemCaption, IList<string> attachmentFiles)
+    {
+        var result = _attachToOutlookItem.ExportToOutlookItem(itemCaption, attachmentFiles);
+        if (result == AttachToOutlookItemResult.Success)
+            return;
+
+        var title = Translation.AttachToOutlookItem;
+
+        var text = "";
+        switch (result)
         {
-            translationUpdater.RegisterAndSetTranslation(tf => Translation = tf.UpdateOrCreateTranslation(Translation));
-            _attachToOutlookItem = attachToOutlookItem;
-            _interactionRequest = interactionRequest;
+            case AttachToOutlookItemResult.NoOutlook:
+            case AttachToOutlookItemResult.NoOpenItems:
+            case AttachToOutlookItemResult.ItemCouldNotBeFound:
+                text = Translation.ItemCouldNotBeFound;
+                break;
+            case AttachToOutlookItemResult.ErrorWhileAddingAttachment:
+                text = Translation.ErrorWhileAddingAttachment;
+                break;
         }
 
-        public IList<string> GetOutlookItemCaptions()
-        {
-            return _attachToOutlookItem.GetOutlookItemCaptions();
-        }
-
-        public void ExportToOutlookItem(string itemCaption, IList<string> attachmentFiles)
-        {
-            var result = _attachToOutlookItem.ExportToOutlookItem(itemCaption, attachmentFiles);
-            if (result == AttachToOutlookItemResult.Success)
-                return;
-
-            var title = Translation.AttachToOutlookItem;
-
-            var text = "";
-            switch (result)
-            {
-                case AttachToOutlookItemResult.NoOutlook:
-                case AttachToOutlookItemResult.NoOpenItems:
-                case AttachToOutlookItemResult.ItemCouldNotBeFound:
-                    text = Translation.ItemCouldNotBeFound;
-                    break;
-                case AttachToOutlookItemResult.ErrorWhileAddingAttachment:
-                    text = Translation.ErrorWhileAddingAttachment;
-                    break;
-            }
-            
-            text += Environment.NewLine + "\'" + itemCaption + "\'";
-            var message = new MessageInteraction(text, title, MessageOptions.Ok, MessageIcon.Error);
-            _interactionRequest.Raise(message);
-        }
+        text += Environment.NewLine + "\'" + itemCaption + "\'";
+        var message = new MessageInteraction(text, title, MessageOptions.Ok, MessageIcon.Error);
+        _interactionRequest.Raise(message);
     }
 }

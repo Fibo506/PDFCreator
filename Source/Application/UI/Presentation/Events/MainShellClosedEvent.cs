@@ -1,8 +1,7 @@
 ﻿using Prism.Events;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Events
+namespace pdfforge.PDFCreator.UI.Presentation.Events;
+
+public class MainShellClosedEvent : PubSubEvent
 {
-    public class MainShellClosedEvent : PubSubEvent
-    {
-    }
 }

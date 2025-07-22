@@ -1,8 +1,7 @@
 ﻿using pdfforge.Obsidian.Interaction;
 
-namespace pdfforge.PDFCreator.UI.Interactions.Feedback
+namespace pdfforge.PDFCreator.UI.Interactions.Feedback;
+
+public class FeedbackInteraction : IInteraction
 {
-    public class FeedbackInteraction : IInteraction
-    {
-    }
 }

@@ -1,10 +1,9 @@
-namespace pdfforge.PDFCreator.UI.Interactions.Enums
+namespace pdfforge.PDFCreator.UI.Interactions.Enums;
+
+public enum PrintJobAction
 {
-    public enum PrintJobAction
-    {
-        Cancel,
-        Save,
-        EMail,
-        ManagePrintJobs
-    }
+    Cancel,
+    Save,
+    EMail,
+    ManagePrintJobs
 }

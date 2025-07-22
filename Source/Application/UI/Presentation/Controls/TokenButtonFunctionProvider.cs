@@ -1,54 +1,53 @@
-﻿using Optional;
+﻿using System;
+using Optional;
 using pdfforge.Obsidian;
 using pdfforge.Obsidian.Interaction.DialogInteractions;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
-using System;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Controls
+namespace pdfforge.PDFCreator.UI.Presentation.Controls;
+
+public interface ITokenButtonFunctionProvider
 {
-    public interface ITokenButtonFunctionProvider
-    {
-        Func<string, Option<string>> GetBrowseFolderFunction(string description);
+    Func<string, Option<string>> GetBrowseFolderFunction(string description);
 
-        Func<string, Option<string>> GetBrowseFileFunction(string title, string filter);
+    Func<string, Option<string>> GetBrowseFileFunction(string title, string filter);
+}
+
+public class TokenButtonFunctionProvider : ITokenButtonFunctionProvider
+{
+    private readonly IInteractionInvoker _interactionInvoker;
+    private readonly IOpenFileInteractionHelper _openFileInteractionHelper;
+
+    public TokenButtonFunctionProvider(IInteractionInvoker interactionInvoker, IOpenFileInteractionHelper openFileInteractionHelper)
+    {
+        _interactionInvoker = interactionInvoker;
+        _openFileInteractionHelper = openFileInteractionHelper;
     }
 
-    public class TokenButtonFunctionProvider : ITokenButtonFunctionProvider
+    public Func<string, Option<string>> GetBrowseFolderFunction(string description)
     {
-        private readonly IInteractionInvoker _interactionInvoker;
-        private readonly IOpenFileInteractionHelper _openFileInteractionHelper;
+        return s => ExecuteFolderBrowse(description, s);
+    }
 
-        public TokenButtonFunctionProvider(IInteractionInvoker interactionInvoker, IOpenFileInteractionHelper openFileInteractionHelper)
+    private Option<string> ExecuteFolderBrowse(string description, string initalText)
+    {
+        var interaction = new FolderBrowserInteraction
         {
-            _interactionInvoker = interactionInvoker;
-            _openFileInteractionHelper = openFileInteractionHelper;
-        }
+            Description = description,
+            ShowNewFolderButton = true,
+            SelectedPath = initalText
+        };
 
-        public Func<string, Option<string>> GetBrowseFolderFunction(string description)
-        {
-            return s => ExecuteFolderBrowse(description, s);
-        }
+        _interactionInvoker.Invoke(interaction);
 
-        private Option<string> ExecuteFolderBrowse(string description, string initalText)
-        {
-            var interaction = new FolderBrowserInteraction
-            {
-                Description = description,
-                ShowNewFolderButton = true,
-                SelectedPath = initalText
-            };
+        if (!interaction.Success || string.IsNullOrWhiteSpace(interaction.SelectedPath))
+            return Option.None<string>();
 
-            _interactionInvoker.Invoke(interaction);
+        return interaction.SelectedPath.Some();
+    }
 
-            if (!interaction.Success || string.IsNullOrWhiteSpace(interaction.SelectedPath))
-                return Option.None<string>();
-
-            return interaction.SelectedPath.Some();
-        }
-
-        public Func<string, Option<string>> GetBrowseFileFunction(string title, string filter)
-        {
-            return s => _openFileInteractionHelper.StartOpenFileInteraction(s, title, filter);
-        }
+    public Func<string, Option<string>> GetBrowseFileFunction(string title, string filter)
+    {
+        return s => _openFileInteractionHelper.StartOpenFileInteraction(s, title, filter);
     }
 }

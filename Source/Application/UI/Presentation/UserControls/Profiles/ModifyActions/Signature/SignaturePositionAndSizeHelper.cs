@@ -1,90 +1,89 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings.Enums;
+﻿using System.Text;
+using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.UI.Presentation.Converter;
-using System.Text;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature;
+
+public class SignaturePositionForUi
 {
-    public class SignaturePositionForUi
+    public SignaturePositionForUi(float x, float y, float height, float width)
     {
-        public SignaturePositionForUi(float x, float y, float height, float width)
-        {
-            X = x;
-            Y = y;
-            Height = height;
-            Width = width;
-        }
-
-        public float X { get; set; }
-        public float Y { get; set; }
-        public float Height { get; set; }
-        public float Width { get; set; }
+        X = x;
+        Y = y;
+        Height = height;
+        Width = width;
     }
 
-    public interface ISignaturePositionAndSizeHelper
+    public float X { get; set; }
+    public float Y { get; set; }
+    public float Height { get; set; }
+    public float Width { get; set; }
+}
+
+public interface ISignaturePositionAndSizeHelper
+{
+    SignaturePositionForUi GetSignaturePositionForUi(Conversion.Settings.Signature signature, UnitOfMeasurement unit);
+
+    void ApplySignatureForSettings(Conversion.Settings.Signature targetSignature, SignaturePositionForUi signaturePositionFromUi, UnitOfMeasurement unit);
+
+    string GetSignaturePositionAndSizeText(Conversion.Settings.Signature signature, UnitOfMeasurement unit, SignatureTranslation translation);
+}
+
+public class SignaturePositionAndSizeHelper : ISignaturePositionAndSizeHelper
+{
+    private readonly IPositionToUnitConverterFactory _positionToUnitConverterFactory;
+
+    public SignaturePositionAndSizeHelper(IPositionToUnitConverterFactory positionToUnitConverterFactory)
     {
-        SignaturePositionForUi GetSignaturePositionForUi(Conversion.Settings.Signature signature, UnitOfMeasurement unit);
-
-        void ApplySignatureForSettings(Conversion.Settings.Signature targetSignature, SignaturePositionForUi signaturePositionFromUi, UnitOfMeasurement unit);
-
-        string GetSignaturePositionAndSizeText(Conversion.Settings.Signature signature, UnitOfMeasurement unit, SignatureTranslation translation);
+        _positionToUnitConverterFactory = positionToUnitConverterFactory;
     }
 
-    public class SignaturePositionAndSizeHelper : ISignaturePositionAndSizeHelper
+    public SignaturePositionForUi GetSignaturePositionForUi(Conversion.Settings.Signature signature, UnitOfMeasurement unit)
     {
-        private readonly IPositionToUnitConverterFactory _positionToUnitConverterFactory;
+        var unitConverter = _positionToUnitConverterFactory.CreatePositionToUnitConverter(unit);
+        var x = unitConverter.ConvertBack(signature.LeftX);
+        var y = unitConverter.ConvertBack(signature.LeftY);
+        var width = unitConverter.ConvertBack(signature.RightX - signature.LeftX);
+        var height = unitConverter.ConvertBack(signature.RightY - signature.LeftY);
 
-        public SignaturePositionAndSizeHelper(IPositionToUnitConverterFactory positionToUnitConverterFactory)
-        {
-            _positionToUnitConverterFactory = positionToUnitConverterFactory;
-        }
+        return new SignaturePositionForUi(x, y, height, width);
+    }
 
-        public SignaturePositionForUi GetSignaturePositionForUi(Conversion.Settings.Signature signature, UnitOfMeasurement unit)
-        {
-            var unitConverter = _positionToUnitConverterFactory.CreatePositionToUnitConverter(unit);
-            var x = unitConverter.ConvertBack(signature.LeftX);
-            var y = unitConverter.ConvertBack(signature.LeftY);
-            var width = unitConverter.ConvertBack(signature.RightX - signature.LeftX);
-            var height = unitConverter.ConvertBack(signature.RightY - signature.LeftY);
+    public void ApplySignatureForSettings(Conversion.Settings.Signature targetSignature, SignaturePositionForUi signaturePositionFromUi, UnitOfMeasurement unit)
+    {
+        var unitConverter = _positionToUnitConverterFactory.CreatePositionToUnitConverter(unit);
 
-            return new SignaturePositionForUi(x, y, height, width);
-        }
+        targetSignature.LeftX = unitConverter.ConvertToUnit(signaturePositionFromUi.X);
+        targetSignature.RightX = targetSignature.LeftX + unitConverter.ConvertToUnit(signaturePositionFromUi.Width);
+        targetSignature.LeftY = unitConverter.ConvertToUnit(signaturePositionFromUi.Y);
+        targetSignature.RightY = targetSignature.LeftY + unitConverter.ConvertToUnit(signaturePositionFromUi.Height);
+    }
 
-        public void ApplySignatureForSettings(Conversion.Settings.Signature targetSignature, SignaturePositionForUi signaturePositionFromUi, UnitOfMeasurement unit)
-        {
-            var unitConverter = _positionToUnitConverterFactory.CreatePositionToUnitConverter(unit);
+    public string GetSignaturePositionAndSizeText(Conversion.Settings.Signature signature, UnitOfMeasurement unit, SignatureTranslation translation)
+    {
+        var signatureForUi = GetSignaturePositionForUi(signature, unit);
 
-            targetSignature.LeftX = unitConverter.ConvertToUnit(signaturePositionFromUi.X);
-            targetSignature.RightX = targetSignature.LeftX + unitConverter.ConvertToUnit(signaturePositionFromUi.Width);
-            targetSignature.LeftY = unitConverter.ConvertToUnit(signaturePositionFromUi.Y);
-            targetSignature.RightY = targetSignature.LeftY + unitConverter.ConvertToUnit(signaturePositionFromUi.Height);
-        }
+        var unitString = unit == UnitOfMeasurement.Centimeter ? "cm" : "\"";
+        var signaturePositionAndSize = new StringBuilder(translation.FromLeftLabel);
+        signaturePositionAndSize.Append(" ");
+        signaturePositionAndSize.Append(signatureForUi.X.ToString("0.00"));
+        signaturePositionAndSize.Append(unitString);
+        signaturePositionAndSize.Append("   ");
+        signaturePositionAndSize.Append(translation.FromBottomLabel);
+        signaturePositionAndSize.Append(" ");
+        signaturePositionAndSize.Append(signatureForUi.Y.ToString("0.00"));
+        signaturePositionAndSize.Append(unitString);
+        signaturePositionAndSize.Append("   ");
+        signaturePositionAndSize.Append(translation.WidthLabel);
+        signaturePositionAndSize.Append(" ");
+        signaturePositionAndSize.Append(signatureForUi.Width.ToString("0.00"));
+        signaturePositionAndSize.Append(unitString);
+        signaturePositionAndSize.Append("   ");
+        signaturePositionAndSize.Append(translation.HeightLabel);
+        signaturePositionAndSize.Append(" ");
+        signaturePositionAndSize.Append(signatureForUi.Height.ToString("0.00"));
+        signaturePositionAndSize.Append(unitString);
 
-        public string GetSignaturePositionAndSizeText(Conversion.Settings.Signature signature, UnitOfMeasurement unit, SignatureTranslation translation)
-        {
-            var signatureForUi = GetSignaturePositionForUi(signature, unit);
-
-            var unitString = unit == UnitOfMeasurement.Centimeter ? "cm" : "\"";
-            var signaturePositionAndSize = new StringBuilder(translation.FromLeftLabel);
-            signaturePositionAndSize.Append(" ");
-            signaturePositionAndSize.Append(signatureForUi.X.ToString("0.00"));
-            signaturePositionAndSize.Append(unitString);
-            signaturePositionAndSize.Append("   ");
-            signaturePositionAndSize.Append(translation.FromBottomLabel);
-            signaturePositionAndSize.Append(" ");
-            signaturePositionAndSize.Append(signatureForUi.Y.ToString("0.00"));
-            signaturePositionAndSize.Append(unitString);
-            signaturePositionAndSize.Append("   ");
-            signaturePositionAndSize.Append(translation.WidthLabel);
-            signaturePositionAndSize.Append(" ");
-            signaturePositionAndSize.Append(signatureForUi.Width.ToString("0.00"));
-            signaturePositionAndSize.Append(unitString);
-            signaturePositionAndSize.Append("   ");
-            signaturePositionAndSize.Append(translation.HeightLabel);
-            signaturePositionAndSize.Append(" ");
-            signaturePositionAndSize.Append(signatureForUi.Height.ToString("0.00"));
-            signaturePositionAndSize.Append(unitString);
-
-            return signaturePositionAndSize.ToString();
-        }
+        return signaturePositionAndSize.ToString();
     }
 }

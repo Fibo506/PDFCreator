@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Actions.Queries
+﻿namespace pdfforge.PDFCreator.Conversion.Actions.Queries;
+
+public interface IRecommendArchitectAssistant
 {
-    public interface IRecommendArchitectAssistant
-    {
-        void Show(PdfArchitectRecommendPurpose recommendPurpose);
-    }
+    void Show(PdfArchitectRecommendPurpose recommendPurpose);
 }

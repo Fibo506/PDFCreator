@@ -1,7 +1,9 @@
-﻿namespace pdfforge.PDFCreator.Utilities.License
+﻿using Optional;
+using pdfforge.LicenseValidator.Interface.Data;
+
+namespace pdfforge.PDFCreator.Utilities.License;
+
+public interface ILicenseHelper
 {
-    public interface ILicenseHelper
-    {
-        public void InformLicenseInteraction();
-    }
+    void InformLicenseInteraction(Option<Activation, LicenseError> activation);
 }

@@ -1,15 +1,14 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
+
+public interface IUsageStatisticsManager
 {
-    public interface IUsageStatisticsManager
-    {
-        Task SendUsageStatistics(TimeSpan duration, Job job, string status);
+    Task SendUsageStatistics(TimeSpan duration, Job job, string status);
 
-        Task SendServiceStatistics(TimeSpan duration);
+    Task SendServiceStatistics(TimeSpan duration);
 
-        bool EnableUsageStatistics { get; set; }
-    }
+    bool EnableUsageStatistics { get; set; }
 }

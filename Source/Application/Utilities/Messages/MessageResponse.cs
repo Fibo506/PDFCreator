@@ -1,16 +1,15 @@
-﻿namespace pdfforge.PDFCreator.Utilities.Messages
+﻿namespace pdfforge.PDFCreator.Utilities.Messages;
+
+public enum MessageResponse
 {
-    public enum MessageResponse
-    {
-        Cancel,
-        MoreInfo,
-        No,
-        Ok,
-        Skip,
-        Retry,
-        Yes,
-        Save,
-        Discard,
-        Back
-    }
+    Cancel,
+    MoreInfo,
+    No,
+    Ok,
+    Skip,
+    Retry,
+    Yes,
+    Save,
+    Discard,
+    Back
 }

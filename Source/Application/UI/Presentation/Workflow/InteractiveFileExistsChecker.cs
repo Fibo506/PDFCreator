@@ -1,71 +1,74 @@
-﻿using pdfforge.Obsidian.Trigger;
+﻿using System.Globalization;
+using System.Threading.Tasks;
+using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.UI.Interactions;
-using System.Globalization;
-using System.Threading.Tasks;
 using pdfforge.PDFCreator.Utilities.Messages;
+using pdfforge.PDFCreator.Utilities.Tokens;
 using SystemInterface.IO;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow;
+
+public interface IInteractiveFileExistsChecker
 {
-    public interface IInteractiveFileExistsChecker
+    Task<FileExistCheckResult> CheckIfFileExistsWithResultInOverlay(Job job, string latestConfirmedPath);
+}
+
+public class InteractiveFileExistsChecker : IInteractiveFileExistsChecker
+{
+    private readonly ITranslationFactory _translationFactory;
+    private InteractiveProfileCheckerTranslation _translation;
+    private readonly IFile _file;
+    private readonly IInteractionRequest _interactionRequest;
+    private readonly IFileIndexHelper _fileIndexHelper;
+
+    public InteractiveFileExistsChecker(
+        ITranslationFactory translationFactory,
+        IFile file,
+        IInteractionRequest interactionRequest,
+        IFileIndexHelper fileIndexHelper)
     {
-        Task<FileExistCheckResult> CheckIfFileExistsWithResultInOverlay(Job job, string latestConfirmedPath);
+        _translationFactory = translationFactory;
+        _file = file;
+        _interactionRequest = interactionRequest;
+        _fileIndexHelper = fileIndexHelper;
     }
 
-    public class InteractiveFileExistsChecker : IInteractiveFileExistsChecker
+    public async Task<FileExistCheckResult> CheckIfFileExistsWithResultInOverlay(Job job, string latestConfirmedPath)
     {
-        private readonly ITranslationFactory _translationFactory;
-        private InteractiveProfileCheckerTranslation _translation;
-        private readonly IFile _file;
-        private readonly IInteractionRequest _interactionRequest;
+        var filePath = _fileIndexHelper.ReplaceFileIndex(job.OutputFileTemplate, job.TempOutputFiles.Count);
 
-        public InteractiveFileExistsChecker(
-            ITranslationFactory translationFactory,
-            IFile file,
-            IInteractionRequest interactionRequest)
-        {
-            _translationFactory = translationFactory;
-            _file = file;
-            _interactionRequest = interactionRequest;
-        }
+        //Do not inform user, if SaveFileDialog already did
+        if (filePath == latestConfirmedPath)
+            return new FileExistCheckResult(true, latestConfirmedPath);
 
-        public async Task<FileExistCheckResult> CheckIfFileExistsWithResultInOverlay(Job job, string latestConfirmedPath)
-        {
-            var filePath = job.OutputFileTemplate;
+        if (job.Profile.SaveFileTemporary || !_file.Exists(filePath))
+            return new FileExistCheckResult(true, latestConfirmedPath);
 
-            //Do not inform user, if SaveFileDialog already did
-            if (filePath == latestConfirmedPath)
-                return new FileExistCheckResult(true, latestConfirmedPath);
+        _translation = _translationFactory.UpdateOrCreateTranslation(_translation);
+        var title = _translation.ConfirmSaveAs.ToUpper(CultureInfo.CurrentCulture);
+        var text = _translation.GetFileAlreadyExists(job.OutputFileTemplate);
 
-            if (job.Profile.SaveFileTemporary || !_file.Exists(filePath))
-                return new FileExistCheckResult(true, latestConfirmedPath);
+        var interaction = new MessageInteraction(text, title, MessageOptions.YesNo, MessageIcon.Exclamation);
 
-            _translation = _translationFactory.UpdateOrCreateTranslation(_translation);
-            var title = _translation.ConfirmSaveAs.ToUpper(CultureInfo.CurrentCulture);
-            var text = _translation.GetFileAlreadyExists(filePath);
+        var result = await _interactionRequest.RaiseAsync(interaction);
 
-            var interaction = new MessageInteraction(text, title, MessageOptions.YesNo, MessageIcon.Exclamation);
+        if (result.Response == MessageResponse.Yes)
+            return new FileExistCheckResult(true, filePath);
 
-            var result = await _interactionRequest.RaiseAsync(interaction);
-
-            if (result.Response == MessageResponse.Yes)
-                return new FileExistCheckResult(true, filePath);
-
-            return new FileExistCheckResult(false, "");
-        }
+        return new FileExistCheckResult(false, "");
     }
+}
 
-    public class FileExistCheckResult
+public class FileExistCheckResult
+{
+    public bool Success { get; }
+    public string ConfirmedPath { get; }
+
+    public FileExistCheckResult(bool success, string confirmedPath)
     {
-        public bool Success { get; }
-        public string ConfirmedPath { get; }
-
-        public FileExistCheckResult(bool success, string confirmedPath)
-        {
-            Success = success;
-            ConfirmedPath = confirmedPath;
-        }
+        Success = success;
+        ConfirmedPath = confirmedPath;
     }
 }

@@ -3,14 +3,13 @@ using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Home;
 using pdfforge.PDFCreator.UI.Presentation.Wrapper;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeHomeViewModel : HomeViewModel
 {
-    public class DesignTimeHomeViewModel : HomeViewModel
+    public DesignTimeHomeViewModel() : base(new DesignTimeTranslationUpdater(),
+        new DesignTimePrinterHelper(), new DesignTimePrintJobViewModel.DesignTimeSettingsProvider(), new DesignTimeJobHistoryActiveRecord(),
+        new DispatcherWrapper(), new DesignTimeCommandLocator(), new GpoSettingsDefaults())
     {
-        public DesignTimeHomeViewModel() : base(new DesignTimeTranslationUpdater(),
-            new DesignTimePrinterHelper(), new DesignTimePrintJobViewModel.DesignTimeSettingsProvider(), new DesignTimeJobHistoryActiveRecord(),
-            new DispatcherWrapper(), new DesignTimeCommandLocator(), new GpoSettingsDefaults())
-        {
-        }
     }
 }

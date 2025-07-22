@@ -1,10 +1,9 @@
 ﻿using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.Core.Workflow.Exceptions
+namespace pdfforge.PDFCreator.Core.Workflow.Exceptions;
+
+public interface IFailedJobHandler
 {
-    public interface IFailedJobHandler
-    {
-        void HandleFailedJob(Job job, ErrorCode? errorCode);
-    }
+    void HandleFailedJob(Job job, ErrorCode? errorCode);
 }

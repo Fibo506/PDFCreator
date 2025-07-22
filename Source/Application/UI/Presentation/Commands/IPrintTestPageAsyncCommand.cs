@@ -1,8 +1,7 @@
 ﻿using pdfforge.Obsidian;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Commands
+namespace pdfforge.PDFCreator.UI.Presentation.Commands;
+
+public interface IPrintTestPageAsyncCommand : IAsyncCommand
 {
-    public interface IPrintTestPageAsyncCommand : IAsyncCommand
-    {
-    }
 }

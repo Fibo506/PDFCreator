@@ -1,9 +1,8 @@
-﻿namespace pdfforge.PDFCreator.Core.StartupInterface
-{
-    public interface IStartupCondition
-    {
-        bool CanRequestUserInteraction { get; }
+﻿namespace pdfforge.PDFCreator.Core.StartupInterface;
 
-        StartupConditionResult Check();
-    }
+public interface IStartupCondition
+{
+    bool CanRequestUserInteraction { get; }
+
+    StartupConditionResult Check();
 }

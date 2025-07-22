@@ -48,7 +48,6 @@
             </ResourceDictionary.MergedDictionaries>
             <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse" TrueValue="Visible" FalseValue="Collapsed" />
             <converter:BoolNegationConverter x:Key="BoolNegationConverter" />
-            <converter:PreviewPagesListToFirstBitmapImageConverter x:Key="PreviewPagesListToFirstBitmapImage" />
             <converter:DateTimeToTwoLineStringConverter x:Key="DateTimeToTwoLineStringConverter" />
         </ResourceDictionary>
     </controls:MetroWindow.Resources>
@@ -123,7 +122,7 @@
                 Style="{StaticResource BrightBorder}"
                 Margin="0 0 -3 0">
             <Grid Margin="15 5 15 5">
-                <!-- !!! --> 
+                <!-- !!! -->
                 <!-- These column definitions need to be in sync with the once io the listbox item -->
                 <Grid.ColumnDefinitions>
                     <!-- 0 Select -->
@@ -131,7 +130,7 @@
                     <!-- 1 Margin -->
                     <ColumnDefinition Width="15" />
                     <!-- 2 Space for Preview -->
-                    <ColumnDefinition Width="52" />
+                    <ColumnDefinition Width="72" />
                     <!-- 3 Margin -->
                     <ColumnDefinition Width="15" />
                     <!-- 4 Title -->
@@ -232,7 +231,7 @@
                                 <!-- 1 Margin -->
                                 <ColumnDefinition Width="15" />
                                 <!-- 2 First Page Preview -->
-                                <ColumnDefinition Width="52" />
+                                <ColumnDefinition Width="72" />
                                 <!-- 3 Margin -->
                                 <ColumnDefinition Width="15" />
                                 <!-- 4 Title with Preview Toggle-->
@@ -269,41 +268,39 @@
                                       IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}"
                                       IsHitTestVisible="False" HorizontalAlignment="Center"/>
                             <!-- 1st Page Preview -->
-                            <Grid Grid.Column="2" Grid.Row="0" Height="72">
-                                <Border  MaxHeight="72" MaxWidth="52"
-                                         VerticalAlignment="Center"
-                                         HorizontalAlignment="Left">
-                                <Image Source="{Binding PreviewPageList, ElementName=PreviewControl,
-                                                Converter={StaticResource PreviewPagesListToFirstBitmapImage}}" 
-                                       Stretch="Uniform"/>
-                                </Border>
-                                <controls:ProgressRing Visibility="{Binding IsPreviewLoading, ElementName=PreviewControl,Converter={StaticResource CollapsedIfFalse}}"
-                                                       Width="20" Height="20"  />
+                            <Grid Grid.Column="2" Grid.Row="0">
+                                <Viewbox Name="PreviewViewbox">
+                                    <controls1:PreviewPageControl PreviewPage="{Binding PreviewPageList[0], ElementName=PreviewControl}"
+                                                                  ShowPageNumber="False"
+                                                                  ShowPreviewControls="False"/>
+                                </Viewbox>
                             </Grid>
                             <!-- Title with Preview Toggle-->
                             <Grid Grid.Column="4" Grid.Row="0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <DockPanel Grid.Row="0" VerticalAlignment="Center">
-                                    <Label DockPanel.Dock="Top">
-                                        <TextBlock Text="{Binding Metadata.PrintJobName}" />
-                                    </Label>
-                                    <TextBlock>
-                                        <Run Text="{Binding DataContext.Translation.PagesLabel, 
-                                                    RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
-                                                    Mode=OneWay}" />
-                                        <Run Text="{Binding TotalPages, Mode=OneWay}" />
-                                    </TextBlock>
-                                </DockPanel>
-                                <CheckBox Grid.Row="1"
+                                <Label Grid.Row="0" VerticalAlignment="Top">
+                                    <TextBlock Text="{Binding Metadata.PrintJobName}" />
+                                </Label>
+                                <TextBlock Grid.Row="1" VerticalAlignment="Top">
+                                    <Run Text="{Binding DataContext.Translation.PagesLabel, 
+                                                RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
+                                                Mode=OneWay}" />
+                                    <Run Text="{Binding TotalPages, Mode=OneWay}" />
+                                </TextBlock>
+                                <CheckBox Grid.Row="2"
+                                          Margin="0 0 0 0"
                                           Style="{StaticResource TriangleSwitchCheckBox}"
+                                          IsChecked="{Binding ExpandPreview}"
                                           Content="{Binding DataContext.Translation.Preview, 
                                                     RelativeSource={RelativeSource AncestorType=controls:MetroWindow}}"
                                           IsEnabled="{Binding IsPreviewLoading, ElementName=PreviewControl, 
                                                       Converter={StaticResource BoolNegationConverter} }"
-                                          Name="PreviewToggle"/>
+                                          Name="PreviewToggle"
+                                          VerticalAlignment="Bottom"/>
                             </Grid>
                             <!-- Author -->
                             <TextBlock Grid.Column="6" Grid.Row="0"

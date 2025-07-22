@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace pdfforge.PDFCreator.Core.Services.Translation
+namespace pdfforge.PDFCreator.Core.Services.Translation;
+
+public interface ILanguageProvider
 {
-    public interface ILanguageProvider
-    {
-        Language CurrentLanguage { get; }
+    Language CurrentLanguage { get; }
 
-        IEnumerable<Language> GetAvailableLanguages();
+    IEnumerable<Language> GetAvailableLanguages();
 
-        bool HasTranslation(string language);
+    bool HasTranslation(string language);
 
-        Language FindBestLanguage(CultureInfo culture);
+    Language FindBestLanguage(CultureInfo culture);
 
-        Language FindBestLanguage(string language);
-    }
+    Language FindBestLanguage(string language);
 }

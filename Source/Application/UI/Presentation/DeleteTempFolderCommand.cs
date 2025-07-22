@@ -1,36 +1,35 @@
-﻿using pdfforge.PDFCreator.Utilities;
-using System;
+﻿using System;
 using System.Windows.Input;
+using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation
+namespace pdfforge.PDFCreator.UI.Presentation;
+
+public interface IDeleteTempFolderCommand : ICommand
 {
-    public interface IDeleteTempFolderCommand : ICommand
+}
+
+public class DeleteTempFolderCommand : IDeleteTempFolderCommand
+{
+    private readonly ITempDirectoryHelper _tempDirectory;
+
+    public DeleteTempFolderCommand(ITempDirectoryHelper tempDirectory)
     {
+        _tempDirectory = tempDirectory;
     }
 
-    public class DeleteTempFolderCommand : IDeleteTempFolderCommand
+    public bool CanExecute(object parameter)
     {
-        private readonly ITempDirectoryHelper _tempDirectory;
+        return true;
+    }
 
-        public DeleteTempFolderCommand(ITempDirectoryHelper tempDirectory)
-        {
-            _tempDirectory = tempDirectory;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
-        public void Execute(object parameter)
-        {
-            _tempDirectory.CleanUp();
-        }
+    public void Execute(object parameter)
+    {
+        _tempDirectory.CleanUp();
+    }
 
 #pragma warning disable CS0067
 
-        public event EventHandler CanExecuteChanged;
+    public event EventHandler CanExecuteChanged;
 
 #pragma warning restore CS0067
-    }
 }

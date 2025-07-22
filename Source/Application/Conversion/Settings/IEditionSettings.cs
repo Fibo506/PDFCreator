@@ -1,7 +1,6 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Settings
+﻿namespace pdfforge.PDFCreator.Conversion.Settings;
+
+public interface IEditionSettings
 {
-    public interface IEditionSettings
-    {
-        ApplicationSettings ApplicationSettings { get; set; }
-    }
+    ApplicationSettings ApplicationSettings { get; set; }
 }

@@ -1,12 +1,11 @@
-﻿using pdfforge.PDFCreator.Conversion.Settings;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using pdfforge.PDFCreator.Conversion.Settings;
 
-namespace pdfforge.PDFCreator.Conversion.ActionsInterface
+namespace pdfforge.PDFCreator.Conversion.ActionsInterface;
+
+public interface IActionOrderHelper
 {
-    public interface IActionOrderHelper
-    {
-        void EnsureValidOrder(List<string> currentActionOrderList);
+    void EnsureValidOrder(List<string> currentActionOrderList);
 
-        void CleanUpAndEnsureValidOrder(IEnumerable<ConversionProfile> profiles);
-    }
+    void CleanUpAndEnsureValidOrder(IEnumerable<ConversionProfile> profiles);
 }

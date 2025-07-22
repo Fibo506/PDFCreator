@@ -1,14 +1,13 @@
-﻿using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Workflow
+namespace pdfforge.PDFCreator.UI.Presentation.Workflow;
+
+public interface IWorkflowStep
 {
-    public interface IWorkflowStep
-    {
-        string NavigationUri { get; }
+    string NavigationUri { get; }
 
-        bool IsStepRequired(Job job);
+    bool IsStepRequired(Job job);
 
-        Task ExecuteStep(Job job, IWorkflowViewModel workflowViewModel);
-    }
+    Task ExecuteStep(Job job, IWorkflowViewModel workflowViewModel);
 }

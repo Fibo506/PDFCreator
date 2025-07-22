@@ -1,86 +1,85 @@
-﻿using NLog;
+﻿using System.Collections.Generic;
+using System.Linq;
+using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace pdfforge.PDFCreator.Core.DirectConversion
+namespace pdfforge.PDFCreator.Core.DirectConversion;
+
+public interface IDirectConversion
 {
-    public interface IDirectConversion
+    void ConvertDirectly(IList<string> files, AppStartParameters appStartParameters = null);
+
+    bool IsDirectConversion(string file);
+
+    bool IsImageConversion(string file);
+
+    void ConvertImagesDirectly(IList<string> files, AppStartParameters appStartParameters = null);
+}
+
+public class DirectConversion : IDirectConversion
+{
+    internal static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+    private readonly IDirectConversionHelper _directConversionHelper;
+    private readonly IDirectConversionInfFileHelper _directConversionInfFileHelper;
+    private readonly IJobInfoManager _jobInfoManager;
+    private readonly IJobInfoQueue _jobInfoQueue;
+    private readonly IDirectImageConversionHelper _directImageConversionHelper;
+
+    public DirectConversion(
+        IDirectConversionHelper directConversionHelper,
+        IDirectConversionInfFileHelper directConversionInfFileHelper,
+        IJobInfoManager jobInfoManager,
+        IJobInfoQueue jobInfoQueue,
+        IDirectImageConversionHelper directImageConversionHelper)
     {
-        void ConvertDirectly(IList<string> files, AppStartParameters appStartParameters = null);
-
-        bool IsDirectConversion(string file);
-
-        bool IsImageConversion(string file);
-
-        void ConvertImagesDirectly(IList<string> files, AppStartParameters appStartParameters = null);
+        _directConversionHelper = directConversionHelper;
+        _directConversionInfFileHelper = directConversionInfFileHelper;
+        _jobInfoManager = jobInfoManager;
+        _jobInfoQueue = jobInfoQueue;
+        _directImageConversionHelper = directImageConversionHelper;
     }
 
-    public class DirectConversion : IDirectConversion
+    public bool IsDirectConversion(string file)
     {
-        internal static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        return _directConversionHelper.IsDirectConversion(file);
+    }
 
-        private readonly IDirectConversionHelper _directConversionHelper;
-        private readonly IDirectConversionInfFileHelper _directConversionInfFileHelper;
-        private readonly IJobInfoManager _jobInfoManager;
-        private readonly IJobInfoQueue _jobInfoQueue;
-        private readonly IDirectImageConversionHelper _directImageConversionHelper;
-
-        public DirectConversion(
-            IDirectConversionHelper directConversionHelper,
-            IDirectConversionInfFileHelper directConversionInfFileHelper,
-            IJobInfoManager jobInfoManager,
-            IJobInfoQueue jobInfoQueue,
-            IDirectImageConversionHelper directImageConversionHelper)
+    public void ConvertDirectly(IList<string> files, AppStartParameters appStartParameters = null)
+    {
+        var infFile = "";
+        if (appStartParameters != null && appStartParameters.Merge)
+            infFile = _directConversionInfFileHelper.TransformToInfFileWithMerge(files, appStartParameters);
+        else
         {
-            _directConversionHelper = directConversionHelper;
-            _directConversionInfFileHelper = directConversionInfFileHelper;
-            _jobInfoManager = jobInfoManager;
-            _jobInfoQueue = jobInfoQueue;
-            _directImageConversionHelper = directImageConversionHelper;
+            infFile = appStartParameters != null ?
+                _directConversionInfFileHelper.TransformToInfFile(files.First(), appStartParameters) :
+                _directConversionInfFileHelper.TransformToInfFile(files.First());
         }
 
-        public bool IsDirectConversion(string file)
-        {
-            return _directConversionHelper.IsDirectConversion(file);
-        }
+        if (string.IsNullOrEmpty(infFile))
+            return;
 
-        public void ConvertDirectly(IList<string> files, AppStartParameters appStartParameters = null)
-        {
-            var infFile = "";
-            if (appStartParameters != null && appStartParameters.Merge)
-                infFile = _directConversionInfFileHelper.TransformToInfFileWithMerge(files, appStartParameters);
-            else
-            {
-                infFile = appStartParameters != null ?
-                    _directConversionInfFileHelper.TransformToInfFile(files.First(), appStartParameters) :
-                    _directConversionInfFileHelper.TransformToInfFile(files.First());
-            }
+        Logger.Debug("Adding new job.");
+        var jobInfo = _jobInfoManager.ReadFromInfFile(infFile);
+        _jobInfoQueue.Add(jobInfo);
+    }
 
-            if (string.IsNullOrEmpty(infFile))
-                return;
+    public bool IsImageConversion(string file)
+    {
+        return _directConversionHelper.IsImageConversion(file);
+    }
 
-            Logger.Debug("Adding new job.");
-            var jobInfo = _jobInfoManager.ReadFromInfFile(infFile);
-            _jobInfoQueue.Add(jobInfo);
-        }
+    public void ConvertImagesDirectly(IList<string> files, AppStartParameters appStartParameters = null)
+    {
+        var infFile = _directImageConversionHelper.TransformToInfFileDirectImageConversion(files, appStartParameters);
 
-        public bool IsImageConversion(string file)
-        {
-            return _directConversionHelper.IsImageConversion(file);
-        }
+        if (string.IsNullOrEmpty(infFile))
+            return;
 
-        public void ConvertImagesDirectly(IList<string> files, AppStartParameters appStartParameters = null)
-        {
-            var infFile = _directImageConversionHelper.TransformToInfFileDirectImageConversion(files, appStartParameters);
-
-            if (string.IsNullOrEmpty(infFile))
-                return;
-
-            Logger.Debug("Adding new job.");
-            var jobInfo = _jobInfoManager.ReadFromInfFile(infFile);
-            _jobInfoQueue.Add(jobInfo);
-        }
+        Logger.Debug("Adding new job.");
+        var jobInfo = _jobInfoManager.ReadFromInfFile(infFile);
+        _jobInfoQueue.Add(jobInfo);
     }
 }

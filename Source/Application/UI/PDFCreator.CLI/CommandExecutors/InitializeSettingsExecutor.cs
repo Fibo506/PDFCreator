@@ -4,41 +4,40 @@ using pdfforge.PDFCreator.Core.SettingsManagement;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using pdfforge.PDFCreator.UI.CLI.Helper;
 
-namespace pdfforge.PDFCreator.UI.CLI.CommandExecutors
+namespace pdfforge.PDFCreator.UI.CLI.CommandExecutors;
+
+public class InitializeSettingsExecutor : ICommandExecutor
 {
-    public class InitializeSettingsExecutor : ICommandExecutor
+    private ISettingsManager _settingsManager;
+
+    public void InitializeDependencies()
     {
-        private ISettingsManager _settingsManager;
+        var container = BootstrapperHelper.GetConfiguredContainer();
+        InitializeDependencies(container.GetInstance<ISettingsManager>());
+    }
 
-        public void InitializeDependencies()
+    public void InitializeDependencies(ISettingsManager settingsManager)
+    {
+        _settingsManager = settingsManager;
+    }
+
+    public CheckResult IsExecutable()
+    {
+        return CheckResult.Success();
+    }
+
+    public Task<CommandResult> Execute()
+    {
+        try
         {
-            var container = BootstrapperHelper.GetConfiguredContainer();
-            InitializeDependencies(container.GetInstance<ISettingsManager>());
+            _settingsManager.LoadAllSettings();
+            _settingsManager.SaveCurrentSettings();
+        }
+        catch (Exception ex)
+        {
+            return Task.FromResult(CommandResult.Error(ExitCode.Unknown, "There was an error while initializing the settings: " + ex.Message));
         }
 
-        public void InitializeDependencies(ISettingsManager settingsManager)
-        {
-            _settingsManager = settingsManager;
-        }
-
-        public CheckResult IsExecutable()
-        {
-            return CheckResult.Success();
-        }
-
-        public Task<CommandResult> Execute()
-        {
-            try
-            {
-                _settingsManager.LoadAllSettings();
-                _settingsManager.SaveCurrentSettings();
-            }
-            catch (Exception ex)
-            {
-                return Task.FromResult(CommandResult.Error(ExitCode.Unknown, "There was an error while initializing the settings: " + ex.Message));
-            }
-
-            return Task.FromResult(CommandResult.Success());
-        }
+        return Task.FromResult(CommandResult.Success());
     }
 }

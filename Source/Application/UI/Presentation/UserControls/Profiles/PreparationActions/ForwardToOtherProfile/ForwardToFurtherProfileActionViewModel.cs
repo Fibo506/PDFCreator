@@ -1,99 +1,97 @@
-﻿using pdfforge.PDFCreator.Conversion.Actions.Actions;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
+using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Core.Services.Translation;
 using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
-using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
-using System.Collections.ObjectModel;
-using System.Linq;
 using pdfforge.PDFCreator.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile
+namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile;
+
+public interface IForwardToFurtherProfileViewModel : IActionViewModel
 {
-    public interface IForwardToFurtherProfileViewModel : IActionViewModel
-    {
-        bool IsBusinessEdition { get; }
-        ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; }
+    bool IsBusinessEdition { get; }
+    ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; }
 
-        ConversionProfileWrapper ForwardProfileWrapper { get; }
+    ConversionProfileWrapper ForwardProfileWrapper { get; }
+}
+
+public class ForwardToFurtherProfileActionViewModel : ForwardToFurtherProfileViewModelBase<ForwardToFurtherProfileTranslation>
+{
+    public ForwardToFurtherProfileActionViewModel(ITranslationUpdater translationUpdater,
+        IDispatcher dispatcher,
+        EditionHelper editionHelper, IActionLocator actionLocator,
+        ErrorCodeInterpreter errorCodeInterpreter,
+        ICurrentSettingsProvider currentSettingsProvider,
+        IDefaultSettingsBuilder defaultSettingsBuilder,
+        IActionOrderHelper actionOrderHelper)
+        : base(translationUpdater, dispatcher, editionHelper, actionLocator, errorCodeInterpreter, currentSettingsProvider, defaultSettingsBuilder, actionOrderHelper)
+    {
+    }
+}
+
+public abstract class ForwardToFurtherProfileViewModelBase<TTranslation> : ActionViewModelBase<ForwardToFurtherProfileActionBase, TTranslation>, IForwardToFurtherProfileViewModel where TTranslation : IActionTranslation, new()
+{
+    private readonly ICurrentSettingsProvider _currentSettingsProvider;
+    public bool IsBusinessEdition { get; }
+
+    public ForwardToFurtherProfileViewModelBase(ITranslationUpdater translationUpdater,
+                                          IDispatcher dispatcher,
+                                          EditionHelper editionHelper,
+                                          IActionLocator actionLocator,
+                                          ErrorCodeInterpreter errorCodeInterpreter,
+                                          ICurrentSettingsProvider currentSettingsProvider,
+                                          IDefaultSettingsBuilder defaultSettingsBuilder,
+                                          IActionOrderHelper actionOrderHelper)
+        : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
+    {
+        _currentSettingsProvider = currentSettingsProvider;
+        IsBusinessEdition = !editionHelper.IsFreeEdition;
     }
 
-    public class ForwardToFurtherProfileActionViewModel : ForwardToFurtherProfileViewModelBase<ForwardToFurtherProfileTranslation>
+    public ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; private set; }
+
+    private ConversionProfileWrapper _forwardProfile;
+
+    public ConversionProfileWrapper ForwardProfileWrapper
     {
-        public ForwardToFurtherProfileActionViewModel(ITranslationUpdater translationUpdater,
-            IDispatcher dispatcher,
-            EditionHelper editionHelper, IActionLocator actionLocator,
-            ErrorCodeInterpreter errorCodeInterpreter,
-            ICurrentSettingsProvider currentSettingsProvider,
-            IDefaultSettingsBuilder defaultSettingsBuilder,
-            IActionOrderHelper actionOrderHelper)
-            : base(translationUpdater, dispatcher, editionHelper, actionLocator, errorCodeInterpreter, currentSettingsProvider, defaultSettingsBuilder, actionOrderHelper)
+        get { return _forwardProfile; }
+        set
         {
+            if (value != null)
+            {
+                CurrentProfile.ForwardToFurtherProfile.ProfileGuid = value.ConversionProfile.Guid;
+                _forwardProfile = value;
+            }
         }
     }
 
-    public abstract class ForwardToFurtherProfileViewModelBase<TTranslation> : ActionViewModelBase<ForwardToFurtherProfileActionBase, TTranslation>, IForwardToFurtherProfileViewModel where TTranslation : IActionTranslation, new()
+    private void InitCombobox()
     {
-        private readonly ICurrentSettingsProvider _currentSettingsProvider;
-        public bool IsBusinessEdition { get; }
+        ProfilesWrapper = _currentSettingsProvider.CheckSettings.Profiles.Where(p => p.Guid != CurrentProfile.Guid).Select(x => new ConversionProfileWrapper(x)).ToObservableCollection();
+        _forwardProfile = ProfilesWrapper.FirstOrDefault(x => x.ConversionProfile.Guid == CurrentProfile.ForwardToFurtherProfile.ProfileGuid);
 
-        public ForwardToFurtherProfileViewModelBase(ITranslationUpdater translationUpdater,
-                                              IDispatcher dispatcher,
-                                              EditionHelper editionHelper,
-                                              IActionLocator actionLocator,
-                                              ErrorCodeInterpreter errorCodeInterpreter,
-                                              ICurrentSettingsProvider currentSettingsProvider,
-                                              IDefaultSettingsBuilder defaultSettingsBuilder,
-                                              IActionOrderHelper actionOrderHelper)
-            : base(actionLocator, errorCodeInterpreter, translationUpdater, currentSettingsProvider, dispatcher, defaultSettingsBuilder, actionOrderHelper)
+        // Important: SelectedProfile must be raised before Profiles.
+        // Otherwise, the UI will update the binding source and overwrite the selected profile.
+        RaisePropertyChanged(nameof(ForwardProfileWrapper));
+        RaisePropertyChanged(nameof(ProfilesWrapper));
+    }
+
+    protected override string SettingsPreviewString
+    {
+        get
         {
-            _currentSettingsProvider = currentSettingsProvider;
-            IsBusinessEdition = !editionHelper.IsFreeEdition;
+            var forwardProfileGuid = CurrentProfile.ForwardToFurtherProfile.ProfileGuid;
+            var profile = _currentSettingsProvider.CheckSettings.Profiles.FirstOrDefault(p => p.Guid == forwardProfileGuid);
+            return profile != null ? profile.Name : string.Empty;
         }
+    }
 
-        public ObservableCollection<ConversionProfileWrapper> ProfilesWrapper { get; private set; }
-
-        private ConversionProfileWrapper _forwardProfile;
-
-        public ConversionProfileWrapper ForwardProfileWrapper
-        {
-            get { return _forwardProfile; }
-            set
-            {
-                if (value != null)
-                {
-                    CurrentProfile.ForwardToFurtherProfile.ProfileGuid = value.ConversionProfile.Guid;
-                    _forwardProfile = value;
-                }
-            }
-        }
-
-        private void InitCombobox()
-        {
-            ProfilesWrapper = _currentSettingsProvider.CheckSettings.Profiles.Where(p => p.Guid != CurrentProfile.Guid).Select(x => new ConversionProfileWrapper(x)).ToObservableCollection();
-            _forwardProfile = ProfilesWrapper.FirstOrDefault(x => x.ConversionProfile.Guid == CurrentProfile.ForwardToFurtherProfile.ProfileGuid);
-
-            // Important: SelectedProfile must be raised before Profiles.
-            // Otherwise, the UI will update the binding source and overwrite the selected profile.
-            RaisePropertyChanged(nameof(ForwardProfileWrapper));
-            RaisePropertyChanged(nameof(ProfilesWrapper));
-        }
-
-        protected override string SettingsPreviewString
-        {
-            get
-            {
-                var forwardProfileGuid = CurrentProfile.ForwardToFurtherProfile.ProfileGuid;
-                var profile = _currentSettingsProvider.CheckSettings.Profiles.FirstOrDefault(p => p.Guid == forwardProfileGuid);
-                return profile != null ? profile.Name : string.Empty;
-            }
-        }
-
-        public new void MountView()
-        {
-            base.MountView();
-            InitCombobox();
-        }
+    public new void MountView()
+    {
+        base.MountView();
+        InitCombobox();
     }
 }

@@ -1,26 +1,24 @@
-﻿using Prism;
-using System;
-using System.Windows;
+﻿using System;
 using System.Windows.Controls;
+using Prism;
 using Prism.Regions;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Controls.Tab
+namespace pdfforge.PDFCreator.UI.Presentation.Controls.Tab;
+
+public class SubTabItem : TabItem, IActiveAware, IRegionMemberLifetime
 {
-    public class SubTabItem : TabItem, IActiveAware, IRegionMemberLifetime
+    private bool _isActive;
+
+    public bool IsActive
     {
-        private bool _isActive;
-
-        public bool IsActive
+        get => _isActive;
+        set
         {
-            get => _isActive;
-            set
-            {
-                _isActive = value;
-                IsActiveChanged?.Invoke(this, EventArgs.Empty);
-            }
+            _isActive = value;
+            IsActiveChanged?.Invoke(this, EventArgs.Empty);
         }
-
-        public event EventHandler IsActiveChanged;
-        public bool KeepAlive { get; } = true;
     }
+
+    public event EventHandler IsActiveChanged;
+    public bool KeepAlive { get; } = true;
 }

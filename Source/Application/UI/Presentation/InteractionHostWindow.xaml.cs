@@ -1,22 +1,21 @@
-﻿using MahApps.Metro.Controls;
+﻿using System.Windows;
+using MahApps.Metro.Controls;
 using pdfforge.Obsidian.Trigger;
-using System.Windows;
 
-namespace pdfforge.PDFCreator.UI.Presentation
+namespace pdfforge.PDFCreator.UI.Presentation;
+
+public partial class InteractionHostWindow : MetroWindow
 {
-    public partial class InteractionHostWindow : MetroWindow
+    public IInteractionRequest InteractionRequest { get; }
+
+    public InteractionHostWindow(IInteractionRequest interactionRequest)
     {
-        public IInteractionRequest InteractionRequest { get; }
+        InteractionRequest = interactionRequest;
+        InitializeComponent();
+    }
 
-        public InteractionHostWindow(IInteractionRequest interactionRequest)
-        {
-            InteractionRequest = interactionRequest;
-            InitializeComponent();
-        }
-
-        private void InteractionHostWindow_OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            OverlayActionTrigger.Actions.Clear();
-        }
+    private void InteractionHostWindow_OnUnloaded(object sender, RoutedEventArgs e)
+    {
+        OverlayActionTrigger.Actions.Clear();
     }
 }

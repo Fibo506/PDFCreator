@@ -1,221 +1,220 @@
-﻿using NLog;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Services.JobEvents;
 using pdfforge.PDFCreator.Core.Workflow.Exceptions;
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+/// <summary>
+///     Defines the different stats the workflow can be in
+/// </summary>
+public enum WorkflowResultState
 {
-    /// <summary>
-    ///     Defines the different stats the workflow can be in
-    /// </summary>
-    public enum WorkflowResultState
+    Init,
+    AbortedByUser,
+    Error,
+    Finished
+}
+
+public class WorkflowResult
+{
+    public static implicit operator WorkflowResultState(WorkflowResult workflowResult)
     {
-        Init,
-        AbortedByUser,
-        Error,
-        Finished
+        return workflowResult.State;
     }
 
-    public class WorkflowResult
+    public WorkflowResultState State { get; }
+    public ActionResult ActionResult { get; }
+
+    private WorkflowResult(WorkflowResultState state, ActionResult actionResult)
     {
-        public static implicit operator WorkflowResultState(WorkflowResult workflowResult)
+        State = state;
+        ActionResult = actionResult;
+    }
+
+    public static WorkflowResult FromStateAndActionResult(WorkflowResultState state, ActionResult results)
+    {
+        return new WorkflowResult(state, results);
+    }
+
+    public static WorkflowResult FromState(WorkflowResultState state)
+    {
+        return new WorkflowResult(state, new ActionResult());
+    }
+
+    public static WorkflowResult FromError(ErrorCode errorCode)
+    {
+        return new WorkflowResult(WorkflowResultState.Error, new ActionResult(errorCode));
+    }
+}
+
+/// <summary>
+///     The ConversionWorkflow class handles all required steps to convert a PostScript file.
+///     If required (i.e. during interactive conversion), the respective requests are invoked
+///     on the IWorkflowInformationQuery implementation.
+/// </summary>
+public abstract class ConversionWorkflow : IConversionWorkflow
+{
+    protected abstract IJobEventsManager JobEventsManager { get; }
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
+    /// <summary>
+    ///     The step the workflow currently is in
+    /// </summary>
+    protected WorkflowResultState WorkflowResultState;
+
+    protected abstract IJobDataUpdater JobDataUpdater { get; }
+
+    public ErrorCode? LastError { get; private set; }
+
+    public event EventHandler JobFinished;
+
+    private Stopwatch _stopwatch;
+
+    /// <summary>
+    ///     Runs all steps and user interaction that is required during the conversion
+    /// </summary>
+    public WorkflowResult RunWorkflow(Job job)
+    {
+        try
         {
-            return workflowResult.State;
+            _stopwatch = new Stopwatch();
+            _stopwatch.Start();
+            JobEventsManager.RaiseJobStarted(job, Thread.CurrentThread.ManagedThreadId.ToString());
+
+            PrepareAndRun(job);
+        }
+        catch (AbortWorkflowException ex)
+        {
+            WorkflowResultState = WorkflowResultState.AbortedByUser;
+            // we need to clean up the job when it was cancelled
+            _logger.Warn(ex.Message + " No output will be created.");
+
+            SendJobEvents(job);
+            return WorkflowResult.FromState(WorkflowResultState.AbortedByUser);
+        }
+        catch (WorkflowException ex)
+        {
+            WorkflowResultState = WorkflowResultState.Error;
+            _logger.Error(ex.Message);
+
+            SendJobEvents(job);
+            return WorkflowResult.FromState(WorkflowResultState.Error);
+        }
+        catch (ProcessingException ex)
+        {
+            HandleProcessingException(ex, new ActionResult(ex.ErrorCode), false);
+
+            SendJobEvents(job);
+            return WorkflowResult.FromError(ex.ErrorCode);
+        }
+        catch (AggregateProcessingException ex)
+        {
+            HandleProcessingException(ex, ex.Result, true);
+
+            SendJobEvents(job);
+            return WorkflowResult.FromStateAndActionResult(WorkflowResultState.Finished, ex.Result);
+        }
+        catch (ManagePrintJobsException)
+        {
+            throw;
+        }
+        catch (InterruptWorkflowException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            WorkflowResultState = WorkflowResultState.Error;
+            _logger.Error(ex);
+            SendJobEvents(job);
+
+            throw;
         }
 
-        public WorkflowResultState State { get; }
-        public ActionResult ActionResult { get; }
+        return WorkflowResult.FromState(WorkflowResultState);
+    }
 
-        private WorkflowResult(WorkflowResultState state, ActionResult actionResult)
+    private void HandleProcessingException(Exception ex, ActionResult result, bool justWarn)
+    {
+        WorkflowResultState = justWarn ? WorkflowResultState.Finished : WorkflowResultState.Error;
+        var errorMessage = ex.Message + Environment.NewLine + string.Join(Environment.NewLine, result);
+        if (ex.InnerException != null)
         {
-            State = state;
-            ActionResult = actionResult;
+            errorMessage += Environment.NewLine + ex.InnerException;
         }
 
-        public static WorkflowResult FromStateAndActionResult(WorkflowResultState state, ActionResult results)
+        LastError = result.Last();
+        if (justWarn)
         {
-            return new WorkflowResult(state, results);
+            _logger.Warn(errorMessage);
         }
-
-        public static WorkflowResult FromState(WorkflowResultState state)
+        else
         {
-            return new WorkflowResult(state, new ActionResult());
-        }
-
-        public static WorkflowResult FromError(ErrorCode errorCode)
-        {
-            return new WorkflowResult(WorkflowResultState.Error, new ActionResult(errorCode));
+            _logger.Error(errorMessage);
         }
     }
 
-    /// <summary>
-    ///     The ConversionWorkflow class handles all required steps to convert a PostScript file.
-    ///     If required (i.e. during interactive conversion), the respective requests are invoked
-    ///     on the IWorkflowInformationQuery implementation.
-    /// </summary>
-    public abstract class ConversionWorkflow : IConversionWorkflow
+    private void SendJobEvents(Job job)
     {
-        protected abstract IJobEventsManager JobEventsManager { get; }
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        _stopwatch.Stop();
+        var elapsedTime = TimeSpan.FromTicks(_stopwatch.ElapsedMilliseconds);
 
-        /// <summary>
-        ///     The step the workflow currently is in
-        /// </summary>
-        protected WorkflowResultState WorkflowResultState;
-
-        protected abstract IJobDataUpdater JobDataUpdater { get; }
-
-        public ErrorCode? LastError { get; private set; }
-
-        public event EventHandler JobFinished;
-
-        private Stopwatch _stopwatch;
-
-        /// <summary>
-        ///     Runs all steps and user interaction that is required during the conversion
-        /// </summary>
-        public WorkflowResult RunWorkflow(Job job)
+        switch (WorkflowResultState)
         {
-            try
-            {
-                _stopwatch = new Stopwatch();
-                _stopwatch.Start();
-                JobEventsManager.RaiseJobStarted(job, Thread.CurrentThread.ManagedThreadId.ToString());
+            case WorkflowResultState.AbortedByUser:
+                JobEventsManager.RaiseJobFailed(job, elapsedTime, FailureReason.AbortedByUser);
+                break;
 
-                PrepareAndRun(job);
-            }
-            catch (AbortWorkflowException ex)
-            {
-                WorkflowResultState = WorkflowResultState.AbortedByUser;
-                // we need to clean up the job when it was cancelled
-                _logger.Warn(ex.Message + " No output will be created.");
+            case WorkflowResultState.Error:
+                JobEventsManager.RaiseJobFailed(job, elapsedTime, FailureReason.Error);
+                break;
 
-                SendJobEvents(job);
-                return WorkflowResult.FromState(WorkflowResultState.AbortedByUser);
-            }
-            catch (WorkflowException ex)
-            {
-                WorkflowResultState = WorkflowResultState.Error;
-                _logger.Error(ex.Message);
-
-                SendJobEvents(job);
-                return WorkflowResult.FromState(WorkflowResultState.Error);
-            }
-            catch (ProcessingException ex)
-            {
-                HandleProcessingException(ex, new ActionResult(ex.ErrorCode), false);
-
-                SendJobEvents(job);
-                return WorkflowResult.FromError(ex.ErrorCode);
-            }
-            catch (AggregateProcessingException ex)
-            {
-                HandleProcessingException(ex, ex.Result, true);
-
-                SendJobEvents(job);
-                return WorkflowResult.FromStateAndActionResult(WorkflowResultState.Finished, ex.Result);
-            }
-            catch (ManagePrintJobsException)
-            {
-                throw;
-            }
-            catch (InterruptWorkflowException)
-            {
-                throw;
-            }
-            catch (Exception ex)
-            {
-                WorkflowResultState = WorkflowResultState.Error;
-                _logger.Error(ex);
-                SendJobEvents(job);
-
-                throw;
-            }
-
-            return WorkflowResult.FromState(WorkflowResultState);
+            case WorkflowResultState.Finished:
+                JobEventsManager.RaiseJobCompleted(job, elapsedTime);
+                break;
         }
+    }
 
-        private void HandleProcessingException(Exception ex, ActionResult result, bool justWarn)
+    protected abstract void DoWorkflowWork(Job job);
+
+    private void PrepareAndRun(Job job)
+    {
+        WorkflowResultState = WorkflowResultState.Init;
+
+        _logger.Debug("Starting conversion...");
+
+        var originalMetadata = job.JobInfo.Metadata.Copy();
+        job.InitMetadataWithTemplatesFromProfile();
+
+        JobDataUpdater.UpdateTokensAndMetadata(job);
+
+        try
         {
-            WorkflowResultState = justWarn ? WorkflowResultState.Finished : WorkflowResultState.Error;
-            var errorMessage = ex.Message + Environment.NewLine + string.Join(Environment.NewLine, result);
-            if (ex.InnerException != null)
-            {
-                errorMessage += Environment.NewLine + ex.InnerException;
-            }
+            DoWorkflowWork(job);
+            WorkflowResultState = WorkflowResultState.Finished;
 
-            LastError = result.Last();
-            if (justWarn)
-            {
-                _logger.Warn(errorMessage);
-            }
-            else
-            {
-                _logger.Error(errorMessage);
-            }
+            SendJobEvents(job);
         }
-
-        private void SendJobEvents(Job job)
+        catch (ManagePrintJobsException)
         {
-            _stopwatch.Stop();
-            var elapsedTime = TimeSpan.FromTicks(_stopwatch.ElapsedMilliseconds);
-
-            switch (WorkflowResultState)
-            {
-                case WorkflowResultState.AbortedByUser:
-                    JobEventsManager.RaiseJobFailed(job, elapsedTime, FailureReason.AbortedByUser);
-                    break;
-
-                case WorkflowResultState.Error:
-                    JobEventsManager.RaiseJobFailed(job, elapsedTime, FailureReason.Error);
-                    break;
-
-                case WorkflowResultState.Finished:
-                    JobEventsManager.RaiseJobCompleted(job, elapsedTime);
-                    break;
-            }
+            // revert metadata changes and rethrow exception
+            job.JobInfo.Metadata = originalMetadata;
+            throw;
         }
-
-        protected abstract void DoWorkflowWork(Job job);
-
-        private void PrepareAndRun(Job job)
+        finally
         {
-            WorkflowResultState = WorkflowResultState.Init;
-
-            _logger.Debug("Starting conversion...");
-
-            var originalMetadata = job.JobInfo.Metadata.Copy();
-            job.InitMetadataWithTemplatesFromProfile();
-
-            JobDataUpdater.UpdateTokensAndMetadata(job);
-
-            try
-            {
-                DoWorkflowWork(job);
-                WorkflowResultState = WorkflowResultState.Finished;
-
-                SendJobEvents(job);
-            }
-            catch (ManagePrintJobsException)
-            {
-                // revert metadata changes and rethrow exception
-                job.JobInfo.Metadata = originalMetadata;
-                throw;
-            }
-            finally
-            {
-                OnJobFinished(EventArgs.Empty);
-            }
+            OnJobFinished(EventArgs.Empty);
         }
+    }
 
-        protected void OnJobFinished(EventArgs e)
-        {
-            JobFinished?.Invoke(this, e);
-        }
+    protected void OnJobFinished(EventArgs e)
+    {
+        JobFinished?.Invoke(this, e);
     }
 }

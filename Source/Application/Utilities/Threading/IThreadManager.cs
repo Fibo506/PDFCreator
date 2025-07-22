@@ -2,30 +2,29 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace pdfforge.PDFCreator.Utilities.Threading
+namespace pdfforge.PDFCreator.Utilities.Threading;
+
+public interface IThreadManager
 {
-    public interface IThreadManager
-    {
-        Action UpdateAfterShutdownAction { get; set; }
-        TimeSpan HotStandbyDuration { get; set; }
-        bool IsStandbyDisabled { get; set; }
+    Action UpdateAfterShutdownAction { get; set; }
+    TimeSpan HotStandbyDuration { get; set; }
+    bool IsStandbyDisabled { get; set; }
 
-        event EventHandler<ThreadFinishedEventArgs> CleanUpAfterThreadClosed;
+    event EventHandler<ThreadFinishedEventArgs> CleanUpAfterThreadClosed;
 
-        event EventHandler StandbyStarted;
+    event EventHandler StandbyStarted;
 
-        event EventHandler StandbyEnded;
+    event EventHandler StandbyEnded;
 
-        void StartSynchronizedThread(ISynchronizedThread thread);
+    void StartSynchronizedThread(ISynchronizedThread thread);
 
-        ISynchronizedThread StartSynchronizedThread(ThreadStart threadMethod, string threadName);
+    ISynchronizedThread StartSynchronizedThread(ThreadStart threadMethod, string threadName);
 
-        ISynchronizedThread StartSynchronizedUiThread(ThreadStart threadMethod, string threadName);
+    ISynchronizedThread StartSynchronizedUiThread(ThreadStart threadMethod, string threadName);
 
-        void Shutdown();
+    void Shutdown();
 
-        Task WaitForThreads();
+    Task WaitForThreads();
 
-        void StopHotStandby();
-    }
+    void StopHotStandby();
 }

@@ -1,8 +1,7 @@
-﻿namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs
+﻿namespace pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+
+public enum JobType
 {
-    public enum JobType
-    {
-        PsJob,
-        XpsJob
-    }
+    PsJob,
+    XpsJob
 }

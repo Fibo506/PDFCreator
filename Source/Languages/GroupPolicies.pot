@@ -216,10 +216,7 @@ msgstr ""
 msgid "Catalan"
 msgstr ""
 
-msgid "Chinese (Simplified)"
-msgstr ""
-
-msgid "Chinese (Traditional)"
+msgid "Chinese"
 msgstr ""
 
 msgid "Corsican (France)"
@@ -259,6 +256,9 @@ msgid "Lithuanian"
 msgstr ""
 
 msgid "Polish"
+msgstr ""
+
+msgid "Portuguese (Brazil)"
 msgstr ""
 
 msgid "Spanish"

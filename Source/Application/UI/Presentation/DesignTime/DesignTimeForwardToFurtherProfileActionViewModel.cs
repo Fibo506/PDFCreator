@@ -3,20 +3,19 @@ using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile;
 using Translatable;
 
-namespace pdfforge.PDFCreator.UI.Presentation.DesignTime
+namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
+
+public class DesignTimeForwardToFurtherProfileActionViewModel : ForwardToFurtherProfileActionViewModel
 {
-    public class DesignTimeForwardToFurtherProfileActionViewModel : ForwardToFurtherProfileActionViewModel
+    public DesignTimeForwardToFurtherProfileActionViewModel()
+    : base(new DesignTimeTranslationUpdater(),
+        new DesignTimeDispatcher(),
+        new DesignTimeEditionHelper(),
+        new DesignTimeActionLocator(),
+        new ErrorCodeInterpreter(new TranslationFactory()),
+        new DesignTimeCurrentSettingsProvider(),
+        new DesignTimeDefaultSettingsBuilder(),
+        new DesignTimeActionOrderHelper())
     {
-        public DesignTimeForwardToFurtherProfileActionViewModel()
-        : base(new DesignTimeTranslationUpdater(),
-            new DesignTimeDispatcher(),
-            new DesignTimeEditionHelper(),
-            new DesignTimeActionLocator(),
-            new ErrorCodeInterpreter(new TranslationFactory()),
-            new DesignTimeCurrentSettingsProvider(),
-            new DesignTimeDefaultSettingsBuilder(),
-            new DesignTimeActionOrderHelper())
-        {
-        }
     }
 }

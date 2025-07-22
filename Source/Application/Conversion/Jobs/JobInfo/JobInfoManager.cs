@@ -1,213 +1,212 @@
-﻿using pdfforge.DataStorage;
-using pdfforge.DataStorage.Storage;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using pdfforge.DataStorage;
+using pdfforge.DataStorage.Storage;
 
-namespace pdfforge.PDFCreator.Conversion.Jobs.JobInfo
+namespace pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+
+public interface IJobInfoManager
 {
-    public interface IJobInfoManager
+    /// <summary>
+    ///     Creates a JobInfo based on the given Inf file
+    /// </summary>
+    /// <param name="infFile">full path to the Inf file to use</param>
+    JobInfo ReadFromInfFile(string infFile);
+
+    /// <summary>
+    ///     Save the inf file to the path from the InfFile property
+    /// </summary>
+    void SaveToInfFile(JobInfo jobInfo);
+
+    /// <summary>
+    ///     Save the inf file to the given path
+    ///     <param name="filename">filename where the inf will be stored</param>
+    /// </summary>
+    void SaveToInfFile(JobInfo jobInfo, string filename);
+
+    /// <summary>
+    ///     Deletes the inf file and also the source files
+    /// </summary>
+    void DeleteInfAndSourceFiles(JobInfo jobInfo);
+
+    /// <summary>
+    ///     Merge the second JobInfo into the first one
+    /// </summary>
+    void Merge(JobInfo jobInfo, JobInfo jobInfoToMerge);
+
+    void DeleteInf(JobInfo jobInfo);
+}
+
+public class JobInfoManager : IJobInfoManager
+{
+    private readonly ITitleReplacerProvider _titleReplacerProvider;
+    private readonly IStoredParametersManager _storedParametersManager;
+
+    public JobInfoManager(ITitleReplacerProvider titleReplacerProvider, IStoredParametersManager storedParametersManager)
     {
-        /// <summary>
-        ///     Creates a JobInfo based on the given Inf file
-        /// </summary>
-        /// <param name="infFile">full path to the Inf file to use</param>
-        JobInfo ReadFromInfFile(string infFile);
-
-        /// <summary>
-        ///     Save the inf file to the path from the InfFile property
-        /// </summary>
-        void SaveToInfFile(JobInfo jobInfo);
-
-        /// <summary>
-        ///     Save the inf file to the given path
-        ///     <param name="filename">filename where the inf will be stored</param>
-        /// </summary>
-        void SaveToInfFile(JobInfo jobInfo, string filename);
-
-        /// <summary>
-        ///     Deletes the inf file and also the source files
-        /// </summary>
-        void DeleteInfAndSourceFiles(JobInfo jobInfo);
-
-        /// <summary>
-        ///     Merge the second JobInfo into the first one
-        /// </summary>
-        void Merge(JobInfo jobInfo, JobInfo jobInfoToMerge);
-
-        void DeleteInf(JobInfo jobInfo);
+        _titleReplacerProvider = titleReplacerProvider;
+        _storedParametersManager = storedParametersManager;
     }
 
-    public class JobInfoManager : IJobInfoManager
+    public JobInfo ReadFromInfFile(string infFile)
     {
-        private readonly ITitleReplacerProvider _titleReplacerProvider;
-        private readonly IStoredParametersManager _storedParametersManager;
+        var titleReplacer = _titleReplacerProvider.BuildTitleReplacer();
+        return ReadFromInfFile(infFile, titleReplacer);
+    }
 
-        public JobInfoManager(ITitleReplacerProvider titleReplacerProvider, IStoredParametersManager storedParametersManager)
+    public void SaveToInfFile(JobInfo jobInfo)
+    {
+        if (string.IsNullOrEmpty(jobInfo.InfFile))
         {
-            _titleReplacerProvider = titleReplacerProvider;
-            _storedParametersManager = storedParametersManager;
+            throw new InvalidOperationException("The inf file must not be empty");
         }
 
-        public JobInfo ReadFromInfFile(string infFile)
+        var infData = Data.CreateDataStorage();
+        var ini = new IniStorage(jobInfo.InfFile, Encoding.GetEncoding("Unicode"));
+
+        var sourceFileReader = new SourceFileInfoDataReader();
+
+        var sectionId = 0;
+        foreach (var sourceFileInfo in jobInfo.SourceFiles)
         {
-            var titleReplacer = _titleReplacerProvider.BuildTitleReplacer();
-            return ReadFromInfFile(infFile, titleReplacer);
+            var section = sectionId.ToString(CultureInfo.InvariantCulture) + "\\";
+            sourceFileReader.WriteSourceFileInfoToData(infData, section, sourceFileInfo);
+            sectionId++;
         }
 
-        public void SaveToInfFile(JobInfo jobInfo)
-        {
-            if (string.IsNullOrEmpty(jobInfo.InfFile))
-            {
-                throw new InvalidOperationException("The inf file must not be empty");
-            }
+        ini.WriteData(infData);
+    }
 
-            var infData = Data.CreateDataStorage();
-            var ini = new IniStorage(jobInfo.InfFile, Encoding.GetEncoding("Unicode"));
+    public void SaveToInfFile(JobInfo jobInfo, string filename)
+    {
+        jobInfo.InfFile = filename;
+        SaveToInfFile(jobInfo);
+    }
 
-            var sourceFileReader = new SourceFileInfoDataReader();
-
-            var sectionId = 0;
-            foreach (var sourceFileInfo in jobInfo.SourceFiles)
-            {
-                var section = sectionId.ToString(CultureInfo.InvariantCulture) + "\\";
-                sourceFileReader.WriteSourceFileInfoToData(infData, section, sourceFileInfo);
-                sectionId++;
-            }
-
-            ini.WriteData(infData);
-        }
-
-        public void SaveToInfFile(JobInfo jobInfo, string filename)
-        {
-            jobInfo.InfFile = filename;
-            SaveToInfFile(jobInfo);
-        }
-
-        public void DeleteInfAndSourceFiles(JobInfo jobInfo)
-        {
-            foreach (var sourceFileInfo in jobInfo.SourceFiles)
-            {
-                try
-                {
-                    if (File.Exists(sourceFileInfo.Filename))
-                        File.Delete(sourceFileInfo.Filename);
-                }
-                catch (UnauthorizedAccessException) { }
-                catch (IOException) { }
-            }
-            jobInfo.SourceFiles.Clear();
-            DeleteInf(jobInfo);
-        }
-
-        public void Merge(JobInfo jobInfo, JobInfo jobInfoToMerge)
-        {
-            if (jobInfo.JobType != jobInfoToMerge.JobType)
-                return;
-
-            var sourceFiles = jobInfo.SourceFiles.ToList();
-
-            foreach (var sourceFile in jobInfoToMerge.SourceFiles)
-            {
-                sourceFiles.Add(sourceFile);
-            }
-
-            // Create a new ObservableCollection to avoid threading problems
-            jobInfo.SourceFiles = new ObservableCollection<SourceFileInfo>(sourceFiles);
-            }
-
-        public void DeleteInf(JobInfo jobInfo)
+    public void DeleteInfAndSourceFiles(JobInfo jobInfo)
+    {
+        foreach (var sourceFileInfo in jobInfo.SourceFiles)
         {
             try
             {
-                if (!string.IsNullOrEmpty(jobInfo.InfFile))
-                    File.Delete(jobInfo.InfFile);
+                if (File.Exists(sourceFileInfo.Filename))
+                    File.Delete(sourceFileInfo.Filename);
             }
             catch (UnauthorizedAccessException) { }
             catch (IOException) { }
+        }
+        jobInfo.SourceFiles.Clear();
+        DeleteInf(jobInfo);
+    }
 
-            jobInfo.InfFile = null;
+    public void Merge(JobInfo jobInfo, JobInfo jobInfoToMerge)
+    {
+        if (jobInfo.JobType != jobInfoToMerge.JobType)
+            return;
+
+        var sourceFiles = jobInfo.SourceFiles.ToList();
+
+        foreach (var sourceFile in jobInfoToMerge.SourceFiles)
+        {
+            sourceFiles.Add(sourceFile);
         }
 
-        private JobInfo ReadFromInfFile(string infFile, TitleReplacer titleReplacer)
+        // Create a new ObservableCollection to avoid threading problems
+        jobInfo.SourceFiles = new ObservableCollection<SourceFileInfo>(sourceFiles);
+    }
+
+    public void DeleteInf(JobInfo jobInfo)
+    {
+        try
         {
-            var jobInfo = new JobInfo();
+            if (!string.IsNullOrEmpty(jobInfo.InfFile))
+                File.Delete(jobInfo.InfFile);
+        }
+        catch (UnauthorizedAccessException) { }
+        catch (IOException) { }
 
-            jobInfo.InfFile = infFile;
-            var infData = Data.CreateDataStorage();
-            var ini = new IniStorage(jobInfo.InfFile, Encoding.GetEncoding("Unicode"));
-            ini.ReadData(infData);
+        jobInfo.InfFile = null;
+    }
 
-            var sourceFiles = new ObservableCollection<SourceFileInfo>();
-            var sourceFileReader = new SourceFileInfoDataReader();
-            foreach (var section in infData.GetSections())
-            {
-                var sfi = sourceFileReader.ReadSourceFileInfoFromData(infFile, infData, section);
-                if (sfi != null)
-                    sourceFiles.Add(sfi);
-            }
-            jobInfo.SourceFiles = sourceFiles;
+    private JobInfo ReadFromInfFile(string infFile, TitleReplacer titleReplacer)
+    {
+        var jobInfo = new JobInfo();
 
-            var metadata = new Metadata();
-            if (sourceFiles.Count > 0)
-            {
-                metadata.PrintJobAuthor = sourceFiles[0].Author;
-                metadata.PrintJobName = titleReplacer.Replace(sourceFiles[0].DocumentTitle);
+        jobInfo.InfFile = infFile;
+        var infData = Data.CreateDataStorage();
+        var ini = new IniStorage(jobInfo.InfFile, Encoding.GetEncoding("Unicode"));
+        ini.ReadData(infData);
 
-                jobInfo.OriginalFilePath = sourceFiles[0].OriginalFilePath;
-                jobInfo.PrinterName = sourceFiles[0].PrinterName;
-                jobInfo.PrinterParameter = sourceFiles[0].PrinterParameter;
-                jobInfo.ProfileParameter = sourceFiles[0].ProfileParameter;
-                jobInfo.OutputFileParameter = sourceFiles[0].OutputFileParameter;
+        var sourceFiles = new ObservableCollection<SourceFileInfo>();
+        var sourceFileReader = new SourceFileInfoDataReader();
+        foreach (var section in infData.GetSections())
+        {
+            var sfi = sourceFileReader.ReadSourceFileInfoFromData(infFile, infData, section);
+            if (sfi != null)
+                sourceFiles.Add(sfi);
+        }
+        jobInfo.SourceFiles = sourceFiles;
 
-                jobInfo.JobType = sourceFiles[0].Type;
-                jobInfo.PrintDateTime = sourceFiles[0].PrintedAt;
-            }
+        var metadata = new Metadata();
+        if (sourceFiles.Count > 0)
+        {
+            metadata.PrintJobAuthor = sourceFiles[0].Author;
+            metadata.PrintJobName = titleReplacer.Replace(sourceFiles[0].DocumentTitle);
 
-            ConsiderStoredParameters(jobInfo);
+            jobInfo.OriginalFilePath = sourceFiles[0].OriginalFilePath;
+            jobInfo.PrinterName = sourceFiles[0].PrinterName;
+            jobInfo.PrinterParameter = sourceFiles[0].PrinterParameter;
+            jobInfo.ProfileParameter = sourceFiles[0].ProfileParameter;
+            jobInfo.OutputFileParameter = sourceFiles[0].OutputFileParameter;
 
-            jobInfo.Metadata = metadata;
-
-            return jobInfo;
+            jobInfo.JobType = sourceFiles[0].Type;
+            jobInfo.PrintDateTime = sourceFiles[0].PrintedAt;
         }
 
-        private void ConsiderStoredParameters(JobInfo jobInfo)
+        ConsiderStoredParameters(jobInfo);
+
+        jobInfo.Metadata = metadata;
+
+        return jobInfo;
+    }
+
+    private void ConsiderStoredParameters(JobInfo jobInfo)
+    {
+        //Required null check for server
+        if (_storedParametersManager == null)
+            return;
+
+        //Check for PrintJob (PrinterName remains empty for DirectConversion)
+        if (string.IsNullOrWhiteSpace(jobInfo.PrinterName))
+            return;
+
+        if (!_storedParametersManager.HasPredefinedParameters())
+            return;
+
+        try
         {
-            //Required null check for server
-            if (_storedParametersManager == null)
-                return;
+            var storedParameters = _storedParametersManager.GetAndResetParameters();
+            jobInfo.ProfileParameter = storedParameters.Profile;
+            jobInfo.OutputFileParameter = storedParameters.Outputfile;
+            jobInfo.OriginalFilePath = storedParameters.OriginalFilePath;
 
-            //Check for PrintJob (PrinterName remains empty for DirectConversion)
-            if (string.IsNullOrWhiteSpace(jobInfo.PrinterName))
-                return;
-
-            if (!_storedParametersManager.HasPredefinedParameters())
-                return;
-
-            try
+            foreach (var sourceFileInfo in jobInfo.SourceFiles)
             {
-                var storedParameters = _storedParametersManager.GetAndResetParameters();
-                jobInfo.ProfileParameter = storedParameters.Profile;
-                jobInfo.OutputFileParameter = storedParameters.Outputfile;
-                jobInfo.OriginalFilePath = storedParameters.OriginalFilePath;
-
-                foreach (var sourceFileInfo in jobInfo.SourceFiles)
-                {
-                    sourceFileInfo.ProfileParameter = storedParameters.Profile;
-                    sourceFileInfo.OutputFileParameter = storedParameters.Outputfile;
-                    sourceFileInfo.OriginalFilePath = storedParameters.OriginalFilePath;
-                }
+                sourceFileInfo.ProfileParameter = storedParameters.Profile;
+                sourceFileInfo.OutputFileParameter = storedParameters.Outputfile;
+                sourceFileInfo.OriginalFilePath = storedParameters.OriginalFilePath;
             }
-            catch (InvalidOperationException)
-            {
-                /*
-                 * A race condition can occur that the parameters are deleted between the HasPredefinedParameters
-                 * and GetAndResetParameters calls which results in an InvalidOperationException
-                 */
-            }
+        }
+        catch (InvalidOperationException)
+        {
+            /*
+             * A race condition can occur that the parameters are deleted between the HasPredefinedParameters
+             * and GetAndResetParameters calls which results in an InvalidOperationException
+             */
         }
     }
 }

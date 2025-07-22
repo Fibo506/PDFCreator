@@ -2,249 +2,248 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace pdfforge.PDFCreator.Utilities.Tokens
+namespace pdfforge.PDFCreator.Utilities.Tokens;
+
+/// <summary>
+///     class with method to replace Tokens (see -> ReplaceTokens) previously added in its private TokenDict (see ->
+///     AddToken)
+/// </summary>
+public class TokenReplacer
 {
+    private readonly Dictionary<string, IToken> _tokenDict = new Dictionary<string, IToken>();
+
+    #region Constants
+
+    private const char TokenOpenChar = '<';
+    private const char TokenCloseChar = '>';
+    private const string TokenSplitString = ":";
+
+    #endregion Constants
+
+    #region Methods
+
     /// <summary>
-    ///     class with method to replace Tokens (see -> ReplaceTokens) previously added in its private TokenDict (see ->
-    ///     AddToken)
+    ///     Replace valid Token-names (previously added into the private TokenDict -> see AddToken) in the InputString by their
+    ///     values.
+    ///     Optional use of C#-format, declared behind a colon behind the Token-name.
     /// </summary>
-    public class TokenReplacer
+    /// <param name="inputString">InputString which may contain Tokens, that will be replaced</param>
+    /// <returns>
+    ///     Returns the InputString with formated values of valid Tokens.
+    /// </returns>
+    /// <example>
+    ///     <code lang="C#"><![CDATA[
+    /// TokenReplacer tr = new TokenReplacer();
+    /// tr.AddToken(new StringToken("Author", "NameOfAuthor"));
+    /// string s = tr.ReplaceToken("<Author> becomes NameOfAuthor"));
+    /// //output: s = "NameOfAuthor becomes NameOfAuthor"
+    /// tr.AddToken(new NumberToken("Counter", 23));
+    /// s = tr.ReplaceToken("NumberToken with Format <Counter:0000>");
+    /// //output: s = "NumberToken with Format 0023"
+    /// s = tr.ReplaceToken("<Non-added Token Name> <Counter>");
+    /// //output: s = "<Non-added Token Name> 23"
+    /// ]]>
+    /// </code>
+    /// </example>
+    public string ReplaceTokens(string inputString)
     {
-        private readonly Dictionary<string, IToken> _tokenDict = new Dictionary<string, IToken>();
+        if (inputString == null)
+            return string.Empty;
 
-        #region Constants
+        int beginOfToken, endOfToken, lastIndexOfToken; //Memorize Indexes
+        var begin = false; //Flag for the beginning of a Token
 
-        private const char TokenOpenChar = '<';
-        private const char TokenCloseChar = '>';
-        private const string TokenSplitString = ":";
+        beginOfToken = inputString.IndexOf(TokenOpenChar);
+        lastIndexOfToken = inputString.LastIndexOf(TokenCloseChar);
 
-        #endregion Constants
-
-        #region Methods
-
-        /// <summary>
-        ///     Replace valid Token-names (previously added into the private TokenDict -> see AddToken) in the InputString by their
-        ///     values.
-        ///     Optional use of C#-format, declared behind a colon behind the Token-name.
-        /// </summary>
-        /// <param name="inputString">InputString which may contain Tokens, that will be replaced</param>
-        /// <returns>
-        ///     Returns the InputString with formated values of valid Tokens.
-        /// </returns>
-        /// <example>
-        ///     <code lang="C#"><![CDATA[
-        /// TokenReplacer tr = new TokenReplacer();
-        /// tr.AddToken(new StringToken("Author", "NameOfAuthor"));
-        /// string s = tr.ReplaceToken("<Author> becomes NameOfAuthor"));
-        /// //output: s = "NameOfAuthor becomes NameOfAuthor"
-        /// tr.AddToken(new NumberToken("Counter", 23));
-        /// s = tr.ReplaceToken("NumberToken with Format <Counter:0000>");
-        /// //output: s = "NumberToken with Format 0023"
-        /// s = tr.ReplaceToken("<Non-added Token Name> <Counter>");
-        /// //output: s = "<Non-added Token Name> 23"
-        /// ]]>
-        /// </code>
-        /// </example>
-        public string ReplaceTokens(string inputString)
+        if (beginOfToken == -1 || lastIndexOfToken == -1 //No pair of <> included
+            || beginOfToken > lastIndexOfToken) //No valid token pair possible
         {
-            if (inputString == null)
-                return string.Empty;
+            return inputString;
+        }
 
-            int beginOfToken, endOfToken, lastIndexOfToken; //Memorize Indexes
-            var begin = false; //Flag for the beginning of a Token
+        var outputString = new StringBuilder();
 
-            beginOfToken = inputString.IndexOf(TokenOpenChar);
-            lastIndexOfToken = inputString.LastIndexOf(TokenCloseChar);
+        if (beginOfToken > 0) //Add part ahead of the first TokenOpenChar
+        {
+            outputString.Append(inputString.Substring(0, beginOfToken));
+        }
 
-            if (beginOfToken == -1 || lastIndexOfToken == -1 //No pair of <> included
-                || beginOfToken > lastIndexOfToken) //No valid token pair possible
+        begin = true; //Flag for an opened Token
+        endOfToken = beginOfToken + 1; //First possible Position for a TokenCloseChar
+
+        for (var i = beginOfToken + 1; i <= lastIndexOfToken; i++)
+        {
+            if ((inputString[i] == TokenOpenChar) && !begin) //Regular opening of Token
             {
-                return inputString;
-            }
-
-            var outputString = new StringBuilder();
-
-            if (beginOfToken > 0) //Add part ahead of the first TokenOpenChar
-            {
-                outputString.Append(inputString.Substring(0, beginOfToken));
-            }
-
-            begin = true; //Flag for an opened Token
-            endOfToken = beginOfToken + 1; //First possible Position for a TokenCloseChar
-
-            for (var i = beginOfToken + 1; i <= lastIndexOfToken; i++)
-            {
-                if ((inputString[i] == TokenOpenChar) && !begin) //Regular opening of Token
+                //check for text in between
+                if (i > endOfToken + 1)
                 {
-                    //check for text in between
-                    if (i > endOfToken + 1)
+                    outputString.Append(inputString.Substring(endOfToken + 1, i - endOfToken - 1));
+                    //Append text between Tokens
+                }
+
+                beginOfToken = i;
+                begin = true;
+            }
+            else if (inputString[i] == TokenOpenChar) //(&& Begin) //second TokenOpenChar without previous closing
+            {
+                outputString.Append(inputString.Substring(beginOfToken, i - beginOfToken));
+                //add substring from the last BeginOfToken to the new TokenOpenChar
+                beginOfToken = i;
+            }
+            else if ((inputString[i] == TokenCloseChar) && begin) //regular closing of an opened Token
+            {
+                begin = false;
+                endOfToken = i;
+
+                var ExtractedTokenString = inputString.Substring(beginOfToken, i - beginOfToken + 1);
+                //Extract Token from Input String
+
+                if (ExtractedTokenString.Contains(TokenSplitString)
+                    &&
+                    _tokenDict.ContainsKey(
+                        ExtractedTokenString.Substring(1, ExtractedTokenString.IndexOf(':') - 1).ToUpper()))
+                //Token contains a format and TokenName (without <>) is Key in the TokenDict
+                {
+                    var token =
+                        _tokenDict[ExtractedTokenString.Substring(1, ExtractedTokenString.IndexOf(':') - 1).ToUpper()
+                            ];
+
+                    try
                     {
-                        outputString.Append(inputString.Substring(endOfToken + 1, i - endOfToken - 1));
-                        //Append text between Tokens
+                        ExtractedTokenString =
+                            token.GetValueWithFormat(
+                                ExtractedTokenString.Substring(ExtractedTokenString.IndexOf(':') + 1,
+                                    ExtractedTokenString.Length - 1 - ExtractedTokenString.IndexOf(':') - 1));
+                        //If the Format is valid, replace the string with the formated value of Token
                     }
-
-                    beginOfToken = i;
-                    begin = true;
-                }
-                else if (inputString[i] == TokenOpenChar) //(&& Begin) //second TokenOpenChar without previous closing
-                {
-                    outputString.Append(inputString.Substring(beginOfToken, i - beginOfToken));
-                    //add substring from the last BeginOfToken to the new TokenOpenChar
-                    beginOfToken = i;
-                }
-                else if ((inputString[i] == TokenCloseChar) && begin) //regular closing of an opened Token
-                {
-                    begin = false;
-                    endOfToken = i;
-
-                    var ExtractedTokenString = inputString.Substring(beginOfToken, i - beginOfToken + 1);
-                    //Extract Token from Input String
-
-                    if (ExtractedTokenString.Contains(TokenSplitString)
-                        &&
-                        _tokenDict.ContainsKey(
-                            ExtractedTokenString.Substring(1, ExtractedTokenString.IndexOf(':') - 1).ToUpper()))
-                    //Token contains a format and TokenName (without <>) is Key in the TokenDict
+                    catch
                     {
-                        var token =
-                            _tokenDict[ExtractedTokenString.Substring(1, ExtractedTokenString.IndexOf(':') - 1).ToUpper()
-                                ];
-
-                        try
-                        {
-                            ExtractedTokenString =
-                                token.GetValueWithFormat(
-                                    ExtractedTokenString.Substring(ExtractedTokenString.IndexOf(':') + 1,
-                                        ExtractedTokenString.Length - 1 - ExtractedTokenString.IndexOf(':') - 1));
-                            //If the Format is valid, replace the string with the formated value of Token
-                        }
-                        catch
-                        {
-                            ExtractedTokenString = token.GetValue();
-                            //If the format is not valid, replace the string with the non-formated value of Token
-                        }
-                        outputString.Append(ExtractedTokenString);
+                        ExtractedTokenString = token.GetValue();
+                        //If the format is not valid, replace the string with the non-formated value of Token
                     }
-                    else if (
-                        _tokenDict.ContainsKey(
-                            inputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()))
-                    //Tokenname (without <>) is Key in the TokenDict
-                    {
-                        outputString.Append(
-                            _tokenDict[inputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()]
-                                .GetValue());
-                    }
-                    else //Tokenname (without <>) is not Key in the TokenDict
-                    {
-                        outputString.Append(inputString.Substring(beginOfToken, i - beginOfToken + 1));
-                        //add the non-valid Tokenname (with <>)
-                    }
+                    outputString.Append(ExtractedTokenString);
                 }
-                else if (inputString[i] == TokenCloseChar) //&& !Begin //closing of Token without opening
+                else if (
+                    _tokenDict.ContainsKey(
+                        inputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()))
+                //Tokenname (without <>) is Key in the TokenDict
                 {
-                    outputString.Append(inputString.Substring(endOfToken + 1, i - endOfToken));
-                    //add part from the last regular closing to the actual irregular closing
-                    endOfToken = i;
+                    outputString.Append(
+                        _tokenDict[inputString.Substring(beginOfToken + 1, i - beginOfToken - 1).ToUpper()]
+                            .GetValue());
                 }
-            }
-
-            if (lastIndexOfToken < inputString.Length) //Add part behind the last TokenCloseChar
-            {
-                outputString.Append(inputString.Substring(lastIndexOfToken + 1,
-                    inputString.Length - lastIndexOfToken - 1));
-            }
-
-            return outputString.ToString();
-        }
-
-        public string[] GetTokenNames()
-        {
-            return GetTokenNames(true);
-        }
-
-        public string[] GetTokenNames(bool withDelimiters)
-        {
-            var tokens = new List<string>();
-
-            foreach (var t in _tokenDict.Values)
-            {
-                if (withDelimiters)
+                else //Tokenname (without <>) is not Key in the TokenDict
                 {
-                    tokens.Add(TokenOpenChar + t.GetName() + TokenCloseChar);
-                }
-                else
-                {
-                    tokens.Add(t.GetName());
+                    outputString.Append(inputString.Substring(beginOfToken, i - beginOfToken + 1));
+                    //add the non-valid Tokenname (with <>)
                 }
             }
-
-            return tokens.ToArray();
-        }
-
-        public IToken GetToken(string name)
-        {
-            if (name == null)
-                throw new ArgumentNullException("name");
-
-            try
+            else if (inputString[i] == TokenCloseChar) //&& !Begin //closing of Token without opening
             {
-                return _tokenDict[name.ToUpper()];
-            }
-            catch (KeyNotFoundException)
-            {
-                return null;
+                outputString.Append(inputString.Substring(endOfToken + 1, i - endOfToken));
+                //add part from the last regular closing to the actual irregular closing
+                endOfToken = i;
             }
         }
 
-        /// <summary>
-        ///     Add new Token to the private TokenDict for replacing the token-name with its value (-> see ReplaceToken).
-        /// </summary>
-        /// <param name="NewToken">Token (implements IToken)</param>
-        public void AddToken(IToken NewToken)
+        if (lastIndexOfToken < inputString.Length) //Add part behind the last TokenCloseChar
         {
-            _tokenDict[NewToken.GetName().ToUpper()] = NewToken;
+            outputString.Append(inputString.Substring(lastIndexOfToken + 1,
+                inputString.Length - lastIndexOfToken - 1));
         }
 
-        /// <summary>
-        ///     Comfort function to add a string token 
-        /// </summary>
-        /// <param name="name">name of the token (without brackets)</param>
-        /// <param name="value">the value that will be inserted</param>
-        public void AddStringToken(string name, string value)
-        {
-            AddToken(new StringToken(name, value));
-        }
-
-        /// <summary>
-        ///     Comfort function to add a date token
-        /// </summary>
-        /// <param name="name">name of the token (without brackets)</param>
-        /// <param name="value">the value that will be inserted</param>
-        public void AddDateToken(string name, DateTime value)
-        {
-            AddToken(new DateToken(name, value));
-        }
-
-        /// <summary>
-        ///     Comfort function to add a number token
-        /// </summary>
-        /// <param name="name">name of the token (without brackets)</param>
-        /// <param name="value">the value that will be inserted</param>
-        public void AddNumberToken(string name, int value)
-        {
-            AddToken(new NumberToken(name, value));
-        }
-
-        /// <summary>
-        ///     Comfort function to add a list token
-        /// </summary>
-        /// <param name="name">name of the token (without brackets)</param>
-        /// <param name="value">the value that will be inserted</param>
-        public void AddListToken(string name, IList<string> value)
-        {
-            AddToken(new ListToken(name, value));
-        }
-
-        #endregion Methods
+        return outputString.ToString();
     }
+
+    public string[] GetTokenNames()
+    {
+        return GetTokenNames(true);
+    }
+
+    public string[] GetTokenNames(bool withDelimiters)
+    {
+        var tokens = new List<string>();
+
+        foreach (var t in _tokenDict.Values)
+        {
+            if (withDelimiters)
+            {
+                tokens.Add(TokenOpenChar + t.GetName() + TokenCloseChar);
+            }
+            else
+            {
+                tokens.Add(t.GetName());
+            }
+        }
+
+        return tokens.ToArray();
+    }
+
+    public IToken GetToken(string name)
+    {
+        if (name == null)
+            throw new ArgumentNullException("name");
+
+        try
+        {
+            return _tokenDict[name.ToUpper()];
+        }
+        catch (KeyNotFoundException)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
+    ///     Add new Token to the private TokenDict for replacing the token-name with its value (-> see ReplaceToken).
+    /// </summary>
+    /// <param name="NewToken">Token (implements IToken)</param>
+    public void AddToken(IToken NewToken)
+    {
+        _tokenDict[NewToken.GetName().ToUpper()] = NewToken;
+    }
+
+    /// <summary>
+    ///     Comfort function to add a string token 
+    /// </summary>
+    /// <param name="name">name of the token (without brackets)</param>
+    /// <param name="value">the value that will be inserted</param>
+    public void AddStringToken(string name, string value)
+    {
+        AddToken(new StringToken(name, value));
+    }
+
+    /// <summary>
+    ///     Comfort function to add a date token
+    /// </summary>
+    /// <param name="name">name of the token (without brackets)</param>
+    /// <param name="value">the value that will be inserted</param>
+    public void AddDateToken(string name, DateTime value)
+    {
+        AddToken(new DateToken(name, value));
+    }
+
+    /// <summary>
+    ///     Comfort function to add a number token
+    /// </summary>
+    /// <param name="name">name of the token (without brackets)</param>
+    /// <param name="value">the value that will be inserted</param>
+    public void AddNumberToken(string name, int value)
+    {
+        AddToken(new NumberToken(name, value));
+    }
+
+    /// <summary>
+    ///     Comfort function to add a list token
+    /// </summary>
+    /// <param name="name">name of the token (without brackets)</param>
+    /// <param name="value">the value that will be inserted</param>
+    public void AddListToken(string name, IList<string> value)
+    {
+        AddToken(new ListToken(name, value));
+    }
+
+    #endregion Methods
 }

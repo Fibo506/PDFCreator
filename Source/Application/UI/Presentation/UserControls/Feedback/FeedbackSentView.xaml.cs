@@ -1,13 +1,10 @@
-﻿using Microsoft.Xaml.Behaviors;
+﻿namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback;
 
-namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback
+public partial class FeedbackSentView
 {
-    public partial class FeedbackSentView
+    public FeedbackSentView(FeedbackSentViewModel viewModel)
     {
-        public FeedbackSentView(FeedbackSentViewModel viewModel)
-        {
-            DataContext = viewModel;
-            InitializeComponent();
-        }
+        DataContext = viewModel;
+        InitializeComponent();
     }
 }

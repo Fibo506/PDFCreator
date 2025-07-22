@@ -1,71 +1,73 @@
 ﻿using System;
 using System.Drawing.Imaging;
+using System.Threading;
+using System.Threading.Tasks;
 using NLog;
-using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
+using pdfforge.PDFCreator.Utilities;
 using PdfiumViewer;
 using SystemInterface.IO;
 using Logger = NLog.Logger;
-using System.Threading.Tasks;
-using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
-using System.Threading;
-using pdfforge.PDFCreator.Utilities;
-using System.Windows.Controls;
 
-namespace pdfforge.PDFCreator.Core.Workflow
+namespace pdfforge.PDFCreator.Core.Workflow;
+
+public interface IPdfToPreviewConverter
 {
-    public interface IPdfToPreviewConverter
+    Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken);
+}
+
+public class PdfToPreviewConverter : IPdfToPreviewConverter
+{
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
+    private const int MaxImageSize = 92; // from PreviewControl
+
+
+    private readonly IDirectory _directory;
+    private readonly IGuid _guid;
+
+    private readonly string _tempPreviewFolder;
+
+
+    public PdfToPreviewConverter(IDirectory directory, ITempFolderProvider tempFolderProvider, IGuid guid)
     {
-        Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken);
+        _directory = directory;
+        _guid = guid;
+        _tempPreviewFolder = PathSafe.Combine(tempFolderProvider.TempFolder, "Preview");
     }
 
-    public class PdfToPreviewConverter : IPdfToPreviewConverter
+    public async Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
     {
-        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private const int MaxImageSize = 92; // from PreviewControl
+        return await Task.Run(() => DoGeneratePreviewPages(pdfFilePath, cancellationToken));
+    }
 
+    private PreviewPages DoGeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
+    {
+        var previewDirectory = PathSafe.Combine(_tempPreviewFolder, _guid.NewGuidString());
+        var previewPages = new PreviewPages(previewDirectory);
+        var sourceFileNameWithoutExtension = PathSafe.GetFileNameWithoutExtension(pdfFilePath);
+        var previewImagePathBase = PathSafe.Combine(previewDirectory, sourceFileNameWithoutExtension);
 
-        private readonly IDirectory _directory;
-        private readonly IGuid _guid;
-
-        private readonly string _tempPreviewFolder;
-
-
-        public PdfToPreviewConverter(IDirectory directory, ITempFolderProvider tempFolderProvider, IGuid guid)
+        try
         {
-            _directory = directory;
-            _guid = guid;
-            _tempPreviewFolder = PathSafe.Combine(tempFolderProvider.TempFolder, "Preview");
-        }
+            _directory.CreateDirectory(previewDirectory);
 
-        public async Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
-        {
-            return await Task.Run(() => DoGeneratePreviewPages(pdfFilePath, cancellationToken));
-        }
+            if (cancellationToken.IsCancellationRequested)
+                return previewPages;
 
-        private PreviewPages DoGeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
-        {
-            var previewDirectory = PathSafe.Combine(_tempPreviewFolder, _guid.NewGuidString());
-            var previewPages = new PreviewPages(previewDirectory);
-            var sourceFileNameWithoutExtension = PathSafe.GetFileNameWithoutExtension(pdfFilePath);
-            var previewImagePathBase = PathSafe.Combine(previewDirectory, sourceFileNameWithoutExtension);
+            var document = PdfDocument.Load(pdfFilePath);
+            previewPages.DisposeDocument = () => document.Dispose();
 
-            try
+            for (var pageIndex = 0; pageIndex < document.PageCount; pageIndex++)
             {
-                _directory.CreateDirectory(previewDirectory);
+                cancellationToken.ThrowIfCancellationRequested();
 
-                if (cancellationToken.IsCancellationRequested)
-                    return previewPages;
-
-                using var document = PdfDocument.Load(pdfFilePath);
-
-                for (var pageIndex = 0; pageIndex < document.PageCount; pageIndex++)
+                var index = pageIndex;
+                var imagePathTask = Task.Run(() =>
                 {
-                    cancellationToken.ThrowIfCancellationRequested();
+                    var imagePath = $"{previewImagePathBase}_{index + 1}.jpeg";
 
-                    var imagePath = $"{previewImagePathBase}_{pageIndex + 1}.jpeg";
-
-                    // Longest side becomes max size and the shorter side is calculated relatively 
-                    var pageSize = document.PageSizes[pageIndex];
+                    // Determine dimensions based on the page size
+                    var pageSize = document.PageSizes[index];
                     int width, height;
                     if (pageSize.Height > pageSize.Width) // Portrait
                     {
@@ -78,23 +80,24 @@ namespace pdfforge.PDFCreator.Core.Workflow
                         height = (int)Math.Round(pageSize.Height * MaxImageSize / pageSize.Width);
                     }
 
-                    using var image = document.Render(pageIndex, width, height, 96, 96,  PdfRenderFlags.Annotations);
+                    using var image = document.Render(index, width, height, 96, 96, PdfRenderFlags.Annotations);
                     image.Save(imagePath, ImageFormat.Jpeg);
 
-                    var previewPage = new PreviewPage(pageIndex + 1, imagePath);
-                    previewPages.PreviewPageList.Add(previewPage);
-                    //Task.Delay(TimeSpan.FromMilliseconds(5000)).GetAwaiter().GetResult(); // Uncomment for testing
-                }
-            }
-            catch (OperationCanceledException)
-            { }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Could not create preview for " + pdfFilePath);
-                previewPages.PreviewPageList.Clear();
-            }
+                    return imagePath;
+                }, cancellationToken);
 
-            return previewPages;
+                var previewPage = new PreviewPage(pageIndex + 1, imagePathTask);
+                previewPages.PreviewPageList.Add(previewPage);
+            }
         }
+        catch (OperationCanceledException)
+        { }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Could not create preview for " + pdfFilePath);
+            previewPages.PreviewPageList.Clear();
+        }
+
+        return previewPages;
     }
 }

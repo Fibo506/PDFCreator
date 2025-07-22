@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace pdfforge.PDFCreator.Utilities.Update
+namespace pdfforge.PDFCreator.Utilities.Update;
+
+public class UpdateEventArgs : EventArgs
 {
-    public class UpdateEventArgs : EventArgs
-    {
-        public bool SkipVersion;
-    }
+    public bool SkipVersion;
 }

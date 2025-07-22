@@ -4,70 +4,69 @@ using pdfforge.DataStorage.Storage;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 
-namespace pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings
+namespace pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
+
+public interface IBaseSettingsBuilder
 {
-    public interface IBaseSettingsBuilder
+    PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage);
+}
+
+public class DefaultBaseSettingsBuilder : IBaseSettingsBuilder
+{
+    private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
+
+    public DefaultBaseSettingsBuilder(IDefaultSettingsBuilder defaultSettingsBuilder)
     {
-        PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage);
+        _defaultSettingsBuilder = defaultSettingsBuilder;
     }
 
-    public class DefaultBaseSettingsBuilder : IBaseSettingsBuilder
+    public PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage)
     {
-        private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
+        return (PdfCreatorSettings)_defaultSettingsBuilder.CreateDefaultSettings(primaryPrinter, defaultLanguage);
+    }
+}
 
-        public DefaultBaseSettingsBuilder(IDefaultSettingsBuilder defaultSettingsBuilder)
-        {
-            _defaultSettingsBuilder = defaultSettingsBuilder;
-        }
+public class BaseSettingsBuilderWithSharedSettings : IBaseSettingsBuilder
+{
+    private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
+    private readonly IInstallationPathProvider _installationPathProvider;
 
-        public PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage)
-        {
-            return (PdfCreatorSettings)_defaultSettingsBuilder.CreateDefaultSettings(primaryPrinter, defaultLanguage);
-        }
+    public BaseSettingsBuilderWithSharedSettings(IDefaultSettingsBuilder defaultSettingsBuilder, IInstallationPathProvider installationPathProvider)
+    {
+        _defaultSettingsBuilder = defaultSettingsBuilder;
+        _installationPathProvider = installationPathProvider;
     }
 
-    public class BaseSettingsBuilderWithSharedSettings : IBaseSettingsBuilder
+    private bool DefaultUserSettingsExist()
     {
-        private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
-        private readonly IInstallationPathProvider _installationPathProvider;
+        using (var k = Registry.Users.OpenSubKey(@".DEFAULT\" + _installationPathProvider.SettingsRegistryPath))
+            return k != null;
+    }
 
-        public BaseSettingsBuilderWithSharedSettings(IDefaultSettingsBuilder defaultSettingsBuilder, IInstallationPathProvider installationPathProvider)
-        {
-            _defaultSettingsBuilder = defaultSettingsBuilder;
-            _installationPathProvider = installationPathProvider;
-        }
+    private PdfCreatorSettings LoadDefaultUserSettings(PdfCreatorSettings defaultSettings)
+    {
+        var defaultUserStorage = new RegistryStorage(RegistryHive.Users,
+            @".DEFAULT\" + _installationPathProvider.SettingsRegistryPath);
 
-        private bool DefaultUserSettingsExist()
-        {
-            using (var k = Registry.Users.OpenSubKey(@".DEFAULT\" + _installationPathProvider.SettingsRegistryPath))
-                return k != null;
-        }
+        var data = Data.CreateDataStorage();
 
-        private PdfCreatorSettings LoadDefaultUserSettings(PdfCreatorSettings defaultSettings)
-        {
-            var defaultUserStorage = new RegistryStorage(RegistryHive.Users,
-                @".DEFAULT\" + _installationPathProvider.SettingsRegistryPath);
+        // Store default settings and then load the machine defaults from HKEY_USERS\.DEFAULT to give them prefrence
+        defaultSettings.StoreValues(data, "");
+        defaultUserStorage.ReadData("", data);
 
-            var data = Data.CreateDataStorage();
+        // And then load the combined settings with default user overriding our defaults
+        var settings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateEmptySettings();
+        settings.ReadValues(data);
 
-            // Store default settings and then load the machine defaults from HKEY_USERS\.DEFAULT to give them prefrence
-            defaultSettings.StoreValues(data, "");
-            defaultUserStorage.ReadData("", data);
+        return settings;
+    }
 
-            // And then load the combined settings with default user overriding our defaults
-            var settings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateEmptySettings();
-            settings.ReadValues(data);
+    public PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage)
+    {
+        var defaultSettings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateDefaultSettings(primaryPrinter, defaultLanguage);
 
-            return settings;
-        }
-
-        public PdfCreatorSettings CreateBaseSettings(string primaryPrinter, string defaultLanguage)
-        {
-            var defaultSettings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateDefaultSettings(primaryPrinter, defaultLanguage);
-
-            return DefaultUserSettingsExist()
-                ? LoadDefaultUserSettings(defaultSettings)
-                : defaultSettings;
-        }
+        return DefaultUserSettingsExist()
+            ? LoadDefaultUserSettings(defaultSettings)
+            : defaultSettings;
     }
 }

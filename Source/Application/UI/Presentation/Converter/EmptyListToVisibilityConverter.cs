@@ -1,32 +1,31 @@
-﻿using GongSolutions.Wpf.DragDrop.Utilities;
-using System;
+﻿using System;
 using System.Collections;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using GongSolutions.Wpf.DragDrop.Utilities;
 
-namespace pdfforge.PDFCreator.UI.Presentation.Converter
+namespace pdfforge.PDFCreator.UI.Presentation.Converter;
+
+public class EmptyListToVisibilityConverter : DependencyObject, IValueConverter
 {
-    public class EmptyListToVisibilityConverter : DependencyObject, IValueConverter
+    public Visibility EmptyValue { get; set; }
+    public Visibility FilledValue { get; set; }
+
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        public Visibility EmptyValue { get; set; }
-        public Visibility FilledValue { get; set; }
-
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        if (value is IEnumerable list)
         {
-            if (value is IEnumerable list)
+            if (list.TryGetList().Count > 0)
             {
-                if (list.TryGetList().Count > 0)
-                {
-                    return FilledValue;
-                }
+                return FilledValue;
             }
-            return EmptyValue;
         }
+        return EmptyValue;
+    }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

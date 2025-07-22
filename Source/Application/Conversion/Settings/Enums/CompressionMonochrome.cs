@@ -1,17 +1,16 @@
 ﻿using Translatable;
 
-namespace pdfforge.PDFCreator.Conversion.Settings.Enums
+namespace pdfforge.PDFCreator.Conversion.Settings.Enums;
+
+[Translatable]
+public enum CompressionMonochrome
 {
-    [Translatable]
-    public enum CompressionMonochrome
-    {
-        [Translation("CCITT Fax")]
-        CcittFaxEncoding,
+    [Translation("CCITT Fax")]
+    CcittFaxEncoding,
 
-        [Translation("ZIP Compression")]
-        Zip,
+    [Translation("ZIP Compression")]
+    Zip,
 
-        [Translation("Run Length Compression")]
-        RunLengthEncoding
-    }
+    [Translation("Run Length Compression")]
+    RunLengthEncoding
 }

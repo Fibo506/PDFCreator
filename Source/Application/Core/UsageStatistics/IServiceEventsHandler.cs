@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace pdfforge.PDFCreator.Core.UsageStatistics
+namespace pdfforge.PDFCreator.Core.UsageStatistics;
+
+public interface IServiceEventsHandler
 {
-    public interface IServiceEventsHandler
-    {
-        void HandleServiceStopped(TimeSpan serviceUptime);
-    }
+    void HandleServiceStopped(TimeSpan serviceUptime);
 }
