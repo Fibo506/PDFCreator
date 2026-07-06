@@ -12,7 +12,7 @@ namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
 public class DesignTimeProfilesViewModel : ProfilesViewModel
 {
     public DesignTimeProfilesViewModel()
-        : base(new CurrentSettingsProvider(new DefaultSettingsProvider()),
+        : base(new CurrentSettingsProvider(new NoGpoSettingsProvider()),
             new DesignTimeTranslationUpdater(),
             new DesignTimeCommandLocator(),
             new DesignTimeCurrentSettings<ObservableCollection<ConversionProfile>>(),

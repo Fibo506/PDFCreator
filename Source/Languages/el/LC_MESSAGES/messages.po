@@ -3,7 +3,8 @@ msgstr ""
 "Project-Id-Version: Greek (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: George St <gstergiop67@gmail.com>\n"
+"PO-Revision-Date: 2025-11-29 19:58+0000\n"
+"Last-Translator: Thanassis Katsageorgis <t_katsageorgis@yahoo.gr>\n"
 "Language-Team: Greek <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/el/>\n"
 "Language: el\n"
@@ -11,17 +12,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.9.1\n"
 
 #. FileConversionAssistantTranslation
 msgid "Do you want to convert the {0} selected file?"
 msgid_plural "Do you want to convert the {0} selected files?"
-msgstr[0] "Θέλετε να μετατρέψετε το {0} επιλεγμένο αρχείο ?"
-msgstr[1] "Θέλετε να μετατρέψετε τα {0} επιλεγμένα αρχεία ?"
+msgstr[0] "Θέλετε να μετατρέψετε το {0} επιλεγμένο αρχείο;"
+msgstr[1] "Θέλετε να μετατρέψετε τα {0} επιλεγμένα αρχεία;"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Home"
-msgstr "Κεντρικά"
+msgstr "Αρχική"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Profiles"
@@ -33,6 +35,14 @@ msgstr "Προφίλ"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "Εκτυπωτής"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "HotFolder"
+msgstr "Περιλαμβάνει HotFolder"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -105,22 +115,23 @@ msgid "News"
 msgstr "Νέα"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
-msgstr ""
+msgstr "Αναβάθμιση Τώρα"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Thank you for installing PDFCreator {0}."
-msgstr "Ευχαριστούμε για την λήψη του PDFCreator {0}."
+msgstr "Ευχαριστούμε για την εγκατάσταση του PDFCreator {0}."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "What's new?"
-msgstr "Τι νέο υπάρχει?"
+msgstr "Τι νέο υπάρχει;"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.FeedbackButtonTranslation
 msgid "Priority Support"
-msgstr "Υποστήριξη προτεραιότητας"
+msgstr "Υποστήριξη Προτεραιότητας"
 
 #. pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Your trial license will expire in {0} day."
@@ -134,7 +145,7 @@ msgstr "Η δοκιμαστική άδεια χρήσης λήγει σήμερ�
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Κάντε κλικ εδώ για να επεκτείνετε την άδειά σας."
 
@@ -158,6 +169,7 @@ msgstr "Μη έγκυρες ρυθμίσεις"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Σφάλμα"
 
@@ -262,7 +274,7 @@ msgstr "Συγχώνευση"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Reorder and Merge Print Jobs"
-msgstr "Αναδιάταξη και να Συγχωνεύση εργασιών Εκτύπωσης"
+msgstr "Αναδιάταξη και Συγχώνευση Εργασιών Εκτύπωσης"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Document Info"
@@ -282,10 +294,8 @@ msgid "Files:"
 msgstr "Αρχεία:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
-#, fuzzy
-#| msgid "Page view:"
 msgid "Preview"
-msgstr "Προβολή της σελίδας:"
+msgstr "Προβολή"
 
 #: pdfforge.PDFCreator.Conversion.Settings.TableColumns
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
@@ -308,10 +318,8 @@ msgid "Author"
 msgstr "Συγγραφέας-Δημιουργός"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
-#, fuzzy
-#| msgid "ID:"
 msgid "ID"
-msgstr "Αναγνωριστικό:"
+msgstr "Αναγνωριστικό"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Hint: You can drag the print jobs to reorder them"
@@ -320,11 +328,11 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by ID ascending"
-msgstr "Αρίθμηση με ανερχόμενη σειρά"
+msgstr "Ταξινόμηση με ID ανερχόμενα"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by ID descending"
-msgstr "Αρίθμηση με κατερχόμενη σειρά"
+msgstr "Ταξινόμηση με ID φθίνουσα"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 #, fuzzy
@@ -338,20 +346,19 @@ msgstr "Αρίθμηση κατερχόμενη με βάση την ημερο�
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by date ascending"
-msgstr "Αρίθμηση ανερχόμενη με βάση την ημερομηνία"
+msgstr "Ταξινόμηση με ημερομηνία αύξουσα"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by date descending"
-msgstr "Αρίθμηση κατερχόμενη με βάση την ημερομηνία"
+msgstr "Ταξινόμηση με ημερομηνία μειούμενη"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
-#, fuzzy
 msgid "Select all"
-msgstr "Επιλέξτε Αρχείο:"
+msgstr "Επιλογή όλων"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort"
-msgstr "Αρίθμηση"
+msgstr "Ταξινόμηση"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "No application is associated to open PDF files."
@@ -434,7 +441,7 @@ msgid ""
 "from the website instead?"
 msgstr ""
 "Υπήρξε ένα πρόβλημα κατά τη διάρκεια της λήψης. Θέλετε να κάνετε λήψη της "
-"ενημερωμένης έκδοσης από την ιστοσελίδα αντ ' αυτού?"
+"ενημερωμένης έκδοσης από την ιστοσελίδα;"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid ""
@@ -444,7 +451,7 @@ msgid ""
 msgstr ""
 "Το MD5 hash του αρχείου δεν ταιριάζει με το αναμενόμενη hash. Είναι πιθανό "
 "ότι το αρχείο έχει καταστραφεί κατά τη διάρκεια της λήψης. Θέλετε να "
-"επαναλάβετε τη λήψη?"
+"επαναλάβετε τη λήψη;"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid ""
@@ -479,354 +486,75 @@ msgstr "Διορθώσεις"
 msgid "Other changes"
 msgstr "Άλλες αλλαγές"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The license has expired. Please renew your license."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "Είστε έτοιμοι να κάνετε περισσότερα από τα βασικά;"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
-msgstr "Η άδεια έχει λήξει. Παρακαλούμε να ανανεώσετε την άδεια χρήσης σας."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "There was a problem with the connection to the license server."
-msgid "There was a problem with your license..."
-msgstr "Παρουσιάστηκε πρόβλημα με τη σύνδεση με το διακομιστή αδειών χρήσης."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Purchase your license now if you haven't already!"
-msgid "Check your license now to continue to have access to:"
-msgstr "Αγοράστε την άδειά σας τώρα, αν δεν το έχετε κάνει ήδη!"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
+"Ξεκλειδώστε τις premium λειτουργίες του PDFCreator για να δημιουργήσετε πιο "
+"έξυπνες ροές εργασίας και να εξοικονομήσετε χρόνο."
 
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "Επιχειρηματικά χαρακτηριστικά:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "User Tokens"
-msgid "User tokens"
+#| msgid "Encryption"
+msgid "256-bit encryption"
+msgstr "Κρυπτογράφηση"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+msgid "User Tokens"
 msgstr "Στοιχεία-Διακριτικά χρήστη"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "CS-Script"
-msgid "CS-scripts"
-msgstr "CS-Script=CS-Δέσμη ενεργειών"
+#| msgid "Test Pages"
+msgid "Delete pages"
+msgstr "Δοκιμαστικές Σελίδες"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Forward to Profile"
+msgid "Forward to profile"
+msgstr "Προώθηση στο προφίλ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "Υποστήριξη προτεραιότητας"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Λεπτομέρειες άδειας χρήσης"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "Πολιτικές Ομάδας"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Manage license"
-msgid "Manage License"
-msgstr "Διαχείριση άδειας χρήσης"
+#| msgid "Share Settings"
+msgid "Shared settings"
+msgstr "Ρυθμίσεις κοινής χρήσης"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Offline activation"
-msgid "Offline Activation"
-msgstr "Ενεργοποίηση εκτός σύνδεσης"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Η άδεια χρήσης ενεργοποιήθηκε"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-"Η άδεια χρήσης σας ενεργοποιήθηκε με επιτυχία, σας ευχαριστούμε που "
-"χρησιμοποιείτε {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Your license was activated successfully, thank you for using {0}."
-msgid "Your license was activated successfully."
-msgstr ""
-"Η άδεια χρήσης σας ενεργοποιήθηκε με επιτυχία, σας ευχαριστούμε που "
-"χρησιμοποιείτε {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr ""
-"Εισαγάγετε το κλειδί άδειας χρήσης για να συνεχίσετε να χρησιμοποιείτε το {0}"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Do you want to share your activation to all users on your system?"
-msgstr ""
-"Θέλετε να διαθέσετε την άδεια για όλους τους χρήστες στο λειτουργικό σύστημά "
-"σας?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Save validation report"
-msgid "Save activation for all users"
-msgstr "Αποθήκευση αναφοράς επικύρωσης"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred when saving the activation for all users."
-msgstr ""
-"Παρουσιάστηκε σφάλμα κατά την αποθήκευση άδειας για όλους τους χρήστες."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Stop PDFCreator Server Service"
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr "Διακοπή υπηρεσίας PDFCreator Εξυπηρετητή"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Save activation for all users was successful."
-msgstr "Η άδεια χρήσης χώρου αποθήκευσης για όλους τους χρήστες ήταν επιτυχής."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Έλεγχος της άδειας..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"Το κλειδί άδειας χρήσης περιέχει μη έγκυρους χαρακτήρες. Έγκυροι χαρακτήρες "
-"είναι: A-Z, 0-9 και η παύλα."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"Το κλειδί άδειας χρήσης αποτελείται από 30 χαρακτήρες ή αριθμούς, δηλαδή "
-"\"12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Ποτέ"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Αδειούχος:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "Η ενεργοποίηση έχει λήξει. Παρακαλώ ανανεώστε την ενεργοποίηση."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-"Η μηχανή ή ο χρήστης έχει αποκλειστεί. Παρακαλούμε επικοινωνήστε με την "
-"υποστήριξη."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Σφάλμα κατά τον έλεγχο ταυτότητας της άδειας χρήσης."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr ""
-"Το κλειδί άδειας χρήσης δεν είναι έγκυρο. Παρακαλώ εισάγετε ένα νέο κλειδί "
-"άδειας χρήσης."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "Η άδεια έχει λήξει. Παρακαλούμε να ανανεώσετε την άδεια χρήσης σας."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "Η δοκιμαστική περίοδος άδειας χρήσης έχει λήξει."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr ""
-"Καμία άδεια δεν είναι διαθέσιμη. Παρακαλώ εισάγετε ένα νέο κλειδί άδειας "
-"χρήσης."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Παρουσιάστηκε πρόβλημα με τη σύνδεση με το διακομιστή αδειών χρήσης."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "Η άδεια έχει υπερβεί τον επιτρεπόμενο αριθμό ενεργοποιημένων μηχανών."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr ""
-"Το κλειδί άδειας χρήσης δεν είναι έγκυρο για αυτήν την έκδοση PDFCreator."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "Η άδεια χρήσης είναι έγκυρη."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The activation has expired. Please renew your activation."
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr "Η ενεργοποίηση έχει λήξει. Παρακαλώ ανανεώστε την ενεργοποίηση."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "Η άδειά σας θα λήξει σε {0} ημέρα."
-msgstr[1] "Η άδειά σας θα λήξει σε {0} ημέρες."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "Η άδεια δεν ισχύει για αυτήν την έκδοση."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Ο κωδικός ενεργοποίησης έχει λάθος μορφή."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Δεν έχετε έγκυρο κλειδί άδειας χρήσης;"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "Αγοράστε περισσότερες ενεργοποιήσεις εδώ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Ανανεώστε την άδειά σας εδώ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Διαχειριστείτε την άδειά σας εδώ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Εισαγάγετε το κλειδί άδειας χρήσης."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Σφάλμα κατά την αποθήκευση της ενεργοποίησης. Δοκιμάστε το ξανά."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr ""
-"Η εσωτερική διεύθυνση URL του διακομιστή αδειών χρήσης δεν είναι έγκυρη."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
+#| msgid "Install"
+msgid "MSI installer"
+msgstr "Εγκατάσταση"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
-msgstr ""
+msgstr "Μοιραστείτε τα σχόλιά σας"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Describe your feedback"
-msgstr ""
+msgstr "Περιγράψτε τα σχόλιά σας"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #, fuzzy
@@ -842,28 +570,27 @@ msgstr "Διεύθυνση E-mail:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Please provide details here"
-msgstr ""
+msgstr "Δώστε λεπτομέρειες εδώ"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "What type of feedback would you like to send?"
-msgstr ""
+msgstr "Τι είδους σχόλια θα θέλατε να στείλετε;"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
-#, fuzzy
 msgid "Please select a feedback type"
-msgstr "Παρακαλώ εισάγετε το όνομα του προφίλ:"
+msgstr "Επιλέξτε έναν τύπο σχολίων"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I need to report an issue"
-msgstr ""
+msgstr "Πρέπει να αναφέρω ένα πρόβλημα"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I want to share positive feedback"
-msgstr ""
+msgstr "Επιθυμώ να μοιραστώ θετικά σχόλια"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I would like to suggest a feature"
-msgstr ""
+msgstr "Θα ήθελα να προτείνω ένα χαρακτηριστικό"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
@@ -874,7 +601,7 @@ msgstr "Αποστολή"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.FeedbackButtonTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Send us your feedback"
-msgstr ""
+msgstr "Στείλτε μας τα σχόλιά σας"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #, fuzzy
@@ -928,16 +655,17 @@ msgid "File:"
 msgstr "Αρχεία:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
-#, fuzzy
 msgid "An error occured while attempting to submit your feedback"
-msgstr ""
-"Παρουσιάστηκε σφάλμα κατά την αποθήκευση άδειας για όλους τους χρήστες."
+msgstr "Παρουσιάστηκε σφάλμα κατά την προσπάθεια υποβολής των σχολίων σας"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid ""
 "Please note: This form is for feedback, not support.\r\n"
 "We may contact you to better understand your feedback."
 msgstr ""
+"Παρακαλώ σημειώστε: Αυτή η φόρμα είναι για σχόλια και όχι για υποστήριξη.\n"
+"Ενδέχεται να επικοινωνήσουμε μαζί σας για να κατανοήσουμε καλύτερα τα σχόλιά "
+"σας."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 #, fuzzy
@@ -1018,7 +746,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Setup launch failed"
-msgstr ""
+msgstr "Η εκκίνηση της εγκατάστασης απέτυχε"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
@@ -1027,7 +755,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download failed"
-msgstr ""
+msgstr "Η λήψη απέτυχε"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Setup download was cancelled."
@@ -1035,7 +763,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download cancelled"
-msgstr ""
+msgstr "Η λήψη ακυρώθηκε"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
@@ -1069,7 +797,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Trial request failed"
-msgstr ""
+msgstr "Η δοκιμαστική αίτηση απέτυχε"
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -1080,18 +808,16 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "Successful:"
 msgid "Request successful"
-msgstr "Επιτυχής:"
+msgstr "Το αίτημα ήταν επιτυχές"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "User Guide"
-msgstr "Οδηγός χρήσης"
+msgstr "Οδηγός Χρήσης"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "Knowledge Base"
-msgstr "Γνωσιακή βάση"
+msgstr "Γνωσιακή Βάση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "Community Support"
@@ -1103,7 +829,7 @@ msgstr "(Φόρουμ)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "Feedback"
-msgstr ""
+msgstr "Σχόλια"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid "BUSINESS FEATURE"
@@ -1125,7 +851,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.FeedbackButtonTranslation
 msgid "Send us feedback"
-msgstr ""
+msgstr "Στείλτε μας σχόλια"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
 msgid "Debug"
@@ -1140,7 +866,7 @@ msgid "Viewer"
 msgstr "Προβολή"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Άδεια"
 
@@ -1159,6 +885,7 @@ msgstr "Άμεση Μετατροπή"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1306,6 +1033,7 @@ msgstr "RegEX"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1313,104 +1041,400 @@ msgstr "RegEX"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "Τελευταία ενεργοποίηση:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Η άδεια χρήσης ενεργοποιήθηκε"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Η ενεργοποίηση απέτυχε"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "Η ενεργοποίηση δεν ήταν επιτυχής:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "Επιτυχής ενεργοποίηση"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Η ενεργοποίηση απέτυχε"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "Η ενεργοποίηση δεν ήταν επιτυχής:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "Η ενεργοποίηση ήταν επιτυχημένη."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Η ενεργοποίηση ισχύει μέχρι:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Εισάγετε το κλειδί άδειας χρήσης"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Παρακαλώ εισάγετε το κλειδί άδειας χρήσης:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "Λήγει:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-#| msgid "License Agreement"
-msgid "License renews on:"
-msgstr "Άδεια Χρήσης"
+#| msgid "Your license was activated successfully, thank you for using {0}."
+msgid "Your license was activated successfully."
+msgstr ""
+"Η άδεια χρήσης σας ενεργοποιήθηκε με επιτυχία, σας ευχαριστούμε που "
+"χρησιμοποιείτε {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Κλειδί άδειας χρήσης:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Manage license"
+msgid "Manage License"
+msgstr "Διαχείριση άδειας χρήσης"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "Κατάσταση άδειας χρήσης:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "ID:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Διαχείριση αδειών"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Ενεργοποίηση εκτός σύνδεσης"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Online ενεργοποίηση"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "View License"
+msgstr "Άδεια"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Κλειδί άδειας χρήσης:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "Κατάσταση άδειας χρήσης:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Λεπτομέρειες άδειας χρήσης"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "ID:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Επικύρωση άδειας..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "Λήγει:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Η ενεργοποίηση ισχύει μέχρι:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "Η άδεια ανανεώνεται στις:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "Τελευταία ενεργοποίηση:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Εισάγετε το κλειδί άδειας χρήσης"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Παρακαλώ εισάγετε το κλειδί άδειας χρήσης:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"Η δοκιμαστική άδεια χρήσης σας έχει λήξει...\n"
+"ας συνεχίσουμε τις ροές εργασίας σας"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "There was a problem with the connection to the license server."
+msgid "There was a problem with your license..."
+msgstr "Παρουσιάστηκε πρόβλημα με τη σύνδεση με το διακομιστή αδειών χρήσης."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Ελέγξτε την άδειά σας τώρα για να συνεχίσετε να έχετε πρόσβαση σε:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"Η αναβάθμιση εξασφαλίζει μακροπρόθεσμη παραγωγικότητα και παρέχει πρόσβαση "
+"στις εκδόσεις Business, συμπεριλαμβανομένων προηγμένων λειτουργιών "
+"αυτοματισμού όπως:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Διατηρήστε το PDFCreator ως μόνιμο μέρος του συνόλου εργαλείων σας."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Αναβάθμιση τώρα"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "User tokens"
+msgstr "Στοιχεία-Διακριτικά χρήστη"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "CS-scripts"
+msgstr "CS-Script=CS-Δέσμη ενεργειών"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "Προώθηση προφίλ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Do you want to share your activation to all users on your system?"
+msgstr ""
+"Θέλετε να διαθέσετε την άδεια για όλους τους χρήστες στο λειτουργικό σύστημά "
+"σας?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr ""
+"Μοιραστείτε την ενεργοποίησή σας σε όλους τους χρήστες του συστήματός σας."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Save validation report"
+msgid "Save activation for all users"
+msgstr "Αποθήκευση αναφοράς επικύρωσης"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 #| msgid "An error occured while storing license for all users."
+msgid "An error occurred when saving the activation for all users."
+msgstr ""
+"Παρουσιάστηκε σφάλμα κατά την αποθήκευση άδειας για όλους τους χρήστες."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
 msgid "An error occurred while storing license for all users."
 msgstr ""
 "Παρουσιάστηκε σφάλμα κατά την αποθήκευση άδειας για όλους τους χρήστες."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Store license for all users was successful."
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Store license for all users was successful."
+msgid "Save activation for all users was successful."
 msgstr "Η άδεια χρήσης χώρου αποθήκευσης για όλους τους χρήστες ήταν επιτυχής."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Store license for all users was successful."
+msgstr "Η αποθήκευση άδεια χρήσης για όλους τους χρήστες ήταν επιτυχής."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"Ο PDFCreator Terminal Server απαιτεί την αποθήκευση της άδειας χρήσης για "
+"όλους τους χρήστες."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Υπενθύμιση αργότερα"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
 msgstr ""
+"Δεν είναι δυνατή η χρήση της ενεργοποίησης χωρίς σύνδεση, επειδή το "
+"PDFCreator έχει ρυθμιστεί ώστε να χρησιμοποιεί τον εσωτερικό διακομιστή "
+"αδειών χρήσης."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Θύμισέ μου αργότερα"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr ""
+"Η άδεια χρήσης σας ενεργοποιήθηκε με επιτυχία, σας ευχαριστούμε που "
+"χρησιμοποιείτε {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr ""
+"Εισαγάγετε το κλειδί άδειας χρήσης για να συνεχίσετε να χρησιμοποιείτε το {0}"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Έλεγχος της άδειας..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"Το κλειδί άδειας χρήσης περιέχει μη έγκυρους χαρακτήρες. Έγκυροι χαρακτήρες "
+"είναι: A-Z, 0-9 και η παύλα."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"Το κλειδί άδειας χρήσης αποτελείται από 30 χαρακτήρες ή αριθμούς, δηλαδή "
+"\"12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Ποτέ"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Αδειούχος:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "Η ενεργοποίηση έχει λήξει. Παρακαλώ ανανεώστε την ενεργοποίηση."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr ""
+"Η μηχανή ή ο χρήστης έχει αποκλειστεί. Παρακαλούμε επικοινωνήστε με την "
+"υποστήριξη."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Σφάλμα κατά τον έλεγχο ταυτότητας της άδειας χρήσης."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr ""
+"Το κλειδί άδειας χρήσης δεν είναι έγκυρο. Παρακαλώ εισάγετε ένα νέο κλειδί "
+"άδειας χρήσης."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "Η άδεια έχει λήξει. Παρακαλούμε να ανανεώσετε την άδεια χρήσης σας."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "Η δοκιμαστική περίοδος άδειας χρήσης έχει λήξει."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr ""
+"Καμία άδεια δεν είναι διαθέσιμη. Παρακαλώ εισάγετε ένα νέο κλειδί άδειας "
+"χρήσης."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Παρουσιάστηκε πρόβλημα με τη σύνδεση με το διακομιστή αδειών χρήσης."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "Η άδεια έχει υπερβεί τον επιτρεπόμενο αριθμό ενεργοποιημένων μηχανών."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr ""
+"Το κλειδί άδειας χρήσης δεν είναι έγκυρο για αυτήν την έκδοση PDFCreator."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "Η άδεια χρήσης είναι έγκυρη."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-#| msgid "License"
-msgid "View License"
-msgstr "Άδεια"
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr "Η ενεργοποίηση έχει λήξει. Παρακαλώ ανανεώστε την ενεργοποίηση."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"Η ενεργοποίηση του Εσωτερικού Διακομιστή Αδειών Χρήσης έχει λήξει. "
+"Ενεργοποιήστε ξανά την άδειά σας αμέσως για να αποφύγετε τον αποκλεισμό "
+"εφαρμογών."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "Η άδειά σας θα λήξει σε {0} ημέρα."
+msgstr[1] "Η άδειά σας θα λήξει σε {0} ημέρες."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Ο κωδικός ενεργοποίησης έχει λάθος μορφή."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Δεν έχετε έγκυρο κλειδί άδειας χρήσης;"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "Αγοράστε περισσότερες ενεργοποιήσεις εδώ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Ανανεώστε την άδειά σας εδώ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Διαχειριστείτε την άδειά σας εδώ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Εισαγάγετε το κλειδί άδειας χρήσης."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Σφάλμα κατά την αποθήκευση της ενεργοποίησης. Δοκιμάστε το ξανά."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr ""
+"Η εσωτερική διεύθυνση URL του διακομιστή αδειών χρήσης δεν είναι έγκυρη."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1485,7 +1509,6 @@ msgstr "Γλώσσα"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Explorer Context Menu Integration"
 msgid "Explorer context menu integration"
 msgstr "Ενσωμάτωση στο Μενού Περιβάλλοντος"
 
@@ -1559,7 +1582,6 @@ msgstr "Στατιστικά χρήσης"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Send Usage Statistics"
 msgid "Send usage statistics"
 msgstr "Αποστολή Στατιστικών Χρήσης"
 
@@ -1586,7 +1608,6 @@ msgstr "Πολιτική απορρήτου (Πολιτική Προστασία
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Configure Home Screen"
 msgid "Configure home screen"
 msgstr "Διαμόρφωση Αρχικής Οθόνης"
 
@@ -1620,13 +1641,24 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "PDFCreator Standby"
 msgid "PDFCreator standby"
 msgstr "Κατάσταση αναμονής για το PDF Creator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Standby duration"
 msgstr "Διάρκεια αναμονής"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Restore"
+msgid "Restart"
+msgstr "Επαναφορά"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+"Ξεκινήστε την αναμονή και το HotFolder (εάν είναι ενεργοποιημένο) μέσω "
+"αυτόματης εκκίνησης των Windows"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1641,10 +1673,6 @@ msgstr ""
 "επιταχύνει σημαντικά περαιτέρω μετατροπές."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "λεπτά"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "The new version {0} is available.\n"
 "Would you like to download the new version?"
@@ -1654,7 +1682,6 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion.DirectConversionTranslation
 #, fuzzy
-#| msgid "Direct Image Conversion Settings"
 msgid "Direct image conversion settings"
 msgstr "Ρυθμίσεις Άμεσης Μετατροπής Εικόνας"
 
@@ -1668,7 +1695,6 @@ msgstr "Επιλογή προσανατολισμού σελίδας:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Default Viewer"
 msgid "Default viewer"
 msgstr "Προκαθορισμένο Πρόγραμμα Προβολής"
 
@@ -1678,13 +1704,11 @@ msgstr "Εκτελέσιμα αρχεία"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Executable Path:"
 msgid "Executable path:"
 msgstr "Εκτελέσιμη Διαδρομή:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Additional Parameters:"
 msgid "Additional parameters:"
 msgstr "Πρόσθετοι Παράμετροι:"
 
@@ -1707,13 +1731,11 @@ msgstr "Επαναφορά"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Default Settings"
 msgid "Default settings"
 msgstr "Προεπιλεγμένες Ρυθμίσεις"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Export Settings"
 msgid "Export settings"
 msgstr "Εξαγωγή Ρυθμίσεων"
 
@@ -1739,7 +1761,6 @@ msgstr "Καταγραφή"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Logging Level:"
 msgid "Logging level:"
 msgstr "Επίπεδο Καταγραφής:"
 
@@ -1975,7 +1996,7 @@ msgstr "Αναδειγματοληψία εικόνων σε (DPI):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Advanced:"
-msgstr "Προχωρημένος:"
+msgstr "Για Προχωρημένους:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Save validation report"
@@ -2230,10 +2251,8 @@ msgstr ""
 "θα αποθηκεύουν μόνο αρχεία σε έναν προσωρινό φάκελο"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
-#, fuzzy
-#| msgid "Call Preview:"
 msgid "Show preview"
-msgstr "Προβολή Κλήσεων-Προεπισκόπηση:"
+msgstr "Εμφάνιση προεπισκόπησης"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 #, fuzzy
@@ -2300,6 +2319,18 @@ msgstr ""
 "χρήστες μπορούν να αποθηκεύουν αρχεία σε οποιονδήποτε κατάλογο, η υπηρεσία "
 "έχει δικαίωμα εγγραφής."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
+#| msgid ""
+#| "The selected printer forwards to another PDFCreator printer and causes an "
+#| "infinite loop."
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"Ο επιλεγμένος εκτυπωτής προωθείται σε άλλον εκτυπωτή PDFCreator και προκαλεί "
+"ατέρμονα βρόχο."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Κλείσιμο"
@@ -2349,11 +2380,11 @@ msgstr "Κατάλογος:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Sites:"
-msgstr ""
+msgstr "Τοποθεσίες:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Drives:"
-msgstr ""
+msgstr "Μονάδες Δίσκου:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 #, fuzzy
@@ -2373,13 +2404,12 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Show link at the end of interactive workflow"
-msgstr ""
+msgstr "Εμφάνιση σύνδεσης στο τέλος της αλληλεπιδραστικής ροής εργασίας"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid "Open upload in browser"
-msgstr "Άνοιγμα αρχείου στο πρόγραμμα προβολής."
+msgstr "Άνοιγμα μεταφόρτωσης στο πρόγραμμα περιήγησης"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2398,7 +2428,7 @@ msgstr "Έκδοση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Upload documents to your SharePoint"
-msgstr ""
+msgstr "Αποστολή εγγράφων στο SharePoint"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2561,6 +2591,12 @@ msgstr "Άνοιγμα αρχείου"
 msgid "Use PDF Architect"
 msgstr "Χρησιμοποιήστε το PDF Architect"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Άνοιγμα φακέλου"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "Χρήση {0}"
@@ -2581,7 +2617,15 @@ msgstr ""
 "για Windows."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
+#, fuzzy
+#| msgid "Open directory"
+msgid "Open file/directory"
+msgstr "Ανοίξτε τον κατάλογο"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+#, fuzzy
+#| msgid "Open file in viewer."
+msgid "Open file or directory in viewer/explorer."
 msgstr "Άνοιγμα αρχείου στο πρόγραμμα προβολής."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
@@ -2668,12 +2712,6 @@ msgstr ""
 "υποστηρίζονται από το PDF Creator."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-#| msgid "Forward to Profile"
-msgid "Forward to profile"
-msgstr "Προώθηση στο προφίλ"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
 msgstr "Επιλογή προφίλ:"
 
@@ -2721,7 +2759,7 @@ msgstr "Άνοιγμα φακέλου δέσμης ενεργειών"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "Enable debugging."
-msgstr ""
+msgstr "Ενεργοποίηση εντοπισμού σφαλμάτων."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 #, fuzzy
@@ -2807,8 +2845,10 @@ msgid "Page numbers"
 msgstr "Αριθμοί σελίδας"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
+#, fuzzy
+#| msgid "Error while adding page numbers to the document."
 msgid "Adds page numbers to the document."
-msgstr "Προσθέτει αριθμούς σελίδων στο έγγραφο."
+msgstr "Σφάλμα κατά την προσθήκη αριθμών σελίδων στο έγγραφο."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -3061,8 +3101,10 @@ msgstr ""
 "πάντοτε τελευταία."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
+#, fuzzy
+#| msgid "Save settings to file"
 msgid "Save as file"
-msgstr "Αποθήκευση ως αρχείου"
+msgstr "Αποθήκευση ρυθμίσεων σε αρχείο"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
@@ -3354,13 +3396,15 @@ msgid "Merge all"
 msgstr "Συγχώνευση Όλων"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+#, fuzzy
+#| msgid "Save"
 msgctxt "PrintJobWindowButton"
 msgid "Save"
 msgstr "Αποθήκευση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save as ..."
-msgstr "Αποθήκευση ως ..."
+msgstr "Αποθήκευση ως..."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save to Desktop"
@@ -3398,6 +3442,10 @@ msgid ""
 msgstr ""
 "Ορισμένες λειτουργίες δεν υποστηρίζονται από την επιλεγμένη μορφή εξόδου και "
 "θα παραλειφθούν αυτόματα. Ελέγξτε τις ρυθμίσεις του προφίλ σας."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "συγχώνευση!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
@@ -3453,11 +3501,6 @@ msgstr "Γρήγορες Ενέργειες"
 msgid "Open with default viewer"
 msgstr "Ανοιγμα με το προεπιλεγμένο πρόγραμμα προβολής"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Άνοιγμα φακέλου"
-
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
 msgstr "Αποστολή με email"
@@ -3481,9 +3524,8 @@ msgid "Total file size:"
 msgstr "Συνολικό μέγεθος αρχείου:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-#, fuzzy
 msgid "DropBox:"
-msgstr "Droρbox"
+msgstr "Droρbox:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Don't show Quick Actions until the next update"
@@ -3500,7 +3542,7 @@ msgstr "Έκδοση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "OneDrive share link"
-msgstr ""
+msgstr "Σύνδεσμος κοινής χρήσης OneDrive"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #, fuzzy
@@ -3510,8 +3552,8 @@ msgstr "Έκδοση"
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "After converting {0} file, we have a recommendation for you:"
 msgid_plural "After converting {0} files, we have a recommendation for you:"
-msgstr[0] "Μετά τη μετατροπή {0} αρχείου, έχουμε μια σύσταση για εσάς:"
-msgstr[1] "Μετά τη μετατροπή {0} αρχείων, έχουμε μια σύσταση για εσάς:"
+msgstr[0] "Μετά τη μετατροπή {0} αρχείου, έχουμε μια πρόταση για εσάς:"
+msgstr[1] "Μετά τη μετατροπή {0} αρχείων, έχουμε μια πρόταση για εσάς:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Higher encryption (256 Bit AES)"
@@ -3531,7 +3573,7 @@ msgstr "Αυτόματη αποθήκευση με ειδοποίηση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
-msgstr "Φιλικό προς το διαχειριστή"
+msgstr "Φιλικό προς τον διαχειριστή"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "No, thanks"
@@ -3552,39 +3594,39 @@ msgstr "Διεύθυνση E-mail:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt " ...receive helpful guides"
 msgid "Enter your email to:"
-msgstr ""
+msgstr "Εισαγάγετε το email σας στη διεύθυνση:"
 
 #. Bullet point for the header 'Enter your email to:'
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt "Enter your email to: "
 msgid "Get exclusive offers and expert tips"
-msgstr ""
+msgstr "Λάβετε αποκλειστικές προσφορές και συμβουλές ειδικών"
 
 #. Bullet point for the header 'Enter your email to:'
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt "Enter your email to: "
 msgid "Receive helpful guides and best practices"
-msgstr ""
+msgstr "Λάβετε χρήσιμους οδηγούς και βέλτιστες πρακτικές"
 
 #. Bullet point for the header 'Enter your email to:'
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt "Enter your email to: "
 msgid "Join 1,000,000+ users improving their PDF experience"
-msgstr ""
+msgstr "Γίνετε μέλος 1.000.000+ χρηστών βελτιώνοντας την εμπειρία τους σε PDF"
 
 #. Bullet point for the header 'Enter your email to:'
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt "Enter your email to: "
 msgid "Help ensure PDFCreator Free stays free for everyone"
-msgstr ""
+msgstr "Διασφαλίστε ότι το PDFCreator Free παραμένει δωρεάν για όλους"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgid "Make the most of PDFCreator Free"
-msgstr ""
+msgstr "Αξιοποιήστε στο έπακρο το PDFCreator Free"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgid "I agree to receive marketing and promotional communications."
-msgstr ""
+msgstr "Συμφωνώ να λαμβάνω επικοινωνίες μάρκετινγκ και προώθησης."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #, fuzzy
@@ -3597,12 +3639,14 @@ msgid ""
 "Error submission failed (most likely due to a network issue), please try "
 "again."
 msgstr ""
+"Η υποβολή σφάλματος απέτυχε (πιθανότατα λόγω προβλήματος δικτύου), δοκιμάστε "
+"ξανά."
 
 #. Text before clickable 'Privacy policy'
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 msgctxt "... Privacy policy"
 msgid "The information you provide will be handled in accordance with our"
-msgstr ""
+msgstr "Οι πληροφορίες που παρέχετε θα αντιμετωπίζονται σύμφωνα με τις"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #, fuzzy
@@ -3695,8 +3739,9 @@ msgstr "Επανάληψη"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Discard"
-msgstr ""
+msgstr "Απόρριψη"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Προφίλ"
@@ -3719,6 +3764,207 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "Προσθήκη Token"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "Edit HotFolder"
+msgstr "Περιλαμβάνει HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Unused Printers"
+msgid "Linked Printer"
+msgstr "Εκτυπωτές που δεν χρησιμοποιούνται"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "Εκχωρημένο Όνομα Εκτυπωτή:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select page orientation:"
+msgid "Select a folder to watch:"
+msgstr "Επιλογή προσανατολισμού σελίδας:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "Επιλέξτε έναν φάκελο για παρακολούθηση"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Merge files"
+msgid "Source files"
+msgstr "Συγχώνευση αρχείων"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select signature image file"
+msgid "Select source files folder"
+msgstr "Επιλέξτε το αρχείο εικόνας υπογραφής"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+"Επιλέξτε μια θέση στην οποία θα πρέπει να μετακινηθούν τα αρχεία προέλευσης "
+"μετά τη μετατροπή τους"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr "Μετακινήστε τα στην προεπιλεγμένη θέση (έναν υποφάκελο του HotFolder)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "Μετακινήστε τα στον κάδο ανακύκλωσης"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "Μετακινήστε τα σε μια προσαρμοσμένη θέση"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Unprintable files"
+msgstr "Εκτελέσιμα αρχεία"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Select unprintable files folder"
+msgstr "Εκτελέσιμα αρχεία"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "Επιλέξτε τι θα συμβεί στα αρχεία που δεν μπορούν να εκτυπωθούν:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "Φίλτρο"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "No filter"
+msgstr "PNG αρχείο"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "Εξαίρεση όλων των καταχωρισμένων επεκτάσεων από τη μετατροπή"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "Περιορίστε τη μετατροπή σε φιλτραρισμένες επεκτάσεις αρχείων."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Add file"
+msgid "Add Filter"
+msgstr "Προσθήκη αρχείου"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Remove Profile"
+msgid "Remove Filter"
+msgstr "Αφαίρεση Προφίλ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "Προσθήκη Φίλτρου Επέκτασης Αρχείου"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "Προφίλ που ανατέθηκε:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select Profile"
+msgstr "Επιλογή προφίλ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "Enter filter"
+msgstr "PNG αρχείο"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "The file path is not valid. Please enter a valid absolute path."
+msgid "The filter is not valid. Please check your entry."
+msgstr ""
+"Η διαδρομή αρχείου δεν είναι έγκυρη. Εισαγάγετε μια έγκυρη απόλυτη διαδρομή."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "ΕΝΕΡΓΟ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "ΚΛΕΙΣΤΟ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+"Ξεκινήστε το HotFolder και την αναμονή μέσω αυτόματης εκκίνησης των Windows"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Manage Printers"
+msgid "Manage HotFolders"
+msgstr "Διαχείριση Εκτυπωτών"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Printer"
+msgid "Printer Name"
+msgstr "Εκτυπωτής"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "HotFolder Path"
+msgstr "Περιλαμβάνει HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Actions"
+msgid "Active"
+msgstr "Ενέργειες"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "Add HotFolder Printer"
+msgstr "Περιλαμβάνει HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr "Είστε έτοιμοι να δημιουργήσετε το πρώτο σας HotFolder;"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+"Οι εκτυπωτές HotFolder παρακολουθούν έναν καθορισμένο φάκελο και "
+"επεξεργάζονται αυτόματα όλα τα αρχεία που τοποθετούνται σε αυτόν το φάκελο "
+"χρησιμοποιώντας το επιλεγμένο προφίλ."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr "Σημείωση: Όλες οι αλλαγές θα εφαρμοστούν αμέσως."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr "Ξεκλειδώστε την αυτόματη παρακολούθηση φακέλων με το HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr "Βελτιώστε τη ροή εργασίας σας με το HotFolder."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr "Αυτή η λειτουργία είναι διαθέσιμη αποκλειστικά στις Εμπορικές εκδόσεις."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -3786,33 +4032,32 @@ msgid "History is disabled"
 msgstr "Ίστορικό απενεργοποιημένο"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
-#, fuzzy
 msgid "Successfully shared"
-msgstr "Επιτυχής:"
+msgstr "Επιτυχής κοινή χρήση"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "Your feedback has been sent!"
-msgstr ""
+msgstr "Τα σχόλιά σας έχουν σταλεί!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "We value our customers' input!"
-msgstr ""
+msgstr "Εκτιμούμε τη συμβολή των πελατών μας!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "Thank you for taking the time to share your input."
-msgstr ""
+msgstr "Σας ευχαριστούμε που αφιερώσατε χρόνο για να μοιραστείτε τη γνώμη σας."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "Thank you for sharing your positive experience with us."
-msgstr ""
+msgstr "Σας ευχαριστούμε που μοιραστήκατε τη θετική σας εμπειρία μαζί μας."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "Thank you for taking the time to share your ideas."
-msgstr ""
+msgstr "Σας ευχαριστούμε που αφιερώσατε χρόνο για να μοιραστείτε τις ιδέες σας."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback.FeedbackSentTranslation
 msgid "Thank you for letting us know how we can improve."
-msgstr ""
+msgstr "Σας ευχαριστούμε που μας ενημερώσατε πώς μπορούμε να βελτιωθούμε."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 msgid "Download PDF Architect now"
@@ -3888,9 +4133,8 @@ msgstr "Στείλτε για ηλεκτρονική υπογραφή"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Account:"
-msgstr "Λογαριασμοί"
+msgstr "Λογαριασμός:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4099,9 +4343,8 @@ msgstr "Προσθήκη λογαριασμού dropbox"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Please select a Microsoft account"
-msgstr "Παρακαλώ επιλέξτε έναν SMTP λογαριασμό:"
+msgstr "Επιλέξτε έναν λογαριασμό Microsoft"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4226,10 +4469,8 @@ msgstr "Διακομιστής:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Όνομα Χρήστη"
+msgstr "Όνομα χρήστη:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4449,7 +4690,7 @@ msgstr "Έκδοση"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 msgid "Read site infos on SharePoint"
-msgstr ""
+msgstr "Ανάγνωση πληροφοριών τοποθεσίας στο SharePoint"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4490,7 +4731,7 @@ msgstr "Έκδοση"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4503,7 +4744,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 msgid "Outlook Web Access"
-msgstr ""
+msgstr "Outlook Web Access"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4561,6 +4802,8 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 msgid "Show share link at the end of interactive workflow."
 msgstr ""
+"Εμφάνιση συνδέσμου κοινής χρήσης στο τέλος της αλληλεπιδραστικής ροής "
+"εργασίας."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 #, fuzzy
@@ -4729,7 +4972,7 @@ msgstr "Θύρα:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
@@ -4755,7 +4998,7 @@ msgstr "Αρχείο εγγράφου"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 msgid "Edit subject and content"
-msgstr ""
+msgstr "Επεξεργασία θέματος και περιεχομένου"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
@@ -4864,10 +5107,8 @@ msgstr "Καθορίστε τον αποστολέα:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
-#, fuzzy
-#| msgid "on behalf of"
 msgid "On behalf of:"
-msgstr "εξ ονόματος της"
+msgstr "Εκ μέρους:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
@@ -4903,7 +5144,7 @@ msgstr "Απάντηση σε:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 msgid "Email via Outlook Web"
-msgstr ""
+msgstr "Ηλεκτρονικό ταχυδρομείο μέσω του Outlook Web"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #, fuzzy
@@ -4925,13 +5166,12 @@ msgid "Send email directly"
 msgstr "Ανοίξτε τον κατάλογο"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
-#, fuzzy
 msgid "Open draft in browser"
-msgstr "Άνοιγμα αρχείου στο πρόγραμμα προβολής."
+msgstr "Άνοιγμα πρόχειρου στο πρόγραμμα περιήγησης"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 msgid "Create draft"
-msgstr ""
+msgstr "Δημιουργία προχείρου"
 
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 msgid "The SMTP action will be disabled for this profile."
@@ -4976,7 +5216,7 @@ msgstr "Ασφαλής Χρονικός Διακομιστής"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid "Microsoft"
-msgstr ""
+msgstr "Microsoft"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid ""
@@ -5003,21 +5243,23 @@ msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετ�
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid "These permissions will be needed to use the actions:"
-msgstr ""
+msgstr "Αυτά τα δικαιώματα θα χρειαστούν για τη χρήση των ενεργειών:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid ""
 "The permissions for your Microsoft account have expired. Please request them "
 "again."
-msgstr ""
+msgstr "Τα δικαιώματα για το λογαριασμό Microsoft έχουν λήξει. Ζητήστε τα ξανά."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid "You will be asked to sign in to your Microsoft account."
-msgstr ""
+msgstr "Θα σας ζητηθεί να συνδεθείτε στον λογαριασμό σας Microsoft."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 msgid "Note: Granted permissions can only be revoked via the Microsoft portal."
 msgstr ""
+"Σημείωση: Τα εκχωρημένα δικαιώματα μπορούν να ανακληθούν μόνο μέσω της πύλης "
+"της Microsoft."
 
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
 #, fuzzy
@@ -5028,19 +5270,17 @@ msgstr[0] "Η FTP δράση θα απενεργοποιηθεί για αυτό
 msgstr[1] "Η FTP δράση θα απενεργοποιηθεί για αυτά τα προφίλ."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
-#, fuzzy
 msgid "Private link"
-msgstr "Αρχείο ιδιωτικού κλειδιού:"
+msgstr "Ιδιωτικός σύνδεσμος"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 msgid "Share link (anyone with the link has access to it)"
 msgstr ""
+"Κοινή χρήση συνδέσμου (οποιοσδήποτε έχει τον σύνδεσμο έχει πρόσβαση σε αυτόν)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
-#, fuzzy
-#| msgid "Uploads the document to an HTTP server."
 msgid "Upload documents to your OneDrive"
-msgstr "Αποστέλλει το έγγραφο σε ένα διακομιστή HTTP."
+msgstr "Αποστολή εγγράφων στο OneDrive"
 
 #: pdfforge.PDFCreator.UI.Presentation.Styles.Gpo.GpoTranslation
 msgid "Set by Administrator"
@@ -5055,7 +5295,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Styles.Gpo.GpoTranslation
 msgid "Feature not available for PDFCreator Free"
-msgstr ""
+msgstr "Η δυνατότητα δεν είναι διαθέσιμη για το PDFCreator Free"
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.MailSignatureHelperTranslation
 msgid "Email automatically created by the free PDFCreator"
@@ -5105,6 +5345,26 @@ msgstr "Τιμή για το '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr ""
 "Παρακαλούμε να αποθηκεύσετε ή να ακυρώσετε τις ρυθμίσεις για να συνεχίσετε"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Remove Page"
+msgstr "Αφαίρεση όλων"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Undo Removal"
+msgstr "Αφαίρεση όλων"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr "Περιστροφή Σελίδας"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr "Εμπορικό Χαρακτηριστικό"
 
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
@@ -5187,11 +5447,11 @@ msgstr "Προκαθορισμένο Πρόγραμμα Προβολής"
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 msgid "Settings are Loading"
-msgstr ""
+msgstr "Φόρτωση Ρυθμίσεων"
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 msgid "The application is still in the process of loading settings."
-msgstr ""
+msgstr "Η εφαρμογή βρίσκεται ακόμη στη διαδικασία φόρτωσης ρυθμίσεων."
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 #, fuzzy
@@ -5520,6 +5780,7 @@ msgstr "Υπήρξαν σφάλματα. Ελέγξτε την καρτέλα σ
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Observation mode - restart as an administrator for full access."
 msgstr ""
+"Λειτουργία παρατήρησης - επανεκκινήστε ως διαχειριστής για πλήρη πρόσβαση."
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Settings.ForwardToFurtherQueueTranslation
 msgid "Forward to Queue"
@@ -5593,7 +5854,7 @@ msgstr "Ενεργοποίηση ιστορικού"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Disable History"
-msgstr "Απενεργοποιήση ιστορικού"
+msgstr "Απενεργοποίηση Ιστορικού"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Refresh History (F5)"
@@ -5839,12 +6100,115 @@ msgid ""
 "Your license is valid.\r\n"
 "Please reactivate your offline activation on the {0}"
 msgstr ""
+"Η άδειά σας είναι έγκυρη.\n"
+"Ενεργοποιήστε ξανά την ενεργοποίηση εκτός σύνδεσης στο {0}"
 
 #: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
 msgid ""
 "Your license is valid.\r\n"
 "Please reactivate your Internal License Server activation on the {0}"
 msgstr ""
+"Η άδειά σας είναι έγκυρη.\n"
+"Ενεργοποιήστε ξανά την ενεργοποίηση του εσωτερικού διακομιστή αδειών χρήσης "
+"στο {0}"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"Το PDFCreator δεν μπόρεσε να επιδιορθώσει τους εκτυπωτές σας. Επικοινωνήστε "
+"με τον διαχειριστή σας ή την υποστήριξη για να σας βοηθήσουν."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"Το PDFCreator δεν μπόρεσε να επιδιορθώσει το φάκελο της ουράς σας. "
+"Επικοινωνήστε με τον διαχειριστή σας ή την υποστήριξη για να σας βοηθήσουν "
+"να αλλάξετε τα δικαιώματα της διαδρομής '{0}'."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"Παρουσιάστηκε σφάλμα με ένα στοιχείο με άδεια χρήσης από το pdfforge.\n"
+"Εγκαταστήστε ξανά το PDFCreator. (Σφάλμα {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Η άδειά σας για το \"{0}\" έχει λήξει.\n"
+"Το PDFCreator θα κλείσει."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Η άδειά σας για το \"{0}\" έχει λήξει.\n"
+"Επικοινωνήστε με τον διαχειριστή σας.\n"
+"Το PDFCreator θα κλείσει."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"Η δοκιμαστική έκδοση έχει λήξει στις {0}.\n"
+"Το PDFCreator θα κλείσει.\n"
+"\n"
+"Παρακαλώ επικοινωνήστε: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση κλειδιού άδειας χρήσης.\n"
+"Το PDFCreator θα κλείσει."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"Χρησιμοποιήστε τον \"PDFCreator Terminal Server\" για χρήση σε υπολογιστές "
+"με εγκατεστημένες υπηρεσίες Terminal Services.\n"
+"\n"
+"Επισκεφθείτε την ιστοσελίδα μας για περισσότερες πληροφορίες ή επικοινωνήστε "
+"απευθείας μαζί μας: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Δεν είναι δυνατή η εύρεση υποστηριζόμενης εγκατάστασης του Ghostscript.\n"
+"\n"
+"Το πρόγραμμα κλείνει."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Η υπηρεσία ουράς των Windows δεν εκτελείται. Ξεκινήστε πρώτα την ουρά.\n"
+"\n"
+"Το πρόγραμμα κλείνει τώρα."
 
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
@@ -5861,6 +6225,51 @@ msgstr "Το αρχείο μετατράπηκε με επιτυχία"
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "Σφάλμα κατά τη μετατροπή"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "και {0} ακόμα αρχείο/κατάλογο"
+msgstr[1] "και {0} ακόμα αρχεία/καταλόγους"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDFCreator test page"
+msgid "&Convert with PDFCreator"
+msgstr "Μετατροπή δοκιμαστικής σελίδας PDF Creator"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDF files"
+msgid "Convert &Here"
+msgstr "Μετατροπή αρχείων PDF"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Merge"
+msgid "&Merge"
+msgstr "Συγχώνευση"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "Βοήθεια"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση του PDFCreator στο σύστημά σας. Ελέγξτε αν το έχετε "
+"εγκαταστήσει."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"Τουλάχιστον ένα από τα επιλεγμένα στοιχεία δεν είναι μετατρέψιμο! Για "
+"περισσότερες πληροφορίες σχετικά με τα μη εκτυπώσιμα αρχεία, ανατρέξτε στην "
+"παρακάτω λίστα."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6014,6 +6423,8 @@ msgid ""
 "Time server account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός διακομιστή ώρας δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
@@ -6156,6 +6567,8 @@ msgid ""
 "SMTP account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός SMTP δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
@@ -6357,6 +6770,8 @@ msgid ""
 "FTP account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός FTP δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The FTP server URL has an invalid format."
@@ -6371,6 +6786,8 @@ msgid ""
 "Dropbox account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός Dropbox δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The specified Dropbox access token is not configured."
@@ -6617,6 +7034,8 @@ msgid ""
 "HTTP account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός HTTP δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "User cancelled retyping HTTP authentication password."
@@ -6926,7 +7345,7 @@ msgstr "Σφάλμα κατά την προσθήκη αριθμών σελίδ�
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The upload to OneDrive failed."
-msgstr ""
+msgstr "Η αποστολή στο OneDrive απέτυχε."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
@@ -6947,10 +7366,14 @@ msgid ""
 "You don't have the permissions to upload to OneDrive.\n"
 "Please check your Microsoft account permissions."
 msgstr ""
+"Δεν έχετε τα δικαιώματα αποστολής στο OneDrive.\n"
+"Ελέγξτε τα δικαιώματα του λογαριασμού Microsoft."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "A OneDrive share link to the file could not be created."
 msgstr ""
+"Δεν ήταν δυνατή η δημιουργία μιας σύνδεσης κοινής χρήσης του OneDrive προς "
+"το αρχείο."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
@@ -6975,6 +7398,8 @@ msgid ""
 "Microsoft account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
+"Ο λογαριασμός Microsoft δεν έχει οριστεί ή δεν είναι διαθέσιμος.\n"
+"Ελέγξτε τους διαμορφωμένους λογαριασμούς σας."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "Could not create draft on account."
@@ -7049,46 +7474,62 @@ msgid ""
 "You don't have the permissions to read and write emails.\n"
 "Please check your Microsoft account permissions."
 msgstr ""
+"Δεν έχετε τα δικαιώματα να διαβάζετε και να γράφετε μηνύματα ηλεκτρονικού "
+"ταχυδρομείου.\n"
+"Ελέγξτε τα δικαιώματα του λογαριασμού Microsoft."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "You don't have the permissions to send emails directly.\n"
 "Please check your Microsoft account permissions."
 msgstr ""
+"Δεν έχετε τα δικαιώματα να στέλνετε απευθείας μηνύματα ηλεκτρονικού "
+"ταχυδρομείου.\n"
+"Ελέγξτε τα δικαιώματα του λογαριασμού Microsoft."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "The permissions for your Microsoft account have expired.\n"
 "Please request them again in the Accounts tab."
 msgstr ""
+"Τα δικαιώματα για το λογαριασμό Microsoft έχουν λήξει.\n"
+"Ζητήστε τα ξανά στην καρτέλα Λογαριασμοί."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The upload to SharePoint failed."
-msgstr ""
+msgstr "Η αποστολή στο SharePoint απέτυχε."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "You don't have selected an account. Please select a valid account to "
 "configure the SharePoint action."
 msgstr ""
+"Δεν έχετε επιλέξει λογαριασμό. Επιλέξτε έναν έγκυρο λογαριασμό για να "
+"ρυθμίσετε τις παραμέτρους της ενέργειας SharePoint."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "You don't have selected a site. Please select a valid site to configure the "
 "SharePoint action."
 msgstr ""
+"Δεν έχετε επιλέξει ιστότοπο. Επιλέξτε μια έγκυρη τοποθεσία για να ρυθμίσετε "
+"τις παραμέτρους της ενέργειας SharePoint."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "You don't have selected a drive. Please select a valid drive to configure "
 "the SharePoint action."
 msgstr ""
+"Δεν έχετε επιλέξει μονάδα δίσκου. Επιλέξτε μια έγκυρη μονάδα δίσκου για να "
+"διαμορφώσετε την ενέργεια SharePoint."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "You don't have the permissions to upload to a SharePoint drive.\n"
 "Please check your Microsoft account permissions."
 msgstr ""
+"Δεν έχετε τα δικαιώματα αποστολής σε μια μονάδα δίσκου του SharePoint.\n"
+"Ελέγξτε τα δικαιώματα του λογαριασμού Microsoft."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "General error during Outlook Web Access action."
@@ -7124,11 +7565,101 @@ msgstr ""
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "The output document has no pages. The conversion is aborted."
-msgstr ""
+msgstr "Το έγγραφο εξόδου δεν έχει σελίδες. Η μετατροπή ματαιώνεται."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "Failed to apply changes made in preview."
+msgstr "Απέτυχε η εφαρμογή των αλλαγών που έγιναν στην προεπισκόπηση."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided HotFolder path is not a valid path."
+msgstr "Η διαδρομή αρχείου κλειδιού FTP είναι μια μη έγκυρη διαδρομή."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The HotFolder path must not be empty."
+msgstr "Η διαδρομή αρχείου δεν έχει οριστεί."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is too long."
+msgid "The HotFolder path is too long."
+msgstr "Η διαδρομή αρχείου είναι πολύ μεγάλη."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Source files path is not a valid path."
+msgstr "Η διαδρομή αρχείου κλειδιού FTP είναι μια μη έγκυρη διαδρομή."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The Source files path must not be empty."
+msgstr "Η διαδρομή αρχείου δεν έχει οριστεί."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is too long."
+msgid "The Source files path is too long."
+msgstr "Η διαδρομή αρχείου είναι πολύ μεγάλη."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "Η διαδρομή αρχείου κλειδιού FTP είναι μια μη έγκυρη διαδρομή."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The Unprintable files path must not be empty."
+msgstr "Η διαδρομή αρχείου δεν έχει οριστεί."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The program file path is too long."
+msgid "The Unprintable files path is too long."
+msgstr "Η διαδρομή του αρχείου προγράμματος είναι πολύ μεγάλη."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
 msgstr ""
+"Η διαδρομή των αρχείων προέλευσης και η διαδρομή HotFolder δεν μπορούν να "
+"είναι ίδιες."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+"Ο φάκελος προσαρμοσμένων αρχείων προέλευσης δεν πρέπει να είναι υποφάκελος "
+"της διαδρομής HotFolder."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+"Η διαδρομή των Μη εκτυπώσιμω αρχείων και η διαδρομή HotFolder δεν μπορούν να "
+"είναι ίδιες."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+"Ο προσαρμοσμένος φάκελος μη εκτυπώσιμων αρχείων δεν πρέπει να είναι "
+"υποφάκελος της διαδρομής HotFolder."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid ""
+#| "The selected printer forwards to another PDFCreator printer and causes an "
+#| "infinite loop."
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"Ο επιλεγμένος εκτυπωτής προωθείται σε άλλον εκτυπωτή PDFCreator και προκαλεί "
+"ατέρμονα βρόχο."
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
@@ -7266,7 +7797,7 @@ msgstr "Κλίμακα Του Γκρι (8 Bit)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
@@ -7300,7 +7831,7 @@ msgstr "Αρχείο JPEG"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
@@ -7530,6 +8061,11 @@ msgstr "Υποστηρίζεται από το PDF Creator Professional 5.0.0"
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "Υποστηρίζεται από το PDF Creator Professional 5.0.0"
 
+#, fuzzy
+#| msgid "Supported since PDFCreator Business 2.3.0"
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "Υποστηρίζεται από το PDF Creator Επιχειρήσεων 2.3.0"
+
 msgid "pdfforge"
 msgstr "pdf forge"
 
@@ -7578,6 +8114,17 @@ msgstr ""
 "Ορίστε τον αριθμό των λεπτών PDF Creator θα παραμείνει σε κατάσταση αναμονής "
 "μετά την εκτέλεση. Ρυθμίστε το σε 0 για απενεργοποίηση."
 
+msgid "Disable debug tab"
+msgstr "Απενεργοποίηση καρτέλας εντοπισμού σφαλμάτων"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Ενεργοποίηση για απενεργοποίηση της καρτέλας εντοπισμού σφαλμάτων. Αυτό "
+"απενεργοποιεί τις λειτουργίες για την εκτέλεση εργασιών δοκιμής και την "
+"αλλαγή του επιπέδου εντοπισμού σφαλμάτων."
+
 msgid "Disable printer tab"
 msgstr "Απενεργοποίηση καρτέλας εκτυπωτή"
 
@@ -7601,16 +8148,18 @@ msgstr ""
 "Ενεργοποιήστε για να απενεργοποιήσετε την καρτέλα τίτλου. Αυτό απενεργοποιεί "
 "τη λειτουργικότητα για να αλλάξετε τις αντικαταστάσεις τίτλου."
 
-msgid "Disable debug tab"
-msgstr "Απενεργοποίηση καρτέλας εντοπισμού σφαλμάτων"
+msgid "Hide feedback form"
+msgstr "Απόκρυψη φόρμας σχολίων"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"Ενεργοποίηση για απενεργοποίηση της καρτέλας εντοπισμού σφαλμάτων. Αυτό "
-"απενεργοποιεί τις λειτουργίες για την εκτέλεση εργασιών δοκιμής και την "
-"αλλαγή του επιπέδου εντοπισμού σφαλμάτων."
+#, fuzzy
+msgid "Activate to hide feedback form"
+msgstr "Ενεργοποιήστε για να αποκρύψετε τις συμβουλές στην αρχική οθόνη"
+
+msgid "Hide license tab"
+msgstr "Απόκρυψη καρτέλας άδειας χρήσης"
+
+msgid "Activate to hide license tab."
+msgstr "Ενεργοποιήστε για να αποκρύψετε την καρτέλα άδειας χρήσης."
 
 msgid "Hide PDF Architect info"
 msgstr "Απόκρυψη πληροφοριών αρχιτεκτονικής PDF"
@@ -7619,12 +8168,6 @@ msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "Ενεργοποιήστε για να αποκρύψετε πληροφορίες σχετικά με τον προσαρμόσιμο "
 "επεξεργαστή PDF."
-
-msgid "Hide license tab"
-msgstr "Απόκρυψη καρτέλας άδειας χρήσης"
-
-msgid "Activate to hide license tab."
-msgstr "Ενεργοποιήστε για να αποκρύψετε την καρτέλα άδειας χρήσης."
 
 msgid "Disable profile management"
 msgstr "Απενεργοποιήστε τη διαχείριση προφίλ"
@@ -7706,6 +8249,44 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Όνομα Αρχείου Κοινόχρηστων Ρυθμίσεων"
 
+#, fuzzy
+#| msgid "Load shared application settings"
+msgid "Load shared HotFolder settings"
+msgstr "Φορτώστε τις ρυθμίσεις κοινής εφαρμογής"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to load application settings from ini file in \"%ProgramData%"
+#| "\\pdfforge\\PDFCreator\". This is activated by default and must be "
+#| "explicitly disabled."
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Ενεργοποίηση για τη φόρτωση των ρυθμίσεων εφαρμογής από το αρχικό αρχείο "
+"(ini) στο \"% ProgramData%\\pdfforge\\PDFCreator\". Αυτό ενεργοποιείται από "
+"προεπιλογή και πρέπει να είναι απενεργοποιημένο."
+
+#, fuzzy
+#| msgid "Load shared profiles"
+msgid "Load shared printer mappings"
+msgstr "Φόρτωση κοινόχρηστων προφίλ"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to disable printer tab. This disables the functionalities to add/"
+#| "delete/rename PDFCreator printers, change profile assignments and set the "
+#| "primary PDFCreator printer."
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Ενεργοποιήστε για να απενεργοποιήσετε την καρτέλα εκτυπωτή. Αυτό "
+"απενεργοποιεί τις λειτουργίες για να προσθέσετε/διαγράψετε / μετονομάσετε "
+"εκτυπωτές PDF Creator, να αλλάξετε τις αναθέσεις προφίλ και να ορίσετε τον "
+"πρωτεύοντα εκτυπωτή PDF Creator."
+
 msgid "Load shared profiles"
 msgstr "Φόρτωση κοινόχρηστων προφίλ"
 
@@ -7721,18 +8302,19 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Επιτρέψτε την επιλογή περαιτέρω προφίλ που ορίζονται από το χρήστη"
 
-msgid "Hide feedback form"
-msgstr ""
-
 #, fuzzy
-msgid "Activate to hide feedback form"
-msgstr "Ενεργοποιήστε για να αποκρύψετε τις συμβουλές στην αρχική οθόνη"
+#| msgid "Hungarian"
+msgid "Bulgarian"
+msgstr "Ουγγρικά"
 
 msgid "Catalan"
 msgstr "Καταλανικά"
 
-msgid "Chinese"
-msgstr ""
+msgid "Chinese (Simplified)"
+msgstr "Κινεζικά (Απλοποιημένα)"
+
+msgid "Chinese (Traditional)"
+msgstr "Κινέζικα (Παραδοσιακά)"
 
 msgid "Corsican (France)"
 msgstr "Κορσικής (Γαλλία)"
@@ -7774,15 +8356,20 @@ msgid "Polish"
 msgstr "Πολωνικά"
 
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Πορτογαλικά (Βραζιλίας)"
+
+msgid "Slovak"
+msgstr "Σλοβακικά"
 
 #, fuzzy
-#| msgid "Danish"
 msgid "Spanish"
 msgstr "Δανικά"
 
 msgid "Swedish"
 msgstr "Σουηδικά"
+
+msgid "Turkish"
+msgstr "Τουρκικά"
 
 msgid "Set language:"
 msgstr "Ορισμός γλώσσας:"
@@ -7799,299 +8386,49 @@ msgstr "Ορισμός επιπέδου καταγραφής:"
 msgid "Allow users to define additional profiles"
 msgstr "Να επιτρέπεται στους χρήστες να καθορίζουν πρόσθετα προφίλ"
 
+#, fuzzy
+#~| msgid "Finnish"
+#~ msgid "Finish"
+#~ msgstr "Φινλανδικά"
+
+#, fuzzy
+#~| msgid "Open"
+#~ msgid "On"
+#~ msgstr "Άνοιγμα"
+
+#, fuzzy
+#~| msgid "Disable title tab"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "Απενεργοποιήστε την καρτέλα τίτλου"
+
+#, fuzzy
+#~| msgid "Activate to disable the job history."
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Ενεργοποιήστε για να απενεργοποιήσετε το ιστορικό εργασιών."
+
+#~ msgid "minutes"
+#~ msgstr "λεπτά"
+
+#, fuzzy
+#~| msgid "Offline activation"
+#~ msgid "Offline Activation"
+#~ msgstr "Ενεργοποίηση εκτός σύνδεσης"
+
 #~ msgid "Show license details"
 #~ msgstr "Εμφάνιση λεπτομερειών άδειας χρήσης"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Κινεζικά (Απλοποιημένα)"
-
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Κινέζικα (Παραδοσιακά)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "Η δοκιμαστική σας άδεια έχει λήξει"
-
-#~ msgid "Unlock here"
-#~ msgstr "Ξεκλειδώστε εδώ"
-
-#~ msgid "Greek"
-#~ msgstr "Ελληνικά"
-
-#~ msgid "Turkish"
-#~ msgstr "Τουρκικά"
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
-#~ msgstr ""
-#~ "Το PDFCreator δεν ήταν σε θέση να επισκευάσει τους εκτυπωτές σας. "
-#~ "Παρακαλώ επικοινωνήστε με τον διαχειριστή η την υποστήριξη για να σας "
-#~ "βοηθήσει με αυτό το πρόβλημα."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "Το PDFCreator δεν ήταν σε θέση να επισκευάσει τον φάκελο αναμονής. "
-#~ "Παρακαλώ επικοινωνήστε με τον διαχειριστή σας η την υποστήριξη για να σας "
-#~ "βοηθήσει στην αλλαγή και τα δικαιώματα της διαδρομής '{0}'."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "Υπήρχε ένα σφάλμα με ένα στοιχείο αδειούχο από το pdfforge.\n"
-#~ "Εγκαταστήστε ξανά το PDFCreator. (Σφάλμα {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "Η άδεια χρήσης για το '{0}' δεν είναι έγκυρη ή έχει λήξει. Παρακαλώ "
-#~ "ελέγξτε την άδεια χρήσης σας, διαφορετικά το PDF Creator θα τερματισθεί.\n"
-#~ "Θέλετε να ελέγξετε την άδειά σας τώρα?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Η άδεια χρήσης για \"{0}\" έχει λήξει.\n"
-#~ "Το PDFCreator θα τερματισθεί."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Η άδεια χρήσης για \"{0}\" έχει λήξει.\n"
-#~ "Παρακαλώ επικοινωνήστε με τον διαχειριστή σας.\n"
-#~ "Το PDFCreator θα τερματισθεί."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Η δοκιμή σας έχει λήξει στις {0}.\n"
-#~ "Το PDF Creator θα τερματιστεί.\n"
-#~ "\n"
-#~ "Παρακαλούμε Επικοινωνήστε με: licensing@pdfforge.org"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "Η άδεια δεν ισχύει για αυτήν την έκδοση."
 
 #, fuzzy
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
 #~ msgstr ""
-#~ "Η άδεια χρήσης για το '{0}' δεν είναι έγκυρη ή έχει λήξει. Παρακαλώ "
-#~ "ελέγξτε την άδεια χρήσης σας, διαφορετικά το PDF Creator θα τερματισθεί.\n"
-#~ "Θέλετε να ελέγξετε την άδειά σας τώρα?"
+#~ "Παρουσιάστηκε πρόβλημα με τη σύνδεση με το διακομιστή αδειών χρήσης."
 
 #, fuzzy
+#~| msgid "The license has expired. Please renew your license."
 #~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Η άδεια χρήσης για \"{0}\" έχει λήξει.\n"
-#~ "Το PDFCreator θα τερματισθεί."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Παρακαλούμε χρησιμοποιήστε το \"PDFCreator Terminal Server\" για χρήση σε "
-#~ "υπολογιστές με εγκατεστημένο το Terminal Services.\n"
-#~ "\n"
-#~ "Παρακαλούμε επισκεφθείτε την ιστοσελίδα μας για περισσότερες πληροφορίες "
-#~ "ή επικοινωνήστε μαζί μας άμεσα: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Δεν μπορεί να βρεθεί μια υποστηριζόμενη Ghostscript εγκατάσταση.\n"
-#~ "\n"
-#~ "Το πρόγραμμα τερματίζεται τώρα."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Η υπηρεσία ουράς των Windows δεν εκτελείται. Παρακαλώ ξεκινήστε το "
-#~ "καρούλι πρώτα.\n"
-#~ "\n"
-#~ "Το πρόγραμμα βγαίνει τώρα."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Δεν υπάρχουν PDFCreator εκτυπωτές που είναι εγκατεστημένοι. Πιθανότατα "
-#~ "υπήρξε ένα πρόβλημα κατά την εγκατάσταση η η εγκατάσταση έχει αλλάξει στη "
-#~ "συνέχεια.\n"
-#~ "Θέλετε να διορθωθεί αυτό πρόβλημα με την επανεγκατάσταση των PDFCreator "
-#~ "εκτυπωτών;\n"
-#~ "\n"
-#~ "Σημείωση: ενδέχεται να σας ζητηθεί να παραχωρήσετε τα δικαιώματα "
-#~ "διαχειριστή, για τον καθορισμό του προβλήματος."
-
-#~ msgid "No printers installed"
-#~ msgstr "Δεν έχουν εγκατασταθεί εκτυπωτές"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "Δεν βρέθηκε εργαλείο επισκευής"
-
-#~ msgid "Access Denied"
-#~ msgstr "Δεν επιτρέπεται η πρόσβαση"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "Η προσωρινός κατάλογος όπου το PDFCreator αποθηκεύει τις εργασίες "
-#~ "εκτύπωσης δεν μπορεί να προσεγγιστεί. Αυτό είναι ένα πρόβλημα ρύθμισης "
-#~ "παραμέτρων στον υπολογιστή σας και πρέπει να διορθωθεί. Θέλετε PDFCreator "
-#~ "να επιχειρήσετε την επισκευή;\n"
-#~ "Ο φάκελος εκτύπωσης αναμονής είναι: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "Αλβανικά"
-
-#~ msgid "Printer:"
-#~ msgstr "Εκτυπωτής:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "Έκδοση"
-
-#~ msgid "Read More"
-#~ msgstr "Περισσότερα"
-
-#~ msgid "Default Printer"
-#~ msgstr "Προεπιλεγμένος Εκτυπωτής"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Στατιστικά Χρήσης"
-
-#~ msgid "Run Program"
-#~ msgstr "Εκτέλεση Προγράμματος"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "Ορισμός Κωδικού Πρόσβασης Πιστοποιητικού"
-
-#~ msgid "User Name:"
-#~ msgstr "Όνομα Χρήστη:"
-
-#~ msgid "Email Address:"
-#~ msgstr "Διεύθυνση Email:"
-
-#, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "Προσθήκη συνημμένου"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "Εκ μέρους του:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "Επιλέξτε 'No' για αναίρεση των αλλαγών."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "και {0} περισσότερα αρχείο/κατάλογος"
-#~ msgstr[1] "και {0} περισσότερα αρχεία/κατάλογοι"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&Μετατροπή με PDF Creator"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Μετατροπή &Εδώ"
-
-#~ msgid "&Merge"
-#~ msgstr "& Συγχώνευση"
-
-#~ msgid "Hint"
-#~ msgstr "Υπόδειξη"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "Δεν ήταν δυνατή η εύρεση του PDF Creator στο σύστημά σας. Ελέγξτε αν το "
-#~ "έχετε εγκαταστήσει."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "Τουλάχιστον ένα από τα επιλεγμένα στοιχεία δεν είναι μετατρέψιμο! Για "
-#~ "περισσότερες πληροφορίες σχετικά με τα μη εκτυπώσιμα αρχεία, δείτε την "
-#~ "παρακάτω λίστα."
-
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr ""
-#~ "Η διαδρομή προς το αρχείο εικόνας υπογραφής περιέχει μη έγκυρους "
-#~ "χαρακτήρες."
-
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr ""
-#~ "Η διαδρομή του αρχείου προγράμματος περιέχει μη έγκυρους χαρακτήρες."
-
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr ""
-#~ "Μία από τις διαδρομές του συνοδευτικού αρχείου περιέχει μη έγκυρους "
-#~ "χαρακτήρες."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr ""
-#~ "Μία από τις διαδρομές συνημμένου αρχείου περιέχει μη έγκυρους χαρακτήρες."
-
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "Ο κατάλογος προορισμού περιέχει μη έγκυρους χαρακτήρες."
-
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "Το αρχείο φόντου περιέχει παράνομους χαρακτήρες."
-
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "Η διαδρομή αρχείου πιστοποιητικού περιέχει μη έγκυρους χαρακτήρες."
-
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "Η διαδρομή αρχείου κλειδιού FTP είναι μια μη έγκυρη διαδρομή."
-
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "Η διαδρομή αρχείου κλειδιού FTP περιέχει μη έγκυρους χαρακτήρες."
-
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "Η διαδρομή αρχείου δεν είναι έγκυρη ή κενή. Εισαγάγετε μια έγκυρη "
-#~ "διαδρομή.\n"
-#~ "Η διαδρομή αρχείου δεν πρέπει να περιέχει κανέναν από τους ακόλουθους "
-#~ "χαρακτήρες: \n"
-#~ " \\ / : * ? \\< >"
-
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "Η διαδρομή αρχείου υδατογραφήματος περιέχει παράνομους χαρακτήρες."
-
-#~ msgid "Your license has expired."
-#~ msgstr "Η άδειά σας έχει λήξει."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
+#~ msgstr "Η άδεια έχει λήξει. Παρακαλούμε να ανανεώσετε την άδεια χρήσης σας."

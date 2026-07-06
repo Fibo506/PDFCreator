@@ -6,12 +6,12 @@ namespace pdfforge.PDFCreator.Core.Startup.AppStarts;
 
 public class DragAndDropStart : MaybePipedStart
 {
-    private readonly IFileConversionAssistant _fileConversionAssistant;
+    private readonly IFileConversionHelper _fileConversionHelper;
 
-    public DragAndDropStart(IFileConversionAssistant fileConversionAssistant, IMaybePipedApplicationStarter maybePipedApplicationStarter)
+    public DragAndDropStart(IFileConversionHelper fileConversionHelper, IMaybePipedApplicationStarter maybePipedApplicationStarter)
         : base(maybePipedApplicationStarter)
     {
-        _fileConversionAssistant = fileConversionAssistant;
+        _fileConversionHelper = fileConversionHelper;
     }
 
     public IList<string> DroppedFiles { get; set; } = new List<string>();
@@ -25,7 +25,7 @@ public class DragAndDropStart : MaybePipedStart
 
     protected override bool StartApplication()
     {
-        _fileConversionAssistant.HandleFileList(DroppedFiles, AppStartParameters);
+        _fileConversionHelper.HandleFileList(DroppedFiles, AppStartParameters);
         return true;
     }
 }

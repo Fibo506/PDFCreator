@@ -35,13 +35,13 @@ public partial class WebViewerMainWindow : Window
     {
         var userDataFolder = Path.GetTempPath();
         var webView2Environment = await CoreWebView2Environment.CreateAsync(null, userDataFolder, new CoreWebView2EnvironmentOptions());
-        
+
         await webView.EnsureCoreWebView2Async(webView2Environment);
 
         _webViewCoreWebView2 = webView.CoreWebView2;
         _webViewCoreWebView2.NavigationStarting += WebViewCoreWebView2OnNavigationStarting;
         _webViewCoreWebView2.Navigate(BuildUrl(_baseFolder, _getLanguage(), _initialHelpTopic));
-        
+
     }
 
     private void MainWindow_OnUnloaded(object sender, RoutedEventArgs e)

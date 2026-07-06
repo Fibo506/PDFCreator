@@ -703,4 +703,46 @@ public enum ErrorCode
 
     [Translation("Failed to apply changes made in preview.")]
     Preview_FailedToApplyPreviewChanges = 70000,
+
+    [Translation("The provided HotFolder path is not a valid path.")]
+    HotFolder_PathInvalid = 80000,
+
+    [Translation("The HotFolder path must not be empty.")]
+    HotFolder_PathEmpty = 80001,
+
+    [Translation("The HotFolder path is too long.")]
+    HotFolder_PathTooLong = 80002,
+
+    [Translation("The provided Source files path is not a valid path.")]
+    HotFolder_SourceFileMoverPathInvalid = 80003,
+
+    [Translation("The Source files path must not be empty.")]
+    HotFolder_SourceFileMoverPathEmpty = 80004,
+
+    [Translation("The Source files path is too long.")]
+    HotFolder_SourceFileMoverPathTooLong = 80005,
+
+    [Translation("The provided Unprintable files path is not a valid path.")]
+    HotFolder_UnprintableFileMoverPathInvalid = 80006,
+
+    [Translation("The Unprintable files path must not be empty.")]
+    HotFolder_UnprintableFileMoverPathEmpty = 80007,
+
+    [Translation("The Unprintable files path is too long.")]
+    HotFolder_UnprintableFileMoverPathTooLong = 80008,
+
+    [Translation("The Source files path and HotFolder path cannot be the same.")]
+    HotFolder_SourceAndHotFolderPathAreEqual = 80009,
+
+    [Translation("The custom source files folder must not be a subfolder of the HotFolder path.")]
+    HotFolder_SourcePathIsSubfolderOfHotFolder = 80010,
+
+    [Translation("The Unprintable files path and HotFolder path cannot be the same.")]
+    HotFolder_UnprintablePathAndHotFolderPathAreEqual = 80011,
+
+    [Translation("The custom unprintable files folder must not be a subfolder of the HotFolder path.")]
+    HotFolder_UnprintablePathIsSubFolderOfHotFolder = 80012,
+
+    [Translation("The selected HotFolder path is the target directory of the profile causing an infinite loop.")]
+    HotFolder_ProfileTargetDirAndHotFolderPathAreEqual = 80013,
 }

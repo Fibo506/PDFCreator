@@ -8,6 +8,7 @@ public class MainShellTranslation : ITranslatable
     public string Home { get; private set; } = "Home";
     public string Profiles { get; private set; } = "Profiles";
     public string Printer { get; private set; } = "Printer";
+    public string HotFolder { get; private set; } = "HotFolder";
     public string Accounts { get; private set; } = "Accounts";
     public string Settings { get; private set; } = "Settings";
     public string UpdateToolTip { get; private set; } = "An update is available";
@@ -22,8 +23,8 @@ public class MainShellTranslation : ITranslatable
     public string NoRssFeedAvailable { get; private set; } = "No RSS Feed Available";
     public string UnableToReadRssFeed { get; private set; } = "Unable to load the RSS feed. Please check your internet connection.";
 
-        public string RssFeedNewsTitle { get; private set; } = "News";
-        public string UpgradeNow { get; private set; } = "Upgrade Now";
+    public string RssFeedNewsTitle { get; private set; } = "News";
+    public string UpgradeNow { get; private set; } = "Upgrade Now";
 
     public string FormatUsageStatisticsInfoText(string applicationName)
     {

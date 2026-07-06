@@ -23,6 +23,8 @@ public class GpoReaderDebugSettings : IGpoSettings
     public bool DisableRssFeed => true;
     public bool DisableTips => true;
     public bool LoadSharedAppSettings => true;
+    public bool LoadSharedHotFolders => true;
+    public bool LoadSharedPrinterMappings => true;
     public bool LoadSharedProfiles => true;
     public bool AllowUserDefinedProfiles => true;
     public bool DisableLicenseExpirationReminder => true;

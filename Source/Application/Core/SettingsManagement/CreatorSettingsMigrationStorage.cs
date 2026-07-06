@@ -11,20 +11,22 @@ public class CreatorSettingsMigrationStorage : IStorage
     private readonly IFontHelper _fontHelper;
     private readonly int _targetVersion;
     private readonly ISettingsBackup _settingsBackup;
+    private readonly IGuid _guid;
 
-    public CreatorSettingsMigrationStorage(IStorage baseStorage, IFontHelper fontHelper, int targetVersion, ISettingsBackup settingsBackup)
+    public CreatorSettingsMigrationStorage(IStorage baseStorage, IFontHelper fontHelper, int targetVersion, ISettingsBackup settingsBackup, IGuid guid)
     {
         _baseStorage = baseStorage;
         _fontHelper = fontHelper;
         _targetVersion = targetVersion;
         _settingsBackup = settingsBackup;
+        _guid = guid;
     }
 
     public void ReadData(Data data)
     {
         _baseStorage.ReadData(data);
 
-        var upgrader = new CreatorSettingsUpgrader(data, _fontHelper);
+        var upgrader = new CreatorSettingsUpgrader(data, _fontHelper, _guid);
 
         if (upgrader.RequiresUpgrade(_targetVersion))
         {

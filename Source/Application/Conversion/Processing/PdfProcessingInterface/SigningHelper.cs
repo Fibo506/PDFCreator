@@ -17,6 +17,9 @@ public class SigningHelper
         if (!string.IsNullOrWhiteSpace(signatureSettings.SignReason))
             text += "\n// " + signatureSettings.SignReason;
 
+        if (!string.IsNullOrWhiteSpace(signatureSettings.SignContact))
+            text += "\n// " + signatureSettings.SignContact;
+
         return text;
     }
 }

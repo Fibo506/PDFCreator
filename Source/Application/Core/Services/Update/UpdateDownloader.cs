@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using NLog;
@@ -20,7 +20,7 @@ public class UpdateDownloader : IUpdateDownloader
     private readonly IHashUtil _hashUtil;
     private readonly ICancellationTokenSourceFactory _cancellationSourceFactory;
 
-    private HttpClient _httpClient;
+    private readonly HttpClient _httpClient = new HttpClient();
     public DownloadSpeed DownloadSpeed { get; set; }
 
     public event EventHandler<UpdateProgressChangedEventArgs> OnDownloadFinished;
@@ -53,16 +53,14 @@ public class UpdateDownloader : IUpdateDownloader
         if (_downloadTask == null)
         {
             _cancellationSource = _cancellationSourceFactory.CreateSource();
-            _downloadTask = Task.Run(() =>
+            _downloadTask = Task.Run(async () =>
             {
-                _httpClient = new HttpClient();
-
                 DownloadSpeed = new DownloadSpeed();
 
                 OnProgressChanged += DownloadSpeed.DownloadProgressChanged;
-                OnDownloadFinished += DownloadSpeed.webClient_DownloadFileCompleted;
+                OnDownloadFinished += DownloadSpeed.DownloadFileCompleted;
 
-                var downloadFileWithRange = DownloadFileWithRange(version);
+                var downloadFileWithRange = await DownloadFileWithRange(version, _cancellationSource.Token);
                 OnDownloadFinished?.Invoke(this, new UpdateProgressChangedEventArgs(downloadFileWithRange, 0, 0, 0));
                 _downloadTask = null;
             }, _cancellationSource.Token);
@@ -79,13 +77,13 @@ public class UpdateDownloader : IUpdateDownloader
         return false;
     }
 
-    private bool DownloadFileWithRange(IApplicationVersion version)
+    private async Task<bool> DownloadFileWithRange(IApplicationVersion version, CancellationToken cancellationToken)
     {
         var uri = new Uri(version.DownloadUrl);
         var filePath = GetDownloadPath(version.DownloadUrl);
 
-        long totalBytesRead = 0;
-        string tempFile = filePath + ".temp";
+        long downloadedBytes = 0;
+        var tempFile = filePath + ".temp";
 
         // file is already downloaded and renamed
         if (IsDownloaded(filePath))
@@ -94,65 +92,89 @@ public class UpdateDownloader : IUpdateDownloader
         var fileInfo = new FileInfo(tempFile);
         if (fileInfo.Exists)
         {
-            if (_hashUtil.VerifyFileMd5(tempFile, version.FileHash))
+            if (await _hashUtil.VerifyFileMd5Async(tempFile, version.FileHash))
             {
                 // File was downloaded already but not renamed
-                File.Move(tempFile, filePath);
+                _systemFile.Move(tempFile, filePath);
                 return true;
             }
-            totalBytesRead = fileInfo.Length;
+
+            downloadedBytes = fileInfo.Length;
         }
 
-        long maxContentLength = 0;
-        while (maxContentLength == 0 || totalBytesRead < maxContentLength)
-        {
-            long requestContentLength = 0;
-            try
-            {
-                var request = (HttpWebRequest)WebRequest.Create(uri);
+        var contentLength = await GetContentLength(uri, cancellationToken);
 
-                if (totalBytesRead > 0)
-                    request.AddRange(totalBytesRead);
+        if (contentLength <= downloadedBytes) // file is downloaded, but hashes don't match
+            _systemFile.Delete(tempFile);
 
-                var response = request.GetResponse();
+        if (contentLength > 0 && contentLength > downloadedBytes)
+            downloadedBytes = await DownloadFileWithProgress(uri, contentLength, tempFile, cancellationToken, downloadedBytes);
 
-                if (response.ContentLength > maxContentLength)
-                    maxContentLength = response.ContentLength + totalBytesRead;
+        if (contentLength != downloadedBytes)
+            return false;
 
-                if (maxContentLength <= totalBytesRead)
-                    return true;
+        if (!await _hashUtil.VerifyFileMd5Async(tempFile, version.FileHash))
+            return false;
 
-                using (var responseStream = response.GetResponseStream())
-                using (var localFileStream = _systemFile.Open(tempFile, FileMode.Append, FileAccess.Write))
-                {
-                    var buffer = new byte[4096 * 4];
-                    int bytesRead;
+        _systemFile.Move(tempFile, filePath);
 
-                    while (responseStream != null && (bytesRead = responseStream.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        totalBytesRead += bytesRead;
-                        requestContentLength += bytesRead;
-                        var progressInPercent = (int)(totalBytesRead * 100 / maxContentLength);
-                        OnProgressChanged?.Invoke(this, new UpdateProgressChangedEventArgs(false, progressInPercent, totalBytesRead, maxContentLength));
-                        localFileStream.Write(buffer, 0, bytesRead);
-                    }
-                    _logger.Debug("Got bytes: {0}", requestContentLength);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, $"Error while downloading; Got bytes: {requestContentLength} with Error:{ex.Message}");
-            }
-        }
+        return true;
 
-        if (maxContentLength == totalBytesRead)
-        {
-            _systemFile.Move(tempFile, filePath);
-            return true;
-        }
-
-        return false;
     }
+
+    private async Task<long> DownloadFileWithProgress(Uri uri, long contentLength, string tempFile, CancellationToken cancellationToken, long downloadedBytes)
+    {
+        try
+        {
+            var request = new HttpRequestMessage { RequestUri = uri };
+
+            if (downloadedBytes > 0)
+                request.Headers.Range = new RangeHeaderValue(downloadedBytes, contentLength);
+
+            var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+
+            await using var responseStream = await response.Content.ReadAsStreamAsync(cancellationToken);
+            using var localFileStream = _systemFile.Open(tempFile, FileMode.Append, FileAccess.Write);
+
+            var buffer = new byte[4096 * 4];
+            int bytesRead;
+
+            while ((bytesRead = await responseStream.ReadAsync(buffer, 0, buffer.Length, cancellationToken)) > 0)
+            {
+                downloadedBytes += bytesRead;
+                var progressInPercent = (int)(downloadedBytes * 100 / contentLength);
+                OnProgressChanged?.Invoke(this, new UpdateProgressChangedEventArgs(false, progressInPercent, downloadedBytes, contentLength));
+                localFileStream.Write(buffer, 0, bytesRead);
+            }
+
+            _logger.Debug("Got bytes: {0}", downloadedBytes);
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, $"Error while downloading; Got bytes: {downloadedBytes} with Error:{ex.Message}");
+        }
+
+        return downloadedBytes;
+    }
+
+    private async Task<long> GetContentLength(Uri uri, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Head, uri);
+            var response = await _httpClient.SendAsync(request, cancellationToken);
+            if (response.Content.Headers.ContentLength.HasValue)
+                return response.Content.Headers.ContentLength.Value;
+
+            return 0;
+        }
+        catch (Exception ex)
+        {
+            _logger.Warn(ex, "Error while getting content length");
+            return 0;
+        }
+    }
+
 
     public void AbortDownload()
     {

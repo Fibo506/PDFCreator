@@ -24,7 +24,7 @@ public interface IPdfProcessor
 
     void AddWatermark(Job job);
 
-    void MergePDFs(string targetPdf, string sourcePdf, string pdfOwnerPassword);
+    void MergePDFs(string targetPdf, string sourcePdf, JobPasswords jobPasswords);
 
     void ApplyPreviewChanges(Job job, IList<PageMapping> pageMappings);
 }

@@ -6,11 +6,11 @@ namespace pdfforge.PDFCreator.UI.Presentation.Helper;
 
 public class DragAndDropEventHandler
 {
-    private readonly IFileConversionAssistant _fileConversionAssistant;
+    private readonly IFileConversionHelper _fileConversionHelper;
 
-    public DragAndDropEventHandler(IFileConversionAssistant fileConversionAssistant)
+    public DragAndDropEventHandler(IFileConversionHelper fileConversionHelper)
     {
-        _fileConversionAssistant = fileConversionAssistant;
+        _fileConversionHelper = fileConversionHelper;
     }
 
     /// <summary>
@@ -32,6 +32,6 @@ public class DragAndDropEventHandler
     public void HandleDropEvent(DragEventArgs e)
     {
         var droppedFiles = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-        _fileConversionAssistant.HandleFileListWithoutTooManyFilesWarning(droppedFiles, new AppStartParameters());
+        _fileConversionHelper.HandleFileListWithoutTooManyFilesWarning(droppedFiles, new AppStartParameters());
     }
 }

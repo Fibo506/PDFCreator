@@ -20,15 +20,17 @@ public class PsToPdfConverter : IPsToPdfConverter
     private readonly IConverter _converter;
     private readonly IJobCleaner _jobCleaner;
     private readonly IFile _file;
+    private readonly IPath _path;
     private readonly IDirectory _directory;
     private readonly IUniqueFilenameFactory _uniqueFilenameFactory;
 
     private readonly Dictionary<string, Task<string>> _fileTaskMapping = new();
 
-    public PsToPdfConverter(IConverterFactory converterFactory, IJobCleaner jobCleaner, IFile file, IDirectory directory, IUniqueFilenameFactory uniqueFilenameFactory)
+    public PsToPdfConverter(IConverterFactory converterFactory, IJobCleaner jobCleaner, IFile file, IPath path, IDirectory directory, IUniqueFilenameFactory uniqueFilenameFactory)
     {
         _jobCleaner = jobCleaner;
         _file = file;
+        _path = path;
         _directory = directory;
         _uniqueFilenameFactory = uniqueFilenameFactory;
         _converter = converterFactory.GetConverter(JobType.PsJob);
@@ -63,10 +65,11 @@ public class PsToPdfConverter : IPsToPdfConverter
         if (sfiExtension == ".pdf")
             return sfiFilename;
 
+        var previewFolder = PathSafe.GetFileNameWithoutExtension(_path.GetRandomFileName());
         var sfiFolder = PathSafe.GetDirectoryName(sfiFilename);
-        var intermediateFolder = PathSafe.Combine(sfiFolder, "intermediate");
+        var intermediateFolder = PathSafe.Combine(sfiFolder, "intermediate_" + previewFolder);
         _directory.CreateDirectory(intermediateFolder);
-        var jobTempFolder = PathSafe.Combine(sfiFolder, "temp");
+        var jobTempFolder = PathSafe.Combine(sfiFolder, "temp_" + previewFolder);
         _directory.CreateDirectory(jobTempFolder);
 
         var pdfFile = DoConvertPsToPdf(sfiFilename, jobTempFolder, intermediateFolder);

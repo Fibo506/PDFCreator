@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Hungarian (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-21 08:00+0000\n"
+"PO-Revision-Date: 2025-11-23 07:58+0000\n"
 "Last-Translator: Timinoun <timinoun@freemail.hu>\n"
 "Language-Team: Hungarian <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/hu/>\n"
@@ -37,6 +37,12 @@ msgid "Printer"
 msgstr "Nyomtató"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr "HotFordert"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.FtpActionTranslation
@@ -61,7 +67,7 @@ msgstr "Beállítások"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "An update is available"
-msgstr "Frissítés elérhető"
+msgstr "Frissítés érhető el"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Help us improve {0} by sending anonymous application usage statistics."
@@ -88,7 +94,8 @@ msgstr "RSS hírfolyam letiltva."
 msgid ""
 "You can enable the RSS news feed by activating it in the application "
 "settings."
-msgstr "Az RSS-hírfolyamot az alkalmazás beállításaiban aktiválhatja."
+msgstr ""
+"Az RSS hírcsatornát az alkalmazás beállításaiban aktiválva engedélyezheti."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "No RSS Feed Available"
@@ -105,6 +112,7 @@ msgid "News"
 msgstr "Hírek"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr "Frissítés most"
 
@@ -134,7 +142,7 @@ msgstr "Az Ön próbalicensze ma lejár."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Kattintson ide a licensz meghosszabbításához."
 
@@ -157,6 +165,7 @@ msgstr "Érvénytelen beállítások"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Hiba"
 
@@ -218,7 +227,7 @@ msgid ""
 "Please select another filename and try again."
 msgstr ""
 "'{0}' elérési út nem érvényes abszolút elérési út.\n"
-"Kérjük, válasszon másik fájlnevet és próbálja meg újra."
+"Kérjük, válasszon másik fájlnevet, majd próbálja meg újra!"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid ""
@@ -471,321 +480,56 @@ msgstr "Javítások"
 msgid "Other changes"
 msgstr "Egyéb módosítások"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "Készen áll arra, hogy többre törekedjen, mint pusztán az alapok?"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
-"A licence lejárt...\n"
-"Kérjük újítsa meg a licencét"
+"Használja ki a PDFCreator prémium funkcióit, hogy intelligensebb "
+"munkafolyamatokat hozzon létre és időt takarítson meg."
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with your license..."
-msgstr "Probléma merült fel a licenccel kapcsolatban..."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "Üzleti funkciók:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr ""
-"Ellenőrizze most a licencét, hogy továbbra is hozzáférhessen a következőkhöz:"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr "256 bites titkosítás"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
-"A frissítés biztosítja a hosszú távú produktivitást, és hozzáférést biztosít "
-"üzleti kiadásainkhoz, beleértve az olyan fejlett automatizálási funkciókat, "
-"mint:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "User Tokens"
 msgstr "Felhasználói tokenek"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr "CS-szkriptek"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Delete pages"
+msgstr "Oldalak törlése"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr "Profil továbbítása"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "Továbbítás profilhoz"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "Elsőbbségi támogatás"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Licenc részletei"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "Csoportházirendek"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr "Tartsa a PDFCreatort az eszközkészletének állandó részeként."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Shared settings"
+msgstr "Megosztott beállítások"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr "Frissítés most"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage License"
-msgstr "Licenc kezelése"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Offline Activation"
-msgstr "Offline aktiválás"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Licenc aktiválva"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr "Licence sikeresen aktiválásra került. Köszönjük, hogy használja: {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully."
-msgstr "Licence sikeresen aktiválásra került."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr "Kérjük, adja meg a licenckulcsot {0} további használatáért"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "Megosztja az aktiválást a rendszer összes felhasználójával?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "Kérjük, ossza meg aktiválását a rendszer összes felhasználójával."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users"
-msgstr "Aktiválás mentése minden felhasználó számára"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "An error occurred when saving the activation for all users."
-msgstr "Hiba történt az összes felhasználó aktiválásának mentésekor."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-"A PDFCreator terminálkiszolgáló megköveteli, hogy a licenc minden "
-"felhasználó számára mentésre kerüljön."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users was successful."
-msgstr "A mentés aktiválása minden felhasználó számára sikeresen megtörtént."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Licenc érvényesítése..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"A licenckulcs helytelen karaktereket tartalmaz. Az érvényes karakterek a "
-"következők: A-Z, 0-9 és a kötőjel."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"A licenckulcs 30 karaktert vagy számot tartalmaz, például: \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Soha"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Licenctulajdonos:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "Az aktiválás lejárt. Kérjük, újítsa meg az aktiválását."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-"A gép vagy a felhasználó blokkolva. Lépjen kapcsolatba az ügyfélszolgálattal."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Hiba a licenc hitelesítése közben."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "Ez a licenckulcs nem érvényes. Adja meg az új licenckulcsot."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "A licenc lejárt. Kérjük újítsa meg a licencét."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "A licenc próbaideje lejárt."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "Nem érvényes a licenckulcs. Kérjük, adjon meg egy új licenckulcsot."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Probléma merült fel a licencszerverhez való kapcsolódáskor."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "A licenc meghaladta az aktivált gépek megengedett számát."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "A licenckulcs nem érvényes erre a PDFCreator kiadásra."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "A licenc érvényes."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"Az offline aktiválás lejárt. Kérjük, azonnal aktiválja újra licencét, hogy "
-"elkerülje az alkalmazás blokkolását."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"A belső licenc szerver aktiválása lejárt. Kérjük, azonnal aktiválja újra "
-"licencét, hogy elkerülje az alkalmazás blokkolását."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "A licenc lejár {0} nap múlva."
-msgstr[1] "A licenc {0} nap múlva lejár."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "A licenc nem érvényes erre a verzióra."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Az aktiválási kód rossz formátumú."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Nincs érvényes licenckulcsa?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "További aktiválások vásárlása itt."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Licenc megújítása itt."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Itt kezelheti licencét."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Kérjük, adja meg a licenckulcsot."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Hiba az aktiválás mentése során. Kérjük, próbálja meg ismét."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "A belső licencszerver URL-címe érvénytelen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"A licencet a belső licenckiszolgáló nem ismeri fel.\n"
-"Kérjük, importálja az engedélyt."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"A licencet a belső licenckiszolgálóval való használatra tervezték.\n"
-"Győződjön meg arról, hogy az InternalLicenseServerUrl paraméter be van "
-"állítva."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "MSI installer"
+msgstr "MSI telepítő"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -950,7 +694,7 @@ msgstr "A 30 napos próbaverzió elindítása!"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Buy a License"
-msgstr "Licenc vásárlása"
+msgstr "Egy licenc vásárlása"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Already purchased PDFCreator {0}?"
@@ -958,7 +702,7 @@ msgstr "Már megvásárolta a PDFCreator alkalmazást {0}?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Request Trial"
-msgstr "Próbalicenc kérése"
+msgstr "Egy próbalicenc kérése"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -1106,7 +850,7 @@ msgid "Viewer"
 msgstr "Megtekintő"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Licenc"
 
@@ -1125,6 +869,7 @@ msgstr "Közvetlen átalakítás"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1266,6 +1011,7 @@ msgstr "RegExp"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1273,86 +1019,185 @@ msgstr "RegExp"
 msgid "Save"
 msgstr "Mentés"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "Utolsó aktiválás:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Licenc aktiválva"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Sikertelen aktiválás"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "Az aktiválás sikertelen volt:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "Sikeres aktiválás"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Sikertelen aktiválás"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "Az aktiválás sikertelen volt:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "Az aktiválás sikeres volt."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Aktiválás érvényessége:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "Licence sikeresen aktiválásra került."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Licenckulcs megadása"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "Licenc kezelése"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Kérjük, adja meg a licenckulcsot:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "Lejárat:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License renews on:"
-msgstr "A licenc megújul:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Licenckulcs:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "Licenc állapota:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "Gép ID:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Licenckezelés"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Offline aktiválás"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Online aktiválás"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "Licenc megtekintése"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Licenckulcs:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "Licenc állapota:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Licenc részletei"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "Gép ID:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Licenc érvényesítése..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "Lejárat:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Aktiválás érvényessége:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "A licenc megújul:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "Utolsó aktiválás:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Licenckulcs megadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Kérjük, adja meg a licenckulcsot:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"A licence lejárt...\n"
+"Kérjük újítsa meg a licencét"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "Probléma merült fel a licenccel kapcsolatban..."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr ""
+"Ellenőrizze most a licencét, hogy továbbra is hozzáférhessen a következőkhöz:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"A frissítés biztosítja a hosszú távú produktivitást, és hozzáférést biztosít "
+"üzleti kiadásainkhoz, beleértve az olyan fejlett automatizálási funkciókat, "
+"mint:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Tartsa a PDFCreatort az eszközkészletének állandó részeként."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Frissítés most"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "Felhasználói tokenek"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-szkriptek"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "Profil továbbítása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "Megosztja az aktiválást a rendszer összes felhasználójával?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "Kérjük, ossza meg aktiválását a rendszer összes felhasználójával."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "Aktiválás mentése minden felhasználó számára"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr "Hiba történt az összes felhasználó aktiválásának mentésekor."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "An error occurred while storing license for all users."
 msgstr ""
 "Hiba lépett fel a licenc engedélyezése során minden felhasználó részére."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "A mentés aktiválása minden felhasználó számára sikeresen megtörtént."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "A licenc mentése minden felhasználó részére sikerült."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"A PDFCreator terminálkiszolgáló megköveteli, hogy a licenc minden "
+"felhasználó számára mentésre kerüljön."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Emlékeztessen később"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
@@ -1360,13 +1205,186 @@ msgstr ""
 "Az offline aktiválás nem használható, mert a PDFCreator a belső "
 "licencszerver használatára van beállítva."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Emlékeztessen később"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr "Licence sikeresen aktiválásra került. Köszönjük, hogy használja: {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "View License"
-msgstr "Licenc megtekintése"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "Kérjük, adja meg a licenckulcsot {0} további használatáért"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Licenc érvényesítése..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"A licenckulcs helytelen karaktereket tartalmaz. Az érvényes karakterek a "
+"következők: A-Z, 0-9 és a kötőjel."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"A licenckulcs 30 karaktert vagy számot tartalmaz, például: \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Soha"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Licenctulajdonos:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "Az aktiválás lejárt. Kérjük, újítsa meg az aktiválását."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr ""
+"A gép vagy a felhasználó blokkolva. Lépjen kapcsolatba az ügyfélszolgálattal."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Hiba a licenc hitelesítése közben."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "Ez a licenckulcs nem érvényes. Adja meg az új licenckulcsot."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "A licenc lejárt. Kérjük újítsa meg a licencét."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "A licenc próbaideje lejárt."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "Nem érvényes a licenckulcs. Kérjük, adjon meg egy új licenckulcsot."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Probléma merült fel a licencszerverhez való kapcsolódáskor."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "A licenc meghaladta az aktivált gépek megengedett számát."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "A licenckulcs nem érvényes erre a PDFCreator kiadásra."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "A licenc érvényes."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"Az offline aktiválás lejárt. Kérjük, azonnal aktiválja újra licencét, hogy "
+"elkerülje az alkalmazás blokkolását."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"A belső licenc szerver aktiválása lejárt. Kérjük, azonnal aktiválja újra "
+"licencét, hogy elkerülje az alkalmazás blokkolását."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "A licenc lejár {0} nap múlva."
+msgstr[1] "A licenc {0} nap múlva lejár."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Az aktiválási kód rossz formátumú."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Nincs érvényes licenckulcsa?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "További aktiválások vásárlása itt."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Licenc megújítása itt."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Itt kezelheti licencét."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Kérjük, adja meg a licenckulcsot."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Hiba az aktiválás mentése során. Kérjük, próbálja meg ismét."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "A belső licencszerver URL-címe érvénytelen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"A licencet a belső licenckiszolgáló nem ismeri fel.\n"
+"Kérjük, importálja az engedélyt."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"A licencet a belső licenckiszolgálóval való használatra tervezték.\n"
+"Győződjön meg arról, hogy az InternalLicenseServerUrl paraméter be van "
+"állítva."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1374,9 +1392,9 @@ msgid ""
 "It must look like '12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU'.\n"
 "Valid characters are: A-Z, 0-9 and the dash."
 msgstr ""
-"Rossz licenckulcs-szintaxis.\n"
-"Az alábbihoz kell hasonlítania: '12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU'.\n"
-"Érvényes karakterek : A- Z, 0 - 9 és '-' (kötőjel)."
+"Hibás licenckulcs szintaxis.\n"
+"Így kell kinéznie: '12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU'.\n"
+"Érvényes karakterek: A-Z, 0-9 és a kötőjel."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Copy the offline activation string:"
@@ -1571,6 +1589,16 @@ msgid "Standby duration"
 msgstr "Készenléti időtartam"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Restart"
+msgstr "Újraindítás"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+"Indítsa el a készenléti állapotot és a HotFoldert (ha engedélyezve van) a "
+"Windows automatikus indításával"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
@@ -1581,10 +1609,6 @@ msgstr ""
 "PDFCreator használatára. A PDFCreator bezárása után az alkalmazás a "
 "beállított ideig futni fog, alacsony erőforrást használva. Ez jelentősen "
 "felgyorsítja a további konverziókat."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "perc"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1927,7 +1951,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid ""
 "XML-escaped Unicode along with information regarding the format of the text"
-msgstr "XML-escaped Unicode a szöveg formátumra vonatkozó információkkal"
+msgstr "Unicode-XML, valamint a szöveg formátumára vonatkozó információk"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid ""
@@ -2191,6 +2215,14 @@ msgstr ""
 "felhasználók bármilyen könyvtárba menthetik a fájlokat, és a szolgáltatás "
 "írási jogosultsággal rendelkezik."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"A kiválasztott célkönyvtárat egy HotFolder figyeli, ami egy körkörös "
+"függőséget hoz létre, amely végtelen hurkot okoz."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Bezárás"
@@ -2390,9 +2422,9 @@ msgid ""
 "conversion. PDFCreator calls the specified program automatically and "
 "transfers the created files as parameter."
 msgstr ""
-"Meghív egy programot vagy szkriptet a dokumentum további feldolgozására az "
-"átalakítás után. A PDFCreator automatikusan meghívja a kiválasztott "
-"programot, és paraméterként továbbítja a létrehozott fájlokat."
+"Meghív egy programot vagy szkriptet, amely a konvertálás után tovább "
+"dolgozza fel a dokumentumot. A PDFCreator automatikusan meghívja a megadott "
+"programot, és paraméterként átviszi a létrehozott fájlokat."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Print document"
@@ -2436,6 +2468,12 @@ msgstr "Fájl megnyitása"
 msgid "Use PDF Architect"
 msgstr "PDF Architect használata"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Mappa megnyitása"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "{0} használata"
@@ -2455,8 +2493,12 @@ msgstr ""
 "módosíthatja az alapértelmezett Windows-megjelenítőt."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
-msgstr "Fáj megnyitás a megtekintővel."
+msgid "Open file/directory"
+msgstr "Fájl/könyvtár megnyitása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
+msgstr "Nyissa meg a fájlt vagy könyvtárat a megjelenítőben/intézőben."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Click here for more info on {0}"
@@ -2484,9 +2526,9 @@ msgid ""
 "the values directly in your document. Place a pattern like this on a "
 "separate line in your document:"
 msgstr ""
-"A felhasználói tokenek lehetővé teszik, hogy meghatározza a saját helyeit a "
-"beállításokhoz, és az értékeket közvetlenül a dokumentumban állítsa be. "
-"Helyezzen egy ilyen mintát a dokumentum egy külön sorába:"
+"A felhasználói tokenek lehetővé teszik, hogy saját helyőrzőket definiáljon a "
+"beállításokhoz, és az értékeket közvetlenül a dokumentumban adja meg. "
+"Helyezzen el egy ilyen mintát egy külön sorban a dokumentumban:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
 msgid "NameDefinedByUser:Example Value"
@@ -2533,10 +2575,6 @@ msgstr ""
 "azokat, amelyeket a PDFCreator támogat."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-msgid "Forward to profile"
-msgstr "Továbbítás profilhoz"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
 msgstr "Profil kiválasztása:"
 
@@ -2558,7 +2596,7 @@ msgstr "Szkript ellenőrzése"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "CS-Script file:"
-msgstr "CS-szkript fájl:"
+msgstr "CS-Script fájl:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "The folder 'CS-Scripts' in the application directory does not exist."
@@ -2661,7 +2699,7 @@ msgstr "Oldalszámok"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Adds page numbers to the document."
-msgstr "Oldalszámok hozzáadása a dokumentumhoz."
+msgstr "Oldalszám hozzáadása a dokumentumhoz."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -2891,7 +2929,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Save as file"
-msgstr "Fájl mentése másként"
+msgstr "Mentés fájlként"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
@@ -3014,7 +3052,7 @@ msgstr "Titkosítási jelszavak"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SecurityPasswordsStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "User password (for opening):"
-msgstr "Tulajdonosi jelszó (megnyitáshoz):"
+msgstr "Felhasználói jelszó (megnyitáshoz):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "Password strength:"
@@ -3206,6 +3244,10 @@ msgstr ""
 "Bizonyos funkciókat a kiválasztott kimeneti formátum nem támogat, és "
 "automatikusan kimarad. Kérjük, ellenőrizze profilbeállításait."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "egyesítés!"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr "Konvertálás..."
@@ -3249,11 +3291,6 @@ msgstr "Gyors műveletek"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "Megnyitás az alapértelmezett megtekintővel"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Mappa megnyitása"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3304,8 +3341,8 @@ msgstr "SharePoint megosztási link"
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "After converting {0} file, we have a recommendation for you:"
 msgid_plural "After converting {0} files, we have a recommendation for you:"
-msgstr[0] "A(z) {0} fájl konvertálása után van egy ajánlásom az Ön számára:"
-msgstr[1] "A(z) {0} fájl konvertálása után van egy ajánlásunk az Ön számára:"
+msgstr[0] "{0} fájl konvertálása után van egy javaslatunk az Ön számára:"
+msgstr[1] "{0} fájl konvertálása után van egy javaslatunk az Ön számára:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Higher encryption (256 Bit AES)"
@@ -3325,7 +3362,7 @@ msgstr "Automatikus mentés tálca értesítéssel"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
-msgstr "Rendszergazda"
+msgstr "Adminisztrátorbarát"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "No, thanks"
@@ -3486,6 +3523,7 @@ msgstr "Újra"
 msgid "Discard"
 msgstr "Elvetés"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Profil"
@@ -3508,6 +3546,172 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "Token hozzáadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Edit HotFolder"
+msgstr "HotForder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Linked Printer"
+msgstr "Kapcsolódó nyomtató"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "Hozzárendelt nyomtatónév:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch:"
+msgstr "Válassza ki a figyelni kívánt mappát:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "Válassza ki a figyelni kívánt mappát"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Source files"
+msgstr "Forrásfájlok"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select source files folder"
+msgstr "Válassza ki a forrásfájlok mappáját"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+"Hely kiválasztása, ahová a forrásfájlokat át kell helyezni a konvertálás után"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr "Áthelyezés az alapértelmezett helyre (a HotFolder almappájába)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "Áthelyezés a kukába"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "Áthelyezés egyéni helyre"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Unprintable files"
+msgstr "Nem-nyomtatható fájlok"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select unprintable files folder"
+msgstr "Válassza ki a nem nyomtatható fájlok mappáját"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "A nem-nyomtatható fájlok kezelési módjának kiválasztása:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "Szűrő"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "No filter"
+msgstr "Nincs szűrő"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "Az összes felsorolt bővítmény kizárása a konverzióból"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "A konverzió korlátozása szűrt fájlkiterjesztésekre."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add Filter"
+msgstr "Szűrő hozzáadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Remove Filter"
+msgstr "Szűrő törlése"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "Fájlkiterjesztés szűrő hozzáadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "Hozzárendelt profil:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select Profile"
+msgstr "Profil kiválasztása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Enter filter"
+msgstr "Szűrő megadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "The filter is not valid. Please check your entry."
+msgstr "A szűrő érvénytelen. Kérjük, ellenőrizze a bejegyzést."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "BE"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "KI"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+"Indítsa el a HotFolder alkalmazást és készenléti állapotot a Windows "
+"automatikus indításával"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Manage HotFolders"
+msgstr "'HotFolder'-ek kezelése"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Printer Name"
+msgstr "Nyomtató neve"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "HotFolder Path"
+msgstr "HotFolder elérési útja"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Active"
+msgstr "Aktív"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Add HotFolder Printer"
+msgstr "HotFolder nyomtató hozzáadása"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr "Készen áll az első HotFolder létrehozására?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+"A HotFolder nyomtatók figyelik a megadott mappát, és automatikusan "
+"feldolgozzák a mappába helyezett fájlokat a kiválasztott profil "
+"használatával."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr "Megjegyzés: Minden módosítás azonnal érvénybe lép."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr "Oldja fel az automatikus mappafigyelést a HotFolder segítségével"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr "Egyszerűsítse munkafolyamatát a HotFolder segítségével."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr "Ez a funkció kizárólag a Business kiadásainkban érhető el."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -3611,7 +3815,7 @@ msgstr "PDF Architect futtatása"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 msgid "You already have PDF Architect on your computer"
-msgstr "PDF Architect már telepítve van ezen a számítógépen"
+msgstr "Már telepítve van a PDF Architect a számítógépen"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 msgid "Our full-featured PDF Editor"
@@ -4796,6 +5000,22 @@ msgstr "Érték ehhez: '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "A folytatáshoz kérjük, mentse el vagy törölje a beállításokat"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Remove Page"
+msgstr "Oldal eltávolítása"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Undo Removal"
+msgstr "Eltávolítás visszavonása"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr "Oldal elforgatása"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr "Üzleti funkció"
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -4891,10 +5111,10 @@ msgid ""
 "and text directly in the document without having to manually open PDFCreator "
 "settings for each conversion."
 msgstr ""
-"A felhasználói tokenek lehetővé teszik az olyan információk előre megadását, "
-"mint az e-mail cím, tárgy és szöveg közvetlenül a dokumentumban anélkül, "
-"hogy minden egyes konverzióhoz kézzel kellene megnyitni a PDFCreator "
-"beállításait."
+"A felhasználói tokenek lehetővé teszik az olyan információk előre "
+"definiálását a dokumentumban, mint az e-mail cím, a tárgy és a szöveg, "
+"anélkül, hogy manuálisan kellene megnyitni a PDFCreator beállításait minden "
+"egyes konverzióhoz."
 
 #: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
 msgid "Need help?"
@@ -5532,6 +5752,107 @@ msgstr ""
 "Kérjük, végezze el újra a belső licenc szerver aktiválását a következő "
 "helyen: {0}"
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"A PDFCreator nem tudta megjavítani a nyomtatóit. Kérjük, vegye fel a "
+"kapcsolatot a rendszergazdával vagy az ügyfélszolgálattal a probléma "
+"megoldása érdekében."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"A PDFCreator nem tudta megjavítani a nyomtatási mappát. Kérjük, vegye fel a "
+"kapcsolatot a rendszergazdával vagy az ügyfélszolgálattal, hogy segítsenek "
+"'{0}' elérési út engedélyeinek módosításában."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"Hiba történt a pdfforge által licencelt komponenssel.\n"
+"Kérjük, telepítse újra a PDFCreatort. (Hiba: {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"'{0}' licence lejárt.\n"
+"A PDFCreator le fog állni."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"'{0}' licence lejárt.\n"
+"Kérjük, vegye fel a kapcsolatot a rendszergazdával.\n"
+"A PDFCreator le fog állni."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"A próbaidőszakod ekkor lejárt: {0}.\n"
+"A PDFCreator leáll.\n"
+"\n"
+"Kérjük, vegye fel velünk a kapcsolatot a következő címen: licensing@pdfforge."
+"org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"A licenckulcs nem található.\n"
+"A PDFCreator leáll."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"Kérjük, a telepített terminálszolgáltatásokkal rendelkező számítógépeken a "
+"\"PDFCreator Terminal Server\" programot használja.\n"
+"\n"
+"További információkért kérjük, látogassa meg weboldalunkat, vagy vegye fel "
+"velünk a kapcsolatot közvetlenül a következő címen: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Nem található támogatott Ghostscript telepítés.\n"
+"\n"
+"A program most kilép."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"A Windows spooler szolgáltatás nem fut. Kérjük, először indítsa el a "
+"spoolert.\n"
+"\n"
+"A program most kilép."
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr "A PDFCreator sikeresen konvertálta a következőt: '{0}'."
@@ -5547,6 +5868,45 @@ msgstr "A fájl sikeresen konvertálva"
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "Hiba történt a fájl konvertálása közben"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "és további {0} fájl/könyvtár"
+msgstr[1] "és további {0} fájl/könyvtár"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr "&Konvertálás PDFCreatorral"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Convert &Here"
+msgstr "Átalakítás itt"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Merge"
+msgstr "&Egyesítés"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "Tipp"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"Nem található a PDFCreator a rendszeredben. Kérjük ellenőrizze, hogy "
+"telepítve van-e."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"A kiválasztott elemek közül legalább egy nem konvertálható! A nem "
+"nyomtatható fájlokkal kapcsolatos további információkért lásd az alábbi "
+"listát."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6660,7 +7020,7 @@ msgid ""
 "User tokens in Outlook Web Access content require the user token action to "
 "be enabled."
 msgstr ""
-"Az Outlook Web Access tartalom felhasználói tokenek használatához "
+"Az Outlook Web Access tartalmában található felhasználói tokenekhez "
 "engedélyezni kell a felhasználói token műveletet."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
@@ -6747,14 +7107,14 @@ msgstr "Általános hiba az Outlook Web Access művelet során."
 msgid ""
 "User tokens in metadata title require the user token action to be enabled."
 msgstr ""
-"A metaadatok címében szereplő felhasználói tokenekhez engedélyezni kell a "
+"A metaadatok címében található felhasználói tokenekhez engedélyezni kell a "
 "felhasználói token műveletet."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid ""
 "User tokens in metadata author require the user token action to be enabled."
 msgstr ""
-"A metaadat-szerzőben lévő felhasználói tokenekhez engedélyezni kell a "
+"A metaadat-szerzőben található felhasználói tokenekhez engedélyezni kell a "
 "felhasználói token műveletet."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
@@ -6778,6 +7138,77 @@ msgstr "A kimeneti dokumentumnak nincsenek oldalai. Az átalakítás megszakad."
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "Failed to apply changes made in preview."
 msgstr "Nem sikerült alkalmazni az előnézetben végrehajtott módosításokat."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided HotFolder path is not a valid path."
+msgstr "A megadott HotFolder elérési út nem érvényes elérési út."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path must not be empty."
+msgstr "A HotFolder elérési útja nem lehet üres."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path is too long."
+msgstr "A HotFolder elérési útja túl hosszú."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Source files path is not a valid path."
+msgstr "A megadott forrásfájlok elérési útja nem érvényes elérési út."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path must not be empty."
+msgstr "A forrásfájlok elérési útja nem lehet üres."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path is too long."
+msgstr "A forrásfájlok elérési útja túl hosszú."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Unprintable files path is not a valid path."
+msgstr ""
+"A megadott Nem nyomtatható fájlok elérési útja nem érvényes elérési út."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path must not be empty."
+msgstr "A Nem nyomtatható fájlok elérési útja nem lehet üres."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path is too long."
+msgstr "A Nem nyomtatható fájlok elérési útja túl hosszú."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+"A forrásfájlok elérési útja és a HotFolder elérési útja nem lehet azonos."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+"A testreszabott forrásfájlok mappája nem lehet a HotFolder útvonalának "
+"almappája."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+"A Nem nyomtatható fájlok elérési útja és a HotFolder elérési útja nem lehet "
+"ugyanaz."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+"A személyre szabott nem nyomtatható fájlok mappája nem lehet a HotFolder "
+"útvonal almappája."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"A kiválasztott HotFolder útvonal a profil célkönyvtára, ami végtelen ciklust "
+"okoz."
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
@@ -6833,7 +7264,7 @@ msgstr "ZIP"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.CompressionMonochrome
 msgid "CCITT Fax"
-msgstr "CCITT fax"
+msgstr "CCITT Fax"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.CompressionMonochrome
 msgid "ZIP Compression"
@@ -7130,6 +7561,9 @@ msgstr "A PDFCreator Professional 5.0.0 óta támogatott"
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "A PDFCreator Professional 5.3.0 óta támogatott"
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "PDFCreator 6.2.0 óta támogatott"
+
 msgid "pdfforge"
 msgstr "Pdfforge"
 
@@ -7178,6 +7612,16 @@ msgstr ""
 "Adja meg a perceket, amikor a PDFCreator készenléti állapotban marad futás "
 "után. Letiltáshoz válassza a 0 értéket."
 
+msgid "Disable debug tab"
+msgstr "Hibakeresés fül letiltása"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Hibakeresés fül letiltása. Ez letiltja a funkciókat a tesztmunkák "
+"futtatásához és a hibakeresési szint módosításához."
+
 msgid "Disable printer tab"
 msgstr "Nyomtató fül tiltása"
 
@@ -7198,15 +7642,17 @@ msgid ""
 "title replacements."
 msgstr "A cím fül letiltása. Ez letiltja a címek cseréjét módosító funkciókat."
 
-msgid "Disable debug tab"
-msgstr "Hibakeresés fül letiltása"
+msgid "Hide feedback form"
+msgstr "Visszajelzési űrlap elrejtése"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"Hibakeresés fül letiltása. Ez letiltja a funkciókat a tesztmunkák "
-"futtatásához és a hibakeresési szint módosításához."
+msgid "Activate to hide feedback form"
+msgstr "A visszajelzés űrlap elrejtésének engedélyezése"
+
+msgid "Hide license tab"
+msgstr "Licenc fül elrejtése"
+
+msgid "Activate to hide license tab."
+msgstr "Licenc fül elrejtésének aktiválása."
 
 msgid "Hide PDF Architect info"
 msgstr "PDF Architect info elrejtése"
@@ -7215,12 +7661,6 @@ msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "A testreszabható PDF-szerkesztővel kapcsolatos információk elrejtésének "
 "aktiválása."
-
-msgid "Hide license tab"
-msgstr "Licenc fül elrejtése"
-
-msgid "Activate to hide license tab."
-msgstr "Licenc fül elrejtésének aktiválása."
 
 msgid "Disable profile management"
 msgstr "A profilkezelés letiltása"
@@ -7297,6 +7737,29 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Megosztott beállítások fájlneve"
 
+msgid "Load shared HotFolder settings"
+msgstr "Megosztott HotFolder beállítások betöltése"
+
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Aktiválja a HotFolder beállításainak betöltését a \"%ProgramData%"
+"\\pdfforge\\PDFCreator\" fájlból."
+
+msgid "Load shared printer mappings"
+msgstr "Megosztott nyomtató-hozzárendelések betöltése"
+
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Aktiválja a megosztott nyomtatóleképezések betöltéséhez. Ezzel letiltja a "
+"PDFCreator nyomtatók hozzáadásának/törlésének/átnevezésének, a profil-"
+"hozzárendelések módosításának és az elsődleges pdfcreator nyomtató "
+"beállításának funkcióit."
+
 msgid "Load shared profiles"
 msgstr "Megosztott profil betöltése"
 
@@ -7312,17 +7775,17 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Felhasználó által meghatározott további profilok engedélyezése"
 
-msgid "Hide feedback form"
-msgstr "Visszajelzési űrlap elrejtése"
-
-msgid "Activate to hide feedback form"
-msgstr "A visszajelzés űrlap elrejtésének engedélyezése"
+msgid "Bulgarian"
+msgstr "Bolgár"
 
 msgid "Catalan"
 msgstr "Katalán"
 
-msgid "Chinese"
-msgstr "Kínai"
+msgid "Chinese (Simplified)"
+msgstr "Kínai (egyszerűsített)"
+
+msgid "Chinese (Traditional)"
+msgstr "Kínai (hagyományos)"
 
 msgid "Corsican (France)"
 msgstr "Korzikai (Franciaország)"
@@ -7366,11 +7829,17 @@ msgstr "Lengyel"
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (brazil)"
 
+msgid "Slovak"
+msgstr "Szlovák"
+
 msgid "Spanish"
 msgstr "Spanyol"
 
 msgid "Swedish"
 msgstr "Svéd"
+
+msgid "Turkish"
+msgstr "Török"
 
 msgid "Set language:"
 msgstr "Nyelv beállítása:"
@@ -7387,285 +7856,64 @@ msgstr "Naplózási szint beállítása:"
 msgid "Allow users to define additional profiles"
 msgstr "Engedélyezi a felhasználók számára további profilok meghatározását"
 
+#~ msgid "Leave them in the HotFolder"
+#~ msgstr "Maradjanak a HotFolder-ben"
+
+#~ msgid "Finish"
+#~ msgstr "Befejezés"
+
+#~ msgid "HotFolder is a professional setting"
+#~ msgstr "A 'HotFolder' egy professzionális környezet"
+
+#~ msgid ""
+#~ "HotFolder allows you to automatically convert documents placed in a "
+#~ "specific folder using predefined settings. This feature is available in "
+#~ "the Professional edition of PDFCreator."
+#~ msgstr ""
+#~ "A 'HotFolder' lehetővé teszi egy adott mappába helyezett dokumentumok "
+#~ "automatikus konvertálását előre definiált beállítások használatával. Ez a "
+#~ "funkció a PDFCreator Professional kiadásában érhető el."
+
+#~ msgid "On"
+#~ msgstr "Folyamatban"
+
+#~ msgid "Off"
+#~ msgstr "Kikapcsolva"
+
+#~ msgid "Start HotFolder when Windows starts"
+#~ msgstr "HotFolder indítása a Windows indításakor"
+
+#~ msgid "Start HotFolder when PDFCreator starts"
+#~ msgstr "HotFolder indítása a PDFCreator indításakor"
+
+#~ msgid "Name"
+#~ msgstr "Név"
+
+#~ msgid "Path"
+#~ msgstr "Útvonal"
+
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "HotFolder fül letiltása"
+
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Funkció aktiválása a 'HotFolder' fül letiltásához."
+
+#~ msgid "minutes"
+#~ msgstr "perc"
+
+#~ msgid "Offline Activation"
+#~ msgstr "Offline aktiválás"
+
+#~ msgid "Chinese"
+#~ msgstr "Kínai"
+
 #~ msgid "Show license details"
 #~ msgstr "Licenc részleteinek megjelenítése"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Kínai (egyszerűsített)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "A licenc nem érvényes erre a verzióra."
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Kínai (hagyományos)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "A próbalicenc lejárt"
-
-#~ msgid "Unlock here"
-#~ msgstr "Feloldás itt"
-
-#~ msgid "Greek"
-#~ msgstr "Görög"
-
-#~ msgid "Turkish"
-#~ msgstr "Török"
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
-#~ msgstr ""
-#~ "A PDFCreator nem tudta kijavítani a nyomtatókat. Kérjük, lépjen "
-#~ "kapcsolatba rendszergazdájával, vagy az ügyfélszolgálattal a probléma "
-#~ "megoldása végett."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "A PDFCreator nem tudta kijavítani a nyomtató mappát. Kérjük, lépjen "
-#~ "kapcsolatba a rendszergazdával vagy az ügyfélszolgálattal a(z) '{0}' "
-#~ "elérési út engedélyének módosításához."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "Hiba lépett fel a pdfforge által licencelt komponensnél.\n"
-#~ "Kérjük, telepítse újra a PDFCreator-t. Hiba {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "Az Ön \"{0}\" licence érvénytelen vagy lejárt. Kérjük, ellenőrizze az "
-#~ "engedélyét, a PDFCreator leáll.\n"
-#~ "Ellenőrzi most a licencet?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Az Ön \"{0}\" licence lejárt.\n"
-#~ "PDFCreator le fog állnii."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Az Ön \"{0}\" licence lejárt.\n"
-#~ "Kérjük, lépjen kapcsolatba a rendszergazdával.\n"
-#~ "PDFCreator le fog állni."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Az Ön \"{0}\" próbaverziója lejárt.\n"
-#~ "PDFCreator le fog állni.\n"
-#~ "\n"
-#~ "Kérjük, lépjen kapcsolatba: : licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "{0} licenckulcsa nem található. Kérjük, adja meg licenckulcsát, különben "
-#~ "a PDFCreator leáll.\n"
-#~ "Aktiválja most a licencét?"
-
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "A licenckulcs nem található.\n"
-#~ "A PDFCreator leáll."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Kérjük, használja a \"PDFCreator terminálkiszolgálót \" a telepített "
-#~ "Terminálszolgáltatások használatával.\n"
-#~ "\n"
-#~ "Látogass meg Web lapunkat további információkért vagy lépjen velünk "
-#~ "kapcsolatba: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Nem található támogatott Ghostsript telepítés.\n"
-#~ "\n"
-#~ "A program leáll."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "A Windows nyomtatókiszolgáló szolgáltatás nem fut. Kérjük, először "
-#~ "indítsa el a nyomtatókészüléket.\n"
-#~ "\n"
-#~ "A program leáll."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Nincsenek telepítve PDFCreator nyomtatók. Valószínűleg egy beállítási "
-#~ "hibáról van szó vagy a telepítés később megváltozott.\n"
-#~ "Újratelepíti a PDFCreator nyomtatókat?\n"
-#~ "\n"
-#~ "Megjegyzés: A probléma megoldása során felkérést kaphat a rendszergazdai "
-#~ "jogosultságok megadására."
-
-#~ msgid "No printers installed"
-#~ msgstr "Nincs telepített nyomtató"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "RepairTool nem található"
-
-#~ msgid "Access Denied"
-#~ msgstr "Hozzáférés letiltva"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "Az ideiglenes elérési út, ahol a PDFCreator tárolja a nyomtatási "
-#~ "feladatokat nem elérhető. Ez egy beállítási probléma a gépen, melyet "
-#~ "javítani kell. Szeretné, hogy a PDFCreator megkisérelje kijavítani? \n"
-#~ "Nyomtatási mappa: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "Albán"
-
-#~ msgid "Printer:"
-#~ msgstr "Nyomtató:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#~ msgid "Sharepoint"
-#~ msgstr "SharePoint"
-
-#~ msgid "Read More"
-#~ msgstr "Olvasson tovább"
-
-#~ msgid "Default Printer"
-#~ msgstr "Alapértelmezett nyomtató"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Használati statisztikák"
-
-#~ msgid "Run Program"
-#~ msgstr "Program futtatása"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "Tanúsítvány jelszó beállítása"
-
-#~ msgid "User Name:"
-#~ msgstr "Felhasználónév:"
-
-#~ msgid "Email Address:"
-#~ msgstr "E-mail cím:"
-
-#~ msgid "Add Attachment"
-#~ msgstr "Melléklet hozzáadása"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "A következőtől:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "A változtatások visszavonásához válassza a \"Nem\" gombot."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "és további {0} fájl/könyvtár"
-#~ msgstr[1] "és {0} további fájlok/könyvtárak"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&Konvertálás PDFCreator-ral"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Átalakítás itt"
-
-#~ msgid "&Merge"
-#~ msgstr "&Egyesítés"
-
-#~ msgid "Hint"
-#~ msgstr "Tipp"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "A PDFCreator nem található a rendszerben. Kérjük, ellenőrizze, hogy "
-#~ "telepítve van-e."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "A kiválasztott elemek közül legalább az egy nem konvertálható! A nem "
-#~ "nyomtatható fájlokkal kapcsolatos további információkért lásd az alábbi "
-#~ "listát."
-
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr "Az aláírási képfájl útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "A programfájl érvénytelen karaktereket tartalmaz."
-
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "Az egyik borítófájl útvonal érvénytelen karaktereket tartalmaz."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "Az egyik melléklet útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "A célkönyvtár érvénytelen karaktereket tartalmaz."
-
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "A háttérfájl útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "A tanúsítványfájl útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "Az FTP kulcsfájl útvonala érvénytelen."
-
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "Az FTP kulcsfájl útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "A mappa útvonala érvénytelen vagy üres. Adjon meg egy érvényes "
-#~ "útvonalat.\n"
-#~ "A mappa útvonala nem tartalmazhatja a következő karaktereket: \n"
-#~ " \\ / : * ? \\< >"
-
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "A vízjel fájl útvonala érvénytelen karaktereket tartalmaz."
-
-#~ msgid "Your license has expired."
-#~ msgstr "A licenc lejárt."
+#, fuzzy
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "Probléma merült fel a licencszerverhez való kapcsolódáskor."

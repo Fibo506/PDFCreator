@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "_build\\_build.csproj"
+    ]
+  }
+}

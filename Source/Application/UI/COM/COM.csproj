@@ -10,7 +10,16 @@
     <SatelliteResourceLanguages>None</SatelliteResourceLanguages>
   </PropertyGroup>
   <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.GuidAttribute">
+      <_Parameter1>8b8d2928-eaaf-492d-8da5-e06b358d8826</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Conversion\Dropbox\Dropbox.csproj" />
+    <ProjectReference Include="..\..\Conversion\Processing\PdfAValidation\PdfAValidation.csproj" />
     <ProjectReference Include="..\..\Conversion\Processing\PdfProcessingInterface\PdfProcessingInterface.csproj" />
     <ProjectReference Include="..\..\Core\ComImplementation\ComImplementation.csproj" />
     <ProjectReference Include="..\..\Core\Communication\Communication.csproj" />
@@ -27,6 +36,10 @@
     <ProjectReference Include="..\..\Utilities\Utilities.csproj" />
     <ProjectReference Include="..\ComWrapper\ComWrapper.csproj" />
     <ProjectReference Include="..\..\Core\Workflow\Workflow.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="COM.UnitTest" />
+    <InternalsVisibleTo Include="COM.IntegrationTest" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator">
@@ -84,10 +97,10 @@
       <Version>8.0</Version>
     </PackageReference>
     <PackageReference Include="SystemInterface">
-      <Version>9.9.0</Version>
+      <Version>9.10.0</Version>
     </PackageReference>
     <PackageReference Include="SystemWrapper">
-      <Version>9.9.0</Version>
+      <Version>9.10.0</Version>
     </PackageReference>
   </ItemGroup>
 </Project>

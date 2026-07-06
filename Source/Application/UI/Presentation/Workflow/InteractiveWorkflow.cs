@@ -1,3 +1,4 @@
+using System;
 using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Services;
@@ -5,6 +6,7 @@ using pdfforge.PDFCreator.Core.Services.JobEvents;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Core.Workflow;
 using pdfforge.PDFCreator.Core.Workflow.ComposeTargetFilePath;
+using pdfforge.PDFCreator.Core.Workflow.Exceptions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
 using pdfforge.PDFCreator.Utilities.IO;
 
@@ -66,6 +68,7 @@ public sealed class InteractiveWorkflow : ConversionWorkflow
 
         _logger.Debug("Starting PrintJobWindow");
 
+        Exception thrownException = null;
         try
         {
             _shellManager.ShowPrintJobShell(job);
@@ -76,10 +79,20 @@ public sealed class InteractiveWorkflow : ConversionWorkflow
                 _lastSaveDirectoryHelper.Save(job);
             }
         }
+        catch (Exception ex)
+        {
+            thrownException = ex;
+            throw;
+        }
         finally
         {
             _directoryHelper.DeleteCreatedDirectories();
-            _previewManager.AbortAndCleanUpPreview(job.JobInfo.SourceFiles);
+            // ReSharper disable once ConvertTypeCheckToNullCheck
+            // needed to preserve the preview changes made in the PrintJobView before the exception was thrown to open the ManagePrintJobsWindow
+            if (thrownException is not ManagePrintJobsException)
+            {
+                _previewManager.AbortAndCleanUpPreview(job.JobInfo.SourceFiles);
+            }
         }
     }
 }

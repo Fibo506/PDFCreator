@@ -31,6 +31,7 @@ public class ITextStampAdder
     /// <param name="stamper">the document that needs to be stamped/param>
     /// <param name="profile">Profile with stamp settings</param>
     /// <exception cref="ProcessingException">In case of any error.</exception>
+    [Obsolete]
     internal void AddStamp(PdfDocument document, ConversionProfile profile)
     {
         try

@@ -14,6 +14,7 @@ public class DesignTimeQuickActionViewModel : QuickActionViewModel
         new ReadableReadableFileSizeFormatter(),
         new DesignTimeCurrentSettings<ObservableCollection<ConversionProfile>>(),
         new DesignTimeCurrentSettingsProvider(),
-        new DesignTimeAttachToOutlookItemAssistant())
+        new DesignTimeAttachToOutlookItemAssistant(),
+        new DesignTimeEditionHelper())
     { }
 }

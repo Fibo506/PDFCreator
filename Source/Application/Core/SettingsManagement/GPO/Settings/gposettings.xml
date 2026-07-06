@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding="utf-8"?>
 <datastorage>
   <options>
     <namespace>pdfforge.PDFCreator.Core.SettingsManagement.GPO.Settings</namespace>
@@ -69,6 +69,12 @@
         </value>
         <value name="HidePdfArchitectInfo" type="value" datatype="Bool" enumname="" defaultvalue="false" islist="False">
           <comment>Activate to hide information about our customizable PDF Editor.</comment>
+        </value>
+        <value name="LoadSharedHotFolders" type="value" datatype="Bool" enumname="" defaultvalue="false" islist="False">
+            <comment>Activate to load HotFolder settings from ini file in "%ProgramData%\pdfforge\PDFCreator".</comment>
+        </value>
+        <value name="LoadSharedPrinterMappings" type="value" datatype="Bool" enumname="" defaultvalue="false" islist="False">
+            <comment>Activate to load shared printer mappings. This disables the functionalities to add/delete/rename PDFCreator printers, change profile assignments and set the primary pdfcreator printer.</comment>
         </value>
         <value name="LoadSharedAppSettings" type="value" datatype="Bool" enumname="" defaultvalue="true" islist="False">
           <comment>Activate to load application settings from ini file in "%ProgramData%\pdfforge\PDFCreator". This is activated by default and must be explicitly disabled.</comment>

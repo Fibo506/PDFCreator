@@ -7,8 +7,6 @@ public interface ISettingsProvider : IApplicationLanguageProvider
 {
     PdfCreatorSettings Settings { get; }
 
-    ConversionProfile GetDefaultProfile();
-
     bool CheckValidSettings(PdfCreatorSettings settings);
 
     void UpdateSettings(PdfCreatorSettings settings);

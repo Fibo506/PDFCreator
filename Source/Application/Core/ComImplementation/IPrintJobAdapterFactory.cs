@@ -42,7 +42,7 @@ public class PrintJobAdapterFactory : IPrintJobAdapterFactory
         var printJobAdapter = new PrintJobAdapter(_settingsProvider, _workflowFactory, _threadPool, _jobInfoQueue, _errorCodeInterpreter, _directory, _pathUtil, _actionOrderHelper);
 
         printJobAdapter.Job = job;
-        printJobAdapter.SetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_GUID);
+        printJobAdapter.SetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_COM_GUID);
 
         return printJobAdapter;
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
-using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Conversion.Jobs.UserTokenExtractor;
 using pdfforge.PDFCreator.Conversion.Processing.ITextProcessing;
 using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.ImagesToPdf;
 using pdfforge.PDFCreator.Core.Startup.StartConditions;

@@ -4,7 +4,7 @@ namespace pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 
 public class DesignTimeDragAndDropHandler : DragAndDropEventHandler
 {
-    public DesignTimeDragAndDropHandler() : base(new DesignTimeFileConversionAssistant())
+    public DesignTimeDragAndDropHandler() : base(new DesignTimeFileConversionHelper())
     {
     }
 }

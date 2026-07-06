@@ -32,6 +32,19 @@ public partial class PreviewPasswordField : UserControl
         typeof(PreviewPasswordField),
         new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, PropertyChangedCallback));
 
+    public static readonly DependencyProperty ShowPasswordEyeProperty = DependencyProperty.Register(
+        nameof(ShowPasswordEye),
+        typeof(bool),
+        typeof(PreviewPasswordField),
+        new PropertyMetadata(false));
+
+    public bool ShowPasswordEye
+    {
+        get { return (bool)GetValue(ShowPasswordEyeProperty); }
+        private set { SetValue(ShowPasswordEyeProperty, value); }
+    }
+
+
     public double EntropyPercentage
     {
         get { return (double)GetValue(EntropyPercentageProperty); }
@@ -127,10 +140,20 @@ public partial class PreviewPasswordField : UserControl
     private int _caretIndex;
 
     private bool _isMasked = true;
+    private bool _initiallyPrefilled = false;
 
     public PreviewPasswordField()
     {
         InitializeComponent();
+    }
+
+    private void PreviewPasswordField_Loaded(object sender, RoutedEventArgs e)
+    {
+
+        if (!string.IsNullOrEmpty(PasswordText))
+        {
+            _initiallyPrefilled = true;
+        }
     }
 
     public string PasswordText
@@ -159,6 +182,7 @@ public partial class PreviewPasswordField : UserControl
             SetValue(ShownPasswordProperty, value);
         }
     }
+
 
     private void ClearText_OnTextChanged(object sender, TextChangedEventArgs e)
     {
@@ -191,6 +215,22 @@ public partial class PreviewPasswordField : UserControl
             ShownPassword = CreateMaskString(changedTo);
             PasswordText = changedTo;
             ClearText.CaretIndex = _caretIndex;
+
+            if (_initiallyPrefilled)
+            {
+                if (string.IsNullOrEmpty(changedTo))
+                {
+                    _initiallyPrefilled = false;
+                }
+                else
+                {
+                    ShowPasswordEye = false;
+                }
+            }
+            else
+            {
+                ShowPasswordEye = !string.IsNullOrEmpty(changedTo);
+            }
         }
     }
 

@@ -8,6 +8,7 @@ using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Communication;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
+using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Utilities.Threading;
 
@@ -21,13 +22,15 @@ public class QueueAdapter
     private readonly AutoResetEvent _newJobResetEvent = new AutoResetEvent(false);
     private readonly IPipeServerManager _pipeServerManager;
     private readonly ComStartupConditionChecker _startupConditionChecker;
+    private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
     private readonly ISettingsProvider _settingsProvider;
 
     private readonly ThreadPool _threadPool;
 
     private bool _isComActive;
 
-    public QueueAdapter(ThreadPool threadPool, IJobInfoQueue jobInfoQueue, ISettingsProvider settingsProvider, IJobInfoManager jobInfoManager, IPipeServerManager pipeServerManager, IPrintJobAdapterFactory printJobAdapterFactory, ComStartupConditionChecker startupConditionChecker)
+    public QueueAdapter(ThreadPool threadPool, IJobInfoQueue jobInfoQueue, ISettingsProvider settingsProvider, IJobInfoManager jobInfoManager, IPipeServerManager pipeServerManager, IPrintJobAdapterFactory printJobAdapterFactory, ComStartupConditionChecker startupConditionChecker,
+        IDefaultSettingsBuilder defaultSettingsBuilder)
     {
         _threadPool = threadPool;
         JobInfoQueue = jobInfoQueue;
@@ -36,6 +39,7 @@ public class QueueAdapter
         _jobInfoManager = jobInfoManager;
         _pipeServerManager = pipeServerManager;
         _startupConditionChecker = startupConditionChecker;
+        _defaultSettingsBuilder = defaultSettingsBuilder;
     }
 
     public IJobInfoQueue JobInfoQueue { get; }
@@ -235,7 +239,9 @@ public class QueueAdapter
             var currentJobInfo = JobInfoQueue.JobInfos[id];
 
             var settings = new CurrentJobSettings(_settingsProvider.Settings.ConversionProfiles, _settingsProvider.Settings.ApplicationSettings.PrinterMappings, _settingsProvider.Settings.ApplicationSettings.Accounts);
-            return new Job(currentJobInfo, _settingsProvider.GetDefaultProfile(), settings);
+            var defaultProfile = _defaultSettingsBuilder.CreateDefaultProfile();
+
+            return new Job(currentJobInfo, defaultProfile, settings);
         }
         catch (ArgumentOutOfRangeException)
         {

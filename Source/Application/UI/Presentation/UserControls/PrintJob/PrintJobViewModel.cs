@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using pdfforge.Obsidian;
 using pdfforge.Obsidian.Trigger;
@@ -14,6 +15,7 @@ using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.Conversion.Settings.Helpers;
+using pdfforge.PDFCreator.Core.Controller;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Macros;
@@ -24,6 +26,7 @@ using pdfforge.PDFCreator.Core.Workflow.ComposeTargetFilePath;
 using pdfforge.PDFCreator.Core.Workflow.Exceptions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
 using pdfforge.PDFCreator.UI.Presentation.Commands.ProfileCommands;
+using pdfforge.PDFCreator.UI.Presentation.Controls;
 using pdfforge.PDFCreator.UI.Presentation.Events;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay;
@@ -56,10 +59,11 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
     private string _lastConfirmedFilePath = "";
     private readonly OutputFormatHelper _outputFormatHelper = new OutputFormatHelper();
     private readonly IJobInfoQueue _jobInfoQueue;
+    private readonly IFileConversionHelper _fileConversionHelper;
+    private readonly IPreviewControlViewModelFactory _previewControlViewModelFactory;
 
     public ICampaignHelper CampaignHelper { get; private set; }
     public IPreviewManager PreviewManager { get; }
-
     public string TrialExtendLink => CampaignHelper.GetTrialExtendLink(ExtendLicenseFallbackUrl);
 
     private string ExtendLicenseFallbackUrl => Urls.GetExtendLicenseFallbackUrl(_applicationNameProvider.EditionName);
@@ -85,7 +89,9 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
         ICampaignHelper campaignHelper,
         IProfileChecker profileChecker,
         IPreviewManager previewManager,
-        ApplicationNameProvider applicationNameProvider)
+        ApplicationNameProvider applicationNameProvider,
+        IFileConversionHelper fileConversionHelper,
+        IPreviewControlViewModelFactory previewControlViewModelFactory)
         : base(translationUpdater)
     {
         GpoSettings = gpoSettings;
@@ -106,6 +112,7 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
 
         CampaignHelper = campaignHelper;
         PreviewManager = previewManager;
+        _fileConversionHelper = fileConversionHelper;
         SetOutputFormatCommand = new DelegateCommand(SetOutputFormatExecute);
 
         browseFileCommandBuilder.Init(() => Job, UpdateUiForJobOutputFileTemplate, () => _lastConfirmedFilePath, s => _lastConfirmedFilePath = s);
@@ -130,6 +137,19 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
 
         _jobInfoQueue = jobInfoQueue;
         _jobInfoQueue.OnNewJobInfo += (sender, args) => UpdateNumberOfPrintJobsHint(jobInfoQueue.Count);
+        _previewControlViewModelFactory = previewControlViewModelFactory;
+    }
+
+
+    private PreviewControlViewModel _previewControlViewModel;
+    public PreviewControlViewModel PreviewControlViewModel
+    {
+        get => _previewControlViewModel;
+        private set
+        {
+            _previewControlViewModel = value;
+            RaisePropertyChanged();
+        }
     }
 
     private async Task ExistingFileBehaviourQuery(object obj)
@@ -346,7 +366,6 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
         JobInfo = first;
 
         _jobInfoManager.SaveToInfFile(first);
-
         return true;
     }
 
@@ -383,7 +402,23 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
             //Copy to have new instance for RaisePropertyChanged
             var copy = new JobInfo { SourceFiles = value.SourceFiles };
             _jobInfo = copy;
+
             RaisePropertyChanged();
+
+            if (SelectedProfileWrapper != null && SelectedProfileWrapper.ConversionProfile.Preview.Enabled)
+                HandlePreview();
+        }
+    }
+
+    private void HandlePreview()
+    {
+        if (PreviewControlViewModel == null)
+        {
+            PreviewControlViewModel = _previewControlViewModelFactory.Create(_jobInfo);
+        }
+        else
+        {
+            PreviewControlViewModel.JobInfo = _jobInfo;
         }
     }
 
@@ -420,6 +455,35 @@ public class PrintJobViewModel : TranslatableViewModelBase<PrintJobViewTranslati
         RaisePropertyChanged(nameof(SaveFileTemporaryIsEnabled));
         UpdateMetadata();
     }
+
+    public async Task MergePreviewDragDrop(IEnumerable<string> files)
+    {
+        try
+        {
+            var jobInfoToMerge = await _fileConversionHelper.GetJobInfoForPreviewMerge(files);
+            var targetJob = _jobInfoQueue.JobInfos.ToList().First();
+            await MergeWithCurrentJobInfo(targetJob, jobInfoToMerge);
+            UpdateNumberOfPrintJobsHint(_jobInfoQueue.JobInfos.Count);
+        }
+        catch (Exception ex)
+        {
+            // TODO: Handle exceptions that may occur during file merging (design / content wise)
+            MessageBox.Show($"Error merging files: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private Task MergeWithCurrentJobInfo(JobInfo targetJob, JobInfo newJob)
+    {
+        _jobInfoManager.Merge(targetJob, newJob);
+        _jobInfoQueue.Remove(newJob, false);
+        _jobInfoManager.DeleteInf(newJob);
+
+        JobInfo = targetJob;
+        _jobInfoManager.SaveToInfFile(targetJob);
+
+        return Task.CompletedTask;
+    }
+
 
     public string NumberOfPrintJobsHint { get; private set; }
 

@@ -19,6 +19,7 @@
     <Color x:Key="AccentBlue">#39A1D4</Color>
     <Color x:Key="LightAccentBlue">#50BCF1</Color>
     <Color x:Key="AccentBlueDark">#3391BF</Color>
+    <Color x:Key="SodaLightBlue">#D2EAFD</Color>
     <Color x:Key="OrangeYellow">#FFAA00</Color>
     <Color x:Key="LightOrangeYellow">#FFBB33</Color>
     <Color x:Key="IconGreyColor">#FF6A6A6A</Color>
@@ -145,6 +146,7 @@
     <!-- SwitchToggleButton -->
     <SolidColorBrush x:Key="SwitchToggleButtonIsCheckedBrush" Color="{StaticResource RegularGreen}" options:Freeze="true"/>
     <SolidColorBrush x:Key="SwitchToggleButtonBackground" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="SwitchToggleButtonIsUncheckedBrush" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
 
     <!-- Light Checkbox -->
     <SolidColorBrush x:Key="LightCheckBoxCheckMarkBrush" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
@@ -281,11 +283,37 @@
 
     <!--Preview brushes-->
     <SolidColorBrush x:Key="RotateButtonWhiteBackgroundBrush" Color="{StaticResource RotateButtonWhiteBackgroundColour}" options:Freeze="true"/>
-    <SolidColorBrush x:Key="RotateButtonBorderBrush" Color="{StaticResource PdfforgeGreyColor}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="RotateButtonBorderBrush" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="RotateButtonNotFocusedForegroundBrush" Color="{StaticResource PdfforgeLightGreyTextColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="PreviewFocusedRotateButtonForegroundBrush" Color="{StaticResource DarkGreyBackgroundColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="RotateButtonFocusedForegroundBrush" Color="{StaticResource AccentBlue}" options:Freeze="true"/>
     <SolidColorBrush x:Key="PreviewFocusedBackgroundBlueBrush" Color="{StaticResource AccentBlue}" Opacity=".2" options:Freeze="true"/>
+    <SolidColorBrush x:Key="PreviewHoverOnBorderBrush" Color="{StaticResource DarkGreyBackgroundColor}" Opacity=".2" options:Freeze="true"/>
+    <SolidColorBrush x:Key="DeletedPageOverlayBrush" Color="{StaticResource PdfforgeGreyColor}" Opacity=".4" options:Freeze="true"/>
+    <SolidColorBrush x:Key="DeletedPageMarkedBrush" Color="{StaticResource IconLightGreyColor}" options:Freeze="true"/>
+
+
+    <!--Business edition interaction colours-->
+    <Color x:Key="BusinessEditionInteractionTextWhite">#F7F7F7</Color>
+    <Color x:Key="BusinessEditionOrange">#FFAA00</Color>
+    <Color x:Key="BusinessEditionViewGreyBackground">#F1F3F5</Color>
+    <Color x:Key="BusinessEditionViewBorder">#D0D0D0</Color>
+    <Color x:Key="BusinessEditionViewBorderEffect">#55000000</Color>
+    <Color x:Key="BusinessEditionLeftSideBorderBackground">#003A63</Color>
+    <Color x:Key="BusinessEditionViewFeaturesBorder">#D1D5DB</Color>
+    <Color x:Key="BusinessEditionViewFeaturesTableLines">#E5E7EB</Color>
+
+    <!--Business edition interaction brushes-->
+    <SolidColorBrush x:Key="RightSideBusinessInteractionBackground" Color="{StaticResource PdfforgeLightGreyColor0}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionInteractionTextWhiteBrush" Color="{StaticResource BusinessEditionInteractionTextWhite}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionOrangeBrush" Color="{StaticResource BusinessEditionOrange}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionViewBorderBrush" Color="{StaticResource BusinessEditionViewBorder}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionViewGreyBackgroundBrush" Color="{StaticResource BusinessEditionViewGreyBackground}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionLeftSideBorderBackgroundBrush" Color="{StaticResource BusinessEditionLeftSideBorderBackground}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionViewFeaturesBorderBrush" Color="{StaticResource BusinessEditionViewFeaturesBorder}" options:Freeze="true"/>
+    <SolidColorBrush x:Key="BusinessEditionViewFeaturesTableLinesBrush" Color="{StaticResource BusinessEditionViewFeaturesTableLines}" options:Freeze="true"/>
+
+
 
 
     <!--Business features redesigned colours-->
@@ -295,6 +323,9 @@
     <Color x:Key="BrandGreenDull">#05A555</Color>
     <Color x:Key="BrandDarkBlueFaded">#66316489</Color>
     <Color x:Key="BrandGreenFaded">#6606C668</Color>
+
+    <!-- Beta Tag -->
+    <SolidColorBrush x:Key="BetaTagBrush" Color="{StaticResource BrandDarkBlue}" options:Freeze="true"/>
 
     <LinearGradientBrush x:Key="MainGreenGradient" StartPoint="1,1" EndPoint="0,0" options:Freeze="true">
         <GradientStop Color="{StaticResource BrandDarkBlue}" Offset="0"/>
@@ -310,6 +341,9 @@
         <GradientStop Color="{StaticResource BrandDarkBlueFaded}" Offset="0"/>
         <GradientStop Color="{StaticResource BrandGreenFaded}" Offset="1"/>
     </LinearGradientBrush>
+
+    <!-- MainShell info ribbon colors -->
+    <SolidColorBrush x:Key="TrialInfoRibbonBackgroundBrush" Color="{StaticResource SodaLightBlue}" options:Freeze="true" />
 
     <!-- ######################### -->
     <!-- ## DEBUG COLOR BRUSHES ## -->

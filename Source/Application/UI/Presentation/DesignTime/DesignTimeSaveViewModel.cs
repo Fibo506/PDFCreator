@@ -20,6 +20,8 @@ public class DesignTimeSaveViewModel : SaveViewModel
             new DispatcherWrapper(),
             new DesignTimeErrorCodeInterpreter(),
             new DesignTimeProfileChecker(),
-            new DesignTimeActionManager())
+            new DesignTimeActionManager(),
+            null,
+            new DesignTimePrinterMappingService())
     { }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Conversion.Jobs.UserTokenExtractor;
 using pdfforge.PDFCreator.Utilities.Spool;
 using SystemInterface.IO;
 

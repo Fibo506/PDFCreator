@@ -77,6 +77,7 @@ public class PdfCreatorJobFinishedMetric : UsageMetricBase
     //Share settings
     public bool LoadSharedAppSettings { get; set; }
     public bool LoadSharedProfiles { get; set; }
+    public bool LoadSharedPrinterMappings { get; set; }
     public bool IsShared { get; set; }
     public bool AllowUserDefinedProfiles { get; set; }
     public bool HasShareFilename { get; set; }

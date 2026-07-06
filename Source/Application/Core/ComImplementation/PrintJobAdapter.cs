@@ -7,7 +7,6 @@ using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
-using pdfforge.PDFCreator.Conversion.Settings.Enums;
 using pdfforge.PDFCreator.Conversion.Settings.Helpers;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.Services.Translation;
@@ -35,11 +34,9 @@ public class PrintJobAdapter
 
     private readonly List<string> _unaccessibleItems = new List<string>
     {
-        "autosave",
         "properties",
         "skipprintdialog",
-        "savedialog",
-        "openviewer"
+        "savedialog"
     };
 
     private readonly IComWorkflowFactory _workflowFactory;
@@ -241,8 +238,6 @@ public class PrintJobAdapter
     private void DisableIrrelevantProfileSettings(ConversionProfile profile)
     {
         profile.AutoSave.Enabled = false;
-        profile.AutoSave.ExistingFileBehaviour = AutoSaveExistingFileBehaviour.Merge;
-        profile.OpenViewer.Enabled = false;
     }
 
     /// <summary>

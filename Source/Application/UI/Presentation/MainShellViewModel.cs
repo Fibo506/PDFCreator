@@ -7,11 +7,13 @@ using System.Windows.Input;
 using pdfforge.Obsidian;
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs;
+using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.Core.Controller.Routing;
 using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Macros;
 using pdfforge.PDFCreator.Core.Services.Trial;
+using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
 using pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands;
 using pdfforge.PDFCreator.UI.Presentation.Events;
@@ -21,6 +23,7 @@ using pdfforge.PDFCreator.UI.Presentation.Helper.Version;
 using pdfforge.PDFCreator.UI.Presentation.Routing;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.UpdateHint;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
+using pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions;
 using pdfforge.PDFCreator.Utilities;
 using pdfforge.PDFCreator.Utilities.Update;
 using Prism.Events;
@@ -45,6 +48,7 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
     private readonly IVersionHelper _versionHelper;
     private readonly IOnlineVersionHelper _onlineVersionHelper;
     private readonly SemaphoreSlim _interactionSemaphore = new(1);
+    private readonly ICurrentSettings<HotFolderSettings> _hotFolderSettings;
     public ICommand DismissUsageStatsInfoCommand { get; }
     public ICommand ReadMoreUsageStatsCommand { get; }
 
@@ -52,10 +56,14 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
 
     private bool _showUpdate;
     private bool _updateInfoWasShown;
+    private bool _isHotFolderActive;
     private readonly IStartupRoutine _startupRoutine;
     private readonly IPdfEditorHelper _pdfEditorHelper;
     private readonly ICampaignHelper _campaignHelper;
     private readonly ApplicationNameProvider _applicationNameProvider;
+    private readonly EditionHelper _editionHelper;
+    private readonly IInteractionInvoker _interactionInvoker;
+    private readonly IConditionalHintManager _conditionalHintManager;
 
     public ICommand DismissTrialExpireInfoCommand { get; }
 
@@ -78,14 +86,18 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
     public string UpdateBadge => ShowUpdate ? "!" : "";
 
     public MainShellViewModel(DragAndDropEventHandler dragAndDrop, ITranslationUpdater translation,
-        ApplicationNameProvider applicationName, IInteractionRequest interactionRequest,
+        ApplicationNameProvider applicationName, IInteractionRequest interactionRequest, 
         IEventAggregator aggregator, ICommandLocator commandLocator, IDispatcher dispatcher,
         IRegionManager regionManager, IGpoSettings gpoSettings, IUpdateHelper updateHelper, IEventAggregator eventAggregator,
         IStartupActionHandler startupActionHandler, ICurrentSettings<Conversion.Settings.UsageStatistics> usageStatisticsProvider,
         IVersionHelper versionHelper, IOnlineVersionHelper onlineVersionHelper,
         IStartupRoutine startupActions, IPdfEditorHelper pdfEditorHelper,
         ICampaignHelper campaignHelper,
-        ApplicationNameProvider applicationNameProvider)
+        ApplicationNameProvider applicationNameProvider,
+        ICurrentSettings<HotFolderSettings> hotFolderSettings,
+        EditionHelper editionHelper,
+        IInteractionInvoker interactionInvoker,
+        IConditionalHintManager conditionalHintManager)
         : base(translation)
     {
         _aggregator = aggregator;
@@ -105,12 +117,17 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
         GpoSettings = gpoSettings;
         _campaignHelper = campaignHelper;
         _applicationNameProvider = applicationNameProvider;
+        _hotFolderSettings = hotFolderSettings;
+        _editionHelper = editionHelper;
+        _interactionInvoker = interactionInvoker;
+        _conditionalHintManager = conditionalHintManager;
 
         NavigateCommand = commandLocator.CreateMacroCommand()
             .AddCommand<SkipIfSameNavigationTargetCommand>()
             .AddCommand<EvaluateTabSwitchRelevantSettingsAndNotifyUserCommand>()
             .AddCommand<ISaveChangedSettingsCommand>()
             .AddCommand<NavigateToMainTabCommand>()
+            .AddCommand<RaiseEditSettingsFinishedEventCommand>()
             .Build();
 
         CloseCommand = commandLocator.CreateMacroCommand()
@@ -134,8 +151,9 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
             .Build();
 
         DismissUsageStatsInfoCommand = new DelegateCommand(_ => { ShowUsageStatsInfo = false; });
-
         DismissTrialExpireInfoCommand = new DelegateCommand(_ => { ShowTrialRemainingDaysInfo = false; });
+
+        UpgradeNowCommand = new DelegateCommand(UpgradeNowExecute);
 
         OpenUrlCommand = commandLocator.GetCommand<UrlOpenCommand>();
     }
@@ -193,12 +211,14 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
         }
     }
 
-        public bool ShowUpgradeNowButton => ApplicationName.EditionName == "Free";
-        private string FallbackUrl => Urls.GetExtendLicenseFallbackUrl(_applicationNameProvider.EditionName);
+    public bool IsFreeEdition => _editionHelper.IsFreeEdition;
+
+    private string FallbackUrl => Urls.GetExtendLicenseFallbackUrl(_applicationNameProvider.EditionName);
 
     public string TrialExtendLink => _campaignHelper.GetTrialExtendLink(FallbackUrl);
 
     public ICommand OpenUrlCommand { get; }
+    public ICommand UpgradeNowCommand { get; }
 
     private void SetupActivePathInMainShell(IStartupRoutine startupRoutine)
     {
@@ -232,6 +252,7 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
     {
         _activePath = targetView;
         RaisePropertyChanged(nameof(ActivePath));
+        RaisePropertyChanged(nameof(IsHotFolderActive));
     }
 
     private void OnSettingsChanged()
@@ -277,6 +298,22 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
     private Action _closeViewAction;
 
 
+    public bool IsHotFolderActive
+    {
+        get => _isHotFolderActive;
+        private set
+        {
+            _isHotFolderActive = value;
+            RaisePropertyChanged();
+        }
+    }
+
+    private void UpgradeNowExecute(object o)
+    {
+        var interaction = new BusinessFeaturesUserInteraction();
+        _interactionInvoker.Invoke(interaction);
+    }
+
     public async Task MountViewAsync()
     {
         SetupActivePathInMainShell(_startupRoutine);
@@ -319,6 +356,13 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
                 MainShellLocked = settingsLoading;
                 RaisePropertyChanged(nameof(MainShellLocked));
             });
+
+        IsHotFolderActive = _hotFolderSettings.Settings.IsEnabled;
+        _eventAggregator.GetEvent<HotFolderStatusChangedEvent>()
+            .Subscribe(OnHotFolderStatusChanged);
+
+        if(_conditionalHintManager.ShouldEmailCollectionHintBeDisplayed())
+            InteractionRequest.Raise(new EmailCollectionInteraction());
     }
 
     private void CampaignHelperOnPropertyChanged(object o, PropertyChangedEventArgs e)
@@ -341,7 +385,16 @@ public class MainShellViewModel : TranslatableViewModelBase<MainShellTranslation
             () => RaisePropertyChanged(nameof(TrialRemainingDaysInfoText)));
 
         _settingsLoadingSubscriptionToken.Dispose();
+
+        _eventAggregator.GetEvent<HotFolderStatusChangedEvent>()
+            .Unsubscribe(OnHotFolderStatusChanged);
     }
+
+    private void OnHotFolderStatusChanged(bool isEnabled)
+    {
+        _dispatcher.InvokeAsync(() => IsHotFolderActive = isEnabled);
+    }
+
 
     #region nothing to see here, move along!
 
@@ -362,5 +415,9 @@ public class SetShowUpdateEvent : PubSubEvent<bool>
 }
 
 public class ShowUpdateInteractionEvent : PubSubEvent
+{
+}
+
+public class HotFolderStatusChangedEvent : PubSubEvent<bool>
 {
 }

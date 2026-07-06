@@ -78,14 +78,14 @@ public class AutoUpdateLauncher : IUpdateLauncher
         // retry until successful
         if (!_updateDownloader.IsDownloaded(downloadPath))
         {
-            while (!TryDownloadUpdate(version, caption, downloadPath))
+            while (!await TryDownloadUpdate(version, caption, downloadPath))
             { }
         }
 
         await AskUserForAppRestartAsync(downloadPath);
     }
 
-    private bool TryDownloadUpdate(IApplicationVersion version, string caption, string filePath)
+    private async Task<bool> TryDownloadUpdate(IApplicationVersion version, string caption, string filePath)
     {
         try
         {
@@ -95,7 +95,7 @@ public class AutoUpdateLauncher : IUpdateLauncher
             if (interaction.Success)
             {
                 // Hash test
-                if (!_hashUtil.VerifyFileMd5(filePath, version.FileHash))
+                if (!await _hashUtil.VerifyFileMd5Async(filePath, version.FileHash))
                 {
                     //Hash does not fit should we retry download
                     var message = _translation.DownloadHashErrorMessage;

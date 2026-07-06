@@ -115,5 +115,11 @@ public class PDFCreatorSettingsManager : SettingsManager
             standbyMinutes = 0;
 
         _threadManager.HotStandbyDuration = TimeSpan.FromMinutes(standbyMinutes);
+
+        if (SettingsProvider.Settings.HotFolderSettings.IsEnabled)
+        {
+            _threadManager.HotStandbyDuration = TimeSpan.FromMinutes(int.MaxValue);
+            _threadManager.IsStandbyDisabled = false;
+        }
     }
 }

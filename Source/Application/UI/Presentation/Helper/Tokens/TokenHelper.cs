@@ -19,14 +19,14 @@ public interface ITokenHelper
     List<string> GetTokenListForDirectory();
 
     List<string> GetTokenListForExternalFiles();
+    List<string> GetTokenListForHotFolderPaths();
 
     List<string> GetTokenListForStamp();
 
     List<string> GetTokenListForPageNumbers();
 
     List<string> GetTokenListForEmail();
-
-    List<string> GetTokenListForEmailRecipients();
+    List<string> TokenListForEmailRecipients { get; }
 
     /// <summary>
     ///     Detection if UserTokens need to be enabled
@@ -93,12 +93,11 @@ public class TokenHelper : ITokenHelper
         tr.AddToken(new NumberToken(TokenNames.NumberOfCopies, 1));
         tr.AddToken(new NumberToken(TokenNames.NumberOfPages, 1));
         tr.AddToken(new ListToken(TokenNames.OutputFilenames,
-            new[]
-            {
-                _translation.OutputFilename,
+        [
+            _translation.OutputFilename,
                 _translation.OutputFilename2,
                 _translation.OutputFilename3
-            }));
+        ]));
         tr.AddToken(new StringToken(TokenNames.OutputFilePath, @"C:\Temp"));
         tr.AddToken(new StringToken(TokenNames.PrinterName, "PDFCreator"));
         tr.AddToken(new NumberToken(TokenNames.SessionId, 0));
@@ -191,7 +190,6 @@ public class TokenHelper : ITokenHelper
     }
 
     public List<string> GetTokenListForExternalFiles()
-
     {
         var tokenList = GetTokenListWithFormatting();
         tokenList.RemoveToken(TokenNames.Author);
@@ -218,6 +216,18 @@ public class TokenHelper : ITokenHelper
 
         return tokenList;
     }
+
+    private static readonly List<string> TokenListForHotFolderPaths =
+    [
+        $"<{TokenNames.Desktop}>",
+        $"<{TokenNames.Environment}: >",
+        $"<{TokenNames.Environment}:Username>",
+        $"<{TokenNames.MyDocuments}>",
+        $"<{TokenNames.MyPictures}>",
+        $"<{TokenNames.Username}>"
+    ];
+
+    public List<string> GetTokenListForHotFolderPaths() => TokenListForHotFolderPaths;
 
     public List<string> GetTokenListForStamp()
 
@@ -265,20 +275,18 @@ public class TokenHelper : ITokenHelper
         return tokenList;
     }
 
-    public List<string> GetTokenListForEmailRecipients()
-    {
-        var tokenList = new List<string>();
-        tokenList.Add("<Author>");
-        tokenList.Add("<ClientComputer>");
-        tokenList.Add("<ComputerName>");
-        tokenList.Add("<Environment: >");
-        tokenList.Add("<Environment:UserName>");
-        tokenList.Add("<PrintJobAuthor>");
-        tokenList.Add("<User: >");
-        tokenList.Add($"<User:{UserTokenKey}>");
-        tokenList.Add("<Username>");
-        return tokenList;
-    }
+    public List<string> TokenListForEmailRecipients =>
+    [
+        $"<{TokenNames.Author}>",
+        $"<{TokenNames.ClientComputer}>",
+        $"<{TokenNames.ComputerName}>",
+        $"<{TokenNames.Environment}: >",
+        $"<{TokenNames.Environment}:UserName>",
+        $"<{TokenNames.PrintJobAuthor}>",
+        $"<{TokenNames.User}: >",
+        $"<{TokenNames.User}:{UserTokenKey}>",
+        $"<{TokenNames.Username}: >"
+    ];
 
     /// <summary>
     ///     Detection if string contains insecure tokens, like NumberOfPages, InputFilename, InputFilePath/InputDirectory

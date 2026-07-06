@@ -1,0 +1,334 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Host": {
+      "type": "string",
+      "enum": [
+        "AppVeyor",
+        "AzurePipelines",
+        "Bamboo",
+        "Bitbucket",
+        "Bitrise",
+        "GitHubActions",
+        "GitLab",
+        "Jenkins",
+        "Rider",
+        "SpaceAutomation",
+        "TeamCity",
+        "Terminal",
+        "TravisCI",
+        "VisualStudio",
+        "VSCode"
+      ]
+    },
+    "TagVersion": {
+      "type": "object",
+      "properties": {
+        "Version": {
+          "type": "string"
+        },
+        "PackageVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "ExecutableTarget": {
+      "type": "string",
+      "enum": [
+        "BuildIntegrationTest",
+        "BuildPerformanceTest",
+        "BuildUnitTest",
+        "Clean",
+        "CompileCreatorProjects",
+        "CompileMoFiles",
+        "CompileProjectsWithTranslations",
+        "CompileServerProjects",
+        "CompileSetupHelper",
+        "CopyPasswordsFile",
+        "DeleteCreatorDependencies",
+        "DeleteServerDependencies",
+        "DotnetRestoreBuildToCleanupPaketHickup",
+        "ExportComWrapper",
+        "ExportPot",
+        "FormatChanges",
+        "FormatCheck",
+        "FormatCheckChanges",
+        "FormatCheckFull",
+        "FormatFull",
+        "GenerateAllAdmlFiles",
+        "GeneratePotFromAdml",
+        "IntegrationTest",
+        "LicenseSummary",
+        "NormalizeTranslations",
+        "PackComponentsNugetPackage",
+        "PackCreatorNugetPackage",
+        "PackServerNugetPackage",
+        "PaketRestore",
+        "PerformanceTest",
+        "PublishCreatorNugetPackage",
+        "PublishCreatorProjects",
+        "PublishProjectsWithTranslations",
+        "PublishServerNugetPackage",
+        "PublishServerProjects",
+        "PublishSetupHelper",
+        "RemoveAvanquestSdkLicenseKey",
+        "RenameEditionExecutables",
+        "RestoreCreatorProjects",
+        "RestoreIntegrationTest",
+        "RestorePerformanceTest",
+        "RestoreProjectsWithTranslations",
+        "RestoreServerProjects",
+        "RestoreSetupHelper",
+        "RestoreUnitTest",
+        "RevertGitHashInVersion",
+        "SetAvanquestSdkLicenseKey",
+        "SignCreatorFiles",
+        "SignServerFiles",
+        "SignSetupHelper",
+        "UnitTest",
+        "UpdateAssemblyInfo",
+        "UpdateEnglishGroupPolicy",
+        "UpdateGermanPoFile"
+      ]
+    },
+    "Verbosity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+        "Verbose",
+        "Normal",
+        "Minimal",
+        "Quiet"
+      ]
+    },
+    "NukeBuild": {
+      "properties": {
+        "Continue": {
+          "type": "boolean",
+          "description": "Indicates to continue a previously failed build attempt"
+        },
+        "Help": {
+          "type": "boolean",
+          "description": "Shows the help text for this build assembly"
+        },
+        "Host": {
+          "description": "Host for execution. Default is 'automatic'",
+          "$ref": "#/definitions/Host"
+        },
+        "NoLogo": {
+          "type": "boolean",
+          "description": "Disables displaying the NUKE logo"
+        },
+        "Partition": {
+          "type": "string",
+          "description": "Partition to use on CI"
+        },
+        "Plan": {
+          "type": "boolean",
+          "description": "Shows the execution plan (HTML)"
+        },
+        "Profile": {
+          "type": "array",
+          "description": "Defines the profiles to load",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Root": {
+          "type": "string",
+          "description": "Root directory during build execution"
+        },
+        "Skip": {
+          "type": "array",
+          "description": "List of targets to be skipped. Empty list skips all dependencies",
+          "items": {
+            "$ref": "#/definitions/ExecutableTarget"
+          }
+        },
+        "Target": {
+          "type": "array",
+          "description": "List of targets to be invoked. Default is '{default_target}'",
+          "items": {
+            "$ref": "#/definitions/ExecutableTarget"
+          }
+        },
+        "Verbosity": {
+          "description": "Logging verbosity during build execution. Default is 'Normal'",
+          "$ref": "#/definitions/Verbosity"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "properties": {
+        "ArtifactsDir": {
+          "type": "string"
+        },
+        "AzureKeyVaultCertificateName": {
+          "type": "string"
+        },
+        "AzureKeyVaultClientId": {
+          "type": "string"
+        },
+        "AzureKeyVaultClientSecret": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
+        "AzureKeyVaultTenantId": {
+          "type": "string"
+        },
+        "AzureKeyVaultTimeserverUrl": {
+          "type": "string"
+        },
+        "AzureKeyVaultUrl": {
+          "type": "string"
+        },
+        "BuildDir": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "CompiledDir": {
+          "type": "string"
+        },
+        "CompileProjects": {
+          "type": "array",
+          "description": "Names of the projects to compile in the Compile step",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CompileType": {
+          "type": "string",
+          "description": "Compile configuration to use. Default is 'DotNet' other options are 'None', 'MsBuild'",
+          "enum": [
+            "DotNet",
+            "MsBuild",
+            "None"
+          ]
+        },
+        "Configuration": {
+          "type": "string",
+          "description": "Configuration to build - Default is 'Debug' (local) or 'Release' (server)",
+          "enum": [
+            "Debug",
+            "Release"
+          ]
+        },
+        "FullCheck": {
+          "type": "string",
+          "description": "Run dotnet format on the entire solution instead of only changed files"
+        },
+        "IntegrationTestDir": {
+          "type": "string"
+        },
+        "IntegrationTestType": {
+          "type": "string",
+          "description": "IntegrationTest configuration to use. Default is 'None' other options are 'MsBuild'",
+          "enum": [
+            "DotNet",
+            "MsBuild",
+            "None"
+          ]
+        },
+        "LicenseSummaryIgnorePackages": {
+          "type": "array",
+          "description": "Packages that are ignored for the license summary",
+          "items": {
+            "type": "string"
+          }
+        },
+        "MainBranchName": {
+          "type": "string"
+        },
+        "MinLanguagePercent": {
+          "type": "integer",
+          "description": "Percent of a language that needs to be translated before it is considered for inclusion",
+          "format": "int32"
+        },
+        "NugetInternalApiKey": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
+        "NugetInternalUrl": {
+          "type": "string"
+        },
+        "PackagesWithTranslations": {
+          "type": "array",
+          "description": "List of packages that contain translations and are required for the pot export",
+          "items": {
+            "type": "string"
+          }
+        },
+        "PackType": {
+          "type": "string",
+          "enum": [
+            "PackFile",
+            "PackProject"
+          ]
+        },
+        "PaketTemplate": {
+          "type": "string"
+        },
+        "PDFCreatorServerTagVersion": {
+          "$ref": "#/definitions/TagVersion"
+        },
+        "PDFCreatorServerVersion": {
+          "type": "string",
+          "description": "Base version to use for the PDFCreatorServer assemblies"
+        },
+        "PDFCreatorTagVersion": {
+          "$ref": "#/definitions/TagVersion"
+        },
+        "PDFCreatorVersion": {
+          "type": "string",
+          "description": "Base version to use for the PDFCreator assemblies"
+        },
+        "ProjectsWithTranslations": {
+          "type": "array",
+          "description": "List of projects that contain translations and are required for the pot export",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Solution": {
+          "type": "string",
+          "description": "Path to a solution file that is automatically loaded"
+        },
+        "SourceDir": {
+          "type": "string",
+          "description": "Folder containing the sources"
+        },
+        "TypedSolution": {
+          "type": "string",
+          "description": "Path to a solution file that is automatically loaded"
+        },
+        "UnitTestDir": {
+          "type": "string"
+        },
+        "UnitTestType": {
+          "type": "string",
+          "description": "UnitTests configuration to use. Default is 'None' other options are 'DotNet' and 'MsBuild'",
+          "enum": [
+            "DotNet",
+            "MsBuild",
+            "None"
+          ]
+        },
+        "UsePaket": {
+          "type": "string",
+          "description": "Is paket used as a package manager? If set to false nuget will be used"
+        },
+        "Version": {
+          "type": "string",
+          "description": "Base version to use"
+        }
+      }
+    },
+    {
+      "$ref": "#/definitions/NukeBuild"
+    }
+  ]
+}

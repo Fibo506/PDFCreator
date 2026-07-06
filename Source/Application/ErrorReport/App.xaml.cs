@@ -37,6 +37,7 @@ public partial class App : Application
         return true;
     }
 
+    [Obsolete]
     private void ShowReportWindow(string errorFile, string sentryUrl)
     {
         try

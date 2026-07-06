@@ -15,6 +15,7 @@ public class GpoReaderSettings : IGpoSettings
     public bool DisableApplicationSettings => _gpoSettings.DisableApplicationSettings;
     public bool DisableDebugTab => _gpoSettings.DisableDebugTab;
     public bool DisablePrinterTab => _gpoSettings.DisablePrinterTab;
+    public bool LoadSharedPrinterMappings => _gpoSettings.LoadSharedPrinterMappings;
     public bool DisableProfileManagement => _gpoSettings.DisableProfileManagement;
     public bool DisableTitleTab => _gpoSettings.DisableTitleTab;
     public bool DisableHistory => _gpoSettings.DisableHistory;
@@ -34,6 +35,7 @@ public class GpoReaderSettings : IGpoSettings
     public bool DisableRssFeed => _gpoSettings.DisableRssFeed;
     public bool DisableTips => _gpoSettings.DisableTips;
     public bool LoadSharedAppSettings => _gpoSettings.LoadSharedAppSettings;
+    public bool LoadSharedHotFolders => _gpoSettings.LoadSharedHotFolders;
     public bool LoadSharedProfiles => _gpoSettings.LoadSharedProfiles;
     public bool AllowUserDefinedProfiles => _gpoSettings.AllowUserDefinedProfiles;
     public bool DisableLicenseExpirationReminder => _gpoSettings.DisableLicenseExpirationReminder;

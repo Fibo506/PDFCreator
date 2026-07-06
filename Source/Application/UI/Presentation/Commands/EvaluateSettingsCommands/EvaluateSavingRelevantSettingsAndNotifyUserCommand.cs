@@ -4,6 +4,7 @@ using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.NavigationChecks;
 using pdfforge.PDFCreator.Utilities.Messages;
+using Prism.Events;
 
 namespace pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands;
 
@@ -14,8 +15,9 @@ public class EvaluateSavingRelevantSettingsAndNotifyUserCommand : EvaluateSettin
     public EvaluateSavingRelevantSettingsAndNotifyUserCommand(
         IInteractionRequest interactionRequest,
         ITranslationUpdater translationUpdater,
-        ITabSwitchSettingsCheck tabSwitchSettingsCheck)
-        : base(interactionRequest, translationUpdater)
+        ITabSwitchSettingsCheck tabSwitchSettingsCheck,
+        IEventAggregator eventAggregator)
+        : base(interactionRequest, eventAggregator, translationUpdater)
     {
         _tabSwitchSettingsCheck = tabSwitchSettingsCheck;
     }

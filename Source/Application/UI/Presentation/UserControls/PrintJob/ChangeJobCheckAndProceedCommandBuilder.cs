@@ -56,7 +56,7 @@ public class ChangeJobCheckAndProceedCommandBuilder : IChangeJobCheckAndProceedC
     public IAsyncCommand BuildCommand(Action<Job> changeJobAction, IMacroCommand preSaveCommand = null)
     {
         if (_getJob == null || _callFinishInteraction == null || _getLatestConfirmedPath == null || _setLatestConfirmedPath == null)
-            throw new InvalidOperationException($"Call {nameof(ProceedWithChangedJobCommand)}.Init first!");
+            throw new InvalidOperationException($"Call {nameof(ProceedWithChangedJobCommand)}.StartAll first!");
 
         return new ProceedWithChangedJobCommand(
             _interactiveProfileChecker,

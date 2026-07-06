@@ -19,7 +19,8 @@ public static class BootstrapperHelper
             "PDFCreator.dll",
             "PDFCreatorProfessional.dll",
             "PDFCreatorTerminalServer.dll",
-            "PDFCreatorServer.dll"
+            "PDFCreatorServer.dll",
+            "PDFCreatorCustom.dll"
         ];
 
         foreach (var assemblyNameCandidate in assemblyNameCandidates)

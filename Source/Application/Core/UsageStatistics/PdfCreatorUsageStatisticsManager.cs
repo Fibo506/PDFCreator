@@ -9,39 +9,60 @@ using pdfforge.UsageStatistics;
 
 namespace pdfforge.PDFCreator.Core.UsageStatistics;
 
-public class PdfCreatorUsageStatisticsManager : IPdfCreatorUsageStatisticsManager
+public abstract class UsageStatisticsManagerBase
 {
     private readonly IUsageStatisticsSender _sender;
     private readonly IOsHelper _osHelper;
-    private readonly IUsageMetricFactory _usageMetricFactory;
+    protected readonly IUsageMetricFactory UsageMetricFactory;
     private readonly ISettingsProvider _settingsProvider;
-    private readonly IGpoSettings _gpoSettings;
+    protected readonly IGpoSettings GpoSettings;
     private readonly IThreadManager _threadManager;
 
-    public PdfCreatorUsageStatisticsManager(IUsageStatisticsSender sender, IOsHelper osHelper,
-        IUsageMetricFactory usageMetricFactory,
-        ISettingsProvider settingsProvider, IGpoSettings gpoSettings, IThreadManager threadManager)
+    protected UsageStatisticsManagerBase(IUsageStatisticsSender sender, IOsHelper osHelper,
+        IUsageMetricFactory usageMetricFactory, ISettingsProvider settingsProvider, IGpoSettings gpoSettings, IThreadManager threadManager)
     {
         _sender = sender;
         _osHelper = osHelper;
-        _usageMetricFactory = usageMetricFactory;
+        UsageMetricFactory = usageMetricFactory;
         _settingsProvider = settingsProvider;
-        _gpoSettings = gpoSettings;
+        GpoSettings = gpoSettings;
         _threadManager = threadManager;
     }
 
-    private bool IsEnabled => !_gpoSettings.DisableUsageStatistics && _settingsProvider.Settings.ApplicationSettings.UsageStatistics.Enable;
+    protected bool IsEnabled => !GpoSettings.DisableUsageStatistics && _settingsProvider.Settings.ApplicationSettings.UsageStatistics.Enable;
+
+    protected string OperatingSystem => _osHelper.GetWindowsVersion();
+
+    protected void DoSendUsageStatistics(Func<IUsageMetric> createStatisticsMetric)
+    {
+        try
+        {
+            if (IsEnabled)
+            {
+                var usageMetric = createStatisticsMetric();
+
+                var senderThread = new SynchronizedThread(() => _sender.Send(usageMetric));
+
+                _threadManager.StartSynchronizedThread(senderThread);
+            }
+        }
+        catch (Exception)
+        { }
+    }
+}
+
+public class PdfCreatorUsageStatisticsManager : UsageStatisticsManagerBase, IPdfCreatorUsageStatisticsManager
+{
+    public PdfCreatorUsageStatisticsManager(IUsageStatisticsSender sender, IOsHelper osHelper,
+        IUsageMetricFactory usageMetricFactory,
+        ISettingsProvider settingsProvider, IGpoSettings gpoSettings, IThreadManager threadManager) :
+        base(sender, osHelper, usageMetricFactory, settingsProvider, gpoSettings, threadManager)
+    { }
+
 
     public void SendUsageStatistics(TimeSpan duration, Job job, string status)
     {
-        if (IsEnabled)
-        {
-            var usageMetric = CreateJobUsageStatisticsMetric(job, duration, status);
-
-            var senderThread = new SynchronizedThread(() => _sender.Send(usageMetric));
-
-            _threadManager.StartSynchronizedThread(senderThread);
-        }
+        DoSendUsageStatistics(() => CreateJobUsageStatisticsMetric(job, duration, status));
     }
 
     public bool IsComMode { get; set; }
@@ -56,9 +77,9 @@ public class PdfCreatorUsageStatisticsManager : IPdfCreatorUsageStatisticsManage
 
     private PdfCreatorJobFinishedMetric CreateJobUsageStatisticsMetric(Job job, TimeSpan duration, string status)
     {
-        var metric = _usageMetricFactory.CreateMetric<PdfCreatorJobFinishedMetric>();
+        var metric = UsageMetricFactory.CreateMetric<PdfCreatorJobFinishedMetric>();
 
-        metric.OperatingSystem = _osHelper.GetWindowsVersion();
+        metric.OperatingSystem = OperatingSystem;
 
         //Job
         metric.OutputFormat = job.Profile.OutputFormat.ToString();
@@ -112,28 +133,29 @@ public class PdfCreatorUsageStatisticsManager : IPdfCreatorUsageStatisticsManage
         metric.SharepointShareLink = job.Profile.SharepointSettings.CreateShareLink;
 
         //GPOs
-        metric.DisableApplicationSettings = _gpoSettings.DisableApplicationSettings;
-        metric.DisableDebugTab = _gpoSettings.DisableDebugTab;
-        metric.DisablePrinterTab = _gpoSettings.DisablePrinterTab;
-        metric.DisableProfileManagement = _gpoSettings.DisableProfileManagement;
-        metric.DisableTitleTab = _gpoSettings.DisableTitleTab;
-        metric.DisableHistory = _gpoSettings.DisableHistory;
-        metric.DisableAccountsTab = _gpoSettings.DisableAccountsTab;
-        metric.DisableRssFeed = _gpoSettings.DisableRssFeed;
-        metric.DisableTips = _gpoSettings.DisableTips;
-        metric.HideLicenseTab = _gpoSettings.HideLicenseTab;
-        metric.HidePdfArchitectInfo = _gpoSettings.HidePdfArchitectInfo;
-        metric.GpoLanguage = _gpoSettings.Language ?? "";
-        metric.DisableLicenseExpirationReminder = _gpoSettings.DisableLicenseExpirationReminder;
-        metric.GpoUpdateInterval = _gpoSettings.UpdateInterval ?? "";
-        metric.GpoHotStandbyMinutes = _gpoSettings.HotStandbyMinutes;
+        metric.DisableApplicationSettings = GpoSettings.DisableApplicationSettings;
+        metric.DisableDebugTab = GpoSettings.DisableDebugTab;
+        metric.DisablePrinterTab = GpoSettings.DisablePrinterTab;
+        metric.DisableProfileManagement = GpoSettings.DisableProfileManagement;
+        metric.DisableTitleTab = GpoSettings.DisableTitleTab;
+        metric.DisableHistory = GpoSettings.DisableHistory;
+        metric.DisableAccountsTab = GpoSettings.DisableAccountsTab;
+        metric.DisableRssFeed = GpoSettings.DisableRssFeed;
+        metric.DisableTips = GpoSettings.DisableTips;
+        metric.HideLicenseTab = GpoSettings.HideLicenseTab;
+        metric.HidePdfArchitectInfo = GpoSettings.HidePdfArchitectInfo;
+        metric.GpoLanguage = GpoSettings.Language ?? "";
+        metric.DisableLicenseExpirationReminder = GpoSettings.DisableLicenseExpirationReminder;
+        metric.GpoUpdateInterval = GpoSettings.UpdateInterval ?? "";
+        metric.GpoHotStandbyMinutes = GpoSettings.HotStandbyMinutes;
 
         //Share settings
-        metric.LoadSharedAppSettings = _gpoSettings.LoadSharedAppSettings;
-        metric.LoadSharedProfiles = _gpoSettings.LoadSharedProfiles;
+        metric.LoadSharedAppSettings = GpoSettings.LoadSharedAppSettings;
+        metric.LoadSharedProfiles = GpoSettings.LoadSharedProfiles;
+        metric.LoadSharedPrinterMappings = GpoSettings.LoadSharedPrinterMappings;
         metric.IsShared = job.Profile.Properties.IsShared;
-        metric.AllowUserDefinedProfiles = _gpoSettings.AllowUserDefinedProfiles;
-        metric.HasShareFilename = _gpoSettings.SharedSettingsFilename != "settings";
+        metric.AllowUserDefinedProfiles = GpoSettings.AllowUserDefinedProfiles;
+        metric.HasShareFilename = GpoSettings.SharedSettingsFilename != "settings";
 
         return metric;
     }

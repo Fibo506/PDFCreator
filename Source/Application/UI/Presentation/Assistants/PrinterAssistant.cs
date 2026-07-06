@@ -12,11 +12,12 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants;
 
 public interface IPrinterAssistant
 {
-    Task<string> AddPrinter();
+    Task<string> AddPrinter(string printerNameSuggestion = "PDFCreator");
 
     Task<bool> DeletePrinter(string printerName, int numPrinters);
 
     Task<string> RenamePrinter(string oldPrinterName);
+    Task<string> ApplyNewPrinterName(string newPrinterName, string oldPrinterName);
 }
 
 public class PrinterAssistant : TranslatableViewModelBase<PrinterAssistantTranslation>, IPrinterAssistant
@@ -37,9 +38,9 @@ public class PrinterAssistant : TranslatableViewModelBase<PrinterAssistantTransl
         _osHelper = osHelper;
     }
 
-    public async Task<string> AddPrinter()
+    public async Task<string> AddPrinter(string printerNameSuggestion = "PDFCreator")
     {
-        var newPrinterName = _printerHelper.CreateValidPrinterName("PDFCreator");
+        var newPrinterName = _printerHelper.CreateValidPrinterName(printerNameSuggestion);
         var questionText = Translation.EnterPrintername;
         newPrinterName = await RequestPrinternameFromUser(questionText, newPrinterName);
         if (newPrinterName == null)
@@ -75,12 +76,17 @@ public class PrinterAssistant : TranslatableViewModelBase<PrinterAssistantTransl
         var questionText = Translation.EnterPrintername;
         newPrinterName = await RequestPrinternameFromUser(questionText, oldPrinterName);
 
+        return await ApplyNewPrinterName(newPrinterName, oldPrinterName);
+    }
+
+    public async Task<string> ApplyNewPrinterName(string newPrinterName, string oldPrinterName)
+    {
         if ((newPrinterName == null) || (newPrinterName == oldPrinterName))
             return null;
 
         while (!_printerHelper.IsValidPrinterName(newPrinterName))
         {
-            questionText = Translation.GetPrinterAlreadyInstalledMessage(newPrinterName);
+            var questionText = Translation.GetPrinterAlreadyInstalledMessage(newPrinterName);
             newPrinterName = _printerHelper.CreateValidPrinterName(newPrinterName);
             newPrinterName = await RequestPrinternameFromUser(questionText, newPrinterName);
             if ((newPrinterName == null) || (newPrinterName == oldPrinterName))

@@ -8,6 +8,7 @@ namespace pdfforge.PDFCreator.Core.Workflow;
 public interface IPreviewChangesHelper
 {
     void ApplyPreviewChanges(Job job);
+    bool ArePreviewChangesNeeded(Job job);
 }
 
 public class PreviewChangesHelper : IPreviewChangesHelper
@@ -23,8 +24,17 @@ public class PreviewChangesHelper : IPreviewChangesHelper
 
     public void ApplyPreviewChanges(Job job)
     {
+        var previewPages = _previewManager.GetTotalPreviewPages(job.JobInfo).GetAwaiter().GetResult();
+        var previewPageMappings = MapToPageMapping(previewPages);
+        _previewManager.AbortAndCleanUpPreview(job.JobInfo.SourceFiles);
+
+        _pdfProcessor.ApplyPreviewChanges(job, previewPageMappings);
+    }
+
+    public bool ArePreviewChangesNeeded(Job job)
+    {
         if (job.Profile.AutoSave.Enabled)
-            return;
+            return false;
 
         var previewPages = _previewManager.GetTotalPreviewPages(job.JobInfo).GetAwaiter().GetResult();
 
@@ -33,13 +43,9 @@ public class PreviewChangesHelper : IPreviewChangesHelper
         if (!anyPageManipulated)
         {
             _previewManager.AbortAndCleanUpPreview(job.JobInfo.SourceFiles);
-            return;
         }
 
-        var previewPageMappings = MapToPageMapping(previewPages);
-        _previewManager.AbortAndCleanUpPreview(job.JobInfo.SourceFiles);
-
-        _pdfProcessor.ApplyPreviewChanges(job, previewPageMappings);
+        return anyPageManipulated;
     }
 
     protected IList<PageMapping> MapToPageMapping(IList<PreviewPage> previewPages)
@@ -58,5 +64,10 @@ public class DisabledPreviewChangesHelper : IPreviewChangesHelper
 {
     public void ApplyPreviewChanges(Job job)
     {
+    }
+
+    public bool ArePreviewChangesNeeded(Job job)
+    {
+        return false;
     }
 }

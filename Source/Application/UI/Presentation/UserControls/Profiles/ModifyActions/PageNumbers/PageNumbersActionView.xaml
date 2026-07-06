@@ -54,12 +54,12 @@
                        Content="{Binding Translation.BeginOnPage}" />
                 <TextBox Grid.Row="0" Grid.Column="2"
                          Text="{Binding CurrentProfile.PageNumbers.BeginOn, StringFormat='{}{0:D}'}"
-                         MinWidth="50" />
+                         MinWidth="50" MaxWidth="100"/>
                 <Label Grid.Row="2" Grid.Column="0"
                        Content="{Binding Translation.BeginAtNumber}" />
                 <TextBox Grid.Row="2" Grid.Column="2"
                          Text="{Binding CurrentProfile.PageNumbers.BeginWith, StringFormat='{}{0:D}'}"
-                         MinWidth="50" />
+                         MinWidth="50" MaxWidth="100"/>
             </Grid>
 
             <Label Margin="0 20 0 0"

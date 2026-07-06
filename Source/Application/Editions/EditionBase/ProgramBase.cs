@@ -6,18 +6,21 @@ using NLog;
 using pdfforge.Communication;
 using pdfforge.Obsidian.Interaction;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
+using pdfforge.PDFCreator.Core.Controller.Routing;
 using pdfforge.PDFCreator.Core.DirectConversion;
 using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Logging;
 using pdfforge.PDFCreator.Core.SettingsManagement;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Core.Startup;
+using pdfforge.PDFCreator.Core.Startup.HotFolder;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using pdfforge.PDFCreator.ErrorReport;
 using pdfforge.PDFCreator.UI.Presentation;
 using pdfforge.PDFCreator.UI.Presentation.Help;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.Utilities;
+using pdfforge.PDFCreator.Utilities.Threading;
 using Prism.Regions;
 using SimpleInjector;
 using Application = System.Windows.Forms.Application;
@@ -57,6 +60,7 @@ public class ProgramBase
 
     private static int StartApplication(string[] args, Func<Bootstrapper> getBootstrapperFunc)
     {
+
         Application.EnableVisualStyles();
 
         Thread.CurrentThread.Name = "ProgramThread";
@@ -75,7 +79,7 @@ public class ProgramBase
             return 0;
 
         var application = new SimpleInjectorPrismApplication(_container);
-        BootstrapContainerAndApplication(getBootstrapperFunc(), application);
+        BootstrapContainerAndApplication(getBootstrapperFunc(), application, args);
 
         try
         {
@@ -106,7 +110,7 @@ public class ProgramBase
     private static void InitializeApplication(string[] args, SimpleInjectorPrismApplication application)
     {
         var resolver = new SimpleInjectorAppStartResolver(_container);
-        var appStartFactory = new AppStartFactory(resolver, _container.GetInstance<IPathUtil>(), _container.GetInstance<IDirectConversionHelper>());
+        var appStartFactory = new AppStartFactory(resolver, _container.GetInstance<IPathUtil>(), _container.GetInstance<IDirectConversionHelper>(), _container.GetInstance<IThreadManager>());
         var appStart = appStartFactory.CreateApplicationStart(args);
         var helpCommandHandler = _container.GetInstance<HelpCommandHandler>();
         var settingsManager = _container.GetInstance<ISettingsManager>();
@@ -115,12 +119,13 @@ public class ProgramBase
         application.DispatcherUnhandledException += Application_DispatcherUnhandledException;
     }
 
-    private static void BootstrapContainerAndApplication(Bootstrapper bootstrapper, SimpleInjectorPrismApplication application)
+    private static void BootstrapContainerAndApplication(Bootstrapper bootstrapper, SimpleInjectorPrismApplication application, string[] args)
     {
         bootstrapper.ConfigureServiceCollection(_container);
         bootstrapper.RegisterMainApplication(_container);
         bootstrapper.RegisterPrismNavigation(_container);
         SetupObsidian(bootstrapper);
+        bootstrapper.RegisterStartupArgs(_container, args);
 
         application.Initialize();
 
@@ -140,6 +145,7 @@ public class ProgramBase
         });
     }
 
+    [Obsolete]
     private static void InitializeLogging()
     {
         LoggingHelper.InitFileLogger("PDFCreator", LoggingLevel.Error);
@@ -153,6 +159,7 @@ public class ProgramBase
         _errorReportHelper = ErrorReportHelper.GetInstance(inMemoryLogger, new AssemblyHelper(assembly), errorHelper);
     }
 
+    [Obsolete]
     private static void UpdateErrorReportHelper(Container container)
     {
         var applicationNameProvider = container.GetInstance<ApplicationNameProvider>();

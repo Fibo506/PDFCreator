@@ -40,7 +40,7 @@
                                     <Condition Binding="{Binding IsChecked, ElementName=this}" Value="false" />
                                     <Condition Binding="{Binding IsEnabled, ElementName=this}" Value="true" />
                                 </MultiDataTrigger.Conditions>
-                                <Setter Property="Foreground" Value="{StaticResource SwitchToggleButtonIsCheckedBrush}" />
+                                <Setter Property="Foreground" Value="{StaticResource SwitchToggleButtonIsUncheckedBrush}" />
                                 <Setter Property="IsEnabled" Value="true" />
                             </MultiDataTrigger>
                             <DataTrigger Binding="{Binding IsChecked, ElementName=this}" Value="false">

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Linq;
+using CSScripting;
+using NLog;
 using Optional;
 using pdfforge.Obsidian;
 using pdfforge.Obsidian.Interaction.DialogInteractions;
@@ -15,6 +19,7 @@ public interface ITokenButtonFunctionProvider
 
 public class TokenButtonFunctionProvider : ITokenButtonFunctionProvider
 {
+    private readonly Logger _logger = LogManager.GetCurrentClassLogger();
     private readonly IInteractionInvoker _interactionInvoker;
     private readonly IOpenFileInteractionHelper _openFileInteractionHelper;
 
@@ -38,7 +43,14 @@ public class TokenButtonFunctionProvider : ITokenButtonFunctionProvider
             SelectedPath = initalText
         };
 
-        _interactionInvoker.Invoke(interaction);
+        try
+        {
+            _interactionInvoker.Invoke(interaction);
+        }
+        catch (Win32Exception e)
+        {
+            return Option.None<string>();
+        }
 
         if (!interaction.Success || string.IsNullOrWhiteSpace(interaction.SelectedPath))
             return Option.None<string>();

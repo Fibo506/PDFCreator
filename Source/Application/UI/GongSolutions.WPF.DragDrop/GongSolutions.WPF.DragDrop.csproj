@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows7.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <LangVersion>default</LangVersion>
@@ -13,6 +12,23 @@
     <Content Include="Icons\EffectLink.png" />
     <Content Include="Icons\EffectMove.png" />
     <Content Include="Icons\EffectNone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Windows.Markup.XmlnsPrefix">
+      <_Parameter1>urn:gong-wpf-dragdrop</_Parameter1>
+      <_Parameter2>dd</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Windows.Markup.XmlnsDefinition">
+      <_Parameter1>urn:gong-wpf-dragdrop</_Parameter1>
+      <_Parameter2>GongSolutions.Wpf.DragDrop</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Windows.Markup.XmlnsDefinition">
+      <_Parameter1>urn:gong-wpf-dragdrop</_Parameter1>
+      <_Parameter2>GongSolutions.Wpf.DragDrop.Utilities</_Parameter2>
+    </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations">

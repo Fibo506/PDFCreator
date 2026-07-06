@@ -1,6 +1,7 @@
 msgid ""
 msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-11-07 22:58+0000\n"
 "Last-Translator: WONJOO NA <nawonjukr@gmail.com>\n"
 "Language-Team: Korean <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/ko/>\n"
@@ -9,6 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.9.1\n"
 
 #. FileConversionAssistantTranslation
 msgid "Do you want to convert the {0} selected file?"
@@ -30,6 +32,12 @@ msgstr "프로필"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "인쇄"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -98,6 +106,7 @@ msgid "News"
 msgstr "새소식"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr ""
 
@@ -128,7 +137,7 @@ msgstr "라이센스가 만료되었습니다."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 msgid "Click here to extend your license."
 msgstr "라이센스 키를 입력하십시오:"
@@ -151,6 +160,7 @@ msgstr "잘못된 설정"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "오류"
 
@@ -468,333 +478,63 @@ msgstr "수정"
 msgid "Other changes"
 msgstr "기타 변경 사항"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The license has expired. Please renew your license."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
-msgstr "라이센스가 만료되었습니다. 라이센스를 갱신하십시오."
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
+msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "There was a problem with the connection to the license server."
-msgid "There was a problem with your license..."
-msgstr "라이선스 서버 연결에 문제가 있습니다."
+#| msgid "User Guide"
+msgid "User Tokens"
+msgstr "사용자 설명서"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-msgid "CS-scripts"
-msgstr "파일 분할 및 병합"
+msgid "Delete pages"
+msgstr "삭제"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+msgid "Forward to profile"
+msgstr "PDF 파일 편집"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
 msgid "Priority support"
 msgstr "우선 지원"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "License details"
-msgstr "라이선스 상태:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Manage licenses"
-msgid "Manage License"
-msgstr "라이선스 관리"
+#| msgid "Invalid settings"
+msgid "Shared settings"
+msgstr "잘못된 설정"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Offline activation"
-msgid "Offline Activation"
-msgstr "오프라인 활성화"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "License Activated"
-msgstr "라이선스 상태:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Your license was activated successfully."
-msgstr "모든 사용자용 라이선스가 성공적으로 저장되었습니다."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Please enter your license key to continue using {0}"
-msgstr "라이센스 키를 입력하십시오:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "컴퓨터의 모든 사용자가 라이센스를 사용할 수 있도록 하시겠습니까?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The activation was successful."
-msgid "Save activation for all users"
-msgstr "활성화에 성공했습니다."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred when saving the activation for all users."
-msgstr "모든 사용자용 라이선스를 저장하는 동안 오류가 발생했습니다."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Save activation for all users was successful."
-msgstr "모든 사용자용 라이선스가 성공적으로 저장되었습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Checking the license..."
-msgstr "라이선스 확인 중..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"라이센스 키에 잘못된 문자가 포함되어 있습니다. 유효한 문자는 A-Z, 0-9 및 대시"
-"입니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr "라이센스 키는 30자의 문자 또는 숫자로 구성됩니다,예: {0}"
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "결코"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "허가 받은 사용자:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr "컴퓨터 또는 사용자가 차단되었습니다. 지원팀에 문의하세요."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "라이선스 인증 중 오류가 발생했습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "라이센스 키가 유효하지 않습니다. 새 라이센스 키를 입력하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "라이센스가 만료되었습니다. 라이센스를 갱신하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The license trial period has expired."
-msgstr "라이센스가 만료되었습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "사용 가능한 라이센스 키가 없습니다. 새 라이센스 키를 입력하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "라이선스 서버 연결에 문제가 있습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "라이선스가 허용된 머신 수를 초과했습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "라이센스가 이 버전에 유효하지 않습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "라이센스 유효."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The activation has expired. Please renew your activation."
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "당신의 라이센스는 {0}일 남았습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "라이센스가 이 버전에 유효하지 않습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The activation code has a wrong format."
-msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Renew your license here."
-msgstr "라이센스가 만료되었습니다."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Manage your license here."
-msgstr "라이센스 관리"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Please enter your license key."
-msgstr "라이센스 키를 입력하십시오:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The internal license server url is not valid."
-msgstr "라이센스 유효."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
+#| msgid "Install"
+msgid "MSI installer"
+msgstr "설치"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -1104,7 +844,7 @@ msgid "Viewer"
 msgstr "뷰어"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "라이센스"
 
@@ -1123,6 +863,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1209,6 +950,7 @@ msgstr "제목 교체 편집"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 #, fuzzy
+#| msgid "Edit Title Replacement"
 msgid "Add title replacement"
 msgstr "제목 교체 편집"
 
@@ -1263,6 +1005,7 @@ msgstr "정규표현"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1270,102 +1013,380 @@ msgstr "정규표현"
 msgid "Save"
 msgstr "저장"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "마지막 활성화:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License Activated"
+msgstr "라이선스 상태:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "활성화 실패"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "라이센스 활성화 실패:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "활성화 성공"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "활성화 실패"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "라이센스 활성화 실패:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "활성화에 성공했습니다."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "활성화 유효 기간:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "라이선스 키 입력"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "라이센스 키를 입력하십시오:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "만료:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-msgid "License renews on:"
-msgstr "라이선스 상태:"
+#| msgid "Store license for all users was successful."
+msgid "Your license was activated successfully."
+msgstr "모든 사용자용 라이선스가 성공적으로 저장되었습니다."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "라이센스 키:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Manage licenses"
+msgid "Manage License"
+msgstr "라이선스 관리"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "라이선스 상태:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "장치 ID:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "라이선스 관리"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "오프라인 활성화"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "온라인 활성화"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "View License"
+msgstr "라이센스"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "라이센스 키:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "라이선스 상태:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License details"
+msgstr "라이선스 상태:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "장치 ID:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "라이선스 확인 중..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "만료:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "활성화 유효 기간:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License renews on:"
+msgstr "라이선스 상태:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "마지막 활성화:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "라이선스 키 입력"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "라이센스 키를 입력하십시오:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "The license has expired. Please renew your license."
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr "라이센스가 만료되었습니다. 라이센스를 갱신하십시오."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "There was a problem with the connection to the license server."
+msgid "There was a problem with your license..."
+msgstr "라이선스 서버 연결에 문제가 있습니다."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "CS-scripts"
+msgstr "파일 분할 및 병합"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "컴퓨터의 모든 사용자가 라이센스를 사용할 수 있도록 하시겠습니까?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "The activation was successful."
+msgid "Save activation for all users"
+msgstr "활성화에 성공했습니다."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 #| msgid "An error occured while storing license for all users."
+msgid "An error occurred when saving the activation for all users."
+msgstr "모든 사용자용 라이선스를 저장하는 동안 오류가 발생했습니다."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
 msgid "An error occurred while storing license for all users."
 msgstr "모든 사용자용 라이선스를 저장하는 동안 오류가 발생했습니다."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Store license for all users was successful."
+msgid "Save activation for all users was successful."
+msgstr "모든 사용자용 라이선스가 성공적으로 저장되었습니다."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "모든 사용자용 라이선스가 성공적으로 저장되었습니다."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "나중에 다시 알려주세요"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "나중에 다시 알려주세요"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-#| msgid "License"
-msgid "View License"
-msgstr "라이센스"
+msgid "Please enter your license key to continue using {0}"
+msgstr "라이센스 키를 입력하십시오:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Checking the license..."
+msgstr "라이선스 확인 중..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"라이센스 키에 잘못된 문자가 포함되어 있습니다. 유효한 문자는 A-Z, 0-9 및 대시"
+"입니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr "라이센스 키는 30자의 문자 또는 숫자로 구성됩니다,예: {0}"
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "결코"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "허가 받은 사용자:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "컴퓨터 또는 사용자가 차단되었습니다. 지원팀에 문의하세요."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "라이선스 인증 중 오류가 발생했습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "라이센스 키가 유효하지 않습니다. 새 라이센스 키를 입력하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "라이센스가 만료되었습니다. 라이센스를 갱신하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The license trial period has expired."
+msgstr "라이센스가 만료되었습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "사용 가능한 라이센스 키가 없습니다. 새 라이센스 키를 입력하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "라이선스 서버 연결에 문제가 있습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "라이선스가 허용된 머신 수를 초과했습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "라이센스가 이 버전에 유효하지 않습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "라이센스 유효."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "당신의 라이센스는 {0}일 남았습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The activation code has a wrong format."
+msgstr "활성화가 만료되었습니다. 활성화를 갱신하십시오."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Renew your license here."
+msgstr "라이센스가 만료되었습니다."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Manage your license here."
+msgstr "라이센스 관리"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Please enter your license key."
+msgstr "라이센스 키를 입력하십시오:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The internal license server url is not valid."
+msgstr "라이센스 유효."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1439,7 +1460,6 @@ msgstr "언어"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Explorer Context Menu Integration"
 msgid "Explorer context menu integration"
 msgstr "탐색기의 컨텍스 메뉴에 추가"
 
@@ -1565,15 +1585,21 @@ msgid "Standby duration"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Start"
+msgid "Restart"
+msgstr "시작"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
 "configured time with a low footprint. This significantly accelerates further "
 "conversions."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
@@ -1597,7 +1623,6 @@ msgstr "대상 선택"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Default Printer"
 msgid "Default viewer"
 msgstr "기본 프린터"
 
@@ -1630,13 +1655,11 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Invalid settings"
 msgid "Default settings"
 msgstr "잘못된 설정"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Settings"
 msgid "Export settings"
 msgstr "설정"
 
@@ -1764,8 +1787,9 @@ msgid "PDFCreator settings files"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
+#, fuzzy
 msgid "Add to settings"
-msgstr ""
+msgstr "설정"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor.WorkflowEditorTranslation
@@ -2160,6 +2184,12 @@ msgid ""
 "able to save files to any directory the service has write permission."
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "닫기"
@@ -2406,6 +2436,12 @@ msgstr "폴더 열기"
 msgid "Use PDF Architect"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "폴더 열기"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr ""
@@ -2422,7 +2458,12 @@ msgid ""
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
+#, fuzzy
+msgid "Open file/directory"
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
@@ -2493,11 +2534,6 @@ msgid ""
 "Extracts values from the source document and uses them anywhere they are "
 "supported by PDFCreator."
 msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-msgid "Forward to profile"
-msgstr "PDF 파일 편집"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -3159,6 +3195,11 @@ msgid ""
 "executed. Please check your profile."
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+#, fuzzy
+msgid "merge!"
+msgstr "모두 병합"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr ""
@@ -3206,11 +3247,6 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "기본 뷰어로 열기"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "폴더 열기"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3365,8 +3401,10 @@ msgid "Edit profile"
 msgstr "PDF 파일 편집"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
+#, fuzzy
+#| msgid "Printer"
 msgid "Add printer"
-msgstr ""
+msgstr "인쇄"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 msgid "Delete printer"
@@ -3441,6 +3479,7 @@ msgstr ""
 msgid "Discard"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr ""
@@ -3461,6 +3500,195 @@ msgstr "선택한 경로설정이 너무 길어요"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Edit HotFolder"
+msgstr "PDF 파일 편집"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Printer"
+msgid "Linked Printer"
+msgstr "인쇄"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch:"
+msgstr "대상 선택"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch"
+msgstr "대상 선택"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Source files"
+msgstr "병합된 파일"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select source files folder"
+msgstr "병합된 파일"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Unprintable files"
+msgstr "파일 분할 및 병합"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select unprintable files folder"
+msgstr "파일 분할 및 병합"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "No filter"
+msgstr "PNG 파일"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Printer"
+msgid "Add Filter"
+msgstr "인쇄"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Remove All"
+msgid "Remove Filter"
+msgstr "모두 제거"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Profiles"
+msgid "Profile assigned:"
+msgstr "프로필"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select Profile"
+msgstr "삭제"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "Enter filter"
+msgstr "PNG 파일"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "The filter is not valid. Please check your entry."
+msgstr "선택한 경로가 너무 길어요. 적절한 경로를 선택해 주세요."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Manage licenses"
+msgid "Manage HotFolders"
+msgstr "라이선스 관리"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Printer"
+msgid "Printer Name"
+msgstr "인쇄"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+msgid "HotFolder Path"
+msgstr "PDF 파일 편집"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Actions"
+msgid "Active"
+msgstr "작업"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+msgid "Add HotFolder Printer"
+msgstr "PDF 파일 편집"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
@@ -3866,7 +4094,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #, fuzzy
 msgid "Add time server account"
-msgstr "제목 교체 편집"
+msgstr "계정"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4773,6 +5001,26 @@ msgstr ""
 msgid "Please save or cancel settings to continue"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Remove Page"
+msgstr "모두 제거"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Undo Removal"
+msgstr "모두 제거"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr ""
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5176,8 +5424,9 @@ msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 #, fuzzy
+#| msgid "Manage licenses"
 msgid "Add printers"
-msgstr "제목 추가"
+msgstr "라이선스 관리"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "You have no printers yet. Please add a printer to your queue."
@@ -5463,6 +5712,76 @@ msgid ""
 "Please reactivate your Internal License Server activation on the {0}"
 msgstr ""
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+#, fuzzy
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr "라이센스가 이 버전에 유효하지 않습니다."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr ""
@@ -5477,6 +5796,42 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
+msgstr ""
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDF files"
+msgid "Convert &Here"
+msgstr "PDF 파일 변환"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+msgid "&Merge"
+msgstr "모두 병합"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
@@ -6616,6 +6971,76 @@ msgstr ""
 msgid "Failed to apply changes made in preview."
 msgstr ""
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided HotFolder path is not a valid path."
+msgstr "선택한 경로가 너무 길어요. 적절한 경로를 선택해 주세요."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path must not be empty."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path is too long."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Source files path is not a valid path."
+msgstr "선택한 경로가 너무 길어요. 적절한 경로를 선택해 주세요."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path must not be empty."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path is too long."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "선택한 경로가 너무 길어요. 적절한 경로를 선택해 주세요."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path must not be empty."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path is too long."
+msgstr "선택한 경로설정이 너무 길어요"
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr ""
@@ -6980,6 +7405,10 @@ msgstr ""
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "PDFCreater Pro로 비즈니스 기능을 잠금 해제하세요!"
 
+#, fuzzy
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "PDFCreater Pro로 비즈니스 기능을 잠금 해제하세요!"
+
 msgid "pdfforge"
 msgstr ""
 
@@ -7024,6 +7453,14 @@ msgid ""
 "Set to 0 to disable."
 msgstr ""
 
+msgid "Disable debug tab"
+msgstr ""
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+
 msgid "Disable printer tab"
 msgstr ""
 
@@ -7041,24 +7478,22 @@ msgid ""
 "title replacements."
 msgstr ""
 
-msgid "Disable debug tab"
+msgid "Hide feedback form"
 msgstr ""
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-
-msgid "Hide PDF Architect info"
-msgstr ""
-
-msgid "Activate to hide information about our customizable PDF Editor."
+msgid "Activate to hide feedback form"
 msgstr ""
 
 msgid "Hide license tab"
 msgstr ""
 
 msgid "Activate to hide license tab."
+msgstr ""
+
+msgid "Hide PDF Architect info"
+msgstr ""
+
+msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 
 msgid "Disable profile management"
@@ -7126,6 +7561,24 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr ""
 
+#, fuzzy
+msgid "Load shared HotFolder settings"
+msgstr "설정"
+
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+
+msgid "Load shared printer mappings"
+msgstr ""
+
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+
 msgid "Load shared profiles"
 msgstr ""
 
@@ -7138,16 +7591,16 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr ""
 
-msgid "Hide feedback form"
-msgstr ""
-
-msgid "Activate to hide feedback form"
+msgid "Bulgarian"
 msgstr ""
 
 msgid "Catalan"
 msgstr ""
 
-msgid "Chinese"
+msgid "Chinese (Simplified)"
+msgstr ""
+
+msgid "Chinese (Traditional)"
 msgstr ""
 
 msgid "Corsican (France)"
@@ -7192,10 +7645,16 @@ msgstr ""
 msgid "Portuguese (Brazil)"
 msgstr ""
 
+msgid "Slovak"
+msgstr ""
+
 msgid "Spanish"
 msgstr ""
 
 msgid "Swedish"
+msgstr ""
+
+msgid "Turkish"
 msgstr ""
 
 msgid "Set language:"
@@ -7214,35 +7673,30 @@ msgid "Allow users to define additional profiles"
 msgstr ""
 
 #, fuzzy
+#~| msgid "Disable History"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "기록 비활성"
+
+#, fuzzy
+#~| msgid "Offline activation"
+#~ msgid "Offline Activation"
+#~ msgstr "오프라인 활성화"
+
+#, fuzzy
 #~ msgid "Show license details"
 #~ msgstr "라이센스"
 
-#, fuzzy
-#~ msgid "Your trial license has expired"
-#~ msgstr "라이센스가 만료되었습니다."
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
+#~ msgid "The license is not valid for this version."
 #~ msgstr "라이센스가 이 버전에 유효하지 않습니다."
 
-#~ msgid "Printer:"
-#~ msgstr "인쇄기:"
+#, fuzzy
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "라이선스 서버 연결에 문제가 있습니다."
 
 #, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "버전 건너뛰기"
-
-#~ msgid "Read More"
-#~ msgstr "더 읽어보기"
-
-#, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "제목 교체 편집"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "PDFCreator로 변환하기"
-
-#~ msgid "Your license has expired."
-#~ msgstr "라이센스가 만료되었습니다."
+#~| msgid "The license has expired. Please renew your license."
+#~ msgid ""
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
+#~ msgstr "라이센스가 만료되었습니다. 라이센스를 갱신하십시오."

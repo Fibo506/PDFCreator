@@ -113,7 +113,7 @@ public class SmtpActionViewModel : ActionViewModelBase<SmtpMailAction, SmtpMailT
     private void SetTokenViewModel(ITokenViewModelFactory tokenViewModelFactory)
     {
         var builder = tokenViewModelFactory.BuilderWithSelectedProfile()
-            .WithDefaultTokenReplacerPreview(th => th.GetTokenListForEmailRecipients());
+            .WithDefaultTokenReplacerPreview(th => th.TokenListForEmailRecipients);
 
         RecipientsTokenViewModel = builder
             .WithSelector(p => p.EmailSmtpSettings.Recipients)

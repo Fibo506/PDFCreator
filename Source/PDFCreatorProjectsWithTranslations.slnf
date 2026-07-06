@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "Application\\Conversion\\Jobs\\Jobs.csproj",
+      "Application\\Conversion\\Settings\\Settings.csproj",
+      "Application\\Core\\Services\\Services.csproj",
+      "Application\\Startup\\Startup\\Startup.csproj",
+      "Application\\UI\\Presentation\\Presentation.csproj",
+      "Notifications\\Notifications.csproj",
+      "Server\\UI\\Server.Presentation\\Server.Presentation.csproj"
+    ]
+  }
+}

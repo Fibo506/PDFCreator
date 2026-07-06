@@ -26,7 +26,6 @@ using pdfforge.PDFCreator.Conversion.Actions.Actions.Ftp;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Mail;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.OneDrive;
-using pdfforge.PDFCreator.Conversion.Actions.Actions.Sharepoint;
 using pdfforge.PDFCreator.Conversion.Actions.AttachToOutlookItem;
 using pdfforge.PDFCreator.Conversion.Actions.Queries;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
@@ -37,6 +36,8 @@ using pdfforge.PDFCreator.Conversion.Ghostscript.Conversion;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+using pdfforge.PDFCreator.Conversion.Processing.PdfAValidation;
+using pdfforge.PDFCreator.Conversion.Processing.PdfiumProcessing;
 using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
@@ -52,7 +53,6 @@ using pdfforge.PDFCreator.Core.Printing.Printer;
 using pdfforge.PDFCreator.Core.Printing.Printing;
 using pdfforge.PDFCreator.Core.Services;
 using pdfforge.PDFCreator.Core.Services.Cache;
-using pdfforge.PDFCreator.Core.Services.Download;
 using pdfforge.PDFCreator.Core.Services.EnvironmentDetection;
 using pdfforge.PDFCreator.Core.Services.JobEvents;
 using pdfforge.PDFCreator.Core.Services.JobHistory;
@@ -69,6 +69,7 @@ using pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Core.Startup;
 using pdfforge.PDFCreator.Core.Startup.AppStarts;
+using pdfforge.PDFCreator.Core.Startup.HotFolder;
 using pdfforge.PDFCreator.Core.Startup.StartConditions;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using pdfforge.PDFCreator.Core.UsageStatistics;
@@ -106,6 +107,7 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Architect;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Dialogs;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Feedback;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Home;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Misc;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password;
@@ -125,7 +127,6 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Pa
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Dropbox;
@@ -138,8 +139,8 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OneD
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram;
-using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Services;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings;
@@ -150,6 +151,7 @@ using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacement
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.UsageStatisticsSettings;
 using pdfforge.PDFCreator.UI.Presentation.Windows;
 using pdfforge.PDFCreator.UI.Presentation.Windows.Feedback;
+using pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions;
 using pdfforge.PDFCreator.UI.Presentation.Windows.Startup;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
 using pdfforge.PDFCreator.UI.Presentation.WorkflowQuery;
@@ -187,6 +189,7 @@ using Translatable;
 using Container = SimpleInjector.Container;
 using GeneralSettingsView = pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.GeneralSettingsView;
 using HashUtil = pdfforge.PDFCreator.Utilities.HashUtil;
+using HttpClientDownloader = pdfforge.PDFCreator.Core.Services.Download.HttpClientDownloader;
 using IDownloader = pdfforge.PDFCreator.Core.Services.Download.IDownloader;
 using IHashUtil = pdfforge.PDFCreator.Utilities.IHashUtil;
 using IProcessStarter = pdfforge.PDFCreator.Utilities.Process.IProcessStarter;
@@ -292,10 +295,11 @@ public abstract class Bootstrapper
         container.RegisterSingleton<ISystemPrinterProvider, SystemPrinterProvider>();
 
         container.Register<IDirectConversion, DirectConversion>();
-        container.Register<IDirectConversionHelper, DirectConversionHelper>();
+        container.RegisterSingleton<IDirectConversionHelper, DirectConversionHelper>();
+        container.Register<INumberOfPagesHelper, NumberOfPagesHelper>();
         container.Register<IDirectConversionInfFileHelper, DirectConversionInfFileHelper>();
         container.Register<IDirectImageConversionHelper, DirectImageConversionHelper>();
-        container.RegisterSingleton<IFileConversionAssistant, FileConversionAssistant>();
+        container.RegisterSingleton<IFileConversionHelper, FileConversionAssistant>();
         container.Register<IPrintFileHelper, PrintFileAssistant>();
         container.Register<IUacAssistant, UacAssistant>();
         container.Register<ITestPageCreator, TestPageCreator>();
@@ -340,22 +344,36 @@ public abstract class Bootstrapper
         container.Register<IPipeServerManager, PipeServerManager>(Lifestyle.Singleton);
         container.RegisterSingleton<IApplicationCloser, ApplicationCloser>();
         container.RegisterSingleton<IPipeMessageHandler, NewPipeJobHandler>();
+        container.RegisterSingleton<IWebLinkHandler, WebLinkHandler>();
         container.Register<DragAndDropStart>();
+        container.Register<LinkStart>();
+        
+        container.RegisterSingleton<ILinkHandlerProvider>(() =>
+        {
+            var provider = new LinkHandlerProvider();
+            provider.AddHandlers([
+                container.GetInstance<UiLinkHandler>(),
+                container.GetInstance<ActivationLinkHandler>()
+            ]);
+            return provider;
+        });
 
         container.RegisterSingleton<IVersionHelper>(() => new VersionHelper(GetType().Assembly));
 
         container.Register<IKernel32Wrapper, Kernel32Wrapper>();
         container.Register<ITerminalServerDetection, TerminalServerDetection>();
-        container.Register<IDomainDetector, DomainDetector>();
+        container.RegisterSingleton<IDomainDetector, DomainDetector>();
 
         container.Register<IRepairSpoolFolderAssistant, RepairSpoolFolderAssistant>();
         container.Register<ISpoolFolderAccess, SpoolFolderAccess>();
         container.Register<IShellExecuteHelper, ShellExecuteHelper>();
         container.RegisterSingleton<IPrinterPortReader, PrinterPortReader>();
         container.RegisterSingleton<IPrinterMappingsHelper, PrinterMappingsHelper>();
+        container.Register<IPrinterMappingService, PrinterMappingService>();
         RegisterPrinterHelper(container);
+        RegisterHotFolder(container);
 
-        container.Register<IFileAssoc, FileAssoc>();
+        container.RegisterSingleton<IFileAssoc, FileAssoc>();
         container.RegisterSingleton<IHashUtil, HashUtil>();
         container.RegisterSingleton<ISignaturePasswordCheck, SignaturePasswordCheckCached>();
 
@@ -365,11 +383,10 @@ public abstract class Bootstrapper
         container.Register<IProfileChecker, ProfileChecker>();
         container.Register<IDefaultViewerCheck, DefaultViewerCheck>();
 
-        container.Collection.Register<ISettingsNavigationCheck>(new[]
-    {
+        container.Collection.Register<ISettingsNavigationCheck>([
             typeof(NavigateProfileCheck),
             typeof(NavigateDefaultViewerCheck)
-        });
+        ]);
 
         container.Register<ITabSwitchSettingsCheck, TabSwitchSettingsCheck>();
         container.Register<EvaluateSavingRelevantSettingsAndNotifyUserCommand>();
@@ -384,13 +401,16 @@ public abstract class Bootstrapper
         container.RegisterSingleton<ITokenHelper, TokenHelper>();
         container.RegisterSingleton<ICancellationTokenSourceFactory, CancellationTokenSourceFactory>();
         container.Register<IMaybePipedApplicationStarter, MaybePipedApplicationStarter>();
-        container.Register<ITokenReplacerFactory, TokenReplacerFactory>();
+        container.RegisterSingleton<ITokenReplacerFactory, TokenReplacerFactory>();
         container.Register<IFileIndexHelper, FileIndexHelper>();
         container.RegisterSingleton<IPsToPdfConverter, PsToPdfConverter>();
         container.RegisterSingleton<IPdfToPreviewConverter, PdfToPreviewConverter>();
         container.RegisterSingleton<IPreviewManager, PreviewManager>();
         container.RegisterSingleton<IPreviewPreLoadHelper, PreviewPreLoadHelper>();
         container.Register<IPreviewChangesHelper, PreviewChangesHelper>();
+        container.Register<IPreviewControlViewModelFactory, PreviewControlViewModelFactory>();
+        container.Register<IPreviewPageControlViewModelFactory, PreviewPageControlViewModelFactory>();
+        container.Register<IPdfAValidator, PdfAValidator>();
 
         container.RegisterSingleton<ISettingsChanged, SettingsChanged>();
         container.Register<IEncryptedDocumentHelper, EncryptedDocumentHelper>();
@@ -407,7 +427,7 @@ public abstract class Bootstrapper
 
         container.RegisterSingleton<ISettingsBackup, SettingsBackup>();
         container.RegisterSingleton<IMigrationStorageFactory>(() =>
-            new MigrationStorageFactory((baseStorage, targetVersion, settingsBackup) => new CreatorSettingsMigrationStorage(baseStorage, container.GetInstance<IFontHelper>(), targetVersion, settingsBackup)));
+            new MigrationStorageFactory((baseStorage, targetVersion, settingsBackup) => new CreatorSettingsMigrationStorage(baseStorage, container.GetInstance<IFontHelper>(), targetVersion, settingsBackup, container.GetInstance<IGuid>())));
 
         container.Register<IIniSettingsAssistant, CreatorIniSettingsAssistant>();
         container.RegisterSingleton<IIniSettingsLoader, IniSettingsLoader>();
@@ -458,6 +478,8 @@ public abstract class Bootstrapper
         container.RegisterSingleton<IPositionToUnitConverterFactory, PositionToUnitConverterFactory>();
         container.RegisterSingleton<ISignaturePositionAndSizeHelper, SignaturePositionAndSizeHelper>();
         container.RegisterSingleton<ZxcvbnProvider>();
+
+        container.RegisterSingleton<IAutoStartHelper, AutostartHelper>();
 
         container.Register<IChangeJobCheckAndProceedCommandBuilder, ChangeJobCheckAndProceedCommandBuilder>();
         container.Register<IBrowseFileCommandBuilder, BrowseFileCommandBuilder>();
@@ -666,7 +688,7 @@ public abstract class Bootstrapper
             (RegionNames.DebugSettingsTabContentRegion, typeof(ExportSettingView)),
 
             (RegionNames.DirectConversionTabContentRegion, typeof(DirectConvertView)),
-            (RegionNames.PrinterSaveButtonRegion, typeof(SaveButtonControl))
+            (RegionNames.PrinterSaveButtonRegion, typeof(SaveButtonControl)),
         };
     }
 
@@ -775,6 +797,10 @@ public abstract class Bootstrapper
             settings => settings.ApplicationSettings.RssFeed,
             container
         );
+        RegisterTypedSettingsProvider<HotFolderSettings>(
+            settings => settings.HotFolderSettings,
+            container
+        );
     }
 
     private void RegisterTypedSettingsProvider<TTarget>(Expression<Func<PdfCreatorSettings, TTarget>> expression, Container container)
@@ -813,6 +839,16 @@ public abstract class Bootstrapper
         return ViewCustomization.DefaultCustomization;
     }
 
+    protected virtual void RegisterHotFolder(Container container)
+    {
+        container.RegisterTypeForNavigation(typeof(HotFolderView), RegionViewName.HotFolderView);
+        container.RegisterSingleton<IHotFolderConfigChecker, HotFolderConfigChecker>();
+        container.RegisterSingleton<IHotFolderConfigsHelper, HotFolderConfigsHelper>();
+        container.RegisterSingleton<IHotFolderManager, HotFolderManager>();
+        container.RegisterSingleton<IDriveInfoHelper, DriveInfoHelper>();
+        container.RegisterSingleton<IDriveInfoWrapper, DriveInfoWrapper>();
+    }
+
     private void RegisterPrinterHelper(Container container)
     {
         var registration = Lifestyle.Singleton.CreateRegistration<PrinterHelper>(container);
@@ -826,6 +862,7 @@ public abstract class Bootstrapper
         container.AddRegistration(typeof(IFileNameQuery), registration);
         container.AddRegistration(typeof(IRetypeFileNameQuery), registration);
     }
+
 
     protected abstract IList<Type> GetStartupConditions(IList<Type> defaultConditions);
 
@@ -846,8 +883,6 @@ public abstract class Bootstrapper
 
     private void RegisterActions(Container container)
     {
-        container.Register<ForwardToFurtherProfileActionBase, ForwardToFurtherProfileAction>();
-        container.Register<IForwardToFurtherProfileViewModel, ForwardToFurtherProfileActionViewModel>();
 
         //Register Actions in default order
         container.Collection.Register<IAction>(new[]
@@ -855,7 +890,6 @@ public abstract class Bootstrapper
             // preparation
             typeof(UserTokensAction),
             typeof(PreConversionScriptAction),
-            typeof(ForwardToFurtherProfileAction),
 
             // modification
             typeof(CoverAction),
@@ -876,7 +910,6 @@ public abstract class Bootstrapper
             typeof(MailWebAction),
             typeof(SmtpMailAction),
             typeof(DropboxAction),
-            typeof(SharepointAction),
             typeof(OneDriveAction),
             typeof(FtpAction),
             typeof(HttpAction),
@@ -892,7 +925,6 @@ public abstract class Bootstrapper
             // pre action
             typeof(PresenterActionFacade<UserTokenActionView, UserTokenActionViewModel>),
             typeof(PresenterActionFacade<CsScriptActionView, CsScriptActionViewModel>),
-            typeof(PresenterActionFacade<ForwardToFurtherProfileActionView, IForwardToFurtherProfileViewModel>),
 
             // modify action
             typeof(PresenterActionFacade<CoverActionView, CoverActionViewModel>),
@@ -914,7 +946,6 @@ public abstract class Bootstrapper
             typeof(PresenterActionFacade<FTPActionView, FtpActionViewModel>),
             typeof(PresenterActionFacade<HttpActionView, HttpActionViewModel>),
             typeof(PresenterActionFacade<OneDriveActionView, OneDriveActionViewModel>),
-            typeof(PresenterActionFacade<SharepointActionView, SharepointActionViewModel>),
             typeof(PresenterActionFacade<DropboxActionView, DropboxActionViewModel>)
         };
 
@@ -1017,6 +1048,9 @@ public abstract class Bootstrapper
         ViewRegistry.RegisterInteraction(typeof(OverwriteOrAppendInteraction), typeof(OverwriteOrAppendOverlay));
         ViewRegistry.RegisterInteraction(typeof(LoadSpecificProfileInteraction), typeof(LoadSpecificProfileView));
         ViewRegistry.RegisterInteraction(typeof(EditPrinterProfileUserInteraction), typeof(EditPrinterProfileUserUserControl));
+        ViewRegistry.RegisterInteraction(typeof(EditHotFolderUserInteraction), typeof(EditHotFolderUserControl));
+        ViewRegistry.RegisterInteraction(typeof(AddHotFolderFilterUserInteraction), typeof(AddHotFolderFilterUserControl));
+        ViewRegistry.RegisterInteraction(typeof(EmailCollectionInteraction), typeof(EmailCollectionHintStepView));
         ViewRegistry.RegisterInteraction(typeof(FeedbackInteraction), typeof(FeedbackWindowView),
             new WindowOptions { ApplyWindowCustomization = window => window.WindowStartupLocation = WindowStartupLocation.CenterScreen });
         ViewRegistry.RegisterInteraction(typeof(FeedbackSentInteraction), typeof(FeedbackSentView),
@@ -1025,6 +1059,12 @@ public abstract class Bootstrapper
                 ResizeMode = ResizeMode.NoResize,
                 ApplyWindowCustomization = window => window.WindowStartupLocation = WindowStartupLocation.CenterScreen
             });
+
+        ViewRegistry.RegisterInteraction(typeof(BusinessFeaturesUserInteraction), typeof(BusinessFeaturesView), new WindowOptions
+        {
+            ResizeMode = ResizeMode.NoResize,
+            ApplyWindowCustomization = window => window.WindowStartupLocation = WindowStartupLocation.CenterScreen
+        });
         RegisterObsidianLicenseInteractions();
     }
 
@@ -1089,5 +1129,13 @@ public abstract class Bootstrapper
         container.RegisterTypeForNavigation<TitleReplacementsView>();
         container.RegisterTypeForNavigation<DefaultViewerView>();
         container.RegisterTypeForNavigation<DirectImageConversionSettingView>();
+    }
+
+    public void RegisterStartupArgs(Container container, string[] args)
+    {
+        container.RegisterInstance<IStartupArgs>(new StartupArgs
+        {
+            Args = args
+        });
     }
 }

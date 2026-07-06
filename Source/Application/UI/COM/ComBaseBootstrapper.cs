@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using pdfforge.CustomScriptAction;
@@ -11,7 +11,6 @@ using pdfforge.PDFCreator.Conversion.Actions.Actions.Ftp;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Mail;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.OneDrive;
-using pdfforge.PDFCreator.Conversion.Actions.Actions.Sharepoint;
 using pdfforge.PDFCreator.Conversion.Actions.Queries;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.ConverterInterface;
@@ -22,12 +21,14 @@ using pdfforge.PDFCreator.Conversion.Ghostscript.OutputDevices;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+using pdfforge.PDFCreator.Conversion.Processing.PdfAValidation;
 using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.Core.ComImplementation;
 using pdfforge.PDFCreator.Core.Communication;
 using pdfforge.PDFCreator.Core.Controller;
+using pdfforge.PDFCreator.Core.Controller.Routing;
 using pdfforge.PDFCreator.Core.DirectConversion;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.Printing;
@@ -47,6 +48,7 @@ using pdfforge.PDFCreator.Core.SettingsManagement.GPO.Settings;
 using pdfforge.PDFCreator.Core.SettingsManagement.Helper;
 using pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
+using pdfforge.PDFCreator.Core.Startup;
 using pdfforge.PDFCreator.Core.Startup.StartConditions;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using pdfforge.PDFCreator.Core.Workflow;
@@ -74,6 +76,7 @@ using SystemWrapper;
 using SystemWrapper.Diagnostics;
 using SystemWrapper.IO;
 using Translatable;
+using static pdfforge.PDFCreator.Core.Workflow.PdfToPreviewConverter;
 using HashUtil = pdfforge.PDFCreator.Utilities.HashUtil;
 using IHashUtil = pdfforge.PDFCreator.Utilities.IHashUtil;
 using IProcessStarter = pdfforge.PDFCreator.Utilities.Process.IProcessStarter;
@@ -88,14 +91,15 @@ namespace pdfforge.PDFCreator.UI.COM;
 [ComVisible(false)]
 public abstract class ComBaseBootstrapper
 {
+    [Obsolete]
     public void ConfigureContainer(Container container)
     {
-        container.RegisterSingleton<ApplicationNameProvider>(() => new ApplicationNameProvider("Server"));
+        container.RegisterSingleton<ApplicationNameProvider>(() => new ApplicationNameProvider("PDFCreatorCOM"));
 
         RegisterGhostscript(container);
         RegisterPrinter(container);
 
-        container.RegisterSingleton<IInstallationPathProvider>(() => InstallationPathProviders.PDFCreatorServerProvider);
+        container.RegisterSingleton<IInstallationPathProvider>(() => InstallationPathProviders.PDFCreatorProvider);
 
         container.RegisterSingleton<DropboxAppData>(() => new DropboxAppData(Data.Decrypt(DropboxAppKey.Encrypted_DropboxAppKey)));
 
@@ -103,7 +107,7 @@ public abstract class ComBaseBootstrapper
         container.RegisterInstance<IVersionHelper>(new VersionHelper(GetType().Assembly));
         container.RegisterSingleton<IFolderCleaner, FolderCleaner>();
         container.RegisterSingleton<IPdfCreatorFolderCleanUp, PdfCreatorFolderCleanUp>();
-        container.RegisterSingleton<IDefaultSettingsBuilder, PDFCreatorDefaultSettingsBuilder>();
+        container.RegisterSingleton<IDefaultSettingsBuilder, ComDefaultSettingsBuilder>();
         container.RegisterSingleton<IJobBuilder, JobBuilderProfessional>();
         container.RegisterSingleton<IHashUtil, HashUtil>();
         container.RegisterSingleton<ISignaturePasswordCheck, SignaturePasswordCheckCached>();
@@ -112,12 +116,13 @@ public abstract class ComBaseBootstrapper
 
         container.RegisterSingleton<ISettingsBackup, SettingsBackup>();
         container.RegisterSingleton<IMigrationStorageFactory>(() =>
-            new MigrationStorageFactory((baseStorage, targetVersion, settingsBackup) => new CreatorSettingsMigrationStorage(baseStorage, container.GetInstance<IFontHelper>(), targetVersion, settingsBackup)));
+            new MigrationStorageFactory((baseStorage, targetVersion, settingsBackup) => new CreatorSettingsMigrationStorage(baseStorage, container.GetInstance<IFontHelper>(), targetVersion, settingsBackup, container.GetInstance<IGuid>())));
 
         container.RegisterSingleton<IJobInfoManager, JobInfoManager>();
         container.Register<IConversionWorkflow, AutoSaveWorkflow>();
         container.Register<ITargetFilePathComposer, TargetFilePathComposer>();
         container.Register<IDirectoryHelper, DirectoryHelper>();
+        container.RegisterSingleton<INumberOfPagesHelper, NumberOfPagesHelper>();
         container.Register<ILastSaveDirectoryHelper, LastSaveDirectoryHelper>();
 
         container.RegisterSingleton<IAssemblyHelper>(() => new AssemblyHelper(GetType().Assembly));
@@ -243,9 +248,11 @@ public abstract class ComBaseBootstrapper
         container.RegisterSingleton<ITempDirectoryHelper, TempDirectoryHelper>();
         container.RegisterSingleton(() => new ErrorHelper("pdfcreator_com", "PDFCreator Com", container.GetInstance<IVersionHelper>().ApplicationVersion, Urls.SentryDsnUrl));
         container.RegisterSingleton<IPreviewManager, PreviewManager>();
+        container.RegisterSingleton(() => new EditionHelper(Edition.Server));
         container.Register<IPreviewChangesHelper, DisabledPreviewChangesHelper>();
+        container.RegisterSingleton<IPdfToPreviewConverter, DisabledPdfToPreviewConverter>();
         container.RegisterSingleton<IJobCleaner, JobCleaner>();
-        container.RegisterSingleton<IPdfToPreviewConverter, PdfToPreviewConverter>();
+        container.RegisterSingleton<IPdfAValidator, PdfAValidator>();
         container.RegisterSingleton<IGuid, GuidWrap>();
 
         container.Register<IPrinterWrapper, PrinterWrapper>();
@@ -253,12 +260,14 @@ public abstract class ComBaseBootstrapper
         container.Register<PrintingDeviceFactory>();
 
         container.Register<IPipeServerManager, PipeServerManager>(Lifestyle.Singleton);
-        container.RegisterSingleton<IFileConversionAssistant, ComFileConversionAssistant>();
+        container.RegisterSingleton<IFileConversionHelper, FileConversionHelper>();
         container.RegisterSingleton<IPrintFileHelper, ComPrintFileHelper>();
         container.Register<IPipeMessageHandler, NewPipeJobHandler>(Lifestyle.Singleton);
         container.RegisterInitializer<PrintingDeviceFactory>(pdb => pdb.Init(true));
 
         container.Register<IEncryptedDocumentHelper, DisabledEncryptedDocumentHelper>();
+        container.RegisterInstance<IStartupArgs>(new StartupArgs() { Args = [] });
+        container.RegisterSingleton<IWebLinkHandler, InactiveWebLinkHandler>();
 
         RegisterEditionSpecificPackages(container);
         RegisterActionFacade(container);
@@ -388,7 +397,6 @@ public abstract class ComBaseBootstrapper
 
     private void RegisterActions(Container container)
     {
-        container.Register<ForwardToFurtherProfileActionBase, ForwardToFurtherProfileAction>();
 
         //Register Actions in default order
         container.Collection.Register<IAction>(new[]
@@ -396,7 +404,6 @@ public abstract class ComBaseBootstrapper
             // preparation
             typeof(UserTokensAction),
             typeof(PreConversionScriptAction),
-            typeof(ForwardToFurtherProfileAction),
 
             // modification
             typeof(CoverAction),
@@ -417,7 +424,6 @@ public abstract class ComBaseBootstrapper
             typeof(MailWebAction),
             typeof(SmtpMailAction),
             typeof(DropboxAction),
-            typeof(SharepointAction),
             typeof(OneDriveAction),
             typeof(FtpAction),
             typeof(HttpAction),

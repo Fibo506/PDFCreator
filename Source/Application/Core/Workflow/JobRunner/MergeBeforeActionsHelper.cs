@@ -49,10 +49,12 @@ public class MergeBeforeActionsHelper : IMergeBeforeActionsHelper
             return;
         }
 
-        PrependFileToSourceFiles(job.OutputFileTemplate, job);
-
         _logger.Debug($"File with path {job.OutputFileTemplate} has been found. " +
                       "An auto-merge will be executed before the modify actions.");
+
+        PrependFileToSourceFiles(job.OutputFileTemplate, job);
+
+        
     }
 
     private void PrependFileToSourceFiles(string existingFilePath, Job job)
@@ -87,8 +89,8 @@ public class MergeBeforeActionsHelper : IMergeBeforeActionsHelper
         }
         catch (Exception ex)
         {
-            _logger.Error(ex, "The file could not be merged.");
-            throw;
+            _logger.Error(ex, "The file could not be auto-merged.");
+            return 0;
         }
     }
 }

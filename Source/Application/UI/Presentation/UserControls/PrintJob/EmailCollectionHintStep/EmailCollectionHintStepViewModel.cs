@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using pdfforge.Obsidian.Interaction;
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Core.Services;
@@ -16,9 +17,8 @@ using pdfforge.PDFCreator.Utilities.Messages;
 using DelegateCommand = Prism.Commands.DelegateCommand;
 
 namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep;
-public class EmailCollectionHintStepViewModel : TranslatableViewModelBase<EmailCollectionHintStepTranslation>, IWorkflowViewModel
+public class EmailCollectionHintStepViewModel : TranslatableViewModelBase<EmailCollectionHintStepTranslation>, IWorkflowViewModel, IInteractionAware
 {
-    public ICommand SkipEmailStepCommand { get; set; }
     public EventHandler StepFinished;
     private readonly IConditionalHintManager _conditionalHintManager;
     private readonly IInteractionRequest _interactionRequest;
@@ -33,7 +33,6 @@ public class EmailCollectionHintStepViewModel : TranslatableViewModelBase<EmailC
     {
         _conditionalHintManager = conditionalHintManager;
         _interactionRequest = interactionRequest;
-        SkipEmailStepCommand = new DelegateCommand(CancelExecute);
 
         SendEmailInformationCommand = new DelegateCommand(SendEmailInformationCommandExecute, SendEmailInformationCommandCanExecute);
         SendEmailInformationCommand.ObservesProperty(() => EmailAddress);
@@ -106,7 +105,8 @@ public class EmailCollectionHintStepViewModel : TranslatableViewModelBase<EmailC
             if (await _conditionalHintManager.SendEmailInformation(EmailAddress, _marketingConsent))
             {
                 IsSending = false;
-                InvokeStepFinished();
+                InvokeStepFinished(); //Close in PrintJobWorkflow
+                FinishInteraction?.Invoke(); //Close in Overlay
             }
             else
             {
@@ -127,8 +127,9 @@ public class EmailCollectionHintStepViewModel : TranslatableViewModelBase<EmailC
         return !string.IsNullOrWhiteSpace(EmailAddress);
     }
 
-    private void CancelExecute()
-    {
-        InvokeStepFinished();
-    }
+    public void SetInteraction(IInteraction interaction)
+    { }
+
+    public Action FinishInteraction { get; set; }
+    public string Title => "";
 }

@@ -14,6 +14,8 @@ public interface ITokenReplacerFactory
     TokenReplacer BuildTokenReplacerWithOutputfiles(Job job);
 
     TokenReplacer BuildTokenReplacerWithoutOutputfiles(Job job);
+
+    TokenReplacer BuildTokenReplacerForHotFolder();
 }
 
 public class TokenReplacerFactory : ITokenReplacerFactory
@@ -31,6 +33,8 @@ public class TokenReplacerFactory : ITokenReplacerFactory
         _pathWrap = path;
         _pathUtil = pathUtil;
     }
+
+
 
     public TokenReplacer BuildTokenReplacerFromJobInfo(JobInfo.JobInfo jobInfo)
     {
@@ -65,6 +69,15 @@ public class TokenReplacerFactory : ITokenReplacerFactory
         BuildTokenReplacerFromJobInfo(job.JobInfo);
         _tokenReplacer.AddNumberToken(TokenNames.NumberOfPages, job.NumberOfPages);
         _tokenReplacer.AddNumberToken(TokenNames.NumberOfCopies, job.NumberOfCopies);
+
+        return _tokenReplacer;
+    }
+
+    public TokenReplacer BuildTokenReplacerForHotFolder()
+    {
+        _tokenReplacer = new TokenReplacer();
+
+        AddEnvironmentTokens();
 
         return _tokenReplacer;
     }

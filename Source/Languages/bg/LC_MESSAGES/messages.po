@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-25 12:47+0000\n"
+"PO-Revision-Date: 2025-11-13 08:58+0000\n"
 "Last-Translator: Milen Halkov <milen.halkov@gmail.com>\n"
 "Language-Team: Bulgarian <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/bg/>\n"
@@ -34,6 +34,14 @@ msgstr "Профили"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "Принтер"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "HotFolder"
+msgstr "Включва HotFolder"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -104,10 +112,9 @@ msgid "News"
 msgstr "Новини"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
-#, fuzzy
-#| msgid "Upgrade now"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
-msgstr "Актуализирайте сега"
+msgstr "Актуализирай сега"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Thank you for installing PDFCreator {0}."
@@ -135,7 +142,7 @@ msgstr "Пробният ви лиценз изтича днес."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Щракнете тук за да удължите вашият лиценз."
 
@@ -159,6 +166,7 @@ msgstr "Невалидни настройки"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Грешка"
 
@@ -469,343 +477,64 @@ msgstr "Поправки"
 msgid "Other changes"
 msgstr "Други промени"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid ""
-#| "Your {0} license has expired...\n"
-#| "let's keep your workflows going"
-msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
 msgstr ""
-"Вашият лиценз {0} е изтекъл...\n"
-"нека запазим работните ви процеси"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "There was a problem with your license: {0}"
-msgid "There was a problem with your license..."
-msgstr "Имаше проблем с вашия лиценз: {0}"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr "Проверете лиценза си сега, за да продължите да имате достъп до:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
-"Надграждането гарантира дългосрочна производителност и осигурява достъп до "
-"нашите бизнес издания, включително разширени функции за автоматизация, като "
-"например:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Encryption"
+msgid "256-bit encryption"
+msgstr "Криптиране"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "User tokens"
+msgid "User Tokens"
 msgstr "Потребителски токени"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr "CS-скриптове"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Test pages"
+msgid "Delete pages"
+msgstr "Тестови страници"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr "Препращане на профили"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "Препращане към профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "Приоритетна поддръжка"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Детайли за лиценза"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Make PDFCreator a permanent part of your toolset."
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr "Направете PDFCreator постоянна част от своя набор от инструменти."
+#| msgid "Share Settings"
+msgid "Shared settings"
+msgstr "Настройки за споделяне"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr "Актуализирайте сега"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Manage license"
-msgid "Manage License"
-msgstr "Управление на лицензи"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Offline activation"
-msgid "Offline Activation"
-msgstr "Активиране офлайн"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Лицензът Активиран"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-"Вашият лицензионен ключ е активиран успешно. Благодаря ви че използвате {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Your license was activated successfully, thank you for using {0}."
-msgid "Your license was activated successfully."
-msgstr ""
-"Вашият лицензионен ключ е активиран успешно. Благодаря ви че използвате {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr ""
-"Моля въведете вашият лицензионен ключ за да продължите да използвате {0}"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr ""
-"Искате ли да споделите активацията си с всички потребители в системата?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "Моля, споделете активацията си с всички потребители на вашата система."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Save validation report"
-msgid "Save activation for all users"
-msgstr "Запазване на доклада за валидиране"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred when saving the activation for all users."
-msgstr "Възникна грешка при запазване на лиценза за всички потребители."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "PDFCreator Terminal Server Required"
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr "Изисква се PDFCreator Terminal Server"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Save activation for all users was successful."
-msgstr "Успешно запазване на лиценза за всички потребители."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Проверява лиценза..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"Лицензионният ключ съдържа невалидни символи. Валидните символи са: A-Z, 0-9 "
-"и наклонена."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"Лицензионният ключ се състои от 30 символа, напр. \"12345-67890-ABCDE-EFGHI-"
-"JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Никога"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Лиценз:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "Активацията изтече. Моля подновете активацията си."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-"Компютърът или потребителя са блокирани. Моля обърнете се към поддръжката."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Грешка при проверка на лиценза."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "Лицензионният ключ е невалиден. Моля въведете нов лицензионен ключ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "Лицензът е изтекъл. Моля подновете лиценза."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "Пробният период на лиценза е изтекъл."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "Не е наличен лицензионен ключ. Моля въведете нов лицензионен ключ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Имаше проблем с връзката към лицензионният сървър."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "Номерът на активните машини надвишава позволените от лиценза."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "Лицензионният ключ не е валиден за тази версия на PDFCreator."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "Лицензът е невалиден."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"Срокът на офлайн активирането ви е изтекъл. Моля, активирайте лиценза си "
-"незабавно, за да избегнете блокиране на приложението."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"Активацията на вътрешния ви лицензионен сървър е изтекла. Моля, активирайте "
-"лиценза си незабавно, за да избегнете блокиране на приложението."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "Лицензът Ви ще изтече след {0} ден."
-msgstr[1] "Лицензът Ви ще изтече след {0} дни."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "Лицензионният ключ не е валиден за тази версия."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Активационният код е в грешен формат."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Нямате валиден лицензионен ключ?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "Поръчайте допълнителни активации тук."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Подновете вашият лиценз тук."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Управлявайте вашият лиценз тук."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Моля въведете вашият лицензионен ключ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Грешка при запазване на активацията. Моля опитайте отново."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "Адресът на вътрешният лицензионен сървър е невалиден."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"Лицензът не е разпознат от вътрешния сървър за лицензи.\n"
-"Моля, импортирайте лиценза."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"Лицензът е предназначен за използване с вътрешния сървър за лицензи.\n"
-"Уверете се, че параметърът InternalLicenseServerUrl е зададен."
+#| msgid "Install"
+msgid "MSI installer"
+msgstr "Инсталирай"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -917,8 +646,8 @@ msgid ""
 "Please note: This form is for feedback, not support.\r\n"
 "We may contact you to better understand your feedback."
 msgstr ""
-"Моля, обърнете внимание: Този формуляр е за обратна връзка, а не за подкрепа."
-"\n"
+"Моля, обърнете внимание: Този формуляр е за обратна връзка, а не за "
+"подкрепа.\n"
 "Можем да се свържем с вас, за да разберем по-добре обратната ви връзка."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -1123,7 +852,7 @@ msgid "Viewer"
 msgstr "Визуализатор"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Лиценз"
 
@@ -1142,6 +871,7 @@ msgstr "Директно Преобразуване"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1283,6 +1013,7 @@ msgstr "RegEx"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1290,87 +1021,184 @@ msgstr "RegEx"
 msgid "Save"
 msgstr "Запиши"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "Последна активация:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Лицензът Активиран"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Активирането провалено"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "Активацията не беше успешна:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "Активирането успешно"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Активирането провалено"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "Активацията не беше успешна:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "Активацията беше успешна."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Активацията е валидна до:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "Лицензът ви беше активиран успешно."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Въведете лицензионният ключ"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "Управление на лиценза"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Моля въведете вашият лицензионен ключ:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "Изтича на:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License renews on:"
-msgstr "Лицензът се подновява на:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Лицензионен ключ:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "Статус на лиценза:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "Идентификационен номер на машината:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Управление на лицензи"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Активиране офлайн"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Онлайн активиране"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "Преглед на лиценза"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Лицензионен ключ:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "Статус на лиценза:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Детайли за лиценза"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "Идентификационен номер на машината:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Потвърждаване на лиценза..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred while storing license for all users."
-msgstr "Възникна грешка при запазване на лиценза за всички потребители."
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "Изтича на:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Активацията е валидна до:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "Лицензът се подновява на:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "Последна активация:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Въведете лицензионният ключ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Моля въведете вашият лицензионен ключ:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"Пробният ви лиценз е изтекъл...\n"
+"да запазим работните ви процеси"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "Имаше проблем с лиценза ви..."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Проверете лиценза си сега, за да продължите да имате достъп до:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"Надграждането гарантира дългосрочна производителност и осигурява достъп до "
+"нашите бизнес издания, включително разширени функции за автоматизация, като "
+"например:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Запазете PDFCreator като постоянна част от своя набор от инструменти."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Актуализирайте сега"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "Потребителски токени"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-скриптове"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "Препращане на профили"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr ""
+"Искате ли да споделите активацията си с всички потребители в системата?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "Моля, споделете активацията си с всички потребители на вашата система."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "Запазване на активирането за всички потребители"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr "Възникна грешка при запазване на активацията за всички потребители."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred while storing license for all users."
+msgstr "Възникна грешка при съхраняването на лиценза за всички потребители."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "Запазването на активирането за всички потребители е успешно."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "Успешно запазване на лиценза за всички потребители."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"PDFCreator Terminal Server изисква лицензът да бъде запазен за всички "
+"потребители."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Напомни ми по-късно"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
@@ -1378,15 +1206,187 @@ msgstr ""
 "Не е възможно да се използва офлайн активиране, тъй като PDFCreator е "
 "конфигуриран да използва вътрешния сървър за лицензи."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Напомни ми по-късно"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr ""
+"Вашият лицензионен ключ е активиран успешно. Благодаря ви че използвате {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#, fuzzy
-#| msgid "License"
-msgid "View License"
-msgstr "Лиценз"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr ""
+"Моля въведете вашият лицензионен ключ за да продължите да използвате {0}"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Проверява лиценза..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"Лицензионният ключ съдържа невалидни символи. Валидните символи са: A-Z, 0-9 "
+"и наклонена."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"Лицензионният ключ се състои от 30 символа, напр. \"12345-67890-ABCDE-EFGHI-"
+"JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Никога"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Лиценз:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "Активацията изтече. Моля подновете активацията си."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr ""
+"Компютърът или потребителя са блокирани. Моля обърнете се към поддръжката."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Грешка при проверка на лиценза."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "Лицензионният ключ е невалиден. Моля въведете нов лицензионен ключ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "Лицензът е изтекъл. Моля подновете лиценза."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "Пробният период на лиценза е изтекъл."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "Не е наличен лицензионен ключ. Моля въведете нов лицензионен ключ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Имаше проблем с връзката към лицензионният сървър."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "Номерът на активните машини надвишава позволените от лиценза."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "Лицензионният ключ не е валиден за тази версия на PDFCreator."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "Лицензът е невалиден."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"Срокът на офлайн активирането ви е изтекъл. Моля, активирайте лиценза си "
+"незабавно, за да избегнете блокиране на приложението."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"Активацията на вътрешния ви лицензионен сървър е изтекла. Моля, активирайте "
+"лиценза си незабавно, за да избегнете блокиране на приложението."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "Лицензът Ви ще изтече след {0} ден."
+msgstr[1] "Лицензът Ви ще изтече след {0} дни."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Активационният код е в грешен формат."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Нямате валиден лицензионен ключ?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "Поръчайте допълнителни активации тук."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Подновете вашият лиценз тук."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Управлявайте вашият лиценз тук."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Моля въведете вашият лицензионен ключ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Грешка при запазване на активацията. Моля опитайте отново."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "Адресът на вътрешният лицензионен сървър е невалиден."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"Лицензът не е разпознат от вътрешния сървър за лицензи.\n"
+"Моля, импортирайте лиценза."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"Лицензът е предназначен за използване с вътрешния сървър за лицензи.\n"
+"Уверете се, че параметърът InternalLicenseServerUrl е зададен."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1459,10 +1459,8 @@ msgid "Language"
 msgstr "Език"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-#, fuzzy
-#| msgid "Explorer Context Menu Integration"
 msgid "Explorer context menu integration"
-msgstr "Интеграция с контекстното меню на Експлорър"
+msgstr "Интеграция на контекстното меню на Explorer"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1532,10 +1530,8 @@ msgid "Usage statistics"
 msgstr "Статистика на потреблението"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-#, fuzzy
-#| msgid "Send Usage Statistics"
 msgid "Send usage statistics"
-msgstr "Изпращане на статистика за използването"
+msgstr "Изпращане на статистически данни за използването"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Show sample statistics"
@@ -1559,10 +1555,8 @@ msgid "Privacy policy"
 msgstr "Политика за поверителност"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-#, fuzzy
-#| msgid "Configure Home Screen"
 msgid "Configure home screen"
-msgstr "Конфигуриране на Началният екран"
+msgstr "Конфигуриране на началния екран"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Activate RSS news feed"
@@ -1591,14 +1585,24 @@ msgid "If you want to know more you can take a look at our manual:"
 msgstr "Ако искате да научите повече може да погледнете ръководството:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-#, fuzzy
-#| msgid "PDFCreator Standby"
 msgid "PDFCreator standby"
 msgstr "PDFCreator е в режим на готовност"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Standby duration"
 msgstr "Продължителност на режима на готовност"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Restore"
+msgid "Restart"
+msgstr "Възстанови"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Start standby from Windows autostart"
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr "Стартиране в режим на готовност от автоматичното стартиране на Windows"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1613,10 +1617,6 @@ msgstr ""
 "значително ускорява по-нататъшните конвертирания."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "минути"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "The new version {0} is available.\n"
 "Would you like to download the new version?"
@@ -1625,8 +1625,6 @@ msgstr ""
 "Искате ли да изтеглите новата версия?"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion.DirectConversionTranslation
-#, fuzzy
-#| msgid "Direct Image Conversion Settings"
 msgid "Direct image conversion settings"
 msgstr "Настройки за директно преобразуване на изображения"
 
@@ -1639,8 +1637,6 @@ msgid "Select page orientation:"
 msgstr "Изберете ориентация на страницата:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
-#, fuzzy
-#| msgid "Default Viewer"
 msgid "Default viewer"
 msgstr "Програма за преглед по подразбиране"
 
@@ -1649,14 +1645,10 @@ msgid "Executable files"
 msgstr "Изпълними файлове"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
-#, fuzzy
-#| msgid "Executable Path:"
 msgid "Executable path:"
 msgstr "Път за изпълнение:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
-#, fuzzy
-#| msgid "Additional Parameters:"
 msgid "Additional parameters:"
 msgstr "Допълнителни параметри:"
 
@@ -1678,14 +1670,10 @@ msgid "Restore"
 msgstr "Възстанови"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Default Settings"
 msgid "Default settings"
 msgstr "Настройки по подразбиране"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Export Settings"
 msgid "Export settings"
 msgstr "Изнасяне на Настройки"
 
@@ -1710,8 +1698,6 @@ msgid "Logging"
 msgstr "Регистриране"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Logging Level:"
 msgid "Logging level:"
 msgstr "Ниво на регистриране:"
 
@@ -1744,10 +1730,8 @@ msgid "Open event log"
 msgstr "Отвори на дневника на събитията"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Test Pages"
 msgid "Test pages"
-msgstr "Тестова Страница"
+msgstr "Тестови страници"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Print Windows test page"
@@ -1770,22 +1754,16 @@ msgid "There is currently no log file available."
 msgstr "Понастоящем няма наличен регистрационен файл."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Restore Default Settings"
 msgid "Restore default settings"
 msgstr "Възстановяване на настройките по подразбиране"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "PDFCreator Test Page"
 msgid "PDFCreator test page"
 msgstr "Тестова страница на PDFCreator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Convert Test Page and Open Directory"
 msgid "Convert test page and open directory"
-msgstr "Конвертиране на тестова страница и отваряне на папката"
+msgstr "Конвертирай тестовата страница и отвари папкатата"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid ""
@@ -1799,7 +1777,7 @@ msgid ""
 "settings if required."
 msgstr ""
 "Конвертиране на тестова страница с текущия профил. Ще бъдете помолени да "
-"запазите настройките, ако е необходимо."
+"запишете настройките, ако е необходимо."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Load Profiles"
@@ -1849,10 +1827,8 @@ msgid "Send/Open"
 msgstr "Изпрати/Отвори"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
-#, fuzzy
-#| msgid "Choose an Action"
 msgid "Choose an action"
-msgstr "Изберете действие"
+msgstr "Избери действие"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
@@ -1891,32 +1867,22 @@ msgstr "Избраният изходен формат не поддържа м�
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
-#, fuzzy
-#| msgid "Output Format"
 msgid "Output format"
 msgstr "Изходен формат"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Общи настройки"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
-#, fuzzy
-#| msgid "Page Orientation:"
 msgid "Page orientation:"
 msgstr "Ориентация на страницата:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
-#, fuzzy
-#| msgid "Color Model:"
 msgid "Color model:"
 msgstr "Цветови модел:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
-#, fuzzy
-#| msgid "Viewer Settings"
 msgid "Viewer settings"
 msgstr "Настройки на програмата за преглед"
 
@@ -1946,7 +1912,7 @@ msgstr "Преоразмерване на изображенията до (DPI):
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Advanced:"
-msgstr "Допълнителни:"
+msgstr "Напреднали:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Save validation report"
@@ -2012,14 +1978,10 @@ msgid "UTF-8 text which approximates the original text layout"
 msgstr "UTF-8 текст, който се доближава до оригиналното оформление на текста"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "Add New Profile"
 msgid "Add new profile"
 msgstr "Добави Нов профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "New Profile"
 msgid "New profile"
 msgstr "Нов профил"
 
@@ -2046,16 +2008,12 @@ msgid "Rename"
 msgstr "Преименувай"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "Rename Profile"
 msgid "Rename profile"
 msgstr "Преименувай профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "Remove Profile"
 msgid "Remove profile"
-msgstr "Премахни профила"
+msgstr "Премахни профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Are you sure, you want to remove this profile?"
@@ -2094,8 +2052,6 @@ msgstr "Име на файла:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
-#, fuzzy
-#| msgid "Target Directory:"
 msgid "Target directory:"
 msgstr "Целева директория:"
 
@@ -2196,7 +2152,7 @@ msgid ""
 "Saving files temporarily without any enabled send action, will only store "
 "files in a temporary folder"
 msgstr ""
-"Временно запазване на файлове без активирано действие за изпращане, ще "
+"Временно записване на файлове без активирано действие за изпращане, ще "
 "запази файловете само във временна папка"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -2267,6 +2223,18 @@ msgstr ""
 "директория потребителите могат да записват файлове във всяка директория, в "
 "която услугата има разрешение за запис."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
+#| msgid ""
+#| "The selected printer forwards to another PDFCreator printer and causes an "
+#| "infinite loop."
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"Избраният принтер се препраща към друг принтер на PDFCreator и предизвиква "
+"безкраен цикъл."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Затвори"
@@ -2279,8 +2247,6 @@ msgid "Back"
 msgstr "Назад"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
-#, fuzzy
-#| msgid "Modify Settings:"
 msgid "Modify settings:"
 msgstr "Промени настройките:"
 
@@ -2322,18 +2288,17 @@ msgid "Drives:"
 msgstr "Дискове:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid "Selected account:"
-msgstr "Изберете HTTP акаунт:"
+msgstr "Избран акаунт:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid ""
 "Don't overwrite files (add an incrementing number in case a file already "
 "exists)"
 msgstr ""
-"Не презаписвай файловете (добавя увеличаващи се номера в случай на конфликт)"
+"Не презаписвай файловете (добави нарастващо число, в случай че файла вече "
+"съществува)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
@@ -2356,9 +2321,8 @@ msgstr "Отваряне на качването в браузъра"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid "SharePoint"
-msgstr "Версия"
+msgstr "SharePoint"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Upload documents to your SharePoint"
@@ -2433,9 +2397,8 @@ msgstr "Тази функция вече е активирана за избра
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid "Select an account or create a new one ->"
-msgstr "Изберете акаунт или създайте нов ->"
+msgstr "Избери акаунт или създай нов ->"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 msgid "Run program"
@@ -2450,20 +2413,14 @@ msgid "Select program"
 msgstr "Изберете програма"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
-#, fuzzy
-#| msgid "Additional Program Parameters:"
 msgid "Additional program parameters:"
 msgstr "Допълнителни програмни параметри:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
-#, fuzzy
-#| msgid "Call Preview:"
 msgid "Call preview:"
 msgstr "Преглед на поканата:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
-#, fuzzy
-#| msgid "Program File:"
 msgid "Program file:"
 msgstr "Програмен файл:"
 
@@ -2516,14 +2473,18 @@ msgstr ""
 "и е по-малко склонно към грешки."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-#, fuzzy
-#| msgid "Open File"
 msgid "Open file"
-msgstr "Отвори на файл"
+msgstr "Отвори файл"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use PDF Architect"
 msgstr "Използвай PDF Architect"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Отвори папка"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
@@ -2545,7 +2506,15 @@ msgstr ""
 "подразбиране за Windows."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
+#, fuzzy
+#| msgid "Open directory"
+msgid "Open file/directory"
+msgstr "Отвори директория"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+#, fuzzy
+#| msgid "Open file in viewer."
+msgid "Open file or directory in viewer/explorer."
 msgstr "Отвори файла в програмата за преглед."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
@@ -2557,10 +2526,8 @@ msgid "Add file"
 msgstr "Добави файл"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles.SelectFileTranslation
-#, fuzzy
-#| msgid "Select File:"
 msgid "Select file:"
-msgstr "Изберете Файл:"
+msgstr "Избери файл:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles.SelectFileTranslation
 msgid "Apply"
@@ -2607,18 +2574,14 @@ msgstr ""
 "токен не е дефиниран във вашия документ."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
-#, fuzzy
-#| msgid "Select Separator:"
 msgid "Select separator:"
-msgstr "Изберете Разграничител:"
+msgstr "Избери разграничител:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
 msgid "More on user tokens"
 msgstr "Повече за потребителските токени"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
-#, fuzzy
-#| msgid "User Token"
 msgid "User token"
 msgstr "Потребителски токен"
 
@@ -2629,12 +2592,6 @@ msgid ""
 msgstr ""
 "Извлича стойности от изходния документ и ги използва навсякъде, където те се "
 "поддържат от PDFCreator."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-#| msgid "Forward to Profile"
-msgid "Forward to profile"
-msgstr "Препращане към профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -2770,8 +2727,10 @@ msgid "Page numbers"
 msgstr "Номера на страници"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
+#, fuzzy
+#| msgid "Error while adding page numbers to the document."
 msgid "Adds page numbers to the document."
-msgstr "Добавя номера на страници на документа."
+msgstr "Грешка при добавяне на номера на страници в документа."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -3081,8 +3040,10 @@ msgid "to use a screen reader"
 msgstr "да използва екранен четец"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
+#, fuzzy
+#| msgid "to print the document"
 msgid "to edit the document"
-msgstr "да редактирате документа"
+msgstr "да печата документ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to edit comments"
@@ -3140,7 +3101,6 @@ msgstr "Пропусни"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 #, fuzzy
-#| msgid "Encryption Passwords"
 msgid "Encryption passwords"
 msgstr "Пароли за криптиране"
 
@@ -3196,7 +3156,6 @@ msgstr "Изберете файл за фон"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 #, fuzzy
-#| msgid "Background File (Only PDF):"
 msgid "Background file (only PDF):"
 msgstr "Файл за фон (само PDF):"
 
@@ -3225,19 +3184,16 @@ msgstr "Добавя една или повече страници в края �
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.FtpPasswordStepTranslation
 #, fuzzy
-#| msgid "FTP Upload"
 msgid "FTP upload"
 msgstr "Качване на FTP"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.FtpPasswordStepTranslation
 #, fuzzy
-#| msgid "FTP Account:"
 msgid "FTP account:"
 msgstr "FTP акаунт:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.FtpPasswordStepTranslation
 #, fuzzy
-#| msgid "FTP Server Password:"
 msgid "FTP server password:"
 msgstr "Парола на FTP сървъра:"
 
@@ -3271,19 +3227,16 @@ msgstr "Премахни"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.HttpPasswordStepTranslation
 #, fuzzy
-#| msgid "HTTP Upload"
 msgid "HTTP upload"
 msgstr "Качване по HTTP"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.HttpPasswordStepTranslation
 #, fuzzy
-#| msgid "HTTP Account:"
 msgid "HTTP account:"
 msgstr "HTTP акаунт:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.HttpPasswordStepTranslation
 #, fuzzy
-#| msgid "HTTP Server Password:"
 msgid "HTTP server password:"
 msgstr "Парола на HTTP сървъра:"
 
@@ -3304,7 +3257,7 @@ msgstr "Редактирай"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgctxt "PrintJobWindowButton"
 msgid "Merge"
-msgstr "Събери"
+msgstr "Обедини"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgctxt "PrintJobWindowButton"
@@ -3318,11 +3271,11 @@ msgstr "Запиши"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save as ..."
-msgstr "Запази като ..."
+msgstr "Запиши като ..."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save to Desktop"
-msgstr "Запази на Работния плот"
+msgstr "Запиши на Работния плот"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgctxt "PrintJobWindowButton"
@@ -3347,15 +3300,18 @@ msgstr "Премахване на реклами"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #, fuzzy
-#| msgid ""
-#| "Certain features are not supported by the selected output format and will "
-#| "be skipped automatically. Please check your profile settings."
 msgid ""
 "Certain functions are not supported by the output format and will not be "
 "executed. Please check your profile."
 msgstr ""
 "Някои функции не се поддържат от избрания изходен формат и ще бъдат "
 "пропуснати автоматично. Моля, проверете настройките на профила си."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+#, fuzzy
+#| msgid "Merge"
+msgid "merge!"
+msgstr "Обедини"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
@@ -3367,25 +3323,21 @@ msgstr "Защита"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SignaturePasswordStepTranslation
 #, fuzzy
-#| msgid "Set certificate password"
 msgid "Set Certificate password"
 msgstr "Задаване на парола на сертификата"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SignaturePasswordStepTranslation
 #, fuzzy
-#| msgid "Certificate _Password:"
 msgid "Certificate password:"
 msgstr "Парола на сертификата:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SmtpPasswordStepTranslation
 #, fuzzy
-#| msgid "SMTP Mail"
 msgid "SMTP mail"
 msgstr "SMTP поща"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SmtpPasswordStepTranslation
 #, fuzzy
-#| msgid "SMTP Account:"
 msgid "SMTP account:"
 msgstr "SMTP акаунт:"
 
@@ -3393,7 +3345,6 @@ msgstr "SMTP акаунт:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SmtpPasswordStepTranslation
 #, fuzzy
-#| msgid "SMTP Server Password:"
 msgid "SMTP server password:"
 msgstr "Парола на SMTP сървъра:"
 
@@ -3410,11 +3361,6 @@ msgstr "Бързи действия"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "Отвори с приложението по подразбиране за преглед"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Отвори папка"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3547,7 +3493,6 @@ msgstr "Съгласен съм да получавам маркетингови
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #, fuzzy
-#| msgid "Activation failed"
 msgid "Submission failed"
 msgstr "Активирането провалено"
 
@@ -3589,7 +3534,6 @@ msgstr "Последно използван профил"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 #, fuzzy
-#| msgid "Primary Printer"
 msgid "Primary printer"
 msgstr "Първичен принтер"
 
@@ -3598,8 +3542,6 @@ msgid "Rename printer"
 msgstr "Преименувай на принтер"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
-#, fuzzy
-#| msgid "Manage Printers"
 msgid "Manage printers"
 msgstr "Управление на принтери"
 
@@ -3657,6 +3599,7 @@ msgstr "Опитай отново"
 msgid "Discard"
 msgstr "Отхвърли"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Профил"
@@ -3678,6 +3621,218 @@ msgstr "Използването на потребителски токени и
 msgid "Add Token"
 msgstr "Добави Токен"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "Edit HotFolder"
+msgstr "Включва HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Unused Printers"
+msgid "Linked Printer"
+msgstr "Неизползвани принтери"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Missing Printers"
+msgid "Assigned Printer Name:"
+msgstr "Липсващи принтери"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select page orientation:"
+msgid "Select a folder to watch:"
+msgstr "Изберете ориентация на страницата:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select page orientation:"
+msgid "Select a folder to watch"
+msgstr "Изберете ориентация на страницата:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Merge files"
+msgid "Source files"
+msgstr "Обедини файлове"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select signature image file"
+msgid "Select source files folder"
+msgstr "Изберете файл с изображение на подпис"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+"Изберете местоположение, в което трябва да бъдат преместени изходните "
+"файлове след конвертирането им"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+"Преместете ги в местоположението по подразбиране (подпапка на вашата папка "
+"HotFolder)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "Преместете ги в кошчето за боклук"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Move them to a custom location:"
+msgid "Move them to a custom location"
+msgstr "Преместете ги на място по избор:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Unprintable files"
+msgstr "Изпълними файлове"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Select unprintable files folder"
+msgstr "Изпълними файлове"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr ""
+"Изберете какво да се случи с файловете, които не могат да бъдат отпечатани:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "Филтър"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "No filter"
+msgstr "PNG файл"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "Изключване на всички изброени разширения от преобразуване"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "Ограничаване на преобразуването до филтрирани файлови разширения."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Add file"
+msgid "Add Filter"
+msgstr "Добави файл"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Remove profile"
+msgid "Remove Filter"
+msgstr "Премахни профил"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "Добавяне на филтър за разширения на файлове"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Profiles"
+msgid "Profile assigned:"
+msgstr "Профили"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select profile:"
+msgid "Select Profile"
+msgstr "Изберете профил:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "Enter filter"
+msgstr "PNG файл"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "The filter is not valid. Please check your entry."
+msgstr ""
+"Избраното местоположение е твърде дълго. Моля въведете валидно "
+"местоположение."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Start standby from Windows autostart"
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr "Стартиране в режим на готовност от автоматичното стартиране на Windows"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Manage printers"
+msgid "Manage HotFolders"
+msgstr "Управление на принтери"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Printer"
+msgid "Printer Name"
+msgstr "Принтер"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "HotFolder Path"
+msgstr "Включва HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Actions"
+msgid "Active"
+msgstr "Действия"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Includes HotFolder"
+msgid "Add HotFolder Printer"
+msgstr "Включва HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
 msgstr "Разпечатай в '{0}' за да започнеш!"
@@ -3691,26 +3846,20 @@ msgid "The history is empty"
 msgstr "Историята е празна"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#, fuzzy
-#| msgid "Clear History"
 msgid "Clear history"
-msgstr "Изчисти Историята"
+msgstr "Изчисти историята"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#, fuzzy
-#| msgid "Refresh History"
 msgid "Refresh history"
-msgstr "Презареди Историята"
+msgstr "Обнови историята"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#, fuzzy
-#| msgid "Enable History"
 msgid "Enable history"
-msgstr "Включи Историята"
+msgstr "Включи историята"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Disable history"
-msgstr "Изключи Историята"
+msgstr "Изключи историята"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "... or simply drop files here!"
@@ -3725,8 +3874,6 @@ msgid "Remove from history"
 msgstr "Премахни от историята"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#, fuzzy
-#| msgid "Document Info"
 msgid "Document info"
 msgstr "Информация за документа"
 
@@ -3735,9 +3882,8 @@ msgid "Delete file"
 msgstr "Изтрий файл"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#, fuzzy
 msgid "Open with Email Client"
-msgstr "Отвори с пощенски клиент"
+msgstr "Отвори с клиент за Електронна поща"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "History is disabled"
@@ -3875,8 +4021,6 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "Manage Accounts"
 msgid "Manage accounts"
 msgstr "Управление на акаунти"
 
@@ -3903,8 +4047,6 @@ msgstr "Добави FTP акаунт"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "FTP Account"
 msgid "FTP account"
 msgstr "FTP акаунт"
 
@@ -3918,8 +4060,6 @@ msgstr "FTP акаунт"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "Test FTP Account"
 msgid "Test FTP account"
 msgstr "Тествай FTP акаунт"
 
@@ -3985,9 +4125,8 @@ msgstr "SMTP акаунт"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Microsoft Account"
-msgstr "Акаунт в Dropbox"
+msgstr "Акаунт в Microsoft"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -3999,10 +4138,8 @@ msgstr "Акаунт в Dropbox"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "HTTP Account"
 msgid "HTTP account"
-msgstr "HTTP Акаунт"
+msgstr "HTTP акаунт"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4040,9 +4177,8 @@ msgstr "Добави Dropbox акаунт"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Add Microsoft account"
-msgstr "Добави Dropbox акаунт"
+msgstr "Добави акаунт в Microsoft"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4080,8 +4216,6 @@ msgstr "Акаунт в Dropbox"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "Add Time Server account"
 msgid "Add time server account"
 msgstr "Добави Time Server акаунт"
 
@@ -4095,8 +4229,6 @@ msgstr "Добави Time Server акаунт"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "Time Server Account"
 msgid "Time server account"
 msgstr "Акаунт на сървъра за време"
 
@@ -4151,9 +4283,8 @@ msgstr "Файлът с ключове изисква парола"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Request permissions"
-msgstr "Версия"
+msgstr "Поискай разрешения"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4236,8 +4367,6 @@ msgstr "Време за прекъсване в секунди:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "Sending Mode:"
 msgid "Sending mode:"
 msgstr "Режим на изпращане:"
 
@@ -4342,9 +4471,8 @@ msgstr "ключови файлове"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Read and write emails"
-msgstr "Сигурност и защита"
+msgstr "Четене и писане на имейли"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4356,9 +4484,8 @@ msgstr "Сигурност и защита"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Read and write files"
-msgstr "Сигурност и защита"
+msgstr "Четене и запис на файлове"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4370,9 +4497,8 @@ msgstr "Сигурност и защита"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Send emails"
-msgstr "Изпрати по имейл"
+msgstr "Изпрати имейли"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4384,9 +4510,8 @@ msgstr "Изпрати по имейл"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "OWA Permissions"
-msgstr "Версия"
+msgstr "Разрешения на OWA"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4411,9 +4536,8 @@ msgstr "Прочетете информацията за сайта в SharePoin
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "SharePoint Permissions"
-msgstr "Версия"
+msgstr "Разрешения на SharePoint"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4425,9 +4549,8 @@ msgstr "Версия"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "OneDrive Permissions"
-msgstr "Версия"
+msgstr "Разрешения на OneDrive"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4465,9 +4588,8 @@ msgstr "Уеб достъп до Outlook"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Send directly"
-msgstr "Отвори директория"
+msgstr "Изпрати директно"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 msgid "Authenticate with Dropbox"
@@ -4483,7 +4605,7 @@ msgstr "Dropbox"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 msgid "Uploads the document to Dropbox to save it or to share it with a link."
-msgstr "Качва документа в Dropbox, за да го запази или да го сподели с връзка."
+msgstr "Качва документа в Dropbox, за да го запише или сподели с връзка."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 msgid ""
@@ -4506,13 +4628,10 @@ msgstr ""
 "връзката, може да види този файл."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
-#, fuzzy
 msgid "Show share link at the end of interactive workflow."
-msgstr "Не може да бъде създадена връзка за споделяне към файла."
+msgstr "Покажи връзка за споделяне в края на интерактивния работен процес."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
-#, fuzzy
-#| msgid "Please select Dropbox Account:"
 msgid "Please select Dropbox account:"
 msgstr "Моля, изберете акаунт в Dropbox:"
 
@@ -4567,8 +4686,6 @@ msgid "Remove FTP account"
 msgstr "Премахни FTP акаунт"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.FtpActionTranslation
-#, fuzzy
-#| msgid "Edit FTP Account"
 msgid "Edit FTP account"
 msgstr "Редактирай FTP акаунт"
 
@@ -4608,20 +4725,14 @@ msgid "HTTP"
 msgstr "HTTP"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.HttpTranslation
-#, fuzzy
-#| msgid "Select HTTP Account:"
 msgid "Select HTTP account:"
-msgstr "Изберете HTTP акаунт:"
+msgstr "Избери HTTP акаунт:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.HttpTranslation
-#, fuzzy
-#| msgid "Edit HTTP Account"
 msgid "Edit HTTP account"
 msgstr "Редактирай на HTTP акаунт"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.HttpTranslation
-#, fuzzy
-#| msgid "Remove HTTP Account"
 msgid "Remove HTTP account"
 msgstr "Премахни HTTP акаунт"
 
@@ -4631,8 +4742,6 @@ msgid "URL:"
 msgstr "URL:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.HttpTranslation
-#, fuzzy
-#| msgid "Basic Authentication"
 msgid "Basic authentication"
 msgstr "Основно удостоверяване"
 
@@ -4658,8 +4767,6 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
-#, fuzzy
-#| msgid "Edit SMTP Account"
 msgid "Edit SMTP account"
 msgstr "Редактирай SMTP акаунт"
 
@@ -4702,7 +4809,6 @@ msgstr "Файл с документи"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Edit Subject And Content"
 msgid "Edit subject and content"
 msgstr "Редактиране на темата и съдържанието"
 
@@ -4716,7 +4822,6 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Set SMTP Server Password"
 msgid "Set SMTP server password"
 msgstr "Задаване на парола на SMTP сървъра"
 
@@ -4784,7 +4889,6 @@ msgstr "Допълнителни файлове за прикачване към
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Select Email Attachment File"
 msgid "Select email attachment file"
 msgstr "Изберете Файл за прикачване към електронната поща"
 
@@ -4802,14 +4906,12 @@ msgstr "Отвори с пощенски клиент"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Specify Sender"
 msgid "Specify sender"
 msgstr "Посочете изпращача"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Specify Sender:"
 msgid "Specify sender:"
 msgstr "Посочи изпращач:"
 
@@ -4826,9 +4928,6 @@ msgstr "заради"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid ""
-#| "If set it will be used as From and the address from the account will be "
-#| "set as Sender"
 msgid ""
 "If set it will be used as from and the address from the account will be set "
 "as sender"
@@ -4839,14 +4938,12 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Display Name:"
 msgid "Display name:"
 msgstr "Име за показване:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
-#| msgid "Reply To:"
 msgid "Reply to:"
 msgstr "Отговор до:"
 
@@ -4856,7 +4953,6 @@ msgstr "Имейл чрез Outlook Web"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #, fuzzy
-#| msgid "Email (OWA)"
 msgid "Email (Outlook Web)"
 msgstr "Електронна поща (OWA)"
 
@@ -4899,13 +4995,11 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #, fuzzy
-#| msgid "Edit Time Server Account"
 msgid "Edit time server account"
 msgstr "Редактиране на акаунта на сървъра за време"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #, fuzzy
-#| msgid "Remove Time Server Account"
 msgid "Remove time server account"
 msgstr "Премахване на акаунта на Time Server"
 
@@ -4917,7 +5011,6 @@ msgstr[1] "Подписването ще бъде деактивирано за 
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #, fuzzy
-#| msgid "Secured Time Server"
 msgid "Secured time server"
 msgstr "Защитен Time Server"
 
@@ -4930,7 +5023,7 @@ msgid ""
 "Uploads the document to Outlook Web Access to save as draft or send to "
 "recipient."
 msgstr ""
-"Качва документа в Outlook Web Access, за да го запази като чернова или да го "
+"Качва документа в Outlook Web Access, за да го запише като чернова или да го "
 "изпрати на получателя."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.MicrosoftTranslation
@@ -4988,7 +5081,6 @@ msgstr "Споделяне на връзка (всеки, който има вр
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #, fuzzy
-#| msgid "Upload a file to your OneDrive"
 msgid "Upload documents to your OneDrive"
 msgstr "Качване на файл във вашия OneDrive"
 
@@ -5005,7 +5097,6 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Styles.Gpo.GpoTranslation
 #, fuzzy
-#| msgid "Make the most of PDFCreator Free"
 msgid "Feature not available for PDFCreator Free"
 msgstr "Възползвайте се максимално от PDFCreator Free"
 
@@ -5057,6 +5148,28 @@ msgstr "Стойност за '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "Моля, запазете или отменете настройките, за да продължите"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove all"
+msgid "Remove Page"
+msgstr "Премахни всички"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove all"
+msgid "Undo Removal"
+msgstr "Премахни всички"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Rows Per Page:"
+msgid "Rotate Page"
+msgstr "Редове на страница:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr ""
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5103,7 +5216,6 @@ msgstr "Имате незаписани промени."
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 #, fuzzy
-#| msgid "Do you want to proceed anyway?"
 msgid "How do you want to proceed?"
 msgstr "Искате ли да продължите все пак?"
 
@@ -5130,7 +5242,7 @@ msgstr "Искате ли да продължите все пак?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 msgid "To proceed you need to save your current settings."
-msgstr "За да продължите, трябва да запазите текущите си настройки."
+msgstr "За да продължите, трябва да запишете текущите си настройки."
 
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 msgid "Default Viewer"
@@ -5238,7 +5350,7 @@ msgid ""
 "save them or share them via a link."
 msgstr ""
 "PDFCreator ви позволява да качвате файловете си директно в Dropbox, където "
-"можете да ги запазите или да ги споделите чрез връзка."
+"можете да ги запишете или да ги споделите чрез връзка."
 
 #: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
 msgid "Forward to another profile"
@@ -5420,7 +5532,6 @@ msgstr "Ръчно затваряне"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 #, fuzzy
-#| msgid "Queue"
 msgid "Queues"
 msgstr "Опашка"
 
@@ -5445,8 +5556,6 @@ msgstr "Отваряне на дневника на събитията"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 #, fuzzy
-#| msgid ""
-#| "Help us improve {0} by sending anonymous application usage statistics."
 msgid ""
 "Help us improve PDFCreator Server by sending anonymous application usage "
 "statistics."
@@ -5456,13 +5565,11 @@ msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 #, fuzzy
-#| msgid "PDFCreator Server is running"
 msgid "Start PDFCreator Server Service"
 msgstr "PDFCreator Server работи"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 #, fuzzy
-#| msgid "PDFCreator Server is running"
 msgid "Stop PDFCreator Server Service"
 msgstr "PDFCreator Server работи"
 
@@ -5485,9 +5592,6 @@ msgstr "Изберете опашка:"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Settings.ForwardToFurtherQueueTranslation
 #, fuzzy
-#| msgid ""
-#| "Trigger another conversion by forwarding the original source document to "
-#| "another profile, e.g. to convert to another output format."
 msgid ""
 "Trigger another conversion by forwarding the original source document to an "
 "other queue, e.g. to convert to another output format."
@@ -5505,7 +5609,6 @@ msgstr "Брой нишки:"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Settings.MultiThreadingTranslation
 #, fuzzy
-#| msgid "Number of Threads:"
 msgid "Recommended Number of Threads:"
 msgstr "Брой нишки:"
 
@@ -5680,7 +5783,6 @@ msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Startup.SingleUiInstanceTranslation
 #, fuzzy
-#| msgid "Another instance of PDFCreator Server is already running!"
 msgid "Another administrator instance of PDFCreator Server is already running!"
 msgstr "Друга инстанция на PDFCreator Server вече работи!"
 
@@ -5690,13 +5792,11 @@ msgstr "Доклади за грешки"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainTabs.ErrorTabTranslation
 #, fuzzy
-#| msgid "Error Reports"
 msgid "No Error Reports"
 msgstr "Доклади за грешки"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainTabs.ErrorTabTranslation
 #, fuzzy
-#| msgid "Send selected report"
 msgid "Delete selected report"
 msgstr "Изпрати избраният отчет"
 
@@ -5706,7 +5806,6 @@ msgstr "Изпрати избраният отчет"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainTabs.ErrorTabTranslation
 #, fuzzy
-#| msgid "Send and delete all reports"
 msgid "Delete all reports"
 msgstr "Изпращане и изтриване на всички доклади"
 
@@ -5732,7 +5831,6 @@ msgstr "Печатът е неуспешен поради невалидни н�
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.PrintPdfCreatorServerTestPageTranslation
 #, fuzzy
-#| msgid "Invalid settings"
 msgid "Invalid Settings In Queue"
 msgstr "Невалидни настройки"
 
@@ -5742,31 +5840,26 @@ msgstr "Добави нова опашка"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 #, fuzzy
-#| msgid "User Name:"
 msgid "Queue Name:"
 msgstr "Потребителско име:"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 #, fuzzy
-#| msgid "Rename"
 msgid "Rename queue"
 msgstr "Преименувай"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 #, fuzzy
-#| msgid "The entered profile name is invalid or does already exist."
 msgid "The entered queue name is invalid or does already exist."
 msgstr "Въведеното име на профил е невалидно или вече съществува."
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 #, fuzzy
-#| msgid "Please enter new profile name:"
 msgid "Please enter new queue name:"
 msgstr "Моля, въведете ново име на профила:"
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 #, fuzzy
-#| msgid "Remove"
 msgid "Remove queue"
 msgstr "Премахни"
 
@@ -5827,6 +5920,105 @@ msgstr ""
 "Моля, активирайте отново активацията на вътрешния си лицензионен сървър на "
 "{0}"
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"PDFCreator не успя да поправи принтерите ви. Моля, свържете се с вашия "
+"администратор или с поддръжката, за да ви помогнат да се справите с този "
+"проблем."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"PDFCreator не успя да поправи папката с файловете. Моля, свържете се с вашия "
+"администратор или с поддръжката, за да ви помогнат да промените разрешенията "
+"на пътя \"{0}\"."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"Имаше грешка с компонент, лицензиран от pdfforge.\n"
+"Моля, преинсталирайте PDFCreator. (Грешка {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Лицензът ви за \"{0}\" е изтекъл.\n"
+"PDFCreator ще се изключи."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Лицензът ви за \"{0}\" е изтекъл.\n"
+"Моля, свържете се с вашия администратор.\n"
+"PDFCreator ще се изключи."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"Срокът на пробната ви версия изтече на {0}.\n"
+"PDFCreator ще се изключи.\n"
+"\n"
+"Моля, свържете се с: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Не беше намерен лицензен ключ.\n"
+"PDFCreator ще се изключи."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"Моля, използвайте \"PDFCreator Terminal Server\" за използване на компютри с "
+"инсталирани Terminal Services.\n"
+"\n"
+"Моля, посетете нашия уебсайт за повече информация или се свържете с нас "
+"директно: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Не мога да намеря поддържана инсталация на Ghostscript.\n"
+"\n"
+"Програмата се прекратява сега."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Услугата Windows spooler не е стартирана. Моля, първо я стартирайте.\n"
+"\n"
+"Програмата се прекратява сега."
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr "PDFCreator успешно преобразува '{0}'."
@@ -5842,6 +6034,50 @@ msgstr "Файлът е успешно конвертиран"
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "Грешка при конвертиране"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "и още {0} файл/директория"
+msgstr[1] "и още {0} файлове/директории"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDFCreator test page"
+msgid "&Convert with PDFCreator"
+msgstr "Преобразуване на тестова страница на PDFCreator"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDF files"
+msgid "Convert &Here"
+msgstr "Конвертирай PDF файлове"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Merge"
+msgid "&Merge"
+msgstr "Обедини"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "Подсказка"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"Не можем да намерим PDFCreator в системата ви. Моля, проверете дали сте го "
+"инсталирали."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"Поне един от избраните елементи не може да се отпечата! За повече информация "
+"относно непечатаемите файлове вижте списъка по-долу."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -5980,11 +6216,15 @@ msgid "Error while signing. The certificate is invalid or has expired."
 msgstr "Грешка при подписването. Сертификатът е невалиден или е изтекъл."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid ""
+#| "FTP account not set or not available.\n"
+#| "Please check your configured accounts."
 msgid ""
 "Time server account not set or not available.\n"
 "Please check your configured accounts."
 msgstr ""
-"Акаунтът на сървъра за време не е зададен или не е наличен.\n"
+"FTP акаунтът не е зададен или не е наличен.\n"
 "Моля, проверете конфигурираните акаунти."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
@@ -7027,10 +7267,11 @@ msgid ""
 msgstr "Избраното местоположение е твърде дълго"
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
-#, fuzzy
 msgid ""
 "User tokens in metadata subject require the user token action to be enabled."
-msgstr "Избраното местоположение е твърде дълго"
+msgstr ""
+"Потребителските маркери в субекта на метаданни изискват действието за "
+"потребителски маркер да бъде активирано."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
@@ -7045,6 +7286,88 @@ msgstr "Изходният документ няма страници. Конв�
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 msgid "Failed to apply changes made in preview."
 msgstr "Не успя да приложи промените, направени в предварителния преглед."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided HotFolder path is not a valid path."
+msgstr "Един от пътищата на прикачения файл е невалиден абсолютен път."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The HotFolder path must not be empty."
+msgstr "Пътят на файла не е зададен."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is too long."
+msgid "The HotFolder path is too long."
+msgstr "Пътят на файла е твърде дълъг."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Source files path is not a valid path."
+msgstr "Един от пътищата на прикачения файл е невалиден абсолютен път."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The Source files path must not be empty."
+msgstr "Пътят на файла не е зададен."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is too long."
+msgid "The Source files path is too long."
+msgstr "Пътят на файла е твърде дълъг."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "Един от пътищата на прикачения файл е невалиден абсолютен път."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The file path is not set."
+msgid "The Unprintable files path must not be empty."
+msgstr "Пътят на файла не е зададен."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid "The program file path is too long."
+msgid "The Unprintable files path is too long."
+msgstr "Пътят до файла на програмата е твърде дълъг."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+#| msgid ""
+#| "The selected printer forwards to another PDFCreator printer and causes an "
+#| "infinite loop."
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"Избраният принтер се препраща към друг принтер на PDFCreator и предизвиква "
+"безкраен цикъл."
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
@@ -7170,7 +7493,6 @@ msgstr "SFTP - Протокол за прехвърляне на файлове 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "16 Million Colors (24 Bit)"
 msgid "16 million colors (24 Bit)"
 msgstr "16 милиона цвята (24 бита)"
 
@@ -7186,31 +7508,26 @@ msgstr "PDF"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-1b file"
 msgid "PDF/A-1b"
 msgstr "PDF/A-1b файл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-2b file"
 msgid "PDF/A-2b"
 msgstr "PDF/A-2b файл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-3b file"
 msgid "PDF/A-3b"
 msgstr "PDF/A-3b файл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/X file"
 msgid "PDF/X"
 msgstr "PDF/X файл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "JPEG file"
 msgid "JPEG"
 msgstr "JPEG файл"
 
@@ -7220,25 +7537,21 @@ msgstr "PNG"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "TIFF file"
 msgid "TIFF"
 msgstr "TIFF файл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Right"
 msgid "Bottom right"
 msgstr "Долен десен ъгъл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Left"
 msgid "Bottom left"
 msgstr "Долен ляв ъгъл"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Center"
 msgid "Bottom center"
 msgstr "Долу в центъра"
 
@@ -7272,11 +7585,11 @@ msgstr "A4"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageSize
 msgid "Letter"
-msgstr "Писмо"
+msgstr "Летър"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageSize
 msgid "Legal"
-msgstr "Legal"
+msgstr "Легал"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageView
 msgid "Single page view"
@@ -7304,25 +7617,21 @@ msgstr "Плаващ изглед на двойна страница (нечет
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "16 Million Colors with Transparency (32 Bit)"
 msgid "16 million colors with transparency (32 Bit)"
 msgstr "16 милиона цвята с прозрачност (32 бита)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "256 Colors (8 Bit)"
 msgid "256 colors (8 Bit)"
 msgstr "256 цвята (8 бита)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "16 Color (4 Bit)"
 msgid "16 colors (4 Bit)"
 msgstr "16 цвята (4 бита)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "Black & White (2 Bit)"
 msgid "Black & white (2 Bit)"
 msgstr "Черно & Бяло (2 бита)"
 
@@ -7336,43 +7645,36 @@ msgstr "Изберете принтер ->"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "First Page"
 msgid "First page"
 msgstr "Първа страница"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "Fit to page"
 msgid "Last page"
 msgstr "Приспособяване към страницата"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "Fit to page"
 msgid "Custom page"
 msgstr "Приспособяване към страницата"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "4096 Colors (12 Bit)"
 msgid "4096 colors (12 Bit)"
 msgstr "4096 цвята (12 бита)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit G3 Fax)"
 msgid "Black & white (2 Bit G3 Fax)"
 msgstr "Черно & Бяло (2 Bit G3 Fax)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit G4 Fax)"
 msgid "Black & white (2 Bit G4 Fax)"
 msgstr "Черно & Бяло (2 Bit G4 Fax)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit LZW)"
 msgid "Black & white (2 Bit LZW)"
 msgstr "Черно & Бяло (2 Bit LZW)"
 
@@ -7439,6 +7741,11 @@ msgstr "Поддържа се от PDFCreator Professional 5.0.0"
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "Поддържа се от PDFCreator Professional 5.3.0 насам"
 
+#, fuzzy
+#| msgid "Supported since PDFCreator Business 2.3.0"
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "Поддържа се от PDFCreator Business 2.3.0"
+
 msgid "pdfforge"
 msgstr "pdfforge"
 
@@ -7487,6 +7794,16 @@ msgstr ""
 "Задайте броя на минутите, през които PDFCreator ще остане в режим на "
 "готовност след стартиране. Задайте 0, за да забраните."
 
+msgid "Disable debug tab"
+msgstr "Деактивиране на раздела за отстраняване на грешки"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Активирайте за да забраните раздела за дебъгване. Това забранява "
+"възможността да пускате тестови задачи и да променяте нивото на дебъгване."
+
 msgid "Disable printer tab"
 msgstr "Деактивиране на раздела за принтера"
 
@@ -7509,27 +7826,23 @@ msgstr ""
 "Активирайте за да забраните раздела със заглавието. Това премахва "
 "възможността да променяте заглавията."
 
-msgid "Disable debug tab"
-msgstr "Деактивиране на раздела за отстраняване на грешки"
+msgid "Hide feedback form"
+msgstr "Скриване на формуляра за обратна връзка"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"Активирайте за да забраните раздела за дебъгване. Това забранява "
-"възможността да пускате тестови задачи и да променяте нивото на дебъгване."
-
-msgid "Hide PDF Architect info"
-msgstr "Скриване на информацията за PDF Architect"
-
-msgid "Activate to hide information about our customizable PDF Editor."
-msgstr "Активирайте за да скриете информация за модифициран PDF Editor."
+msgid "Activate to hide feedback form"
+msgstr "Активирайте за да скриете подсказките в началният екран"
 
 msgid "Hide license tab"
 msgstr "Скриване на раздела за лиценза"
 
 msgid "Activate to hide license tab."
 msgstr "Активирайте за скриете лицензионният раздел."
+
+msgid "Hide PDF Architect info"
+msgstr "Скриване на информацията за PDF Architect"
+
+msgid "Activate to hide information about our customizable PDF Editor."
+msgstr "Активирайте за да скриете информация за модифициран PDF Editor."
 
 msgid "Disable profile management"
 msgstr "Деактивиране на управлението на профили"
@@ -7605,6 +7918,43 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Име на файла със споделени настройки"
 
+#, fuzzy
+#| msgid "Load shared application settings"
+msgid "Load shared HotFolder settings"
+msgstr "Зареждане на споделените настройки на приложението"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to load application settings from ini file in \"%ProgramData%"
+#| "\\pdfforge\\PDFCreator\". This is activated by default and must be "
+#| "explicitly disabled."
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Активирайте за да заредите настройките от ini файл от \"%ProgramData%"
+"\\pdfforge\\PDFCreator\". Това е активирано по подразбиране и трябва да бъде "
+"изрично изключено."
+
+#, fuzzy
+#| msgid "Load shared profiles"
+msgid "Load shared printer mappings"
+msgstr "Зареждане на споделени профили"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to disable printer tab. This disables the functionalities to add/"
+#| "delete/rename PDFCreator printers, change profile assignments and set the "
+#| "primary PDFCreator printer."
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Активирайте за да забраните раздела принтер. Това забранява възможността да "
+"добавяте/изтривате/преименувате принтери от PDFCreator, да променяте "
+"назначението на профили и да задавете основен принтер на PDFCreator."
+
 msgid "Load shared profiles"
 msgstr "Зареждане на споделени профили"
 
@@ -7620,17 +7970,19 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Позволи допълнителни профили дефинирани от Потребителя"
 
-msgid "Hide feedback form"
-msgstr "Скриване на формуляра за обратна връзка"
-
-msgid "Activate to hide feedback form"
-msgstr "Активирайте за да скриете подсказките в началният екран"
+#, fuzzy
+#| msgid "Hungarian"
+msgid "Bulgarian"
+msgstr "Унгарски"
 
 msgid "Catalan"
 msgstr "Каталонски"
 
-msgid "Chinese"
-msgstr "Китайски"
+msgid "Chinese (Simplified)"
+msgstr "Китайски (опростен)"
+
+msgid "Chinese (Traditional)"
+msgstr "Китайски (традиционен)"
 
 msgid "Corsican (France)"
 msgstr "Корсикански (Франция)"
@@ -7674,13 +8026,18 @@ msgstr "Полски"
 msgid "Portuguese (Brazil)"
 msgstr "Португалски (Бразилия)"
 
+msgid "Slovak"
+msgstr "Словашки"
+
 #, fuzzy
-#| msgid "Danish"
 msgid "Spanish"
 msgstr "Датски"
 
 msgid "Swedish"
 msgstr "Шведски"
+
+msgid "Turkish"
+msgstr "Турски"
 
 msgid "Set language:"
 msgstr "Задайте език:"
@@ -7697,144 +8054,73 @@ msgstr "Задаване на ниво на регистриране:"
 msgid "Allow users to define additional profiles"
 msgstr "Позволи на потребителите да дефинират допълнителни профили"
 
+#~ msgid "Leave them in the HotFolder"
+#~ msgstr "Оставете ги в папката HotFolder"
+
+#, fuzzy
+#~| msgid "Finnish"
+#~ msgid "Finish"
+#~ msgstr "Финландски"
+
+#~ msgid "HotFolder is a professional setting"
+#~ msgstr "HotFolder е професионална настройка"
+
+#~ msgid ""
+#~ "HotFolder allows you to automatically convert documents placed in a "
+#~ "specific folder using predefined settings. This feature is available in "
+#~ "the Professional edition of PDFCreator."
+#~ msgstr ""
+#~ "HotFolder ви позволява автоматично да конвертирате документи, поставени в "
+#~ "определена папка, като използвате предварително зададени настройки. Тази "
+#~ "функция е налична в професионалното издание на PDFCreator."
+
+#, fuzzy
+#~| msgid "Open"
+#~ msgid "On"
+#~ msgstr "Отвори"
+
+#~ msgid "Off"
+#~ msgstr "Изключено"
+
+#~ msgid "Start HotFolder when Windows starts"
+#~ msgstr "Стартиране на HotFolder при стартиране на Windows"
+
+#~ msgid "Start HotFolder when PDFCreator starts"
+#~ msgstr "Стартиране на HotFolder при стартиране на PDFCreator"
+
+#~ msgid "Name"
+#~ msgstr "Име"
+
+#~ msgid "Path"
+#~ msgstr "Път"
+
+#, fuzzy
+#~| msgid "Disable title tab"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "Деактивиране на раздела със заглавия"
+
+#, fuzzy
+#~| msgid "Activate to disable the job history."
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Активирайте за забраните историята на задачите."
+
+#~ msgid "minutes"
+#~ msgstr "минути"
+
+#~ msgid "Offline Activation"
+#~ msgstr "Активиране офлайн"
+
+#~ msgid "Chinese"
+#~ msgstr "Китайски"
+
+#~ msgid "Make PDFCreator a permanent part of your toolset."
+#~ msgstr "Направете PDFCreator постоянна част от своя набор от инструменти."
+
 #~ msgid "Show license details"
 #~ msgstr "Покажи детайли за лиценза"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Китайски (опростен)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "Лицензионният ключ не е валиден за тази версия."
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Китайски (традиционен)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "Вашият пробен лиценз е изтекъл"
-
-#~ msgid "Unlock here"
-#~ msgstr "Отключи тук"
-
-#~ msgid "Greek"
-#~ msgstr "Гръцки"
-
-#~ msgid "Turkish"
-#~ msgstr "Турски"
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
-#~ msgstr ""
-#~ "PDFCreator не успя да поправи принтерите ви. Моля, свържете се с вашия "
-#~ "администратор или с поддръжката, за да ви помогнат да се справите с този "
-#~ "проблем."
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr "Лицензионният ключ не е валиден за тази версия на PDFCreator."
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Не мога да намеря поддържана инсталация на Ghostscript.\n"
-#~ "\n"
-#~ "Програмата се прекратява сега."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Вие нямате инсталирани принтери на PDFCreator. Най-вероятно е имало "
-#~ "проблем по време на настройката или инсталацията е повредена след това.\n"
-#~ "Искате ли да поправите това, като преинсталирате принтерите на "
-#~ "PDFCreator?\n"
-#~ "\n"
-#~ "Заб: Може да се наложи да предоставите администраторски права докато "
-#~ "поправяме проблема."
-
-#~ msgid "No printers installed"
-#~ msgstr "Няма инсталирани принтери"
-
-#~ msgid "Access Denied"
-#~ msgstr "Достъп отказан"
-
-#~ msgid "Albanian"
-#~ msgstr "Албански"
-
-#~ msgid "Printer:"
-#~ msgstr "Принтер:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "Версия"
-
-#~ msgid "Read More"
-#~ msgstr "Прочетете повече"
-
-#~ msgid "Default Printer"
-#~ msgstr "Принтер по подразбиране"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Статистика на потреблението"
-
-#~ msgid "Run Program"
-#~ msgstr "Изпълни програма"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "Задаване на парола на сертификата"
-
-#~ msgid "Email Address:"
-#~ msgstr "Адрес на електронна поща:"
-
-#, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "Добави прикачвания"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "От името на:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "Изберете 'Не', за да върнете промените."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "и {0} файл/директория повече"
-#~ msgstr[1] "и {0} файлове/директории повече"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "Конвертирай с PDFCreator"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Превръщане &Тук"
-
-#~ msgid "&Merge"
-#~ msgstr "Събери"
-
-#~ msgid "Hint"
-#~ msgstr "Подсказка"
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "Поне един от избраните елементи не може да се отпечата! За повече "
-#~ "информация относно непечатаемите файлове вижте списъка по-долу."
-
-#, fuzzy
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "Един от пътищата на прикачения файл съдържа неподдържани символи."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "Един от пътищата на прикачения файл съдържа неподдържани символи."
-
-#~ msgid "Your license has expired."
-#~ msgstr "Лицензът Ви е изтекъл."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "Имаше проблем с вашия лиценз: {0}"

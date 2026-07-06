@@ -18,6 +18,7 @@ using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
+using pdfforge.PDFCreator.Utilities;
 using Logger = NLog.Logger;
 
 namespace pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep;
@@ -41,10 +42,11 @@ public class QuickActionViewModel : TranslatableViewModelBase<QuickActionTransla
 
     public ObservableCollection<MenuItem> SendMenuItems { get; set; }
 
+    public ICommand PrioritisedOpenCommand { get; }
     public ICommand OpenWithPdfArchitectCommand { get; }
     public ICommand OpenExplorerCommand { get; }
     public ICommand OpenUrlCommand { get; }
-    public ICommand QuickActionOpenWithDefaultCommand { get; }
+    public ICommand OpenWithDefaultCommand { get; }
     public IAsyncCommand UpdateSendContextMenuButtonItemsCommand { get; }
     public ICommand SendEmailCommand { get; }
     private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -54,7 +56,7 @@ public class QuickActionViewModel : TranslatableViewModelBase<QuickActionTransla
 
     public QuickActionViewModel(ITranslationUpdater translationUpdater, ICommandLocator commandLocator, IReadableFileSizeFormatter readableFileSizeHelper,
         ICurrentSettings<ObservableCollection<ConversionProfile>> profilesProvider, ICurrentSettingsProvider currentSettingsProvider,
-        IAttachToOutlookItemAssistant attachToOutlookItemAssistant) : base(translationUpdater)
+        IAttachToOutlookItemAssistant attachToOutlookItemAssistant, EditionHelper editionHelper) : base(translationUpdater)
     {
         _saveChangedSettingsCommand = commandLocator.GetCommand<ISaveChangedSettingsCommand>();
 
@@ -64,13 +66,15 @@ public class QuickActionViewModel : TranslatableViewModelBase<QuickActionTransla
         _currentSettingsProvider = currentSettingsProvider;
         _attachToOutlookItemAssistant = attachToOutlookItemAssistant;
         OpenWithPdfArchitectCommand = _commandLocator.GetCommand<QuickActionOpenWithPdfArchitectCommand>();
-        QuickActionOpenWithDefaultCommand = _commandLocator.GetCommand<QuickActionOpenWithDefaultCommand>();
+        OpenWithDefaultCommand = _commandLocator.GetCommand<QuickActionOpenWithDefaultCommand>();
         OpenExplorerCommand = _commandLocator.GetCommand<QuickActionOpenExplorerLocationCommand>();
         SendEmailCommand = _commandLocator.GetCommand<QuickActionOpenMailClientCommand>();
         UpdateSendContextMenuButtonItemsCommand = new AsyncCommand(UpdateSendContextMenuButtonItemsExecute);
         CopyToClipboardCommand = _commandLocator.GetCommand<CopyToClipboardCommand>();
         FinishCommand = new DelegateCommand(OnFinish);
         OpenUrlCommand = _commandLocator.GetCommand<UrlOpenCommand>();
+
+        PrioritisedOpenCommand = editionHelper.IsFreeEdition ? OpenWithPdfArchitectCommand : OpenWithDefaultCommand;
     }
 
 

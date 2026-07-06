@@ -73,7 +73,7 @@ public class DownloadSpeed
         ReportProgress(DateTime.Now, e.TotalBytesToReceive, e.BytesReceived);
     }
 
-    public void webClient_DownloadFileCompleted(object sender, UpdateProgressChangedEventArgs e)
+    public void DownloadFileCompleted(object sender, UpdateProgressChangedEventArgs e)
     {
         Reset();
     }

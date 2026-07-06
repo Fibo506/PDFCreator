@@ -6,6 +6,7 @@ using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Conversion.Jobs.UserTokenExtractor;
 using pdfforge.PDFCreator.Conversion.Settings;
 using SystemInterface.IO;
 

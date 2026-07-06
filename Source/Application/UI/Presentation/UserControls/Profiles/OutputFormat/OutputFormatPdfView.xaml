@@ -106,15 +106,12 @@
             </StackPanel>
 
             <!-- Advanced -->
-            <StackPanel Margin="0 20 0 0"
+            <StackPanel Margin="0 20 0 0" 
                         Visibility="{Binding IsPdfAOutput, Converter={StaticResource CollapsedIfFalseConverter}}">
                 <Label Content="{Binding Translation.AdvancedLabel}" />
-                <StackPanel Margin="0 10 0 10" Orientation="Horizontal">
-                    <CheckBox IsChecked="{Binding CurrentProfile.PdfSettings.EnablePdfAValidation}"
-                              IsEnabled="{Binding EditionContainsPdfAValidation}"
-                              Content="{Binding Translation.EnableValidationReport}" />
-                    <userControls:BusinessFeatureBadge Margin="10 0 0 0" Edition="AllLicensed" />
-                </StackPanel>
+                <CheckBox Margin="0 10 0 10"
+                          IsChecked="{Binding CurrentProfile.PdfSettings.EnablePdfAValidation}"
+                          Content="{Binding Translation.EnableValidationReport}" />
             </StackPanel>
         </StackPanel>
 

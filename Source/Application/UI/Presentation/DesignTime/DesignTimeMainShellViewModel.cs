@@ -12,10 +12,11 @@ namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
 public class DesignTimeMainShellViewModel : MainShellViewModel
 {
     public DesignTimeMainShellViewModel() : base(new DragAndDropEventHandler(null), new TranslationUpdater(new TranslationFactory(),
-        new ThreadManager()), new DesignTimeApplicationNameProvider(), new InteractionRequest(),
+            new ThreadManager()), new DesignTimeApplicationNameProvider(), new InteractionRequest(),
         new EventAggregator(), new DesignTimeCommandLocator(), null, null, null, null, null, null,
         new DesignTimeCurrentSettings<Conversion.Settings.UsageStatistics>(),
-        new DesignTimeVersionHelper(), null, null, new DesignTimePdfEditorHelper(), new CampaignHelper(), new DesignTimeApplicationNameProvider())
+        new DesignTimeVersionHelper(), null, null, new DesignTimePdfEditorHelper(), new CampaignHelper(), new DesignTimeApplicationNameProvider(), null, new DesignTimeEditionHelper(),
+        new DesignTimeInteractionInvoker(), new DesignTimeConditionalHintManager())
     {
     }
 }

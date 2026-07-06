@@ -23,6 +23,7 @@ internal class MainExceptionProcessor : ISentryEventExceptionProcessor
         SentryStackTraceFactoryAccessor = sentryStackTraceFactoryAccessor;
     }
 
+    [Obsolete]
     public void Process(Exception exception, SentryEvent sentryEvent)
     {
         var sentryExceptions = CreateSentryException(exception)

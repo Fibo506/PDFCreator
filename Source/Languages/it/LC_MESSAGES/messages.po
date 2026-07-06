@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Italian (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-21 12:55+0000\n"
+"PO-Revision-Date: 2025-11-23 12:58+0000\n"
 "Last-Translator: Andrea Gramegna <andrea.gramegna@gmail.com>\n"
 "Language-Team: Italian <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/it/>\n"
@@ -35,6 +35,12 @@ msgstr "Profili"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "Stampante"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr "HotFolder"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -105,6 +111,7 @@ msgid "News"
 msgstr "Notizie"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr "Aggiorna ora"
 
@@ -134,7 +141,7 @@ msgstr "La tua licenza di prova scade oggi."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Clicca qui per estendere la tua licenza."
 
@@ -156,6 +163,7 @@ msgstr "Impostazioni non valide"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Errore"
 
@@ -470,325 +478,56 @@ msgstr "Correzioni"
 msgid "Other changes"
 msgstr "Altre modifiche"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "Pronti a fare più del semplice essenziale?"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
-"La licenza di prova è scaduta...\n"
-"continuiamo a mantenere i tuoi flussi di lavoro attivi"
+"Scopri le funzioni premium di PDFCreator per rendere i tuoi flussi di lavoro "
+"più fluidi e risparmiare tempo."
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with your license..."
-msgstr "C'era un problema con la tua licenza..."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "Funzioni aziendali:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr "Controlla ora la tua licenza per continuare ad avere accesso:"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr "Crittografia a 256 bit"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
-"L'aggiornamento garantisce la produttività a lungo termine e fornisce "
-"accesso alle nostre edizioni Business, che includono funzioni avanzate di "
-"automazione come:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "User Tokens"
 msgstr "Token utente"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr "CS-scripts"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Delete pages"
+msgstr "Elimina pagine"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr "Inoltro del profilo"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "Inoltra al profilo"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "Supporto prioritario"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Dettagli della licenza"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "Politiche di gruppo"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr "Mantieni PDFCreator come parte permanente del tuo set di strumenti."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Shared settings"
+msgstr "Impostazioni condivisione"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr "Aggiorna ora"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage License"
-msgstr "Gestione licenza"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Offline Activation"
-msgstr "Attivazione offline"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Licenza attivata"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-"La tua licenza è stata attivata correttamente, grazie per aver utilizzato "
-"{0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully."
-msgstr "La tua licenza è stata attivata correttamente."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr "Inserisci il tuo codice di licenza per continuare a utilizzare {0}"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr ""
-"Vuoi condividere la tua attivazione con tutti gli utenti del tuo sistema?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "Condividi la tua attivazione con tutti gli utenti del tuo sistema."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users"
-msgstr "Salva l'attivazione per tutti gli utenti"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "An error occurred when saving the activation for all users."
-msgstr ""
-"Si è verificato un errore durante il salvataggio dell'attivazione per tutti "
-"gli utenti."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-"PDFCreator Terminal Server richiede il salvataggio della licenza per tutti "
-"gli utenti."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users was successful."
-msgstr "Il salvataggio dell'attivazione per tutti gli utenti è riuscita."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Controllo della licenza..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"La chiave licenza contiene caratteri non validi. I caratteri validi sono: A-"
-"Z, 0-9 e il trattino."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"La chiave di licenza è composta da 30 caratteri o numeri, ad es. "
-"\"12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Mai"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Licenziatario:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "L'attivazione è scaduta. Rinnova l'attivazione."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr "La macchina o l'utente è bloccato. Contatta il supporto."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Errore durante l'autenticazione della licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "La chiave di licenza non è valida. Inserisci una nuova chiave licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "La licenza è scaduta. Rinnova la licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "Il periodo di prova della licenza è scaduto."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr ""
-"Nessuna chiave di licenza disponibile. Inserire una nuova chiave di licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr ""
-"Si è verificato un problema con la connessione al server delle licenze."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "La licenza ha superato il numero consentito di computer attivabili."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "La chiave di licenza non è valida per questa edizione di PDFCreator."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "La licenza è valida."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"La tua attivazione offline è scaduta Riattiva immediatamente la licenza per "
-"evitare il blocco dell'applicazione."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"La tua Licenza Server Interna è scaduta. Riattiva immediatamente la licenza "
-"per evitare che l'applicazione si blocchi."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "La licenza scadrà tra {0} giorno."
-msgstr[1] "La licenza scadrà tra {0} giorni."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "La licenza non è valida per questa versione."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Il codice di attivazione ha un formato errato."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Non hai una chiave di licenza valida?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "Acquista più attivazioni qui."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Rinnova qui la tua licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Gestisci qui la tua licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Inserisci la tua chiave di licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Errore durante il salvataggio dell'attivazione. Si prega di riprovare."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "L'URL del server delle licenze interno non è valido."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"La licenza non è riconosciuta dal server delle licenze interno.\n"
-"Importa la licenza."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"La licenza è destinata all'uso con il server delle licenze interno.\n"
-"Assicurati che il parametro InternalLicenseServerUrl sia impostato."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "MSI installer"
+msgstr "Programma di installazione MSI"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -1074,7 +813,7 @@ msgstr "Feedback"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid "BUSINESS FEATURE"
-msgstr "CARATTERISTICHE BUSINESS"
+msgstr "FUNZIONALITÀ AZIENDALI"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid ""
@@ -1105,7 +844,7 @@ msgid "Viewer"
 msgstr "Visualizzatore"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Licenza"
 
@@ -1124,6 +863,7 @@ msgstr "Conversione diretta"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1265,6 +1005,7 @@ msgstr "RegEx"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1272,87 +1013,188 @@ msgstr "RegEx"
 msgid "Save"
 msgstr "Salva"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "Ultima attivazione:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Licenza attivata"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Attivazione non riuscita"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "L'attivazione non è riuscita:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "Attivazione riuscita"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Attivazione non riuscita"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "L'attivazione non è riuscita:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "L'attivazione è riuscita."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Attivazione valida fino:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "La tua licenza è stata attivata correttamente."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Inserisci chiave licenza"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "Gestione licenza"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Inserisci la chiave di licenza:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "Scadenza:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License renews on:"
-msgstr "La licenza si rinnova il:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Chiave licenza:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "Stato licenza:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "ID computer:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Gestione licenze"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Attivazione offline"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Attivazione in linea"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "Visualizza licenza"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Chiave licenza:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "Stato licenza:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Dettagli della licenza"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "ID computer:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Convalida licenza..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "Scadenza:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Attivazione valida fino:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "La licenza si rinnova il:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "Ultima attivazione:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Inserisci chiave licenza"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Inserisci la chiave di licenza:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"La licenza di prova è scaduta...\n"
+"continuiamo a mantenere i tuoi flussi di lavoro attivi"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "C'era un problema con la tua licenza..."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Controlla ora la tua licenza per continuare ad avere accesso:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"L'aggiornamento garantisce la produttività a lungo termine e fornisce "
+"accesso alle nostre edizioni Business, che includono funzioni avanzate di "
+"automazione come:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Mantieni PDFCreator come parte permanente del tuo set di strumenti."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Aggiorna ora"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "Token utente"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-scripts"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "Inoltro del profilo"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr ""
+"Vuoi condividere la tua attivazione con tutti gli utenti del tuo sistema?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "Condividi la tua attivazione con tutti gli utenti del tuo sistema."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "Salva l'attivazione per tutti gli utenti"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr ""
+"Si è verificato un errore durante il salvataggio dell'attivazione per tutti "
+"gli utenti."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "An error occurred while storing license for all users."
 msgstr ""
 "Si è verificato un errore durante la memorizzazione della licenza per tutti "
 "gli utenti."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "Il salvataggio dell'attivazione per tutti gli utenti è riuscita."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "Memorizzazione licenza per tutti gli utenti avvenuta con successo."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"PDFCreator Terminal Server richiede il salvataggio della licenza per tutti "
+"gli utenti."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Ricordamelo dopo"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
@@ -1360,13 +1202,188 @@ msgstr ""
 "Non è possibile utilizzare l'attivazione offline perché PDFCreator è "
 "configurato per utilizzare il server delle licenze interno."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Ricordamelo dopo"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr ""
+"La tua licenza è stata attivata correttamente, grazie per aver utilizzato "
+"{0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "View License"
-msgstr "Visualizza licenza"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "Inserisci il tuo codice di licenza per continuare a utilizzare {0}"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Controllo della licenza..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"La chiave licenza contiene caratteri non validi. I caratteri validi sono: A-"
+"Z, 0-9 e il trattino."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"La chiave di licenza è composta da 30 caratteri o numeri, ad es. "
+"\"12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Mai"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Licenziatario:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "L'attivazione è scaduta. Rinnova l'attivazione."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "La macchina o l'utente è bloccato. Contatta il supporto."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Errore durante l'autenticazione della licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "La chiave di licenza non è valida. Inserisci una nuova chiave licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "La licenza è scaduta. Rinnova la licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "Il periodo di prova della licenza è scaduto."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr ""
+"Nessuna chiave di licenza disponibile. Inserire una nuova chiave di licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr ""
+"Si è verificato un problema con la connessione al server delle licenze."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "La licenza ha superato il numero consentito di computer attivabili."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "La chiave di licenza non è valida per questa edizione di PDFCreator."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "La licenza è valida."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"La tua attivazione offline è scaduta Riattiva immediatamente la licenza per "
+"evitare il blocco dell'applicazione."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"La tua Licenza Server Interna è scaduta. Riattiva immediatamente la licenza "
+"per evitare che l'applicazione si blocchi."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "La licenza scadrà tra {0} giorno."
+msgstr[1] "La licenza scadrà tra {0} giorni."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Il codice di attivazione ha un formato errato."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Non hai una chiave di licenza valida?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "Acquista più attivazioni qui."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Rinnova qui la tua licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Gestisci qui la tua licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Inserisci la tua chiave di licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Errore durante il salvataggio dell'attivazione. Si prega di riprovare."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "L'URL del server delle licenze interno non è valido."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"La licenza non è riconosciuta dal server delle licenze interno.\n"
+"Importa la licenza."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"La licenza è destinata all'uso con il server delle licenze interno.\n"
+"Assicurati che il parametro InternalLicenseServerUrl sia impostato."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1572,6 +1589,16 @@ msgid "Standby duration"
 msgstr "Durata standby"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Restart"
+msgstr "Riavvio"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+"Avvia standby e HotFolder (se abilitato) tramite l'avvio automatico di "
+"Windows"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
@@ -1582,10 +1609,6 @@ msgstr ""
 "Dopo la chiusura di PDFCreator, l'applicazione continuerà a funzionare per "
 "il tempo configurato con un basso impatto. Questo accelera "
 "significativamente ulteriori conversioni."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "minuti"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1884,7 +1907,7 @@ msgstr "Ricampiona immagini a (DPI):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Advanced:"
-msgstr "Avanzate:"
+msgstr "Avanzato:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Save validation report"
@@ -2196,6 +2219,14 @@ msgstr ""
 "utenti sono in grado di salvare i file in qualsiasi cartella in cui il "
 "servizio ha il permesso di scrittura."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"La cartella destinazione selezionata è monitorata da una HotFolder, creando "
+"una dipendenza circolare che provoca un loop infinito."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Chiudi"
@@ -2442,6 +2473,12 @@ msgstr "Apri file"
 msgid "Use PDF Architect"
 msgstr "Usa PDF Architect"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Apri cartella"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "Usa {0}"
@@ -2461,8 +2498,12 @@ msgstr ""
 "PDFCreator o modificare il visualizzatore predefinito di Windows."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
-msgstr "Aprire file nel visualizzatore."
+msgid "Open file/directory"
+msgstr "Apri file/cartella"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
+msgstr "Apri il file o la cartella nel visualizzatore/Explorer."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Click here for more info on {0}"
@@ -2537,10 +2578,6 @@ msgid ""
 msgstr ""
 "Estrae i valori dal documento sorgente e li usa ovunque siano supportati da "
 "PDFCreator."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-msgid "Forward to profile"
-msgstr "Inoltra al profilo"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -2667,7 +2704,7 @@ msgstr "Numeri pagina"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Adds page numbers to the document."
-msgstr "Aggiunge i numeri di pagina al documento."
+msgstr "Aggiungi i numeri di pagina al documento."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -3212,6 +3249,10 @@ msgstr ""
 "Alcune funzioni non sono supportate dal formato di destinazione e non "
 "saranno eseguite. Controlla il tuo profilo."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "unisci!"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr "Conversione..."
@@ -3255,11 +3296,6 @@ msgstr "Azioni rapide"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "Apri con visualizzatore predefinito"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Apri cartella"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3331,7 +3367,7 @@ msgstr "Salvataggio automatico con notifica nella barra delle applicazioni"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
-msgstr "Admin amichevole"
+msgstr "Amichevole per l'amministratore"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "No, thanks"
@@ -3492,6 +3528,7 @@ msgstr "Riprova"
 msgid "Discard"
 msgstr "Elimina"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Profilo"
@@ -3513,6 +3550,174 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "Aggiungi token"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Edit HotFolder"
+msgstr "Modifica HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Linked Printer"
+msgstr "Stampante collegata"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "Nome della stampante assegnata:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch:"
+msgstr "Seleziona cartella da monitorare:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "Seleziona cartella da monitorare"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Source files"
+msgstr "File sorgente"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select source files folder"
+msgstr "Seleziona cartella file sorgenti"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+"Seleziona una posizione in cui spostare i file sorgente dopo la conversione"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+"Spostali nella posizione predefinita (una sottocartella della tua HotFolder)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "Spostali nel cestino"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "Spostali in una posizione personalizzata"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Unprintable files"
+msgstr "File non stampabili"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select unprintable files folder"
+msgstr "Seleziona cartella file non stampabili"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "Seleziona cosa fare dei file che non possono essere stampati:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "Filtro"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "No filter"
+msgstr "Nessun filtro"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "Escludi dalla conversione tutte le estensioni elencate"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "Limita la conversione alle estensioni di file filtrate."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add Filter"
+msgstr "Aggiungi filtro"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Remove Filter"
+msgstr "Rimuovi filtro"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "Aggiungi filtro estensione file"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "Profilo assegnato:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select Profile"
+msgstr "Seleziona profilo"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Enter filter"
+msgstr "Inserisci filtro"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "The filter is not valid. Please check your entry."
+msgstr "Il filtro non è valido. Controlla i dati inseriti."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "ON"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "OFF"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+"Avvia HotFolder e mettilo in standby tramite avvio automatico di Windows"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Manage HotFolders"
+msgstr "Gestisci HotFolders"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Printer Name"
+msgstr "Nome stampante"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "HotFolder Path"
+msgstr "Percorso HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Active"
+msgstr "Attivo"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Add HotFolder Printer"
+msgstr "Aggiungi stampante HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr "Pronto a creare la tua prima HotFolder?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+"Le stampanti HotFolder monitorano una cartella specifica ed elaborano "
+"automaticamente tutti i file inseriti in quella cartella usando il profilo "
+"selezionato."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr "Nota: tutte le modifiche saranno applicate immediatamente."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr "Sblocca il monitoraggio automatico delle cartelle con HotFolder"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr "Semplifica il flusso di lavoro con HotFolder."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr ""
+"Questa funzionalità è disponibile esclusivamente nelle nostre edizioni "
+"Business."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -4813,6 +5018,22 @@ msgstr "Valore per '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "Per continuare salva o annulla le impostazioni"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Remove Page"
+msgstr "Rimuovi pagina"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Undo Removal"
+msgstr "Annulla rimozione"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr "Ruota pagina"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr "Funzionalità aziendale"
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5130,7 +5351,7 @@ msgstr[1] "I seguenti file non possono essere convertiti:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid "Admin privileges required"
-msgstr "Richiesti privilegi di amministratore"
+msgstr "Sono richiesti i privilegi di amministratore"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid ""
@@ -5544,6 +5765,105 @@ msgstr ""
 "La tua licenza è valida.\n"
 "Riattiva la tua Licenza Server Interna su {0}"
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"PDFCreator non è stato in grado di riparare le stampanti. Contatta "
+"l'amministratore o l'assistenza per risolvere il problema."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"PDFCreator non è stato in grado di riparare la cartella di spool. Contatta "
+"l'amministratore o l'assistenza per modificare i permessi del percorso '{0}'."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"Si è verificato un errore con un componente concesso in licenza da "
+"pdfforge.\n"
+"Per favore, reinstalla PDFCreator. (Errore {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"La licenza per \"{0}\" è scaduta.\n"
+"PDFCreator si chiuderà."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"La licenza per \"{0}\" è scaduta.\n"
+"Per favore contatta l'amministratore.\n"
+"PDFCreator si chiuderà."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"La versione di prova è scaduta il {0}.\n"
+"PDFCreator si chiuderà.\n"
+"\n"
+"Per favore contatta: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Non è stata trovata una chiave di licenza.\n"
+"PDFCreator si chiuderà."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"Per favore utilizza \"PDFCreator Terminal Server\" per l'uso su computer con "
+"Terminal Services installati.\n"
+"\n"
+"Per ulteriori informazioni, visita il nostro sito web o contattaci "
+"direttamente: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Impossibile trovare un'installazione di Ghostscript supportata.\n"
+"\n"
+"Programma in fase di chiusura."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Il servizio di spooler di Windows non è in esecuzione. Per favore avvia "
+"prima lo spooler.\n"
+"\n"
+"Programma in fase di chiusura."
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr "PDFCreator ha convertito con successo '{0}'."
@@ -5559,6 +5879,43 @@ msgstr "File convertito con successo"
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "Errore durante la conversione"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "e {0} altro file/cartella"
+msgstr[1] "e {0} altri file/cartelle"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr "&Converti con PDFCreator"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Convert &Here"
+msgstr "Converti &qui"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Merge"
+msgstr "&Unisci"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "Suggerimento"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"Impossibile trovare PDFCreator nel sistema. Controlla se è stato installato."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"Almeno uno degli articoli selezionati non è convertibile! Per ulteriori "
+"informazioni sui file non stampabili, guarda il seguente elenco."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6811,6 +7168,77 @@ msgstr "Il documento di output non ha pagine. La conversione viene interrotta."
 msgid "Failed to apply changes made in preview."
 msgstr "Impossibile applicare le modifiche apportate nell'anteprima."
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided HotFolder path is not a valid path."
+msgstr "Il percorso HotFolder fornito non è un percorso valido."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path must not be empty."
+msgstr "Il percorso HotFolder non può essere vuoto."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path is too long."
+msgstr "Il percorso HotFolder è troppo lungo."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Source files path is not a valid path."
+msgstr "Il percorso file sorgenti fornito non è un percorso valido."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path must not be empty."
+msgstr "Il percorso file sorgenti non può essere vuoto."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path is too long."
+msgstr "Il percorso file sorgenti è troppo lungo."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "Il percorso file non stampabili fornito non è un percorso valido."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path must not be empty."
+msgstr "Il percorso file non stampabili non può essere vuoto."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path is too long."
+msgstr "Il percorso file non stampabili è troppo lungo."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+"Il percorso dei file sorgenti ed il percorso HotFolder non possono essere "
+"gli stessi."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+"La cartella dei file sorgenti personalizzati non deve essere una "
+"sottocartella del percorso HotFolder."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+"Il percorso dei file non stampabili e il percorso HotFolder non possono "
+"essere gli stessi."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+"La cartella dei file non stampabili personalizzati non deve essere una "
+"sottocartella del percorso HotFolder."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"Il percorso HotFolder selezionato è la cartella destinazione del profilo che "
+"causa un loop infinito."
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr "Nessuna ripetizione"
@@ -7162,6 +7590,9 @@ msgstr "Supportate sin da PDFCreator Professional 4.1.0"
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "Supportato da PDFCreator Professional 5.3.0"
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "Supportato a partire dalla versione 6.2.0 di PDFCreator"
+
 msgid "pdfforge"
 msgstr "pdfforge"
 
@@ -7184,7 +7615,7 @@ msgid "Configuration PDFCreator application settings."
 msgstr "Configurazione impostazioni dell'applicazione PDFCreator."
 
 msgid "Share Settings"
-msgstr "Impostazioni condivisione"
+msgstr "Condividi impostazioni"
 
 msgid "Configuration for sharing settings"
 msgstr "Configurazione per le impostazioni di condivisione"
@@ -7210,6 +7641,16 @@ msgstr ""
 "Imposta il numero di minuti in cui PDFCreator rimarrà in standby dopo "
 "l'esecuzione. Impostalo a 0 per disabilitarlo."
 
+msgid "Disable debug tab"
+msgstr "Disabilita scheda debug"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Attiva per disabilitare la scheda debug. Questo disabilita le funzionalità "
+"per eseguire i processi di test e cambiare il livello di debug."
+
 msgid "Disable printer tab"
 msgstr "Disabilita scheda stampante"
 
@@ -7233,15 +7674,17 @@ msgstr ""
 "Attiva per disabilitare la scheda titolo. Questo disabilita la funzionalità "
 "per modificare le sostituzioni del titolo."
 
-msgid "Disable debug tab"
-msgstr "Disabilita scheda debug"
+msgid "Hide feedback form"
+msgstr "Nascondi il modulo di feedback"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"Attiva per disabilitare la scheda debug. Questo disabilita le funzionalità "
-"per eseguire i processi di test e cambiare il livello di debug."
+msgid "Activate to hide feedback form"
+msgstr "Attiva per nascondere il modulo di feedback"
+
+msgid "Hide license tab"
+msgstr "Nascondi scheda licenza"
+
+msgid "Activate to hide license tab."
+msgstr "Attiva per nascondere la scheda licenza."
 
 msgid "Hide PDF Architect info"
 msgstr "Nascondi informazioni su PDF Architect"
@@ -7249,12 +7692,6 @@ msgstr "Nascondi informazioni su PDF Architect"
 msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "Attiva per nascondere le informazioni sul nostro PDF Editor personalizzabile."
-
-msgid "Hide license tab"
-msgstr "Nascondi scheda licenza"
-
-msgid "Activate to hide license tab."
-msgstr "Attiva per nascondere la scheda licenza."
 
 msgid "Disable profile management"
 msgstr "Disabilita gestione profilo"
@@ -7332,6 +7769,29 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Nome file impostazioni condivise"
 
+msgid "Load shared HotFolder settings"
+msgstr "Carica impostazioni condivise HotFolder"
+
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Attiva per caricare le impostazioni HotFolder dal file ini in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+
+msgid "Load shared printer mappings"
+msgstr "Carica mappature stampante condivisa"
+
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Attiva per caricare le mappature delle stampanti condivise. Ciò disabilita "
+"le funzioni per aggiungere/eliminare/rinominare le stampanti PDFCreator, "
+"modificare le assegnazioni del profilo e impostare la stampante PDFCreator "
+"principale."
+
 msgid "Load shared profiles"
 msgstr "Carica profili condivisi"
 
@@ -7347,17 +7807,17 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Consente ulteriori profili definiti dall'Utente"
 
-msgid "Hide feedback form"
-msgstr "Nascondi il modulo di feedback"
-
-msgid "Activate to hide feedback form"
-msgstr "Attiva per nascondere il modulo di feedback"
+msgid "Bulgarian"
+msgstr "Bulgaro"
 
 msgid "Catalan"
 msgstr "Catalano"
 
-msgid "Chinese"
-msgstr "Cinese"
+msgid "Chinese (Simplified)"
+msgstr "Cinese (semplificato)"
+
+msgid "Chinese (Traditional)"
+msgstr "Cinese (tradizionale)"
 
 msgid "Corsican (France)"
 msgstr "Còrso (Francia)"
@@ -7401,11 +7861,17 @@ msgstr "Polacco"
 msgid "Portuguese (Brazil)"
 msgstr "Portoghese (Brasile)"
 
+msgid "Slovak"
+msgstr "Slovacco"
+
 msgid "Spanish"
 msgstr "Spagnolo"
 
 msgid "Swedish"
 msgstr "Svedese"
+
+msgid "Turkish"
+msgstr "Turco"
 
 msgid "Set language:"
 msgstr "Imposta lingua:"
@@ -7422,286 +7888,72 @@ msgstr "Imposta livello registrazione:"
 msgid "Allow users to define additional profiles"
 msgstr "Consenti agli utenti di definire profili aggiuntivi"
 
+#~ msgid "Leave them in the HotFolder"
+#~ msgstr "Lasciali nella HotFolder"
+
+#~ msgid "Finish"
+#~ msgstr "Fine"
+
+#~ msgid "HotFolder is a professional setting"
+#~ msgstr "HotFolder è un ambiente professionale"
+
+#~ msgid ""
+#~ "HotFolder allows you to automatically convert documents placed in a "
+#~ "specific folder using predefined settings. This feature is available in "
+#~ "the Professional edition of PDFCreator."
+#~ msgstr ""
+#~ "HotFolder consente di convertire automaticamente i documenti inseriti in "
+#~ "una cartella specifica utilizzando impostazioni predefinite. Questa "
+#~ "funzione è disponibile nella versione Professional di PDFCreator."
+
+#~ msgid "On"
+#~ msgstr "Attivato"
+
+#~ msgid "Off"
+#~ msgstr "Disattivato"
+
+#~ msgid "Start HotFolder when Windows starts"
+#~ msgstr "Avvia HotFolder all'avvio di Windows"
+
+#~ msgid "Start HotFolder when PDFCreator starts"
+#~ msgstr "Avvia HotFolder all'avvio di PDFCreator"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Path"
+#~ msgstr "Percorso"
+
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "Disabilita scheda HotFolder"
+
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Attiva per disabilitare la scheda HotFolder."
+
+#~ msgid "minutes"
+#~ msgstr "minuti"
+
+#~ msgid "Offline Activation"
+#~ msgstr "Attivazione offline"
+
+#~ msgid "Chinese"
+#~ msgstr "Cinese"
+
+#~ msgid "Make PDFCreator a permanent part of your toolset."
+#~ msgstr "Rendi PDFCreator una parte permanente del tuo set di strumenti."
+
 #~ msgid "Show license details"
 #~ msgstr "Mostra i dettagli della licenza"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Cinese (semplificato)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "La licenza non è valida per questa versione."
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Cinese (tradizionale)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "La tua licenza di prova è scaduta"
-
-#~ msgid "Unlock here"
-#~ msgstr "Sblocca qui"
-
-#~ msgid "Greek"
-#~ msgstr "Greco"
-
-#~ msgid "Turkish"
-#~ msgstr "Turco"
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "C'era un problema con la tua licenza: {0}"
 
 #~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
 #~ msgstr ""
-#~ "PDFCreator non è stato in grado di riparare le stampanti. Per risolvere "
-#~ "questo problema contatta l'amministratore o il supporto."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "PDFCreator non è stato in grado di riparare la cartella spool. Per "
-#~ "l'assistenza alla modifica delle autorizzazioni del percorso '{0}' "
-#~ "contatta l'amministratore o il supporto."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "C'è stato un errore con un componente concesso in licenza da pdfforge.\n"
-#~ "Reinstalla PDFCreator. (errore {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "La licenza per \"{0}\" non è valida o è scaduta. Controlla la licenza, "
-#~ "altrimenti PDFCreator si chiuderà.\n"
-#~ "Vuoi controllare la licenza ora?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "La licenza per \"{0}\" è scaduta.\n"
-#~ "PDFCreator si chiuderà."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "La licenza per \"{0}\" è scaduta.\n"
-#~ "Contatta l'amministratore.\n"
-#~ "PDFCreator si chiuderà."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Il periodo di prova è scaduto il {0}.\n"
-#~ "PDFCreator sarà chiuso.\n"
-#~ "\n"
-#~ "Contatta: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "Impossibile trovare una chiave di licenza per {0}. Fornire la chiave di "
-#~ "licenza, altrimenti PDFCreator si chiuderà.\n"
-#~ "Vuoi attivare adesso la tua licenza?"
-
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Impossibile trovare una chiave di licenza.\n"
-#~ "PDFCreator si chiuderà."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Usa \"PDFCreator Terminal Server\" nel computer che hanno installato "
-#~ "Terminal Services.\n"
-#~ "\n"
-#~ "Per maggiori informazioni visita il nostro sito web o contattaci via "
-#~ "email: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Impossibile trovare un'installazione di Ghostscript supportata.\n"
-#~ "\n"
-#~ "Uscita dal programma."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Il servizio spooler di Windows non è in esecuzione. Avvia prima lo "
-#~ "spooler.\n"
-#~ "\n"
-#~ "Chiusura del programma."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Non è installata alcuna stampante PDFCreator. Molto probabilmente c'è "
-#~ "stato un problema durante l'installazione o l'installazione è stata "
-#~ "modificata in seguito.\n"
-#~ "Vuoi risolvere il problema reinstallando le stampanti PDFCreator?\n"
-#~ "\n"
-#~ "Nota: potrebbe essere richiesto di concedere privilegi di amministratore "
-#~ "durante la correzione del problema."
-
-#~ msgid "No printers installed"
-#~ msgstr "Nessuna stampante installata"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "RepairTool non trovato"
-
-#~ msgid "Access Denied"
-#~ msgstr "Accesso negato"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "Il percorso temporaneo in cui PDFCreator archivia i processi di stampa "
-#~ "non è accessibile. Questo è un problema di configurazione del computer e "
-#~ "deve essere risolto. Vuoi che PDFCreator tenti di ripararlo?\n"
-#~ "La cartella di spool è: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "Albanese"
-
-#~ msgid "Printer:"
-#~ msgstr "Stampante:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#~ msgid "Sharepoint"
-#~ msgstr "Sharepoint"
-
-#~ msgid "Read More"
-#~ msgstr "Per saperne di più"
-
-#~ msgid "Default Printer"
-#~ msgstr "Stampante predefinita"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Statistiche d'uso"
-
-#~ msgid "Run Program"
-#~ msgstr "Esegui programma"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "Imposta password certificato"
-
-#~ msgid "User Name:"
-#~ msgstr "Nome utente:"
-
-#~ msgid "Email Address:"
-#~ msgstr "Indirizzo email:"
-
-#~ msgid "Add Attachment"
-#~ msgstr "Aggiungi allegato"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "A nome di:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "Sceglie 'No' per annullare le modifiche."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "e {0} ulteriore file/cartella"
-#~ msgstr[1] "e {0} ulteriori file/cartelle"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&Converti con PDFCreator"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Converti &qui con PDF Creator"
-
-#~ msgid "&Merge"
-#~ msgstr "&Unisci con PDFCreator"
-
-#~ msgid "Hint"
-#~ msgstr "Suggerimento"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "Non sono riuscito a trovare PDFCreator nel sistema. Controlla se l'hai "
-#~ "installato."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "Almeno una delle voci selezionate non è convertibile! Per ulteriori "
-#~ "informazioni sui file non stampabili, guarda il seguente elenco."
-
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr ""
-#~ "Il percorso del file immagine della firma contiene caratteri illegali."
-
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "Il percorso del file di programma contiene caratteri non validi."
-
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "Uno dei percorsi dei file di copertina contiene caratteri illegali."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "Uno dei percorsi dell'allegato contiene caratteri non validi."
-
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "La directory di destinazione contiene caratteri illegali."
-
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "Il percorso del file dello sfondo contiene caratteri non validi."
-
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "Il percorso del certificato contiene caratteri non validi."
-
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "Il percorso del file della chiave FTP è un percorso non valido."
-
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr ""
-#~ "Il percorso del file della chiave FTP contiene caratteri non validi."
-
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "Il percorso del file non è valido o è vuoto. Inserisci un percorso "
-#~ "valido. \n"
-#~ "Il percorso del file non deve contenere nessuno dei seguenti caratteri:\n"
-#~ " \\ / : * ? \\< >"
-
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "Il percorso del file della filigrana contiene caratteri non validi."
-
-#~ msgid "Your license has expired."
-#~ msgstr "La licenza è scaduta."
+#~ "La tua licenza {0} è scaduta...\n"
+#~ "continuiamo a mantenere i tuoi flussi di lavoro attivi"

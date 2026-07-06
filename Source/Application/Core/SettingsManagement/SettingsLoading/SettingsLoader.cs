@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.Win32;
 using NLog;
@@ -17,9 +18,9 @@ public abstract class SettingsLoader : ISettingsLoader
 {
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
+    protected readonly IDefaultSettingsBuilder DefaultSettingsBuilder;
     private readonly ISettingsMover _settingsMover;
     private readonly IInstallationPathProvider _installationPathProvider;
-    private readonly IDefaultSettingsBuilder _defaultSettingsBuilder;
     private readonly IMigrationStorageFactory _migrationStorageFactory;
     private readonly IActionOrderHelper _actionOrderHelper;
     private readonly ISettingsBackup _settingsBackup;
@@ -31,7 +32,7 @@ public abstract class SettingsLoader : ISettingsLoader
     {
         _settingsMover = settingsMover;
         _installationPathProvider = installationPathProvider;
-        _defaultSettingsBuilder = defaultSettingsBuilder;
+        DefaultSettingsBuilder = defaultSettingsBuilder;
         _migrationStorageFactory = migrationStorageFactory;
         _actionOrderHelper = actionOrderHelper;
         _settingsBackup = settingsBackup;
@@ -58,7 +59,7 @@ public abstract class SettingsLoader : ISettingsLoader
         var sharedIniFile = _sharedSettingsLoader.GetSharedSettingsIniFile();
         if (!string.IsNullOrEmpty(sharedIniFile))
         {
-            var tempSettings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateEmptySettings();
+            var tempSettings = (PdfCreatorSettings)DefaultSettingsBuilder.CreateEmptySettings();
             tempSettings.LoadData(regStorage);
 
             if (_gpoSettings.LoadSharedAppSettings)
@@ -70,8 +71,13 @@ public abstract class SettingsLoader : ISettingsLoader
                 settings.ApplicationSettings = tempSettings.ApplicationSettings;
                 settings.CreatorAppSettings = tempSettings.CreatorAppSettings;
 
-                if (!_gpoSettings.DisablePrinterTab)
+                if (!_gpoSettings.DisablePrinterTab  || !_gpoSettings.LoadSharedPrinterMappings)
                     settings.ApplicationSettings.PrinterMappings = new ObservableCollection<PrinterMapping>(currentPrinterMapping);
+            }
+
+            if (_gpoSettings.LoadSharedPrinterMappings)
+            {
+                settings.ApplicationSettings.PrinterMappings = tempSettings.ApplicationSettings.PrinterMappings;
             }
 
             if (_gpoSettings.LoadSharedProfiles)
@@ -96,7 +102,7 @@ public abstract class SettingsLoader : ISettingsLoader
     {
         MoveSettingsIfRequired();
         PrepareForLoading();
-        var settings = (PdfCreatorSettings)_defaultSettingsBuilder.CreateEmptySettings();
+        var settings = (PdfCreatorSettings)DefaultSettingsBuilder.CreateEmptySettings();
         var migrationStorage = BuildMigrationStorage();
         settings.LoadData(migrationStorage);
 
@@ -167,12 +173,12 @@ public abstract class SettingsLoader : ISettingsLoader
     /// <summary>
     ///     Functions checks, if a default profile exists and adds one.
     /// </summary>
-    private void CheckAndAddMissingDefaultProfile(PdfCreatorSettings settings)
+    protected virtual void CheckAndAddMissingDefaultProfile(PdfCreatorSettings settings)
     {
         var defaultProfile = settings.GetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_GUID);
         if (defaultProfile == null)
         {
-            defaultProfile = _defaultSettingsBuilder.CreateDefaultProfile();
+            defaultProfile = DefaultSettingsBuilder.CreateDefaultProfile();
             settings.ConversionProfiles.Add(defaultProfile);
         }
         else

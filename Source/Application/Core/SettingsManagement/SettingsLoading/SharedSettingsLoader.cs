@@ -39,7 +39,7 @@ public class SharedSettingsLoader : ISharedSettingsLoader
 
     public void ApplySharedSettings(PdfCreatorSettings currentSettings)
     {
-        if (!_gpoSettings.LoadSharedAppSettings && !_gpoSettings.LoadSharedProfiles)
+        if (!_gpoSettings.LoadSharedAppSettings && !_gpoSettings.LoadSharedProfiles && !_gpoSettings.LoadSharedHotFolders)
             return;
 
         _logger.Info("Apply shared settings.");
@@ -47,7 +47,8 @@ public class SharedSettingsLoader : ISharedSettingsLoader
         if (sharedSettings == null)
             return;
 
-        ApplyAppSettings(currentSettings, sharedSettings);
+        ApplyHotFolderSettings(currentSettings, sharedSettings);
+        ApplyAppSettingsAndPrinterMappings(currentSettings, sharedSettings);
         ApplyProfiles(currentSettings, sharedSettings);
     }
 
@@ -69,21 +70,35 @@ public class SharedSettingsLoader : ISharedSettingsLoader
         return null;
     }
 
-    private void ApplyAppSettings(PdfCreatorSettings currentSettings, PdfCreatorSettings sharedSettings)
+    private void ApplyAppSettingsAndPrinterMappings(PdfCreatorSettings currentSettings, PdfCreatorSettings sharedSettings)
     {
-        if (_gpoSettings.LoadSharedAppSettings)
+        //For a transitional period, both GPOs will remain to control printer mappings. Ticket to remove afterward: PC-5664
+        var loadPrinterMappings = (_gpoSettings.LoadSharedPrinterMappings || _gpoSettings.DisablePrinterTab);
+
+        if (_gpoSettings.LoadSharedAppSettings || loadPrinterMappings)
         {
             _logger.Info("Apply shared app settings.");
 
-            //Preserve current printer mappings before it gets overwritten
-            var currentPrinterMapping = new PrinterMapping[currentSettings.ApplicationSettings.PrinterMappings.Count];
-            currentSettings.ApplicationSettings.PrinterMappings.CopyTo(currentPrinterMapping, 0);
+            if (_gpoSettings.LoadSharedAppSettings)
+            {
+                //Preserve current printer mappings before they get overwritten
+                var currentPrinterMapping = new PrinterMapping[currentSettings.ApplicationSettings.PrinterMappings.Count];
+                currentSettings.ApplicationSettings.PrinterMappings.CopyTo(currentPrinterMapping, 0);
 
-            currentSettings.ApplicationSettings = sharedSettings.ApplicationSettings;
-            currentSettings.CreatorAppSettings = sharedSettings.CreatorAppSettings;
+                //Load all shared app settings
+                currentSettings.ApplicationSettings = sharedSettings.ApplicationSettings;
 
-            if (!_gpoSettings.DisablePrinterTab)
-                currentSettings.ApplicationSettings.PrinterMappings = new ObservableCollection<PrinterMapping>(currentPrinterMapping);
+                //Restore current printer mappings to be able to load the printer mappings separately
+                if (!loadPrinterMappings)
+                    currentSettings.ApplicationSettings.PrinterMappings = new ObservableCollection<PrinterMapping>(currentPrinterMapping);
+
+                currentSettings.CreatorAppSettings = sharedSettings.CreatorAppSettings;
+            }
+
+            if (loadPrinterMappings)
+            {
+                currentSettings.ApplicationSettings.PrinterMappings = sharedSettings.ApplicationSettings.PrinterMappings;
+            }
         }
     }
 
@@ -117,7 +132,7 @@ public class SharedSettingsLoader : ISharedSettingsLoader
 
     public IEnumerable<PrinterMapping> GetSharedPrinterMappings()
     {
-        if (_gpoSettings.LoadSharedAppSettings && _gpoSettings.DisablePrinterTab)
+        if ((_gpoSettings.LoadSharedAppSettings && _gpoSettings.DisablePrinterTab) || _gpoSettings.LoadSharedPrinterMappings)
         {
             var sharedSettings = GetSharedSettings();
             if (sharedSettings != null)
@@ -151,6 +166,15 @@ public class SharedSettingsLoader : ISharedSettingsLoader
             _logger.Warn("Could not load settings from '" + iniFile + "'.");
             return null;
         }
+    }
+
+    private void ApplyHotFolderSettings(PdfCreatorSettings currentSettings, PdfCreatorSettings sharedSettings)
+    {
+        if (!_gpoSettings.LoadSharedHotFolders)
+            return;
+
+        _logger.Info("Apply HotFolder settings");
+        currentSettings.HotFolderSettings = sharedSettings.HotFolderSettings;
     }
 }
 

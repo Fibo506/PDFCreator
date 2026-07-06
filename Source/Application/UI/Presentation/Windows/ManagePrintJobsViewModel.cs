@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,9 +15,9 @@ using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.Services;
-using pdfforge.PDFCreator.Core.Workflow;
 using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Commands;
+using pdfforge.PDFCreator.UI.Presentation.Controls;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
@@ -30,17 +32,16 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
     private readonly IDispatcher _dispatcher;
     private readonly ApplicationNameProvider _applicationNameProvider;
     private readonly IVersionHelper _versionHelper;
-    private IPreviewManager _previewManager;
     private readonly IJobInfoQueue _jobInfoQueue;
-    private readonly ObservableCollection<JobInfo> _jobInfos;
-    private Helper.SynchronizedCollection<JobInfo> _synchronizedJobs;
+    private readonly IPreviewControlViewModelFactory _previewControlViewModelFactory;
+    private readonly ObservableCollection<JobInfoPreviewWrapper> _jobInfoPreviewWrappers;
+    private Helper.SynchronizedCollection<JobInfoPreviewWrapper> _synchronizedJobs;
+
     public IDropTarget CustomDropHandler { get; } = new CustomDropEventHandler();
 
     public ManagePrintJobsViewModel(IJobInfoQueue jobInfoQueue, DragAndDropEventHandler dragAndDrop, IJobInfoManager jobInfoManager,
         IDispatcher dispatcher, ITranslationUpdater translationUpdater, ApplicationNameProvider applicationNameProvider,
-        IVersionHelper versionHelper, ICommandLocator commandLocator,
-
-        IPreviewManager previewManager)
+        IVersionHelper versionHelper, ICommandLocator commandLocator, IPreviewControlViewModelFactory previewControlViewModelFactory)
         : base(translationUpdater)
     {
         _jobInfoQueue = jobInfoQueue;
@@ -49,8 +50,8 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
         _dispatcher = dispatcher;
         _applicationNameProvider = applicationNameProvider;
         _versionHelper = versionHelper;
-        PreviewManager = previewManager;
         _jobInfoQueue.OnNewJobInfo += OnNewJobInfo;
+        _previewControlViewModelFactory = previewControlViewModelFactory;
 
         ConvertFileCommand = commandLocator.GetCommand<SelectFileViaDialogAndConvertCommand>();
         DeleteJobCommand = new DelegateCommand(DeleteJobExecute);
@@ -66,15 +67,14 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
         SortCommand = new DelegateCommand(SortCommandExecute, HasMoreThanOneJob);
         SetupSortMenuItems();
 
-        _synchronizedJobs = new Helper.SynchronizedCollection<JobInfo>(_jobInfoQueue.JobInfos);
-        _jobInfos = _synchronizedJobs.ObservableCollection;
-        JobInfos = new CollectionView(_jobInfos);
+        _synchronizedJobs = new Helper.SynchronizedCollection<JobInfoPreviewWrapper>(
+            new ObservableCollection<JobInfoPreviewWrapper>(
+                _jobInfoQueue.JobInfos.Select(CreateJobInfoPreviewWrapper)
+            )
+        );
+        _jobInfoPreviewWrappers = _synchronizedJobs.ObservableCollection;
+        JobInfos = new CollectionView(_jobInfoPreviewWrappers);
         JobListSelectionChangedCommand = new DelegateCommand(JobListSelectionChangedExecute);
-
-        _jobInfoQueue.OnNewJobInfo += (sender, args) =>
-        {
-            RaisePropertyChanged(nameof(PreviewManager));
-        };
     }
 
     private void SetupSortMenuItems()
@@ -92,40 +92,40 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
 
     private void SortCommandExecute(object parameter)
     {
-        var list = _jobInfos.ToList();
+        var list = _jobInfoPreviewWrappers.ToList();
 
         switch ((MergeSortingEnum)parameter)
         {
             case MergeSortingEnum.IdAscending:
-                list = list.OrderBy(info => info.SourceFiles[0].JobCounter).ToList();
+                list = list.OrderBy(info => info.JobInfo.SourceFiles[0].JobCounter).ToList();
                 break;
 
             case MergeSortingEnum.IdDescending:
-                list = list.OrderByDescending(info => info.SourceFiles[0].JobCounter).ToList();
+                list = list.OrderByDescending(info => info.JobInfo.SourceFiles[0].JobCounter).ToList();
                 break;
 
             case MergeSortingEnum.NameAscending:
-                list = list.OrderBy(info => info.Metadata.PrintJobName, StringComparison.OrdinalIgnoreCase.WithNaturalSort()).ToList();
+                list = list.OrderBy(info => info.JobInfo.Metadata.PrintJobName, StringComparison.OrdinalIgnoreCase.WithNaturalSort()).ToList();
                 break;
 
             case MergeSortingEnum.NameDescending:
-                list = list.OrderByDescending(info => info.Metadata.PrintJobName, StringComparison.OrdinalIgnoreCase.WithNaturalSort()).ToList();
+                list = list.OrderByDescending(info => info.JobInfo.Metadata.PrintJobName, StringComparison.OrdinalIgnoreCase.WithNaturalSort()).ToList();
                 break;
 
             case MergeSortingEnum.DateAscending:
-                list = list.OrderBy(info => info.PrintDateTime).ToList();
+                list = list.OrderBy(info => info.JobInfo.PrintDateTime).ToList();
                 break;
 
             case MergeSortingEnum.DateDescending:
-                list = list.OrderByDescending(info => info.PrintDateTime).ToList();
+                list = list.OrderByDescending(info => info.JobInfo.PrintDateTime).ToList();
                 break;
         }
 
-        _jobInfos.Clear();
+        _jobInfoPreviewWrappers.Clear();
 
         foreach (var jobInfo in list)
         {
-            _jobInfos.Add(jobInfo);
+            _jobInfoPreviewWrappers.Add(jobInfo);
         }
 
         JobInfos.Refresh();
@@ -140,16 +140,6 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
         {
             SelectUnselectAll = false;
             RaisePropertyChanged(nameof(SelectUnselectAll));
-        }
-    }
-
-    public IPreviewManager PreviewManager
-    {
-        get => _previewManager;
-        set
-        {
-            _previewManager = value;
-            RaisePropertyChanged(nameof(PreviewManager));
         }
     }
 
@@ -205,22 +195,80 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
         _dispatcher.BeginInvoke(addMethod, e.JobInfo);
     }
 
+    // Commenting out as part of PC-5615
+
+    //public async Task MergePreviewDragDrop(IEnumerable<string> files)
+    //{
+    //    try
+    //    {
+    //        // Prevent UI addition of the JobInfo that was added to the preview,
+    //        // ensures that it only updates after the full merge is done.
+    //        _jobInfoQueue.OnNewJobInfo -= OnNewJobInfo;
+    //        var jobInfoToMerge = await _fileConversionAssistant.GetJobInfoForPreviewMerge(files);
+
+    //        if (jobInfoToMerge == null)
+    //            return;
+
+    //        var targetJob = _jobInfoQueue.JobInfos.ToList().First();
+    //        await MergeWithCurrentJobInfo(targetJob, jobInfoToMerge);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // TODO: Handle exceptions that may occur during file merging (design / content wise)
+    //        MessageBox.Show($"Error merging files: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    //    }
+    //    finally
+    //    {
+    //        _jobInfoQueue.OnNewJobInfo += OnNewJobInfo;
+    //    }
+    //}
+
+    //private Task MergeWithCurrentJobInfo(JobInfo targetJob, JobInfo newJob)
+    //{
+    //    if (newJob != null && newJob.JobType == targetJob.JobType)
+    //    {
+    //        _synchronizedJobs.SuspendUpdates();
+    //        try
+    //        {
+    //            _jobInfoManager.Merge(targetJob, newJob);
+
+    //            if (_jobInfos.Contains(newJob))
+    //            {
+    //                _jobInfos.Remove(newJob);
+    //            }
+
+    //            _jobInfoQueue.Remove(newJob, false);
+    //            _jobInfoManager.DeleteInf(newJob);
+    //            _jobInfoManager.SaveToInfFile(targetJob);
+    //        }
+    //        finally
+    //        {
+    //            _synchronizedJobs.ResumeUpdates();
+    //        }
+
+    //        MergeJobsCommand.RaiseCanExecuteChanged();
+    //        MergeAllJobsCommand.RaiseCanExecuteChanged();
+    //        SortCommand.RaiseCanExecuteChanged();
+
+    //        JobInfos.Refresh();
+    //    }
+    //    return Task.CompletedTask;
+    //}
+
     private void AddJobInfo(JobInfo jobInfo)
     {
-        if (_jobInfos.Contains(jobInfo))
+        if (_jobInfoPreviewWrappers.Any(w => w.JobInfo == jobInfo))
             return;
 
-        _synchronizedJobs.SuspendUpdates();
+        var wrapper = CreateJobInfoPreviewWrapper(jobInfo);
 
-        var nextJob = _jobInfos.FirstOrDefault(j => j.PrintDateTime > jobInfo.PrintDateTime);
+        var nextJob = _jobInfoPreviewWrappers.FirstOrDefault(w => w.JobInfo.PrintDateTime > jobInfo.PrintDateTime);
 
         var targetPosition = nextJob == null
-            ? _jobInfos.Count
-            : _jobInfos.IndexOf(nextJob);
+            ? _jobInfoPreviewWrappers.Count
+            : _jobInfoPreviewWrappers.IndexOf(nextJob);
 
-        _jobInfos.Insert(targetPosition, jobInfo);
-
-        _synchronizedJobs.ResumeUpdates();
+        _jobInfoPreviewWrappers.Insert(targetPosition, wrapper);
 
         if (JobInfos.CurrentItem == null)
             JobInfos.MoveCurrentToFirst();
@@ -237,11 +285,11 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
     {
         //var position = JobInfos.CurrentPosition;
 
-        if (o is not JobInfo jobInfo)
+        if (o is not JobInfoPreviewWrapper wrapper)
             return;
 
-        _jobInfos.Remove(jobInfo);
-        _jobInfoQueue.Remove(jobInfo, true);
+        _jobInfoPreviewWrappers.Remove(wrapper);
+        _jobInfoQueue.Remove(wrapper.JobInfo, true);
 
         //if (_jobInfos.Count > 0)
         //    JobInfos.MoveCurrentToPosition(Math.Max(0, position - 1));
@@ -256,26 +304,28 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
         if (!CanExecuteMergeJobs(o))
             throw new InvalidOperationException("CanExecute is false");
 
-        var jobObjects = o as IEnumerable<object>;
-        if (jobObjects == null)
+        var wrapperObjects = o as IEnumerable<object>;
+        if (wrapperObjects == null)
             return;
 
-        var jobs = jobObjects.ToList();
-        var first = (JobInfo)jobs.First();
+        var wrappers = wrapperObjects.Cast<JobInfoPreviewWrapper>().ToList();
+        var first = wrappers.First();
 
-        foreach (var jobObject in jobs.Skip(1))
+        foreach (var wrapper in wrappers.Skip(1))
         {
-            var jobInfo = (JobInfo)jobObject;
-            if (jobInfo.JobType != first.JobType)
+            if (wrapper.JobInfo.JobType != first.JobInfo.JobType)
                 continue;
 
-            _jobInfoManager.Merge(first, jobInfo);
-            _jobInfos.Remove(jobInfo);
-            _jobInfoQueue.Remove(jobInfo, false);
-            _jobInfoManager.DeleteInf(jobInfo);
+            _jobInfoManager.Merge(first.JobInfo, wrapper.JobInfo);
+            _jobInfoPreviewWrappers.Remove(wrapper);
+            _jobInfoQueue.Remove(wrapper.JobInfo, false);
+            _jobInfoManager.DeleteInf(wrapper.JobInfo);
         }
 
-        _jobInfoManager.SaveToInfFile(first);
+        // Update the first wrapper's PreviewViewModel with the merged JobInfo
+        first.PreviewViewModel.JobInfo = first.JobInfo;
+
+        _jobInfoManager.SaveToInfFile(first.JobInfo);
 
         MergeJobsCommand.RaiseCanExecuteChanged();
         MergeAllJobsCommand.RaiseCanExecuteChanged();
@@ -315,12 +365,23 @@ public class ManagePrintJobsViewModel : OverlayViewModelBase<ManagePrintJobsInte
 
     private void ExecuteMergeAllJobs(object o)
     {
-        ExecuteMergeJobs(_jobInfos);
+        ExecuteMergeJobs(_jobInfoPreviewWrappers);
     }
 
     private bool HasMoreThanOneJob(object o)
     {
-        return _jobInfos.Count > 1;
+        return _jobInfoPreviewWrappers.Count > 1;
+    }
+
+    private JobInfoPreviewWrapper CreateJobInfoPreviewWrapper(JobInfo jobInfo)
+    {
+        var previewViewModel = _previewControlViewModelFactory.Create(jobInfo);
+
+        return new JobInfoPreviewWrapper
+        {
+            PreviewViewModel = previewViewModel,
+            JobInfo = jobInfo
+        };
     }
 
     public override string Title => _applicationNameProvider.ApplicationNameWithEdition + " " + _versionHelper.FormatWithThreeDigits();
@@ -334,4 +395,28 @@ public enum MergeSortingEnum
     NameDescending,
     DateAscending,
     DateDescending
+}
+
+public class JobInfoPreviewWrapper : INotifyPropertyChanged
+{
+    private JobInfo _jobInfo;
+
+    public JobInfo JobInfo
+    {
+        get => _jobInfo;
+        set
+        {
+            _jobInfo = value;
+            OnPropertyChanged();
+        }
+    }
+    public PreviewControlViewModel PreviewViewModel { get; set; }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
 }

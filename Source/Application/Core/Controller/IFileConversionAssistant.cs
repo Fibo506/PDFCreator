@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Core.DirectConversion;
 
 namespace pdfforge.PDFCreator.Core.Controller;
 
-public interface IFileConversionAssistant
+public interface IFileConversionHelper
 {
     /// <summary>
     ///     Removes invalid files and launches print jobs for the files that needs to be printed.
@@ -12,4 +14,6 @@ public interface IFileConversionAssistant
     void HandleFileList(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
 
     void HandleFileListWithoutTooManyFilesWarning(IEnumerable<string> droppedFiles, AppStartParameters appStartParameters);
+
+    Task<JobInfo> GetJobInfoForPreviewMerge(IEnumerable<string> droppedFiles);
 }

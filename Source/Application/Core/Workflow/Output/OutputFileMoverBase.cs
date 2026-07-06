@@ -240,7 +240,7 @@ public abstract class OutputFileMoverBase : IOutputFileMover
     {
         try
         {
-            _pdfProcessor.MergePDFs(outputFile, tempFile, job.Passwords.PdfOwnerPassword);
+            _pdfProcessor.MergePDFs(outputFile, tempFile, job.Passwords);
             Logger.Debug("Append output file \"{0}\" \r\ninto \"{1}\"", tempFile, outputFile);
         }
         catch (Exception ex)

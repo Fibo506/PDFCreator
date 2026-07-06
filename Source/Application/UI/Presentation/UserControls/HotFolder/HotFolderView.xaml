@@ -1,0 +1,387 @@
+﻿<UserControl x:Class="pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:regions="http://prismlibrary.com/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:presentation="clr-namespace:pdfforge.PDFCreator.UI.Presentation"
+             xmlns:designTime="clr-namespace:pdfforge.PDFCreator.UI.Presentation.DesignTime"
+             xmlns:styles="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Styles"
+             xmlns:gpo="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Styles.Gpo"
+             xmlns:displayItem="clr-namespace:pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder"
+             xmlns:profiles="clr-namespace:pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles"
+             xmlns:help="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Help"
+             xmlns:hotFolder="clr-namespace:pdfforge.PDFCreator.Conversion.Settings;assembly=PDFCreator.Settings"
+             xmlns:checkBoxes="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Styles.CheckBoxes"
+             xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance designTime:DesignTimeHotFolderViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="600" d:DesignWidth="800"
+             help:HelpProvider.HelpTopic="HotFolder"
+             Name="HotFolder">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Buttons/DefaultButtons.xaml" />
+                <ResourceDictionary Source="../../Styles/CheckBoxes/DefaultCheckBox.xaml" />
+                <ResourceDictionary Source="../../Styles/Datagrid.xaml" />
+                <ResourceDictionary Source="../../Styles/Buttons/SquaredIconButton.xaml" />
+                <ResourceDictionary Source="../../Styles/Labels.xaml" />
+                <ResourceDictionary Source="../../Styles/DefaultsDictionary.xaml" />
+                <ResourceDictionary Source="../../Styles/HoverBorder.xaml" />
+                <ResourceDictionary Source="../../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary Source="../../Styles/Icons/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+            <converter:BoolNegationConverter x:Key="BoolNegationConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+
+            <Grid Margin="40 40 40 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- General HotFolder Settings Section -->
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- HotFolder Label -->
+                    <Label Grid.Column="0"
+                           Content="HotFolder:"
+                           Style="{StaticResource LargeLabel}"
+                           Margin="0 0 20 0" />
+
+                    <!-- Toggle Switch -->
+                    <checkBoxes:OnOffLabelToggleSwitchCheckBox Grid.Column="1"
+                                  OnContent="{Binding Translation.On, Mode=OneWay}"
+                                  OffContent="{Binding Translation.Off, Mode=OneWay}"
+                                  IsChecked="{Binding IsHotFolderEnabled}"
+                                  IsEnabled="{Binding ShouldEnableOnOffSwitch}"
+                                  VerticalAlignment="Center"
+                                  Margin="0 0 40 0"
+                                  Background="{StaticResource WhiteBrush}"
+                                  Padding="15">
+                    </checkBoxes:OnOffLabelToggleSwitchCheckBox>
+
+                    <!-- Checkbox Options -->
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                        <!-- Start with Windows Checkbox -->
+                        <CheckBox IsChecked="{Binding StartWithWindows}"
+                                  Content="{Binding Translation.StartHotFolderWhenWindowsStarts}"
+                                  IsEnabled="{Binding HotFolderSettings.IsEnabled}"
+                                  Background="{StaticResource WhiteBrush}"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Separator Line -->
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Height="1" 
+                        Background="{StaticResource NavigationLightGreyColorBrush}" 
+                        Margin="0 0 0 24" />
+
+                <!--Manage HotFolders Header-->
+                <DockPanel Grid.Row="2" Grid.Column="0"
+                           VerticalAlignment="Center"
+                           ToolTip="{Binding Translation.HotFolderDescription}">
+                    <Label  Style="{StaticResource LargeLabel}"
+                            Content="{Binding Translation.ManageHotFolders}" />
+                    <iconPacks:PackIconMaterialDesign Margin="8 0 0 0" 
+                                                      VerticalAlignment="Top"
+                                                      HorizontalAlignment="Left"
+                                                      Width="16" Height="16" 
+                                                      Foreground="{StaticResource InfoBrush}" Kind="Info">
+                        <iconPacks:PackIconMaterialDesign.Style>
+                            <Style TargetType="iconPacks:PackIconMaterialDesign">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HotFolderDisplayItems.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </iconPacks:PackIconMaterialDesign.Style>
+                        
+                    </iconPacks:PackIconMaterialDesign>
+                </DockPanel>
+
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                    <!-- DataGrid -->
+                    <DataGrid Margin="-20 0 0 0"
+                              ItemsSource="{Binding HotFolderDisplayItems}"
+                              RowHeaderWidth="0"
+                              VerticalAlignment="Top"
+                              IsSynchronizedWithCurrentItem="True">
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource NoHoverUnchangeableDataGrid}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HotFolderDisplayItems.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="Margin" Value="0 0 0 20" />
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.Columns>
+
+                            <!-- Error Icon with Tooltip -->
+                            <DataGridTemplateColumn Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <Grid Width="20"
+                                          Height="20"
+                                          Margin="0 5 0 0"
+                                          VerticalAlignment="Center">
+                                            <iconPacks:PackIconMaterialDesign
+                                            Kind="Notifications" Foreground="{StaticResource ErrorBrush}"
+                                            Visibility="{Binding HasError,
+                                            Converter={StaticResource BoolToVisibility}}"
+                                            Cursor="Help"
+                                            ToolTip="{Binding ErrorMessage}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Active column (checkbox) -->
+                            <DataGridTemplateColumn Width="Auto">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Label Content="{Binding DataContext.Translation.Active, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                           Style="{StaticResource LightLabel}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <CheckBox Height="33" HorizontalAlignment="Left"
+                                              Background="White"
+                                              IsEnabled="{Binding HasError, Converter={StaticResource BoolNegationConverter}}"
+                                              Command="{Binding DataContext.EnableHotFolderCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                              IsChecked="{Binding IsActive}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <!-- Name column -->
+                            <DataGridTemplateColumn Width="2*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Label Margin="20 0 0 0"
+                                       Content="{Binding DataContext.Translation.NameColumnHeader, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                       Style="{StaticResource LightLabel}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <DockPanel LastChildFill="True">
+                                            <Border  Margin="20 0 0 0" Style="{StaticResource HoverBorder}">
+                                                <Button Command="{Binding DataContext.EditHotFolderConfigCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding HotFolderConfig}" 
+                                                        Background="Transparent" 
+                                                        HorizontalContentAlignment="Stretch" 
+                                                        HorizontalAlignment="Stretch">
+                                                    <DockPanel IsHitTestVisible="False" LastChildFill="True">
+                                                        <TextBlock VerticalAlignment="Center" 
+                                                                   HorizontalAlignment="Left"  
+                                                                   IsHitTestVisible="False"
+                                                                   Text="{Binding Printer}"
+                                                                   Style="{StaticResource DefaultTextBlock}" />
+                                                    </DockPanel>
+                                                </Button>
+                                            </Border>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Path column -->
+                            <DataGridTemplateColumn Width="4*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Label Margin="18 0 0 0"
+                                       Content="{Binding DataContext.Translation.PathColumnHeader, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource LightLabel}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <DockPanel>
+                                            <Border Margin="20 0 0 0" Style="{StaticResource HoverBorder}">
+                                                <Button Command="{Binding DataContext.EditHotFolderConfigCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding HotFolderConfig}" 
+                                                        Background="Transparent" 
+                                                        HorizontalContentAlignment="Stretch">
+                                                    <Button.Content>
+                                                        <DockPanel IsHitTestVisible="false" HorizontalAlignment="Stretch">
+                                                            <TextBlock Margin="5 0 10 0" DockPanel.Dock="Left"
+                                                                       Text="{Binding HotFolderPath}"
+                                                                       TextTrimming="CharacterEllipsis"
+                                                                       VerticalAlignment="Center">
+                                                            <TextBlock.Style>
+                                                                <Style TargetType="TextBlock">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding HasError}" Value="True">
+                                                                            <Setter Property="Foreground" Value="{StaticResource ErrorBrush}"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </DockPanel>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Border>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Profile column -->
+                            <DataGridTemplateColumn Width="2*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Label Margin="18 0 0 0"
+                                       Content="{Binding DataContext.Translation.ProfileColumnHeader, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                       HorizontalAlignment="Left"
+                                       Style="{StaticResource LightLabel}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <DockPanel>
+                                            <Border Margin="20 0 0 0" Style="{StaticResource HoverBorder}">
+                                                <Button Command="{Binding DataContext.EditHotFolderConfigCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                            CommandParameter="{Binding HotFolderConfig}" 
+                                            Background="Transparent" 
+                                            HorizontalContentAlignment="Stretch">
+                                                    <Button.Content>
+                                                        <DockPanel IsHitTestVisible="false" HorizontalAlignment="Stretch">
+                                                            <TextBlock Margin="5 0 10 0" DockPanel.Dock="Left"
+                                                   Text="{Binding ProfileName}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   VerticalAlignment="Center" />
+                                                        </DockPanel>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Border>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Edit Button column -->
+                            <DataGridTemplateColumn Width="SizeToCells"
+                                                    MinWidth="44">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <Button Margin="10 0 0 0"
+                                            Command="{Binding DataContext.EditHotFolderConfigCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                            CommandParameter="{Binding HotFolderConfig}"
+                                            Style="{StaticResource SquaredIconButton}">
+                                            <iconPacks:PackIconMaterialDesign Kind="Build"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!-- Delete Button column -->
+                            <DataGridTemplateColumn Width="SizeToCells"
+                                                     MinWidth="44">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="{x:Type displayItem:HotFolderDisplayItem}">
+                                        <Button Margin="10 0 0 0"
+                                            Command="{Binding DataContext.DeleteHotFolderCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                            CommandParameter="{Binding HotFolderConfig}"
+                                            Style="{StaticResource SquaredIconButton}">
+                                            <iconPacks:PackIconMaterialDesign Kind="Delete" />
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <!-- Empty State Message -->
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top"
+                                Margin="0 30 0 20">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HotFolderDisplayItems.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+
+                        <Image MaxHeight="120"
+                               Source="../../Styles/Images/hotfolder_image.png"
+                               HorizontalAlignment="Center"/>
+
+                        <DockPanel Margin="0 20 0 0" HorizontalAlignment="Center">
+                            <Label DockPanel.Dock="Top"
+                                   HorizontalAlignment="Left"
+                                   Style="{StaticResource LargeLabel}">
+                                <AccessText Text="{Binding Translation.ReadyToCreateFirstHotFolder}"
+                                            TextWrapping="Wrap"/>
+                            </Label>
+                            <TextBlock DockPanel.Dock="Top"
+                                       Margin="0 20 0 0"
+                                       MaxWidth="600"
+                                       Style="{StaticResource DescriptionTextBlock}"
+                                       FontSize="14"
+                                       HorizontalAlignment="Left"
+                                       TextAlignment="Left"
+                                       Text="{Binding Translation.HotFolderDescription}"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Add HotFolder Button -->
+                <StackPanel Grid.Row="2" Grid.Column="1"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="10 0 0 0"
+                        Orientation="Horizontal">
+                    <Label Content="{Binding DataContext.Translation.AddHotFolder, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                           Style="{StaticResource LightLabel}" />
+                    <Button Margin="10 0 0 0"
+                        Command="{Binding DataContext.AddHotFolderCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        Style="{StaticResource SquaredIconButton}">
+                        <iconPacks:PackIconMaterialDesign Kind="PlaylistAdd" />
+                    </Button>
+                </StackPanel>
+
+                <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 10">
+                    <Label HorizontalAlignment="Right"
+                           Style="{StaticResource LightLabel}"
+                           Content="{Binding Translation.SavingNote}" />
+                </Grid>
+            </Grid>
+
+            <gpo:GPOLockLayer IsLockedByGpo="{Binding HotFolderIsDisabledByGpo}" />
+        </Grid>
+    </ScrollViewer>
+</UserControl>

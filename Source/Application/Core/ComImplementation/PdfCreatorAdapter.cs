@@ -70,7 +70,7 @@ public class PdfCreatorAdapter
     {
         PathCheck(path);
 
-        if (!_directConversionHelper.CanConvertDirectly(path))
+        if (!_directConversionHelper.IsImageOrDirectConversion(path))
             throw new COMException("Only .ps, .pdf and image files can be directly added to the queue.");
 
         if (!_spoolFolderAccess.CanAccess())

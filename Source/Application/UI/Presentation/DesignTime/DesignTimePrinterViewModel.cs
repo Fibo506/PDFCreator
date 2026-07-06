@@ -14,15 +14,14 @@ namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
 public class DesignTimePrinterViewModel : PrinterViewModel
 {
     public DesignTimePrinterViewModel() : base(
-        new DefaultSettingsProvider(),
-        new DesignTimeCurrentSettings<ObservableCollection<PrinterMapping>>(),
+        new NoGpoSettingsProvider(),
         new DesignTimeCurrentSettings<ObservableCollection<ConversionProfile>>(),
         null,
         new DesignTimeTranslationUpdater(),
         new DesignTimePrinterHelper(),
         new GpoSettingsDefaults(),
-        new DesignTimeInteractionRequest()
-        )
+        new DesignTimeInteractionRequest(),
+        new DesignTimePrinterMappingService())
 
     {
         PrinterMappings = new Presentation.Helper.SynchronizedCollection<PrinterMappingWrapper>(new List<PrinterMappingWrapper>()).ObservableCollection;

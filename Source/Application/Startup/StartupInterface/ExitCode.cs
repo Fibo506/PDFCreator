@@ -33,5 +33,6 @@ public enum ExitCode
     InvalidPdfToolsFourHeightsLicense = 84,
     InvalidPdfAValidatorLicense = 85,
     BlockedInDomain = 90,
-    BlockedInEnterpriseMultiSession = 91
+    BlockedInEnterpriseMultiSession = 91,
+    InvalidAvanquestLicenseKey = 92
 }

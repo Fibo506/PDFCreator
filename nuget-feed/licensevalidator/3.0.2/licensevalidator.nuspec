@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>LicenseValidator</id>
+    <version>3.0.2</version>
+    <title>LicenseValidator</title>
+    <authors>Avanquest pdfforge GmbH</authors>
+    <description>LicenseValidator</description>
+    <dependencies>
+      <dependency id="LicenseValidator.Interface" version="[3.0.2]" />
+      <dependency id="NLog" version="[5.0.0,6.0.0)" />
+      <dependency id="SystemInterface" version="[9.10.0]" />
+      <dependency id="SystemWrapper" version="[9.10.0]" />
+      <dependency id="Optional.StrongNamed" version="[3.2.0]" />
+      <dependency id="Microsoft.Win32.Registry" version="0.0" />
+    </dependencies>
+  </metadata>
+</package>

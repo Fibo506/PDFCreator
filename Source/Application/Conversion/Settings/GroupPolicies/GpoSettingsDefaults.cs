@@ -5,6 +5,7 @@ public class GpoSettingsDefaults : IGpoSettings
     public bool DisableApplicationSettings => false;
     public bool DisableDebugTab => false;
     public bool DisablePrinterTab => false;
+    public bool LoadSharedPrinterMappings => false;
     public bool DisableProfileManagement => false;
     public bool DisableTitleTab => false;
     public bool DisableHistory => false;
@@ -21,6 +22,7 @@ public class GpoSettingsDefaults : IGpoSettings
     public int? HotStandbyMinutes => null;
 
     public bool LoadSharedAppSettings => false;
+    public bool LoadSharedHotFolders => false;
     public bool LoadSharedProfiles => false;
     public bool AllowUserDefinedProfiles => true;
 

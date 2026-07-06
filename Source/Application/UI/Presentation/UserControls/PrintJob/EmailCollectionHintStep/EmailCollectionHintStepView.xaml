@@ -7,6 +7,8 @@
              xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d"
+             MaxHeight="674"
+             MaxWidth="480"
              d:DesignHeight="600"
              d:DesignWidth="400"
              d:DataContext="{d:DesignInstance designTime:DesignTimeEmailCollectionStepHintViewModel, IsDesignTimeCreatable=True}">
@@ -216,12 +218,6 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
-                <Button Grid.Column="0"
-                        Style="{StaticResource SkipForNowButton}"
-                        IsCancel="True"
-                        Command="{Binding SkipEmailStepCommand}"
-                        Content="{Binding Translation.SkipButtonContent, Mode=OneWay}"/>
 
                 <Button x:Name="SendButton"
                         Grid.Column="2"

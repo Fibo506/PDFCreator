@@ -15,7 +15,7 @@ public class DesignTimeManagePrintJobsVm : ManagePrintJobsViewModel
             new DesignTimeApplicationNameProvider(),
             new DesignTimeVersionHelper(),
             new DesignTimeCommandLocator(),
-            new DesignTimePreviewManager())
+            null)
     {
     }
 }

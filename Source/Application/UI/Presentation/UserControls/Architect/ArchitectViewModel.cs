@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using pdfforge.Obsidian;
+using pdfforge.PDFCreator.UI.Presentation.Assistants;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.Utilities;
@@ -16,13 +17,17 @@ public class ArchitectViewModel : TranslatableViewModelBase<ArchitectViewTransla
     private readonly IProcessStarter _processStarter;
     private readonly IWebLinkLauncher _webLinkLauncher;
     private readonly IFile _file;
+    private readonly IUacAssistant _uacAssistant;
 
-    public ArchitectViewModel(IPdfArchitectCheck pdfArchitectCheck, IProcessStarter processStarter, IWebLinkLauncher webLinkLauncher, ITranslationUpdater translationUpdater, IFile file) : base(translationUpdater)
+    public ArchitectViewModel(IPdfArchitectCheck pdfArchitectCheck, IProcessStarter processStarter, IWebLinkLauncher webLinkLauncher, ITranslationUpdater translationUpdater, IFile file, IUacAssistant uacAssistant
+
+    ) : base(translationUpdater)
     {
         _pdfArchitectCheck = pdfArchitectCheck;
         _processStarter = processStarter;
         _webLinkLauncher = webLinkLauncher;
         _file = file;
+        _uacAssistant = uacAssistant;
     }
 
     protected override void OnTranslationChanged()
@@ -52,11 +57,12 @@ public class ArchitectViewModel : TranslatableViewModelBase<ArchitectViewTransla
     public ICommand DownloadPdfArchitectCommand => new DelegateCommand(o =>
     {
         var installerPath = _pdfArchitectCheck.GetInstallerPath();
+
         if (!string.IsNullOrEmpty(installerPath) && _file.Exists(installerPath))
         {
             try
             {
-                _processStarter.Start(installerPath);
+                _uacAssistant.CallProgramAsAdmin(installerPath, "");
             }
             catch (Win32Exception e) when (e.NativeErrorCode == 1223)
             {

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Avanquest.Pdf.Edit.runtime.linux-x64</id>
+    <version>0.97.2026062403.105</version>
+    <authors>Avanquest.Pdf.Edit.runtime.linux-x64</authors>
+    <license type="file">LICENSE.md</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <description>Package Description</description>
+    <repository type="git" commit="f1dd51f61bafd112738212a0b1b7801e3e9a50ba" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

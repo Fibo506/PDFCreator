@@ -44,7 +44,7 @@ public class EditEmailDifferingFromViewModel : OverlayViewModelBase<EditEmailDif
         var builder = tokenViewModelFactory
             .Builder<EditEmailDifferingFromInteraction>()
             .WithInitialValue(Interaction)
-            .WithTokenList(th => th.GetTokenListForEmailRecipients())
+            .WithTokenList(th => th.TokenListForEmailRecipients)
             .WithDefaultTokenReplacerPreview();
 
         OnBehalfOfTokenViewModel = builder

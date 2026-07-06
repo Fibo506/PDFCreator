@@ -50,6 +50,7 @@
 
             <Button Command="{Binding OkCommand}"
                     Content="{Binding Translation.Ok}"
+                    IsEnabled="{Binding  Content.DataContext.CanConfirm, ElementName=ContentControl, FallbackValue=True}"
                     Visibility="{Binding Interaction.IsDisabled, Converter={StaticResource CollapsedWhenTrue}}"
                     DockPanel.Dock="Right"
                     Style="{StaticResource AccentButton}"

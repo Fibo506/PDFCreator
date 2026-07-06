@@ -21,4 +21,5 @@ public static partial class RegionViewName
     public static string TitleReplacementsRegionView => nameof(TitleReplacementsView);
     public static string DefaultViewerRegionView => nameof(DefaultViewerView);
     public static string DirectImageConversionSettingsRegionView => nameof(DirectImageConversionSettingView);
+    public static string HotFolderView => nameof(UserControls.HotFolder.HotFolderView);
 }

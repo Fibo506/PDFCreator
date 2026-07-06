@@ -5,7 +5,9 @@ using pdfforge.CustomScriptAction;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Conversion.Processing.PdfAValidation;
 using pdfforge.PDFCreator.Conversion.Settings.Enums;
+using pdfforge.PDFCreator.Core.Workflow.Exceptions;
 
 namespace pdfforge.PDFCreator.Core.Workflow;
 
@@ -28,11 +30,13 @@ public class ActionExecutor : IActionExecutor
 
     private readonly IActionManager _actionManager;
     private readonly IPdfProcessor _pdfProcessor;
+    private readonly IPdfAValidator _pdfAValidator;
 
-    public ActionExecutor(IActionManager actionManager, IPdfProcessor pdfProcessor)
+    public ActionExecutor(IActionManager actionManager, IPdfProcessor pdfProcessor, IPdfAValidator pdfAValidator)
     {
         _actionManager = actionManager;
         _pdfProcessor = pdfProcessor;
+        _pdfAValidator = pdfAValidator;
     }
 
     public void ApplyRestrictions(Job job)
@@ -96,6 +100,9 @@ public class ActionExecutor : IActionExecutor
     public void CallPostConversionActions(Job job)
     {
         _logger.Trace("Setting up post conversion actions");
+
+        if(job.Profile.OutputFormat.IsPdfA() && job.Profile.PdfSettings.EnablePdfAValidation)
+            _pdfAValidator.WriteValidationReport(job);
 
         //Call PostConversionScriptAction separately ahead for the possibility to change the ActionOrder
         var postConversionScriptAction = _actionManager.GetEnabledActionsInCurrentOrder<PostConversionScriptAction>(job);

@@ -44,32 +44,13 @@ try {
         job.SetProfileSetting("BackgroundPage.File", objFSO.GetParentFolderName(WScript.ScriptFullname) + "\\BackgroundPage.pdf");
         
         job.AddAction("AttachmentPage");
-        job.SetProfileSetting("AttachmentPage.File", objFSO.GetParentFolderName(WScript.ScriptFullname) + "\\AttachmentPage.pdf");
-
-        // a helpful method to list all parmeters in an ProfileSettingList
-        function listActions(list) {
-            var length = list.Count;
-            var actions = "Number of active actions: " + list.Count + "\n\n";
-            for (var i = 0; i < length; i++) {
-                actions = actions + i + "." + list.item(i) + "\n";
-            }
-            WScript.Echo(actions);
-        }
-
-        // getting a copied list of all active job in the selected profile, the list elements will be string
-        // keep in mind this list is a copy of the "real" actionOrder list, changes will not have any
-        // effect on the profile itself
-        var activeActions = job.GetProfileListSetting("ActionOrder");
-        listActions(activeActions);
+        job.SetProfileSetting("AttachmentPage.File", objFSO.GetParentFolderName(WScript.ScriptFullname) + "\\AttachmentPage.pdf");        
 
         // actions can be removed by using job.RemoveAction
         job.RemoveAction("CoverPage");
-        listActions(job.GetProfileListSetting("ActionOrder"));
-
-        // actions can also be added to defined positions - index starts at zero
-        // the following line restores the original order
-        job.AddActionToPosition("CoverPage", 0);
-        listActions(job.GetProfileListSetting("ActionOrder"));
+       
+        // actions can also be added to defined positions - index starts at zero      
+        job.AddActionToPosition("CoverPage", 2);        
 
         WScript.Echo("Converting under \"DefaultGuid\" conversion profile");
         job.ConvertTo(fullPath);

@@ -3,6 +3,7 @@ msgstr ""
 "Project-Id-Version: Persian (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-11-07 22:56+0000\n"
 "Last-Translator: Mohammad Ali <craptracksfc123@gmail.com>\n"
 "Language-Team: Persian <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/fa/>\n"
@@ -11,6 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.9.1\n"
 
 #. FileConversionAssistantTranslation
 msgid "Do you want to convert the {0} selected file?"
@@ -33,6 +35,12 @@ msgstr "پروفايل"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "چاپگر"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -103,6 +111,7 @@ msgid "News"
 msgstr "اخبار"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr ""
 
@@ -134,7 +143,7 @@ msgstr "مجوز معتبر است."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 msgid "Click here to extend your license."
 msgstr "لطفا کلید مجوز خود را وارد کنید:"
@@ -157,6 +166,7 @@ msgstr "تنظیمات نامعتبر است"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "خطا"
 
@@ -482,337 +492,65 @@ msgstr "مشکلات حل شده"
 msgid "Other changes"
 msgstr "سایر تغییرات"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The license has expired. Please renew your license."
-msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
-msgstr "مجوز منقضی شده است.لطفا مجوز خود را تازه کنید."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "There was a problem with the connection to the license server."
-msgid "There was a problem with your license..."
-msgstr "مشکلی حین ارتباط با سرور مجوز وجود دارد."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "User Tokens"
-msgid "User tokens"
+#| msgid "Encryption"
+msgid "256-bit encryption"
+msgstr "کُدگذاری"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+msgid "User Tokens"
 msgstr "رمزهای کاربر"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "CS-Script"
-msgid "CS-scripts"
-msgstr "CS-Script"
+#| msgid "Test Pages"
+msgid "Delete pages"
+msgstr "صفحات تست"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+msgid "Forward to profile"
+msgstr "پروفايل جديد"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
 msgid "Priority support"
 msgstr "اولویت پشتیبانی"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "License details"
-msgstr "وضعیت مجوز:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-msgid "Manage License"
-msgstr "مدیریت مجوزها"
+#| msgid "Share Settings"
+msgid "Shared settings"
+msgstr "اشتراک گذاری تنظیمات"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Offline activation"
-msgid "Offline Activation"
-msgstr "فعالسازی آفلاین"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "License Activated"
-msgstr "وضعیت مجوز:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Your license was activated successfully."
-msgstr "ذخیره مجوز برای همه کاربران موفقیت آمیز بود."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Please enter your license key to continue using {0}"
-msgstr "لطفا کلید مجوز خود را وارد کنید:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "میخواهید مجوز را برای همه کاربران سیستم خود موجود کنید؟"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Save validation report"
-msgid "Save activation for all users"
-msgstr "ذخیره گزارش معتبرسازی"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred when saving the activation for all users."
-msgstr "یک خطا حین ذخیره سازی مجوز برای همه کاربران رخ داد."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr "چاپ صفحه تست PDFCreator"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Save activation for all users was successful."
-msgstr "ذخیره مجوز برای همه کاربران موفقیت آمیز بود."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Checking the license..."
-msgstr "معتبر سازی مجوز..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"کلید مجوز حاوی کاراکترهای غیر مجاز است. کاراکتر های معتبر هستند: A-Z, 0-9 و "
-"دَش."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr "کلید مجوز شامل 30 کاراکتر یا شماره هست {0}"
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "هرگز"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "مجوز:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr "دستگاه یا کاربر مسدود شده است.لطفا با پشتیبانی تماس بگیرید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "خطا حین معتبر سازی مجوز رخ داد."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "کلید مجوز معتبر نیست.لطفا کلید مجوز جدید وارد کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "مجوز منقضی شده است.لطفا مجوز خود را تازه کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The license trial period has expired."
-msgstr "مجوز معتبر است."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "کلید مجوزی موجود نیست.لطفا کلید مجوز جدید وارد کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "مشکلی حین ارتباط با سرور مجوز وجود دارد."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "مجوز از حداکثر تعداد دستگاه های فعال شده تخطی کرده است."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "مجوز برای این نسخه معتبر نیست."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "مجوز معتبر است."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The activation has expired. Please renew your activation."
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] ""
-msgstr[1] ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "مجوز برای این نسخه معتبر نیست."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The activation code has a wrong format."
-msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Renew your license here."
-msgstr "مجوز معتبر است."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Manage your license here."
-msgstr "مدیریت مجوزها"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Please enter your license key."
-msgstr "لطفا کلید مجوز خود را وارد کنید:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The internal license server url is not valid."
-msgstr "مجوز معتبر است."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
+#| msgid "Install"
+msgid "MSI installer"
+msgstr "نصب"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -1130,7 +868,7 @@ msgid "Viewer"
 msgstr "نمایش دهنده"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "مجوز"
 
@@ -1150,6 +888,7 @@ msgstr "دایرکتوری:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1291,6 +1030,7 @@ msgstr "RegEx"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1298,102 +1038,382 @@ msgstr "RegEx"
 msgid "Save"
 msgstr "ذخيره"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "آخرین فعالسازی:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License Activated"
+msgstr "وضعیت مجوز:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "موفق به فعالسازی نشد"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "فعالسازی موفقیت آمیز نبود:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "فعالسازی با موفقیت انجام شد"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "موفق به فعالسازی نشد"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "فعالسازی موفقیت آمیز نبود:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "فعالسازی با موفقیت بود."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "فعالسازی معتبر است تا:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "کلید مجوز را وارد کنید"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "لطفا کلید مجوز خود را وارد کنید:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "منقضی میشود در:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-msgid "License renews on:"
-msgstr "وضعیت مجوز:"
+#| msgid "Store license for all users was successful."
+msgid "Your license was activated successfully."
+msgstr "ذخیره مجوز برای همه کاربران موفقیت آمیز بود."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "کلید مجوز:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Manage License"
+msgstr "مدیریت مجوزها"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "وضعیت مجوز:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "شناسه دستگاه:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "مدیریت مجوزها"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "فعالسازی آفلاین"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "فعالسازی آنلاین"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "View License"
+msgstr "مجوز"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "کلید مجوز:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "وضعیت مجوز:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License details"
+msgstr "وضعیت مجوز:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "شناسه دستگاه:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "معتبر سازی مجوز..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "منقضی میشود در:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "فعالسازی معتبر است تا:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "License renews on:"
+msgstr "وضعیت مجوز:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "آخرین فعالسازی:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "کلید مجوز را وارد کنید"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "لطفا کلید مجوز خود را وارد کنید:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "The license has expired. Please renew your license."
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr "مجوز منقضی شده است.لطفا مجوز خود را تازه کنید."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "There was a problem with the connection to the license server."
+msgid "There was a problem with your license..."
+msgstr "مشکلی حین ارتباط با سرور مجوز وجود دارد."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "User tokens"
+msgstr "رمزهای کاربر"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "CS-scripts"
+msgstr "CS-Script"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "میخواهید مجوز را برای همه کاربران سیستم خود موجود کنید؟"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Save validation report"
+msgid "Save activation for all users"
+msgstr "ذخیره گزارش معتبرسازی"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 #| msgid "An error occured while storing license for all users."
+msgid "An error occurred when saving the activation for all users."
+msgstr "یک خطا حین ذخیره سازی مجوز برای همه کاربران رخ داد."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
 msgid "An error occurred while storing license for all users."
 msgstr "یک خطا حین ذخیره سازی مجوز برای همه کاربران رخ داد."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Store license for all users was successful."
+msgid "Save activation for all users was successful."
+msgstr "ذخیره مجوز برای همه کاربران موفقیت آمیز بود."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "ذخیره مجوز برای همه کاربران موفقیت آمیز بود."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr "چاپ صفحه تست PDFCreator"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-#| msgid "License"
-msgid "View License"
-msgstr "مجوز"
+msgid "Please enter your license key to continue using {0}"
+msgstr "لطفا کلید مجوز خود را وارد کنید:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Checking the license..."
+msgstr "معتبر سازی مجوز..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"کلید مجوز حاوی کاراکترهای غیر مجاز است. کاراکتر های معتبر هستند: A-Z, 0-9 و "
+"دَش."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr "کلید مجوز شامل 30 کاراکتر یا شماره هست {0}"
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "هرگز"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "مجوز:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "دستگاه یا کاربر مسدود شده است.لطفا با پشتیبانی تماس بگیرید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "خطا حین معتبر سازی مجوز رخ داد."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "کلید مجوز معتبر نیست.لطفا کلید مجوز جدید وارد کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "مجوز منقضی شده است.لطفا مجوز خود را تازه کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The license trial period has expired."
+msgstr "مجوز معتبر است."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "کلید مجوزی موجود نیست.لطفا کلید مجوز جدید وارد کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "مشکلی حین ارتباط با سرور مجوز وجود دارد."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "مجوز از حداکثر تعداد دستگاه های فعال شده تخطی کرده است."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "مجوز برای این نسخه معتبر نیست."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "مجوز معتبر است."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] ""
+msgstr[1] ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The activation code has a wrong format."
+msgstr "فعالسازی منقضی شده است.لطفا فعالسازی خود را تازه کنید."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Renew your license here."
+msgstr "مجوز معتبر است."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Manage your license here."
+msgstr "مدیریت مجوزها"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Please enter your license key."
+msgstr "لطفا کلید مجوز خود را وارد کنید:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The internal license server url is not valid."
+msgstr "مجوز معتبر است."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1468,7 +1488,6 @@ msgstr "زبان"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Explorer Context Menu Integration"
 msgid "Explorer context menu integration"
 msgstr "یکپارچگی با کلیک راست اکسپلورر"
 
@@ -1537,7 +1556,6 @@ msgstr "آمار مصرف"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Send Usage Statistics"
 msgid "Send usage statistics"
 msgstr "ارسال آمار مصرف"
 
@@ -1564,7 +1582,6 @@ msgstr "سیاست حریم خصوصی"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Configure Home Screen"
 msgid "Configure home screen"
 msgstr "پیکربندی صفحه خانه"
 
@@ -1605,15 +1622,21 @@ msgid "Standby duration"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Restore"
+msgid "Restart"
+msgstr "بازگردانی"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
 "configured time with a low footprint. This significantly accelerates further "
 "conversions."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
@@ -1641,7 +1664,6 @@ msgstr "جهت یابی صفحه:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Default Viewer"
 msgid "Default viewer"
 msgstr "نمایش دهنده پیش فرض"
 
@@ -1651,13 +1673,11 @@ msgstr "فايلهاي قابل اجرا"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Executable Path:"
 msgid "Executable path:"
 msgstr "مسیر فایل اِجرایی:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Additional Parameters:"
 msgid "Additional parameters:"
 msgstr "پارامتر های اضافه:"
 
@@ -1679,13 +1699,11 @@ msgstr "بازگردانی"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Default Settings"
 msgid "Default settings"
 msgstr "تنظیمات پیش فرض"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Export Settings"
 msgid "Export settings"
 msgstr "خروجیگیری تنظیمات"
 
@@ -1713,7 +1731,6 @@ msgstr "وقایع نگاری"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Logging Level:"
 msgid "Logging level:"
 msgstr "سطح ثبت وقایع:"
 
@@ -2283,6 +2300,13 @@ msgid ""
 "able to save files to any directory the service has write permission."
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr "چاپگر انتخاب شده نامعتبر است."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 #, fuzzy
 msgid "Close"
@@ -2543,6 +2567,12 @@ msgstr "بازکرن پوشه"
 msgid "Use PDF Architect"
 msgstr "بیشتر در معماری پی دی اِف"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "بازکرن پوشه"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr ""
@@ -2561,7 +2591,12 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 #, fuzzy
-msgid "Open file in viewer."
+msgid "Open file/directory"
+msgstr "دایرکتوری نا پیدا"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+#, fuzzy
+msgid "Open file or directory in viewer/explorer."
 msgstr "بازکردن با نمایش دهنده پیش فرض"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
@@ -2646,11 +2681,6 @@ msgid ""
 msgstr ""
 "استخراج مقادیر از منبع سند و استفاده آنها در هر جایی که با PDFCreator "
 "پشتیبانی می شوند."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-msgid "Forward to profile"
-msgstr "پروفايل جديد"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 #, fuzzy
@@ -2789,7 +2819,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 #, fuzzy
 msgid "Adds page numbers to the document."
-msgstr "افزودن پس زمینه به پیوست"
+msgstr "خطا حین افزودن پس زمینه به سند رخ داد."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 #, fuzzy
@@ -2832,7 +2862,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 #, fuzzy
 msgid "Adds a watermark to the document."
-msgstr "افزودن پس زمینه به پیوست"
+msgstr "خطا حین افزودن پس زمینه به سند رخ داد."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Stamp"
@@ -3041,6 +3071,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 #, fuzzy
+#| msgid "Save as ..."
 msgid "Save as file"
 msgstr "ذخیره بعنوان ..."
 
@@ -3210,8 +3241,10 @@ msgid "Background"
 msgstr "پس زمینه"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
+#, fuzzy
+#| msgid "Error while adding background to the document."
 msgid "Adds a background to the document."
-msgstr "افزودن پس زمینه به سند."
+msgstr "خطا حین افزودن پس زمینه به سند رخ داد."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Select background file"
@@ -3382,6 +3415,11 @@ msgid ""
 "executed. Please check your profile."
 msgstr "این ویژگی با فرمت خروجی منتخب پشتیبانی نمی شود"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+#, fuzzy
+msgid "merge!"
+msgstr "&ادغام"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr "در حال تبدیل..."
@@ -3434,11 +3472,6 @@ msgstr "اقدامات سریع"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "بازکردن با نمایش دهنده پیش فرض"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "بازکرن پوشه"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #, fuzzy
@@ -3683,6 +3716,7 @@ msgstr "دوباره"
 msgid "Discard"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #, fuzzy
 msgid "Profile"
@@ -3705,6 +3739,199 @@ msgstr "مسیر پیوست خیلی بلند است."
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "افزودن رمز"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Edit HotFolder"
+msgstr "ویرایش فایل های پی دی اِف"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Unused Printers"
+msgid "Linked Printer"
+msgstr "چاپگرهای استفاده نشده"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Missing Printers"
+msgid "Assigned Printer Name:"
+msgstr "چاپگرها گم شده"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch:"
+msgstr "جهت یابی صفحه:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch"
+msgstr "جهت یابی صفحه:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Source files"
+msgstr "فایل های ادغام شده"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select source files folder"
+msgstr "فایل کاور را انتخاب کنید"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Unprintable files"
+msgstr "فايلهاي قابل اجرا"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Select unprintable files folder"
+msgstr "فايلهاي قابل اجرا"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "No filter"
+msgstr "فایل PNG"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Add Filter"
+msgstr "همه فايل ها"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Remove Profile"
+msgid "Remove Filter"
+msgstr "حذف پروفایل"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Profiles"
+msgid "Profile assigned:"
+msgstr "پروفايل"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select Profile"
+msgstr "انتخاب چاپگر:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "Enter filter"
+msgstr "فایل PNG"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "The filter is not valid. Please check your entry."
+msgstr "مسیر معتبر نیست.لطفا مسیر کامل معتبر وارد کنید."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Manage Printers"
+msgid "Manage HotFolders"
+msgstr "مدیریت چاپگرها"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Printer"
+msgid "Printer Name"
+msgstr "چاپگر"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "HotFolder Path"
+msgstr "افزودن کاور"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+msgid "Active"
+msgstr "افزودن اقدام"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "Add HotFolder Printer"
+msgstr "افزودن کاور"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -5084,6 +5311,26 @@ msgstr "مقدار برای '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "لطفا برای ادامه تنظیمات را ذخیره با لغو کنید"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Remove Page"
+msgstr "حذف همه"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove All"
+msgid "Undo Removal"
+msgstr "حذف همه"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr ""
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5401,7 +5648,7 @@ msgstr[1] "فایل های زیر نمیتواند تبدیل شود:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid "Admin privileges required"
-msgstr "سطح دسترسی آدمین نیاز است"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid ""
@@ -5833,6 +6080,76 @@ msgid ""
 "Please reactivate your Internal License Server activation on the {0}"
 msgstr ""
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+#, fuzzy
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr "مجوز برای این نسخه معتبر نیست."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr ""
@@ -5850,6 +6167,47 @@ msgstr ""
 #, fuzzy
 msgid "Error while converting"
 msgstr "خطا حین چاپ فایل."
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "and {0} more."
+#| msgid_plural "and {0} more."
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "و {0} بیشتر ."
+msgstr[1] "و {0} بیشتر."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+msgid "&Convert with PDFCreator"
+msgstr "چاپ صفحه تست PDFCreator"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDF files"
+msgid "Convert &Here"
+msgstr "تبدیل فایل های پی دی اِف"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+msgid "&Merge"
+msgstr "&ادغام"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -7092,6 +7450,77 @@ msgstr ""
 msgid "Failed to apply changes made in preview."
 msgstr ""
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided HotFolder path is not a valid path."
+msgstr "مسیر دایرکتوری اِف تی پی،مسیر نامعتبر اِف تی پی است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path must not be empty."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path is too long."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Source files path is not a valid path."
+msgstr "مسیر دایرکتوری اِف تی پی،مسیر نامعتبر اِف تی پی است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path must not be empty."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path is too long."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "مسیر دایرکتوری اِف تی پی،مسیر نامعتبر اِف تی پی است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path must not be empty."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path is too long."
+msgstr "مسیر فایل اسکریپت خیلی بلند است."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr "چاپگر انتخاب شده نامعتبر است."
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr "بدون تکرار"
@@ -7454,7 +7883,7 @@ msgstr "<<<    >>>"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.UserTokenSeparator
 msgid "{{{   }}}"
-msgstr "{{{   }}}"
+msgstr ""
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.UserTokenSeparator
 msgid "(((   )))"
@@ -7489,6 +7918,11 @@ msgstr "از نسخه PDFCreator Business 2.3.0 پشتیبانی می شود"
 
 #, fuzzy
 msgid "Supported since PDFCreator Professional 5.3.0"
+msgstr "از نسخه PDFCreator Business 2.3.0 پشتیبانی می شود"
+
+#, fuzzy
+#| msgid "Supported since PDFCreator Business 2.3.0"
+msgid "Supported since PDFCreator 6.2.0"
 msgstr "از نسخه PDFCreator Business 2.3.0 پشتیبانی می شود"
 
 msgid "pdfforge"
@@ -7536,6 +7970,16 @@ msgid ""
 "Set to 0 to disable."
 msgstr ""
 
+msgid "Disable debug tab"
+msgstr "غیرفعالسازی تب اشکل یابی"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"تب عیب یابی را غیرفعال می کند.این قابلیت اجرای وظایف تست و تغییر سطح عیب "
+"یابی را غیرفعال می کند."
+
 msgid "Disable printer tab"
 msgstr "غیرفعالسازی تب چاپگر"
 
@@ -7558,15 +8002,18 @@ msgid ""
 msgstr ""
 "تب عنوان را غیرفعال می کند.این قابلیت تغییر جایگزینی عنوان را غیرفعال می کند."
 
-msgid "Disable debug tab"
-msgstr "غیرفعالسازی تب اشکل یابی"
-
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
+msgid "Hide feedback form"
 msgstr ""
-"تب عیب یابی را غیرفعال می کند.این قابلیت اجرای وظایف تست و تغییر سطح عیب "
-"یابی را غیرفعال می کند."
+
+#, fuzzy
+msgid "Activate to hide feedback form"
+msgstr "مخفی کردن نکات در صفحه خانگی را فعال می کند"
+
+msgid "Hide license tab"
+msgstr "مخفی کردن تب مجوز"
+
+msgid "Activate to hide license tab."
+msgstr "فعالسازی برای مخفی کردن تب مجوز."
 
 msgid "Hide PDF Architect info"
 msgstr "مخفی کردن اطلاعات PDF Architect"
@@ -7574,12 +8021,6 @@ msgstr "مخفی کردن اطلاعات PDF Architect"
 msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "فعالسازی برای مخفی کردن اطلاعات درباره سفارشی ساز ویرایشگر پی دی اف ما."
-
-msgid "Hide license tab"
-msgstr "مخفی کردن تب مجوز"
-
-msgid "Activate to hide license tab."
-msgstr "فعالسازی برای مخفی کردن تب مجوز."
 
 msgid "Disable profile management"
 msgstr "غیرفعالسازی مدیریت پروفایل"
@@ -7653,6 +8094,39 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "اشتراک گذاری تنظیمات"
 
+#, fuzzy
+#| msgid "Load shared application settings"
+msgid "Load shared HotFolder settings"
+msgstr "بارگیری تنظیمات اشتراک گذاشته شده برنامه"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to load application settings from ini file in \"%ProgramData%"
+#| "\\pdfforge\\PDFCreator\". This is activated by default and must be "
+#| "explicitly disabled."
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"بارگیری تنظیمات برنامه از فایل ini  در \"%ProgramData%"
+"\\pdfforge\\PDFCreator\" را فعال می کند.این پیش فرض فعال است و باید به صراحت "
+"غیرفعال شده باشد."
+
+#, fuzzy
+#| msgid "Load shared profiles"
+msgid "Load shared printer mappings"
+msgstr "بارگیری پروفایل های اشتراک گذاشته شده"
+
+#, fuzzy
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"تب چاپگر را غیرفعال می کند.این قابلیت های افزودن،حذف،تغییرنام، چاپگر های "
+"PDFCreator،تغییر اختصاص پروفایل ها و تنظیم چاپگر اولیه برنامه را غیر فعال می "
+"کند."
+
 msgid "Load shared profiles"
 msgstr "بارگیری پروفایل های اشتراک گذاشته شده"
 
@@ -7668,18 +8142,19 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "اجازه پروفایل های بیشتر تعریف شده توسط کاربر"
 
-msgid "Hide feedback form"
-msgstr ""
-
 #, fuzzy
-msgid "Activate to hide feedback form"
-msgstr "مخفی کردن نکات در صفحه خانگی را فعال می کند"
+#| msgid "Hungarian"
+msgid "Bulgarian"
+msgstr "مجارستانی"
 
 msgid "Catalan"
 msgstr "کاتالان"
 
-msgid "Chinese"
+msgid "Chinese (Simplified)"
 msgstr ""
+
+msgid "Chinese (Traditional)"
+msgstr "چینی (سنتی)"
 
 msgid "Corsican (France)"
 msgstr "کرسی (فرانسه)"
@@ -7724,12 +8199,17 @@ msgstr "لهستانی"
 msgid "Portuguese (Brazil)"
 msgstr ""
 
+msgid "Slovak"
+msgstr ""
+
 #, fuzzy
-#| msgid "Danish"
 msgid "Spanish"
 msgstr "دانمارکی"
 
 msgid "Swedish"
+msgstr ""
+
+msgid "Turkish"
 msgstr ""
 
 msgid "Set language:"
@@ -7749,282 +8229,44 @@ msgid "Allow users to define additional profiles"
 msgstr "اجازه به کاربران برای تعریف پروفایل بیشتر"
 
 #, fuzzy
+#~ msgid "Finish"
+#~ msgstr "دانمارکی"
+
+#, fuzzy
+#~| msgid "Open"
+#~ msgid "On"
+#~ msgstr "بازکردن"
+
+#, fuzzy
+#~| msgid "Disable title tab"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "غیرفعالسازی تب عنوان"
+
+#, fuzzy
+#~| msgid "Activate to disable the job history."
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "غیرفعالسازی تاریخچه وظیفه."
+
+#, fuzzy
+#~| msgid "Offline activation"
+#~ msgid "Offline Activation"
+#~ msgstr "فعالسازی آفلاین"
+
+#, fuzzy
 #~ msgid "Show license details"
 #~ msgstr "نمایش نکات"
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "چینی (سنتی)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "مجوز برای این نسخه معتبر نیست."
 
 #, fuzzy
-#~ msgid "Your trial license has expired"
-#~ msgstr "مجوز معتبر است."
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "مشکلی حین ارتباط با سرور مجوز وجود دارد."
 
-#~ msgid "Greek"
-#~ msgstr "یونانی"
-
+#, fuzzy
+#~| msgid "The license has expired. Please renew your license."
 #~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
-#~ msgstr ""
-#~ "PDFCreator قادر به تعمیر چاپگر نیست.لطفا با آدمین یا پشتیبانی برای کمک در "
-#~ "حل این مشکل تماس بگیرید."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "برنامه قادر به تعمیر پوشه اسپول نیست. لطفا با آدمین یا پشتیبانی برای کمک "
-#~ "به شما در تغییر سطح دسترسی مسیر '{0}' تماس برقرار کنید."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "یک خطا با کامپاننت مجوز داده شده pdfforge وجود دارد.\n"
-#~ "لطفا PDFCreator را مجدد نصب کنید. (خطا {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "مجوز شما برای \"{0}\" نامعتبر یا منقضی شده است. لطفا مجوز خود را بررسی "
-#~ "نمائید، در غیر اینصورت PDFCreator بسته خواهد شد.\n"
-#~ "آیا میخواهید حالا مجوز را بررسی کنید؟"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "مجوز شما برای \"{0}\" منقضی شده است.\n"
-#~ "PDFCreator بسته خواهد شد."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "مجوز شما برای \"{0}\" منقضی شده است.\n"
-#~ "لطفا با آدمین سیستم خود تماس بگیرید.\n"
-#~ "PDFCreator بسته خواهد شد."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "ارزیابی شما در{0} منقضی می شود.\n"
-#~ "PDFCreator برنامه بسته خواهد شد.\n"
-#~ "\n"
-#~ "با این آدرس تماس بگیرید: licensing@pdfforge.org"
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "مجوز شما برای \"{0}\" نامعتبر یا منقضی شده است. لطفا مجوز خود را بررسی "
-#~ "نمائید، در غیر اینصورت PDFCreator بسته خواهد شد.\n"
-#~ "آیا میخواهید حالا مجوز را بررسی کنید؟"
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "مجوز شما برای \"{0}\" منقضی شده است.\n"
-#~ "PDFCreator بسته خواهد شد."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "لطفا از \"PDFCreator Terminal Server\" برای استفاده در رایانه ای که سرویس "
-#~ "ترمینال در آن است استفاده کنید.\n"
-#~ "\n"
-#~ "لطفا برای اطلاعات بیشتر یا تماس مستقیم با ما ارتباط برقرار کنید: "
-#~ "licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "نصب گُست اسکریپت پشتیبانی شده را نمیتوان یافت.\n"
-#~ "\n"
-#~ "حالا از برنامه خارج میشود."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "سرویس اسپولر ویندوز در اِجرا نیست. لطفا ابتدا اسپولر را شروع کنید.\n"
-#~ "\n"
-#~ "حالا از برنامه خارج میشود."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "شما هیچگونه چاپگر PDFCreator را نصب نکرده اید. احتمالا مشکلی حین راه "
-#~ "اندازی وجود دارد یا بعد از نصب دستکاری شده است.\n"
-#~ "میخواهید این را با نصب مجدد PDFCreator حل نمایید؟\n"
-#~ "\n"
-#~ "توجه: برای حل این مشکل ممکن است دسترسی آدمین نیاز داشته باشید."
-
-#~ msgid "No printers installed"
-#~ msgstr "چاپگری نصب نشده است"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "ابزار ترمیم یافت نشد"
-
-#~ msgid "Access Denied"
-#~ msgstr "غير قابل دسترسی"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "مسیر موقتی که برنامه وظایف چاپ را ذخیره می کند قابل دسترسی نیست. این یک "
-#~ "مشکل پیکربندی در دستگاه شما است که باید حل شود. آیا میخواهید برنامه سعی "
-#~ "کند که آن را تعمیر کند؟\n"
-#~ "پوشه اسپول شما است: {0}"
-
-#~ msgid "Printer:"
-#~ msgstr "چاپگر:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "رَد نسخه"
-
-#~ msgid "Read More"
-#~ msgstr "بیشتر بدانید"
-
-#~ msgid "Default Printer"
-#~ msgstr "چاپگر پیش فرض"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "آمار مصرف"
-
-#, fuzzy
-#~ msgid "Run Program"
-#~ msgstr "اِجرای برنامه"
-
-#, fuzzy
-#~ msgid "Set Certificate Password"
-#~ msgstr "تنظیم رمزعبور گواهینامه"
-
-#~ msgid "User Name:"
-#~ msgstr "نام کاربر:"
-
-#, fuzzy
-#~ msgid "Email Address:"
-#~ msgstr "آدرس ایمیل:"
-
-#, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "افزودن ضمیمه"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "گزینه 'خیر' را برای بازگشت تنظیمات انتخاب کنید."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "و {0} فایل/پوشه بیشتر"
-#~ msgstr[1] "و {0} فایل/پوشه های بیشتر"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&تبدیل با PDFCreator"
-
-#~ msgid "Convert &Here"
-#~ msgstr "تبدیل &اینجا"
-
-#~ msgid "&Merge"
-#~ msgstr "&ادغام"
-
-#~ msgid "Hint"
-#~ msgstr "تذکر"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr "PDFCreator را نمیتوان در سیستم یافت. بررسی کنید نصب شده باشد."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "حداقل یکی از موارد منتخب قابل تبدیل نیست! برای اطلاع بیشتر درباره فایل "
-#~ "های غیر قابل چاپ، لیست زیر را ببینید."
-
-#, fuzzy
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr "مسیر گواهینامه حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "فایل اسکریپت حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "مسیر کاور حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "مسیر پیوست حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "دایرکتوری مقصد حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "مسیر پس زمینه حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "مسیر گواهینامه حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "مسیر دایرکتوری اِف تی پی،مسیر نامعتبر اِف تی پی است."
-
-#, fuzzy
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "مسیر گواهینامه حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "مسیر فایل معتبر نیست یا خالی است.لطفا مسیر معتبر وارد کنید.\n"
-#~ "مسیر فایل نباید حاوی کاراکترهای زیر باشد: \n"
-#~ " \\ / : * ? \\< >"
-
-#, fuzzy
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "مسیر کاور حاوی کاراکترهای غیر مجاز است."
-
-#, fuzzy
-#~ msgid "Your license has expired."
-#~ msgstr "مجوز معتبر است."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
+#~ msgstr "مجوز منقضی شده است.لطفا مجوز خود را تازه کنید."

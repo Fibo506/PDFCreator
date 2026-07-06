@@ -3,6 +3,7 @@ msgstr ""
 "Project-Id-Version: Hebrew (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-03-21 18:23+0000\n"
 "Last-Translator: שחר מאיר <shahar_m03@walla.com>\n"
 "Language-Team: Hebrew <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/he/>\n"
@@ -12,30 +13,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 5.9.1\n"
 
 #. FileConversionAssistantTranslation
 msgid "Do you want to convert the {0} selected file?"
 msgid_plural "Do you want to convert the {0} selected files?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "אתה רוצה להמיר את הקובץ {0} הנבחר?"
+msgstr[1] "אתה רוצה להמיר את הקבצים {0} הנבחרים?"
+msgstr[2] "אתה רוצה להמיר את הקבצים {0} הנבחרים?"
+msgstr[3] "אתה רוצה להמיר את הקבצים {0} הנבחרים?"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Home"
-msgstr ""
+msgstr "עמוד בית"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Profiles"
-msgstr ""
+msgstr "פרופילים"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
-msgstr ""
+msgstr "מדפסת"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr "HotFolder"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -56,62 +64,63 @@ msgstr "חשבונות"
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Settings"
-msgstr ""
+msgstr "הגדרות"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "An update is available"
-msgstr ""
+msgstr "יש עדכון זמין"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Help us improve {0} by sending anonymous application usage statistics."
-msgstr ""
+msgstr "עזור לנו להשתפר על ידי שליחת סטטיסטיקות שימוש אנונימיות."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Read more"
-msgstr ""
+msgstr "קרא עוד"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.MainServerShellTranslation
 msgid "Dismiss"
-msgstr ""
+msgstr "התעלם"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "RSS news feed disabled."
-msgstr ""
+msgstr "עדכון חדשות RSS מושבת."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid ""
 "You can enable the RSS news feed by activating it in the application "
 "settings."
-msgstr ""
+msgstr "ניתן להפעיל את עדכון החדשות RSS על ידי הפעלתו בהגדרות היישום."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "No RSS Feed Available"
-msgstr ""
+msgstr "אין עדכון RSS זמין"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Unable to load the RSS feed. Please check your internet connection."
-msgstr ""
+msgstr "לא ניתן לטעון את עדכון ה-RSS. אנא בדוק את חיבור האינטרנט שלך."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "News"
-msgstr ""
+msgstr "חדשות"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
-msgstr ""
+msgstr "שדרג כעת"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Thank you for installing PDFCreator {0}."
-msgstr ""
+msgstr "תודה לך על שהתקנת את PDFCreator {0}."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "What's new?"
-msgstr ""
+msgstr "מה חדש?"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
@@ -122,45 +131,46 @@ msgstr "תמיכה בעדיפות"
 #. pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Your trial license will expire in {0} day."
 msgid_plural "Your trial license will expire in {0} days."
-msgstr[0] ""
+msgstr[0] "תקופת הניסיון שלך תפוג בעוד {0} ימים."
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 msgid "Your trial license expires today."
-msgstr ""
+msgstr "תקופת הניסיון שלך פגה היום."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
-msgstr ""
+msgstr "לחץ כאן כדי להאריך את הרשיון."
 
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.BrowseFileCommandTranslation
 msgid "The selected path is too long"
-msgstr ""
+msgstr "הטלאי הנבחר ארוך מדי"
 
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.BrowseFileCommandTranslation
 msgid "The selected path is too long. Please select a valid path."
-msgstr ""
+msgstr "הנתיב הנבחר ארוך מדי. בבקשה בחר נתיב תקין."
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.LoadSettingsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 msgid "Invalid settings"
-msgstr ""
+msgstr "הגדרות לא תקפות"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands.EvaluateSettingsAndNotifyUserTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 msgid "Confirm Save As"
-msgstr ""
+msgstr "אישור שמור כ"
 
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 msgid ""
@@ -172,49 +182,51 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "An error occurred:"
-msgstr ""
+msgstr "קוד שגיאה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "Errors occurred, but were ignored:"
-msgstr ""
+msgstr "התעלמנו מהשגיאות שהתרחשו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "Warning"
-msgstr ""
+msgstr "אזהרה"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "JPEG file"
-msgstr ""
+msgstr "קובץ JPEG"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PDF/A-1b file"
-msgstr ""
+msgstr "קובץ PDF/A-1b"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PDF/A-2b file"
-msgstr ""
+msgstr "קובץ PDF/A-2b"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PDF/A-3b file"
-msgstr ""
+msgstr "קובץ PDF/A-3b"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PDF file"
-msgstr ""
+msgstr "קובץ PDF"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PDF/X file"
-msgstr ""
+msgstr "קובץ PDF/X"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "PNG file"
-msgstr ""
+msgstr "קובץ PNG"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid ""
 "The path '{0}' is not a valid absolute path.\n"
 "Please select another filename and try again."
 msgstr ""
+"הנתיב '{0}' לא חוקי.\n"
+"בבקשה בחר שם אחר לקובץ ונסה שוב."
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid ""
@@ -222,18 +234,21 @@ msgid ""
 "do not have the required permissions.\n"
 "Please select another filename and try again."
 msgstr ""
+"לא ניתן לשמור את הקובץ '{0}'. ייתכן שהקובץ כרגע בשימוש או שאין את ההרשאות "
+"הנדרשות\n"
+"בחר שם קובץ אחר ונסה שנית."
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "Select destination"
-msgstr ""
+msgstr "בחר יעד"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "Text file"
-msgstr ""
+msgstr "קובץ טקסט"
 
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
 msgid "TIFF file"
-msgstr ""
+msgstr "קובץ TIFF"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Add another file"
@@ -241,41 +256,41 @@ msgstr "הוסף עוד קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Continue"
-msgstr ""
+msgstr "המשך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Delete print job"
-msgstr ""
+msgstr "מחק משימת הדפסה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Merge"
-msgstr ""
+msgstr "מזג"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Reorder and Merge Print Jobs"
-msgstr ""
+msgstr "מיזוג וסידור מחדש של עבודות ההדפסה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Document Info"
-msgstr ""
+msgstr "מידע על המסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Merged Files"
-msgstr ""
+msgstr "מזג קבצים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Pages:"
-msgstr ""
+msgstr "עמודים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Files:"
-msgstr ""
+msgstr "קבצים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: pdfforge.PDFCreator.Conversion.Settings.TableColumns
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
@@ -283,105 +298,105 @@ msgstr ""
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.GroupingColumn
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Title"
-msgstr ""
+msgstr "כותרת"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Date"
-msgstr ""
+msgstr "תאריך"
 
 #: pdfforge.PDFCreator.Conversion.Settings.TableColumns
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.GroupingColumn
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Author"
-msgstr ""
+msgstr "מחבר"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "ID"
-msgstr ""
+msgstr "מס' מזהה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Hint: You can drag the print jobs to reorder them"
-msgstr ""
+msgstr "טיפ: אתה יכול לגרור את העבודות כדי לסדר אותן מחדש"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by ID ascending"
-msgstr ""
+msgstr "מיין לפי מס' זיהוי עולה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by ID descending"
-msgstr ""
+msgstr "מיין לפי מס' זיהוי יורד"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by name ascending"
-msgstr ""
+msgstr "‏מיין לפי שם עולה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by name descending"
-msgstr ""
+msgstr "מיין לפי שם יורד"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by date ascending"
-msgstr ""
+msgstr "מיין לפי תאריך עולה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort by date descending"
-msgstr ""
+msgstr "מיין לפי תאריך יורד"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Select all"
-msgstr ""
+msgstr "בחר הכל"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.ManagePrintJobsWindowTranslation
 msgid "Sort"
-msgstr ""
+msgstr "מיין"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "No application is associated to open PDF files."
-msgstr ""
+msgstr "אין יישום המשויך לפתוח קבצי PDF."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "We recommend PDF Architect, our PDF viewer and editor."
-msgstr ""
+msgstr "אנו ממליצים על PDF Architect, תוכנת הצפייה והעריכה שלנו לקבצי PDF."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "Your version of PDF Architect does not support this feature."
-msgstr ""
+msgstr "הגרסה שלך של PDF Achitect לא תומכת בתכונה הזו."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "We recommend installing the new, improved PDF Architect."
-msgstr ""
+msgstr "אנו ממליצים להתקין את PDF Architect החדש והמשופר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "Benefit from our free features:"
-msgstr ""
+msgstr "אתם מוזמנים להנות מהתכונות החינמיות שלנו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "View and print any PDF"
-msgstr ""
+msgstr "הצג והכן כל קובץ PDF"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "Create PDF files"
-msgstr ""
+msgstr "יצירת קבצי PDF"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Install"
-msgstr "להתקין"
+msgstr "התקן"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "Don't show this window again"
-msgstr ""
+msgstr "אל תראה את החלון הזה שנית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Architect.ArchitectViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.RecommendPdfArchitectWindowTranslation
 msgid "Merge files"
-msgstr ""
+msgstr "מזג קבצים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Dialogs.InputBoxWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
@@ -399,22 +414,23 @@ msgstr "_ביטול"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateDownloadWindowTranslation
 msgid "Loading Update..."
-msgstr ""
+msgstr "טוען עדכון..."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "{0} Update"
-msgstr ""
+msgstr "{0} עדכון"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Ask Later"
-msgstr ""
+msgstr "שאל אחר כך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid ""
 "There was a problem during the download. Do you want to download the update "
 "from the website instead?"
 msgstr ""
+"הייתה בעייה במהלך ההורדה. האם אתה רוצה להוריד את העדכון מאתר האינטרנט במקום?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid ""
@@ -428,6 +444,8 @@ msgid ""
 "The new version {0} is available. Your current version is {1} from {2}.\n"
 "See full changelog below."
 msgstr ""
+"גרסה חדשה{0} זמינה. הגרסה הנוכחית שלך היא {1} מ{2}.\n"
+"ראה את כל השינויים למטה."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Version"
@@ -436,7 +454,7 @@ msgstr "גרסה"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Skip version"
-msgstr ""
+msgstr "דלג על הגרסה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.UpdateManagerTranslation
 msgid "Incompatible changes"
@@ -454,380 +472,118 @@ msgstr "תיקונים"
 msgid "Other changes"
 msgstr "שינויים אחרים"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "מוכן לעשות יותר מרקר הבסיס?"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
+"שחרר את התכונות המתקדמות של PDFCreator כדי ליצור תהליכי עבודה חכמים יותר "
+"ולחסוך זמן."
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "There was a problem with the connection to the license server."
-msgid "There was a problem with your license..."
-msgstr "הייתה בעייה בהתחברות לשרת הרשיון."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "תכונות לעסקים:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr "256-bit encryption"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "User Tokens"
+msgstr "מדריך למשתמש"
 
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Delete pages"
+msgstr "מחק דפים"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "עבור לפרופיל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
-msgstr ""
+msgstr "תמיכה בעדיפות"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "מדיניות הקבוצה"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Shared settings"
+msgstr "הגדרות משותפות"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Licensee:"
-msgid "Manage License"
-msgstr "רשיון:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Offline Activation"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Activation failed"
-msgid "Save activation for all users"
-msgstr "הפעלה נכשלה"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Error during saving the activation. Please try it again."
-msgid "An error occurred when saving the activation for all users."
-msgstr "שגיאה במהלך שמירת ההפעלה. בבקשה נסה בשנית.‍"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Activation successful"
-msgid "Save activation for all users was successful."
-msgstr "ההפעלה הצליחה"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "רשיון:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "שגיאה בעת אימות הרשיון."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "הייתה בעייה בהתחברות לשרת הרשיון."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "מספר המכשירים המחוברים חורג מן המותר ברשיון."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "מפתח הרשיון אינו תקף עבור מהדורה זו."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "הרשיון בתוקף."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "הרשיון אינו תקף עבור הגרסה הזו."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The activation code has a wrong format."
-msgstr "לקוד ההפעלה יש פורמט שגוי."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "אין לך מפתח רשיון בתוקף?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "רעוש עווד יכולות כאן."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "חדש את הרשיון שלך כאן."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "נהל את הרשיון שלך כאן."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "בבקשה הזן את מפתח הרשיון שלך."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "שגיאה במהלך שמירת ההפעלה. בבקשה נסה בשנית.‍"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "כתובת הקישור של שרת הרשיון הפנימי לא תקינה."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"הרשיון אינו מוכר על ידי שרת הרשיון הפנימי.\n"
-"בבקשה הכנס את הרשיון."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"‏הרשיון מיועד לשימוש עם שרת הרשיון הפנימי.\n"
-"בבקשה‍ וודא שהקיושר של שרת הרשיון הפנימי מוכן."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "MSI installer"
+msgstr "להתקין MSI"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
-msgstr ""
+msgstr "שתף את המשוב שלך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Describe your feedback"
-msgstr ""
+msgstr "תאר את המשוב שלך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Email"
-msgstr ""
+msgstr "דואל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Email address"
-msgstr ""
+msgstr "כתובת מייל"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Please provide details here"
-msgstr ""
+msgstr "הכנס פרטים כאן"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "What type of feedback would you like to send?"
-msgstr ""
+msgstr "איזה סוג של משוב ברצונך לשלוח?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Please select a feedback type"
-msgstr ""
+msgstr "בחר את נושא המשוב"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I need to report an issue"
-msgstr ""
+msgstr "אני צריך לדווח על בעייה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I want to share positive feedback"
-msgstr ""
+msgstr "ארי רוצה לשתף במשוב חיובי"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "I would like to suggest a feature"
-msgstr ""
+msgstr "אני רוצה להציע תכונה חדשה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Send"
-msgstr ""
+msgstr "שלח"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.FeedbackButtonTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Send us your feedback"
-msgstr ""
+msgstr "שלח את המשוב שלך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Attach a file"
-msgstr ""
+msgstr "צרף קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Image files"
-msgstr ""
+msgstr "קבצי תמונה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Attachment.AttachmentSettingsAndActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
@@ -835,12 +591,11 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "PDF files"
-msgstr ""
+msgstr "קבצי PDF"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
-#, fuzzy
 msgid "Video files"
-msgstr "הוסף קובץ"
+msgstr "קבצי וידאו"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -867,29 +622,31 @@ msgstr "כל הקבצים"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "File:"
-msgstr ""
+msgstr "קובץ:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "An error occured while attempting to submit your feedback"
-msgstr ""
+msgstr "אירעה שגיאה בעת הניסיון לשלוח את המשוב שלך"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid ""
 "Please note: This form is for feedback, not support.\r\n"
 "We may contact you to better understand your feedback."
 msgstr ""
+"שימו לב: הטופס הזה מיועד למשוב, לא תמיכה.\n"
+"ייתכן שניצור איתכם קשר בנוגע למשוב שלכם."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "PDFCreator Professional Required"
-msgstr ""
+msgstr "נדרש PDFCreator Professional"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "PDFCreator Terminal Server Required"
-msgstr ""
+msgstr "נדרש PDFCreator Terminal Server"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Upgrade your plan to start using PDFCreator for your business!"
-msgstr ""
+msgstr "שדרג את התוכנית כדי להתחיל להשתמש ב PDFCreator בעסק שלך!"
 
 #. Text before clickable 'request a quote.'
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -899,24 +656,27 @@ msgid ""
 "capabilities and priority support - required for businesses and teams! "
 "Upgrade effortlessly and keep your workflow running smoothly or"
 msgstr ""
+"עברו ל-PDFCreator {0} כדי לקבל גישה ליותר תכונות, יכולות אבטחה רחבות יותר "
+"ועדיפות בתמיכה – הנדרשות לעסקים ולצוותים! שדרגו בקלות ושמורו על זרימת עבודה "
+"חלקה או"
 
 #. Clickable action after 'Keep your workflow running smoothly or'
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgctxt "Keep your workflow running smoothly or..."
 msgid "request a quote."
-msgstr ""
+msgstr "בקשו הצעת מחיר."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Wondering what this means for your current workflows and business?"
-msgstr ""
+msgstr "תוהה מה המשמעות על זרימות העבודה והעסקים שלך?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Read more."
-msgstr ""
+msgstr "קרא עוד."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Start your free 30-day trial!"
-msgstr ""
+msgstr "התחל את תקופת הנסיון החינמית שלך למשך 30 יום!"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 #, fuzzy
@@ -926,7 +686,7 @@ msgstr "רשיון:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Already purchased PDFCreator {0}?"
-msgstr ""
+msgstr "כבר רכשת את PDFCreator {0}?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 #, fuzzy
@@ -936,46 +696,46 @@ msgstr "גרסה"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "*Please provide a valid email address."
-msgstr ""
+msgstr "*אנא ספק כתובת דוא\"ל תקפה."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download"
-msgstr ""
+msgstr "הורדה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Downloading..."
-msgstr ""
+msgstr "הורדה..."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "The new setup failed to launch, please try again."
-msgstr ""
+msgstr "ההגדרה החדש לא צלחה, בבקשה נסה שוב."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Setup launch failed"
-msgstr ""
+msgstr "הרצת ההתקנה נכשלה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
 "Setup download failed (most likely due to a network issue), please try again."
-msgstr ""
+msgstr "ההורדה של תוכנת ההתקנה נכשלה (ככל הנראה עקב בעיה ברשת), אנא נסה שוב."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download failed"
-msgstr ""
+msgstr "ההורדה נכשלה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Setup download was cancelled."
-msgstr ""
+msgstr "ההורדה של ההתקנה בוטלה."
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download cancelled"
-msgstr ""
+msgstr "ההורדה בוטלה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
 "Once you have a license or trial key, download and install PDFCreator {0} "
 "here."
-msgstr ""
+msgstr "ברגע שיש לך רישיון או מפתח ניסיון, הורד והתקן את PDFCreator {0} כאן."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -984,38 +744,36 @@ msgstr "הסכם רשיון"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Privacy Policy"
-msgstr ""
+msgstr "מדיניות פרטיות‪"
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Trial request failed due to a network issue, please try again."
-msgstr ""
+msgstr "בקשת הניסיון נכשלה עקב בעיה ברשת, אנא נסה שוב."
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
 "Trial request failed because the email address is already being used for a "
 "trial."
-msgstr ""
+msgstr "בקשת הניסיון נכשלה מכיוון שכתובת הדוא\"ל כבר משמשת לניסיון."
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Trial request failed"
-msgstr ""
+msgstr "בקשת הניסיון נכשלה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
 "Trial request sent. You will receive an email with your trial license key "
 "momentarily."
-msgstr ""
+msgstr "בקשת הניסיון נשלחה. תקבל מייל עם מפתח הרישיון לניסיון תוך זמן קצר."
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "Activation successful"
 msgid "Request successful"
-msgstr "ההפעלה הצליחה"
+msgstr "הבקשה בוצעה בהצלחה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "User Guide"
@@ -1035,46 +793,47 @@ msgstr "(פורומים)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "Feedback"
-msgstr ""
+msgstr "משוב"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid "BUSINESS FEATURE"
-msgstr ""
+msgstr "תכונות עסקיות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid ""
 "You need PDFCreator Professional for this feature. Click here for more "
 "information."
 msgstr ""
+"אתה צריך את PDFCreator Professional בשביל התכונה הזו. לחץ כאן למידע נוסף."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.BusinessFeatureTranslation
 msgid "Unlock the business features with PDFCreator Professional!"
-msgstr ""
+msgstr "שחרר את התכונות העסקיות עם PDFCreator Professional!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.FeedbackButtonTranslation
 msgid "Send us feedback"
-msgstr ""
+msgstr "שלח לנו משוב"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
 msgid "Debug"
-msgstr ""
+msgstr "ניפוי באגים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
 msgid "Viewer"
-msgstr ""
+msgstr "צופה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
-msgstr ""
+msgstr "רישיון"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
 msgid "Direct Convert"
-msgstr ""
+msgstr "המרה ישירה"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.Update.RestartApplicationInteractionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -1087,6 +846,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1095,47 +855,47 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.Shared.SettingControlsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Edit title replacement"
-msgstr ""
+msgstr "ערוך כותרת חלופית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Remove all"
-msgstr ""
+msgstr "הסר הכל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Remove at beginning"
-msgstr ""
+msgstr "הסר בהתחלה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Remove at end"
-msgstr ""
+msgstr "הסר בסוף"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Replace with regular expression"
-msgstr ""
+msgstr "החלף בביטוי רגיל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Invalid Regular Expression."
-msgstr ""
+msgstr "ביטוי רגולרי לא חוקי."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Show User Guide"
-msgstr ""
+msgstr "הצג מדריך למשתמש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Search for:"
-msgstr ""
+msgstr "חפש:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Search mode:"
-msgstr ""
+msgstr "מצב חיפוש:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Replace with:"
-msgstr ""
+msgstr "החלף ב:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -1156,25 +916,26 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Ok"
-msgstr ""
+msgstr "בסדר"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Sample title:"
-msgstr ""
+msgstr "כותרת לדוגמה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Sample title after replacements:"
-msgstr ""
+msgstr "כותרת לדוגמה לאחר ההחלפות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Add title replacement"
-msgstr ""
+msgstr "הוסף כותרת חלופית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Title replacements"
-msgstr ""
+msgstr "החלפת כותרות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
+#, fuzzy
 msgid ""
 "Some document titles may contain unwanted additions or do not have the right "
 "formatting. For example, when printing to PDFCreator, some applications add "
@@ -1183,16 +944,21 @@ msgid ""
 "applied title replacements can be accessed via the <PrintJobName> token, "
 "which can be used for settings such as output filename, title, etc."
 msgstr ""
+"כותרות מסמכים מסוימות עשויות לכלול תוספות לא רצויות או לא להיות מעוצבות "
+"כראוי. לדוגמה, בעת יצירה עם PDPCreator, חלק מהתוכנות מוסיפים את השם שלהם "
+"לכותרת המסמך החדש.\n"
+"הרשימה הבאה מגדירה כיצד לנהוג עם בתוספות אלו. ניתן לגשת לכותרת שהוחלפה "
+"באמצעות <PrintJobName> בו ניתן להשתמש להגדרות כגון שם קובץ הפלט, כותרת וכו'."
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.ReplacementType
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Start"
-msgstr ""
+msgstr "התחל"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.ReplacementType
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "End"
-msgstr ""
+msgstr "סוף"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.ReplacementType
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1203,7 +969,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Remove"
-msgstr ""
+msgstr "הסר"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.ReplacementType
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
@@ -1220,108 +986,377 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.Shared.SettingControlsTranslation
 msgid "Save"
-msgstr ""
+msgstr "שמור"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "רישיון מופעל"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "הפעלה נכשלה"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "ההפעלה הצליחה"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "הפעלה נכשלה"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "ההפעלה לא הצליחה:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
-msgstr ""
+msgstr "ההפעלה בוצעה בהצלחה."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "ההפעלה תקפה עד:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "הרישיון שלך הופעל בהצלחה."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "נהל רישיון"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage licenses"
+msgstr "נהל רישיונות"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr ""
+msgid "Offline activation"
+msgstr "הפעלה לא מקוונת"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Online activation"
+msgstr "הפעלה מקוונת"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#, fuzzy
-#| msgid "License Agreement"
-msgid "License renews on:"
-msgstr "הסכם רשיון"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "הצג רישיון"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License Key:"
 msgstr "מפתח רשיון:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License status:"
-msgstr ""
+msgstr "מצב הרישיון:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "פרטי הרישיון"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
 msgid "Machine ID:"
-msgstr ""
+msgstr "מזהה מכונה:"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Manage licenses"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Offline activation"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Online activation"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
-msgstr ""
+msgstr "מאמת רישיון..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "תוקף:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "ההפעלה תקפה עד:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "הרישיון מתחדש ב:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "הפעלה אחרונה:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "הזן מפתח רישיון"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "בבקשה הזן את מפתח הרשיון שלך:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"רישיון הניסיון שלך פג...\n"
+"בואו נמשיך את זרימת העבודה שלך"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "הייתה עם הרשיון שלך."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "בדוק את הרישיון שלך עכשיו כדי להמשיך לקבל גישה ל:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"שדרוג מבטיח פרודוקטיביות לטווח ארוך ומספק גישה למהדורות העסקיות שלנו, כולל "
+"תכונות אוטומציה מתקדמות כגון:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "שמור את PDFCreator כחלק קבוע ממערך הכלים שלך."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "שדרג כעת"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "מדריך למשתמש"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-scripts"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "העברת פרופיל"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "האם ברצונך לשתף את הפעילות שלך עם כל המשתמשים במערכת שלך?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "אנא שתף את ההפעלה שלך עם כל המשתמשים במערכת שלך."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "שמור הפעלה עבור כל המשתמשים"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr "שגיאה התרחשה במהלך שמירת הפעילות לכלל המשתמשים."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "An error occurred while storing license for all users."
-msgstr ""
+msgstr "אירעה שגיאה בעת שמירת הרישיון עבור כל המשתמשים."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "השמירה עבור כל המשתמשים בוצעה בהצלחה."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
-msgstr ""
+msgstr "רישיון החנות לכל המשתמשים הושלם בהצלחה."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr "PDFCreator Terminal Server דורש שהרישיון יישמר עבור כל המשתמשים."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "הזכר לי מאוחר יותר"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
 msgstr ""
+"לא ניתן להשתמש בהפעלה לא מקוונת מכיוון ש-PDFCreator מוגדר להשתמש בשרת "
+"הרישיונות הפנימי."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr "הרישיון שלך הופעל בהצלחה, תודה על השימוש ב-{0}."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "אנא הזן את מפתח הרישיון שלך כדי להמשיך להשתמש ב-{0}"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "בודק את הרישיון..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
 msgstr ""
+"מפתח הרישיון מכיל תווים לא חוקיים. התווים החוקיים הם: A-Z, 0-9 וקו נטוי."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#, fuzzy
-#| msgid "Licensee:"
-msgid "View License"
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"מפתח הרישיון מורכב מ-30 תווים או מספרים, כלומר \"12345-67890-ABCDE-EFGHI-"
+"JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "לעולם"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
 msgstr "רשיון:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "תוקף ההפעלה פג. אנא חידש את ההפעלה."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "המכשיר או המשתמש חסומים. בבקשה פנה לתמיכה שלנו."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "שגיאה בעת אימות הרשיון."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "מפתח הרשיון אינו תקין. בבקשה הזן מפתח רשיון חדש.‫"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "תוקף הרשיון פג. אנא חדש את הרשיון שלך."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "תקופת הניסיון של הרישיון הסתיימה."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "אין מפתח רשיון זמין. בבקשה הזן מפתח רשיון חדש."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "הייתה בעייה בהתחברות לשרת הרשיון."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "מספר המכשירים המחוברים חורג מן המותר ברשיון."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "מפתח הרשיון אינו תקף עבור מהדורה זו."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "הרשיון בתוקף."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"ההפעלה הלא מקוונת שלך פקעה. אנא הפעל מחדש את הרישיון שלך באופן מיידי כדי "
+"למנוע חסימת היישום."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"תוקף ההפעלה של שרת הרישיונות הפנימי שלך פג. אנא הפעל מחדש את הרישיון שלך "
+"באופן מיידי כדי למנוע חסימת היישום."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "תוקף הרישיון שלך יפוג בעוד יום אחד."
+msgstr[1] "תוקף הרישיון שלך יפוג בעוד יומיים."
+msgstr[2] "תוקף הרישיון שלך יפוג בעוד {0} ימים."
+msgstr[3] "תוקף הרשיון שלך יפוג בעוד {0} ימים."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The activation code has a wrong format."
+msgstr "לקוד ההפעלה יש פורמט שגוי."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "אין לך מפתח רשיון בתוקף?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "רעוש עווד יכולות כאן."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "חדש את הרשיון שלך כאן."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "נהל את הרשיון שלך כאן."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "בבקשה הזן את מפתח הרשיון שלך."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "שגיאה במהלך שמירת ההפעלה. בבקשה נסה בשנית.‍"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "כתובת הקישור של שרת הרשיון הפנימי לא תקינה."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"הרשיון אינו מוכר על ידי שרת הרשיון הפנימי.\n"
+"בבקשה הכנס את הרשיון."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"‏הרשיון מיועד לשימוש עם שרת הרשיון הפנימי.\n"
+"בבקשה‍ וודא שהקישור של שרת הרשיון הפנימי מוכן."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1329,10 +1364,13 @@ msgid ""
 "It must look like '12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU'.\n"
 "Valid characters are: A-Z, 0-9 and the dash."
 msgstr ""
+"מפתח הרישיון שגוי.\n"
+"הוא חייב להיראות כך: '12345-67890-ABCDE-EFGHI-JKLMNO-PRSTU'.\n"
+"התווים התקפים הם: A-Z, 0-9 וקו נטוי."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Copy the offline activation string:"
-msgstr ""
+msgstr "העתק את מחרוזת ההפעלה במצב לא מקוון:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Dialogs.InputBoxWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password.PasswordOverlayTranslation
@@ -1344,19 +1382,19 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SmtpPasswordStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "_Ok"
-msgstr ""
+msgstr "_בסדר"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Paste the response code here:"
-msgstr ""
+msgstr "הדבק כאן את קוד התגובה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Request an activation code on our website:"
-msgstr ""
+msgstr "בקש קוד הפעלה באתר האינטרנט שלנו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Ask"
-msgstr ""
+msgstr "שאל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
@@ -1366,24 +1404,24 @@ msgstr "הוסף"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Added to context menu"
-msgstr ""
+msgstr "נוסף לתפריט ההקשר"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Allow PDFCreator to temporarily change the default printer"
-msgstr ""
+msgstr "אפשר ל-PDFCreator לשנות באופן זמני את המדפסת המוגדרת כברירת מחדל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Check now"
-msgstr ""
+msgstr "בדוק עכשיו"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SelectPrinter
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Default printer"
-msgstr ""
+msgstr "מדפסת ברירת מחדל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Download the latest version at:"
-msgstr ""
+msgstr "הורד את הגרסה האחרונה בכתובת:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Language"
@@ -1396,15 +1434,16 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "Please note that you won't receive any notifications about available updates!"
-msgstr ""
+msgstr "שימו לב שלא תקבלו התראות על עדכונים זמינים!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
 msgid "Removed from context menu (Maybe you need to restart your computer)"
-msgstr ""
+msgstr "הוסר מתפריט ההקשר (ייתכן שתצטרך להפעיל מחדש את המחשב)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Select the application language:"
-msgstr ""
+msgstr "בחר את שפת היישום:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1412,6 +1451,8 @@ msgid ""
 "would like to contribute your translation skills, please visit our "
 "translation page:"
 msgstr ""
+"PDFCreator מתורגם כל ידי מתנדבים מקהילת המתרגמים שלנו. את אתה מעוניין לתרום "
+"מכישורי התרגום שלך, בבקשה בקר בדף התרגום שלנו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Update"
@@ -1419,67 +1460,69 @@ msgstr "שדרוג"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Update check is already running."
-msgstr ""
+msgstr "בדיקת העדכונים כבר רצה."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "{0} was not able to look for an update.\n"
 "Please check your internet connection and retry later."
 msgstr ""
+"{0} לא הצליח לחפש עדכון.\n"
+"אנא בדוק את חיבור האינטרנט שלך ונסה שנית מאוחר יותר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Update check"
-msgstr ""
+msgstr "בדוק עדכונים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "You already have the most recent version."
-msgstr ""
+msgstr "כבר יש לך את הגרסה העדכנית ביותר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Check for updates:"
-msgstr ""
+msgstr "בדוק אם יש עדכונים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Yes"
-msgstr ""
+msgstr "כן"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Install Update"
-msgstr ""
+msgstr "התקן עדכון"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Usage statistics"
-msgstr ""
+msgstr "סטטיסטיקת שימוש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Send usage statistics"
-msgstr ""
+msgstr "שלח סטטיסטיקות שימוש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Show sample statistics"
-msgstr ""
+msgstr "הצג דוגמה לסטטיסטיקה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Job statistics example:"
-msgstr ""
+msgstr "דוגמה לסטטיסטיקה עסקית:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Service statistics example:"
-msgstr ""
+msgstr "דוגמה לסטטיסטיקת שירות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Read our privacy policy here:"
-msgstr ""
+msgstr "קרא את מדיניות הפרטיות שלנו כאן:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Privacy policy"
-msgstr ""
+msgstr "מדיניות פרטיות‪"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Configure home screen"
-msgstr ""
+msgstr "הגדר את מסך הבית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Activate RSS news feed"
@@ -1487,7 +1530,7 @@ msgstr "הפעל עדכון RSS חדשות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Show tips"
-msgstr ""
+msgstr "הצג טיפים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1497,18 +1540,31 @@ msgid ""
 "not be shared with any third party. Expand the sample data below to see what "
 "data are sent."
 msgstr ""
+"עזרו לנו לשפר את {0} על ידי שליחת סטטיסטיקות שימוש אנונימית ביישום. איסוף "
+"סטטיסטיקות השימוש לא ישפיע על ביצועי היישום. נתונים אלה ישמשו אותנו רק "
+"למטרות ניתוח ולא יועברו לצד שלישי כלשהו. הרחיבו את נתוני הדוגמה שלהלן כדי "
+"לראות אילו נתונים נשלחים."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "If you want to know more you can take a look at our manual:"
-msgstr ""
+msgstr "אם ברצונך לדעת יותר, תוכל לעיין במדריך שלנו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "PDFCreator standby"
-msgstr ""
+msgstr "PDFCreator במצב המתנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Standby duration"
+msgstr "משך זמן המתנה"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Restart"
+msgstr "התחל מחדש"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
 msgstr ""
+"הפעל את מצב המתנה ו-HotFolder (אם מופעל) באמצעות הפעלה אוטומטית של Windows"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1517,172 +1573,175 @@ msgid ""
 "configured time with a low footprint. This significantly accelerates further "
 "conversions."
 msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr ""
+"PDFCreator משתמש במצב המתנה כדי להאיץ את ההדפסה והשימוש ב-PDFCreator. לאחר "
+"סגירת PDFCreator, היישום ימשיך לפעול במשך הזמן שהוגדר עם דרישות נמוכות. זה "
+"מאיץ משמעותית המרות נוספות."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "The new version {0} is available.\n"
 "Would you like to download the new version?"
 msgstr ""
+"הגרסה החדשה {0} זמינה.\n"
+"האם ברצונך להוריד את הגרסה החדשה?"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion.DirectConversionTranslation
 msgid "Direct image conversion settings"
-msgstr ""
+msgstr "הגדרות המרה ישירה של תמונות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion.DirectConversionTranslation
 msgid "Select page size:"
-msgstr ""
+msgstr "בחר גודל דף:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DirectConversion.DirectConversionTranslation
 msgid "Select page orientation:"
-msgstr ""
+msgstr "בחר כיוון הדף:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
+msgid "Default viewer"
+msgstr "פרופיל ברירת מחדל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "<Default Profile>"
-msgid "Default viewer"
-msgstr "<פרופיל ברירת מחדל>"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 msgid "Executable files"
-msgstr ""
+msgstr "קבצי הרצה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 msgid "Executable path:"
-msgstr ""
+msgstr "נתיב ההפעלה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
-#, fuzzy
 msgid "Additional parameters:"
-msgstr "הוסף קובץ מצורף"
+msgstr "פרמטרים נוספים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 msgid ""
 "Here you can setup a custom program for viewing your generated documents. "
 "The windows default program will be used if you don't select anything here."
 msgstr ""
+"כאן תוכל להגדיר תוכנית מותאמת אישית לצפייה במסמכים שנוצרו. אם לא תבחר כאן "
+"דבר, תשתמש בתוכנית ברירת המחדל של Windows."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Clear log file"
-msgstr ""
+msgstr "נקה קובץ יומן"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Restore"
-msgstr ""
+msgstr "שחזור"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Add to settings"
 msgid "Default settings"
-msgstr "הוסף להגדרות"
+msgstr "הגדרות ברירת מחדל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
-#, fuzzy
-#| msgid "Add to settings"
 msgid "Export settings"
-msgstr "הוסף להגדרות"
+msgstr "ייצוא הגדרות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Load settings from file"
-msgstr ""
+msgstr "טען הגדרות מקובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Load specific profiles from file"
-msgstr ""
+msgstr "טען פרופילים ספציפיים מקובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
+#, fuzzy
 msgid "Load specific queues from file"
-msgstr ""
+msgstr "טען תורים ספציפיים מקובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Log file cleared"
-msgstr ""
+msgstr "קובץ היומן נמחק"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Logging"
-msgstr ""
+msgstr "רישום"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Logging level:"
-msgstr ""
+msgstr "רמת רישום:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Convert PDFCreator test page"
-msgstr ""
+msgstr "המר דף בדיקה של PDFCreator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Save settings to file"
-msgstr ""
+msgstr "שמור הגדרות לקובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Save settings without passwords"
-msgstr ""
+msgstr "שמור הגדרות ללא סיסמאות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid ""
 "Hint: We recommend to save your settings without passwords when sharing "
 "settings with our support"
 msgstr ""
+"רמז: אנו ממליצים לשמור את ההגדרות ללא סיסמאות כאשר אתה משתף את ההגדרות עם "
+"שירות התמיכה שלנו"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Show log file"
-msgstr ""
+msgstr "הצג קובץ יומן"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Open event log"
-msgstr ""
+msgstr "פתח יומן אירועים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Test pages"
-msgstr ""
+msgstr "דפי בדיקה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Print Windows test page"
-msgstr ""
+msgstr "הדפס דף בדיקה של Windows"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid ""
 "Do you really want to restore the default settings? The current settings "
 "will be lost."
 msgstr ""
+"אתה בטוח שאתה מעוניין לשחזר להגדרות ברירת המחדל? ההגדרות הנוכחיות יאבדו."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "No log file"
-msgstr ""
+msgstr "אין קובץ יומן"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "There is currently no log file available."
-msgstr ""
+msgstr "כרגע אין קובץ יומן זמין."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Restore default settings"
-msgstr ""
+msgstr "שחזור הגדרות ברירת המחדל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "PDFCreator test page"
-msgstr ""
+msgstr "דף בדיקה של PDFCreator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid "Convert test page and open directory"
-msgstr ""
+msgstr "המר דף בדיקה ופתח ספרייה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid ""
 "Convert a test page with the current profile and open the saving directory"
-msgstr ""
+msgstr "המרת דף בדיקה עם הפרופיל הנוכחי ופתיחת ספריית השמירה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 msgid ""
 "Convert a test page with the current profile. You will be asked to save the "
 "settings if required."
 msgstr ""
+"המר דף בחינה עם הפרופיל הנוכחי. אתה תתדרש לשמור את ההגכדרות הנוכחיות במידת "
+"הצורך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Load Profiles"
-msgstr ""
+msgstr "טעינת פרופילים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Load Queues"
@@ -1690,7 +1749,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Load specific profiles from an exported INI file"
-msgstr ""
+msgstr "טען פרופילים ספציפיים מקובץ INI שיוצא"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Load specific queues from an exported INI file"
@@ -1698,15 +1757,15 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Settings INI file:"
-msgstr ""
+msgstr "קובץ INI של הגדרות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Select INI file"
-msgstr ""
+msgstr "בחר קובץ INI"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "PDFCreator settings files"
-msgstr ""
+msgstr "קובצי הגדרות PDFCreator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.LoadSpecificProfileTranslation
 msgid "Add to settings"
@@ -1715,21 +1774,22 @@ msgstr "הוסף להגדרות"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor.WorkflowEditorTranslation
 msgid "Preparation"
-msgstr ""
+msgstr "הכנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor.WorkflowEditorTranslation
+#, fuzzy
 msgid "Modify"
-msgstr ""
+msgstr "לשנות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor.WorkflowEditorTranslation
 msgid "Send/Open"
-msgstr ""
+msgstr "שלח/פתח"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.AddActionOverlayViewTranslation
 msgid "Choose an action"
-msgstr ""
+msgstr "בחר פעולה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
@@ -1741,85 +1801,83 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Title:"
-msgstr ""
+msgstr "כותרת:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Author:"
-msgstr ""
+msgstr "מחבר:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Subject:"
-msgstr ""
+msgstr "נושא:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Keywords:"
-msgstr ""
+msgstr "מילות מפתח:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.MetadataTabTranslation
 msgid "The selected output format does not support metadata"
-msgstr ""
+msgstr "פורמט הפלט הנבחר אינו תומך במטא־דאטה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Output format"
-msgstr ""
+msgstr "פורמט פלט"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "General settings"
-msgstr ""
+msgstr "הגדרות כלליות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Page orientation:"
-msgstr ""
+msgstr "כיוון הדף:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Color model:"
-msgstr ""
+msgstr "סוג צבע:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
-#, fuzzy
-#| msgid "Add to settings"
 msgid "Viewer settings"
-msgstr "הוסף להגדרות"
+msgstr "הגדרות צפייה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Page view:"
-msgstr ""
+msgstr "תצוגת עמוד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Document view:"
-msgstr ""
+msgstr "תצוגת מסמך:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Viewer opens on page:"
-msgstr ""
+msgstr "פתיחת צפייה בעמוד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Image compression:"
-msgstr ""
+msgstr "דחיסת תמונות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Factor:"
-msgstr ""
+msgstr "גורם:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Resample images to (DPI):"
-msgstr ""
+msgstr "דגימה מחדש של תמונות ל- (DPI):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Advanced:"
-msgstr ""
+msgstr "מתקדם:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Save validation report"
-msgstr ""
+msgstr "שמור דוח אימות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "The rgb color mode is not supported for PDF/X"
@@ -1830,19 +1888,21 @@ msgid ""
 "Use new Ghostscript PDF interpreter\n"
 "(uncheck if the new version causes issues)"
 msgstr ""
+"השתמש במתורגמן PDF Ghostscript החדש\n"
+"(בטל את הסימון אם הגרסה החדשה גורמת לבעיות)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Colors:"
-msgstr ""
+msgstr "צבעים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Quality (%):"
-msgstr ""
+msgstr "איכות (%):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Resolution (DPI):"
-msgstr ""
+msgstr "רזולוציה (DPI):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid ""
@@ -1850,6 +1910,8 @@ msgid ""
 "ways to create a TXT file from a printed document. You can choose between "
 "four different strategies:"
 msgstr ""
+"מכיוון שפורמט הטקסט מוגבל מאוד מבחינת מה שניתן להציג, ישנן דרכים רבות ליצור "
+"קובץ TXT ממסמך מודפס. ניתן לבחור בין ארבע אסטרטגיות שונות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid ""
@@ -1869,118 +1931,114 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "UTF-8 text which approximates the original text layout"
-msgstr ""
+msgstr "טקסט UTF-8 המתקרב לפריסת הטקסט המקורית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "Add New Profile"
 msgid "Add new profile"
 msgstr "הוסף פרופיל חדש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
-#, fuzzy
-#| msgid "Add New Profile"
 msgid "New profile"
-msgstr "הוסף פרופיל חדש"
+msgstr "פרופיל חדש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Please enter profile name:"
-msgstr ""
+msgstr "אנא הזן שם פרופיל:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Please enter new profile name:"
-msgstr ""
+msgstr "אנא הזן שם פרופיל חדש:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "The entered profile name is invalid or does already exist."
-msgstr ""
+msgstr "שם הפרופיל שהוזן אינו חוקי או כבר קיים."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Profile:"
-msgstr ""
+msgstr "פרופיל:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Rename"
-msgstr ""
+msgstr "שינוי שם"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Rename profile"
-msgstr ""
+msgstr "שינוי שם פרופיל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Remove profile"
-msgstr ""
+msgstr "הסר פרופיל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "Are you sure, you want to remove this profile?"
-msgstr ""
+msgstr "האם אתה בטוח שברצונך להסיר את הפרופיל הזה?"
 
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "The profile is mapped to the following printer:"
 msgid_plural "The profile is mapped to the following printers:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "הפרופיל ממופה למדפסת הבאה:"
+msgstr[1] "הפרופיל ממופה למדפסות הבאות:"
+msgstr[2] "הפרופיל ממופה למדפסות הבאות:"
+msgstr[3] "הפרופיל ממופה למדפסות הבאות:"
 
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 msgid "This printer will be mapped to the default profile."
 msgid_plural "These printers will be mapped to the default profile."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "מדפסת זו תמופה לפרופיל ברירת המחדל."
+msgstr[1] "מדפסות אלה ימופו לפרופיל ברירת המחדל."
+msgstr[2] "מדפסות אלה ימופו לפרופיל ברירת המחדל."
+msgstr[3] "מדפסות אלה ימופו לפרופיל ברירת המחדל."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Interactive"
-msgstr ""
+msgstr "אינטראקטיבי"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.CompressionColorAndGray
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageSize
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Automatic"
-msgstr ""
+msgstr "אוטומטי"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Filename:"
-msgstr ""
+msgstr "שם הקובץ:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Target directory:"
-msgstr ""
+msgstr "ספריית היעד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Last used directory"
-msgstr ""
+msgstr "הספרייה האחרונה שבה נעשה שימוש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Only save file temporarily"
-msgstr ""
+msgstr "שמור קובץ באופן זמני בלבד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Missing directory"
-msgstr ""
+msgstr "ספרייה חסרה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Show quick actions"
-msgstr ""
+msgstr "הצג פעולות מהירות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Skip job dialog"
-msgstr ""
+msgstr "דלג על תיבת הדו־שיח של המשימה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Skip send failures"
-msgstr ""
+msgstr "דלג על כשלים בשליחה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Show tray notification"
@@ -1989,31 +2047,31 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Behavior for existing file:"
-msgstr ""
+msgstr "התנהגות קובץ קיים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Overwrite"
-msgstr ""
+msgstr "שכתב"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Ensure unique filenames"
-msgstr ""
+msgstr "ודא שמות קבצים ייחודיים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Merge before the actions"
-msgstr ""
+msgstr "מזג לפני הפעולות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Non-pdf auto-merge"
-msgstr ""
+msgstr "מיזוג אוטומטי שאינו pdf"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Resolution:"
-msgstr ""
+msgstr "החלטה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 msgid "Compression:"
-msgstr ""
+msgstr "דחיסה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Shows a window to select the filename, output format etc."
@@ -2024,85 +2082,98 @@ msgid ""
 "Converts all documents without asking for settings.\n"
 "This requires all necessary settings to be set in advance."
 msgstr ""
+"ממיר את כל המסמכים מבלי לבקש הגדרות.\n"
+"לשם כך, יש להגדיר מראש את כל ההגדרות הנדרשות."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "Hint: Leave the target directory blank, to use the recently used target "
 "directory."
-msgstr ""
+msgstr "רמז: השאר את ספריית היעד ריקה, כדי להשתמש בספריית היעד ששימשה לאחרונה."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Skip job dialog (start with save dialog)"
-msgstr ""
+msgstr "דלג על תיבת הדו-שיח של המשימה (התחל עם תיבת הדו-שיח של השמירה)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
 msgid "Skip send actions that fail"
-msgstr ""
+msgstr "דלג על פעולות שליחה שנכשלו"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
 msgid "Warn when a send action is skipped"
-msgstr ""
+msgstr "התראה כאשר פעולת שליחה מדולגת"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "Saving files temporarily without any enabled send action, will only store "
 "files in a temporary folder"
 msgstr ""
+"שמירת הקבצים באופן זמני מבלי פעולת שליחה, תוביל לשמירת הקבצים בתיקייה זמנית "
+"בלבד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Show preview"
-msgstr ""
+msgstr "הצג תצוגה מקדימה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "Select this to only save files in a temporary directory, e.g. if sent by "
 "email"
 msgstr ""
+"בחר באפשרות זו כדי לשמור קבצים בתיקייה זמנית בלבד, למשל, אם הם נשלחים בדוא\"ל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Select target directory"
-msgstr ""
+msgstr "בחר את ספריית היעד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Overwrite files"
-msgstr ""
+msgstr "שכתב קבצים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Ensure unique filenames - don't overwrite existing files"
-msgstr ""
+msgstr "הקפד על שמות קבצים ייחודים - על תדרוס קבצים קיימים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Auto merge - Append new files to the existing file (only for PDF)"
-msgstr ""
+msgstr "מיזוג אוטומטי – הוסף קבצים חדשים לקובץ הקיים (רק עבור PDF)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "Auto merge - Append new files to the existing file before the modify actions "
 "are applied (only for PDF)"
-msgstr ""
+msgstr "מיזוג אוטמטי – ‏צירוף קבצים קיימים לפני החלת השינוי (רק עבור PDF)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "If a file already exists, an incrementing number is added to the filename, e."
 "g. 'file_5.pdf'"
-msgstr ""
+msgstr "אם הקובץ כבר קיים, מספר עולה יתווסף לשם הקובץ. לדוג', 'file_5.pdf'."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Show quick actions after the documents were converted"
-msgstr ""
+msgstr "הצג פעולות מהירות לאחר המרת המסמכים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Show tray notification after converting a document"
-msgstr ""
+msgstr "הצג חלון התראה לאחר המרת המסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid "Only show notification for errors"
-msgstr ""
+msgstr "הצג התראות על שגיאות בלבד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
 msgid ""
 "Please be aware: By utilizing user tokens in the target directory users are "
 "able to save files to any directory the service has write permission."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
@@ -2114,13 +2185,11 @@ msgstr "סגור"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Back"
-msgstr ""
+msgstr "חזרה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
-#, fuzzy
-#| msgid "Add to settings"
 msgid "Modify settings:"
-msgstr "הוסף להגדרות"
+msgstr "שנה הגדרות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditor.WorkflowEditorTranslation
@@ -2149,27 +2218,26 @@ msgstr "הוסף פעולות כדי לשנות, לשלוח או להכין את
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Directory:"
-msgstr ""
+msgstr "יעד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Sites:"
-msgstr ""
+msgstr "אתר:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Drives:"
-msgstr ""
+msgstr "כונן:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
-#, fuzzy
 msgid "Selected account:"
-msgstr "חשבונות"
+msgstr "חשבונות נבחרים:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid ""
 "Don't overwrite files (add an incrementing number in case a file already "
 "exists)"
-msgstr ""
+msgstr "אל תדרוס קבצים (הוסף מספר עולה במקרה שהקובץ כבר קיים)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
@@ -2179,7 +2247,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.Microsoft.OneDriveTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Open upload in browser"
-msgstr ""
+msgstr "פתח קובץ בדפדפן"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2227,7 +2295,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Settings.ForwardToFurtherQueueTranslation
 msgid "This feature is not supported by the selected output format"
-msgstr ""
+msgstr "תוכנה זו אינה נתמכת בפורמט הפלט שנבחר"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2256,7 +2324,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Settings.ForwardToFurtherQueueTranslation
 msgid "This feature is already enabled for the selected profile"
-msgstr ""
+msgstr "תוכנה זו כבר מופעלת בפרופיל שנבחר"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2270,19 +2338,20 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Sharepoint.SharepointTranslation
 msgid "Select an account or create a new one ->"
-msgstr ""
+msgstr "בחר חשבון או צור אחד חדש ->"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 msgid "Run program"
-msgstr ""
+msgstr "הרץ תוכנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
+#, fuzzy
 msgid "Executable Files"
-msgstr ""
+msgstr "קבצים להרצה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 msgid "Select program"
-msgstr ""
+msgstr "בחר תוכנית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 #, fuzzy
@@ -2290,16 +2359,18 @@ msgid "Additional program parameters:"
 msgstr "הוסף קובץ מצורף"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
+#, fuzzy
 msgid "Call preview:"
-msgstr ""
+msgstr "תצוגה מקדימה של השיחה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
+#, fuzzy
 msgid "Program file:"
-msgstr ""
+msgstr "קובץ התוכנית:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 msgid "Wait until the program has ended"
-msgstr ""
+msgstr "המתן עד שהתוכנית תסתיים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 msgid ""
@@ -2310,27 +2381,27 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Print document"
-msgstr ""
+msgstr "הדפס מסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Duplex printing (if support by the printer)"
-msgstr ""
+msgstr "הדפסה דו־צדדית (אם המדפסת תומכת)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Select printer:"
-msgstr ""
+msgstr "בחר מדפסת:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Fit to the page size of the printer"
-msgstr ""
+msgstr "התאם לגודל הדף של המדפסת"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Print"
-msgstr ""
+msgstr "הדפס"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid "Prints the document to a physical printer."
-msgstr ""
+msgstr "מדפיס את המסמך במדפסת פיזית."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.Print.PrintTabTranslation
 msgid ""
@@ -2338,6 +2409,8 @@ msgid ""
 "forwarding action. It doesn't require additional printing, is quicker and "
 "less error prone."
 msgstr ""
+"המדפסת שנבחרה מקושרת ל-PDFCreator. מומלץ לשקול שימוש בפעולת ההעברה. פעולה זו "
+"אינה מצריכה הדפסה נוספת, היא מהירה יותר ופחות מועדת לטעויות."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 #, fuzzy
@@ -2346,15 +2419,21 @@ msgstr "הוסף קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use PDF Architect"
-msgstr ""
+msgstr "השתמש ב – PDF Architect"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "פתח תיקייה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
-msgstr ""
+msgstr "השתמש ב-{0}"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use Windows default viewer"
-msgstr ""
+msgstr "השתמש בתוכנת הצפייה המובנית של Windows"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid ""
@@ -2362,27 +2441,34 @@ msgid ""
 "in the Viewer section of the settings in PDFCreator or change your default "
 "viewer for Windows."
 msgstr ""
+"תוכנת הצפייה המוגדרת כברירת מחדל נקבעת על ידי Windows. ניתן להגדיר תוכנת "
+"צפייה משלך בקטע 'תוכנת צפייה' בהגדרות של PDFCreator, או לשנות את תוכנת "
+"הצפייה המוגדרת כברירת מחדל ב-Windows."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
-msgstr ""
+#, fuzzy
+msgid "Open file/directory"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
+msgstr "פתח קובץ או תיקייה בתצוגה/בסייר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Click here for more info on {0}"
-msgstr ""
+msgstr "לחץ כאן לקבלת מידע נוסף על {0}"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles.SelectFileTranslation
 msgid "Add file"
 msgstr "הוסף קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles.SelectFileTranslation
-#, fuzzy
 msgid "Select file:"
-msgstr "<פרופיל ברירת מחדל>"
+msgstr "בחר קובץ:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SelectFiles.SelectFileTranslation
 msgid "Apply"
-msgstr ""
+msgstr "החל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
 msgid "Extract user tokens"
@@ -2416,8 +2502,9 @@ msgid ""
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
+#, fuzzy
 msgid "Select separator:"
-msgstr ""
+msgstr "בחר מפריד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.UserToken.UserTokenTranslation
 msgid "More on user tokens"
@@ -2434,33 +2521,32 @@ msgid ""
 "Extracts values from the source document and uses them anywhere they are "
 "supported by PDFCreator."
 msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-msgid "Forward to profile"
-msgstr "הוסף פרופיל חדש"
+"מחלץ ערכים ממסמך המקור ומשתמש בהם בכל מקום שבו הם נתמכים על ידי PDFCreator."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
-msgstr ""
+msgstr "בחר פרופיל:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid ""
 "Trigger another conversion by forwarding the original source document to "
 "another profile, e.g. to convert to another output format."
 msgstr ""
+"הפעל המרה נוספת על ידי העברת המסמך המקורי לפרופיל אחר, למשל כדי להמיר אותו "
+"לפורמט פלט אחר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
+#, fuzzy
 msgid "CS-Script"
-msgstr ""
+msgstr "CS-Script"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "Check script"
-msgstr ""
+msgstr "בדוק סקריפט"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "CS-Script file:"
-msgstr ""
+msgstr "קובץ CS-Script:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "The folder 'CS-Scripts' in the application directory does not exist."
@@ -2479,8 +2565,9 @@ msgid "Open CS-Scripts folder"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
+#, fuzzy
 msgid "Enable debugging."
-msgstr ""
+msgstr "הפעל ניפוי שגיאות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.CsScript.CsScriptTranslation
 msgid "Reload script list"
@@ -2498,81 +2585,82 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "From top:"
-msgstr ""
+msgstr "מלמעלה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "From bottom:"
-msgstr ""
+msgstr "מלמטה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "From right:"
-msgstr ""
+msgstr "מימין:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "From left:"
-msgstr ""
+msgstr "משמאל:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "From center:"
-msgstr ""
+msgstr "מהמרכז:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Unit of measurement:"
-msgstr ""
+msgstr "יחידת מידה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Alternate corner every page"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
+#, fuzzy
 msgid "Positioning of the number on the page:"
-msgstr ""
+msgstr "מיקום המספר בדף:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Number Settings"
-msgstr ""
+msgstr "הגדרות מספרים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Begin on page:"
-msgstr ""
+msgstr "מתחיל בעמוד:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Begin counting at:"
-msgstr ""
+msgstr "התחל ספירה מ:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Use Roman numerals"
-msgstr ""
+msgstr "השתמש בספרות רומיות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Format:"
-msgstr ""
+msgstr "פורמט:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Page numbers"
-msgstr ""
+msgstr "מספרי עמוד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Adds page numbers to the document."
-msgstr ""
+msgstr "הוסף מספרי עמוד למסמך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
-msgstr ""
+msgstr "בחר קובץ לסימן מים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Watermark file (only PDF):"
-msgstr ""
+msgstr "קובץ סימן מים (pdf בלבד):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Repetition:"
-msgstr ""
+msgstr "חזרה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
@@ -2582,7 +2670,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Fit to page"
-msgstr ""
+msgstr "התאם לעמוד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
@@ -2590,14 +2678,16 @@ msgid ""
 "Warning: The selected document is a PDF 2.0 file and can't be added to other "
 "documents during the conversion."
 msgstr ""
+"אזהרה: המסמך שנבחר הוא קובץ PDF 2.0 ולא ניתן להוסיף אותו למסמכים אחרים במהלך "
+"ההמרה."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Watermark"
-msgstr ""
+msgstr "סימן מים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Adds a watermark to the document."
-msgstr ""
+msgstr "הוספת סימן מים למסמך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Stamp"
@@ -2609,15 +2699,15 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Font color:"
-msgstr ""
+msgstr "צבע גופן:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Font:"
-msgstr ""
+msgstr "גופן:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Outline width:"
-msgstr ""
+msgstr "רוחב הקו:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Stamp text:"
@@ -2625,7 +2715,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "The selected font is not supported. Please select a different font."
-msgstr ""
+msgstr "הגופן שנבחר אינו נתמך. אנא בחר גופן אחר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Places a stamp text on the document."
@@ -2633,7 +2723,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Position and size"
-msgstr ""
+msgstr "מיקום וגודל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SignaturePasswordStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
@@ -2661,19 +2751,19 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Fit text to signature size"
-msgstr ""
+msgstr "התאם את הטקסט לגודל החתימה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "PNG files"
-msgstr ""
+msgstr "קבצי PNG"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Select signature image file"
-msgstr ""
+msgstr "בחר קובץ התמונה לחתימה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Show image only"
-msgstr ""
+msgstr "הצג תמונה בלבד"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -2690,87 +2780,90 @@ msgid ""
 "Don't save password and request it during conversion (this is not possible "
 "for automatic saving)"
 msgstr ""
+"אל תשמור את הסיסמה ותבקש אותה במהלך ההמרה (אפשרות זו אינה זמינה בשמירה "
+"אוטומטית)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reason:"
-msgstr ""
+msgstr "סיבה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Contact:"
-msgstr ""
+msgstr "יצירת קשר:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Location:"
-msgstr ""
+msgstr "מיקום:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Allow multiple signing"
-msgstr ""
+msgstr "אפשר חתימות מרובות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Display signature:"
-msgstr ""
+msgstr "הצג חתימה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "No display"
-msgstr ""
+msgstr "אין תצוגה"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Text"
-msgstr ""
+msgstr "טקסט"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Image"
-msgstr ""
+msgstr "תמונה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Image and text"
-msgstr ""
+msgstr "תמונה וטקסט"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Select time server:"
-msgstr ""
+msgstr "בחר שרת זמן:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Display signature in document"
-msgstr ""
+msgstr "הצגת חתימה במסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Signature image:"
-msgstr ""
+msgstr "תמונת חתימה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Draw custom signature"
-msgstr ""
+msgstr "צייר חתימה אישית"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Width:"
-msgstr ""
+msgstr "רוחב:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Height:"
-msgstr ""
+msgstr "גובה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Select certificate file"
-msgstr ""
+msgstr "בחר קובץ אישור"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
+#, fuzzy
 msgid "PFX/P12 files"
-msgstr ""
+msgstr "קובצי PFX/P12"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Set certificate password"
-msgstr ""
+msgstr "הגדר סיסמה למסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Select account or create a new one ->"
-msgstr ""
+msgstr "בחר חשבון או צור חשבון חדש ->"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Signature"
-msgstr ""
+msgstr "חתימה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid ""
@@ -2778,14 +2871,16 @@ msgid ""
 "to ensure the document has not been changed after signing. Signature and "
 "Encryption are always processed last."
 msgstr ""
+"חתימה דיגיטלית על קבצי PDF, למשל כדי לאמת את זהות השולח ולהבטיח שהמסמך לא "
+"שונה לאחר החתימה. החתימה וההצפנה מעובדות תמיד בסוף התהליך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Save as file"
-msgstr ""
+msgstr "שמור כקובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
-msgstr ""
+msgstr "איפוס"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Brush"
@@ -2793,59 +2888,59 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Require a password to open the PDF document"
-msgstr ""
+msgstr "דרושה סיסמה לפתיחת מסמך ה-PDF"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Set passwords"
-msgstr ""
+msgstr "הגדר סיסמה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Encryption Level"
-msgstr ""
+msgstr "רמת הצפנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Low (128 Bit)"
-msgstr ""
+msgstr "נמוך (128 Bit)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "This is not considered secure anymore. Use this for compatibility only."
-msgstr ""
+msgstr "אפשרות זו כבר אינה נחשבת מאובטחת. יש להשתמש בה למטרות תאימות בלבד."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Medium (128 Bit AES)"
-msgstr ""
+msgstr "בינוני (128 Bit AES)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "High (256 Bit AES)"
-msgstr ""
+msgstr "גבוה (256 Bit AES)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Allow the user"
-msgstr ""
+msgstr "לאפשר למשתמש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to copy content from the document"
-msgstr ""
+msgstr "כדי להעתיק תוכן מהמסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to print the document"
-msgstr ""
+msgstr "להדפיס את המסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "restrict to low quality"
-msgstr ""
+msgstr "להגביל לתוכן באיכות נמוכה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to use a screen reader"
-msgstr ""
+msgstr "להשתמש בקורא מסך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to edit the document"
-msgstr ""
+msgstr "לערוך את המסמך"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to edit comments"
-msgstr ""
+msgstr "לערוך תגובות"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "to fill forms"
@@ -2857,26 +2952,28 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Password"
-msgstr ""
+msgstr "סיסמה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid "Encryption"
-msgstr ""
+msgstr "הצפנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionActionViewTranslation
 msgid ""
 "Secures PDFs with a password and selects which authorizations the user "
 "receives. Signature and Encryption are always processed last."
 msgstr ""
+"מאבטח קבצי PDF עם סיסמה ובוחר אליו הרשאות יקבל המשתמש. חתימה והצפנה מעובדות "
+"תמיד אחרונות."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SecurityPasswordsStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "Owner password (for editing):"
-msgstr ""
+msgstr "סיסמת בעלים (לעריכה):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "Note: An owner password is required to set the user password."
-msgstr ""
+msgstr "הערה: נדרשת סיסמת בעלים כדי להגדיר את סיסמת המשתמש."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password.PasswordOverlayTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -2884,6 +2981,7 @@ msgid ""
 "Leave password empty to get a request during the print job (password will "
 "not be saved)."
 msgstr ""
+"השאר את שדה הסיסמה ריק כדי לקבל גישה במהלך משימת ההדפסה (הסיסמה לא תישמר)."
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.AttachToOutlookItemTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.EmailCollectionHintStep.EmailCollectionHintStepTranslation
@@ -2893,16 +2991,16 @@ msgstr "דלג"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "Encryption passwords"
-msgstr ""
+msgstr "סיסמאות הצפנה"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SecurityPasswordsStepTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "User password (for opening):"
-msgstr ""
+msgstr "סיסמת משתמש (לפתיחה):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
 msgid "Password strength:"
-msgstr ""
+msgstr "חוזק הסיסמה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Cover.CoverSettingsTranslation
 msgid "Cover"
@@ -2910,7 +3008,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Cover.CoverSettingsTranslation
 msgid "Inserts one or more pages at the beginning of the document."
-msgstr ""
+msgstr "הכנס דף אחד או יותר לתחילת המסמך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Cover.CoverSettingsTranslation
 msgid "Add cover"
@@ -2930,22 +3028,24 @@ msgid ""
 "Warning: The following documents are PDF 2.0 files and can't be added to "
 "other documents during the conversion:"
 msgstr ""
+"אזהרה: המסמכים הבאים הם קבצי PDF 2.0 ולא ניתן להוסיף אותם למסמכים אחרים "
+"במהלך ההמרה:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Background"
-msgstr ""
+msgstr "רקע"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Adds a background to the document."
-msgstr ""
+msgstr "מוסיף רקע למסמך."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Select background file"
-msgstr ""
+msgstr "בחר קובץ רקע"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Background file (only PDF):"
-msgstr ""
+msgstr "קובץ רקע (PDF בלבד):"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
@@ -2975,10 +3075,8 @@ msgid "FTP upload"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.FtpPasswordStepTranslation
-#, fuzzy
-#| msgid "Add FTP account"
 msgid "FTP account:"
-msgstr "הוסף חשבון FTP"
+msgstr "הוסף חשבון FTP:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.FtpPasswordStepTranslation
 #, fuzzy
@@ -3019,10 +3117,8 @@ msgid "HTTP upload"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.HttpPasswordStepTranslation
-#, fuzzy
-#| msgid "Add HTTP account"
 msgid "HTTP account:"
-msgstr "הוסף חשבון HTTP"
+msgstr "חשבון HTTP:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.HttpPasswordStepTranslation
 #, fuzzy
@@ -3093,6 +3189,10 @@ msgid ""
 "executed. Please check your profile."
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "מזג!"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr ""
@@ -3115,10 +3215,8 @@ msgid "SMTP mail"
 msgstr "הוסף עוד קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.SmtpPasswordStepTranslation
-#, fuzzy
-#| msgid "Add SMTP account"
 msgid "SMTP account:"
-msgstr "הוסף חשבון SMTP"
+msgstr "חשבון SMTP:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
@@ -3140,11 +3238,6 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
@@ -3303,16 +3396,18 @@ msgid "Edit profile"
 msgstr "הוסף פרופיל חדש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
+#, fuzzy
+#| msgid "Add file"
 msgid "Add printer"
-msgstr "הוסף מדפסת"
+msgstr "הוסף קובץ"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 msgid "Delete printer"
-msgstr ""
+msgstr "מחק מדפסת"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 msgid "Last used profile"
-msgstr ""
+msgstr "הפרופיל האחרון ששומש"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 #, fuzzy
@@ -3322,7 +3417,7 @@ msgstr "הוסף מדפסת"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 msgid "Rename printer"
-msgstr ""
+msgstr "שינוי שם מדפסת"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.PrinterViewTranslation
 #, fuzzy
@@ -3335,24 +3430,28 @@ msgid ""
 "File with given file name already exist. You can overwrite the old file with "
 "the new file or merge the new pages into the existing file."
 msgstr ""
+"קובץ בשם הזה כבר קיים. אתה יכול לשכתב את הקובץ או למזג את הדפים החדשים לתוך "
+"הקובץ הקיים."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
 msgid ""
 "File with given file name already exist. You can overwrite the old file or "
 "cancel to select a different file."
 msgstr ""
+"קובץ בשם זה כבר קיים. באפשרותך להחליף את הקובץ הישן או לבטל את הפעולה ולבחור "
+"קובץ אחר."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
 msgid "_Overwrite"
-msgstr ""
+msgstr "שכתב"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
 msgid "_Merge"
-msgstr ""
+msgstr "מזג"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.OverwriteOrAppendTranslation
 msgid "File already exists"
-msgstr ""
+msgstr "קובץ כבר קיים"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password.PasswordOverlayTranslation
 msgid "Invalid Credentials"
@@ -3360,32 +3459,33 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Overlay.Password.PasswordOverlayTranslation
 msgid "Invalid credentials for '{0}'. Please try retyping your password."
-msgstr ""
+msgstr "אישור לא תקף עבור '{0}'. בבקשה נסה להקליד את הסיסמה בשנית."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "More information"
-msgstr ""
+msgstr "מידע נוסף"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "No"
-msgstr ""
+msgstr "לא"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Retry"
-msgstr ""
+msgstr "נסה שוב"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Discard"
-msgstr ""
+msgstr "למחוק"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
-msgstr ""
+msgstr "פרופיל"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.History.JobHistoryTranslation
 msgid "Queue"
-msgstr ""
+msgstr "תור"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Click here for more information on tokens"
@@ -3398,6 +3498,184 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "הוסף אסימון"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Edit HotFolder"
+msgstr "הוסף פרופיל חדש"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Add file"
+msgid "Linked Printer"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "שם המדפסת שנבחרה:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch:"
+msgstr "בחר תיקייה לצפייה:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "בחר תיקייה לצפייה"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Source files"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select source files folder"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "העבר אותם לסל המיחזור"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "העבר אותם למיקום מותאם אישית"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Unprintable files"
+msgstr "קבצים שאינם ניתנים להדפסה"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select unprintable files folder"
+msgstr "בחר את התיקייה של הקבצים שאינם ניתנים להדפסה"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "בחר מה לעשות בקבצים שלא ניתן להדפיס:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "פילטר"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "No filter"
+msgstr "בלי פילטר"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Add file"
+msgid "Add Filter"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Remove Filter"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "הפרופיל הוקצה:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select Profile"
+msgstr "<פרופיל ברירת מחדל>"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Enter filter"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "The filter is not valid. Please check your entry."
+msgstr "הפילטר אינו תקין. אנא בדוק את הנתונים שהזנת."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "דלוק"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "כבוי"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add printers"
+msgid "Manage HotFolders"
+msgstr "הוספת מדפסת"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Printer Name"
+msgstr "שם המדפסת"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "HotFolder Path"
+msgstr "הוסף כיסוי"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Actions"
+msgid "Active"
+msgstr "פעולות"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "Add HotFolder Printer"
+msgstr "הוסף כיסוי"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -3558,9 +3836,8 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
 msgid "Account:"
-msgstr "חשבונות"
+msgstr "חשבונות:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -3890,10 +4167,8 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
-#, fuzzy
-#| msgid "User Guide"
 msgid "User name:"
-msgstr "מדריך למשתמש"
+msgstr "שם משתמש:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4219,9 +4494,8 @@ msgid "Show share link at the end of interactive workflow."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
-#, fuzzy
 msgid "Please select Dropbox account:"
-msgstr "הוסף חשבון Dropbox"
+msgstr "הוסף חשבון Dropbox:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
 msgid "Don't overwrite files (adds an increasing number in case of conflict)."
@@ -4722,6 +4996,23 @@ msgstr ""
 msgid "Please save or cancel settings to continue"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+msgid "Remove Page"
+msgstr "הוסף קובץ"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Undo Removal"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr ""
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5131,6 +5422,8 @@ msgid "You have no print queues yet. Add your first queue now!"
 msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
+#, fuzzy
+#| msgid "Add printers"
 msgid "Add printers"
 msgstr "הוספת מדפסת"
 
@@ -5326,10 +5619,8 @@ msgid "Invalid Settings In Queue"
 msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
-#, fuzzy
-#| msgid "Add New Profile"
 msgid "Add new queue"
-msgstr "הוסף פרופיל חדש"
+msgstr ""
 
 #: pdfforge.PDFCreatorServer.UI.Presentation.Commands.QueueManagementCommands.QueueManagementTranslation
 msgid "Queue Name:"
@@ -5405,6 +5696,77 @@ msgid ""
 "Please reactivate your Internal License Server activation on the {0}"
 msgstr ""
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"מפתח הרשיון לא נמצא.\n"
+"PDFCreator יכבה."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr ""
@@ -5419,6 +5781,43 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
+msgstr ""
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Convert &Here"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+msgid "&Merge"
+msgstr "&לְמַזֵג"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
@@ -6498,6 +6897,67 @@ msgstr ""
 msgid "Failed to apply changes made in preview."
 msgstr ""
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided HotFolder path is not a valid path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path must not be empty."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path is too long."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Source files path is not a valid path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path must not be empty."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path is too long."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Unprintable files path is not a valid path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path must not be empty."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path is too long."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr ""
@@ -6859,6 +7319,9 @@ msgstr ""
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr ""
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr ""
+
 msgid "pdfforge"
 msgstr ""
 
@@ -6903,6 +7366,16 @@ msgid ""
 "Set to 0 to disable."
 msgstr ""
 
+msgid "Disable debug tab"
+msgstr ""
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"הפעל כדי להשבית את כרטיסיית ניפוי באגים. זה משבית את הפונקציונליות להפעלת "
+"עבודות בדיקה ושינוי רמת ניפוי הבאגים."
+
 msgid "Disable printer tab"
 msgstr ""
 
@@ -6925,27 +7398,24 @@ msgstr ""
 "הפעל כדי להשבית את כרטיסיית הכותרת. זה משבית את הפונקציונליות לשינוי החלפות "
 "כותרות."
 
-msgid "Disable debug tab"
+msgid "Hide feedback form"
 msgstr ""
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"הפעל כדי להשבית את כרטיסיית ניפוי באגים. זה משבית את הפונקציונליות להפעלת "
-"עבודות בדיקה ושינוי רמת ניפוי הבאגים."
-
-msgid "Hide PDF Architect info"
-msgstr ""
-
-msgid "Activate to hide information about our customizable PDF Editor."
-msgstr "הפעל כדי להסתיר מידע על עורך ה-PDF הניתן להתאמה אישית שלנו."
+#, fuzzy
+msgid "Activate to hide feedback form"
+msgstr "הפעל כדי להסתיר את הטיפים במסך הבית"
 
 msgid "Hide license tab"
 msgstr ""
 
 msgid "Activate to hide license tab."
 msgstr "הפעל כדי להסתיר את כרטיסיית הרישיון."
+
+msgid "Hide PDF Architect info"
+msgstr ""
+
+msgid "Activate to hide information about our customizable PDF Editor."
+msgstr "הפעל כדי להסתיר מידע על עורך ה-PDF הניתן להתאמה אישית שלנו."
 
 msgid "Disable profile management"
 msgstr ""
@@ -7016,6 +7486,39 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr ""
 
+#, fuzzy
+msgid "Load shared HotFolder settings"
+msgstr "הוסף להגדרות"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to load application settings from ini file in \"%ProgramData%"
+#| "\\pdfforge\\PDFCreator\". This is activated by default and must be "
+#| "explicitly disabled."
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"הפעל כדי לטעון את הגדרות היישום מקובץ ini ב-\"%ProgramData%"
+"\\pdfforge\\PDFCreator\". זה מופעל כברירת מחדל ויש להשבית אותו במפורש."
+
+msgid "Load shared printer mappings"
+msgstr ""
+
+#, fuzzy
+#| msgid ""
+#| "Activate to disable printer tab. This disables the functionalities to add/"
+#| "delete/rename PDFCreator printers, change profile assignments and set the "
+#| "primary PDFCreator printer."
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"הפעל כדי להשבית את לשונית המדפסת. זה משבית את הפונקציונליות "
+"להוספה/מחיקה/שינוי שמות של מדפסות PDFCreator, שינוי הקצאות פרופיל והגדרת "
+"מדפסת PDFCreator הראשית."
+
 msgid "Load shared profiles"
 msgstr ""
 
@@ -7030,17 +7533,16 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr ""
 
-msgid "Hide feedback form"
+msgid "Bulgarian"
 msgstr ""
-
-#, fuzzy
-msgid "Activate to hide feedback form"
-msgstr "הפעל כדי להסתיר את הטיפים במסך הבית"
 
 msgid "Catalan"
 msgstr ""
 
-msgid "Chinese"
+msgid "Chinese (Simplified)"
+msgstr ""
+
+msgid "Chinese (Traditional)"
 msgstr ""
 
 msgid "Corsican (France)"
@@ -7085,10 +7587,16 @@ msgstr ""
 msgid "Portuguese (Brazil)"
 msgstr ""
 
+msgid "Slovak"
+msgstr ""
+
 msgid "Spanish"
 msgstr ""
 
 msgid "Swedish"
+msgstr ""
+
+msgid "Turkish"
 msgstr ""
 
 msgid "Set language:"
@@ -7107,24 +7615,19 @@ msgid "Allow users to define additional profiles"
 msgstr ""
 
 #, fuzzy
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr "מפתח הרשיון אינו תקף עבור מהדורה זו."
-
-#~ msgid "Access Denied"
-#~ msgstr "גישה נדחתה"
+#~| msgid "Add printers"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "הוספת מדפסת"
 
 #, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "גרסה"
+#~| msgid "Activate to disable the job history."
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "הפעל כדי להשבית את היסטוריית המשרות."
+
+#~ msgid "The license is not valid for this version."
+#~ msgstr "הרשיון אינו תקף עבור הגרסה הזו."
 
 #, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "הוסף קובץ מצורף"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&המר עם PDFCreator"
-
-#~ msgid "&Merge"
-#~ msgstr "&לְמַזֵג"
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "הייתה בעייה בהתחברות לשרת הרשיון."

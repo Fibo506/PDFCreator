@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using NLog;
 using pdfforge.PDFCreator.Conversion.ConverterInterface;
@@ -69,7 +70,6 @@ public class JobRunner : IJobRunner
         try
         {
             _encryptedDocumentHelper.ValidateEncryptedDocuments(job);
-
             // TODO: Use async/await
             _actionExecutor.CallPreConversionActions(job);
             _actionExecutor.ApplyRestrictions(job);
@@ -81,11 +81,17 @@ public class JobRunner : IJobRunner
 
             var isPdf = job.Profile.OutputFormat.IsPdf();
             var isProcessingRequired = _actionExecutor.IsProcessingRequired(job);
-            converter.Init(isPdf, isProcessingRequired);
+            var arePreviewChangesNeeded = _previewChangesHelper.ArePreviewChangesNeeded(job);
 
+            //Force a final PDF/X conversion because the processing brakes the standard
+            var pdfXFinalization = job.Profile.OutputFormat.IsPdfX() && (isProcessingRequired || arePreviewChangesNeeded);
+
+            converter.Init(isPdf && !pdfXFinalization, isProcessingRequired || arePreviewChangesNeeded);
+            
             converter.FirstConversionStep(job);
-
-            _previewChangesHelper.ApplyPreviewChanges(job);
+         
+            if (arePreviewChangesNeeded)
+                _previewChangesHelper.ApplyPreviewChanges(job);
 
             _actionExecutor.CallConversionActions(job);
 

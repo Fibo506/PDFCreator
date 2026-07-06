@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using pdfforge.DataStorage;
+using pdfforge.PDFCreator.Core.SettingsManagement.Helper;
 using pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 using pdfforge.PDFCreator.Utilities;
 
@@ -9,10 +10,12 @@ namespace pdfforge.PDFCreator.Core.SettingsManagement;
 public class CreatorSettingsUpgrader : SettingsUpgrader
 {
     private readonly IFontHelper _fontHelper;
+    private readonly IGuid _guid;
 
-    public CreatorSettingsUpgrader(Data settingsData, IFontHelper fontHelper) : base(settingsData)
+    public CreatorSettingsUpgrader(Data settingsData, IFontHelper fontHelper, IGuid guid) : base(settingsData)
     {
         _fontHelper = fontHelper;
+        _guid = guid;
     }
 
     protected override string ProfilePath => "ConversionProfiles";
@@ -38,6 +41,7 @@ public class CreatorSettingsUpgrader : SettingsUpgrader
         UpgradeMethods.Add(UpgradeV12ToV13);
         UpgradeMethods.Add(UpgradeV13ToV14);
         UpgradeMethods.Add(UpgradeV14ToV15);
+        UpgradeMethods.Add(UpgradeV15ToV16);
     }
 
     private void UpgradeV0ToV1()
@@ -279,6 +283,54 @@ public class CreatorSettingsUpgrader : SettingsUpgrader
     {
         MoveValue(@"PdfCreatorSettings\DontRecommendArchitect", @"CreatorAppSettings\DontRecommendArchitect");
         Data.SetValue(SettingsVersionPath, "15");
+    }
+
+    /// <summary>
+    /// HotFolder migration
+    /// </summary>
+    private void UpgradeV15ToV16()
+    {
+        if (HotFolderMigrationHelper.OldHotFolderExists())
+        {
+            Data.SetValue(@"HotFolderSettings\StartWithAppStart", HotFolderMigrationHelper.GetOldHotFolderAppStartPolicy());
+            Data.SetValue(@"HotFolderSettings\StartWithWindows", HotFolderMigrationHelper.GetOldHotFolderStartWithWindowsPolicy());
+
+            var oldNumClasses = GetInt(HotFolderMigrationHelper.GetOldHotFolderConfigCount());
+            var migrationIndex = GetInt(Data.GetValue(@"HotFolderSettings\HotFolderConfigs\numClasses")) ?? 0;
+
+            if (oldNumClasses != null)
+            {
+                for (var i = 0; i < oldNumClasses; i++)
+                {
+                    if (HotFolderMigrationHelper.ConfigExists(i))
+                    {
+                        var config = HotFolderMigrationHelper.GetOldHotFolderConfig(i);
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\FilterOption", config.FilterOption.ToString());
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\HotFolderPath", config.HotFolderPath);
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\Guid", _guid.NewGuidString());
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\Printer", config.Printer);
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\SourceFileMover", config.SourceFileMover.ToString());
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\SourceFilesPathPath", config.SourceFilesPath);
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\UnprintableFileMover", config.UnprintableFileMover.ToString());
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\UnprintableFilesPath", config.UnprintableFilesPath);
+
+
+                        var filterCount = HotFolderMigrationHelper.GetOldConfigFilterCount(i);
+                        for (var j = 0; j < filterCount; j++)
+                        {
+                            Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\Filter\{j}\Filter", HotFolderMigrationHelper.GetOldHotFolderFilter(i, j));
+                        }
+
+                        Data.SetValue($@"HotFolderSettings\HotFolderConfigs\{migrationIndex}\Filter\numClasses", filterCount.ToString());
+                        migrationIndex++;
+                    }
+                }
+
+                Data.SetValue(@"HotFolderSettings\HotFolderConfigs\numClasses", migrationIndex.ToString());
+            }
+
+        }
+        Data.SetValue(SettingsVersionPath, "16");
     }
 
     protected IList<string> GetActionOrder(string profileOffset)

@@ -119,6 +119,7 @@ public class ErrorHelper
         return report;
     }
 
+    [Obsolete]
     private SentryEvent BuildReportInThread(Exception ex, Dictionary<string, string> additionalEntries)
     {
         var report = new SentryEvent(ex);

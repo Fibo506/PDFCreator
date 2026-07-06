@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Core.Communication;
+using pdfforge.PDFCreator.Core.Controller.Routing;
 using pdfforge.PDFCreator.Core.DirectConversion;
 using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.SettingsManagement;
@@ -16,29 +17,31 @@ namespace pdfforge.PDFCreator.Core.Controller;
 
 public class NewPipeJobHandler : IPipeMessageHandler
 {
-    private readonly IFileConversionAssistant _fileConversionAssistant;
+    private readonly IFileConversionHelper _fileConversionHelper;
     private readonly IJobInfoManager _jobInfoManager;
     private readonly IThreadManager _threadManager;
     private readonly IJobInfoQueueManager _jobInfoQueueManager;
     private readonly IApplicationCloser _applicationCloser;
+    private readonly IWebLinkHandler _webLinkHandler;
     private readonly IJobInfoQueue _jobInfoQueue;
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
     private readonly IMainWindowThreadLauncher _mainWindowThreadLauncher;
     private readonly ISettingsManager _settingsManager;
 
     public NewPipeJobHandler(IJobInfoQueue jobInfoQueue, ISettingsManager settingsManager,
-        IFileConversionAssistant fileConversionAssistant, IMainWindowThreadLauncher mainWindowThreadLauncher,
+        IFileConversionHelper fileConversionHelper, IMainWindowThreadLauncher mainWindowThreadLauncher,
         IJobInfoManager jobInfoManager, IThreadManager threadManager, IJobInfoQueueManager jobInfoQueueManager,
-        IApplicationCloser applicationCloser)
+        IApplicationCloser applicationCloser, IWebLinkHandler webLinkHandler)
     {
         _jobInfoQueue = jobInfoQueue;
         _settingsManager = settingsManager;
-        _fileConversionAssistant = fileConversionAssistant;
+        _fileConversionHelper = fileConversionHelper;
         _mainWindowThreadLauncher = mainWindowThreadLauncher;
         _jobInfoManager = jobInfoManager;
         _threadManager = threadManager;
         _jobInfoQueueManager = jobInfoQueueManager;
         _applicationCloser = applicationCloser;
+        _webLinkHandler = webLinkHandler;
     }
 
     public void HandlePipeMessage(string message)
@@ -74,6 +77,11 @@ public class NewPipeJobHandler : IPipeMessageHandler
             _threadManager.IsStandbyDisabled = true;
             _applicationCloser.CloseApplication();
         }
+        else if (message.StartsWith("Link|", StringComparison.OrdinalIgnoreCase))
+        {
+            _logger.Info("Pipe command: Handle Link");
+            _webLinkHandler.HandlePipeLink(message.Substring("Link|".Length));
+        }
     }
 
     private void HandleDroppedFileMessage(string message)
@@ -96,7 +104,7 @@ public class NewPipeJobHandler : IPipeMessageHandler
         else if (parameters.ManagePrintJobs)
             _jobInfoQueueManager.ManagePrintJobs();
 
-        var threadStart = new ThreadStart(() => _fileConversionAssistant.HandleFileListWithoutTooManyFilesWarning(droppedFiles, parameters));
+        var threadStart = new ThreadStart(() => _fileConversionHelper.HandleFileListWithoutTooManyFilesWarning(droppedFiles, parameters));
 
         _threadManager.StartSynchronizedUiThread(threadStart, "PipeDragAndDrop");
     }

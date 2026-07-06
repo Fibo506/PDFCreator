@@ -84,13 +84,16 @@ public abstract class PdfProcessorBase : IPdfProcessor
 
         var pdfVersion = "1.3";
 
+        if (profile.PdfSettings.Security.Enabled) //todo: Check issues with passwords for v1.3  
+            pdfVersion = "1.4";
+
         if (profile.OutputFormat != OutputFormat.PdfX)
             pdfVersion = "1.4";
 
         if (profile.PdfSettings.Signature.Enabled)
             pdfVersion = "1.4"; //todo: Could remain 1.3. Is it necessary to fix this?
 
-        if (profile.BackgroundPage.Enabled)
+        if (profile.BackgroundPage.Enabled) //Todo: What about Watermark?
             pdfVersion = "1.4"; //todo: Could remain 1.3. Is it necessary to fix this?
 
         if (profile.OutputFormat == OutputFormat.Pdf)
@@ -126,7 +129,7 @@ public abstract class PdfProcessorBase : IPdfProcessor
 
     public abstract void AddWatermark(Job job);
 
-    public abstract void MergePDFs(string targetPdf, string sourcePdf, string pdfOwnerPassword);
+    public abstract void MergePDFs(string targetPdf, string sourcePdf, JobPasswords jobPasswords);
 
     public abstract void ApplyPreviewChanges(Job job, IList<PageMapping> pageMappings);
 

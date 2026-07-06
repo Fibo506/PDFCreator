@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
-using pdfforge.PDFCreator.Core.Workflow;
+using System.Windows.Threading;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
+using pdfforge.PDFCreator.UI.Presentation.Windows;
 
 namespace pdfforge.PDFCreator.UI.Presentation.Controls;
 
@@ -14,93 +14,112 @@ namespace pdfforge.PDFCreator.UI.Presentation.Controls;
 /// </summary>
 public partial class PreviewControl : UserControl
 {
-    public static readonly DependencyProperty PreviewManagerProperty = DependencyProperty.Register(
-        nameof(PreviewManager),
-        typeof(PreviewManager),
-        typeof(PreviewControl),
-        new PropertyMetadata());
-
-    public PreviewManager PreviewManager
-    {
-        get
-        {
-            return (PreviewManager)GetValue(PreviewManagerProperty);
-        }
-
-        set { SetValue(PreviewManagerProperty, value); }
-    }
-
-    public static readonly DependencyProperty IsPreviewLoadingProperty = DependencyProperty.Register(
-        nameof(IsPreviewLoading),
-        typeof(bool),
-        typeof(PreviewControl),
-        new PropertyMetadata(true));
-
-    public bool IsPreviewLoading
-    {
-        get { return (bool)GetValue(IsPreviewLoadingProperty); }
-
-        set { SetValue(IsPreviewLoadingProperty, value); }
-    }
-
-    public static readonly DependencyProperty PreviewPageListProperty = DependencyProperty.Register(
-        nameof(PreviewPageList),
-        typeof(List<PreviewPage>),
-        typeof(PreviewControl),
-        new PropertyMetadata());
-
-    public List<PreviewPage> PreviewPageList
-    {
-        get { return (List<PreviewPage>)GetValue(PreviewPageListProperty); }
-
-        set { SetValue(PreviewPageListProperty, value); }
-    }
-
-    public static readonly DependencyProperty IsPreviewEnabledProperty = DependencyProperty.Register(
-        nameof(IsPreviewEnabled),
-        typeof(bool),
-        typeof(PreviewControl),
-        new PropertyMetadata(defaultValue: true));
-
-    public bool IsPreviewEnabled
-    {
-        get { return (bool)GetValue(IsPreviewEnabledProperty); }
-
-        set { SetValue(IsPreviewEnabledProperty, value); }
-    }
-
-    public static readonly DependencyProperty JobInfoProperty = DependencyProperty.Register(
-        nameof(JobInfo),
-        typeof(JobInfo),
-        typeof(PreviewControl),
-        new PropertyMetadata(null, JobInfoPropertyChangedCallback));
-
-    private static async void JobInfoPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is PreviewControl previewControl)
-        {
-            await previewControl.Dispatcher.Invoke(async () =>
-            {
-                if (previewControl.JobInfo == null || previewControl.PreviewManager == null || !previewControl.IsPreviewEnabled)
-                    return;
-
-                previewControl.PreviewPageList = [];
-                previewControl.IsPreviewLoading = true;
-                previewControl.PreviewPageList = (await previewControl.PreviewManager.GetTotalPreviewPages(previewControl.JobInfo)).ToList();
-                previewControl.IsPreviewLoading = false;
-            });
-        }
-    }
-    public JobInfo JobInfo
-    {
-        get { return (JobInfo)GetValue(JobInfoProperty); }
-
-        set { SetValue(JobInfoProperty, value); }
-    }
-
     public PreviewControl()
     {
         InitializeComponent();
+
+        AllowDrop = true;
+        Drop += OnDrop;
+        DragEnter += OnDragEnter;
+        DragOver += OnDragOver;
+    }
+
+    private void OnDragEnter(object sender, DragEventArgs e)
+    {
+        HandleDragEnter(e);
+        if (e.Effects != DragDropEffects.None)
+        {
+            e.Handled = true;
+        }
+    }
+
+    private void OnDragOver(object sender, DragEventArgs e)
+    {
+        HandleDragEnter(e); // Same logic as drag enter
+        if (e.Effects != DragDropEffects.None)
+        {
+            e.Handled = true;
+        }
+    }
+
+    private async void OnDrop(object sender, DragEventArgs e)
+    {
+        var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+        if (files != null && files.Length > 0)
+        {
+            e.Handled = true; // Prevent bubbling to parent
+            await HandleMergeDrop(files);
+            await ScrollToBottom();
+        }
+    }
+
+    private async Task ScrollToBottom()
+    {
+        // Dispatch to UI thread to ensure we're on the correct thread
+        await Dispatcher.InvokeAsync(() =>
+        {
+            if (FindName("PreviewListBox") is ListBox listBox)
+            {
+                var scrollViewer = GetScrollViewer(listBox);
+                scrollViewer?.ScrollToBottom();
+            }
+        });
+    }
+
+    private void HandleDragEnter(DragEventArgs e)
+    {
+        var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+        if (files != null && files.Length > 0)
+        {
+            e.Effects = DragDropEffects.Copy;
+        }
+        else
+        {
+            e.Effects = DragDropEffects.None;
+        }
+    }
+
+    private async Task HandleMergeDrop(string[] droppedFiles)
+    {
+        var parentViewModel = FindParentViewModel();
+        if (parentViewModel is PrintJobViewModel printJobViewModel)
+        {
+            await printJobViewModel.MergePreviewDragDrop(droppedFiles);
+        }
+
+        // Commenting out as part of PC-5615
+
+        //else
+        //{
+        //    var parentViewModel = FindParentViewModel();
+        //    if (parentViewModel is ManagePrintJobsViewModel managePrintJobsViewModel)
+        //    {
+        //        await managePrintJobsViewModel.MergePreviewDragDrop(droppedFiles);
+        //    }
+        //}
+    }
+
+    /// <summary>
+    /// Walks up the visual tree to find a Window or UserControl with the ViewModel.
+    /// Currently only to get the ManagePrintJobsViewModel, but can be expanded for other ViewModels.
+    /// </summary>
+    private object FindParentViewModel()
+    {
+        DependencyObject parent = this;
+        while (parent != null)
+        {
+            parent = VisualTreeHelper.GetParent(parent);
+            if (parent is FrameworkElement element)
+            {
+                return element.DataContext switch
+                {
+                    PrintJobViewModel printJobViewModel => printJobViewModel,
+                    ManagePrintJobsViewModel managePrintJobsViewModel => managePrintJobsViewModel,
+                    _ => null
+                };
+            }
+        }
+        return null;
     }
 
     private void PreviewListBox_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -139,6 +158,7 @@ public partial class PreviewControl : UserControl
             }
         }
     }
+
     private static ScrollViewer? GetScrollViewer(DependencyObject obj)
     {
         if (obj is ScrollViewer viewer)

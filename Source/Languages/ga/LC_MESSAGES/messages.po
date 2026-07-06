@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Irish (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-24 12:55+0000\n"
+"PO-Revision-Date: 2025-11-15 16:58+0000\n"
 "Last-Translator: Seanán <seananoc@gmail.com>\n"
 "Language-Team: Irish <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/ga/>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :("
-"n>6 && n<11) ? 3 : 4;\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : (n>2 && n<7) ? 2 :"
+"(n>6 && n<11) ? 3 : 4;\n"
 "X-Generator: Weblate 5.9.1\n"
 
 #. FileConversionAssistantTranslation
@@ -39,6 +39,12 @@ msgstr "Beathaisnéisíní"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "Clóire"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -110,6 +116,7 @@ msgid "News"
 msgstr "Nuacht"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr "Uasghrádaigh Anois"
 
@@ -142,7 +149,7 @@ msgstr "Rachaidh do cheadúnas féachála in éag inniu."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Brúigh anseo chun síneadh a chur le do cheadúnas."
 
@@ -164,6 +171,7 @@ msgstr "Socruithe neamhbhailí"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Earráid"
 
@@ -478,339 +486,66 @@ msgstr "Deisiúcháin"
 msgid "Other changes"
 msgstr "Athruithe eile"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
-msgstr ""
-"D'éag an ceadúnas féachana...\n"
-"coinnímid do chuid sreabhanna oibre ag coinneáil ag gluaiseacht"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with your license..."
-msgstr "Tharla fadhb éigin le do cheadúnas..."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr "Dearbháil do cheadúnas anois chun leanúint le do rochtain ar:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "User Tokens"
-msgid "User tokens"
-msgstr "Ceadchomharthaí Úsáideora"
+#| msgid "Encryption"
+msgid "256-bit encryption"
+msgstr "Criptiú"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "CS-Script"
-msgid "CS-scripts"
-msgstr "CS-Script"
+#| msgid "User tokens"
+msgid "User Tokens"
+msgstr "Ceadchomharthaí úsáideora"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr ""
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Test Pages"
+msgid "Delete pages"
+msgstr "Leathanaigh thástála"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+#, fuzzy
+#| msgid "Forward to Profile"
+msgid "Forward to profile"
+msgstr "Aistrigh chuig an mbeathaisnéisín"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
-msgstr "Tacaíocht Tosaíochta"
+msgstr "Tacaíocht tosaíochta"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Sonraí an cheadúnais"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Manage license"
-msgid "Manage License"
-msgstr "Bainistigh an ceadúnas"
+#| msgid "Share Settings"
+msgid "Shared settings"
+msgstr "Socruithe comhroinnte"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 #, fuzzy
-#| msgid "Offline activation"
-msgid "Offline Activation"
-msgstr "Gníomhachtúchán gan nasc leis an ngréasán"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Tá an ceadúnas i ngníomh"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr ""
-"Gníomhachtaíodh go rathúil do cheadúnas, go raibh maith agat as ucht feidhm "
-"a bhaint as {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Your license was activated successfully, thank you for using {0}."
-msgid "Your license was activated successfully."
-msgstr ""
-"Gníomhachtaíodh go rathúil do cheadúnas, go raibh maith agat as ucht feidhm "
-"a bhaint as {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Please enter your license key to continue using {0}"
-msgstr "Cuir isteach d'eochair cheadúnais:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "An mian leat an ceadúnas a chur ar fáil do chách ar do chóras?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr ""
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Save validation report"
-msgid "Save activation for all users"
-msgstr "Cuir an tuarascáil bhailíochta i dtaisce"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "An error occured while storing license for all users."
-msgid "An error occurred when saving the activation for all users."
-msgstr "Tharla botún nuair a bhí an ceadúnas do chách á stóráil."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "PDFCreator Server is running"
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr "Tá PDFCreator Server ag rith"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "Store license for all users was successful."
-msgid "Save activation for all users was successful."
-msgstr "D'éirigh le stóráil an ceadúnas do chách."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Tá an ceadúnas á dhearbháil..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"Tá carachtair neamhdhleathacha in eochair an cheadúnais. Seo na carachtair "
-"bhailí: A-Z, 0-9 agus an dais."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr "Tá 30 carachtar nó uimhir in eochair an cheadúnais m.sh. {0}"
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Choíche"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Ceadúnaí:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "D'éag an gníomhachtúchán. Athnuaigh do ghníomhachtúchán."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-"Tá bac ar an inneall nó ar an úsáideoir. Déan teagmháil leis an bhfoireann "
-"thacaíochta."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Tharla earráid fad agus a bhí an ceadúnas á fhíordheimhniú."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "Níl eochair an cheadúnais sin bailí. Cuir isteach eochair nua."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "D'éag an ceadúnas. Athnuaigh do cheadúnas."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The license trial period has expired."
-msgstr "D'éag do cheadúnas."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "Níl eochair cheadúnais ar fáil. Cuir isteach eochair cheadúnais nua."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Tharla fadhb éigin leis an gceangal le freastalaí na gceadúnas."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr ""
-"Tá líon na n-inneall gníomhachtaithe a cheadaítear sáraithe ag an gceadúnas."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "Níl an eochair cheadúnais bailí don leagan PDFCreator seo."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "Tá an ceadúnas bailí."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-#| msgid "The activation has expired. Please renew your activation."
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr "D'éag an gníomhachtúchán. Athnuaigh do ghníomhachtúchán."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "Rachaidh do cheadúnas in éag i gceann {0} lá."
-msgstr[1] "Rachaidh do cheadúnas in éag i gceann {0} lá."
-msgstr[2] "Rachaidh do cheadúnas in éag i gceann {0} lá."
-msgstr[3] "Rachaidh do cheadúnas in éag i gceann {0} lá."
-msgstr[4] "Rachaidh do cheadúnas in éag i gceann {0} lá."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "Níl an ceadúnas bailí don leagan seo."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Níl an leagan amach ceart ar an gcód gníomhachtaithe."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Nach bhfuil eochair cheadúnais bailí agat?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "Ceannaigh gníomhachtuithe breise anseo."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Athnuaigh do cheadúnas anseo."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Bainistigh an ceadúnas anseo."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Cuir isteach d'eochair cheadúnais."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Tharla botún le linn an ghníomhachtaithe. Féach arís é."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-#, fuzzy
-msgid "The internal license server url is not valid."
-msgstr "Tá an ceadúnas bailí."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
+#| msgid "Install"
+msgid "MSI installer"
+msgstr "Suiteáil é"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -924,16 +659,12 @@ msgid ""
 msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "Supported since PDFCreator Professional 4.1.0"
 msgid "PDFCreator Professional Required"
-msgstr "Tacaíocht tugtha dó ó PDFCreator Business 4.1.0 ar aghaidh"
+msgstr "Tá PDFCreator Gairmiúil de dhíth"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "PDFCreator Server is running"
 msgid "PDFCreator Terminal Server Required"
-msgstr "Tá PDFCreator Server ag rith"
+msgstr "Tá Freastalaí Teirminéil PDFCreator de dhíth"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Upgrade your plan to start using PDFCreator for your business!"
@@ -1011,7 +742,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download failed"
-msgstr ""
+msgstr "Theip ar an íosluchtú"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Setup download was cancelled."
@@ -1019,7 +750,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Download cancelled"
-msgstr ""
+msgstr "Cuireadh an t-íosluchtú ar ceal"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid ""
@@ -1033,8 +764,6 @@ msgid "License Agreement"
 msgstr "Comhaontú an Cheadúnais"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "Privacy policy"
 msgid "Privacy Policy"
 msgstr "An beartas príobháideachais"
 
@@ -1053,7 +782,7 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Trial request failed"
-msgstr ""
+msgstr "Theip ar an iarratas féachana"
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -1064,10 +793,8 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Helper.Translation.RequestHelperTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
-#, fuzzy
-#| msgid "Successful:"
 msgid "Request successful"
-msgstr "Rathúil:"
+msgstr "D'éirigh leis an iarratas"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.AboutViewTranslation
 msgid "User Guide"
@@ -1122,7 +849,7 @@ msgid "Viewer"
 msgstr "Amharcóir"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Ceadúnas"
 
@@ -1141,6 +868,7 @@ msgstr "Tiontú díreach"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1152,14 +880,10 @@ msgid "Cancel"
 msgstr "Cealaigh"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
-#, fuzzy
-#| msgid "Edit Title Replacement"
 msgid "Edit title replacement"
 msgstr "Cuir an teideal ionaid in eagar"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
-#, fuzzy
-#| msgid "Remove All"
 msgid "Remove all"
 msgstr "Bain gach ceann acu"
 
@@ -1221,19 +945,16 @@ msgid "Sample title:"
 msgstr "Teideal samplach:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
-#, fuzzy
 msgid "Sample title after replacements:"
-msgstr "Cuir teideal ionaid leis"
+msgstr "Teideal samplach i ndiaidh ionadaithe:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid "Add title replacement"
 msgstr "Cuir teideal ionaid leis"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
-#, fuzzy
-#| msgid "Title Replacements"
 msgid "Title replacements"
-msgstr "An Teideal Ionaid"
+msgstr "Teidil ionaid"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.TitleReplacementSettings.TitleReplacementsTranslation
 msgid ""
@@ -1281,6 +1002,7 @@ msgstr "RegEx"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1288,102 +1010,378 @@ msgstr "RegEx"
 msgid "Save"
 msgstr "Taisc"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "An gníomhachtú deiridh:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Tá an ceadúnas i ngníomh"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Theip ar an ngníomhachtú"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "Níor éirigh leis an ngníomhachtú:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "D'éirigh leis an ngníomhachtú"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Theip ar an ngníomhachtú"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "Níor éirigh leis an ngníomhachtú:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "D'éirigh leis an ngníomhachtú."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Tá an gníomhachtú bailí go dtí:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Cuir isteach an eochair cheadúnais"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Cuir isteach d'eochair cheadúnais:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "As feidhm:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-msgid "License renews on:"
-msgstr "An treo ina bhfuil an ceadúnas:"
+#| msgid "Your license was activated successfully, thank you for using {0}."
+msgid "Your license was activated successfully."
+msgstr ""
+"Gníomhachtaíodh go rathúil do cheadúnas, go raibh maith agat as ucht feidhm "
+"a bhaint as {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Eochair an Cheadúnais:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "Bainistigh an ceadúnas"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "An treo ina bhfuil an ceadúnas:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "Aitheantas an innill:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Bainistigh na ceadúnais"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Gníomhachtúchán gan nasc leis an ngréasán"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Gníomhachtúchán ar an ngréasán"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "Féach ar an gCeadúnas"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Eochair an Cheadúnais:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "An treo ina bhfuil an ceadúnas:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Sonraí an cheadúnais"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "Aitheantas an innill:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Tá an ceadúnas á bhailíochtú..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "As feidhm:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Tá an gníomhachtú bailí go dtí:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "Athnuafar an ceadúnas ar:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "An gníomhachtú deiridh:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Cuir isteach an eochair cheadúnais"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Cuir isteach d'eochair cheadúnais:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"D'éag an ceadúnas féachana...\n"
+"coinnímid do chuid sreabhanna oibre ag coinneáil ag gluaiseacht"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "Tharla fadhb éigin le do cheadúnas..."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Dearbháil do cheadúnas anois chun leanúint le do rochtain ar:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Uasghrádaigh anois"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "Ceadchomharthaí úsáideora"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-Scripteanna"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "An mian leat an ceadúnas a chur ar fáil do chách ar do chóras?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Save validation report"
+msgid "Save activation for all users"
+msgstr "Cuir an tuarascáil bhailíochta i dtaisce"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
 #| msgid "An error occured while storing license for all users."
+msgid "An error occurred when saving the activation for all users."
+msgstr "Tharla botún nuair a bhí an ceadúnas do chách á stóráil."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
 msgid "An error occurred while storing license for all users."
 msgstr "Tharla botún nuair a bhí an ceadúnas do chách á stóráil."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "Store license for all users was successful."
+msgid "Save activation for all users was successful."
+msgstr "D'éirigh le stóráil an ceadúnas do chách."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "D'éirigh le stóráil an ceadúnas do chách."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+#| msgid "PDFCreator Server is running"
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr "Tá PDFCreator Server ag rith"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Cuir é i gcuimhne dom ar ball"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
 msgstr ""
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Cuir é i gcuimhne dom ar ball"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr ""
+"Gníomhachtaíodh go rathúil do cheadúnas, go raibh maith agat as ucht feidhm "
+"a bhaint as {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #, fuzzy
-#| msgid "License"
-msgid "View License"
-msgstr "Ceadúnas"
+msgid "Please enter your license key to continue using {0}"
+msgstr "Cuir isteach d'eochair cheadúnais:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Tá an ceadúnas á dhearbháil..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"Tá carachtair neamhdhleathacha in eochair an cheadúnais. Seo na carachtair "
+"bhailí: A-Z, 0-9 agus an dais."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr "Tá 30 carachtar nó uimhir in eochair an cheadúnais m.sh. {0}"
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Choíche"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Ceadúnaí:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "D'éag an gníomhachtúchán. Athnuaigh do ghníomhachtúchán."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr ""
+"Tá bac ar an inneall nó ar an úsáideoir. Déan teagmháil leis an bhfoireann "
+"thacaíochta."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Tharla earráid fad agus a bhí an ceadúnas á fhíordheimhniú."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "Níl eochair an cheadúnais sin bailí. Cuir isteach eochair nua."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "D'éag an ceadúnas. Athnuaigh do cheadúnas."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The license trial period has expired."
+msgstr "D'éag do cheadúnas."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "Níl eochair cheadúnais ar fáil. Cuir isteach eochair cheadúnais nua."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Tharla fadhb éigin leis an gceangal le freastalaí na gceadúnas."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr ""
+"Tá líon na n-inneall gníomhachtaithe a cheadaítear sáraithe ag an gceadúnas."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "Níl an eochair cheadúnais bailí don leagan PDFCreator seo."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "Tá an ceadúnas bailí."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr "D'éag an gníomhachtúchán. Athnuaigh do ghníomhachtúchán."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "Rachaidh do cheadúnas in éag i gceann {0} lá."
+msgstr[1] "Rachaidh do cheadúnas in éag i gceann {0} lá."
+msgstr[2] "Rachaidh do cheadúnas in éag i gceann {0} lá."
+msgstr[3] "Rachaidh do cheadúnas in éag i gceann {0} lá."
+msgstr[4] "Rachaidh do cheadúnas in éag i gceann {0} lá."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Níl an leagan amach ceart ar an gcód gníomhachtaithe."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Nach bhfuil eochair cheadúnais bailí agat?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "Ceannaigh gníomhachtuithe breise anseo."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Athnuaigh do cheadúnas anseo."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Bainistigh an ceadúnas anseo."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Cuir isteach d'eochair cheadúnais."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Tharla botún le linn an ghníomhachtaithe. Féach arís é."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#, fuzzy
+msgid "The internal license server url is not valid."
+msgstr "Tá an ceadúnas bailí."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1457,7 +1455,6 @@ msgstr "Teanga"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Explorer Context Menu Integration"
 msgid "Explorer context menu integration"
 msgstr "Comhtháthú roghchlár comhthéacs in Explorer"
 
@@ -1529,7 +1526,6 @@ msgstr "Staidreamh úsáide"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Send Usage Statistics"
 msgid "Send usage statistics"
 msgstr "Seol staidreamh úsáide"
 
@@ -1556,7 +1552,6 @@ msgstr "An beartas príobháideachais"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "Configure Home Screen"
 msgid "Configure home screen"
 msgstr "Cumraigh an Scáileán Baile"
 
@@ -1590,13 +1585,22 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 #, fuzzy
-#| msgid "PDFCreator Standby"
 msgid "PDFCreator standby"
 msgstr "Fuireachas PDFCreator"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid "Standby duration"
 msgstr "Aga an fhuireachais"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+#, fuzzy
+#| msgid "Restore"
+msgid "Restart"
+msgstr "Cuir ar ais"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1610,10 +1614,6 @@ msgstr ""
 "PDFCreator a dhúnadh, leanfaidh an feidhmchlár ag rith ar feadh an aga a "
 "socraíodh agus beidh lorg beag aige. Cuireann sé sin dlús mór le tiontuithe "
 "eile amach anseo."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "nóiméid"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -1640,7 +1640,6 @@ msgstr "Treoshuíomh an leathanaigh:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Default Viewer"
 msgid "Default viewer"
 msgstr "An tAmharcóir Réamhshocraithe"
 
@@ -1650,7 +1649,6 @@ msgstr "Comhaid inrite"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DefaultViewerSettings.DefaultViewerTranslation
 #, fuzzy
-#| msgid "Executable Path:"
 msgid "Executable path:"
 msgstr "Conair Inrite:"
 
@@ -1679,13 +1677,11 @@ msgstr "Cuir ar ais"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Default Settings"
 msgid "Default settings"
 msgstr "Na réamhshocruithe"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Export Settings"
 msgid "Export settings"
 msgstr "Bain amach na socruithe"
 
@@ -1713,7 +1709,6 @@ msgstr "Coinneáil taifid"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.DebugSettings.DebugSettingsTranslation
 #, fuzzy
-#| msgid "Logging Level:"
 msgid "Logging level:"
 msgstr "Méid na coinneála taifide:"
 
@@ -1959,7 +1954,7 @@ msgstr "Ath-shampláil íomhánna chuig"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Advanced:"
-msgstr "Ardroghanna:"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.OutputFormatTranslation
 msgid "Save validation report"
@@ -2025,9 +2020,9 @@ msgstr "UTF-8 atá geall le bheith leagan amach an téacs bhunaidh"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 #, fuzzy
-#| msgid "Add New Profile"
+#| msgid "New Profile"
 msgid "Add new profile"
-msgstr "Cuir beathaisnéisín nua leis"
+msgstr "Beathaisnéisín nua"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ProfileMangementTranslation
 #, fuzzy
@@ -2295,6 +2290,13 @@ msgid ""
 "able to save files to any directory the service has write permission."
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+#, fuzzy
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr "Fáinne gan chríoch atá mar thoradh ar an gclóire roghnaithe."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Dún"
@@ -2485,9 +2487,9 @@ msgstr "Roghnaigh ríomhchlár"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 #, fuzzy
-#| msgid "Additional Program Parameters:"
+#| msgid "Additional Parameters:"
 msgid "Additional program parameters:"
-msgstr "Paraiméadair Bhreise an Ríomhchláir:"
+msgstr "Paraiméadair Bhreise:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.RunProgram.ScriptTranslation
 #, fuzzy
@@ -2559,6 +2561,12 @@ msgstr "Oscail Comhad"
 msgid "Use PDF Architect"
 msgstr "Bain feidhm as PDF Architect"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Oscail comhad"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "Bain feidhm as {0}"
@@ -2579,7 +2587,15 @@ msgstr ""
 "réamhshocrú Windows a athrú"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
+#, fuzzy
+#| msgid "Open directory"
+msgid "Open file/directory"
+msgstr "Oscail comhadlann"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+#, fuzzy
+#| msgid "Open file in viewer."
+msgid "Open file or directory in viewer/explorer."
 msgstr "Oscail an comhad san amharcóir."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
@@ -2666,12 +2682,6 @@ msgid ""
 msgstr ""
 "Baineann sé luachanna amach as an gcáipéis foinseach agus baineann sé feidhm "
 "astu in áit ar bith ina thugann PDFCreator tacaíocht dóibh."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-#, fuzzy
-#| msgid "Forward to Profile"
-msgid "Forward to profile"
-msgstr "Aistrigh chuig an mbeathaisnéisín"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -2809,8 +2819,11 @@ msgid "Page numbers"
 msgstr "Uimhir leathanaigh"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
+#, fuzzy
+#| msgid "Error while adding page numbers to the document."
 msgid "Adds page numbers to the document."
-msgstr "Cuireann sé uimhreacha leathanaigh leis an gcáipéis."
+msgstr ""
+"Tharla botún fad agus a bhí uimhreacha leathanaigh á gcur leis an gcáipéis."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -2851,8 +2864,9 @@ msgid "Watermark"
 msgstr "Comhartha uisce"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
+#, fuzzy
 msgid "Adds a watermark to the document."
-msgstr "Cuireann sé comhartha uisce leis an gcáipéis."
+msgstr "Tharla botún fad agus a bhí comhartha uisce á chur leis an gcáipéis."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Stamp.DocumentTabTranslation
 msgid "Stamp"
@@ -3061,8 +3075,10 @@ msgstr ""
 "Déantar an Síniú agus an Criptiú ar deireadh i gcónaí."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
+#, fuzzy
+#| msgid "Save as ..."
 msgid "Save as file"
-msgstr "Taisc mar chomhad"
+msgstr "Taisc mar..."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
@@ -3230,8 +3246,10 @@ msgid "Background"
 msgstr "Cúlra"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
+#, fuzzy
+#| msgid "Error while adding background to the document."
 msgid "Adds a background to the document."
-msgstr "Cuireann sé cúlra leis an gcáipéis."
+msgstr "Tharla botún nuair a bhí cúlra á chur leis an gcáipéis."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Background.BackgroundSettingsAndActionTranslation
 msgid "Select background file"
@@ -3401,6 +3419,12 @@ msgid ""
 "executed. Please check your profile."
 msgstr "Ní thugann an fhormáid aschuir roghnaithe tacaíocht don ghné sin."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+#, fuzzy
+#| msgid "Merge"
+msgid "merge!"
+msgstr "Cumaisc"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr "Ag tiontú..."
@@ -3454,11 +3478,6 @@ msgstr "Gníomhartha gasta"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "Oscail leis an amharcóir réamhshocraithe"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Oscail comhad"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 #, fuzzy
@@ -3516,11 +3535,11 @@ msgstr "Leagan"
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "After converting {0} file, we have a recommendation for you:"
 msgid_plural "After converting {0} files, we have a recommendation for you:"
-msgstr[0] "Tar éis {0} chomhad a thiontú, tá moladh againn duit:"
-msgstr[1] "Tar éis {0} chomhad a thiontú, tá moladh againn duit:"
-msgstr[2] "Tar éis {0} chomhad a thiontú, tá moladh againn duit:"
-msgstr[3] "Tar éis {0} gcomhad a thiontú, tá moladh againn duit:"
-msgstr[4] "Tar éis {0} chomhad a thiontú, tá moladh againn duit:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Higher encryption (256 Bit AES)"
@@ -3541,7 +3560,7 @@ msgstr "Taisceadh uathoibríoch gan focal faire don teastas."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
-msgstr "Acrach don riarthóir"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "No, thanks"
@@ -3706,6 +3725,7 @@ msgstr "Féach arís é"
 msgid "Discard"
 msgstr ""
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Beathaisnéisín"
@@ -3729,6 +3749,204 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "Cuir téacschomhartha leis"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Edit HotFolder"
+msgstr "Cuir comhaid PDF in eagar"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Unused Printers"
+msgid "Linked Printer"
+msgstr "Clóirí neamhúsáidte"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Missing Printers"
+msgid "Assigned Printer Name:"
+msgstr "Clóirí ar iarraidh"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch:"
+msgstr "Treoshuíomh an leathanaigh:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "Select a folder to watch"
+msgstr "Treoshuíomh an leathanaigh:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Merge files"
+msgid "Source files"
+msgstr "Cumaisc na comhaid"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select signature image file"
+msgid "Select source files folder"
+msgstr "Roghnaigh comhad íomhá an tsínithe"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Unprintable files"
+msgstr "Comhaid inrite"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Executable files"
+msgid "Select unprintable files folder"
+msgstr "Comhaid inrite"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "No filter"
+msgstr "Comhad PNG"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Add file"
+msgid "Add Filter"
+msgstr "Cuir comhad leis"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Remove Profile"
+msgid "Remove Filter"
+msgstr "Bain an bheathaisnéisín"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Profiles"
+msgid "Profile assigned:"
+msgstr "Beathaisnéisíní"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "Select profile:"
+msgid "Select Profile"
+msgstr "Roghnaigh beathaisnéisín:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+#| msgid "PNG file"
+msgid "Enter filter"
+msgstr "Comhad PNG"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#, fuzzy
+msgid "The filter is not valid. Please check your entry."
+msgstr "Níl an chonair bailí. Cuir isteach conair bhailí."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Manage Printers"
+msgid "Manage HotFolders"
+msgstr "Bainistigh na clóirí"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Printer"
+msgid "Printer Name"
+msgstr "Clóire"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "HotFolder Path"
+msgstr "Cuir clúdach leis"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Actions"
+msgid "Active"
+msgstr "Gníomhartha"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#, fuzzy
+#| msgid "Add cover"
+msgid "Add HotFolder Printer"
+msgstr "Cuir clúdach leis"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr ""
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -4138,9 +4356,9 @@ msgstr "Cuntas Dropbox"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
 #, fuzzy
-#| msgid "Add Time Server account"
+#| msgid "Edit Time Server Account"
 msgid "Add time server account"
-msgstr "Cuir cuntas fhreastalaí ama leis"
+msgstr "Cuir an cuntas fhreastalaí ama in eagar"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.DropboxTranslation
@@ -4855,8 +5073,9 @@ msgstr "CCF:"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #, fuzzy
+#| msgid "Additional Parameters:"
 msgid "Additional Email Attachments:"
-msgstr "Ceangaltáin bhreise ríomhphoist:"
+msgstr "Paraiméadair Bhreise:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.MailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
@@ -5147,14 +5366,38 @@ msgstr "Luach do '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "Cuir na socruithe i dtaisce nó cuir ar ceal iad le leanúint ar aghaidh"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove all"
+msgid "Remove Page"
+msgstr "Bain gach ceann acu"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Remove all"
+msgid "Undo Removal"
+msgstr "Bain gach ceann acu"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+#, fuzzy
+#| msgid "Rows Per Page:"
+msgid "Rotate Page"
+msgstr "Sraitheanna an Leathanach:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr ""
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
+#, fuzzy
+#| msgid "Read more"
 msgid "and {0} more."
 msgid_plural "and {0} more."
-msgstr[0] "agus aon {0} cheann amháin eile."
-msgstr[1] "agus {0} cheann eile."
-msgstr[2] "agus {0} cinn eile."
-msgstr[3] "agus {0} gcinn eile."
-msgstr[4] "agus {0} eile."
+msgstr[0] "Léigh tuilleadh"
+msgstr[1] "Léigh tuilleadh"
+msgstr[2] "Léigh tuilleadh"
+msgstr[3] "Léigh tuilleadh"
+msgstr[4] "Léigh tuilleadh"
 
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "Delete File"
@@ -5504,7 +5747,7 @@ msgstr[4] "Ní féidir na comhaid seo a leanas a thiontú:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid "Admin privileges required"
-msgstr "Tá ceadanna riarthóra de dhíth"
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid ""
@@ -5929,6 +6172,77 @@ msgid ""
 "Please reactivate your Internal License Server activation on the {0}"
 msgstr ""
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+#, fuzzy
+#| msgid "The license key is not valid for this PDFCreator edition."
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr "Níl an eochair cheadúnais bailí don leagan PDFCreator seo."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr ""
@@ -5946,6 +6260,49 @@ msgstr ""
 #, fuzzy
 msgid "Error while converting"
 msgstr "Tharla botún nuair a bhí an comhad á chlóbhualadh."
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDFCreator test page"
+msgid "&Convert with PDFCreator"
+msgstr "Tiontaigh leathanach tástála PDFCreator"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Convert PDF files"
+msgid "Convert &Here"
+msgstr "Tiontaigh comhaid PDF"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+#, fuzzy
+#| msgid "Merge"
+msgid "&Merge"
+msgstr "Cumaisc"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6716,9 +7073,6 @@ msgstr "Botún Ghostscript inmheánach."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
-#| msgid ""
-#| "You have printed a password-protected PDF file and Ghostscript ist not "
-#| "able to convert such files."
 msgid ""
 "You tried to convert a password-protected PDF file without having access to "
 "it."
@@ -6825,9 +7179,6 @@ msgstr ""
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
-#| msgid ""
-#| "The path to the background file has to be an absolute path, e.g. 'C:"
-#| "\\documents\\background.pdf'"
 msgid ""
 "The path to the background file has to be a valid absolute path, e.g. 'C:"
 "\\documents\\background.pdf'"
@@ -6954,7 +7305,6 @@ msgstr "Tá conair an chomhaid eochrach FTP rófhada."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
-#| msgid "No CS-script file is specified."
 msgid "No CS-Script file is specified."
 msgstr "Níl comhad CS-script sonraithe."
 
@@ -7023,9 +7373,6 @@ msgstr "Ní comhad PDF é an comhad comhartha uisce."
 
 #: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
 #, fuzzy
-#| msgid ""
-#| "The path to the background file has to be an absolute path, e.g. 'C:"
-#| "\\documents\\background.pdf'"
 msgid ""
 "The path to the watermark file has to be a valid absolute path, e.g. 'C:"
 "\\documents\\watermark.pdf'"
@@ -7326,6 +7673,77 @@ msgstr ""
 msgid "Failed to apply changes made in preview."
 msgstr ""
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided HotFolder path is not a valid path."
+msgstr "Is conair neamhbhailí í conair na comhadlainne ftp."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path must not be empty."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The HotFolder path is too long."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Source files path is not a valid path."
+msgstr "Is conair neamhbhailí í conair na comhadlainne ftp."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path must not be empty."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Source files path is too long."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "Is conair neamhbhailí í conair na comhadlainne ftp."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path must not be empty."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid "The Unprintable files path is too long."
+msgstr "Tá conair an chomhaid eochrach FTP rófhada."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+#, fuzzy
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr "Fáinne gan chríoch atá mar thoradh ar an gclóire roghnaithe."
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr "Gan athdhéanamh"
@@ -7450,7 +7868,6 @@ msgstr "SFTP - prótacal aistrithe comhad SSH"
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "16 Million Colors (24 Bit)"
 msgid "16 million colors (24 Bit)"
 msgstr "16 Mhilliún Dathanna (24 Bheart)"
 
@@ -7466,31 +7883,26 @@ msgstr "PDF"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-1b file"
 msgid "PDF/A-1b"
 msgstr "Comhad PDF/A-1b"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-2b file"
 msgid "PDF/A-2b"
 msgstr "Comhad PDF/A-2b"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/A-3b file"
 msgid "PDF/A-3b"
 msgstr "Comhad PDF/A-3b"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "PDF/X file"
 msgid "PDF/X"
 msgstr "Comhad PDF/X"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "JPEG file"
 msgid "JPEG"
 msgstr "Comhad JPEG"
 
@@ -7500,43 +7912,36 @@ msgstr "PNG"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.OutputFormat
 #, fuzzy
-#| msgid "TIFF file"
 msgid "TIFF"
 msgstr "Comhad TIFF"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Right"
 msgid "Bottom right"
 msgstr "Ar dheis ag an mbun"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Left"
 msgid "Bottom left"
 msgstr "Ar chlé ag an mbun"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Bottom Center"
 msgid "Bottom center"
 msgstr "Sa lár ag an mbun"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Top Right"
 msgid "Top right"
 msgstr "Ar dheis ag an mbarr"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Top Left"
 msgid "Top left"
 msgstr "Ar chlé ag an mbarr"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PageNumberPosition
 #, fuzzy
-#| msgid "Top Center"
 msgid "Top center"
 msgstr "Sa lár ag an mbarr"
 
@@ -7590,25 +7995,21 @@ msgstr "Amharc dhá leathanach ag snámh (corrleathanaigh ar dheis)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "16 Million Colors with Transparency (32 Bit)"
 msgid "16 million colors with transparency (32 Bit)"
 msgstr "16 Mhilliún Dathanna le Trédhearcacht (32 Bheart)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "256 Colors (8 Bit)"
 msgid "256 colors (8 Bit)"
 msgstr "256 Dhath (8 mBeart)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "16 Color (4 Bit)"
 msgid "16 colors (4 Bit)"
 msgstr "16 Dhath (4 Bheart)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.PngColor
 #, fuzzy
-#| msgid "Black & White (2 Bit)"
 msgid "Black & white (2 Bit)"
 msgstr "Dubh ך Bán (2 Bheart)"
 
@@ -7622,43 +8023,36 @@ msgstr "Roghnaigh clóire ->"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "First Page"
 msgid "First page"
 msgstr "An chéad leathanach"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "Last Page"
 msgid "Last page"
 msgstr "An leathanach deiridh"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.SignaturePage
 #, fuzzy
-#| msgid "Custom Page"
 msgid "Custom page"
 msgstr "Leathanach saincheaptha"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "4096 Colors (12 Bit)"
 msgid "4096 colors (12 Bit)"
 msgstr "4096 Dhath (12 Bheart)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit G3 Fax)"
 msgid "Black & white (2 Bit G3 Fax)"
 msgstr "Dubh ך Bán (Faics 2 Bheart G3)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit G4 Fax)"
 msgid "Black & white (2 Bit G4 Fax)"
 msgstr "Dubh ך Bán (Faics 2 Bheart G4)"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.TiffColor
 #, fuzzy
-#| msgid "Black & White (2 Bit LZW)"
 msgid "Black & white (2 Bit LZW)"
 msgstr "Dubh ך Bán (2 Bheart LZW)"
 
@@ -7692,7 +8086,7 @@ msgstr "<<<    >>>"
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.UserTokenSeparator
 msgid "{{{   }}}"
-msgstr "{{{   }}}"
+msgstr ""
 
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.UserTokenSeparator
 msgid "(((   )))"
@@ -7726,6 +8120,11 @@ msgstr "Tacaíocht tugtha dó ó PDFCreator Business 4.1.0 ar aghaidh"
 #, fuzzy
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "Tacaíocht tugtha dó ó PDFCreator Business 4.1.0 ar aghaidh"
+
+#, fuzzy
+#| msgid "Supported since PDFCreator Business 2.3.0"
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "Tacaíocht tugtha dó ó PDFCreator Business 2.3.0 ar aghaidh"
 
 msgid "pdfforge"
 msgstr "PDFForge"
@@ -7775,6 +8174,17 @@ msgstr ""
 "Socraigh cé mhéad nóiméid a bhfanfaidh PDFCreator ar fuireachas tar éis é a "
 "rith. Chun é a dhíchumasú, socraigh ag 0 é."
 
+msgid "Disable debug tab"
+msgstr "Díchumasaigh an cluaisín dífhabhtaithe"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Gníomhachtaigh é chun an cluaisín dífhabhtaithe a dhíchumasú. Díchumasaíonn "
+"sé sin na feidhmiúlachtaí chun bearta oibre tástálacha a rithe agus chun an "
+"leibhéal dífhabhtaithe a athrú."
+
 msgid "Disable printer tab"
 msgstr "Díchumasaigh cluaisín an chlóire"
 
@@ -7799,16 +8209,19 @@ msgstr ""
 "Gníomhachtaigh é chun an cluaisín teidil a dhíchumasú. Díchumasaíonn sé sin "
 "an fheidhmiúlacht chun teidil ionaid a athrú."
 
-msgid "Disable debug tab"
-msgstr "Díchumasaigh an cluaisín dífhabhtaithe"
+msgid "Hide feedback form"
+msgstr "Folaigh an fhoirm aiseolais"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
+#, fuzzy
+msgid "Activate to hide feedback form"
 msgstr ""
-"Gníomhachtaigh é chun an cluaisín dífhabhtaithe a dhíchumasú. Díchumasaíonn "
-"sé sin na feidhmiúlachtaí chun bearta oibre tástálacha a rithe agus chun an "
-"leibhéal dífhabhtaithe a athrú."
+"Gníomhachtaigh é chun na leideanna a chur i bhfolach ar an scáileán baile"
+
+msgid "Hide license tab"
+msgstr "Folaigh an cluaisín ceadúnais"
+
+msgid "Activate to hide license tab."
+msgstr "Gníomhachtaigh é chun an cluaisín ceadúnais a chur i bhfolach."
 
 msgid "Hide PDF Architect info"
 msgstr "Folaigh eolas PDF Architect"
@@ -7817,12 +8230,6 @@ msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "Gníomhachtaigh é chun eolas faoin Eagarthóir in-saincheaptha PDFanna a chur "
 "i bhfolach."
-
-msgid "Hide license tab"
-msgstr "Folaigh an cluaisín ceadúnais"
-
-msgid "Activate to hide license tab."
-msgstr "Gníomhachtaigh é chun an cluaisín ceadúnais a chur i bhfolach."
 
 msgid "Disable profile management"
 msgstr "Díchumasaigh bainistiú próifíle"
@@ -7904,6 +8311,40 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Socruithe comhroinnte"
 
+#, fuzzy
+#| msgid "Load shared application settings"
+msgid "Load shared HotFolder settings"
+msgstr "Luchtaigh socruithe comhroinnte an fheidhmchláir"
+
+#, fuzzy
+#| msgid ""
+#| "Activate to load application settings from ini file in \"%ProgramData%"
+#| "\\pdfforge\\PDFCreator\". This is activated by default and must be "
+#| "explicitly disabled."
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Gníomhachtaigh é chun socruithe an ríomhchláir a luchtú ó chomhad ini i "
+"\"%ProgramData%\\pdfforge\\PDFCreator\". Déantar é sin a ghníomhachtú mar "
+"réamhshocrú agus is gá é a dhíchumasú go follasach."
+
+#, fuzzy
+#| msgid "Load shared profiles"
+msgid "Load shared printer mappings"
+msgstr "Luchtaigh beathaisnéisíní comhroinnte"
+
+#, fuzzy
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Gníomhachtaigh é chun an cluaisín clóire a dhíchumasú. Díchumasaíonn sé sin "
+"na feidhmiúlachtaí chun clóirí PDFCreator a chur leis/a scriosadh/a "
+"athainmniú, sannacháin próifíle a athrú, agus chun an príomhchlóire "
+"PDFCreator a shocrú."
+
 msgid "Load shared profiles"
 msgstr "Luchtaigh beathaisnéisíní comhroinnte"
 
@@ -7919,19 +8360,19 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Ceadaigh tuilleadh beathaisnéisíní sainithe ag an Úsáideoir"
 
-msgid "Hide feedback form"
-msgstr "Folaigh an fhoirm aiseolais"
-
 #, fuzzy
-msgid "Activate to hide feedback form"
-msgstr ""
-"Gníomhachtaigh é chun na leideanna a chur i bhfolach ar an scáileán baile"
+#| msgid "Hungarian"
+msgid "Bulgarian"
+msgstr "Ungáiris"
 
 msgid "Catalan"
 msgstr "Catalóinis"
 
-msgid "Chinese"
-msgstr "Sínis"
+msgid "Chinese (Simplified)"
+msgstr ""
+
+msgid "Chinese (Traditional)"
+msgstr "Sínis (Sheannósach)"
 
 msgid "Corsican (France)"
 msgstr "Corsaicis (an Fhrainc)"
@@ -7976,13 +8417,18 @@ msgstr "Polainnis"
 msgid "Portuguese (Brazil)"
 msgstr "Portaingéilis (na Brasaíle)"
 
+msgid "Slovak"
+msgstr ""
+
 #, fuzzy
-#| msgid "Danish"
 msgid "Spanish"
 msgstr "Danmhairgis"
 
 msgid "Swedish"
 msgstr "Sualainnis"
+
+msgid "Turkish"
+msgstr ""
 
 msgid "Set language:"
 msgstr "Socraigh teanga:"
@@ -7999,303 +8445,50 @@ msgstr "Socraigh méid na coinneála taifid:"
 msgid "Allow users to define additional profiles"
 msgstr "Ceadaigh d'úsáideoirí breis beathaisnéisíní a shainiú"
 
+#, fuzzy
+#~ msgid "Finish"
+#~ msgstr "Danmhairgis"
+
+#, fuzzy
+#~| msgid "Open"
+#~ msgid "On"
+#~ msgstr "Oscail"
+
+#, fuzzy
+#~| msgid "Disable title tab"
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "Díchumasaigh cluaisín an teidil"
+
+#, fuzzy
+#~| msgid "Activate to disable the job history."
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Gníomhachtaigh é chun oireas na mbeart oibre a dhíchumasú."
+
+#~ msgid "minutes"
+#~ msgstr "nóiméid"
+
+#, fuzzy
+#~| msgid "Offline activation"
+#~ msgid "Offline Activation"
+#~ msgstr "Gníomhachtúchán gan nasc leis an ngréasán"
+
+#~ msgid "Chinese"
+#~ msgstr "Sínis"
+
 #~ msgid "Show license details"
 #~ msgstr "Taispeáin sonraí an cheadúnais"
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Sínis (Sheannósach)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "Níl an ceadúnas bailí don leagan seo."
 
-#~ msgid "Your trial license has expired"
-#~ msgstr "D'éag do cheadúnas féachála"
+#, fuzzy
+#~| msgid "There was a problem with the connection to the license server."
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "Tharla fadhb éigin leis an gceangal le freastalaí na gceadúnas."
 
-#~ msgid "Unlock here"
-#~ msgstr "Bain an glas anseo"
-
-#~ msgid "Greek"
-#~ msgstr "Gréigis"
-
-#~ msgid "Turkish"
-#~ msgstr "Tuircis"
-
+#, fuzzy
+#~| msgid "The license has expired. Please renew your license."
 #~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
-#~ msgstr ""
-#~ "Ní raibh PDFCreator in ann do chlóirí a dheisiú. Déan teagmháil le do "
-#~ "riarthóir nó leis an bhfoireann thacaíochta chun cabhrú leat an fhadhb a "
-#~ "réiteach."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "Ní raibh PDFCreator in ann do spólfhillteán a dheisiú. Déan teagmháil le "
-#~ "do riarthóir nó leis an bhfoireann thacaíochta chun cabhrú leat na "
-#~ "ceadanna ar an gconair '{0}' a athrú."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "Tharla botún le comhpháirt ceadúnaithe ag pdfforge.\n"
-#~ "Suiteáil PDFCreator arís. (Botún {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "Tá do cheadúnas i gcomhair \"{0}\" neamhbhailí nó d'éag sé. Dearbháil do "
-#~ "cheadúnas, nó scoirfidh PDFCreator.\n"
-#~ "An mian leat do cheadúnas a dhearbháil anois?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "D'éag do cheadúnas i gcomhair \"{0}\".\n"
-#~ "Dúnfaidh PDFCreator."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "D'éag do cheadúnas i gcomhair \"{0}\".\n"
-#~ "Déan teagmháil le do riarthóir.\n"
-#~ "Dúnfaidh PDFCreator."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "D'éag d'fhéachaint ar {0}.\n"
-#~ "Dúnfaidh PFCreator.\n"
-#~ "\n"
-#~ "Déan teagmháil le: licensing@pdfforge.org"
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "Tá do cheadúnas i gcomhair \"{0}\" neamhbhailí nó d'éag sé. Dearbháil do "
-#~ "cheadúnas, nó scoirfidh PDFCreator.\n"
-#~ "An mian leat do cheadúnas a dhearbháil anois?"
-
-#, fuzzy
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "D'éag do cheadúnas i gcomhair \"{0}\".\n"
-#~ "Dúnfaidh PDFCreator."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Bain feidhm as \"PDFCreator Terminal Server\" do ríomhairí le Terminal "
-#~ "Services suiteáilte orthu.\n"
-#~ "\n"
-#~ "Tabhair cuairt ar ár suíomh gréasáin chun tuilleadh eolais a fháil nó "
-#~ "déan teagmháil linn go díreach: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Ní féidir suiteáil Ghostscript a thugtar tacaíocht di.\n"
-#~ "\n"
-#~ "Dúnfaidh an ríomhchlár anois."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Níl an spólseirbhís ar Windows ag rith. Tosaigh an spólchlár ar dtús.\n"
-#~ "\n"
-#~ "Dúnfar an ríomhchlár anois."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Níl aon chlóirí PDFCreator suiteáilte agat. Is dóigh is éard a tharla ná "
-#~ "gur tharla fadhb i rith na cumraíochta nó athraíodh an tsuiteáil tar éis "
-#~ "sin.\n"
-#~ "An mian leat seo a réiteach trí na clóirí PDFCreator a shuiteáil arís?\n"
-#~ "\n"
-#~ "Aire: B'fhéidir go n-iarrfaí ort pribhléidí riarthóra a cheadú fad is atá "
-#~ "an fhadhb á deisiú."
-
-#~ msgid "No printers installed"
-#~ msgstr "Níl aon chlóire suiteáilte"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "Níor aimsíodh RepairTool"
-
-#~ msgid "Access Denied"
-#~ msgstr "Rochtain diúltaithe"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "Ní féidir an chonair shealadach ar a thaisceann PDFCreator na bearta "
-#~ "clóbhuailte a rochtain. Is fadhb chumraíochta í seo ar d'inneall agus is "
-#~ "gá í a réiteach. Ar mhaith leat go ndéanfaí PDFCreator é a dheisiú?\n"
-#~ "Is é do spólfhillteán ná: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "Albáinis"
-
-#~ msgid "Printer:"
-#~ msgstr "Clóire:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#, fuzzy
-#~ msgid "Sharepoint"
-#~ msgstr "Leagan"
-
-#~ msgid "Read More"
-#~ msgstr "Léigh tuilleadh"
-
-#~ msgid "Default Printer"
-#~ msgstr "An clóire réamhshocraithe"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Staidreamh úsáide"
-
-#, fuzzy
-#~ msgid "Run Program"
-#~ msgstr "Rith an ríomhchlár"
-
-#, fuzzy
-#~ msgid "Set Certificate Password"
-#~ msgstr "Socraigh focal faire an teastais"
-
-#~ msgid "User Name:"
-#~ msgstr "Ainm úsáideora:"
-
-#, fuzzy
-#~ msgid "Email Address:"
-#~ msgstr "Seoladh ríomhphoist:"
-
-#, fuzzy
-#~ msgid "Add Attachment"
-#~ msgstr "Cuir ceangaltán leis"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "Thar cheann:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "Roghnaigh 'Níl' chun na hathruithe a chur ar ceal."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "agus aon {0} chomhad/chomhadlann amháin eile"
-#~ msgstr[1] "agus {0} chomhad/chomhadlann eile"
-#~ msgstr[2] "agus {0} chomhad/chomhadlann eile"
-#~ msgstr[3] "agus {0} gcomhad/gcomhadlann eile"
-#~ msgstr[4] "agus {0} comhad/comhadlann eile"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&Tiontaigh le PDFCreator"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Tiontaigh &Anseo"
-
-#~ msgid "&Merge"
-#~ msgstr "&Cumaisc"
-
-#~ msgid "Hint"
-#~ msgstr "Leid"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "Níorbh fhéidir PDFCreator a aimsiú i do chóras. Dearbháil an bhfuil sé "
-#~ "suiteáilte agat."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "Ní féidir ceann amháin ar a laghad de na nithe roghnaithe a thiontú! Chun "
-#~ "tuilleadh eolais faoi chomhaid nach féidir a chlóbhualadh a fháil, féach "
-#~ "ar an liosta thíos."
-
-#, fuzzy
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gconair an chomhaid eochrach FTP."
-
-#, fuzzy
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha sa chomhad scripte."
-
-#, fuzzy
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gceann de na conairí clúdaigh."
-
-#, fuzzy
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gceann de chonairí ceangaltáin."
-
-#, fuzzy
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha sa chomhadlann sprice."
-
-#, fuzzy
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha sa chonair chúlra."
-
-#, fuzzy
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gconair an teastais."
-
-#, fuzzy
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "Is conair neamhbhailí í conair na comhadlainne ftp."
-
-#, fuzzy
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gconair an chomhaid eochrach FTP."
-
-#, fuzzy
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "Níl conair an chomhaid bailí nó tá sé folamh. Cuir isteach conair "
-#~ "bhailí. \n"
-#~ "Níl cead na comharthaí seo a leanas a bheith i gconair an chomhaid: \n"
-#~ " \\ / : * ? \\< >"
-
-#, fuzzy
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "Tá carachtair neamhdhleathacha i gconair an chomhartha uisce."
-
-#~ msgid "Your license has expired."
-#~ msgstr "D'éag do cheadúnas."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
+#~ msgstr "D'éag an ceadúnas. Athnuaigh do cheadúnas."

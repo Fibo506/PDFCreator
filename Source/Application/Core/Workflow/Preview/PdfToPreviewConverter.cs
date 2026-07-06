@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Drawing.Imaging;
+
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 using NLog;
 using pdfforge.PDFCreator.Conversion.Jobs.FolderProvider;
+using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.Preview;
 using pdfforge.PDFCreator.Utilities;
-using PdfiumViewer;
 using SystemInterface.IO;
 using Logger = NLog.Logger;
 
@@ -26,13 +27,14 @@ public class PdfToPreviewConverter : IPdfToPreviewConverter
     private readonly IGuid _guid;
 
     private readonly string _tempPreviewFolder;
+    private readonly IPdfToImagePathTaskList _pdfToImagePathTaskList;
 
-
-    public PdfToPreviewConverter(IDirectory directory, ITempFolderProvider tempFolderProvider, IGuid guid)
+    public PdfToPreviewConverter(IDirectory directory, ITempFolderProvider tempFolderProvider, IGuid guid, IPdfToImagePathTaskList pdfToImagePathTaskList)
     {
         _directory = directory;
         _guid = guid;
         _tempPreviewFolder = PathSafe.Combine(tempFolderProvider.TempFolder, "Preview");
+        _pdfToImagePathTaskList= pdfToImagePathTaskList;
     }
 
     public async Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
@@ -54,41 +56,15 @@ public class PdfToPreviewConverter : IPdfToPreviewConverter
             if (cancellationToken.IsCancellationRequested)
                 return previewPages;
 
-            var document = PdfDocument.Load(pdfFilePath);
-            previewPages.DisposeDocument = () => document.Dispose();
+            var (previewImagePathTaskList, disposeDocument) = _pdfToImagePathTaskList.GetPdfToImagePathList(pdfFilePath, previewImagePathBase, cancellationToken);
+            previewPages.DisposeDocument = disposeDocument;
 
-            for (var pageIndex = 0; pageIndex < document.PageCount; pageIndex++)
+            for (var pageIndex = 0; pageIndex < previewImagePathTaskList.Count; pageIndex++)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                var index = pageIndex;
-                var imagePathTask = Task.Run(() =>
-                {
-                    var imagePath = $"{previewImagePathBase}_{index + 1}.jpeg";
-
-                    // Determine dimensions based on the page size
-                    var pageSize = document.PageSizes[index];
-                    int width, height;
-                    if (pageSize.Height > pageSize.Width) // Portrait
-                    {
-                        height = MaxImageSize;
-                        width = (int)Math.Round(pageSize.Width * MaxImageSize / pageSize.Height);
-                    }
-                    else // Landscape
-                    {
-                        width = MaxImageSize;
-                        height = (int)Math.Round(pageSize.Height * MaxImageSize / pageSize.Width);
-                    }
-
-                    using var image = document.Render(index, width, height, 96, 96, PdfRenderFlags.Annotations);
-                    image.Save(imagePath, ImageFormat.Jpeg);
-
-                    return imagePath;
-                }, cancellationToken);
-
-                var previewPage = new PreviewPage(pageIndex + 1, imagePathTask);
+                var previewPage = new PreviewPage(pageIndex + 1, previewImagePathTaskList[pageIndex]);
                 previewPages.PreviewPageList.Add(previewPage);
             }
+
         }
         catch (OperationCanceledException)
         { }
@@ -99,5 +75,13 @@ public class PdfToPreviewConverter : IPdfToPreviewConverter
         }
 
         return previewPages;
+    }
+
+    public class DisabledPdfToPreviewConverter : IPdfToPreviewConverter
+    {
+        public Task<PreviewPages> GeneratePreviewPages(string pdfFilePath, CancellationToken cancellationToken)
+        {
+            return new Task<PreviewPages>(() => new PreviewPages(""));
+        }
     }
 }

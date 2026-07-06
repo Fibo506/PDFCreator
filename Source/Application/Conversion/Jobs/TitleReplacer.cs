@@ -13,8 +13,15 @@ namespace pdfforge.PDFCreator.Conversion.Jobs;
 /// </summary>
 public class TitleReplacer
 {
-    private readonly List<TitleReplacement> _replacements = new List<TitleReplacement>();
 
+    private readonly List<TitleReplacement> _replacements = new List<TitleReplacement>();
+    private readonly List<List<char>> _variantGroups = new List<List<char>>();
+    private readonly List<TitleReplacement> _variantReplacement = new List<TitleReplacement>();
+
+    public TitleReplacer()
+    {
+        AddVariant([(char)0x2E3B, (char)0x2E3A, (char)0x2013, (char)0x2014, (char)0x2015, '-']);
+    }
     /// <summary>
     ///     Replace the title string with the replacements
     /// </summary>
@@ -27,8 +34,12 @@ public class TitleReplacer
 
         var title = originalTitle;
 
+        var replacements = new List<TitleReplacement>();
+        replacements.AddRange(_replacements);
+        replacements.AddRange(_variantReplacement);
+
         // Descending to replace longer strings first to avoid e.g. replacement of .doc before .docx
-        var sortedReplacements = _replacements
+        var sortedReplacements = replacements
             .OrderBy(x => x.ReplacementType)
             .ThenByDescending(replacement => replacement.Search.Length)
             .ThenByDescending(y => y.Search);
@@ -79,6 +90,40 @@ public class TitleReplacer
     public void AddReplacement(TitleReplacement titleReplacement)
     {
         _replacements.Add(titleReplacement);
+
+        // don't replace based on variant when using explicit replacements
+        if (titleReplacement.ReplacementType is ReplacementType.RegEx or ReplacementType.Replace)
+            return;
+
+        foreach (var variantGroup in _variantGroups)
+        {
+            foreach (var c in variantGroup)
+            {
+                if (titleReplacement.Search.Contains(c))
+                {
+                    var list = CreateVariantTitleReplacementList(titleReplacement, variantGroup, c);
+                    foreach (var variant in list)
+                    {
+                        _variantReplacement.Add(new TitleReplacement(titleReplacement.ReplacementType, variant, titleReplacement.Replace));
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    private List<string> CreateVariantTitleReplacementList(TitleReplacement titleReplacement, List<char> variantGroup, char baseChar)
+    {
+        var list = new List<string>();
+        foreach (var variantChar in variantGroup)
+        {
+            if (variantChar == baseChar)
+                continue;
+            var variantSearch = titleReplacement.Search.Replace(baseChar, variantChar);
+            list.Add(variantSearch);
+        }
+
+        return list;
     }
 
     public void AddReplacements(IEnumerable<TitleReplacement> replacements)
@@ -87,6 +132,11 @@ public class TitleReplacer
         {
             AddReplacement(titleReplacement);
         }
+    }
+
+    public void AddVariant(List<char> variantGroup)
+    {
+        _variantGroups.Add(variantGroup);
     }
 }
 

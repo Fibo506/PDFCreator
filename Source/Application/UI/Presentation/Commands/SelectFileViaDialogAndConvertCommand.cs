@@ -9,12 +9,12 @@ namespace pdfforge.PDFCreator.UI.Presentation.Commands;
 public class SelectFileViaDialogAndConvertCommand : DelegateCommandBase
 {
     private readonly IInteractionInvoker _interactionInvoker;
-    private readonly IFileConversionAssistant _fileConversionAssistant;
+    private readonly IFileConversionHelper _fileConversionHelper;
 
-    public SelectFileViaDialogAndConvertCommand(IInteractionInvoker interactionInvoker, IFileConversionAssistant fileConversionAssistant)
+    public SelectFileViaDialogAndConvertCommand(IInteractionInvoker interactionInvoker, IFileConversionHelper fileConversionHelper)
     {
         _interactionInvoker = interactionInvoker;
-        _fileConversionAssistant = fileConversionAssistant;
+        _fileConversionHelper = fileConversionHelper;
     }
 
     protected override void Execute(object parameter)
@@ -27,7 +27,7 @@ public class SelectFileViaDialogAndConvertCommand : DelegateCommandBase
         if (!interaction.Success)
             return;
 
-        _fileConversionAssistant.HandleFileListWithoutTooManyFilesWarning(interaction.FileNames, new AppStartParameters());
+        _fileConversionHelper.HandleFileListWithoutTooManyFilesWarning(interaction.FileNames, new AppStartParameters());
     }
 
     protected override bool CanExecute(object parameter)

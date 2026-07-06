@@ -57,7 +57,7 @@ public class BrowseFileCommandBuilder : IBrowseFileCommandBuilder
     public IMacroCommand BuildCommand(IList<ICommand> postExecutionCommands, Predicate<object> canExecute = null)
     {
         if (_getJob == null || _updateUi == null || _setLastConfirmedPath == null || _getLastConfirmedPath == null)
-            throw new InvalidOperationException($"Call {nameof(BrowseFileCommandBuilder)}.Init first to set communication functions.");
+            throw new InvalidOperationException($"Call {nameof(BrowseFileCommandBuilder)}.StartAll first to set communication functions.");
 
         var waitableAsyncCommand = new WaitableAsyncCommand(BrowseFileWithNotificationForTooLongInput, canExecute);
 

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>COM_Testform</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="PDFCreator.ComWrapper">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\PDFCreator\PDFCreator.ComWrapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

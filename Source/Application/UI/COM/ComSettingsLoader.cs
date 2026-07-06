@@ -42,11 +42,20 @@ internal class ComSettingsLoader : SettingsLoader
     {
         _translationHelper.TranslateProfileList(settings.ConversionProfiles);
         CheckLanguage(settings);
-        CheckUpdateInterval(settings);
     }
 
-    private void CheckUpdateInterval(PdfCreatorSettings settings)
+    protected override void CheckAndAddMissingDefaultProfile(PdfCreatorSettings settings)
     {
+        var defaultProfile = settings.GetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_COM_GUID);
+        if (defaultProfile == null)
+        {
+            defaultProfile = DefaultSettingsBuilder.CreateDefaultProfile();
+            settings.ConversionProfiles.Add(defaultProfile);
+        }
+        else
+        {
+            defaultProfile.Properties.Deletable = false;
+        }
     }
 
     private void CheckLanguage(PdfCreatorSettings settings)

@@ -82,7 +82,7 @@
 
             <StackPanel Margin="0 0 20 0">
                 <Label Style="{StaticResource RegularLabel}" Content="{Binding Translation.SearchForText}" />
-                <TextBox Text="{Binding SearchForInput, UpdateSourceTrigger=PropertyChanged}" Margin="0 10 0 0" />
+                <TextBox Text="{Binding SearchForInput, UpdateSourceTrigger=PropertyChanged}" Margin="0 10 0 0" MaxWidth="350"/>
                 <StackPanel Margin="0 20 0 0"
                             Visibility="{Binding IsReplaceByRegex, Converter={StaticResource BoolToVisibilityConverter}}">
                     <Label Content="{Binding Translation.ReplaceWithText}" />

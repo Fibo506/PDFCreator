@@ -6,6 +6,7 @@ using pdfforge.PDFCreator.Core.DirectConversion;
 using pdfforge.PDFCreator.Core.Startup.AppStarts;
 using pdfforge.PDFCreator.Core.StartupInterface;
 using pdfforge.PDFCreator.Utilities;
+using pdfforge.PDFCreator.Utilities.Threading;
 using SystemInterface.IO;
 
 namespace pdfforge.PDFCreator.Core.Startup;
@@ -16,16 +17,18 @@ public class AppStartFactory
     private readonly IAppStartResolver _appStartResolver;
     private readonly IPathUtil _pathUtil;
     private readonly IDirectConversionHelper _directConversionHelper;
+    private readonly IThreadManager _threadManager;
 
     private static readonly string[] DeprecatedParameters = { "InitializeSettings", "RestorePrinters" };
 
     public AppStartFactory(IAppStartResolver appStartResolver,
         IPathUtil pathUtil,
-        IDirectConversionHelper directConversionHelper)
+        IDirectConversionHelper directConversionHelper, IThreadManager threadManager)
     {
         _appStartResolver = appStartResolver;
         _pathUtil = pathUtil;
         _directConversionHelper = directConversionHelper;
+        _threadManager = threadManager;
     }
 
     public IAppStart CreateApplicationStart(string[] commandLineArgs)
@@ -38,6 +41,14 @@ public class AppStartFactory
             var dragAndDropStart = _appStartResolver.ResolveAppStart<DragAndDropStart>();
             dragAndDropStart.DroppedFiles = commandLineArgs.ToList();
             return dragAndDropStart;
+        }
+
+        if (commandLineArgs.Length >= 1 && commandLineArgs.Any(IsLinkArg))
+        {
+            _logger.Debug("Launching with link");
+            var linkAppStart = _appStartResolver.ResolveAppStart<LinkStart>();
+            linkAppStart.Link = commandLineArgs.First(IsLinkArg);
+            return linkAppStart;
         }
 
         var commandLineParser = new CommandLineParser(commandLineArgs);
@@ -72,7 +83,7 @@ public class AppStartFactory
         if (commandLineParser.HasArgumentWithValue("PrintFile"))
         {
             var printFile = commandLineParser.GetArgument("PrintFile");
-            if (_directConversionHelper.CanConvertDirectly(printFile))
+            if (_directConversionHelper.IsImageOrDirectConversion(printFile))
                 files.Add(printFile); //Add file and proceed with directConversion see below
             else
             {
@@ -105,9 +116,17 @@ public class AppStartFactory
             return dragAndDropStart;
         }
 
+        // check for standby Startup
+        if (commandLineParser.HasArgument("standby"))
+        {
+            var standbyStart = _appStartResolver.ResolveAppStart<StandByStart>();
+            _threadManager.WaitForThreads();
+            return standbyStart;
+        }
+
         // ... else we have a MainWindowStart
         var mainWindowStart = _appStartResolver.ResolveAppStart<MainWindowStart>();
-        // suppress ManagePrintJobWindows together with the MainWindow (at this point no conversion was requested)
+        // suppress ManagePrintJobWindows together with the MainWindow (at this point no conversion was requested
         appStartParameters.ManagePrintJobs = false;
         mainWindowStart.AppStartParameters = appStartParameters;
 
@@ -126,6 +145,11 @@ public class AppStartFactory
 
     private bool IsFileArg(string arg) => !IsCommandArg(arg) && _pathUtil.IsValidRootedPath(arg);
 
+    private bool IsLinkArg(string arg)
+    {
+        return arg.StartsWith("pdfcreator://");
+    }
+
     private bool IsDragAndDropStart(string[] args)
     {
         if (args == null)
@@ -135,6 +159,9 @@ public class AppStartFactory
             return false;
 
         if (args.Any(IsCommandArg))
+            return false;
+
+        if (args.Any(IsLinkArg))
             return false;
 
         return args.All(IsFileArg);

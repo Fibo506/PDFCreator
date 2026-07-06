@@ -34,7 +34,6 @@ public class JobInfo
     public string OutputFileParameter { get; set; }
     public string OriginalFilePath { get; set; }
     public string SplitDocument { get; set; }
-    public bool ExpandPreview { get; set; } = false;
 
     private int CalculateTotalPages()
     {

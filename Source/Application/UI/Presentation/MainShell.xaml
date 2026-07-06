@@ -47,9 +47,11 @@
                 <ResourceDictionary Source="Styles/Icons/PDFArchitectIcons.xaml" />
                 <ResourceDictionary Source="Styles/Buttons/SquaredIconButton.xaml" />
                 <ResourceDictionary Source="Styles/Buttons/BusinessFeatureButtons.xaml" />
+                <ResourceDictionary Source="Styles/BetaTag.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalseConverter" TrueValue="Visible" FalseValue="Collapsed" />
             <converter:BoolNegationConverter x:Key="BoolNegationConverter" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfTrue" TrueValue="Collapsed" FalseValue="Visible" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse" TrueValue="Visible" FalseValue="Collapsed" />
         </ResourceDictionary>
     </metro:MetroWindow.Resources>
 
@@ -72,14 +74,14 @@
         <Grid AllowDrop="True" Background="Transparent"  
               IsEnabled="{Binding MainShellLocked, Converter={StaticResource BoolNegationConverter}}">
             <!-- The background has to be set to make drag&drop work anywhere in the grid -->
-            <Grid.Resources>
-                <converter:BoolToVisibilityConverter x:Key="InvertedBoolToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
-                <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse" TrueValue="Visible" FalseValue="Collapsed" />
-            </Grid.Resources>
             <Grid.RowDefinitions>
+                <!-- 0 Tab Switches -->
                 <RowDefinition Height="Auto" />
+                <!-- 1 Info ribbons -->
+                <RowDefinition Height="Auto" />
+                <!-- 2 Current Tab -->
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
+                <!-- 3 Status Bar -->
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
@@ -89,10 +91,7 @@
                 <obsidian:EventToCommandBehavior Command="{Binding DragDropCommand}" Event="Drop" PassArguments="True" />
             </b:Interaction.Behaviors>
 
-            <Border Grid.Row="0"
-                BorderThickness="0 0 0 2"
-                BorderBrush="{StaticResource AccentGrey}">
-                <StackPanel ZIndex="100" Background="{StaticResource MainTabButtonRegionBackground}">
+            <StackPanel Grid.Row="0" ZIndex="100" Background="{StaticResource MainTabButtonRegionBackground}">
                     <!-- Tab Switch Buttons -->
                     <Grid Margin="40 10 40 10" Height="33">
                         <Grid.Resources>
@@ -106,26 +105,29 @@
                         </Grid.Resources>
                         <Grid.ColumnDefinitions>
                             <!-- Home -->
-                            <ColumnDefinition Width="*" MinWidth="110" MaxWidth="140" />
+                            <ColumnDefinition Width="Auto" />
                             <!-- Profile -->
-                            <ColumnDefinition Width="*" MinWidth="110" MaxWidth="140" />
+                            <ColumnDefinition Width="Auto" MinWidth="140" />
                             <!-- Printer -->
-                            <ColumnDefinition Width="*" MinWidth="110" MaxWidth="140" />
+                            <ColumnDefinition Width="Auto" MinWidth="140" />
+                            <!-- HotFolder -->
+                            <ColumnDefinition Width="Auto" MinWidth="140" />
                             <!-- Accounts -->
-                            <ColumnDefinition Width="*" MinWidth="110" MaxWidth="140" />
+                            <ColumnDefinition Width="Auto" MinWidth="140" />
                             <!-- Settings -->
-                            <ColumnDefinition Width="*" MinWidth="110" MaxWidth="140" />
+                            <ColumnDefinition Width="Auto" MinWidth="140" />
                             <!-- Architect -->
                             <ColumnDefinition Width="Auto" />
-                            <!-- Space -->
-                            <ColumnDefinition Width="0.01*" />
+                            <!-- Flexible space -->
+                            <ColumnDefinition Width="*" MinWidth="20" />
                             <!-- Info & Feedback -->
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0"
+                        <Button Grid.Column="0" Width="32"
                             Name="HomeButton"
-                            Content="{Binding Translation.Home}"
+                            Padding="6"
+                            Content="{StaticResource HomeIcon}"
                             help:HelpProvider.HelpTopic="Home"
                             Background="{ Binding ActivePath,
                                             Converter={StaticResource StringToActiveColorConverter},
@@ -169,7 +171,64 @@
                                                 Converter={StaticResource ValueIsNotEqualToParameterConverter},
                                                 ConverterParameter={x:Static presentation:RegionViewName.PrinterView}}" />
 
-                        <Button Grid.Column="3" Margin="10 0 0 0"
+                        <Grid Grid.Column="3" Margin="10 0 0 0">
+                        <ContentControl Style="{StaticResource BetaTag}"
+                                        IsHitTestVisible="{ Binding ActivePath,
+                                                                        Converter={StaticResource ValueIsNotEqualToParameterConverter},
+                                                                        ConverterParameter={x:Static presentation:RegionViewName.HotFolderView}}">
+                            <Button Content="{Binding Translation.HotFolder}"
+                                    help:HelpProvider.HelpTopic="HotFolder"
+                                    Command="{Binding NavigateCommand}"
+                                    CommandParameter="{x:Static presentation:RegionViewName.HotFolderView}"
+                                    IsHitTestVisible="{ Binding ActivePath,
+                                                Converter={StaticResource ValueIsNotEqualToParameterConverter},
+                                                ConverterParameter={x:Static presentation:RegionViewName.HotFolderView}}">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource BusinessEditionMainShellButton}">
+                                        <Style.Triggers>
+                                            <!-- For other editions (not free), keeping the original active state behavior -->
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsFreeEdition}" Value="False"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <MultiDataTrigger.Setters>
+                                                    <Setter Property="Background" Value="{ Binding ActivePath,
+                                                        Converter={StaticResource StringToActiveColorConverter},
+                                                        ConverterParameter={x:Static presentation:RegionViewName.HotFolderView}}"/>
+                                                    <Setter Property="Foreground" Value="{ Binding ActivePath,
+                                                        Converter={StaticResource StringToActiveForegroundColorConverter},
+                                                        ConverterParameter={x:Static presentation:RegionViewName.HotFolderView}}"/>
+                                                </MultiDataTrigger.Setters>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding ActivePath}" Value="{x:Static presentation:RegionViewName.HotFolderView}"/>
+                                                    <Condition Binding="{Binding IsFreeEdition}" Value="True"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <MultiDataTrigger.Setters>
+                                                    <Setter Property="Foreground" Value="{StaticResource DefaultTextColorBrush}"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                </MultiDataTrigger.Setters>
+                                            </MultiDataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </ContentControl>
+
+                        <!-- Green circle indicator -->
+                        <Grid HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Margin="15,0,0,0"
+                              Visibility="{Binding IsHotFolderActive, Converter={StaticResource BooleanToVisibilityConverter}}" >
+                            <Ellipse Width="10" Height="10" 
+                                     Fill="White" />
+                            <Ellipse Width="8" Height="8" 
+                                     Fill="{StaticResource InstallGreenForegroundBrush}" />
+                        </Grid>
+                    </Grid>
+                        <Button Grid.Column="4" Margin="10 0 0 0"
                             Content="{Binding Translation.Accounts}"
                             help:HelpProvider.HelpTopic="Accounts"
                             Background="{ Binding ActivePath,
@@ -184,7 +243,7 @@
                                                 Converter={StaticResource ValueIsNotEqualToParameterConverter},
                                                 ConverterParameter={x:Static presentation:RegionViewName.AccountsView}}" />
 
-                        <controls:Badged Grid.Column="4" Margin="10 0 0 0"
+                        <controls:Badged Grid.Column="5" Margin="10 0 0 0"
                                      BadgePlacementMode="TopRight"
                                      Badge="{Binding UpdateBadge}"
                                      BadgeBackground="{StaticResource WarningBrush}">
@@ -214,51 +273,48 @@
                             </Button>
                         </controls:Badged>
 
-                        <Button Grid.Column="5" Margin="10 0 0 0"
-                            Command="{Binding NavigateCommand}"
-                            Background="{ Binding ActivePath,
-                                            Converter={StaticResource StringToActiveColorConverter},
-                                            ConverterParameter={x:Static presentation:RegionViewName.ArchitectView}}"
-                            CommandParameter="{x:Static presentation:RegionViewName.ArchitectView}"
-                            Visibility="{Binding HidePdfArchitectInfo, Converter={StaticResource InvertedBoolToVisibilityConverter}}"
-                            IsHitTestVisible="{ Binding ActivePath,
-                                                Converter={StaticResource ValueIsNotEqualToParameterConverter},
-                                                ConverterParameter={x:Static presentation:RegionViewName.ArchitectView}}"
-                            Padding="0">
+                        <Button Grid.Column="6" Margin="10 0 0 0"
+                                Command="{Binding NavigateCommand}"
+                                Background="{ Binding ActivePath,
+                    Converter={StaticResource StringToActiveColorConverter},
+                    ConverterParameter={x:Static presentation:RegionViewName.ArchitectView}}"
+                                CommandParameter="{x:Static presentation:RegionViewName.ArchitectView}"
+                                Visibility="{Binding HidePdfArchitectInfo, Converter={StaticResource CollapsedIfTrue}}"
+                                IsHitTestVisible="{ Binding ActivePath,
+                        Converter={StaticResource ValueIsNotEqualToParameterConverter},
+                        ConverterParameter={x:Static presentation:RegionViewName.ArchitectView}}"
+                                Padding="0">
                             <ContentControl Content="{StaticResource PdfArchitectLogoWithoutSlogan}" />
                         </Button>
 
                         <!-- Feedback & About in Grid cause the feedback can be hidden by GPO -->
-                        <Grid Grid.Column="7">
+                        <Grid Grid.Column="8" HorizontalAlignment="Right" Margin="0 0 15 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0"
-                                    Width="108"
-                                    Height="32"
+                            <Button Margin="0"
+                                    Grid.Column="0"
                                     Content="{Binding Translation.UpgradeNow}"
-                                    Style="{StaticResource MainGreenGradientButton}"
-                                    Command="{Binding OpenUrlCommand}"
-                                    CommandParameter="{Binding Source={x:Static utilities:Urls.BusinessHintLink}}"
-                                    Visibility="{Binding ShowUpgradeNowButton, Converter={StaticResource CollapsedIfFalse}}"
-                                    />
+                                    Style="{StaticResource MainBusinessOrangeButton}"
+                                    Command="{Binding UpgradeNowCommand}"
+                                    Visibility="{Binding IsFreeEdition, Converter={StaticResource CollapsedIfFalse}}"
+                            />
                             <Button Margin="10 0 0 0"
                                     Grid.Column="1"
                                     help:HelpProvider.HelpTopic="General"
-
                                     Background="{ Binding ActivePath,
-                                                    Converter={StaticResource StringToActiveColorConverter},
-                                                    ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
+                            Converter={StaticResource StringToActiveColorConverter},
+                            ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
                                     Foreground="{ Binding ActivePath,
-                                                    Converter={StaticResource StringToActiveForegroundColorConverter},
-                                                    ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
+                            Converter={StaticResource StringToActiveForegroundColorConverter},
+                            ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
                                     Command="{Binding NavigateCommand}"
                                     CommandParameter="{x:Static presentation:RegionViewName.AboutView}"
                                     IsHitTestVisible="{ Binding ActivePath,
-                                                        Converter={StaticResource ValueIsNotEqualToParameterConverter},
-                                                        ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
+                                Converter={StaticResource ValueIsNotEqualToParameterConverter},
+                                ConverterParameter={x:Static presentation:RegionViewName.AboutView}}"
                                     Width="33" Padding="0">
                                 <iconPacks:PackIconMaterialDesign Kind="InfoOutline" Height="25" />
                             </Button>
@@ -267,72 +323,76 @@
                                                          Grid.Column="2" />
                         </Grid>
                     </Grid>
+            </StackPanel>
 
-                    <!-- Usage Stats Info -->
-                    <Border Visibility="{Binding ShowUsageStatsInfo,  Converter={StaticResource CollapsedIfFalse}}"
-                        BorderThickness="0 2 0 0"
+            <!-- Info Ribbons -->
+            <Grid Grid.Row="1">
+                <!-- Usage Stats Info -->
+                <Border Visibility="{Binding ShowUsageStatsInfo,  Converter={StaticResource CollapsedIfFalse}}"
+                        BorderThickness="0 2 0 2"
                         BorderBrush="{StaticResource AccentGrey}">
-                        <DockPanel Margin="40 10"
+                    <DockPanel Margin="40 10"
                                FlowDirection="LeftToRight">
-                            <ContentControl VerticalAlignment="Center"
+                        <ContentControl VerticalAlignment="Center"
                                         Foreground="{StaticResource InfoBrush}">
-                                <iconPacks:MaterialDesign Kind="Info" />
-                            </ContentControl>
-                            <TextBlock Margin="10 0 0 0"
+                            <iconPacks:MaterialDesign Kind="Info" />
+                        </ContentControl>
+                        <TextBlock Margin="5 1 0 0"
                                    Text="{Binding UsageStatisticsInfoText}"
                                    VerticalAlignment="Center" />
-                            <UniformGrid Margin="10 0 0 0"
+                        <UniformGrid Margin="10 0 0 0"
                                      Rows="1"
                                      HorizontalAlignment="Left">
-                                <Button Margin="0 0 5 0"
+                            <Button Margin="0 0 5 0"
                                     Command="{Binding DismissUsageStatsInfoCommand}"
                                     Content="{Binding Translation.UsageStatsDismiss}" />
-                                <Button Margin="5 0 0 0"
+                            <Button Margin="5 0 0 0"
                                     Command="{Binding ReadMoreUsageStatsCommand}"
                                     CommandParameter="{x:Static presentation:RegionViewName.ApplicationSettingsView}"
                                     Content="{Binding Translation.ReadMore}" />
-                            </UniformGrid>
-                        </DockPanel>
-                    </Border>
-                    <!-- Trial remaining days Info -->
-                    <Border Visibility="{Binding ShowTrialRemainingDaysInfo,  Converter={StaticResource CollapsedIfFalse}}"
-                        Background="{StaticResource AccentGrey}">
-                        <StackPanel Margin="40 10 "
-                                VerticalAlignment="Center">
-                            <TextBlock FontWeight="DemiBold"
-                                   FontSize="14"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center">
-                            <Run Text="{Binding Path=TrialRemainingDaysInfoText, Mode=OneWay}"
-                                 Foreground="{StaticResource DefaultTextColorBrush}" />
-                            <Hyperlink Command="{Binding OpenUrlCommand}" CommandParameter="{Binding TrialExtendLink}">
-                                <Hyperlink.Inlines>
-                                    <Run Text="{Binding Translation.LicenseExtendInfo, Mode=OneWay}"
-                                         Foreground="{StaticResource DefaultTextColorBrush}" />
-                                </Hyperlink.Inlines>
-                            </Hyperlink>
+                        </UniformGrid>
+                    </DockPanel>
+                </Border>
+                <!-- Trial remaining days Info -->
+                <Border Visibility="{Binding ShowTrialRemainingDaysInfo,  Converter={StaticResource CollapsedIfFalse}}"
+                        Background="{StaticResource TrialInfoRibbonBackgroundBrush}">
+                    <Grid Height="40">
+                        <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" FlowDirection="LeftToRight">
+                            <iconPacks:PackIconMaterialDesign Kind="Info" Foreground="{StaticResource InfoBrush}" />
+                            <TextBlock Margin="5 1  0 0">
+                                <Run Text="{Binding Path=TrialRemainingDaysInfoText, Mode=OneWay}"
+                                     Foreground="{StaticResource DefaultTextColorBrush}" />
+                                <Hyperlink Command="{Binding OpenUrlCommand}" CommandParameter="{Binding TrialExtendLink}">
+                                    <Hyperlink.Inlines>
+                                        <Run Text="{Binding Translation.LicenseExtendInfo, Mode=OneWay}"
+                                             TextDecorations="Underline"
+                                             Foreground="{StaticResource DefaultTextColorBrush}" />
+                                    </Hyperlink.Inlines>
+                                </Hyperlink>
                             </TextBlock>
-                            <Button Margin="0 -15 10 0"
-                                VerticalAlignment="Center"
+                        </DockPanel>
+                        <Button HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Margin="0 0 7 0"
+                                Width="32" Height="32"
                                 Style="{StaticResource TransparentButton}"
-                                HorizontalAlignment="Right"
                                 Command="{Binding DismissTrialExpireInfoCommand}">
-                                <iconPacks:PackIconMaterialDesign Kind="Close"
-                                                              Height="13"
-                                                              Width="13"
-                                                              HorizontalAlignment="Right"
+                            <iconPacks:PackIconMaterialDesign Kind="Close"
+                                                              Height="11"
+                                                              Width="11"
+                                                              HorizontalAlignment="Center"
                                                               VerticalAlignment="Center"
                                                               Foreground="{StaticResource DefaultButtonForegroundBrush}" />
-                            </Button>
-                        </StackPanel>
-                    </Border>
-                </StackPanel>
-            </Border>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
 
-            <ContentControl Grid.Row="1"
-                        regions:RegionManager.RegionName="{x:Static presentation:RegionNames.MainRegion}" />
+            <!-- Current Tab -->
+            <ContentControl Grid.Row="2"
+                            regions:RegionManager.RegionName="{x:Static presentation:RegionNames.MainRegion}" />
 
-            <StatusBar Grid.Row="2">
+            <!-- Status Bar -->
+            <StatusBar Grid.Row="3">
                 <StatusBarItem Margin="10 0" Height="24">
                     <StaticResource ResourceKey="pdfforge-white" />
                 </StatusBarItem>
@@ -342,8 +402,9 @@
                 </StatusBarItem>
             </StatusBar>
         </Grid>
+
         <controls:ProgressRing 
-            Visibility="{Binding MainShellLocked, Converter={StaticResource CollapsedIfFalseConverter}}" 
+            Visibility="{Binding MainShellLocked, Converter={StaticResource CollapsedIfFalse}}" 
             Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </metro:MetroWindow>

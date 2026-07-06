@@ -1,12 +1,15 @@
 ﻿using System.Reflection;
 using pdfforge.PDFCreator.Conversion.Settings;
+using pdfforge.PDFCreator.UI.Presentation.Assistants;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
+using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.Windows;
 using pdfforge.PDFCreator.Utilities;
 using pdfforge.PDFCreator.Utilities.Process;
 using pdfforge.PDFCreator.Utilities.Threading;
 using SystemWrapper.IO;
 using SystemWrapper.Microsoft.Win32;
+using Translatable;
 
 namespace pdfforge.PDFCreator.UI.Presentation.DesignTime;
 
@@ -15,7 +18,7 @@ public class DesignTimeRecommendPdfArchitectWindowViewModel : RecommendPdfArchit
     public DesignTimeRecommendPdfArchitectWindowViewModel()
         : base(null, null, new DesignTimeTranslationUpdater(),
             new PdfArchitectCheck(new RegistryWrap(), new FileWrap(), new AssemblyHelper(Assembly.GetExecutingAssembly()), new ThreadManager()),
-            new ProcessStarter(), new FileWrap(), new DesignTimeCurrentSettings<ApplicationSettings>(), new DesignTimeCurrentSettings<CreatorAppSettings>())
+            new ProcessStarter(), new FileWrap(), new DesignTimeCurrentSettings<ApplicationSettings>(), new DesignTimeCurrentSettings<CreatorAppSettings>(), new UacAssistant(new TranslationUpdater(new TranslationFactory(), new ThreadManager()), null, null, null))
 
     {
     }

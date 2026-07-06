@@ -1,0 +1,18 @@
+{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "IntegrationTest\\Conversion\\CustomScriptAction.IntegrationTest\\CustomScriptAction.IntegrationTest.csproj",
+      "IntegrationTest\\Conversion\\Jobs.IntegrationTest\\Jobs.IntegrationTest.csproj",
+      "IntegrationTest\\Conversion\\PDFProcessing.IntegrationTest\\PDFProcessing.IntegrationTest.csproj",
+      "IntegrationTest\\Core\\DirectConversion.IntegrationTest\\DirectConversion.IntegrationTest.csproj",
+      "IntegrationTest\\Core\\Printing.IntegrationTest\\Printing.IntegrationTest.csproj",
+      "IntegrationTest\\Core\\Workflow.IntegrationTest\\Workflow.IntegrationTest.csproj",
+      "IntegrationTest\\Server\\Service\\ServiceCore.IntegrationTest\\ServiceCore.IntegrationTest.csproj",
+      "IntegrationTest\\TestHelper\\TestUtilities.csproj",
+      "IntegrationTest\\UI\\COM.IntegrationTest\\COM.IntegrationTest.csproj",
+      "IntegrationTest\\UI\\Presentation.IntegrationTest\\Presentation.IntegrationTest.csproj",
+      "IntegrationTest\\Utilities.IntegrationTest\\Utilities.IntegrationTest.csproj"
+    ]
+  }
+}

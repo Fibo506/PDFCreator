@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using Optional;
 using pdfforge.PDFCreator.Utilities.Tokens;
@@ -79,8 +78,7 @@ public class TokenViewModelBuilder<T>
 
     public TokenViewModelBuilder<T> WithButtonCommand(Func<string, Option<string>> buttonCommand)
     {
-        if (_buttonCommandFunctions.Any())
-            throw new InvalidOperationException("ButtonCommand is already set!");
+        _buttonCommandFunctions.Clear();
         _buttonCommandFunctions.Add(buttonCommand);
 
         return this;

@@ -33,6 +33,9 @@ msgstr ""
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr ""
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr ""
+
 msgid "pdfforge"
 msgstr ""
 
@@ -108,6 +111,12 @@ msgstr ""
 msgid "No limit"
 msgstr ""
 
+msgid "Disable debug tab"
+msgstr ""
+
+msgid "Activate to disable debug tab. This disables the functionalities to run test jobs and change the debug level."
+msgstr ""
+
 msgid "Disable printer tab"
 msgstr ""
 
@@ -120,22 +129,22 @@ msgstr ""
 msgid "Activate to disable title tab. This disables the functionality to change title replacements."
 msgstr ""
 
-msgid "Disable debug tab"
+msgid "Hide feedback form"
 msgstr ""
 
-msgid "Activate to disable debug tab. This disables the functionalities to run test jobs and change the debug level."
-msgstr ""
-
-msgid "Hide PDF Architect info"
-msgstr ""
-
-msgid "Activate to hide information about our customizable PDF Editor."
+msgid "Activate to hide feedback form"
 msgstr ""
 
 msgid "Hide license tab"
 msgstr ""
 
 msgid "Activate to hide license tab."
+msgstr ""
+
+msgid "Hide PDF Architect info"
+msgstr ""
+
+msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 
 msgid "Disable profile management"
@@ -198,6 +207,18 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr ""
 
+msgid "Load shared HotFolder settings"
+msgstr ""
+
+msgid "Activate to load HotFolder settings from ini file in \"%ProgramData%\\pdfforge\\PDFCreator\"."
+msgstr ""
+
+msgid "Load shared printer mappings"
+msgstr ""
+
+msgid "Activate to load shared printer mappings. This disables the functionalities to add/delete/rename PDFCreator printers, change profile assignments and set the primary pdfcreator printer."
+msgstr ""
+
 msgid "Load shared profiles"
 msgstr ""
 
@@ -207,16 +228,16 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr ""
 
-msgid "Hide feedback form"
-msgstr ""
-
-msgid "Activate to hide feedback form"
+msgid "Bulgarian"
 msgstr ""
 
 msgid "Catalan"
 msgstr ""
 
-msgid "Chinese"
+msgid "Chinese (Simplified)"
+msgstr ""
+
+msgid "Chinese (Traditional)"
 msgstr ""
 
 msgid "Corsican (France)"
@@ -261,10 +282,16 @@ msgstr ""
 msgid "Portuguese (Brazil)"
 msgstr ""
 
+msgid "Slovak"
+msgstr ""
+
 msgid "Spanish"
 msgstr ""
 
 msgid "Swedish"
+msgstr ""
+
+msgid "Turkish"
 msgstr ""
 
 msgid "Set language:"

@@ -32,7 +32,6 @@
                             <Border Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="2"
                                     Height="{TemplateBinding Height}"
                                     Width="{TemplateBinding Height}"
                                     VerticalAlignment="Center">

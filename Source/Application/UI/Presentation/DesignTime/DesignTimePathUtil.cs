@@ -50,4 +50,9 @@ public class DesignTimePathUtil : IPathUtil
     {
         return fileName;
     }
+
+    public bool IsSubdirectory(string childPath, string parentPath)
+    {
+        return false;
+    }
 }

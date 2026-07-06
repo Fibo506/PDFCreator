@@ -15,7 +15,7 @@ public class ComDependencyBuilder
     private readonly ComBaseBootstrapper _comBootstrapper;
     private static ComDependencies _comDependencies;
 
-
+    [Obsolete]
     public ComDependencies ComDependencies()
     {
         if (_comDependencies != null)
@@ -37,6 +37,7 @@ public class ComDependencyBuilder
         _comBootstrapper = comBootstrapper;
     }
 
+    [Obsolete]
     public ComDependencies BuildComDependencies()
     {
         var container = new Container();
@@ -55,7 +56,7 @@ public class ComDependencyBuilder
 
         DoModifyRegistrations(container);
 
-        LoggingHelper.InitFileLogger("PDFCreator", LoggingLevel.Error);
+        LoggingHelper.InitFileLogger("PDFCreatorCOM", LoggingLevel.Trace);
 
         var dependencies = container.GetInstance<ComDependencies>();
 

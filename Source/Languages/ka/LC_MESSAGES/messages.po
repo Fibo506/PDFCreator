@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-21 06:43+0000\n"
+"PO-Revision-Date: 2025-11-23 16:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/ka/>\n"
@@ -33,6 +33,12 @@ msgstr "პროფილები"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "პრინტერი"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr "HotFolder"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -103,6 +109,7 @@ msgid "News"
 msgstr "სიახლეები"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr "გააუმჯობესეთ ახლა"
 
@@ -132,7 +139,7 @@ msgstr "თქვენი საცდელი ლიცენზიის ვ
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "ლიცენზიის გასაგრძელებლად დააწკაპუნეთ აქ."
 
@@ -154,6 +161,7 @@ msgstr "არასწორი პარამეტრები"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "შეცდომა"
 
@@ -462,321 +470,56 @@ msgstr "გასწორებული შეცდომები"
 msgid "Other changes"
 msgstr "სხვა ცვლილებები"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "მზად ბრძანდებით, გააკეთოთ მეტი, ვიდრე საწყისებია?"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
-"თქვენი გამოსაცდელი ლიცენზიის ვადა ამოიწურა...\n"
-"მოდით, ნუ შევაყოვნებთ თქვენი სამუშაო პროცესის დინებას"
+"განბლოკეთ PDFCreator-ის ფასიანი ფუნქციები, რომ შექმნათ უფრო ჭკვიანი სამუშაო "
+"პროცესი და დაზოგოთ დრო."
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with your license..."
-msgstr "აღმოჩენილია პრობლემა თქვენს ლიცენზიასთან..."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "Business-ის ფუნქციები:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr "შეამოწმეთ თქვენი ლიცენზია, რომ გააგრძელოთ წვდომა:"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr "256-ბიტიანი დაშიფვრა"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
-"გაუმჯობესება პროდუქტიულობის გარანტიას გაძლევთ და მოგაწოდებთ წვდომას ჩვენს "
-"ფასიან გამოცემებთან, რომლებიც შეიცავენ დამატებითი ავტომატიზაციის ისეთ "
-"ფუნქციებს, როგორიცაა:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "User Tokens"
 msgstr "მომხმარებლის კოდები"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr "CS-Script-ები"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Delete pages"
+msgstr "გვერდების წაშლა"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr "პროფილის გადაგზავნა"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "პროფილზე გადაგზავნა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "პრიორიტეტული მხარდაჭერა"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "ლიცენზიის დეტალები"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "ჯგუფის პოლიტიკები"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr "შეინარჩუნეთ PDFCreator თქვენი პროგრამების ნაკრების მუდმივ ნაწილად."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Shared settings"
+msgstr "გაზიარების პარამეტრები"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr "გააუმჯობესეთ ახლა"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage License"
-msgstr "ლიცენზიის მართვა"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Offline Activation"
-msgstr "აქტივაცია ინტერნეტის გარეშე"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "ლიცენზია გააქტიურებულია"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr "თქვენი ლიცენზია წარმატებით გააქტიურდა. მადლობა {0}-ის გამოყენებისთვის."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully."
-msgstr "თქვენი ლიცენზია წარმატებით გააქტიურდა."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr "{0}-ის გამოყენების გასაგრძელებლად შეიყვანეთ თქვენი ლიცენზიის გასაღები"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "გნებავთ გაუზიაროთ თქვენი აქტივაცია თქვენი სისტემის ყველა მომხმარებელს?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "გაუზიარეთ თქვენი აქტივაცია თქვენი სისტემის ყველა მომხმარებელს."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users"
-msgstr "აქტივაციის შენახვა ყველა მომხმარებლისთვის"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "An error occurred when saving the activation for all users."
-msgstr "შეცდომა აქტივაციის ყველა მომხმარებლისთვის დამახსოვრებისას."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-"PDFCreator Terminal Server-ს სჭირდება, რომ ლიცენზია ყველა მომხმარებლისთვის "
-"იყოს შენახული."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users was successful."
-msgstr "აქტივაციის ყველა მომხმარებლისთვის შენახვა წარმატებით დასრულდა."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "ლიცენზიის შემოწმება..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"ლიცენზიის გასაღები შეიცავს არასწორ სიმბოლოებს. მისაღები სიმბოლოებია: A-Z, "
-"0-9 და ტირე."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"ლიცენზიის გასაღები შედგება 30 სიმბოლოსგან ან რიცხვისგან, მაგ: \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "არასდროს"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "ლიცენზიანტი:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "აქტივაცია ვადაგასულია. გთხოვთ განაახლოთ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr ""
-"მანქანა ან მომხმარებელი დაბლოკილია. გთხოვთ დაუკავშირდეთ მხარდაჭერის ჯგუფს."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "ლიცენზიის ავთენტიკაციის შეცდომა."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr ""
-"ლიცენზიის გასაღები არასწორია. გთხოვთ, შეიყვანოთ ახალი ლიცენზიის გასაღები."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "ლიცენზია ვადაგასულია. გთხოვთ განაახლოთ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "ლიცენზიის საცდელი პერიოდი ამოიწურა."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr ""
-"ლიცენზიის გასაღები ხელმიუწვდომელია. შეიყვანეთ ლიცენზიის ახალი გასაღები."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "ლიცენზიის სერვერთან კავშირის პრობლემა."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "ლიცენზიამ გადააჭარბა ნებადართული აქტიური მანქანების რაოდენობას."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "ლიცენზიის გასაღები ამ PDFCreator-ის გამოცემის შესაბამისი არაა."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "ლიცენზია სწორია."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"თქვენი ინტერნეტგარეშე აქტივაციის ვადა ამოიწურა. აპლიკაციის დაბლოკვის თავიდან "
-"ასაცილებლად გაააქტიურეთ თქვენი ლიცენზია დაუყოვნებლივ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"თქვენი შიდა ლიცენზიის სერვერის გააქტიურების ვადა ამოიწურა. აპლიკაციის "
-"დაბლოკვის თავიდან ასაცილებლად გაააქტიურეთ თქვენი ლიცენზია დაუყოვნებლივ."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "თქვენი ლიცენზია ამოიწურება {0} დღეში."
-msgstr[1] "თქვენი ლიცენზია {0} დღეში ამოიწურება."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "ლიცენზია არ შეესაბამება თქვენს ვერსიას."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "აქტივაციის კოდის ფორმატი არასწორია."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "არ გაქვთ სწორი ლიცენზიის გასაღები?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "მეტი აქტივაციები შეგიძლიათ, შეიძინოთ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "განაახლეთ თქვენი ლიცენზია აქ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "მართეთ თქვენი ლიცენზია."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "შეიყვანეთ თქვენი ლიცენზიის გასაღები."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "შეცდომა აქტივაციის შენახვისას. კიდევ სცადეთ."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "შიდა ლიცენზიის სერვერის ბმული არასწორია."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"შიდა ლიცენზიის სერვერმა ლიცენზია ვერ ამოიცნო.\n"
-"გთხოვთ, შემოიტანეთ ლიცენზია."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"ლიცენზია, წესით, შიდა ლიცენზიის სერვერისთვისაა.\n"
-"დარწმუნდით, რომ დაყენებულია პარამეტრი InternalLicenseServerUrl."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "MSI installer"
+msgstr "MSI დაყენების პროგრამა"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -1092,7 +835,7 @@ msgid "Viewer"
 msgstr "ხედი"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "ლიცენზია"
 
@@ -1111,6 +854,7 @@ msgstr "პირდაპირი გადაყვანა"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1251,6 +995,7 @@ msgstr "რეგულარული გამოსახულება"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1258,85 +1003,183 @@ msgstr "რეგულარული გამოსახულება"
 msgid "Save"
 msgstr "შენახვა"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "ბოლო აქტივაცია:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "ლიცენზია გააქტიურებულია"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "აქტივაციის შეცდომა"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "აქტივაცია წარუმატებელია:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "აქტივაცია წარმატებულია"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "აქტივაციის შეცდომა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "აქტივაცია წარუმატებელია:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "აქტივაცია წარმატებულია."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "აქტივირების ვადა:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "თქვენი ლიცენზია წარმატებით გააქტიურდა."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "შეიყვანეთ ლიცენზიის გასაღები"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "ლიცენზიის მართვა"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "შეიყვანეთ თქვენი ლიცენზიის გასაღები:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "ვადა:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License renews on:"
-msgstr "ლიცენზიის განახლების დრო:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "ლიცენზიის გასაღები:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "ლიცენზიის მდგომარეობა:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "მანქანის ID:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "ლიცენზიების მართვა"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "ოფლაინ აქტივაცია"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "ონლაინ აქტივაცია"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "ლიცენზიის ნახვა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "ლიცენზიის გასაღები:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "ლიცენზიის მდგომარეობა:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "ლიცენზიის დეტალები"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "მანქანის ID:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "ლიცენზიის შემოწმება..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "ვადა:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "აქტივირების ვადა:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "ლიცენზიის განახლების დრო:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "ბოლო აქტივაცია:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "შეიყვანეთ ლიცენზიის გასაღები"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "შეიყვანეთ თქვენი ლიცენზიის გასაღები:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"თქვენი გამოსაცდელი ლიცენზიის ვადა ამოიწურა...\n"
+"მოდით, ნუ შევაყოვნებთ თქვენი სამუშაო პროცესის დინებას"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "აღმოჩენილია პრობლემა თქვენს ლიცენზიასთან..."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "შეამოწმეთ თქვენი ლიცენზია, რომ გააგრძელოთ წვდომა:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"გაუმჯობესება პროდუქტიულობის გარანტიას გაძლევთ და მოგაწოდებთ წვდომას ჩვენს "
+"ფასიან გამოცემებთან, რომლებიც შეიცავენ დამატებითი ავტომატიზაციის ისეთ "
+"ფუნქციებს, როგორიცაა:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "შეინარჩუნეთ PDFCreator თქვენი პროგრამების ნაკრების მუდმივ ნაწილად."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "გააუმჯობესეთ ახლა"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "მომხმარებლის კოდები"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-Script-ები"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "პროფილის გადაგზავნა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "გნებავთ გაუზიაროთ თქვენი აქტივაცია თქვენი სისტემის ყველა მომხმარებელს?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "გაუზიარეთ თქვენი აქტივაცია თქვენი სისტემის ყველა მომხმარებელს."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "აქტივაციის შენახვა ყველა მომხმარებლისთვის"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr "შეცდომა აქტივაციის ყველა მომხმარებლისთვის დამახსოვრებისას."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "An error occurred while storing license for all users."
 msgstr "ყველა მომხმარებლისთვის ლიცენზიის დამახსოვრების შეცდომა."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "აქტივაციის ყველა მომხმარებლისთვის შენახვა წარმატებით დასრულდა."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "ლიცენზიის ყველა მომხმარებლისთვის დამახსოვრება წარმატებულია."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"PDFCreator Terminal Server-ს სჭირდება, რომ ლიცენზია ყველა მომხმარებლისთვის "
+"იყოს შენახული."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "მოგვიანებით შემახსენე"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
@@ -1344,13 +1187,187 @@ msgstr ""
 "ინტერნეტგარეშე გააქტიურება შეუძლებელია, რადგან PDFCreator-ს მითითებული აქვს, "
 "შიდა ლიცენზიის სერვერი გამოიყენოს."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "მოგვიანებით შემახსენე"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr "თქვენი ლიცენზია წარმატებით გააქტიურდა. მადლობა {0}-ის გამოყენებისთვის."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "View License"
-msgstr "ლიცენზიის ნახვა"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "{0}-ის გამოყენების გასაგრძელებლად შეიყვანეთ თქვენი ლიცენზიის გასაღები"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "ლიცენზიის შემოწმება..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"ლიცენზიის გასაღები შეიცავს არასწორ სიმბოლოებს. მისაღები სიმბოლოებია: A-Z, "
+"0-9 და ტირე."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"ლიცენზიის გასაღები შედგება 30 სიმბოლოსგან ან რიცხვისგან, მაგ: \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "არასდროს"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "ლიცენზიანტი:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "აქტივაცია ვადაგასულია. გთხოვთ განაახლოთ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr ""
+"მანქანა ან მომხმარებელი დაბლოკილია. გთხოვთ დაუკავშირდეთ მხარდაჭერის ჯგუფს."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "ლიცენზიის ავთენტიკაციის შეცდომა."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr ""
+"ლიცენზიის გასაღები არასწორია. გთხოვთ, შეიყვანოთ ახალი ლიცენზიის გასაღები."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "ლიცენზია ვადაგასულია. გთხოვთ განაახლოთ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "ლიცენზიის საცდელი პერიოდი ამოიწურა."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr ""
+"ლიცენზიის გასაღები ხელმიუწვდომელია. შეიყვანეთ ლიცენზიის ახალი გასაღები."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "ლიცენზიის სერვერთან კავშირის პრობლემა."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "ლიცენზიამ გადააჭარბა ნებადართული აქტიური მანქანების რაოდენობას."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "ლიცენზიის გასაღები ამ PDFCreator-ის გამოცემის შესაბამისი არაა."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "ლიცენზია სწორია."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"თქვენი ინტერნეტგარეშე აქტივაციის ვადა ამოიწურა. აპლიკაციის დაბლოკვის თავიდან "
+"ასაცილებლად გაააქტიურეთ თქვენი ლიცენზია დაუყოვნებლივ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"თქვენი შიდა ლიცენზიის სერვერის გააქტიურების ვადა ამოიწურა. აპლიკაციის "
+"დაბლოკვის თავიდან ასაცილებლად გაააქტიურეთ თქვენი ლიცენზია დაუყოვნებლივ."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "თქვენი ლიცენზია ამოიწურება {0} დღეში."
+msgstr[1] "თქვენი ლიცენზია {0} დღეში ამოიწურება."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "აქტივაციის კოდის ფორმატი არასწორია."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "არ გაქვთ სწორი ლიცენზიის გასაღები?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "მეტი აქტივაციები შეგიძლიათ, შეიძინოთ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "განაახლეთ თქვენი ლიცენზია აქ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "მართეთ თქვენი ლიცენზია."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "შეიყვანეთ თქვენი ლიცენზიის გასაღები."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "შეცდომა აქტივაციის შენახვისას. კიდევ სცადეთ."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "შიდა ლიცენზიის სერვერის ბმული არასწორია."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"შიდა ლიცენზიის სერვერმა ლიცენზია ვერ ამოიცნო.\n"
+"გთხოვთ, შემოიტანეთ ლიცენზია."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"ლიცენზია, წესით, შიდა ლიცენზიის სერვერისთვისაა.\n"
+"დარწმუნდით, რომ დაყენებულია პარამეტრი InternalLicenseServerUrl."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1557,6 +1574,15 @@ msgid "Standby duration"
 msgstr "უქმობის დრო"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Restart"
+msgstr "გადატვირთვა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+"უქმედ და HotFolder-ის ავტოგაშვება (თუ ჩართულია) Windows-ის ავტოგაშვებისას"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
@@ -1567,10 +1593,6 @@ msgstr ""
 "დასაჩქარებლად იყენებს . PDFCreator-ის დახურვის შემდეგ აპლიკაცია გააგრძელებს "
 "მუშაობას მითთებული დროის განმავლობაში დაბალი დატვირთვით. ეს მნიშვნელოვნად "
 "ააჩქარებს შემდგომ გარდაქმნებს."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "წუთი"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -2176,6 +2198,14 @@ msgstr ""
 "მომხმარებლებს უფლება ეძლევათ ფაილები ჩაწერონ ყველა იმ საქაღალდეში, სადაც "
 "სერვისს ჩაწერის უფლება გააჩნია."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"არჩეულ სამიზნე საქაღალდეს თვალყურს ადევნებს HotFolder წრიული დამოკიდებულების "
+"შექმნით, რაც უსასრულო მარყუჟს იწვევს."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "დახურვა"
@@ -2423,6 +2453,12 @@ msgstr "ფაილის გახსნა"
 msgid "Use PDF Architect"
 msgstr "PDF Architect-ის გამოყენება"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "საქაღალდის გახსნა"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "{0}-ის გამოყენება"
@@ -2442,8 +2478,12 @@ msgstr ""
 "ნაგულისხმევი პროგრამა."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
-msgstr "ფაილის ნახვა."
+msgid "Open file/directory"
+msgstr "ფაილის/საქაღალდის გახსნა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
+msgstr "ფაილის ან საქაღალდის გახსნა დამთვალიერებელში."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Click here for more info on {0}"
@@ -2518,10 +2558,6 @@ msgid ""
 msgstr ""
 "ამოიღებს მნიშვნელობებს საწყისი დოკუმენტიდან და იყენებს მათ ყველგან, სადაც "
 "PDFCreator-ის მიერაა მხარდაჭერილი."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-msgid "Forward to profile"
-msgstr "პროფილზე გადაგზავნა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -2646,7 +2682,7 @@ msgstr "გვერდის ნომრები"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.PageNumbersTranslation
 msgid "Adds page numbers to the document."
-msgstr "დოკუმენტში გვერდების ნომრების ჩამატება."
+msgstr "დაამატებს გვერდის ნომრებს დოკუმენტს."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.WatermarkTranslation
 msgid "Select watermark file"
@@ -2875,11 +2911,11 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Save as file"
-msgstr "ფაილად შენახვა"
+msgstr "ფაილში შენახვა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
-msgstr "გადატვირთვა"
+msgstr "ჩამოყრა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Brush"
@@ -3153,7 +3189,7 @@ msgstr "შენახვა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save as ..."
-msgstr "შენახვა როგორც ..."
+msgstr "შენახვა, როგორც ..."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
 msgid "Save to Desktop"
@@ -3187,6 +3223,10 @@ msgid ""
 msgstr ""
 "ზოგიერთი ფუნქცია, არჩეული გამოტანის ფორმატის მიერ, მხარდაჭერილი არაა და "
 "შესრულებული არ იქნება. შეამოწმეთ თქვენი პროფილი."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "შერწყმა!"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
@@ -3231,11 +3271,6 @@ msgstr "სწრაფი ქმედებები"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "ნაგულისხმევი ბრაუზერით გახსნა"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "საქაღალდის გახსნა"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3286,8 +3321,8 @@ msgstr "Sharepoint-ის გაზიარების ბმული"
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "After converting {0} file, we have a recommendation for you:"
 msgid_plural "After converting {0} files, we have a recommendation for you:"
-msgstr[0] "{0} ფაილის გადაყვანის შემდეგ, გაითვალისწინეთ რჩევა:"
-msgstr[1] "{0} ფაილის გადაყვანის შემდეგ, გაითვალისწინეთ ჩვენი რჩევა:"
+msgstr[0] "{0} ფაილის გადაყვანის შემდეგ ჩვენ გვაქვს რეკომენდაცია:"
+msgstr[1] "{0} ფაილის გადაყვანის შემდეგ ჩვენ გვაქვს რეკომენდაცია:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Higher encryption (256 Bit AES)"
@@ -3307,7 +3342,7 @@ msgstr "ავტომატური შენახვა საათთა�
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Admin friendly"
-msgstr "ადმინისტრატორისთვის მეგობრული"
+msgstr "მეგობრული ადმინისტრატორისთვის"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "No, thanks"
@@ -3462,6 +3497,7 @@ msgstr "თავიდან"
 msgid "Discard"
 msgstr "მოცილება"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "პროფილი"
@@ -3483,6 +3519,172 @@ msgstr ""
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "კოდის დამატება"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Edit HotFolder"
+msgstr "HotFolder-ის ჩასწორება"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Linked Printer"
+msgstr "მიბმული პრინტერი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "მინიჭებული პრინტერის სახელი:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch:"
+msgstr "აირჩიეთ საქაღალდე მონიტორინგისთვის:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "აირჩიეთ საქაღალდე მონიტორინგისთვის"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Source files"
+msgstr "წყარო ფაილები"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select source files folder"
+msgstr "აირჩიეთ წყარო ფაილების საქაღალდე"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr ""
+"აირჩიეთ მდებარეობა, სადაც წყარო ფაილების გადატანა მოხდება მათი გადაყვანის "
+"შემდეგ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr ""
+"მათი გადატანა ნაგულისხმევ მდებარეობაზე (თქვენი HotFolderის ქვესაქაღალდეში)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "მათი გადატანა ნაგვის ყუთში"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "მათი გადატანა სასურველ მდებარეობაზე"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Unprintable files"
+msgstr "ფაილები, რომლების დაბეჭდვაც შეუძლებელია"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select unprintable files folder"
+msgstr "აირჩიეთ საქაღალდე ფაილებისთვის, რომლებიც დაუბეჭდავია"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "აირჩიეთ, რა მოუვა ფაილებს, რომლების დაბეჭდვაც შეუძლებელია:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "ფილტრი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "No filter"
+msgstr "ფილტრის გარეშე"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "ყველა ჩამოთვლილი გაფართოების ამოღება გადაყვანიდან"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "გადაყვანის შეზღუდვა გაფილტრულ ფაილის გაფართოებებამდე."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add Filter"
+msgstr "ფილტრის დამატება"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Remove Filter"
+msgstr "ფილტრის წაშლა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "ფაილის გაფართოების ფილტრის დამატება"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "პროფილი მინიჭებულია:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select Profile"
+msgstr "აირჩიეთ პროფილი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Enter filter"
+msgstr "შეიყვანეთ ფილტრი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "The filter is not valid. Please check your entry."
+msgstr "ფილტრი არასწორია. შეამოწმეთ, რა შეიყვანეთ."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "ჩართ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "გამორთ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr "HotFolder-ის და უქმეობის გაშვება Windows-ის ავტოგაშვებით"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Manage HotFolders"
+msgstr "HotFolder-ების მართვა"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Printer Name"
+msgstr "პრინტერის სახელი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "HotFolder Path"
+msgstr "HotFolder-ის ბილიკი"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Active"
+msgstr "აქტიური"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Add HotFolder Printer"
+msgstr "HotFolder-ის პრინტერის დამატება"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr "მზად ბრძანდებით პირველი HotFolder-ის შესაქმნელად?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+"HotFolder-ის პრინტერები უყურებენ მითითებულ საქაღალდეს და ავტომატურად "
+"ამუშავებენ ყველა ფაილს, რომელსაც ამ საქაღალდეებში მოათავსეთ, მითითებული "
+"პროფილით."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr "შენიშვნა: ყველა ცვლილება დაუყოვნებლივ შედის ძალაში."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr "განბლოკეთ საქაღალდის ავტომატური მონიტორინგი HotFolder-ით"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr "ჩააშენეთ HotFolder თქვენი სამუშაოს დინებაში."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr "ეს ფუნქცია ექსკლუზიურია ჩვენი ბიზნესგამოცემებისთვის."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -4777,6 +4979,22 @@ msgstr "{0}-ის მნიშვნელობა"
 msgid "Please save or cancel settings to continue"
 msgstr "გასაგრძელებლად გთხოვთ გააუქმოთ ან შეინახოთ პარამეტრები"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Remove Page"
+msgstr "გვერდის წაშლა"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Undo Removal"
+msgstr "წაშლის გაუქმება"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr "გვერდის შებრუნება:"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr "Business-ის ფუნქცია"
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5092,7 +5310,7 @@ msgstr[1] "ამ ფაილების გარდაქმნა შეუ
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid "Admin privileges required"
-msgstr "საჭიროა ადმინისტრატორის უფლებები"
+msgstr "საჭიროა ადმინის პრივილეგიები"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid ""
@@ -5499,6 +5717,106 @@ msgstr ""
 "თქვენი ლიცენზია სწორია.\n"
 "თქვენი შიდა ლიცენზიის სერვერი თავიდან გააქტიურების დროა {0}"
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"PDFCreator-მა თქვენი პრინტერების შეკეთება ვერ შეძლო. დაუკავშირდით თქვენს "
+"ადმინისტრატორს, ან მხარდაჭერის გუნდს, რომელსაც შეუძლია, ამ პრობლემის "
+"მოგვარებაში დაგეხმაროთ."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"PDFCreator-მა თქვენი ბეჭდვის რიგის საქაღალდის შეკეთება ვერ შეძლო. "
+"დაუკავშირდით თქვენს ადმინისტრატორს, ან მხარდაჭერის გუნდს, რომ დაგეხმაროთ, "
+"შეცვალოთ წვდომები ბილიკზე '{0}'."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"აღმოჩენილია pdfforge-ის ლიცენზიის მქონე კომპონენტის შეცდომა.\n"
+"სცადეთ, PDFCreator თავიდან დააყენოთ. (შეცდომა {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"თქვენი ლიცენზიის ვადა \"{0}\"-სთვის ამოიწურა.\n"
+"PDFCreator გამოირთვება."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"თქვენი ლიცენზიის ვადა \"{0}\"-სთვის ამოიწურა.\n"
+"დაუკავშირდით თქვენს ადმინისტრატორს.\n"
+"PDFCreator ახლა გამოირთვება."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"თქვენი საცდელი ვადა ამოიწურა: {0}\n"
+"PDFCreator ახლა გამოირთვება.\n"
+"\n"
+"დაგვიკავშირდით ელაფოსტაზე: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"ლიცენზია აღმოჩენილი არაა.\n"
+"PDFCreator გამოირთვება."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"გამოიყენეთ \"PDFCreato ტერმინალის სერვერისთვის\", რომ გამოიყენოთ ტერმინალის "
+"სერვისებიან სერვერბზე.\n"
+"\n"
+"მეტი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს, ან მოგვწერეთ პირდაპირ: "
+"licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"მხარდაჭერილი Ghostscript-ის ვერსია აღმოჩენილი არაა.\n"
+"\n"
+"პროგრამა ახლა მუშაობას დაასრულებს."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Windows-ის ბეჭდვის რიგის სერვისი გაშვებული არაა. ჯერ გაუშვით სერვისი "
+"spooler.\n"
+"\n"
+"პროგრამა ახლა მუშაობას დაასრულებს."
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr "PDFCreator-მა '{0}' წარმატებით გადაიყვანა."
@@ -5514,6 +5832,43 @@ msgstr "ფაილის გადაყვანა წარმატებ�
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "შეცდომა გადაყვავნისას"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "და კიდევ {0} ფაილი/საქაღალდე"
+msgstr[1] "და კიდევ {0} ფაილი/საქაღალდე"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr "გადაყვანა PDF&Creator-ით"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Convert &Here"
+msgstr "გადაყვანა &აქ"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Merge"
+msgstr "შერწყ&მა"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "მინიშნება"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"თქვენს სისტემაზე PDFCreator აღმოჩენილი არაა. გადაამოწმეთ, თუ დააყენეთ ის."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"სულ ცოტა ერთი ელემენტის გადაყვანა შეუძლებელია! ფაილების, რომლებიც ვერ "
+"დავბეჭდეთ, სია იხილეთ ქვემოთ."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6734,6 +7089,76 @@ msgstr "გამოტანილ დოკუმენტს გვერდ�
 msgid "Failed to apply changes made in preview."
 msgstr "მინიატურაში შეტანილი ცვლილებების გადატარება ჩავარდა."
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided HotFolder path is not a valid path."
+msgstr "შეყვანილი HotFolder-ის საქაღალდის ბილიკი არასწორია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path must not be empty."
+msgstr "HotFolder-ის ბილიკი ცარიელი არ უნდა იყოს."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path is too long."
+msgstr "HotFolder-ის ბილიკი მეტისმეტად გრძელია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Source files path is not a valid path."
+msgstr "მითითებული წყარო ფაილების ბილიკი არასწორია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path must not be empty."
+msgstr "წყარო ფაილების ბილიკი ცარიელი არ უნდა იყოს."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path is too long."
+msgstr "წყარო ფაილების ბილიკი მეტისმეტად გრძელია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Unprintable files path is not a valid path."
+msgstr ""
+"შეყვანილი ბილიკი ფაილებისთვის, რომლებიც დაბეჭდვაც შეუძლებელია, არასწორია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path must not be empty."
+msgstr "ბილიკი ფაილებისთვის, რომლებიც არ იბეჭდება, არ შეიძლება, ცარიელი იყოს."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path is too long."
+msgstr "ბილიკი ფაილებისთვის, რომლებიც არ იბეჭდება, მეტისმეტად გრძელია."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr "წყარო ფაილების ბილიკი და HotFolder-ის ბილიკი ერთი და იგივე ვერ იქნება."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+"მომხმარებლის წყარო ფაილების საქაღალდე HotFolder-ის ბილიკის ქვესაქაღალდე არ "
+"უნდა იყოს."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+"ფაილების, რომლებიც არ იბეჭდება და HotFolder-ის ბილიკი ერთი და იგივე ვერ "
+"იქნება."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+"მომხმარებლის საქაღალდე ფაილებისთვის, რომლებიც არ იბეჭდება, HotFolder-ის "
+"ბილიკის ქევესაქაღალდე არ უნდა იყოს."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"არჩეული HotFolder-ის ბილიკი და პროფილის სამიზნე საქაღალდე დაუსრულებელ "
+"მარყუჟს ქმნიან."
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr "გამეორებების გარეშე"
@@ -7085,6 +7510,9 @@ msgstr "მხარდაჭერილია PDFCreator-ის კომე�
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "მხარდაჭერილია PDFCreator Professional 5.3.0-ის შემდეგ"
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "მხარდაჭერილია PDFCreator-ის ვერსია 6.2.0-ის შემდეგ"
+
 msgid "pdfforge"
 msgstr "„pdfforge“"
 
@@ -7133,6 +7561,16 @@ msgstr ""
 "დააყენეთ დრო წუთებში, რომლის განმავლობაშიც PDFCreator უქმედ იდგება გაშვების "
 "შემდეგ. გამოსართავად დააყენეთ 0."
 
+msgid "Disable debug tab"
+msgstr "გამართვის ჩანართის გათიშვა"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"გამართვის ჩანართის ჩართვა ან გამორთვა. გაითიშება სატესტო ამოცანების გაშვების "
+"ფუნქციონალი და გამართვის დონე."
+
 msgid "Disable printer tab"
 msgstr "პრინტერის ჩანართის გათიშვა"
 
@@ -7155,15 +7593,17 @@ msgstr ""
 "სათაურის ჩანართის ჩართვა ან გამორთვა. ეს გამორთავს სათაურის ჩანაცვლებების "
 "შეცვლის ფუნქციონალს."
 
-msgid "Disable debug tab"
-msgstr "გამართვის ჩანართის გათიშვა"
+msgid "Hide feedback form"
+msgstr "უკუკავშირის ფორმის დამალვა"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"გამართვის ჩანართის ჩართვა ან გამორთვა. გაითიშება სატესტო ამოცანების გაშვების "
-"ფუნქციონალი და გამართვის დონე."
+msgid "Activate to hide feedback form"
+msgstr "გაააქტიურეთ უკუკავშირის ფორმის დასამალად"
+
+msgid "Hide license tab"
+msgstr "ლიცენზიის ჩანართის გათიშვა"
+
+msgid "Activate to hide license tab."
+msgstr "ჩართეთ ლიცენზირების ჩანართის დასამალად."
 
 msgid "Hide PDF Architect info"
 msgstr "PDF Architect-ის ინფორმაციის დამალვა"
@@ -7172,12 +7612,6 @@ msgid "Activate to hide information about our customizable PDF Editor."
 msgstr ""
 "გაააქტიურეთ, რათა დამალოთ ინფორმაცია ჩვენი კონფიგურირებადი PDF რედაქტორის "
 "შესახებ."
-
-msgid "Hide license tab"
-msgstr "ლიცენზიის ჩანართის გათიშვა"
-
-msgid "Activate to hide license tab."
-msgstr "ჩართეთ ლიცენზირების ჩანართის დასამალად."
 
 msgid "Disable profile management"
 msgstr "პროფილის მართვის გათიშვა"
@@ -7254,6 +7688,28 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "გაზიარებული პარამეტრების ფაილის სახელი"
 
+msgid "Load shared HotFolder settings"
+msgstr "გაზიარებული HotFolder-ის პარამეტრების ჩატვირთვა"
+
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"გაააქტიურეთ HotFolder-ის პარამეტრების ჩასატვირთად ini ფაილიდან საქაღალდეში "
+"\"%ProgramData%\\pdfforge\\PDFCreator\"."
+
+msgid "Load shared printer mappings"
+msgstr "გაზიარებული პრინტერის ასახვების ჩატვირთვა"
+
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"გაააქტიურეთ გაზიარებული პრინტერის ასახვების ჩასატვირთად. ეს გამორთავს "
+"PDFCreator-ის პრინტერების დამატების/წაშლის/სახელის გადარქმევის ფუნქციონალს, "
+"პროფილის მინიჭებების შესვლას და pdfcreator-ის ძირითადი პრინტერის დაყენებას."
+
 msgid "Load shared profiles"
 msgstr "ზიარი პროფილების ჩატვირთვა"
 
@@ -7269,17 +7725,17 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "მომხმარებლების მიერ შექმნილი სხვა პროფილების დაშვება"
 
-msgid "Hide feedback form"
-msgstr "უკუკავშირის ფორმის დამალვა"
-
-msgid "Activate to hide feedback form"
-msgstr "გაააქტიურეთ უკუკავშირის ფორმის დასამალად"
+msgid "Bulgarian"
+msgstr "ბულგარული"
 
 msgid "Catalan"
 msgstr "კატალანური"
 
-msgid "Chinese"
-msgstr "ჩინური"
+msgid "Chinese (Simplified)"
+msgstr "ჩინური (გამარტივებული)"
+
+msgid "Chinese (Traditional)"
+msgstr "ჩინური (ტრადიციული)"
 
 msgid "Corsican (France)"
 msgstr "კორსიკული (საფრანგეთი)"
@@ -7323,11 +7779,17 @@ msgstr "პოლონური"
 msgid "Portuguese (Brazil)"
 msgstr "პორტუგალიური (ბრაზილია)"
 
+msgid "Slovak"
+msgstr "სლოვაკური"
+
 msgid "Spanish"
 msgstr "ესპანური"
 
 msgid "Swedish"
 msgstr "შვედური"
+
+msgid "Turkish"
+msgstr "თურქული"
 
 msgid "Set language:"
 msgstr "ენის დაყენება:"
@@ -7344,281 +7806,73 @@ msgstr "ჟურნალის დონე:"
 msgid "Allow users to define additional profiles"
 msgstr "მომხმარებლებისთვის დამატებით პროფილების შექმნის უფლების მიცემა"
 
+#~ msgid "Leave them in the HotFolder"
+#~ msgstr "მათი დატოვება HotFolder-ში"
+
+#~ msgid "Finish"
+#~ msgstr "დასრულება"
+
+#~ msgid "HotFolder is a professional setting"
+#~ msgstr "HotFolder პროფესიონალური პარამეტრია"
+
+#~ msgid ""
+#~ "HotFolder allows you to automatically convert documents placed in a "
+#~ "specific folder using predefined settings. This feature is available in "
+#~ "the Professional edition of PDFCreator."
+#~ msgstr ""
+#~ "HotFolder საშუალებას გაძლევთ, ავტომატურად გადაიყვანოთ დოკუმენტები, "
+#~ "რომლებიც მოთავსებულია სპეციფიკურ საქაღალდეში, წინასწარ აღწერილი "
+#~ "პარამეტრებით. ეს ფუნქცია PDFCreator-ის Professional ვარიანტშია "
+#~ "ხელმისაწვდომი."
+
+#~ msgid "On"
+#~ msgstr "ჩართული"
+
+#~ msgid "Off"
+#~ msgstr "გამორთული"
+
+#~ msgid "Start HotFolder when Windows starts"
+#~ msgstr "HotFolder-ის გაშვება Windows-ის გაშვებისას"
+
+#~ msgid "Start HotFolder when PDFCreator starts"
+#~ msgstr "HotFolder-ის გაშვება PDFCreator-ის გაშვებისას"
+
+#~ msgid "Name"
+#~ msgstr "სახელი"
+
+#~ msgid "Path"
+#~ msgstr "ბილიკი"
+
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "HotFolder-ის ჩანართის გათიშვა"
+
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "გაააქტიურეთ HotFolder-ის ჩანართის გამოსართავად."
+
+#~ msgid "minutes"
+#~ msgstr "წუთი"
+
+#~ msgid "Offline Activation"
+#~ msgstr "აქტივაცია ინტერნეტის გარეშე"
+
+#~ msgid "Chinese"
+#~ msgstr "ჩინური"
+
+#~ msgid "Make PDFCreator a permanent part of your toolset."
+#~ msgstr "გახადეთ PDFCreator-თქვენი პროგრამების ნაკრების მუდმივი ნაწილი."
+
 #~ msgid "Show license details"
 #~ msgstr "ლიცენზიის დეტალების ჩვენება"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "ჩინური (გამარტივებული)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "ლიცენზია არ შეესაბამება თქვენს ვერსიას."
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "ჩინური (ტრადიციული)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "თქვენ საცდელი ლიცენზიის ვადა ამოიწურა"
-
-#~ msgid "Unlock here"
-#~ msgstr "განბლოკეთ აქ"
-
-#~ msgid "Greek"
-#~ msgstr "ბერძნული"
-
-#~ msgid "Turkish"
-#~ msgstr "თურქული"
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "აღმოჩენილია პრობლემა თქვენს ლიცენზიასთან: {0}"
 
 #~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
 #~ msgstr ""
-#~ "PDFCreator-მა ვერ შეძლო თქვენი პრინტერების შეკეთება. პრობლემის "
-#~ "მოგვარებისთვის დაუკავშირდეთ თქვენს ადმინისტრატორს ან მხარდაჭერის გუნდს."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "PDFCreator-მა ვერ შეძლო spool საქაღალდის შეკეთება. '{0}'-ზე წვდომების "
-#~ "შესაცვლელად დაუკავშირდით ადმინისტრატორს ან მარდაჭერის ჯგუფს."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "შეცდომა pdfforge-ის მიერ ლიცენზირებულ კომპონენტის გარშემო.\n"
-#~ "გადააინსტალირეთ PDFCreator. (შეცდომა {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "თქვენი ლიცენზია \"{0}\" არასწორი ან ვადაგასულია. შეამოწმეთ ლიცენზია, "
-#~ "წინააღმდეგ შემთხვევაში PDFCreator-ი დაასრულებს მუშაობას.\n"
-#~ "გნებავთ თქვენი ლიცენზიის შემოწმება?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "თქვენს ლიცენზიას „{0}“ ვადა გაუვიდა.\n"
-#~ "PDFCreator დაიხურება."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "თქვენს ლიცენზიას „{0}“ ვადა გაუვიდა.\n"
-#~ "დაუკავშირდით თქვენს ადმინისტრატორს.\n"
-#~ "PDFCreator ასრულებს მუშაობას."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "თქვენი საცდელი ვადა ამოიწურა: {0}.\n"
-#~ "PDFCreator ასრულებს მუშაობას.\n"
-#~ "\n"
-#~ "დაგვიკავშირდით: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "თქვენი ლიცენზიის გასაღები {0} აღმოჩენილი არაა. შეიყვანეთ თქვენი ლიცენზიის "
-#~ "გასაღები. წინააღმდეგ შემთხვევაში PDFCreator გაითიშება.\n"
-#~ "გნებავთ თქვენი ლიცენზიის გააქტიურება ახლავე?"
-
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "ლიცენზიის გასაღები აღმოჩენილი არაა.\n"
-#~ "PDFCreator მუშაობას დაასრულებს."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Terminal Server-ის ტიპის სერვერებზე გთხოვთ გამოიყენოთ \"PDFCreator "
-#~ "Terminal Server\" \n"
-#~ "\n"
-#~ "დამატებითი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს ან დაგვიკავშირდით: "
-#~ "licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "ვერ ვპოულობ Ghostscript-ის შესაბამის ვერსიას.\n"
-#~ "\n"
-#~ "პროგრამა ასრულებს მუშაობას."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Windows spooler სერვისი არ მუშაობს. გთხოვთ, გაუშვით სერვისი.\n"
-#~ "\n"
-#~ "პროგრამა ასრულებს მუშაობას."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "თქვენ არ გაქვთ დაინსტალირებული PDFCreator პრინტერები. სავარაუდოდ, "
-#~ "პრობლემა დაყენების დროს იყო ან რამე შეიცვალა.\n"
-#~ "გსურთ ამის გამოსწორება PDFCreator პრინტერების ხელახლა ინსტალაციის გზით?\n"
-#~ "\n"
-#~ "შენიშვნა: პრობლემის მოგვარებისას შეიძლება გკითხოთ ადმინისტრატორის "
-#~ "პრივილეგიების მინიჭების შესახებ."
-
-#~ msgid "No printers installed"
-#~ msgstr "პრინტერი დაყენებული არაა"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "RepairTool ნაპოვნი არაა"
-
-#~ msgid "Access Denied"
-#~ msgstr "წვდომა აკრძალულია"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "დროებითი ბილიკი, სადაც PDFCreator ინახავს ბეჭდვის ამოცანებს, "
-#~ "მიუწვდომელია. ეს არის თქვენი მანქანის კონფიგურაციის პრობლემა და უნდა "
-#~ "გამოსწორდეს. გსურთ PDFCreator-მა გამოასწოროს?\n"
-#~ "Spooler-ის თქვენი საქაღალდე არის: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "ალბანური"
-
-#~ msgid "Printer:"
-#~ msgstr "პრინტერი:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#~ msgid "Sharepoint"
-#~ msgstr "Sharepoint"
-
-#~ msgid "Read More"
-#~ msgstr "მეტის წაკითხვა"
-
-#~ msgid "Default Printer"
-#~ msgstr "ნაგულისხმევი პრინტერი"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "გამოყენების სტატისტიკა"
-
-#~ msgid "Run Program"
-#~ msgstr "პროგრამის გაშვება"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "დააყენეთ სერტიფიკატის პაროლი"
-
-#~ msgid "User Name:"
-#~ msgstr "მომხმარებლის სახელი:"
-
-#~ msgid "Email Address:"
-#~ msgstr "ელფოსტის მისამართი:"
-
-#~ msgid "Add Attachment"
-#~ msgstr "მიბმული ფაილის დამატება"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "გამოგზავნილი:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "ცვლილებების დასაბრუნებლად აირჩიეთ 'არა'."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "და კიდევ {0} ფაილი/საქაღალდე"
-#~ msgstr[1] "კიდევ {0} ფაილი/საქაღალდე"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "&PDFCreator-ით გარდაქმნა"
-
-#~ msgid "Convert &Here"
-#~ msgstr "გადაიყვანეთ &აქ"
-
-#~ msgid "&Merge"
-#~ msgstr "&შერწყმა"
-
-#~ msgid "Hint"
-#~ msgstr "მინიშნება"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "თქვენს სისტემაში PDFCreator ვერ ვიპოვე. შეამოწმეთ, დააინსტალირეთ თუ არა."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "არჩეული ელემენტიდან ერთი მაინც არ არის გარდაქმნადი! დამატებითი "
-#~ "ინფორმაციისთვის არა-დაბეჭდვადი ფაილების შესახებ იხილეთ ქვემოთ მოცემული "
-#~ "სია."
-
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr ""
-#~ "ბილიკი ხელმოწერის გამოსახულების ფაილამდე არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "ბილიკი პროგრამის ფაილამდე არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "ყდის ფაილის ერთ-ერთი ბილიკი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "ბილიკი ერთერთ მისამაგრებელ ფაილამდე არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "არჩეული საქაღალდის სახელი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "ფონის ფაილის სახელი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "სერტიფიკატის ფაილამდე ბილიკი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "FTP გასაღების ფაილი არასწორი ბილიკია."
-
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "FTP გასაღების ფაილის ბილიკი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "ფაილის ბილიკი არასწორია ან ცარიელია. შეიყვანეთ სწორი ბილიკი.\n"
-#~ "ფაილის ბილიკი არ უნდა შეიცავდეს არცერთს ამ სიმბოლოებიდან: \n"
-#~ " \\ / : * ? \\< >"
-
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "ჭვირნიშანის ფაილის ბილიკი არასწორ სიმბოლოებს შეიცავს."
-
-#~ msgid "Your license has expired."
-#~ msgstr "ლიცენზიის ვადა ამოიწურა."
+#~ "თქვენი ლიცენზიის {0} ვადა ამოიწურა...\n"
+#~ "მოდით, ნუ შევაყოვნებთ თქვენი სამუშაო პროცესის დინებას"

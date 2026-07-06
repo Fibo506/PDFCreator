@@ -9,6 +9,7 @@ public static class Urls
 
     public const string ProfessionalHintUrl = "https://go.pdfforge.org/pdfcreator-plus/inapp-hint";
     public const string BusinessHintLink = "https://go.pdfforge.org/pdfcreator-business/inapp-hint";
+    public const string UpgradeForHotFolder = "https://go.pdfforge.org/PDFCreator/App/UpgradeForHotFolder";
 
     public const string PdfforgeWebsiteUrl = "https://www.pdfforge.org";
     public const string PdfforgeTranslationUrl = "https://translate.pdfforge.org/projects/pdfcreator/#information";
@@ -44,7 +45,8 @@ public static class Urls
     public const string UsageStatisticsEndpointUrl = "https://stat.pdfforge.org/event/api/v1/single/";
 
     public const string AvqUsageStatisticsEndpointUrl = "https://inapp.pdfcreator.com/api/v1/event";
-    public const string AvqUsageStatisticsStagingEndpointUrl = "https://stage-inapp.pdfcreator.com/api/v1/event";
+    //public const string AvqUsageStatisticsEndpointUrl = "https://stage-inapp.pdfcreator.com/api/v1/event";
+    //public const string AvqUsageStatisticsStagingEndpointUrl = "https://stage-inapp.pdfcreator.com/api/v1/event";
 
     public const string PrivacyPolicyUrl = "https://go.pdfforge.org/privacy-policy";
 
@@ -55,6 +57,8 @@ public static class Urls
     public const string SentryDsnUrl = "https://83989e10cffe463194d1a14a7ed97828@sentry.pdfforge.org/25";
 
     public const string UserGuideCommandLineUrl = "https://docs.pdfforge.org/pdfcreator/en/pdfcreator/using-pdfcreator/command-line-parameters/";
+
+    public const string DefaultProfessionalShopPricingUrl = "https://www.pdfforge.org/pdfcreator/editions/pdfcreator-professional#pricing";
 
     /*Tips*/
     public const string Tip_AutoSaveUrl = "https://go.pdfforge.org/pdfcreator/tips/auto-save";

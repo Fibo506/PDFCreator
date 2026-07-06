@@ -34,9 +34,13 @@
                       Margin="0 20 0 0"
                       Content="{Binding Translation.OpenWithDefault}" />
 
-        <RadioButton  IsChecked="{Binding UseDefaultViewer, Converter={StaticResource BoolNegationConverter}}"
+        <RadioButton  IsChecked="{Binding UsePdfArchitect}"
                       Margin="0 10 0 0"
                       Content="{Binding OpenWithViewerTranslation}" />
+
+        <RadioButton  IsChecked="{Binding OpenFolder}"
+                      Margin="0 10 0 0"
+                      Content="{Binding Translation.OpenFolder}" />
 
         <TextBlock Margin="0 20 0 0">
             <Hyperlink Command="{Binding PdfArchitectInfoCommand}"

@@ -17,18 +17,18 @@ public class MergeAppStart : MaybePipedStart
     private string InfFile { get; set; }
     private readonly IJobInfoManager _jobInfoManager;
     private readonly IJobInfoQueue _jobInfoQueue;
-    private readonly IFileConversionAssistant _fileConversionAssistant;
+    private readonly IFileConversionHelper _fileConversionHelper;
     private readonly IDirectConversionInfFileHelper _directConversionInfFileHelper;
     private readonly IDirectConversionHelper _directConversionHelper;
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-    public MergeAppStart(IJobInfoManager jobInfoManager, IJobInfoQueue jobInfoQueue, IFileConversionAssistant fileConversionAssistant,
+    public MergeAppStart(IJobInfoManager jobInfoManager, IJobInfoQueue jobInfoQueue, IFileConversionHelper fileConversionHelper,
         IDirectConversionInfFileHelper directConversionInfFileHelper, IDirectConversionHelper directConversionHelper, IMaybePipedApplicationStarter maybePipedApplicationStarter)
         : base(maybePipedApplicationStarter)
     {
         _jobInfoManager = jobInfoManager;
         _jobInfoQueue = jobInfoQueue;
-        _fileConversionAssistant = fileConversionAssistant;
+        _fileConversionHelper = fileConversionHelper;
         _directConversionInfFileHelper = directConversionInfFileHelper;
         _directConversionHelper = directConversionHelper;
     }
@@ -53,7 +53,7 @@ public class MergeAppStart : MaybePipedStart
         _droppedFiles.Clear();
         foreach (var file in FilesForMerge)
         {
-            if (!_directConversionHelper.CanConvertDirectly(file))
+            if (!_directConversionHelper.IsImageOrDirectConversion(file))
             {
                 _droppedFiles.Add(file);
             }

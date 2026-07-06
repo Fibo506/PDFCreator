@@ -117,7 +117,7 @@ public class PrinterHelper : IPrinterHelper
 
             return printers;
         }
-        catch (Win32Exception ex)
+        catch (Exception ex)
         {
             _logger.Error(ex, "Could not enumerate the printers! (Is the spooler running?)");
             return new List<string>();
@@ -295,8 +295,8 @@ public class PrinterHelper : IPrinterHelper
 
         if (EnumPorts(null, 2, IntPtr.Zero, 0, ref pcbNeeded, ref pcReturned))
         {
-            //succeeds, but must not, because buffer is zero (too small)!
-            throw new Exception("EnumPorts should fail!");
+            throw new InvalidOperationException(
+                "EnumPorts did not return an expected buffer size. Please ensure print spooler service is running and sufficient permissions are granted. PDFCreator printer detection is not available.");
         }
 
         int lastWin32Error = Marshal.GetLastWin32Error();

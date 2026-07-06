@@ -372,6 +372,14 @@ public class PdfDevice : OutputDevice
 
     protected override void AddOutputFileParameter(IList<string> parameters)
     {
-        parameters.Add("-sOutputFile=" + PathSafe.Combine(Job.IntermediateFolder, ComposeOutputFilename()));
+        if (ConversionMode.Equals(ConversionMode.IntermediateToTargetConversion))
+        {
+            parameters.Add("-sOutputFile=" + PathSafe.Combine(Job.JobTempOutputFolder, ComposeOutputFilename()));
+        }
+        else
+        {
+            parameters.Add("-sOutputFile=" + PathSafe.Combine(Job.IntermediateFolder, ComposeOutputFilename()));
+        }
+
     }
 }

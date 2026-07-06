@@ -1,0 +1,35 @@
+{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "UnitTest\\Conversion\\Actions.UnitTest\\Actions.UnitTest.csproj",
+      "UnitTest\\Conversion\\CustomScriptAction.UnitTest\\CustomScriptAction.UnitTest.csproj",
+      "UnitTest\\Conversion\\Ghostscript.UnitTest\\Ghostscript.UnitTest.csproj",
+      "UnitTest\\Conversion\\Jobs.UnitTest\\Jobs.UnitTest.csproj",
+      "UnitTest\\Conversion\\Processing\\AvanquestProcessingUnitTest\\AvanquestProcessingUnitTest.csproj",
+      "UnitTest\\Conversion\\Processing\\ProcessingBaseUnitTest\\ProcessingBaseUnitTest.csproj",
+      "UnitTest\\Conversion\\SettingsUnitTest\\Settings.UnitTest.csproj",
+      "UnitTest\\Core\\ComImplementation.UnitTest\\ComImplementation.UnitTest.csproj",
+      "UnitTest\\Core\\DirectConversion.UnitTest\\DirectConversion.UnitTest.csproj",
+      "UnitTest\\Core\\GpoAdapter.UnitTest\\GpoAdapter.UnitTest.csproj",
+      "UnitTest\\Core\\Printing.UnitTest\\Printing.UnitTest.csproj",
+      "UnitTest\\Core\\Services.UnitTest\\Services.UnitTest.csproj",
+      "UnitTest\\Core\\SettingsManagement.UnitTest\\SettingsManagement.UnitTest.csproj",
+      "UnitTest\\Core\\UsageStatistics.UnitTest\\UsageStatistics.UnitTest.csproj",
+      "UnitTest\\Core\\Workflow.UnitTest\\Workflow.UnitTest.csproj",
+      "UnitTest\\Editions.UnitTest\\Editions.UnitTest.csproj",
+      "UnitTest\\Server\\PDFCreatorServer.UnitTest\\PDFCreatorServer.UnitTest.csproj",
+      "UnitTest\\Server\\PDFCreatorService.UnitTest\\PDFCreatorServiceOld.UnitTest.csproj",
+      "UnitTest\\Server\\Service\\ServiceCore.UnitTest\\ServiceCore.UnitTest.csproj",
+      "UnitTest\\Server\\UI\\Server.Presentation.UnitTest\\Server.Presentation.UnitTest.csproj",
+      "UnitTest\\Server\\UI\\Server.Ui.UnitTest\\Server.Ui.UnitTest.csproj",
+      "UnitTest\\Startup\\Startup.UnitTest\\Startup.UnitTest.csproj",
+      "UnitTest\\UI\\COM.UnitTest\\COM.UnitTest.csproj",
+      "UnitTest\\UI\\PDFCreator.CLI.UnitTest\\PDFCreator.CLI.UnitTest.csproj",
+      "UnitTest\\UI\\Presentation.UnitTest\\Presentation.UnitTest.csproj",
+      "UnitTest\\UI\\RssFeed.UnitTest\\RssFeed.UnitTest.csproj",
+      "UnitTest\\UnitTestHelper\\UnitTestHelper.csproj",
+      "UnitTest\\Utilities.UnitTest\\Utilities.UnitTest.csproj"
+    ]
+  }
+}

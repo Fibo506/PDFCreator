@@ -22,11 +22,6 @@ public abstract class SettingsProvider : ISettingsProvider
         return settings.ConversionProfiles.Count > 0;
     }
 
-    public ConversionProfile GetDefaultProfile()
-    {
-        return Settings.GetProfileByGuid(ProfileGuids.DEFAULT_PROFILE_GUID);
-    }
-
     private void RaiseLanguageChanged(PdfCreatorSettings settings)
     {
         LanguageChanged?.Invoke(this, new LanguageChangedEventArgs(settings.ApplicationSettings, settings.ConversionProfiles));
@@ -50,7 +45,7 @@ public abstract class SettingsProvider : ISettingsProvider
     protected abstract void SetDontRecommendArchitect(PdfCreatorSettings settings);
 }
 
-public class DefaultSettingsProvider : SettingsProvider
+public class NoGpoSettingsProvider : SettingsProvider
 {
     public IGpoSettings GpoSettings => new GpoSettingsDefaults();
 

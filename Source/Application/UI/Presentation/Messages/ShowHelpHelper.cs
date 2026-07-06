@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Threading;
 using Microsoft.Web.WebView2.Core;
 using pdfforge.PDFCreator.UI.Presentation.Events;
 using pdfforge.PDFCreator.Utilities.Messages;

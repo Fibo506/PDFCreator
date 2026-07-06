@@ -13,6 +13,7 @@ partial class PdfCreatorSettings : IEditionSettings
 
         copy.CreatorAppSettings = CreatorAppSettings;
         copy.ApplicationSettings = ApplicationSettings;
+        copy.HotFolderSettings = HotFolderSettings;
 
         return copy;
     }

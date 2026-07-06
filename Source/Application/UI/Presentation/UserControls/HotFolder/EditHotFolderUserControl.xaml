@@ -1,0 +1,281 @@
+﻿<UserControl x:Class="pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:designTime="clr-namespace:pdfforge.PDFCreator.UI.Presentation.DesignTime"
+             xmlns:enums="clr-namespace:pdfforge.PDFCreator.Conversion.Settings.HotFolder.Enums;assembly=PDFCreator.Settings"
+             xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
+             xmlns:styles="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Styles"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:controls="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance designTime:DesignTimeEditHotFolderViewModel, IsDesignTimeCreatable=True}"
+             Width="588">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Labels.xaml"/>
+                <ResourceDictionary Source="../../Styles/Buttons/SquaredIconButton.xaml"/>
+                <ResourceDictionary Source="../../Styles/ListBox.xaml" />
+                <ResourceDictionary Source="../../Styles/Icons/Icons.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+            <converter:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalseConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Scrollable Content Area -->
+        <ScrollViewer Grid.Row="0" 
+                      VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Disabled">
+            <DockPanel Margin="20" HorizontalAlignment="Stretch">
+                <StackPanel>
+                    <!-- Printer Section -->
+                    <Label Style="{StaticResource LargeLabel}"
+                        Content="{Binding Translation.LinkedPrinterTitle}"/>
+
+                    <Label  Margin="0 10 0 0"
+                            Content="{Binding Translation.AssignedPrinterName}" />
+                    <TextBox Margin="0 10 0 0"
+                             Text="{Binding PrinterName, UpdateSourceTrigger=PropertyChanged}" />
+                 
+
+                    <!-- Profile Section -->
+                    <Label  Margin="0 20 0 0"
+                            Content="{Binding Translation.Profile}" />
+                    <styles:ProfilesComboBox Margin="0 10 0 0"
+                                             Background="{StaticResource ComboBoxBackgroundBrush}"
+                                             BorderThickness="1"
+                                             Profiles="{Binding Profiles, Mode=OneWay}"
+                                             SelectedProfile="{Binding SelectedProfile }" />
+
+                    <!-- HotFolder Path Section -->
+                    <Label Margin="0 20 0 0"
+                           Style="{StaticResource LargeLabel}"
+                           Content="{Binding Translation.HotFolderTitle}" />
+
+                    <Label  Margin="0 8 0 0"
+                            Content="{Binding Translation.SelectFolderLabel}"/>
+
+                    <controls:TokenControl Margin="0 10 0 0" 
+                                           DataContext="{Binding HotFolderPathTokenViewModel}" />
+
+                    <!-- Source Files Section -->
+                    <StackPanel Margin="0 16 0 0">
+                        <Label Style="{StaticResource LargeLabel}"
+                               Content="{Binding Translation.SourceFilesLabel}" />
+
+                        <TextBlock Margin="0 10 0 0" 
+                               Text="{Binding Translation.SourceFilesDescription}" 
+                               TextWrapping="Wrap" />
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="SourceFiles"
+                                 IsChecked="{Binding SourceFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.Subfolder}}">
+                            <TextBlock Text="{Binding Translation.SourceFilesDefaultChoiceDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="SourceFiles"
+                                 IsChecked="{Binding SourceFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.Trash}}">
+                            <TextBlock Text="{Binding Translation.SourceFilesRecycleBinDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="SourceFiles"
+                                 IsChecked="{Binding SourceFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.MoveToLocation}}">
+                            <TextBlock Text="{Binding Translation.SourceFilesCustomDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+                        <!-- Custom Source Path (only visible when Custom is selected) -->
+
+                        <controls:TokenControl Margin="0 10 0 0"
+                                               Visibility="{Binding DataContext.ShowSourceFilesPath, RelativeSource={RelativeSource AncestorType=UserControl},
+                                                            Converter={StaticResource CollapsedIfFalseConverter}}"
+                                               DataContext="{Binding SourceFilesPathTokenViewModel}" />
+                    </StackPanel>
+
+                    <!-- Unprintable Files Section -->
+                    <StackPanel Margin="0 16 0 0">
+                        <Label  Style="{StaticResource LargeLabel}"
+                                Content="{Binding Translation.UnprintableFilesLabel}" />
+
+                        <TextBlock Margin="0 8 0 0"
+                               Text="{Binding Translation.UnprintableFilesDescription}" 
+                               TextWrapping="Wrap" />
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="UnprintableFiles"
+                                 IsChecked="{Binding UnprintableFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.Subfolder}}">
+                            <TextBlock Text="{Binding Translation.UnprintableFilesDefaultChoiceDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="UnprintableFiles"
+                                 IsChecked="{Binding UnprintableFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.Trash}}">
+                            <TextBlock Text="{Binding Translation.UnprintableFilesRecycleBinDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="UnprintableFiles"
+                                 IsChecked="{Binding UnprintableFileMover,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FileMover.MoveToLocation}}">
+                            <TextBlock Text="{Binding Translation.UnprintableFilesCustomDescription}" TextWrapping="Wrap" />
+                        </RadioButton>
+                        <!-- Custom Unprintable Path (only visible when Custom is selected) -->
+                        <controls:TokenControl Margin="0 10 0 0"
+                                               Visibility="{Binding DataContext.ShowUnprintableFilesPath, RelativeSource={RelativeSource AncestorType=UserControl},
+                                    Converter={StaticResource CollapsedIfFalseConverter}}"
+                                               DataContext="{Binding UnprintableFilesPathTokenViewModel}" />
+                    </StackPanel>
+
+                    <!-- Filter Section -->
+                    <StackPanel Margin="0 20 0 0">
+                        <Label  Style="{StaticResource LargeLabel}"
+                                Content="{Binding Translation.FilterLabel}" />
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="Filter"
+                                 IsChecked="{Binding FilterOption,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FilterOption.NoFilter}}">
+                            <TextBlock Text="{Binding Translation.NoFilter}" TextWrapping="Wrap" />
+                        </RadioButton>
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="Filter"
+                                 IsChecked="{Binding FilterOption,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FilterOption.Exclude}}">
+                            <TextBlock Text="{Binding Translation.ExcludeFilter}" TextWrapping="Wrap" />
+                        </RadioButton>
+
+                        <RadioButton Margin="0 10 0 0"
+                                 GroupName="Filter"
+                                 IsChecked="{Binding FilterOption,
+                                            Converter={StaticResource EnumToBooleanConverter},
+                                            ConverterParameter={x:Static enums:FilterOption.Restrict}}">
+                            <TextBlock Text="{Binding Translation.RestrictFilter}" TextWrapping="Wrap" />
+                        </RadioButton>
+
+                        <!-- Filter List Section - Only visible when a filter option is selected -->
+                        <StackPanel Margin="0 15 0 0"
+                                    Visibility="{Binding ShowFilterOptions,
+                                    Converter={StaticResource CollapsedIfFalseConverter}}">
+
+                            <!-- Add Filter Button -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Label Content="{Binding Translation.AddFilter}" 
+                                       Style="{StaticResource LightLabel}" 
+                                       HorizontalAlignment="Right" />
+                                <Button Margin="10 0 0 0"
+                                        Command="{Binding AddFilterCommand}"
+                                        Style="{StaticResource SquaredIconButton}">
+                                    <iconPacks:PackIconMaterialDesign Kind="PlaylistAdd"/>
+                                </Button>
+                            </StackPanel>
+
+                            <!-- Filter List -->
+                            <Border Margin="0 10 -24 0" 
+                                    BorderThickness="1"
+                                    MaxHeight="200">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListBox ItemsSource="{Binding Filters}" 
+                                     Background="Transparent"
+                                     Style="{StaticResource NoEffectsListBox}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border 
+                                                    BorderThickness="0 0 10 1"
+                                                    Padding="10 8">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <TextBlock Grid.Column="0" 
+                                                           Text="{Binding}" 
+                                                           VerticalAlignment="Center"
+                                                           TextTrimming="CharacterEllipsis"/>
+
+                                                        <Button Grid.Column="1"
+                                                                Margin="10 0 -10 0"
+                                                                Command="{Binding DataContext.RemoveFilterCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                CommandParameter="{Binding}"
+                                                                Style="{StaticResource SquaredIconButton}"
+                                                                ToolTip="{Binding DataContext.Translation.RemoveFilter, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                                            <iconPacks:PackIconMaterialDesign Kind="Delete" Width="16" Height="16"/>
+                                                        </Button>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="ListBoxItem">
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                                <Setter Property="Padding" Value="0"/>
+                                                <Setter Property="Margin" Value="0 0 20 0"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </ScrollViewer>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </ScrollViewer>
+
+        <!-- Bottom Button Area -->
+        <Grid Grid.Row="1"
+              Margin="20">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="{Binding StatusText}"
+                       Foreground="{StaticResource ErrorBrush}"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+
+            <Button Grid.Column="1"
+                    Margin="10 0 0 0"
+                    MinWidth="120"
+                    Background="{StaticResource AccentButtonBackgroundBrush}"
+                    Foreground="{StaticResource AccentButtonForegroundBrush}"
+                    Command="{Binding SaveCommand}" >
+                <DockPanel FlowDirection="LeftToRight">
+                    <DockPanel HorizontalAlignment="Center">
+                        <ContentControl Margin="0 0  10 0"
+                                        Visibility="{Binding PrinterNameChanged, Converter={StaticResource CollapsedIfFalseConverter}}"
+                                        Content="{StaticResource UacShield}"
+                                        IsHitTestVisible="False"
+                                        Width="10" />
+                        <AccessText Text="{Binding Translation.Save}" />
+                    </DockPanel>
+                </DockPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

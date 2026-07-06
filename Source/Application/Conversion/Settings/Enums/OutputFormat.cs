@@ -79,6 +79,17 @@ public static class OutputFormatExtensions
         }
     }
 
+    public static bool IsPdfX(this OutputFormat format)
+    {
+        switch (format)
+        {
+            case OutputFormat.PdfX:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     public static string GetDescription(this OutputFormat format)
     {
         var type = typeof(OutputFormat);

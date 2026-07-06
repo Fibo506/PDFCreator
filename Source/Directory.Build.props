@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
-	<PropertyGroup>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<LangVersion>latest</LangVersion>
-		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-	</PropertyGroup>
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Company>Avanquest pdfforge GmbH</Company>
+    <Copyright>Copyright 2026 Avanquest pdfforge GmbH</Copyright>
+    <Product>$(MSBuildProjectName)</Product>
+    <NoWarn>$(NoWarn);CS0168;CS0612;CS4014;CS8509;CS8618;CS8625;IDE0161;MSB3277;NU1701;NU1902</NoWarn>
+  </PropertyGroup>
 </Project>

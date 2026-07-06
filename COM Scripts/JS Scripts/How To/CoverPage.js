@@ -37,15 +37,10 @@ try {
         WScript.Echo("Applying cover page settings...");
         /* The SetProfileSettings method allows us to tell the job that it should be send after conversion */
         //Since we want to add a cover page, we have to enable it first
-        job.AddAction("CoverPage");
-
-        // Get the list of cover files
-        var files = job.GetProfileListSetting("CoverPage.Files");
-        // Clear the list and add our cover file (it must be a PDF file)
-        files.Clear();
-        files.Add(objFSO.GetParentFolderName(WScript.ScriptFullname) + "\\CoverPage.pdf");
-        // Set the list again
-        job.SetProfileListSetting("CoverPage.Files", files);
+        job.AddAction("CoverPage"); 		
+		//The file needs to be a PDF, otherwise exceptions will occur
+		job.SetProfileSetting("CoverPage.File",
+		objFSO.GetParentFolderName(WScript.ScriptFullname) + "\\CoverPage.pdf");
 
         WScript.Echo("Converting under \"DefaultGuid\" conversion profile");
         job.ConvertTo(fullPath);

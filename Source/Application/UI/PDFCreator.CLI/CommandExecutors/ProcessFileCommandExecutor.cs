@@ -35,7 +35,7 @@ public class ProcessFileCommandExecutor : ICommandExecutor
 
     public CheckResult IsExecutable()
     {
-        if (!_directConversionHelper.CanConvertDirectly(_command.File))
+        if (!_directConversionHelper.IsImageOrDirectConversion(_command.File))
             return CheckResult.Error($"The file '{_command.File}' cannot be processed directly, please use the PrintFiles command instead.");
 
         return CheckResult.Success();

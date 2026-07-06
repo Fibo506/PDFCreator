@@ -123,5 +123,9 @@ public enum HelpTopic
 
     [HelpTopic("pdfcreator/license/index")] License,
 
-    [HelpTopic("pdfcreator-server/license/index")] ServerLicense
+    [HelpTopic("pdfcreator-server/license/index")] ServerLicense,
+
+    //HotFolder
+    [HelpTopic("hotfolder/index")] HotFolder
+
 }

@@ -16,7 +16,9 @@
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="1,1,1,0">
                             <TextBlock Margin="6,3,6,3" 
-                                       Text="{TemplateBinding Header}" 
+                                       Text="{TemplateBinding Header}"
+                                       FontSize="12"
+                                       FontWeight="Bold"
                                        Foreground="White"/>
                         </Border>
                         <Border Grid.Row="1" 

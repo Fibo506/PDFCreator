@@ -2,20 +2,25 @@
 using pdfforge.Obsidian.Trigger;
 using pdfforge.PDFCreator.Core.Services.Macros;
 using pdfforge.PDFCreator.UI.Interactions;
+using pdfforge.PDFCreator.UI.Presentation.Events;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.NavigationChecks;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
+using Prism.Events;
 
 namespace pdfforge.PDFCreator.UI.Presentation.Commands.EvaluateSettingsCommands;
 
 public abstract class EvaluateSettingsAndNotifyUserCommandBase : TranslatableCommandBase<EvaluateSettingsAndNotifyUserTranslation>, IWaitableCommand
 {
+    public IEventAggregator EventAggregator { get; }
     private readonly IInteractionRequest _interactionRequest;
 
     public EvaluateSettingsAndNotifyUserCommandBase(IInteractionRequest interactionRequest,
+        IEventAggregator eventAggregator,
         ITranslationUpdater translationUpdater)
         : base(translationUpdater)
     {
+        EventAggregator = eventAggregator;
         _interactionRequest = interactionRequest;
     }
 
@@ -45,6 +50,11 @@ public abstract class EvaluateSettingsAndNotifyUserCommandBase : TranslatableCom
 
     protected void RaiseIsDone(ResponseStatus responseStatus)
     {
+        if(responseStatus == ResponseStatus.Success)
+            EventAggregator.GetEvent<SettingsSavedEvent>().Publish();
+        else
+            EventAggregator.GetEvent<SettingSaveCanceledEvent>().Publish();
+
         IsDone?.Invoke(this, new MacroCommandIsDoneEventArgs(responseStatus));
     }
 }

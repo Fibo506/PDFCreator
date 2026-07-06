@@ -8,9 +8,11 @@ using pdfforge.Obsidian.Interaction;
 using pdfforge.PDFCreator.Conversion.Actions.Actions;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
-using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
+using pdfforge.PDFCreator.Conversion.Jobs.UserTokenExtractor;
 using pdfforge.PDFCreator.Conversion.Processing.ITextProcessing;
+using pdfforge.PDFCreator.Conversion.Processing.PdfiumProcessing;
 using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.ImagesToPdf;
+using pdfforge.PDFCreator.Conversion.Processing.PdfProcessingInterface.Preview;
 using pdfforge.PDFCreator.Conversion.Settings.GroupPolicies;
 using pdfforge.PDFCreator.Core.Services.Licensing;
 using pdfforge.PDFCreator.Core.Services.Update;
@@ -28,8 +30,10 @@ using pdfforge.PDFCreator.UI.Presentation.Helper.Interfaces;
 using pdfforge.PDFCreator.UI.Presentation.Helper.SetupDownloadHelper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Version;
 using pdfforge.PDFCreator.UI.Presentation.UserControls;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Misc;
 using pdfforge.PDFCreator.UI.Presentation.Workflow;
+using pdfforge.PDFCreator.UI.PrismHelper.Prism.SimpleInjector;
 using pdfforge.PDFCreator.Utilities;
 using pdfforge.PDFCreator.Utilities.Update;
 using Prism.Regions;
@@ -69,6 +73,7 @@ public class PDFCreatorBootstrapper : Bootstrapper
         container.RegisterSingleton<IUpdateLauncher>(() => new SimpleUpdateLauncher(container.GetInstance<IWebLinkLauncher>()));
         container.RegisterSingleton<IOnlineVersionHelper, OnlineVersionHelper>();
         container.RegisterSingleton(() => new UpdateInformationProvider(Urls.PdfCreatorUpdateInfoUrl, "PDFCreator", Urls.PdfCreatorUpdateChangelogUrl));
+        container.RegisterSingleton<IPdfToImagePathTaskList,PdfToImagePathTaskListPdfium>();
     }
 
     protected override void RegisterInteractiveWorkflowManagerFactory(Container container)
@@ -122,7 +127,7 @@ public class PDFCreatorBootstrapper : Bootstrapper
 
     protected override SettingsProvider CreateSettingsProvider()
     {
-        return new DefaultSettingsProvider();
+        return new NoGpoSettingsProvider();
     }
 
     protected override void RegisterObsidianLicenseInteractions()
@@ -150,5 +155,12 @@ public class PDFCreatorBootstrapper : Bootstrapper
     {
         container.Register<IRequestHelper, RequestHelper>();
         container.Register<ISetupDownloadHelper, SetupDownloadHelper>();
+    }
+
+    protected override void RegisterHotFolder(Container container)
+    {
+        container.RegisterTypeForNavigation(typeof(FreeEditionHotFolderView), RegionViewName.HotFolderView);
+        container.RegisterSingleton<IHotFolderConfigsHelper, FreeHotFolderConfigsHelper>();
+        container.RegisterSingleton<IHotFolderConfigChecker, EmptyHotFolderConfigChecker>();
     }
 }

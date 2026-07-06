@@ -137,6 +137,7 @@ public class ITextPdfProcessor : PdfProcessorBase
         WritePdfDocument(docContext);
     }
 
+    [Obsolete]
     public override void AddPageNumbers(Job job)
     {
         if (!job.Profile.PageNumbers.Enabled)
@@ -161,7 +162,7 @@ public class ITextPdfProcessor : PdfProcessorBase
         WritePdfDocument(docContext);
     }
 
-    public override void MergePDFs(string targetPdf, string sourcePdf, string pdfOwnerPassword)
+    public override void MergePDFs(string targetPdf, string sourcePdf, JobPasswords jobPasswords)
     {
         DocumentContext documentContext;
 
@@ -170,7 +171,7 @@ public class ITextPdfProcessor : PdfProcessorBase
         documentContext.TempFileName = AddTailToFile(originalSourceFile, Guid.NewGuid().ToString());
 
         var readerProperties = new ReaderProperties();
-        var encodedOwnerPassword = Encoding.Default.GetBytes(pdfOwnerPassword);
+        var encodedOwnerPassword = Encoding.Default.GetBytes(jobPasswords.PdfOwnerPassword);
         readerProperties.SetPassword(encodedOwnerPassword);
         var writerProperties = new WriterProperties();
         writerProperties.SetPdfVersion(PdfVersion.PDF_1_7);
@@ -197,11 +198,11 @@ public class ITextPdfProcessor : PdfProcessorBase
 
     public override void ApplyPreviewChanges(Job job, IList<PageMapping> pageMappings)
     {
-        var originalPdfFile = job.IntermediatePdfFile;
-        var tempFileName = AddTailToFile(originalPdfFile, "_preview");
-
+        var tempFileName = string.Empty;
         try
         {
+            var originalPdfFile = job.IntermediatePdfFile;
+            tempFileName = AddTailToFile(originalPdfFile, "_preview");
             using (var reader = new PdfReader(originalPdfFile))
             using (var writer = new PdfWriter(tempFileName))
             using (var sourceDocument = new PdfDocument(reader))

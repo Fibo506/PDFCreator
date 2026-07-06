@@ -41,4 +41,6 @@ public class SaveViewTranslation : ITranslatable
     public string ShowAllNotifications { get; private set; } = "Show tray notification after converting a document";
     public string ShowOnlyErrorNotifications { get; private set; } = "Only show notification for errors";
     public string EnsureUserTokensNotSelected { get; private set; } = "Please be aware: By utilizing user tokens in the target directory users are able to save files to any directory the service has write permission.";
+
+    public string ProfileTargetDirectorySameAsItsHotFolderPath { get; private set; } = "The selected target directory is monitored by a HotFolder, creating a circular dependency that causes an infinite loop.";
 }

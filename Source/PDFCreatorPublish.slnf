@@ -1,0 +1,20 @@
+﻿{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "Application\\Conversion\\Settings\\Settings.csproj",
+      "Application\\Conversion\\ActionsInterface\\ActionsInterface.csproj",
+      "Application\\Core\\SettingsManagementInterface\\SettingsManagementInterface.csproj",
+      "Application\\Core\\SettingsManagement\\SettingsManagement.csproj",
+      "Application\\Editions\\PDFCreatorCustom\\PDFCreator Custom.csproj",
+      "Application\\Editions\\PDFCreatorProfessional\\PDFCreator Professional.csproj",
+      "Application\\Editions\\PDFCreatorTerminalServer\\PDFCreator Terminal Server.csproj",
+      "Application\\Editions\\PDFCreator\\PDFCreator.csproj",
+      "Application\\ErrorReport\\ErrorReport.csproj",
+      "Application\\UI\\PDFCreator.CLI\\PDFCreator.CLI.csproj",
+      "Application\\UI\\PDFCreatorCOM\\PDFCreatorCOM.csproj",
+      "Application\\UI\\PDFCreatorProfessionalCOM\\PDFCreatorProfessionalCOM.csproj",
+      "Application\\Utilities\\Utilities.csproj"
+    ]
+  }
+}

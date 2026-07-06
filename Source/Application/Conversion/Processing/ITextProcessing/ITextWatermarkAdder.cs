@@ -70,6 +70,7 @@ internal class ITextWatermarkAdder
         return new PdfCanvas(pdfPage.NewContentStreamAfter(), pdfPage.GetResources(), pdfDocument);
     }
 
+    [Obsolete]
     private void DoAddWatermark(PdfDocument pdfDocument, IWatermarkSettings watermarkSettings, Func<PdfPage, PdfDocument, PdfCanvas> GetPdfCanvas)
     {
         if (!watermarkSettings.Enabled)

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace pdfforge.PDFCreator.Utilities;
 
@@ -11,7 +12,12 @@ public interface IHashUtil
 
     string CalculateFileMd5(string filepath);
 
+    Task<string> CalculateFileMd5Async(string filepath);
+
     bool VerifyFileMd5(string filepath, string expectedMd5);
+
+    Task<bool> VerifyFileMd5Async(string filepath, string expectedMd5);
+
     public string GetSha256Hash(string toHash);
 }
 
@@ -55,10 +61,20 @@ public class HashUtil : IHashUtil
         return md5;
     }
 
+    public Task<string> CalculateFileMd5Async(string filepath)
+    {
+        return Task.Run(() => CalculateFileMd5(filepath));
+    }
+
     public bool VerifyFileMd5(string filepath, string expectedMd5)
     {
         var md5 = CalculateFileMd5(filepath);
         return md5 == expectedMd5.ToLowerInvariant();
+    }
+
+    public Task<bool> VerifyFileMd5Async(string filepath, string expectedMd5)
+    {
+        return Task.Run(() => VerifyFileMd5(filepath, expectedMd5));
     }
 
     public string GetSha256Hash(string toHash)

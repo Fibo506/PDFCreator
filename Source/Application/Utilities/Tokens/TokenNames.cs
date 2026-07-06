@@ -1,7 +1,10 @@
 ﻿namespace pdfforge.PDFCreator.Utilities.Tokens;
 
-public class TokenNames
+public static class TokenNames
 {
+    public const string Split = "split";
+    public const string Delete = "delete";
+
     public const string DropboxFullLinks = "DropboxFullLinks";
     public const string DropboxHtmlLinks = "DropboxHtmlLinks";
     public const string OneDriveShareLink = "OneDriveShareLink";

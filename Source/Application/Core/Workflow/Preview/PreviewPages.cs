@@ -1,16 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace pdfforge.PDFCreator.Core.Workflow;
 
-public class PreviewPage
+public class PreviewPage : INotifyPropertyChanged
 {
     public int PageNumber { get; set; }
     public Task<string> PreviewImagePathTask { get; set; }
     public int SourcePageNumber { get; set; }
-    public int RotationAngle { get; set; }
-    public bool IsExcluded { get; set; }
+
+    private int _rotationAngle;
+    public int RotationAngle
+    {
+        get => _rotationAngle;
+        set
+        {
+            if (_rotationAngle != value)
+            {
+                _rotationAngle = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    private bool _isExcluded;
+    public bool IsExcluded
+    {
+        get => _isExcluded;
+        set
+        {
+            if (_isExcluded != value)
+            {
+                _isExcluded = value;
+                OnPropertyChanged();
+            }
+        }
+    }
 
     public PreviewPage(int pageNumber, Task<string> previewImagePathTask)
     {
@@ -18,6 +46,12 @@ public class PreviewPage
         PageNumber = pageNumber;
         RotationAngle = 0;
         IsExcluded = false;
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
 

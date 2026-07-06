@@ -10,6 +10,7 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:beh="clr-namespace:pdfforge.Obsidian;assembly=Obsidian"
                       xmlns:jobInfo="clr-namespace:pdfforge.PDFCreator.Conversion.Jobs.JobInfo;assembly=PDFCreator.Jobs"
+                      xmlns:viewModels="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Windows"
                       xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
                       xmlns:designTime="clr-namespace:pdfforge.PDFCreator.UI.Presentation.DesignTime"
                       xmlns:dd="urn:gong-wpf-dragdrop"
@@ -210,7 +211,7 @@
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource NoEffectsListBoxItem}"/>
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="jobInfo:JobInfo">
+                <DataTemplate DataType="viewModels:JobInfoPreviewWrapper">
                     <Border Margin="0 5 2 5" 
                             Style="{StaticResource BrightBorder}">
                         <Grid Margin="15 10 15 10">
@@ -270,9 +271,7 @@
                             <!-- 1st Page Preview -->
                             <Grid Grid.Column="2" Grid.Row="0">
                                 <Viewbox Name="PreviewViewbox">
-                                    <controls1:PreviewPageControl PreviewPage="{Binding PreviewPageList[0], ElementName=PreviewControl}"
-                                                                  ShowPageNumber="False"
-                                                                  ShowPreviewControls="False"/>
+                                    <Image Source="{Binding   PreviewViewModel.FirstPageImagePath}"/>
                                 </Viewbox>
                             </Grid>
                             <!-- Title with Preview Toggle-->
@@ -283,34 +282,33 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" VerticalAlignment="Top">
-                                    <TextBlock Text="{Binding Metadata.PrintJobName}" />
+                                    <TextBlock Text="{Binding JobInfo.Metadata.PrintJobName}" />
                                 </Label>
                                 <TextBlock Grid.Row="1" VerticalAlignment="Top">
                                     <Run Text="{Binding DataContext.Translation.PagesLabel, 
                                                 RelativeSource={RelativeSource AncestorType=controls:MetroWindow},
                                                 Mode=OneWay}" />
-                                    <Run Text="{Binding TotalPages, Mode=OneWay}" />
+                                    <Run Text="{Binding JobInfo.TotalPages, Mode=OneWay}" />
                                 </TextBlock>
                                 <CheckBox Grid.Row="2"
                                           Margin="0 0 0 0"
                                           Style="{StaticResource TriangleSwitchCheckBox}"
-                                          IsChecked="{Binding ExpandPreview}"
+                                          IsChecked="{Binding PreviewViewModel.ExpandPreview}"
                                           Content="{Binding DataContext.Translation.Preview, 
                                                     RelativeSource={RelativeSource AncestorType=controls:MetroWindow}}"
-                                          IsEnabled="{Binding IsPreviewLoading, ElementName=PreviewControl, 
-                                                      Converter={StaticResource BoolNegationConverter} }"
+                                       
                                           Name="PreviewToggle"
                                           VerticalAlignment="Bottom"/>
                             </Grid>
                             <!-- Author -->
                             <TextBlock Grid.Column="6" Grid.Row="0"
-                                       Text="{Binding SourceFiles[0].Author, Mode=OneWay}" />
+                                       Text="{Binding  JobInfo.SourceFiles[0].Author, Mode=OneWay}" />
                             <!-- Date -->
                             <TextBlock Grid.Column="8" Grid.Row="0"
-                                       Text="{Binding PrintDateTime, Mode=OneWay, Converter={StaticResource DateTimeToTwoLineStringConverter}}" />
+                                       Text="{Binding JobInfo.PrintDateTime, Mode=OneWay, Converter={StaticResource DateTimeToTwoLineStringConverter}}" />
                             <!-- ID -->
                             <TextBlock Grid.Column="10" Grid.Row="0"
-                                       Text="{Binding SourceFiles[0].JobId, Mode=OneWay}"  />
+                                       Text="{Binding JobInfo.SourceFiles[0].JobId, Mode=OneWay}"  />
                             <!-- Delete -->
                             <Button Grid.Column="12" Grid.Row="0"
                                     Command="{Binding DataContext.DeleteJobCommand, ElementName=ThisWindow}"
@@ -333,10 +331,9 @@
                                         MaxHeight="300"
                                         x:Name="PreviewControl"
                                         Visibility="{Binding ElementName=PreviewToggle, Path=IsChecked, 
-                                                                           Converter={StaticResource CollapsedIfFalse}}" 
-                                        PreviewManager="{Binding DataContext.PreviewManager, ElementName=ThisWindow}"
-                                        JobInfo="{Binding}"
-                                        HorizontalAlignment="Left" />
+                                                                           Converter={StaticResource CollapsedIfFalse}}"
+                                        DataContext="{Binding PreviewViewModel}"
+                                        HorizontalAlignment="Left"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

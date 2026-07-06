@@ -115,7 +115,7 @@ public class MailWebActionViewModel : ActionViewModelBase<MailWebAction, Outlook
     {
         var builder = tokenViewModelFactory
             .BuilderWithSelectedProfile()
-            .WithDefaultTokenReplacerPreview(th => th.GetTokenListForEmailRecipients());
+            .WithDefaultTokenReplacerPreview(th => th.TokenListForEmailRecipients);
 
         RecipientsTokenViewModel = builder
             .WithSelector(p => p.EmailWebSettings.Recipients)

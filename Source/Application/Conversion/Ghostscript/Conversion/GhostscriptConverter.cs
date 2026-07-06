@@ -34,11 +34,11 @@ public class GhostscriptConverter : IConverter
 
     private int NumberOfPages { get; set; }
 
-    public void Init(bool outputFormatIsPdf, bool isProcessingRequired)
+    public void Init(bool outputFormatIsPdf, bool isIntermediateFileRequired)
     {
         if (outputFormatIsPdf)
             _firstConversionStepMode = ConversionMode.PdfConversion;
-        else if (isProcessingRequired)
+        else if (isIntermediateFileRequired)
             _firstConversionStepMode = ConversionMode.IntermediateConversion;
         else
             _firstConversionStepMode = ConversionMode.ImmediateConversion;

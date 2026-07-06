@@ -7,6 +7,5 @@ namespace pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
 public interface IOpenFileAction : IPostConversionAction
 {
     ActionResult OpenWithArchitect(List<string> files);
-
-    ActionResult OpenOutputFile(string filePath, bool openWithPdfArchitect = false);
+    ActionResult OpenOutputFile(string filePath, bool openWithPdfArchitect = false, bool openFolder = false);
 }

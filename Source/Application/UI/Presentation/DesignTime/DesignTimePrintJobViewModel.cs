@@ -3,6 +3,7 @@ using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
 using pdfforge.PDFCreator.Conversion.Jobs.Jobs;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.Services.Trial;
+using pdfforge.PDFCreator.UI.Presentation.Controls;
 using pdfforge.PDFCreator.UI.Presentation.DesignTime.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob;
@@ -33,7 +34,9 @@ public partial class DesignTimePrintJobViewModel : PrintJobViewModel
               new CampaignHelper(),
               new DesignTimeProfileChecker(),
               new DesignTimePreviewManager(),
-              new DesignTimeApplicationNameProvider())
+              new DesignTimeApplicationNameProvider(),
+              null,
+              new PreviewControlViewModelFactory(new DesignTimePreviewManager(), new PreviewPageControlViewModelFactory(new DesignTimeTranslationUpdater(), new DesignTimeInteractionInvoker()), new DesignTimeEditionHelper()))
     {
         var jobInfo = new JobInfo()
         {

@@ -7,7 +7,6 @@ public class GeneralSettingsTranslation : ITranslatable
 {
     public string Ask { get; private set; } = "Ask";
     public string AddMenuIntegrationText { get; private set; } = "Add";
-    public string AddToContextMenuText { get; private set; } = "Added to context menu";
     public string ChangeDefaultPrinterLabelText { get; private set; } = "Allow PDFCreator to temporarily change the default printer";
     public string CheckUpdateButtonContent { get; private set; } = "Check now";
     public string DefaultPrinterControlHeader { get; private set; } = "Default printer";
@@ -54,8 +53,10 @@ public class GeneralSettingsTranslation : ITranslatable
 
     public string HotStandbyHeader { get; private set; } = "PDFCreator standby";
     public string HotStandbyDuration { get; private set; } = "Standby duration";
+    public string RestartApplicationButtonContent { get; private set; } = "Restart";
+    public string AutoStartBody { get; private set; } = "Start standby and HotFolder (if enabled) via autostart of Windows";
     public string HotStandbyExplanation { get; private set; } = "PDFCreator uses the standby to accelerate printing and using PDFCreator. After closing PDFCreator, the application will keep running for the configured time with a low footprint. This significantly accelerates further conversions.";
-    public string HotStandbyMinutes { get; private set; } = "minutes";
+
     public EnumTranslation<StandbySetting>[] HotStandbySettings { get; private set; } = EnumTranslation<StandbySetting>.CreateDefaultEnumTranslation();
 
     public EnumTranslation<UpdateInterval>[] UpdateIntervals { get; private set; } = EnumTranslation<UpdateInterval>.CreateDefaultEnumTranslation();

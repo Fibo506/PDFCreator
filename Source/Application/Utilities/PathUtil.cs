@@ -23,6 +23,8 @@ public interface IPathUtil
     bool IsValidFilename(string fileName);
 
     string GetCleanFileNameWithoutUniqueCounter(string fileName, string outputPathTemplate);
+
+    bool IsSubdirectory(string childPath, string parentPath);
 }
 
 public class PathUtil : IPathUtil
@@ -171,6 +173,13 @@ public class PathUtil : IPathUtil
         }
 
         return outputFileName;
+    }
+
+    public bool IsSubdirectory(string childPath, string parentPath)
+    {
+        var child = childPath.Replace('/', '\\').TrimEnd('\\', ' ') + '\\';
+        var parent = parentPath.Replace('/', '\\').TrimEnd('\\', ' ') + '\\';
+        return child.StartsWith(parent, StringComparison.OrdinalIgnoreCase);
     }
 }
 

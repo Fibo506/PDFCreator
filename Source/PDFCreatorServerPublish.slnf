@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "PDFCreator.sln",
+    "projects": [
+      "Server\\PDFCreatorServer\\PDFCreatorServer.csproj",
+      "Server\\PDFCreatorService\\PDFCreatorService.csproj",
+      "Server\\PerformanceTestPrinter\\PerformanceTestPrinter.csproj",
+      "Server\\PerformanceTest\\PerformanceTest.csproj",
+      "Server\\PrintJobSource\\PrintJobSource.csproj"
+    ]
+  }
+}

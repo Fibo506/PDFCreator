@@ -1,0 +1,29 @@
+{
+  "$schema": "build.schema.json",
+  "Profile": [
+    "Secrets"
+  ],
+  "Solution": "Source/PDFCreator.sln",
+  "TypedSolution": "Source/PDFCreator.sln",
+  "PDFCreatorVersion": "6.3.0",
+  "PDFCreatorServerVersion": "4.1.0",
+  "ProjectsWithTranslations": [
+    "Presentation",
+    "Server.Presentation",
+    "Jobs",
+    "Settings",
+    "Services",
+    "Startup",
+    "Notifications"
+  ],
+  "PackagesWithTranslations": [
+    "PDFCreatorShell"
+  ],
+  "MinLanguagePercent": 80,
+  "LicenseSummaryIgnorePackages": [
+    "iTextSharp",
+    "Ghostscript"
+  ],
+  "MainBranchName": "master",
+  "AzureKeyVaultClientSecret": "v1:gXaRRPhKcDFAlbvfo3e2YjP/8YMEIlvXD4z6SVAyUh7KYCTRjw+cv8P5IcRz/nJc"
+}

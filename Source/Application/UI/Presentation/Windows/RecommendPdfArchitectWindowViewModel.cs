@@ -6,6 +6,7 @@ using pdfforge.Obsidian;
 using pdfforge.PDFCreator.Conversion.Actions.Queries;
 using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.UI.Interactions;
+using pdfforge.PDFCreator.UI.Presentation.Assistants;
 using pdfforge.PDFCreator.UI.Presentation.Helper;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
@@ -25,11 +26,13 @@ public class RecommendPdfArchitectWindowViewModel : OverlayViewModelBase<Recomme
     private readonly ICurrentSettings<ApplicationSettings> _currentApplicationSettings;
     private readonly ISoundPlayer _soundPlayer;
     private readonly ICurrentSettings<CreatorAppSettings> _creatorAppSettings;
+    private readonly IUacAssistant _uacAssistant;
 
     // ReSharper disable once MemberCanBeProtected.Global
     public RecommendPdfArchitectWindowViewModel(ISoundPlayer soundPlayer, IWebLinkLauncher webLinkLauncher,
         ITranslationUpdater translationUpdater, IPdfArchitectCheck pdfArchitectCheck, IProcessStarter processStarter,
-        IFile file, ICurrentSettings<ApplicationSettings> currentApplicationSettings, ICurrentSettings<CreatorAppSettings> creatorAppSettings)
+        IFile file, ICurrentSettings<ApplicationSettings> currentApplicationSettings, ICurrentSettings<CreatorAppSettings> creatorAppSettings, IUacAssistant uacAssistant
+        )
         : base(translationUpdater)
     {
         _soundPlayer = soundPlayer;
@@ -41,6 +44,7 @@ public class RecommendPdfArchitectWindowViewModel : OverlayViewModelBase<Recomme
         InfoCommand = new DelegateCommand(ExecuteInfo);
         DownloadCommand = new DelegateCommand(ExecuteDownload);
         _creatorAppSettings = creatorAppSettings;
+        _uacAssistant = uacAssistant;
     }
 
     public override string Title => "PDFCreator";
@@ -109,7 +113,7 @@ public class RecommendPdfArchitectWindowViewModel : OverlayViewModelBase<Recomme
         {
             try
             {
-                _processStarter.Start(installerPath);
+                _uacAssistant.CallProgramAsAdmin(installerPath, "");
             }
             catch (Win32Exception e) when (e.NativeErrorCode == 1223)
             {

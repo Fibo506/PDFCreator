@@ -24,12 +24,57 @@ public class OpenViewerActionViewModel : ActionViewModelBase<OpenFileAction, Ope
             if (CurrentProfile == null)
                 return false;
 
-            return !CurrentProfile.OpenViewer.OpenWithPdfArchitect;
+            return !CurrentProfile.OpenViewer.OpenWithPdfArchitect &&
+                    !CurrentProfile.OpenViewer.OpenFolder;
+        }
+        set
+        {
+            if (value)
+            {
+                CurrentProfile.OpenViewer.OpenWithPdfArchitect = false;
+                CurrentProfile.OpenViewer.OpenFolder = false;
+            }
+            RaisePropertyChanged(nameof(UseDefaultViewer));
+            RaisePropertyChanged(nameof(UsePdfArchitect));
+            RaisePropertyChanged(nameof(OpenFolder));
+        }
+    }
+
+    public bool UsePdfArchitect
+    {
+        get
+        {
+            if (CurrentProfile == null)
+                return false;
+
+            return CurrentProfile.OpenViewer.OpenWithPdfArchitect;
+        }
+        set
+        {
+            CurrentProfile.OpenViewer.OpenFolder = !value;
+            CurrentProfile.OpenViewer.OpenWithPdfArchitect = value;
+            RaisePropertyChanged(nameof(UseDefaultViewer));
+            RaisePropertyChanged(nameof(UsePdfArchitect));
+            RaisePropertyChanged(nameof(OpenFolder));
+        }
+    }
+
+    public bool OpenFolder
+    {
+        get
+        {
+            if (CurrentProfile == null)
+                return false;
+
+            return CurrentProfile.OpenViewer.OpenFolder;
         }
         set
         {
             CurrentProfile.OpenViewer.OpenWithPdfArchitect = !value;
+            CurrentProfile.OpenViewer.OpenFolder = value;
             RaisePropertyChanged(nameof(UseDefaultViewer));
+            RaisePropertyChanged(nameof(UsePdfArchitect));
+            RaisePropertyChanged(nameof(OpenFolder));
         }
     }
 
@@ -67,12 +112,12 @@ public class OpenViewerActionViewModel : ActionViewModelBase<OpenFileAction, Ope
     {
         get
         {
-            if (CurrentProfile.OpenViewer.OpenWithPdfArchitect)
+            return CurrentProfile.OpenViewer switch
             {
-                return OpenWithViewerTranslation;
-            }
-
-            return Translation.OpenWithDefault;
+                { OpenWithPdfArchitect: true } => OpenWithViewerTranslation,
+                { OpenFolder: true } => Translation.OpenFolder,
+                _ => Translation.OpenWithDefault
+            };
         }
     }
 }

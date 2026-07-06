@@ -65,7 +65,7 @@ public class EMailClientActionViewModel : ActionViewModelBase<MailClientAction, 
     {
         var builder = tokenViewModelFactory
             .BuilderWithSelectedProfile()
-            .WithDefaultTokenReplacerPreview(th => th.GetTokenListForEmailRecipients());
+            .WithDefaultTokenReplacerPreview(th => th.TokenListForEmailRecipients);
 
         RecipientsTokenViewModel = builder
             .WithSelector(p => p.EmailClientSettings.Recipients)

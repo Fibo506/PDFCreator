@@ -3,6 +3,7 @@
 public class ProfileGuids
 {
     public const string DEFAULT_PROFILE_GUID = "DefaultGuid";
+    public const string DEFAULT_PROFILE_COM_GUID = "DefaultForComGuid";
     public const string HIGH_COMPRESSION_PROFILE_GUID = "HighCompressionGuid";
     public const string HIGH_QUALITY_PROFILE_GUID = "HighQualityGuid";
     public const string JPEG_PROFILE_GUID = "JpegGuid";

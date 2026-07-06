@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using NLog;
 using pdfforge.Obsidian;
 using pdfforge.PDFCreator.Conversion.Jobs.JobInfo;
+using pdfforge.PDFCreator.Conversion.Settings;
 using pdfforge.PDFCreator.Core.Controller;
 using pdfforge.PDFCreator.Core.DirectConversion;
+using pdfforge.PDFCreator.Core.JobInfoQueue;
 using pdfforge.PDFCreator.Core.Printing.Printing;
 using pdfforge.PDFCreator.UI.Interactions;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
@@ -14,7 +18,7 @@ using Translatable;
 
 namespace pdfforge.PDFCreator.UI.Presentation.Assistants
 {
-    public class FileConversionAssistant : IFileConversionAssistant
+    public class FileConversionAssistant : IFileConversionHelper
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDirectConversion _directConversion;
@@ -24,6 +28,7 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
         private readonly IStoredParametersManager _storedParametersManager;
         private readonly IPrintFileHelper _printFileHelper;
         private FileConversionAssistantTranslation _translation = new FileConversionAssistantTranslation();
+        private readonly IJobInfoQueue _jobInfoQueue;
 
         private const int LargeListWarningLimit = 40;
 
@@ -33,7 +38,8 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
             IDirectory directory,
             IInteractionInvoker interactionInvoker,
             ITranslationUpdater translationUpdater,
-            IStoredParametersManager storedParametersManager)
+            IStoredParametersManager storedParametersManager,
+            IJobInfoQueue jobInfoQueue)
         {
             _directConversion = directConversion;
             _printFileHelper = printFileHelper;
@@ -41,6 +47,7 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
             _directory = directory;
             _interactionInvoker = interactionInvoker;
             _storedParametersManager = storedParametersManager;
+            _jobInfoQueue = jobInfoQueue;
 
             translationUpdater.RegisterAndSetTranslation(tf => _translation = tf.UpdateOrCreateTranslation(_translation));
         }
@@ -76,6 +83,64 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
             HandleFiles(existingFiles, appStartParameters);
         }
 
+
+        public async Task<JobInfo> GetJobInfoForPreviewMerge(IEnumerable<string> droppedFiles)
+        {
+
+            if (droppedFiles == null)
+                return null;
+
+            var files = GetExistingFiles(droppedFiles);
+
+            if (files.Count == 0)
+                return null;
+
+            var directConversionFiles = new List<string>();
+            var directImageConversionFiles = new List<string>();
+            var printFiles = new List<string>();
+            var jobInfoFromPreviewDragDrop = new JobInfo();
+
+            foreach (var file in files)
+            {
+                if (_directConversion.IsDirectConversion(file))
+                    directConversionFiles.Add(file);
+                else if (_directConversion.IsImageConversion(file))
+                    directImageConversionFiles.Add(file);
+                else
+                    printFiles.Add(file);
+            }
+
+            if (directConversionFiles.Count > 0)
+            {
+                var appStartParams = new AppStartParameters { Silent = true, Merge = true };
+                var initialQueueCount = _jobInfoQueue.JobInfos.Count;
+
+                _directConversion.ConvertDirectly(directConversionFiles, appStartParams);
+                jobInfoFromPreviewDragDrop = await WaitForNewJobInQueue(initialQueueCount);
+            }
+
+            if (directImageConversionFiles.Count > 0)
+            {
+                var appStartParams = new AppStartParameters { Silent = true };
+                var initialQueueCount = _jobInfoQueue.JobInfos.Count;
+
+                _directConversion.ConvertImagesDirectly(directImageConversionFiles, appStartParams);
+                jobInfoFromPreviewDragDrop = await WaitForNewJobInQueue(initialQueueCount);
+            }
+
+            if (printFiles.Any())
+            {
+                var initialQueueCount = _jobInfoQueue.JobInfos.Count;
+                var appStartParams = new AppStartParameters { Silent = true };
+
+                PrintPrintableFiles(printFiles, appStartParams);
+
+                jobInfoFromPreviewDragDrop = await WaitForNewJobInQueue(initialQueueCount);
+            }
+
+            return jobInfoFromPreviewDragDrop;
+        }
+
         private List<string> GetExistingFiles(IEnumerable<string> droppedFiles)
         {
             var existingFiles = new List<string>();
@@ -108,9 +173,15 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
         /// </summary>
         private void PrintPrintableFiles(IList<string> printFiles, AppStartParameters appStartParameters)
         {
+            if (!string.IsNullOrEmpty(appStartParameters.Printer))
+                _printFileHelper.PdfCreatorPrinter = appStartParameters.Printer;
+
             if (!_printFileHelper.AddFiles(printFiles, appStartParameters.Silent))
                 return;
-            _storedParametersManager.SaveParameterSettings(appStartParameters.OutputFile, appStartParameters.Profile, printFiles.FirstOrDefault());
+
+            var profileName = appStartParameters.Profile;
+
+            _storedParametersManager.SaveParameterSettings(appStartParameters.OutputFile, profileName, printFiles.FirstOrDefault());
             _printFileHelper.PrintAll(appStartParameters.Silent);
         }
 
@@ -147,6 +218,26 @@ namespace pdfforge.PDFCreator.UI.Presentation.Assistants
 
             if (printFiles.Any())
                 PrintPrintableFiles(printFiles, appStartParameters);
+        }
+
+        private async Task<JobInfo> WaitForNewJobInQueue(int initialCount)
+        {
+            const int maxWaitTime = 5000;
+            const int checkInterval = 100;
+            var waited = 0;
+
+            while (waited < maxWaitTime)
+            {
+                if (_jobInfoQueue.JobInfos.Count > initialCount)
+                {
+                    return _jobInfoQueue.JobInfos.Last();
+                }
+
+                await Task.Delay(checkInterval);
+                waited += checkInterval;
+            }
+
+            return null;
         }
     }
 }

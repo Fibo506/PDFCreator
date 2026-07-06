@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Data;
@@ -18,6 +17,7 @@ using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.UI.Presentation.Assistants;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
 using pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Services;
 using pdfforge.PDFCreator.UI.Presentation.ViewModelBases;
 using pdfforge.PDFCreator.UI.Presentation.Wrapper;
 
@@ -34,10 +34,10 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
     private readonly IGpoSettings _gpoSettings;
     private readonly IInteractionRequest _interactionRequest;
     private readonly ISettingsProvider _settingsProvider;
+    private readonly IPrinterMappingService _printerMappingService;
 
     private ListCollectionView _printerMappingView;
 
-    private readonly ICurrentSettings<ObservableCollection<PrinterMapping>> _printerMappingProvider;
     private readonly ICurrentSettings<ObservableCollection<ConversionProfile>> _profilesProvider;
 
     public ObservableCollection<ConversionProfileWrapper> ConversionProfiles { get; private set; }
@@ -53,13 +53,13 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
 
     public PrinterViewModel(
         ISettingsProvider settingsProvider,
-        ICurrentSettings<ObservableCollection<PrinterMapping>> printerMappingProvider,
         ICurrentSettings<ObservableCollection<ConversionProfile>> profilesProvider,
         IPrinterAssistant printerAssistant,
         ITranslationUpdater translationUpdater,
         IPrinterHelper printerHelper,
         IGpoSettings gpoSettings,
-        IInteractionRequest interactionRequest)
+        IInteractionRequest interactionRequest,
+        IPrinterMappingService printerMappingService)
         : base(translationUpdater)
     {
         _printerHelper = printerHelper;
@@ -67,8 +67,8 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
         _interactionRequest = interactionRequest;
         _printerAssistant = printerAssistant;
         _settingsProvider = settingsProvider;
-        _printerMappingProvider = printerMappingProvider;
         _profilesProvider = profilesProvider;
+        _printerMappingService = printerMappingService;
 
         AddPrinterCommand = new DelegateCommand(AddPrinterExecute);
         RenamePrinterCommand = new DelegateCommand(RenamePrinterExecute);
@@ -99,12 +99,8 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
     {
         SetupConversionProfiles();
 
-        var printerMappings = SetupPrinterMappings();
-
-        PrinterMappings = printerMappings.ObservableCollection
-            .OrderBy(x => x.PrinterName, StringComparison.OrdinalIgnoreCase.WithNaturalSort()).ToObservableCollection();
+        PrinterMappings = _printerMappingService.GetPrinterMappings();
         RaisePropertyChanged(nameof(PrinterMappings));
-        PrinterMappings.CollectionChanged += PrinterMappings_OnCollectionChanged;
 
         _printerMappingView = (ListCollectionView)CollectionViewSource.GetDefaultView(PrinterMappings);
 
@@ -112,6 +108,7 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
             => _naturalSortComparer.Compare(pmX.PrinterName, pmY.PrinterName);
         var printerMappingWrapperComparer = Comparer<PrinterMappingWrapper>.Create(printerMappingWrapperComparison);
         _printerMappingView.CustomSort = printerMappingWrapperComparer;
+        _printerMappingView.Filter = item => item is PrinterMappingWrapper wrapper && !wrapper.IsHotFolder;
 
         if (string.IsNullOrEmpty(_settingsProvider.Settings.CreatorAppSettings.PrimaryPrinter) ||
             PrinterMappings.All(o => o.PrinterName != _settingsProvider.Settings.CreatorAppSettings.PrimaryPrinter))
@@ -125,7 +122,6 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
 
     public void UnmountView()
     {
-        PrinterMappings.CollectionChanged -= PrinterMappings_OnCollectionChanged;
     }
 
     private void SetupConversionProfiles()
@@ -150,28 +146,6 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
 
         _defaultProfile = ConversionProfiles
             .FirstOrDefault(x => x.ConversionProfile.IsDefault);
-    }
-
-    private Helper.SynchronizedCollection<PrinterMappingWrapper> SetupPrinterMappings()
-    {
-        if (_printerMappingProvider?.Settings == null)
-            return null;
-
-        var mappingWrappers = new List<PrinterMappingWrapper>();
-
-        foreach (var printerMapping in _printerMappingProvider.Settings)
-        {
-            var profileWrapper = ConversionProfiles.FirstOrDefault(p => p.ConversionProfile.Guid == printerMapping.ProfileGuid);
-            if (profileWrapper == null)
-            {
-                _logger.Debug("Could not find profile for " + printerMapping.PrinterName + ". Default Profile is set");
-                printerMapping.ProfileGuid = _defaultProfile.ConversionProfile.Guid;
-            }
-            var mappingWrapper = new PrinterMappingWrapper(printerMapping, ConversionProfiles);
-            mappingWrappers.Add(mappingWrapper);
-        }
-
-        return new Helper.SynchronizedCollection<PrinterMappingWrapper>(mappingWrappers);
     }
 
     private void SetPrimaryPrinterExecute(object parameter)
@@ -201,22 +175,11 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
         }
     }
 
-    private void PrinterMappings_OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-    {
-        _printerMappingProvider.Settings.Clear();
-
-        foreach (var printerMappingWrapper in PrinterMappings)
-        {
-            _printerMappingProvider.Settings.Add(printerMappingWrapper.PrinterMapping);
-            if (printerMappingWrapper.Profile == null)
-                printerMappingWrapper.Profile = _defaultProfile;
-        }
-    }
 
     private async void AddPrinterExecute(object o)
     {
         var printerName = await _printerAssistant.AddPrinter();
-
+        
         if (string.IsNullOrWhiteSpace(printerName))
             return;
 
@@ -253,7 +216,7 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
         if (_printerMappingView.CurrentItem is not PrinterMappingWrapper currentMapping)
             return;
 
-        if (!await _printerAssistant.DeletePrinter(currentMapping.PrinterName, PrinterMappings.Count))
+        if (!await _printerAssistant.DeletePrinter(currentMapping.PrinterName, _printerMappingView.Count))
             return;
 
         var wasPrimaryPrinter = currentMapping.IsPrimaryPrinter;
@@ -269,7 +232,7 @@ public class PrinterViewModel : TranslatableViewModelBase<PrinterViewTranslation
             if (_profilesProvider.Settings == null)
                 return false;
 
-            return _gpoSettings != null && _gpoSettings.DisablePrinterTab;
+            return _gpoSettings != null && (_gpoSettings.DisablePrinterTab || _gpoSettings.LoadSharedPrinterMappings);
         }
     }
 }

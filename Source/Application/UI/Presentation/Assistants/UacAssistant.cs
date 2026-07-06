@@ -31,6 +31,8 @@ public interface IUacAssistant
     bool DeletePrinter(params string[] printerNames);
 
     bool StoreLicenseForAllUsers(string licenseServerCode, string licenseKey);
+
+    bool CallProgramAsAdmin(string path, string arguments);
 }
 
 public class UacAssistant : IUacAssistant
@@ -137,7 +139,7 @@ public class UacAssistant : IUacAssistant
         return CallProgramAsAdmin(setupHelperPath, arguments);
     }
 
-    private bool CallProgramAsAdmin(string path, string arguments)
+    public bool CallProgramAsAdmin(string path, string arguments)
     {
         var result = _shellExecuteHelper.RunAsAdmin(path, arguments);
 

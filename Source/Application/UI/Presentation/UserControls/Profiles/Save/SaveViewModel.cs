@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using pdfforge.PDFCreator.Conversion.ActionsInterface;
 using pdfforge.PDFCreator.Conversion.Jobs;
@@ -8,6 +9,9 @@ using pdfforge.PDFCreator.Core.Workflow;
 using pdfforge.PDFCreator.UI.Presentation.Controls;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Tokens;
 using pdfforge.PDFCreator.UI.Presentation.Helper.Translation;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder;
+using pdfforge.PDFCreator.UI.Presentation.UserControls.Services;
+using pdfforge.PDFCreator.UI.Presentation.Wrapper;
 using pdfforge.PDFCreator.Utilities;
 
 namespace pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles;
@@ -22,6 +26,9 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
     private readonly ErrorCodeInterpreter _errorCodeInterpreter;
     private readonly IProfileChecker _profileChecker;
     private readonly IActionManager _actionManager;
+    private readonly IHotFolderConfigChecker _hotFolderConfigChecker;
+    private readonly IPrinterMappingService _printerMappingService;
+    private ObservableCollection<PrinterMappingWrapper> _printerMappings;
 
     public TokenViewModel<ConversionProfile> FileNameViewModel { get; private set; }
     public TokenViewModel<ConversionProfile> FolderViewModel { get; private set; }
@@ -49,6 +56,15 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
         if (CurrentProfile == null)
             return (false, "");
 
+        if (_printerMappings != null && !string.IsNullOrEmpty(CurrentProfile.TargetDirectory) && _hotFolderConfigChecker.IsCurrentProfileOutputPathSameAsHotFolderPath(CurrentProfile, _printerMappings))
+        {
+            CanConfirm = false;
+            RaisePropertyChanged(nameof(CanConfirm));
+            return (true, Translation.ProfileTargetDirectorySameAsItsHotFolderPath);
+        }
+
+        CanConfirm = true;
+        RaisePropertyChanged(nameof(CanConfirm));
         var result = _profileChecker.CheckFileNameAndTargetDirectory(CurrentProfile);
         if (!result)
             return (true, _errorCodeInterpreter.GetFirstErrorText(result, false));
@@ -79,7 +95,8 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
     public SaveViewModel(ITokenButtonFunctionProvider buttonFunctionProvider, ISelectedProfileProvider selectedProfileProvider,
         ITranslationUpdater translationUpdater, EditionHelper editionHelper, ITokenHelper tokenHelper,
         ITokenViewModelFactory tokenViewModelFactory, IDispatcher dispatcher, ErrorCodeInterpreter errorCodeInterpreter,
-        IProfileChecker profileChecker, IActionManager actionManager)
+        IProfileChecker profileChecker, IActionManager actionManager, IHotFolderConfigChecker hotFolderConfigChecker,
+        IPrinterMappingService printerMappingService)
         : base(translationUpdater, selectedProfileProvider, dispatcher)
     {
         IsServer = editionHelper.IsServer;
@@ -92,6 +109,8 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
         _errorCodeInterpreter = errorCodeInterpreter;
         _profileChecker = profileChecker;
         _actionManager = actionManager;
+        _hotFolderConfigChecker = hotFolderConfigChecker;
+        _printerMappingService = printerMappingService;
 
         translationUpdater?.RegisterAndSetTranslation(tf => SetTokenViewModels());
 
@@ -108,6 +127,8 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
 
         if (CurrentProfile != null)
             CurrentProfile.PropertyChanged += RaiseHasNoSendActionForSavingTempOnly;
+
+        _printerMappings = _printerMappingService.GetPrinterMappings();
     }
 
     private void SetTokenViewModels()
@@ -206,6 +227,21 @@ public class SaveViewModel : ProfileUserControlViewModel<SaveViewTranslation>, I
     {
         get => CurrentProfile != null && CurrentProfile.ShowAllNotifications && AllowNotifications;
         set => CurrentProfile.ShowAllNotifications = value;
+    }
+
+    private bool _canConfirm = true;
+
+    public bool CanConfirm
+    {
+        get => _canConfirm;
+        set
+        {
+            if (_canConfirm != value)
+            {
+                _canConfirm = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 
     protected override void OnCurrentProfileChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)

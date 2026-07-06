@@ -36,7 +36,7 @@ public class MergeAndProcessFilesCommandExecutor : ICommandExecutor
 
     public CheckResult IsExecutable()
     {
-        var unsupportedFiles = _command.Files.Where(f => !_directConversionHelper.CanConvertDirectly(f)).ToList();
+        var unsupportedFiles = _command.Files.Where(f => !_directConversionHelper.IsImageOrDirectConversion(f)).ToList();
 
         if (unsupportedFiles.Any())
             return CheckResult.Error($"The files cannot be processed directly, please use the PrintFiles command instead:\n" + string.Join("\n", unsupportedFiles));

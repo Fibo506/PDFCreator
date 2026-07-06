@@ -30,7 +30,7 @@ public class DirectConversionInfFileHelper : IDirectConversionInfFileHelper
 {
     private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-    private readonly IDirectConversionHelper _directConversionHelper;
+    private readonly INumberOfPagesHelper _numberOfPagesHelper;
     private readonly IJobInfoManager _jobInfoManager;
     private readonly ISpoolerProvider _spoolerProvider;
     private readonly IFile _file;
@@ -38,9 +38,8 @@ public class DirectConversionInfFileHelper : IDirectConversionInfFileHelper
     private readonly IPath _path;
     private readonly IJobFolderBuilder _jobFolderBuilder;
 
-    // private readonly EditionHelper _editionHelper;
     public DirectConversionInfFileHelper(
-        IDirectConversionHelper directConversionHelper,
+        INumberOfPagesHelper numberOfPagesHelper,
         IJobInfoManager jobInfoManager,
         ISpoolerProvider spoolerProvider,
         IFile file,
@@ -49,7 +48,7 @@ public class DirectConversionInfFileHelper : IDirectConversionInfFileHelper
         IJobFolderBuilder jobFolderBuilder
         )
     {
-        _directConversionHelper = directConversionHelper;
+        _numberOfPagesHelper = numberOfPagesHelper;
         _jobInfoManager = jobInfoManager;
         _spoolerProvider = spoolerProvider;
         _file = file;
@@ -186,11 +185,12 @@ public class DirectConversionInfFileHelper : IDirectConversionInfFileHelper
         sourceFileInfo.PrintedAt = DateTime.Now;
         sourceFileInfo.JobCounter = 0;
         sourceFileInfo.JobId = 0;
+        sourceFileInfo.PrinterName = appStartParameters.Printer;
         sourceFileInfo.PrinterParameter = appStartParameters.Printer;
         sourceFileInfo.ProfileParameter = appStartParameters.Profile;
         sourceFileInfo.OutputFileParameter = appStartParameters.OutputFile;
         sourceFileInfo.SessionId = Process.GetCurrentProcess().SessionId;
-        sourceFileInfo.TotalPages = _directConversionHelper.GetNumberOfPages(jobFolderFile.FileInJobFolder);
+        sourceFileInfo.TotalPages = _numberOfPagesHelper.GetNumberOfPages(jobFolderFile.FileInJobFolder);
         sourceFileInfo.Type = JobType.PsJob;
         sourceFileInfo.WinStation = Environment.GetEnvironmentVariable("SESSIONNAME");
 

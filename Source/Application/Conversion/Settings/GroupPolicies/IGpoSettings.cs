@@ -8,6 +8,8 @@ public interface IGpoSettings
 
     bool DisablePrinterTab { get; }
 
+    bool LoadSharedPrinterMappings { get; }
+
     bool DisableProfileManagement { get; }
 
     bool DisableTitleTab { get; }
@@ -33,6 +35,7 @@ public interface IGpoSettings
     int? HotStandbyMinutes { get; }
 
     bool LoadSharedAppSettings { get; }
+    bool LoadSharedHotFolders { get; }
     bool LoadSharedProfiles { get; }
     bool AllowUserDefinedProfiles { get; }
 

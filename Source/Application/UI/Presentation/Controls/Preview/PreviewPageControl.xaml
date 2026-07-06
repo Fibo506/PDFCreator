@@ -1,10 +1,12 @@
 ﻿<UserControl x:Class="pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:converter="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Converter"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:designTime="clr-namespace:pdfforge.PDFCreator.UI.Presentation.DesignTime"
+             d:DataContext="{d:DesignInstance designTime:DesignTimePreviewPageControlViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -13,9 +15,15 @@
                 <ResourceDictionary Source="../../Styles/DefaultsDictionary.xaml" />
                 <ResourceDictionary Source="../../Styles/ListBox.xaml" />
                 <ResourceDictionary Source="../../Styles/HoverBorder.xaml" />
+                <ResourceDictionary Source="../../Styles/Buttons/BusinessFeatureButtons.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse" TrueValue="Visible" FalseValue="Collapsed" />
-            <converter:BoolToVisibilityConverter x:Key="CollapsedIfTrue" TrueValue="Collapsed" FalseValue="Visible" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfFalse"
+                                                 TrueValue="Visible"
+                                                 FalseValue="Collapsed" />
+            <converter:BoolToVisibilityConverter x:Key="CollapsedIfTrue"
+                                                 TrueValue="Collapsed"
+                                                 FalseValue="Visible" />
+            <converter:BoolNegationConverter x:Key="DisabledIfTrue" />
             <converter:ImagePathToBitmapConverter x:Key="ImagePathToBitmap" />
         </ResourceDictionary>
     </UserControl.Resources>
@@ -24,54 +32,119 @@
             HorizontalAlignment="Center"
             BorderBrush="Transparent"
             BorderThickness="0"
-            Height="126" Width="110"
-            IsHitTestVisible="{Binding ShowPreviewControls, RelativeSource={RelativeSource AncestorType=UserControl}}">
+            Height="126"
+            Width="110">
         <Grid>
-            <DockPanel Margin="5 10 5 5" LastChildFill="True"
-                       Visibility="{Binding IsPreviewLoading, RelativeSource={RelativeSource AncestorType=UserControl}, 
+            <DockPanel Margin="5 10 5 5"
+                       LastChildFill="True"
+                       Visibility="{Binding IsPreviewLoading, 
                                     Converter={StaticResource CollapsedIfTrue}}">
                 <TextBlock DockPanel.Dock="Bottom"
                            Margin="0 5 0 0"
-                           Visibility="{Binding ShowPageNumber, RelativeSource={RelativeSource AncestorType=UserControl},
-                                Converter={StaticResource CollapsedIfFalse}}"
-                           Text="{Binding PreviewPage.PageNumber, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                           Text="{Binding PreviewPage.PageNumber}"
                            FontSize="10"
                            HorizontalAlignment="Center" />
-                <Border DockPanel.Dock="Top" 
+                <Border DockPanel.Dock="Top"
                         Style="{StaticResource RoundLineBorder}"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                     <Border.RenderTransformOrigin>0.5,0.5</Border.RenderTransformOrigin>
                     <Border.RenderTransform>
-                        <RotateTransform Angle="{Binding CurrentRotation, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                        <RotateTransform Angle="{Binding CurrentRotation}" />
                     </Border.RenderTransform>
                     <Image Stretch="Uniform"
-                               MaxWidth="92" MaxHeight="92"
-                               Source="{Binding PreviewImagePath, RelativeSource={RelativeSource AncestorType=UserControl}, 
-                                                              Converter={StaticResource ImagePathToBitmap}}"/>
+                           MaxWidth="92"
+                           MaxHeight="92"
+                           Source="{Binding PreviewImagePath, 
+                                                              Converter={StaticResource ImagePathToBitmap}}" />
                 </Border>
             </DockPanel>
-            <mah:ProgressRing Visibility="{Binding IsPreviewLoading, RelativeSource={RelativeSource AncestorType=UserControl},
+
+            <Border Background="{StaticResource DeletedPageOverlayBrush}"
+                    Visibility="{Binding RemovePage,
+                        Converter={StaticResource CollapsedIfFalse}}">
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Button x:Name="UndoDeleteButton"
+                            Style="{StaticResource PreviewPageManipulationButton}"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Width="32"
+                            Height="32"
+                            ToolTip="{Binding Translation.UndoRemovePage}"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Command="{Binding Path=RemovePageCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}">
+                        <Viewbox Width="24"
+                                 Height="24"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center">
+                            <ContentPresenter Content="{StaticResource UndoTrashBinIcon}"
+                                              Width="24"
+                                              Height="24" />
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <mah:ProgressRing Visibility="{Binding IsPreviewLoading,
                                     Converter={StaticResource CollapsedIfFalse}}"
-                                    Width="20" Height="20"  />
+                              Width="20"
+                              Height="20" />
             <Button x:Name="RotateButton"
-                    Visibility="{Binding ShowPreviewControls, RelativeSource={RelativeSource AncestorType=UserControl},
-                        Converter={StaticResource CollapsedIfFalse}}"
-                    Style="{StaticResource RotateButtonStyle}"
+                    Style="{StaticResource PreviewPageManipulationButton}"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
+                    Visibility="{Binding RemovePage, Converter={StaticResource CollapsedIfTrue}}"
                     Width="32"
                     Height="32"
                     Margin="0,5,5,0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
-                    Command="{Binding Path=RotatePageCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                    ToolTip="{Binding Translation.RotatePage}"
+                    Command="{Binding Path=RotatePageCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}">
-                <Viewbox Width="20" Height="20" 
-                         HorizontalAlignment="Center" 
+                <Viewbox Width="20"
+                         Height="20"
+                         HorizontalAlignment="Center"
                          VerticalAlignment="Center">
-                    <ContentPresenter Content="{StaticResource RotateIcon}"/>
+                    <ContentPresenter Content="{StaticResource RotateIcon}" />
                 </Viewbox>
+            </Button>
+            <Button x:Name="DeleteButton"
+                    Style="{StaticResource PreviewPageManipulationButton}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Visibility="{Binding RemovePage, Converter={StaticResource CollapsedIfTrue}}"
+                    Width="32"
+                    Height="32"
+                    Margin="5,5,0,0"
+                    ToolTip="{Binding DeleteButtonToolTipText}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Command="{Binding Path=RemovePageCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}">
+                <Grid>
+                    <Viewbox Width="14"
+                             Height="18"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                        <ContentPresenter Content="{StaticResource TrashBinIcon}"
+                                          Width="14"
+                                          Height="18" />
+                    </Viewbox>
+
+                    <!-- Overlay icon - only visible when IsFreeEdition is true -->
+                    <Viewbox Margin="0,-6,-3,0"
+                             Width="16"
+                             Height="16"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Top"
+                             Visibility="{Binding IsFreeEdition, Converter={StaticResource CollapsedIfFalse}}">
+                        <ContentPresenter Content="{StaticResource BusinessEditionLightningIconWithBorder}" />
+                    </Viewbox>
+                </Grid>
             </Button>
         </Grid>
     </Border>

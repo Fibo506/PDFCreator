@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using NLog;
 using pdfforge.PDFCreator.Conversion.Actions.Actions.Interface;
@@ -59,7 +60,7 @@ public class OpenFileAction : ActionBase<OpenViewer>, IOpenFileAction
         Logger.Debug("Launched Viewer-Action");
         var file = job.OutputFiles.First();
 
-        return OpenOutputFile(file, job.Profile.OpenViewer.OpenWithPdfArchitect);
+        return OpenOutputFile(file, job.Profile.OpenViewer.OpenWithPdfArchitect, job.Profile.OpenViewer.OpenFolder);
     }
 
     public ActionResult OpenWithArchitect(List<string> files)
@@ -70,7 +71,7 @@ public class OpenFileAction : ActionBase<OpenViewer>, IOpenFileAction
         return DoOpenWithArchitect(files);
     }
 
-    public ActionResult OpenOutputFile(string filePath, bool openWithPdfArchitect = false)
+    public ActionResult OpenOutputFile(string filePath, bool openWithPdfArchitect = false, bool openFolder = false)
     {
         var outputFormatByPath = _outputFormatHelper.GetOutputFormatByPath(filePath);
         var defaultViewer = _settingsProvider.Settings.GetDefaultViewerByOutputFormat(outputFormatByPath);
@@ -83,6 +84,11 @@ public class OpenFileAction : ActionBase<OpenViewer>, IOpenFileAction
 
         var hasOpen = _fileAssoc.HasOpen(".pdf");
         Logger.Debug($"HasOpen for .pdf is: {hasOpen}");
+
+        if (openFolder)
+        {
+            return OpenFolder(filePath);
+        }
 
         if (_pdfArchitectCheck.IsInstalled())
         {
@@ -102,6 +108,27 @@ public class OpenFileAction : ActionBase<OpenViewer>, IOpenFileAction
         }
 
         return DoOpenWithSystemDefaultApplication(filePath);
+    }
+
+    public ActionResult OpenFolder(string filePath)
+    {
+        return DoOpenFolder(filePath);
+    }
+
+    private ActionResult DoOpenFolder(string filePath)
+    {
+        var file = new FileInfo(filePath);
+        try
+        {
+            var fileDirectory = file.Directory.FullName;
+            Logger.Debug("Open directory: " + fileDirectory);
+            _processStarter.Start(fileDirectory, true);
+        }
+        catch (Exception ex)
+        {
+            Logger.Warn(ex, "Directory could not be opened.");
+        }
+        return new ActionResult();
     }
 
     private ActionResult DoRecommendArchitect(PdfArchitectRecommendPurpose purpose)

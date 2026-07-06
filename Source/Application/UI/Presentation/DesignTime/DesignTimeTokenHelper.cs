@@ -34,6 +34,11 @@ public class DesignTimeTokenHelper : ITokenHelper
         return new List<string>();
     }
 
+    public List<string> GetTokenListForHotFolderPaths()
+    {
+        return new List<string>();
+    }
+
     public List<string> GetTokenListForStamp()
     {
         return new List<string>();
@@ -49,10 +54,7 @@ public class DesignTimeTokenHelper : ITokenHelper
         return new List<string>();
     }
 
-    public List<string> GetTokenListForEmailRecipients()
-    {
-        return new List<string>();
-    }
+    public List<string> TokenListForEmailRecipients => new List<string>();
 
     public TokenWarningCheckResult TokenWarningCheck(string textWithTokens, ConversionProfile profile)
     {

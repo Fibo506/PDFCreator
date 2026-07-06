@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Finnish (PDFCreator)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-06-20 22:43+0000\n"
+"PO-Revision-Date: 2025-11-25 20:58+0000\n"
 "Last-Translator: \"Teijo S.\" <teijosposti@gmail.com>\n"
 "Language-Team: Finnish <https://translate.pdfforge.org/projects/pdfcreator/"
 "messages/fi/>\n"
@@ -35,6 +35,12 @@ msgstr "Profiilit"
 #: pdfforge.PDFCreatorServer.UI.Presentation.Views.Queues.QueueSettingsTranslation
 msgid "Printer"
 msgstr "Tulostin"
+
+#: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "HotFolder"
+msgstr "Kuumakansio"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountsTranslation
@@ -102,6 +108,7 @@ msgid "News"
 msgstr "Uutiset"
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Upgrade Now"
 msgstr "Päivitä nyt"
 
@@ -131,7 +138,7 @@ msgstr "Koekäyttölisenssin käyttöaika päättyy tänään."
 
 #: pdfforge.PDFCreator.UI.Presentation.MainShellTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Click here to extend your license."
 msgstr "Napsauta lisenssin voimassaolon jatkamiseksi."
 
@@ -153,6 +160,7 @@ msgstr "Asetusarvo ei ole kelvollinen"
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 #: pdfforge.PDFCreator.UI.Presentation.Workflow.InteractiveProfileCheckerTranslation
 #: pdfforge.PDFCreator.UI.Presentation.WorkflowQuery.InteractiveWorkflowTranslation
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
 msgid "Error"
 msgstr "Virhe"
 
@@ -463,317 +471,56 @@ msgstr "Korjaukset"
 msgid "Other changes"
 msgstr "Muut muutokset"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Ready to do more than just the basics?"
+msgstr "Oletko valmis tekemään muutakin kuin vain perusasiat?"
+
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid ""
-"Your trial license has expired...\n"
-"let's keep your workflows going"
+"Unlock PDFCreator's premium features to create smarter workflows and save "
+"time."
 msgstr ""
-"Kokeilulisenssisi on vanhentunut...\n"
-"Pidetään työnkulut käynnissä"
+"Avaa PDFCreatorin premium-ominaisuudet, jotta voit luoda älykkäämpiä "
+"työnkulkuja ja säästää aikaa."
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with your license..."
-msgstr "Ongelma lisenssissä…"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Business features:"
+msgstr "Yritysversion ominaisuudet:"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Check your license now to continue to have access to:"
-msgstr "Tarkista lisenssi nyt, jotta sinulla on edelleen pääsy:"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "256-bit encryption"
+msgstr "256-bittinen salaus"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Upgrading ensures long-term productivity and provides access to our Business "
-"editions, including advanced automation features such as:"
-msgstr ""
-"Päivittäminen varmistaa tuottavuuden pitkällä aikavälillä ja tarjoaa pääsyn "
-"yritysversioihimme, mukaan lukien edistyneet automaatio-ominaisuudet, kuten:"
-
-#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "User tokens"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "User Tokens"
 msgstr "Käyttäjämuuttujat"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "CS-scripts"
-msgstr "CS-komentosarjat"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Delete pages"
+msgstr "Sivujen poistaminen"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Profile forwarding"
-msgstr "Profiilin edelleenlähetys"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Forward to profile"
+msgstr "Välitä profiiliin"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
 msgid "Priority support"
 msgstr "Nopea tuki (ENG)"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License details"
-msgstr "Lisenssin tiedot"
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Group Policies"
+msgstr "Ryhmäkäytännöt"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Keep PDFCreator as a permanent part of your toolset."
-msgstr "Pidä PDFCreator pysyvänä osana työkalupakkiasi."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "Shared settings"
+msgstr "Jaetut asetukset"
 
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Upgrade now"
-msgstr "Päivitä nyt"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage License"
-msgstr "Lisenssin hallinta"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Offline Activation"
-msgstr "Erilliskoneen aktivointi"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "License Activated"
-msgstr "Lisenssi aktivoitu"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully, thank you for using {0}."
-msgstr "Lisenssin aktivointi onnistui, kiitos kun käytät {0}."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license was activated successfully."
-msgstr "Lisenssin aktivointi onnistui."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key to continue using {0}"
-msgstr "Syötä lisenssiavain jatkaaksesi {0} käyttöä"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Do you want to share your activation to all users on your system?"
-msgstr "Jaetaanko aktivointi kaikille tietokoneen käyttäjille?"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please share your activation to all users on your system."
-msgstr "Jaa aktivointisi kaikille tietokoneen käyttäjille."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users"
-msgstr "Tallenna aktivointi kaikille käyttäjille"
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "An error occurred when saving the activation for all users."
-msgstr "Virhe tallennettaessa lisenssiä kaikkien käyttäjien käyttöön."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"PDFCreator Terminal Server requires that the license is saved for all users."
-msgstr ""
-"PDFCreator Terminal Server edellyttää, että lisenssi tallennetaan kaikille "
-"käyttäjille."
-
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Save activation for all users was successful."
-msgstr "Lisenssin aktivointi kaikille käyttäjille onnistui."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Checking the license..."
-msgstr "Tarkistetaan lisenssiä..."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
-"and the dash."
-msgstr ""
-"Lisenssiavaimessa on kiellettyjä merkkejä. Sallittuja ovat A-Z, 0-9 ja "
-"tavuviiva."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-msgstr ""
-"Lisenssiavain koostuu 30 kirjaimesta tai numerosta, kuten \"12345-67890-"
-"ABCDE-EFGHI-JKLMNO-PRSTU\"."
-
-#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Never"
-msgstr "Ei koskaan"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Licensee:"
-msgstr "Lisenssin haltija:"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation has expired. Please renew your activation."
-msgstr "Aktivointi on vanhentunut ja se pitää uusia."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The machine or user is blocked. Please contact the support."
-msgstr "Kone tai käyttäjä on sulkulistalla. Ota yhteyttä sovellustukeen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error while authenticating license."
-msgstr "Virhe lisenssin todentamisessa."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid. Please enter a new license key."
-msgstr "Lisenssiavain ei kelpaa. Syötä uusi lisenssiavain."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has expired. Please renew your license."
-msgstr "Lisenssi on vanhentunut ja se pitää uusia."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license trial period has expired."
-msgstr "Lisenssin koekäyttöaika on päättynyt."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "No license key available. Please enter a new license key."
-msgstr "Ei käytettävissä olevaa lisenssiavainta. Syötä uusi lisenssiavain."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "There was a problem with the connection to the license server."
-msgstr "Ongelma yhdistettäessä lisenssipalvelimeen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license has exceeded the allowed number of activated machines."
-msgstr "Lisenssi on ylittänyt aktivoitujen koneiden sallitun enimmäismäärän."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license key is not valid for this PDFCreator edition."
-msgstr "Lisenssi ei ole kelvollinen tälle ohjelmistoversiolle."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is valid."
-msgstr "Lisenssi on voimassa."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your offline activation has expired. Please reactivate your license "
-"immediately to avoid application blocking."
-msgstr ""
-"Erilliskoneen aktivointi on vanhentunut. Aktivoi lisenssisi välittömästi "
-"uudelleen välttääksesi sovelluksen eston."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"Your Internal License Server activation has expired. Please reactivate your "
-"license immediately to avoid application blocking."
-msgstr ""
-"Sisäisen lisenssipalvelimen aktivointi on vanhentunut. Aktivoi lisenssisi "
-"välittömästi uudelleen välttääksesi sovelluksen eston."
-
-#. pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Your license will expire in {0} day."
-msgid_plural "Your license will expire in {0} days."
-msgstr[0] "Lisenssisi vanhenee yhden päivän kuluttua."
-msgstr[1] "Lisenssisi vanhenee {0} päivän kuluttua."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The license is not valid for this version."
-msgstr "Lisenssi ei ole kelvollinen tälle versiolle."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The activation code has a wrong format."
-msgstr "Aktivointikoodi on vääränmuotoinen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "You don't have a valid license key?"
-msgstr "Eikö sinulla ole voimassaolevaa lisenssiavainta?"
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Purchase more activations here."
-msgstr "Hanki täältä lisää aktivointitunnuksia."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Renew your license here."
-msgstr "Uudista lisenssisi tässä."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Manage your license here."
-msgstr "Lisenssin hallinta."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Please enter your license key."
-msgstr "Syötä lisenssiavain."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "Error during saving the activation. Please try it again."
-msgstr "Virhe tallennettaessa aktivointitietoja. Yritä uudelleen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid "The internal license server url is not valid."
-msgstr "Lisenssipalvelimen osoite ei ole kelvollinen."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is not recognized by the Internal License Server.\n"
-"Please import the license."
-msgstr ""
-"Sisäisenen lisenssipalvelin ei tunnista lisenssiä.\n"
-"Tuo lisenssi."
-
-#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.Windows.LicenseInvalid.LicenseInvalidTranslation
-msgid ""
-"The license is meant to be used with the Internal License Server.\n"
-"Please ensure that the InternalLicenseServerUrl parameter is set."
-msgstr ""
-"Lisenssi on tarkoitettu käytettäväksi sisäisessä lisenssipalvelimessa.\n"
-"Varmista, että InternalLicenseServerUrl -parametri on määritetty."
+#: pdfforge.PDFCreator.UI.Presentation.Windows.ProfessionalFeatureInteractions.BusinessFeaturesTranslatable
+msgid "MSI installer"
+msgstr "MSI-asentaja"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.Feedback.FeedbackWindowTranslation
 msgid "Share your feedback"
@@ -922,7 +669,7 @@ msgstr "Pyydä tarjous."
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
 msgid "Wondering what this means for your current workflows and business?"
 msgstr ""
-"Mietitkö, mitä tämä tarkoittaa nykyisten työnkulkujesi ja liiketoimintasi "
+"Mietitkö, mitä tämä tarkoittaa nykyisten työnkulkujesi ja yritystoimintasi "
 "kannalta?"
 
 #: pdfforge.PDFCreator.UI.Presentation.Windows.BlockedInEnvironment.BlockedInEnvironmentTranslation
@@ -1088,7 +835,7 @@ msgid "Viewer"
 msgstr "Katselusovellukset"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.ApplicationSettingsViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "License"
 msgstr "Käyttöoikeus"
 
@@ -1107,6 +854,7 @@ msgstr "Suoramuunnos"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Printer.EditPrinterProfileTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Encryption.EncryptionPasswordsOverlayTranslation
@@ -1247,6 +995,7 @@ msgstr "RegEx"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.OutlookWebTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.SmtpMailTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Accounts.AccountViews.TimeServerTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveOutputFormatMetadataTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
@@ -1254,85 +1003,182 @@ msgstr "RegEx"
 msgid "Save"
 msgstr "Tallenna"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Last activation:"
-msgstr "Viimeisin aktivointi:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Activated"
+msgstr "Lisenssi aktivoitu"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation failed"
-msgstr "Aktivointi epäonnistui"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "The activation was not successful:"
-msgstr "Aktivointi epäonnistui:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Activation successful"
 msgstr "Aktivointi onnistui"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation failed"
+msgstr "Aktivointi epäonnistui"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation was not successful:"
+msgstr "Aktivointi epäonnistui:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "The activation was successful."
 msgstr "Aktivointi onnistui."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Activation valid till:"
-msgstr "Aktivointi vanhenee:"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully."
+msgstr "Lisenssin aktivointi onnistui."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Enter license key"
-msgstr "Syötä lisenssiavain"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage License"
+msgstr "Lisenssin hallinta"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
-msgid "Please enter your license key:"
-msgstr "Syötä lisenssiavain:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Expires:"
-msgstr "Vanhenee:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License renews on:"
-msgstr "Lisenssisopimus uusiutuu:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License Key:"
-msgstr "Lisenssiavain:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "License status:"
-msgstr "Lisenssin tila:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Machine ID:"
-msgstr "Koneen tunnus:"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Manage licenses"
 msgstr "Lisenssien hallinta"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid "Offline activation"
 msgstr "Erilliskoneen aktivointi"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Online activation"
 msgstr "Aktivointi verkossa"
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "View License"
+msgstr "Näytä lisenssi"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License Key:"
+msgstr "Lisenssiavain:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License status:"
+msgstr "Lisenssin tila:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License details"
+msgstr "Lisenssin tiedot"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Machine ID:"
+msgstr "Koneen tunnus:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Validating license..."
 msgstr "Tarkistetaan lisenssiä..."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Expires:"
+msgstr "Vanhenee:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Activation valid till:"
+msgstr "Aktivointi vanhenee:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "License renews on:"
+msgstr "Lisenssisopimus uusiutuu:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Last activation:"
+msgstr "Viimeisin aktivointi:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Enter license key"
+msgstr "Syötä lisenssiavain"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
+msgid "Please enter your license key:"
+msgstr "Syötä lisenssiavain:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your trial license has expired...\n"
+"let's keep your workflows going"
+msgstr ""
+"Kokeilulisenssisi on vanhentunut...\n"
+"Pidetään työnkulut käynnissä"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with your license..."
+msgstr "Ongelma lisenssissä…"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Check your license now to continue to have access to:"
+msgstr "Tarkista lisenssi nyt, jotta sinulla on edelleen pääsy:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Upgrading ensures long-term productivity and provides access to our Business "
+"editions, including advanced automation features such as:"
+msgstr ""
+"Päivittäminen varmistaa tuottavuuden pitkällä aikavälillä ja tarjoaa pääsyn "
+"yritysversioihimme, mukaan lukien edistyneet automaatio-ominaisuudet, kuten:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Keep PDFCreator as a permanent part of your toolset."
+msgstr "Pidä PDFCreator pysyvänä osana työkalupakkiasi."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Upgrade now"
+msgstr "Päivitä nyt"
+
+#: pdfforge.PDFCreator.UI.Presentation.Banner.FrequentTipsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "User tokens"
+msgstr "Käyttäjämuuttujat"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "CS-scripts"
+msgstr "CS-komentosarjat"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Profile forwarding"
+msgstr "Profiilin edelleenlähetys"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Do you want to share your activation to all users on your system?"
+msgstr "Jaetaanko aktivointi kaikille tietokoneen käyttäjille?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please share your activation to all users on your system."
+msgstr "Jaa aktivointisi kaikille tietokoneen käyttäjille."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users"
+msgstr "Tallenna aktivointi kaikille käyttäjille"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "An error occurred when saving the activation for all users."
+msgstr "Virhe tallennettaessa lisenssiä kaikkien käyttäjien käyttöön."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "An error occurred while storing license for all users."
 msgstr "Virhe tallennettaessa lisenssiä kaikkien käyttäjien käyttöön."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Save activation for all users was successful."
+msgstr "Lisenssin aktivointi kaikille käyttäjille onnistui."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid "Store license for all users was successful."
 msgstr "Lisenssin jakaminen kaikkien käyttäjien käyttöön onnistui."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"PDFCreator Terminal Server requires that the license is saved for all users."
+msgstr ""
+"PDFCreator Terminal Server edellyttää, että lisenssi tallennetaan kaikille "
+"käyttäjille."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Remind me later"
+msgstr "Muistuta myöhemmin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
 msgid ""
 "It's not possible to use offline activation because PDFCreator is configured "
 "to use the internal license server."
@@ -1340,13 +1186,184 @@ msgstr ""
 "Offline-aktivointia ei voi käyttää, koska PDFCreator on määritetty "
 "käyttämään sisäistä lisenssipalvelinta."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "Remind me later"
-msgstr "Muistuta myöhemmin"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license was activated successfully, thank you for using {0}."
+msgstr "Lisenssin aktivointi onnistui, kiitos kun käytät {0}."
 
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseSettingsTranslation
-msgid "View License"
-msgstr "Näytä lisenssi"
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key to continue using {0}"
+msgstr "Syötä lisenssiavain jatkaaksesi {0} käyttöä"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Checking the license..."
+msgstr "Tarkistetaan lisenssiä..."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key contains illegal characters. Valid characters are: A-Z, 0-9 "
+"and the dash."
+msgstr ""
+"Lisenssiavaimessa on kiellettyjä merkkejä. Sallittuja ovat A-Z, 0-9 ja "
+"tavuviiva."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license key consists of 30 characters or numbers, i.e. \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+msgstr ""
+"Lisenssiavain koostuu 30 kirjaimesta tai numerosta, kuten \"12345-67890-"
+"ABCDE-EFGHI-JKLMNO-PRSTU\"."
+
+#: pdfforge.PDFCreator.Conversion.Settings.Enums.UpdateInterval
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Never"
+msgstr "Ei koskaan"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Licensee:"
+msgstr "Lisenssin haltija:"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation has expired. Please renew your activation."
+msgstr "Aktivointi on vanhentunut ja se pitää uusia."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The machine or user is blocked. Please contact the support."
+msgstr "Kone tai käyttäjä on sulkulistalla. Ota yhteyttä sovellustukeen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error while authenticating license."
+msgstr "Virhe lisenssin todentamisessa."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid. Please enter a new license key."
+msgstr "Lisenssiavain ei kelpaa. Syötä uusi lisenssiavain."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has expired. Please renew your license."
+msgstr "Lisenssi on vanhentunut ja se pitää uusia."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license trial period has expired."
+msgstr "Lisenssin koekäyttöaika on päättynyt."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "No license key available. Please enter a new license key."
+msgstr "Ei käytettävissä olevaa lisenssiavainta. Syötä uusi lisenssiavain."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "There was a problem with the connection to the license server."
+msgstr "Ongelma yhdistettäessä lisenssipalvelimeen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license has exceeded the allowed number of activated machines."
+msgstr "Lisenssi on ylittänyt aktivoitujen koneiden sallitun enimmäismäärän."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license key is not valid for this PDFCreator edition."
+msgstr "Lisenssi ei ole kelvollinen tälle ohjelmistoversiolle."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The license is valid."
+msgstr "Lisenssi on voimassa."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your offline activation has expired. Please reactivate your license "
+"immediately to avoid application blocking."
+msgstr ""
+"Erilliskoneen aktivointi on vanhentunut. Aktivoi lisenssisi välittömästi "
+"uudelleen välttääksesi sovelluksen eston."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"Your Internal License Server activation has expired. Please reactivate your "
+"license immediately to avoid application blocking."
+msgstr ""
+"Sisäisen lisenssipalvelimen aktivointi on vanhentunut. Aktivoi lisenssisi "
+"välittömästi uudelleen välttääksesi sovelluksen eston."
+
+#. pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Your license will expire in {0} day."
+msgid_plural "Your license will expire in {0} days."
+msgstr[0] "Lisenssisi vanhenee yhden päivän kuluttua."
+msgstr[1] "Lisenssisi vanhenee {0} päivän kuluttua."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The activation code has a wrong format."
+msgstr "Aktivointikoodi on vääränmuotoinen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "You don't have a valid license key?"
+msgstr "Eikö sinulla ole voimassaolevaa lisenssiavainta?"
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Purchase more activations here."
+msgstr "Hanki täältä lisää aktivointitunnuksia."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Renew your license here."
+msgstr "Uudista lisenssisi tässä."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Manage your license here."
+msgstr "Lisenssin hallinta."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Please enter your license key."
+msgstr "Syötä lisenssiavain."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "Error during saving the activation. Please try it again."
+msgstr "Virhe tallennettaessa aktivointitietoja. Yritä uudelleen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid "The internal license server url is not valid."
+msgstr "Lisenssipalvelimen osoite ei ole kelvollinen."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is not recognized by the Internal License Server.\n"
+"Please import the license."
+msgstr ""
+"Sisäisenen lisenssipalvelin ei tunnista lisenssiä.\n"
+"Tuo lisenssi."
+
+#: pdfforge.PDFCreator.Core.Services.LicenseStatusHelper.LicenseStatusTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.LicenseTranslation
+msgid ""
+"The license is meant to be used with the Internal License Server.\n"
+"Please ensure that the InternalLicenseServerUrl parameter is set."
+msgstr ""
+"Lisenssi on tarkoitettu käytettäväksi sisäisessä lisenssipalvelimessa.\n"
+"Varmista, että InternalLicenseServerUrl -parametri on määritetty."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.License.OfflineActivationViewModelTranslation
 msgid ""
@@ -1548,6 +1565,16 @@ msgid "Standby duration"
 msgstr "Valmiustilan kesto"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Restart"
+msgstr "Käynnistä uudelleen"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
+msgid "Start standby and HotFolder (if enabled) via autostart of Windows"
+msgstr ""
+"Käynnistä valmiustila ja Kuumakansio (jos käytössä) Windowsin käynnistyksen "
+"yhteydessä"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
 "PDFCreator uses the standby to accelerate printing and using PDFCreator. "
 "After closing PDFCreator, the application will keep running for the "
@@ -1557,10 +1584,6 @@ msgstr ""
 "Nopeuttaakseen tulostusta ja käyttöä sovellus käyttää valmiustilaa, jossa se "
 "sulkemisen jälkeen jatkaa toimintaansa taustalla ennalta määritetyn ajan, "
 "mikä nopeuttaa merkittävästi muita tulostuksia ja muunnoksia."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
-msgid "minutes"
-msgstr "minuuttia"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.GeneralSettingsTranslation
 msgid ""
@@ -2162,6 +2185,14 @@ msgstr ""
 "voivat tallentaa tiedostoja mihin tahansa hakemistoon, jolla palvelulla on "
 "kirjoitusoikeus."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SaveViewTranslation
+msgid ""
+"The selected target directory is monitored by a HotFolder, creating a "
+"circular dependency that causes an infinite loop."
+msgstr ""
+"Kuumakansio valvoo valittua kohdehakemistoa, mikä luo takaisinviittaavan "
+"riippuvuuden aiheuttaen loputtoman silmukan."
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.WorkflowEditorOverlayViewTranslation
 msgid "Close"
 msgstr "Sulje"
@@ -2409,6 +2440,12 @@ msgstr "Avaa tiedosto"
 msgid "Use PDF Architect"
 msgstr "Käytä PDF Architectia"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open folder"
+msgstr "Avaa kansio"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Use {0}"
 msgstr "Käytä {0}"
@@ -2428,8 +2465,12 @@ msgstr ""
 "Windowsin oletuskatseluohjelman."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
-msgid "Open file in viewer."
-msgstr "Avaa katselusovelluksessa."
+msgid "Open file/directory"
+msgstr "Avaa tiedosto/kansio"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
+msgid "Open file or directory in viewer/explorer."
+msgstr "Avaa tiedosto tai hakemisto katseluohjelmassa/resurssienhallinnassa."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.SendActions.OpenFile.OpenViewerActionTranslation
 msgid "Click here for more info on {0}"
@@ -2503,10 +2544,6 @@ msgid ""
 msgstr ""
 "Poimi arvot lähdeasiakirjasta ja käyttä niitä kaikkialla, missä sovellus "
 "niitä tukee."
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
-msgid "Forward to profile"
-msgstr "Välitä profiiliin"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.PreparationActions.ForwardToOtherProfile.ForwardToFurtherProfileTranslation
 msgid "Select profile:"
@@ -2861,7 +2898,7 @@ msgstr ""
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Save as file"
-msgstr "Tallenna tiedostona"
+msgstr "Tallenna tiedostoon"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Profiles.ModifyActions.Signature.SignatureTranslation
 msgid "Reset"
@@ -3174,6 +3211,10 @@ msgstr ""
 "Tulostusmuoto ei tue tiettyjä toimintoja, eikä niitä suoriteta. Tarkista "
 "profiilisi."
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.PrintJobViewTranslation
+msgid "merge!"
+msgstr "yhdistä!"
+
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProgressViewTranslation
 msgid "Converting..."
 msgstr "Muunnetaan..."
@@ -3217,11 +3258,6 @@ msgstr "Pikatoiminnot"
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Open with default viewer"
 msgstr "Avaa katselusovelluksessa"
-
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
-#: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
-msgid "Open folder"
-msgstr "Avaa kansio"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.QuickActionStep.QuickActionTranslation
 msgid "Send by email"
@@ -3272,8 +3308,8 @@ msgstr "Sharepoint-jakolinkki"
 #. pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "After converting {0} file, we have a recommendation for you:"
 msgid_plural "After converting {0} files, we have a recommendation for you:"
-msgstr[0] "Muunnettuasi {0} tiedoston suosittelemme seuraavaa:"
-msgstr[1] "Muunnettuasi {0} tiedostoa suosittelemme seuraavaa:"
+msgstr[0] "Kun olet muuntanut {0} tiedoston, meillä on sinulle suositus:"
+msgstr[1] "Kun olet muuntanut {0} tiedostoa, meillä on sinulle suositus:"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Higher encryption (256 Bit AES)"
@@ -3281,7 +3317,7 @@ msgstr "Korkeampi salaus (256 Bit AES)"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Includes HotFolder"
-msgstr "Sisältää HotFolder:in"
+msgstr "Sisältää Kuumakansion"
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.PrintJob.ProfessionalHintStep.ProfessionalHintStepTranslation
 msgid "Extract settings with user tokens"
@@ -3450,6 +3486,7 @@ msgstr "Uudelleenyritys"
 msgid "Discard"
 msgstr "Hävitä"
 
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.MessageViewTranslation
 msgid "Profile"
 msgstr "Profiili"
@@ -3470,6 +3507,169 @@ msgstr "Merkkijonomuuttujien käyttö edellyttää, että ne on otettu käyttö�
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Misc.TokenHintPanelTranslation
 msgid "Add Token"
 msgstr "Lisää käyttäjämuuttuja"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Edit HotFolder"
+msgstr "Muokkaa Kuumakansiota"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Linked Printer"
+msgstr "Linkitetty tulostin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Assigned Printer Name:"
+msgstr "Määritetty tulostimen nimi:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch:"
+msgstr "Valitse kansio, jota haluat katsella:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select a folder to watch"
+msgstr "Valitse kansio, jota haluat katsella"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Source files"
+msgstr "Lähdetiedostot"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select source files folder"
+msgstr "Valitse lähdetiedostojen kansio"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid ""
+"Select a location the source files should be moved to after they were "
+"converted"
+msgstr "Valitse sijainti, johon lähdetiedostot siirretään muuntamisen jälkeen"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to the default location (a subfolder of your HotFolder)"
+msgstr "Siirrä ne oletussijaintiin (Kuumakansion alikansioon)"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to recycle bin"
+msgstr "Siirrä ne roskakoriin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Move them to a custom location"
+msgstr "Siirrä ne mukautettuun sijaintiin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Unprintable files"
+msgstr "Tulostamattomat tiedostot"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select unprintable files folder"
+msgstr "Valitse tulostamattomien tiedostojen kansio"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select what should happen to files that can’t be printed:"
+msgstr "Valitse, mitä tapahtuu tiedostoille, joita ei voida tulostaa:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Filter"
+msgstr "Suodatin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "No filter"
+msgstr "Ei suodatinta"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Exclude all listed extensions from conversion"
+msgstr "Jätä kaikki luettelossa olevat laajennukset muuntamisen ulkopuolelle"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Restrict conversion to filtered file extensions."
+msgstr "Rajoita muuntaminen suodatettuihin tiedostopäätteisiin."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add Filter"
+msgstr "Lisää suodatin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Remove Filter"
+msgstr "Poista suodatin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Add File Extension Filter"
+msgstr "Lisää tiedostopäätteen suodatin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Profile assigned:"
+msgstr "Määritetty profiili:"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Select Profile"
+msgstr "Valitse profiili"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "Enter filter"
+msgstr "Syötä suodatin"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.EditHotFolderTranslatable
+msgid "The filter is not valid. Please check your entry."
+msgstr "Suodatin ei ole voimassa. Tarkista syöttösi."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "ON"
+msgstr "PÄÄLLÄ"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "OFF"
+msgstr "POIS"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Start HotFolder and standby via autostart of Windows"
+msgstr "Käynnistä Kuumakansio ja valmiustila Windowsin käynnistyessä"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Manage HotFolders"
+msgstr "Kuumakansioiden hallinta"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Printer Name"
+msgstr "Tulostimen nimi"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "HotFolder Path"
+msgstr "Kuumakansion polku"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Active"
+msgstr "Aktiivinen"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Add HotFolder Printer"
+msgstr "Lisää Kuumakansio"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Ready to create your first HotFolder?"
+msgstr "Oletko valmis luomaan ensimmäisen Kuumakansiosi?"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid ""
+"HotFolder printers monitor a specified folder and automatically process any "
+"files placed in that folder using the selected profile."
+msgstr ""
+"Kuumakansio-tulostimet valvovat määritettyä kansiota ja käsittelevät "
+"automaattisesti kaikki kansioon sijoitetut tiedostot valitun profiilin "
+"avulla."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Note: All changes will be applied immediately."
+msgstr "Huomautus: Kaikki muutokset otetaan käyttöön välittömästi."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Unlock automatic folder monitoring with HotFolder"
+msgstr "Avaa automaattinen kansioiden seuranta Kuumakansion avulla"
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "Streamline your workflow with HotFolder."
+msgstr "Tehosta työnkulkuasi Kuumakansion avulla."
+
+#: pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.HotFolderViewTranslation
+msgid "This feature is available exclusively in our Business editions."
+msgstr "Tämä ominaisuus on saatavilla ainoastaan yritysversioissamme."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Home.HomeViewTranslation
 msgid "Print to '{0}' to get started!"
@@ -4758,6 +4958,22 @@ msgstr "Arvo kohteelle '{0}'"
 msgid "Please save or cancel settings to continue"
 msgstr "Peruuta tai tallenna asetukset"
 
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Remove Page"
+msgstr "Poista sivu"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Undo Removal"
+msgstr "Kumoa poisto"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Rotate Page"
+msgstr "Kierrä sivua"
+
+#: pdfforge.PDFCreator.UI.Presentation.Controls.PreviewPageControlViewTranslation
+msgid "Business Feature"
+msgstr "Yritysversion ominaisuus"
+
 #. pdfforge.PDFCreator.UI.Presentation.Commands.DeleteFilesTranslation
 msgid "and {0} more."
 msgid_plural "and {0} more."
@@ -5072,7 +5288,7 @@ msgstr[1] "Seuraavia tiedostoja ei voi muuntaa:"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid "Admin privileges required"
-msgstr "Toiminnon suorittaminen vaatii järjestelmänvalvojan oikeudet"
+msgstr "Järjestelmänvalvojan oikeudet vaaditaan"
 
 #: pdfforge.PDFCreator.UI.Presentation.Assistants.UacAssistantTranslation
 msgid ""
@@ -5484,6 +5700,106 @@ msgstr ""
 "Lisenssi on voimassa. \n"
 "Uudelleenaktivoi sisäinen lisenssipalvelin {0}"
 
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your printers. Please contact your "
+"administrator or the support to assist you in with this problem."
+msgstr ""
+"PDFCreator ei pystynyt korjaamaan tulostimiasi. Ota yhteyttä "
+"järjestelmänvalvojaan tai asiakastukeen, jotka auttavat sinua tässä "
+"ongelmassa."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupApplicationTranslation
+msgid ""
+"PDFCreator was not able to repair your spool folder. Please contact your "
+"administrator or the support to assist you in changing the permissions of "
+"the path '{0}'."
+msgstr ""
+"PDFCreator ei pystynyt korjaamaan tulostuspalvelun kansiota. Ota yhteyttä "
+"järjestelmänvalvojaan tai asiakastukeen, joka auttaa sinua muuttamaan polun "
+"'{0}' käyttöoikeuksia."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"There was an error with a component licensed by pdfforge.\n"
+"Please reinstall PDFCreator. (Error {0})"
+msgstr ""
+"Pdfforgen lisensoiman komponentin kanssa tapahtui virhe.\n"
+"Asenna PDFCreator uudelleen. (Virhe {0})"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Lisenssisi \"{0}\" on vanhentunut.\n"
+"PDFCreator suljetaan."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your license for \"{0}\" has expired.\n"
+"Please contact your administrator.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Lisenssisi \"{0}\" on vanhentunut.\n"
+"Ota yhteyttä järjestelmänvalvojaan.\n"
+"PDFCreator suljetaan."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Your trial has expired on {0}.\n"
+"PDFCreator will shut down.\n"
+"\n"
+"Please contact: licensing@pdfforge.org"
+msgstr ""
+"Koekäyttöaika on päättynyt {0}.\n"
+"PDFCreator suljetaan.\n"
+"\n"
+"Ota yhteyttä: licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"A license key could not be found.\n"
+"PDFCreator will shut down."
+msgstr ""
+"Lisenssiavainta ei löydy.\n"
+"Sovellus suljetaan."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.ProgramTranslation
+msgid ""
+"Please use \"PDFCreator Terminal Server\" for use on computers with "
+"installed Terminal Services.\n"
+"\n"
+"Please visit our website for more information or contact us directly: "
+"licensing@pdfforge.org"
+msgstr ""
+"Käytä päätepalvelinsovellusta \"PDFCreator Terminal Server\" koneissa, "
+"joihin on asennettu päätepalvelut. \n"
+"\n"
+"Hanki lisätietoja sovelluksen kotisivuilta tai ota yhteyttä osoitteeseen "
+"licensing@pdfforge.org"
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"Can't find a supported Ghostscript installation.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Ei löydy tuettua Ghostscript-asennusta.\n"
+"\n"
+"Suljetaan ohjelma."
+
+#: pdfforge.PDFCreator.Core.Startup.Translations.StartupTranslation
+msgid ""
+"The Windows spooler service is not running. Please start the spooler first.\n"
+"\n"
+"Program exiting now."
+msgstr ""
+"Windowsin tulostuspalvelu ei ole käynnissä. Käynnistä tulostuspalvelu "
+"ensin.\n"
+"\n"
+"Ohjelma suljetaan."
+
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "PDFCreator has successfully converted '{0}'."
 msgstr "Sovellus on onnistuneesti muuntanut kohteen '{0}'."
@@ -5499,6 +5815,43 @@ msgstr "Tiedosto muunto onnistui"
 #: pdfforge.PDFCreator.UI.Notifications.NotificationTranslation
 msgid "Error while converting"
 msgstr "Virhe muunnettaessa tiedostoa"
+
+#. pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "and {0} more file/directory"
+msgid_plural "and {0} more files/directories"
+msgstr[0] "ja {0} muu tiedosto/kansio"
+msgstr[1] "ja vielä {0} muuta tiedostoa/kansiota"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Convert with PDFCreator"
+msgstr "Muunna PDF&Creatorilla"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Convert &Here"
+msgstr "Muunna tässä"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "&Merge"
+msgstr "&Yhdistä"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid "Hint"
+msgstr "Vihje"
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"Couldn't find PDFCreator in your system. Please check if you have installed "
+"it."
+msgstr ""
+"PDFCreatoria ei löytynyt järjestelmästäsi. Tarkista, oletko asentanut sen."
+
+#: pdfforge.PDFCreatorShell.ContextMenuTranslation
+msgid ""
+"At least one of the selected items is not convertible! For more information "
+"about the unprintable files, see the list below."
+msgstr ""
+"Vähintään yksi valituista tuotteista ei ole muunnettavissa! Lisätietoja "
+"tiedostoista, joita ei voi tulostaa, on alla olevassa luettelossa."
 
 #: pdfforge.PDFCreator.UI.Presentation.UserControls.Settings.General.StandbySetting
 msgid "No standby"
@@ -6720,6 +7073,74 @@ msgstr "Tulostusasiakirjassa ei ole sivuja. Muunnos keskeytetään."
 msgid "Failed to apply changes made in preview."
 msgstr "Esikatselussa tehtyjen muutosten soveltaminen epäonnistui."
 
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided HotFolder path is not a valid path."
+msgstr "Annettu Kuumakansio-polku ei ole kelvollinen."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path must not be empty."
+msgstr "Kuumakansio-polku ei saa olla tyhjä."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The HotFolder path is too long."
+msgstr "Kuumakansio-polku on liian pitkä."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Source files path is not a valid path."
+msgstr "Annettu lähdetiedostojen polku ei ole kelvollinen."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path must not be empty."
+msgstr "Tiedoston polun nimi on pakollinen."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path is too long."
+msgstr "Lähdetiedostojen polku on liian pitkä."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The provided Unprintable files path is not a valid path."
+msgstr "Annettu tulostumattomien tiedostojen polku ei ole kelvollinen."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path must not be empty."
+msgstr "Tulostumattomien tiedostojen polku ei saa olla tyhjä."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path is too long."
+msgstr "Tulostumattomien tiedostojen polku on liian pitkä."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Source files path and HotFolder path cannot be the same."
+msgstr "Lähdetiedostojen polku ja Kuumakansion polku eivät voi olla samat."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom source files folder must not be a subfolder of the HotFolder path."
+msgstr ""
+"Mukautettujen lähdetiedostojen kansio ei saa olla Kuumakansio-polun "
+"alikansio."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid "The Unprintable files path and HotFolder path cannot be the same."
+msgstr ""
+"Tulostamattomien tiedostojen ja Kuumakansion polku eivät voi olla samat."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The custom unprintable files folder must not be a subfolder of the HotFolder "
+"path."
+msgstr ""
+"Mukautettujen tulostamattomien tiedostojen kansio ei saa olla Kuumakansio-"
+"polun alikansio."
+
+#: pdfforge.PDFCreator.Conversion.Jobs.ErrorCode
+msgid ""
+"The selected HotFolder path is the target directory of the profile causing "
+"an infinite loop."
+msgstr ""
+"Valittu Kuumakansio-polku on profiilin kohdehakemisto, mikä aiheuttaa "
+"loputtoman silmukan."
+
 #: pdfforge.PDFCreator.Conversion.Settings.Enums.BackgroundRepetition
 msgid "No repetition"
 msgstr "Ei käytössa"
@@ -7071,6 +7492,9 @@ msgstr "Tuettu PDFCreator Professional 5.0.0:sta lähtien"
 msgid "Supported since PDFCreator Professional 5.3.0"
 msgstr "Tuettu PDFCreator Professional 5.3.0:sta lähtien"
 
+msgid "Supported since PDFCreator 6.2.0"
+msgstr "Tuettu alkaen PDFCreator versiosta 6.2.0"
+
 msgid "pdfforge"
 msgstr "pdfforge"
 
@@ -7118,6 +7542,16 @@ msgstr ""
 "Aseta aika (minuuttiena), jonka PDFCreator pysyy valmiustilassa suorituksen "
 "jälkeen. Poista käytöstä asettamalla arvoksi 0."
 
+msgid "Disable debug tab"
+msgstr "Poista virheenkorjausvälilehti käytöstä"
+
+msgid ""
+"Activate to disable debug tab. This disables the functionalities to run test "
+"jobs and change the debug level."
+msgstr ""
+"Poista virheenkorjausvälilehti käytöstä. Testitöiden suorittaminen ja "
+"virheenkorjaustason muuttaminen estyvät."
+
 msgid "Disable printer tab"
 msgstr "Poista tulostin-välilehti käytöstä"
 
@@ -7139,27 +7573,23 @@ msgid ""
 msgstr ""
 "Poista otsikkovälilehti käytöstä. Otsikoiden muuttaminen korvaamalla estyy."
 
-msgid "Disable debug tab"
-msgstr "Poista virheenkorjausvälilehti käytöstä"
+msgid "Hide feedback form"
+msgstr "Piilota palautelomake"
 
-msgid ""
-"Activate to disable debug tab. This disables the functionalities to run test "
-"jobs and change the debug level."
-msgstr ""
-"Poista virheenkorjausvälilehti käytöstä. Testitöiden suorittaminen ja "
-"virheenkorjaustason muuttaminen estyvät."
-
-msgid "Hide PDF Architect info"
-msgstr "Piilota 'PDF Architect'-tiedot"
-
-msgid "Activate to hide information about our customizable PDF Editor."
-msgstr "Piilota mukautettavan PDF -Editorin tiedot."
+msgid "Activate to hide feedback form"
+msgstr "Piilota palautelomake"
 
 msgid "Hide license tab"
 msgstr "Piilota lisenssivälilehti"
 
 msgid "Activate to hide license tab."
 msgstr "Piilota lisenssi-välilehti."
+
+msgid "Hide PDF Architect info"
+msgstr "Piilota 'PDF Architect'-tiedot"
+
+msgid "Activate to hide information about our customizable PDF Editor."
+msgstr "Piilota mukautettavan PDF -Editorin tiedot."
 
 msgid "Disable profile management"
 msgstr "Poista profiilin hallinta käytöstä"
@@ -7233,6 +7663,29 @@ msgstr ""
 msgid "Shared Settings Filename"
 msgstr "Jaettujen asetusten tiedostonimi"
 
+msgid "Load shared HotFolder settings"
+msgstr "Lataa jaetut Kuumakansio-asetukset"
+
+msgid ""
+"Activate to load HotFolder settings from ini file in \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+msgstr ""
+"Aktivoi Kuumakansio-asetusten lataaminen ini-tiedostosta \"%ProgramData%"
+"\\pdfforge\\PDFCreator\"."
+
+msgid "Load shared printer mappings"
+msgstr "Lataa jaetut tulostinkartoitukset"
+
+msgid ""
+"Activate to load shared printer mappings. This disables the functionalities "
+"to add/delete/rename PDFCreator printers, change profile assignments and set "
+"the primary pdfcreator printer."
+msgstr ""
+"Aktivoi, jos haluat ladata jaetut tulostinkartoitukset. Tämä poistaa "
+"käytöstä toiminnot, joilla voidaan lisätä/poistaa/uudelleen nimetä "
+"PDFCreator-tulostimia, muuttaa profiilin määrityksiä ja asettaa ensisijainen "
+"pdfcreator-tulostin."
+
 msgid "Load shared profiles"
 msgstr "Lataa jaetut profiilit"
 
@@ -7247,17 +7700,17 @@ msgstr ""
 msgid "Allow further profiles defined by User"
 msgstr "Salli muut käyttäjän määrittelemät profiilit"
 
-msgid "Hide feedback form"
-msgstr "Piilota palautelomake"
-
-msgid "Activate to hide feedback form"
-msgstr "Piilota palautelomake"
+msgid "Bulgarian"
+msgstr "Bulgaria"
 
 msgid "Catalan"
 msgstr "Katalaani"
 
-msgid "Chinese"
-msgstr "Kiina"
+msgid "Chinese (Simplified)"
+msgstr "Kiina (Yksinkertaistettu)"
+
+msgid "Chinese (Traditional)"
+msgstr "Kiina (Perinteinen)"
 
 msgid "Corsican (France)"
 msgstr "Korsika (Ranska)"
@@ -7301,11 +7754,17 @@ msgstr "Puola"
 msgid "Portuguese (Brazil)"
 msgstr "Portugali (Brasilia)"
 
+msgid "Slovak"
+msgstr "Slovakki"
+
 msgid "Spanish"
 msgstr "Espanja"
 
 msgid "Swedish"
 msgstr "Ruotsi"
+
+msgid "Turkish"
+msgstr "Turkki"
 
 msgid "Set language:"
 msgstr "Kieli:"
@@ -7322,278 +7781,72 @@ msgstr "Aseta lokikirjaustaso:"
 msgid "Allow users to define additional profiles"
 msgstr "Salli käyttäjien määrittää lisäprofiileja"
 
+#~ msgid "Leave them in the HotFolder"
+#~ msgstr "Jätä ne Kuumakansioon"
+
+#~ msgid "Finish"
+#~ msgstr "Viimeistely"
+
+#~ msgid "HotFolder is a professional setting"
+#~ msgstr "HotFolder on yritysversioiden toiminto"
+
+#~ msgid ""
+#~ "HotFolder allows you to automatically convert documents placed in a "
+#~ "specific folder using predefined settings. This feature is available in "
+#~ "the Professional edition of PDFCreator."
+#~ msgstr ""
+#~ "HotFolderin avulla voit muuntaa tiettyyn kansioon sijoitetut asiakirjat "
+#~ "automaattisesti käyttämällä ennalta määritettyjä asetuksia. Tämä "
+#~ "ominaisuus on käytettävissä PDFCreatorin yritysversiossa."
+
+#~ msgid "On"
+#~ msgstr "Kohteessa"
+
+#~ msgid "Off"
+#~ msgstr "Pois"
+
+#~ msgid "Start HotFolder when Windows starts"
+#~ msgstr "Käynnistä HotFolder, kun Windows käynnistyy"
+
+#~ msgid "Start HotFolder when PDFCreator starts"
+#~ msgstr "Käynnistä HotFolder, kun PDFCreator käynnistyy"
+
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid "Path"
+#~ msgstr "Polku"
+
+#~ msgid "Disable HotFolder tab"
+#~ msgstr "HotFolder-välilehden poistaminen käytöstä"
+
+#~ msgid "Activate to disable HotFolder tab."
+#~ msgstr "Aktivoi HotFolder-välilehden poistamiseksi käytöstä."
+
+#~ msgid "minutes"
+#~ msgstr "minuuttia"
+
+#~ msgid "Offline Activation"
+#~ msgstr "Erilliskoneen aktivointi"
+
+#~ msgid "Chinese"
+#~ msgstr "Kiina"
+
+#~ msgid "Make PDFCreator a permanent part of your toolset."
+#~ msgstr "Tee PDFCreatorista pysyvä osa työkalupakkiasi."
+
 #~ msgid "Show license details"
 #~ msgstr "Näytä lisenssitiedot"
 
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Kiina (Yksinkertaistettu)"
+#~ msgid "The license is not valid for this version."
+#~ msgstr "Lisenssi ei ole kelvollinen tälle versiolle."
 
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Kiina (Perinteinen)"
-
-#~ msgid "Your trial license has expired"
-#~ msgstr "Koekäyttölisenssi on vanhentunut"
-
-#~ msgid "Unlock here"
-#~ msgstr "Poista lukitus"
-
-#~ msgid "Greek"
-#~ msgstr "Kreikka"
-
-#~ msgid "Turkish"
-#~ msgstr "Turkki"
+#~ msgid "There was a problem with your license: {0}"
+#~ msgstr "Ongelma lisenssissä: {0}"
 
 #~ msgid ""
-#~ "PDFCreator was not able to repair your printers. Please contact your "
-#~ "administrator or the support to assist you in with this problem."
+#~ "Your {0} license has expired...\n"
+#~ "let's keep your workflows going"
 #~ msgstr ""
-#~ "PDFCreator ei kyennyt korjaamaan tulostimia. Ota yhteyttä "
-#~ "järjestelmänvalvojaan tai sovellustukeen ongelman ratkaisemiseksi."
-
-#~ msgid ""
-#~ "PDFCreator was not able to repair your spool folder. Please contact your "
-#~ "administrator or the support to assist you in changing the permissions of "
-#~ "the path '{0}'."
-#~ msgstr ""
-#~ "Tulostuskansiota ei voitu korjata. Ota yhteyttä järjestelmänvalvojaan tai "
-#~ "sovellustukeen kansion '{0}' oikeuksien muuttamiseksi."
-
-#~ msgid ""
-#~ "There was an error with a component licensed by pdfforge.\n"
-#~ "Please reinstall PDFCreator. (Error {0})"
-#~ msgstr ""
-#~ "Virhe sovelluksen käyttämässä komponentissa.\n"
-#~ "Uudelleenasenna PDFCreator. (Virhe {0})"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" is invalid or has expired. Please check your "
-#~ "license, otherwise PDFCreator will shutdown.\n"
-#~ "Do you want to check your license now?"
-#~ msgstr ""
-#~ "Sovelluksen \"{0}\" lisenssin voimassaolo on päättynyt tai se ei kelpaa. "
-#~ "Tarkista lisenssi, muussa tapauksessa sovellus suljetaan.\n"
-#~ "Tarkistetaanko lisenssi?"
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "\"{0}\" -lisenssin voimassaolo on päättynyt.\n"
-#~ "Sovellus suljetaan."
-
-#~ msgid ""
-#~ "Your license for \"{0}\" has expired.\n"
-#~ "Please contact your administrator.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Lisenssin \"{0}\" voimassaolo on päättynyt.\n"
-#~ "Ota yhteyttä järjestelmänvalvojaan.\n"
-#~ "Sovellus suljetaan."
-
-#~ msgid ""
-#~ "Your trial has expired on {0}.\n"
-#~ "PDFCreator will shut down.\n"
-#~ "\n"
-#~ "Please contact: licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Koekäyttöaika on päättynyt {0}.\n"
-#~ "PDFCreator suljetaan.\n"
-#~ "\n"
-#~ "Ota yhteyttä: licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "A license key for {0} could not be found. Please provide your license "
-#~ "key, otherwise PDFCreator will shutdown. \n"
-#~ "Do you want to activate your license now?"
-#~ msgstr ""
-#~ "Sovelluksen \"{0}\" lisenssiä ei löydy. Syötä lisenssiavain, muussa "
-#~ "tapauksessa sovellus suljetaan.\n"
-#~ "Aktivoidaanko lisenssi?"
-
-#~ msgid ""
-#~ "A license key could not be found.\n"
-#~ "PDFCreator will shut down."
-#~ msgstr ""
-#~ "Lisenssiavainta ei löydy.\n"
-#~ "Sovellus suljetaan."
-
-#~ msgid ""
-#~ "Please use \"PDFCreator Terminal Server\" for use on computers with "
-#~ "installed Terminal Services.\n"
-#~ "\n"
-#~ "Please visit our website for more information or contact us directly: "
-#~ "licensing@pdfforge.org"
-#~ msgstr ""
-#~ "Käytä päätepalvelin sovellusta \"PDFCreator Terminal Server\" koneissa, "
-#~ "joihin on asennettu päätepalvelut. \n"
-#~ "\n"
-#~ "Hanki lisätietoja sovelluksen kotisivuilta tai ota yhteyttä osoitteeseen "
-#~ "licensing@pdfforge.org"
-
-#~ msgid ""
-#~ "Can't find a supported Ghostscript installation.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Tuettua Ghostscript-versiota ei ole asennettu.\n"
-#~ "\n"
-#~ "Sovellus suljetaan."
-
-#~ msgid ""
-#~ "The Windows spooler service is not running. Please start the spooler "
-#~ "first.\n"
-#~ "\n"
-#~ "Program exiting now."
-#~ msgstr ""
-#~ "Windowsin taustatulostuspalvelu ei ole käynnissä. Käynnistä se ensin.\n"
-#~ "\n"
-#~ "Sovellus suljetaan."
-
-#~ msgid ""
-#~ "You do not have any PDFCreator printers installed. Most likely there was "
-#~ "a problem during the setup or the installation has been altered "
-#~ "afterwards.\n"
-#~ "Do you want to fix this by reinstalling the PDFCreator printers?\n"
-#~ "\n"
-#~ "Note: You might be asked to grant admin privileges while fixing the "
-#~ "problem."
-#~ msgstr ""
-#~ "Yhtään PDFCreator-tulostinta ei ole asennettu. Todennäköisesti asennus on "
-#~ "epäonnistunut tai kokoonpanoa on muutettu jälkikäteen.\n"
-#~ "Korjataanko tämä virhetilanne asentamalla sovellus uudelleen?\n"
-#~ "\n"
-#~ "Huom! Asennuksessa saatetaan pyytää järjestelmänvalvojan oikeuksia."
-
-#~ msgid "No printers installed"
-#~ msgstr "Tulostimia ei ole asennettu"
-
-#~ msgid "RepairTool not found"
-#~ msgstr "Korjaustyökalua ei ole käytettävissä"
-
-#~ msgid "Access Denied"
-#~ msgstr "Käyttö estetty"
-
-#~ msgid ""
-#~ "The temporary path where PDFCreator stores the print jobs can't be "
-#~ "accessed. This is a configuration problem on your machine and needs to be "
-#~ "fixed. Do you want PDFCreator to attempt repairing it?\n"
-#~ "Your spool folder is: {0}"
-#~ msgstr ""
-#~ "Tulostinjonojen tilapäiskansio ei ole käytettävissä. Kyseessä on "
-#~ "tietokoneen asetusten määritysvirhe, ja se pitää korjata. Yritetäänkö "
-#~ "korjausta nyt?\n"
-#~ "Tulostinjonokansio: {0}"
-
-#~ msgid "Albanian"
-#~ msgstr "Albania"
-
-#~ msgid "Printer:"
-#~ msgstr "Tulostin:"
-
-#~ msgid "SSL"
-#~ msgstr "SSL"
-
-#~ msgid "Sharepoint"
-#~ msgstr "Sharepoint"
-
-#~ msgid "Read More"
-#~ msgstr "Lisätietoja"
-
-#~ msgid "Default Printer"
-#~ msgstr "Oletustulostin"
-
-#~ msgid "Usage Statistics"
-#~ msgstr "Käyttötilastot"
-
-#~ msgid "Run Program"
-#~ msgstr "Suorita ohjelma"
-
-#~ msgid "Set Certificate Password"
-#~ msgstr "Varmenteen salasana"
-
-#~ msgid "User Name:"
-#~ msgstr "Käyttäjätunnus:"
-
-#~ msgid "Email Address:"
-#~ msgstr "Sähköpostiosoite:"
-
-#~ msgid "Add Attachment"
-#~ msgstr "Lisää liite"
-
-#~ msgid "On Behalf Of:"
-#~ msgstr "Puolesta:"
-
-#~ msgid "Choose 'No' to revert the changes."
-#~ msgstr "Palauta muutokset valitsemalla 'Ei'."
-
-#~ msgid "and {0} more file/directory"
-#~ msgid_plural "and {0} more files/directories"
-#~ msgstr[0] "ja {0} tiedosto/hakemisto lisää"
-#~ msgstr[1] "ja vielä {0} tiedostoa/hakemistoa lisää"
-
-#~ msgid "&Convert with PDFCreator"
-#~ msgstr "Muunna PDF&Creatorilla"
-
-#~ msgid "Convert &Here"
-#~ msgstr "Muunna tässä"
-
-#~ msgid "&Merge"
-#~ msgstr "Yhdistä"
-
-#~ msgid "Hint"
-#~ msgstr "Vihje"
-
-#~ msgid ""
-#~ "Couldn't find PDFCreator in your system. Please check if you have "
-#~ "installed it."
-#~ msgstr ""
-#~ "PDFCreatoria ei löytynyt järjestelmästäsi. Tarkista, oletko asentanut sen."
-
-#~ msgid ""
-#~ "At least one of the selected items is not convertible! For more "
-#~ "information about the unprintable files, see the list below."
-#~ msgstr ""
-#~ "Vähintään yksi valituista tuotteista ei ole muunnettavissa! Lisätietoja "
-#~ "tiedostoista, joita ei voi tulostaa, on alla olevassa luettelossa."
-
-#~ msgid "The path to the signature image file contains illegal characters."
-#~ msgstr "Allekirjoituskuvatiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid "The program file path contains illegal characters."
-#~ msgstr "Sovellustiedoston polku sisältää kiellettyjä merkkejä."
-
-#~ msgid "One of the cover file paths contains illegal characters."
-#~ msgstr "Yhden kansitiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid "One of the attachment file paths contains illegal characters."
-#~ msgstr "Yhden liitetiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid "The target directory contains illegal characters."
-#~ msgstr "Tallennuskansion nimessä on kiellettyjä merkkejä."
-
-#~ msgid "The background file contains illegal characters."
-#~ msgstr "Taustatiedostossa on kiellettyjä merkkejä."
-
-#~ msgid "The certificate file path contains illegal characters."
-#~ msgstr "Varmennetiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid "The FTP key file path is an invalid path."
-#~ msgstr "FTP-avaintiedoston polku ei ole kelvollinen."
-
-#~ msgid "The FTP key file path contains illegal characters."
-#~ msgstr "FTP-avaintiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid ""
-#~ "The file path is not valid or empty. Please enter a valid path.\n"
-#~ "The file path must not contain any of the following characters: \n"
-#~ " \\ / : * ? \\< >"
-#~ msgstr ""
-#~ "Tiedostopolkua ei ole tai se on virheellinen, syötä kelvollinen polku.\n"
-#~ "Polun nimessä ei saa esiintyä seuraavia merkkejä:\n"
-#~ " \\ / : * ? \\< >"
-
-#~ msgid "The watermark file path contains illegal characters."
-#~ msgstr "Vesileimatiedoston polussa on kiellettyjä merkkejä."
-
-#~ msgid "Your license has expired."
-#~ msgstr "Lisenssi on vanhentunut."
+#~ "Lisenssisi {0} on vanhentunut...\n"
+#~ "Pidetään työnkulut käynnissä"

@@ -14,6 +14,8 @@ public class UserToken : IToken
         KeyValueDict = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
 
+    public bool IsEmpty() => KeyValueDict.Count < 1;
+
     public string GetValue()
     {
         return "";

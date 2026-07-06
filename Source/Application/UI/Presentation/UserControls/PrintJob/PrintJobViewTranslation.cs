@@ -46,6 +46,8 @@ public class PrintJobViewTranslation : ITranslatable
     public string RemoveAds { get; private set; } = "Remove ads";
     public string RestrictedActionWarning { get; private set; } = "Certain functions are not supported by the output format and will not be executed. Please check your profile.";
     public string TrialExtendingLicenseInfo { get; private set; } = "Click here to extend your license.";
+    public string MergeHint { get; private set; } = "merge!";
+
 
     protected string[] TrialExpiringInfo { get; private set; } = { "Your trial license will expire in {0} day.", "Your trial license will expire in {0} days." };
 

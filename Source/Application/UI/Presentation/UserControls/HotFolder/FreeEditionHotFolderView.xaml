@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="pdfforge.PDFCreator.UI.Presentation.UserControls.HotFolder.FreeEditionHotFolderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designTime="clr-namespace:pdfforge.PDFCreator.UI.Presentation.DesignTime"
+             xmlns:help="clr-namespace:pdfforge.PDFCreator.UI.Presentation.Help"
+             mc:Ignorable="d" 
+             d:DesignHeight="671" d:DesignWidth="1200"
+             d:DataContext="{d:DesignInstance designTime:DesignTimeFreeEditionHotFolderViewModel, IsDesignTimeCreatable=True}"
+             help:HelpProvider.HelpTopic="HotFolder">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Labels.xaml"/>
+                <ResourceDictionary Source="../../Styles/TextBlock.xaml"/>
+                <ResourceDictionary Source="../../Styles/Buttons/DefaultButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top spacer -->
+        <Grid Grid.Row="0"/>
+
+        <!-- Main content area -->
+        <StackPanel Grid.Row="1" 
+                    HorizontalAlignment="Center"
+                    Width="640">
+
+            <!-- Title -->
+            <Label Style="{StaticResource LargeLabel}"
+                   HorizontalAlignment="Left"
+                   FontSize="20">
+                <AccessText Text="{Binding Translation.UnlockFolderMonitoring}"
+                            TextWrapping="Wrap"/>
+            </Label>
+
+            <!-- Description Text -->
+            <TextBlock Margin="0 20 0 0"
+                       Style="{StaticResource DescriptionTextBlock}"
+                       FontSize="14"
+                       LineHeight="24"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Left"
+                       MaxWidth="600">
+                <Run Text="{Binding Translation.StreamlineYourWorkflow, Mode=OneWay}"/>
+                <Run Text="{Binding Translation.HotFolderDescription, Mode=OneWay}"/>
+                <LineBreak/>
+                <Run Text="{Binding Translation.OnlyForBusiness, Mode=OneWay}"/>
+            </TextBlock>
+
+            <!-- Image -->
+            <Image Margin="0 30 0 0 "
+                MaxHeight="192"
+                   MaxWidth="228"
+                   Source="../../Styles/Images/hotfolder_image.png"
+                   HorizontalAlignment="Center" />
+
+            <!-- Button -->
+            <Button Margin="0 30 0 0"
+                    Style="{StaticResource GreenHighlightButton}"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Command="{Binding UrlOpenCommand}"
+                    CommandParameter="{Binding ShopUrl}"
+                    Content="{Binding Translation.BuyALicenseButtonText}"
+                    HorizontalAlignment="Center"
+                    Padding="20,10"/>
+
+        </StackPanel>
+
+        <!-- Bottom spacer -->
+        <Grid Grid.Row="2"/>
+    </Grid>
+</UserControl>

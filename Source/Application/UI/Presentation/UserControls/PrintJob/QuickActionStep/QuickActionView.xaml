@@ -39,7 +39,7 @@
                 <Label Content="{Binding Translation.SelectFilename}" />
                 <TextBlock Margin="0 10 0 0" >
                     <Hyperlink NavigateUri="Look in DownloadHyperlink_OnRequestNavigate"
-                               Command="{Binding OpenWithPdfArchitectCommand}"
+                               Command="{Binding PrioritisedOpenCommand}"
                                CommandParameter="{Binding Job}"
                                Style="{StaticResource DefaultHyperLink}">
                         <TextBlock Text="{Binding FileName, Mode=OneWay}"
@@ -260,7 +260,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
-                           Command="{Binding OpenExplorerCommand}"
+                           Command="{Binding PrioritisedOpenCommand}"
                            CommandParameter="{Binding Job}">
                         <AccessText TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Translation.Open}" />
                     </Button>
@@ -276,7 +276,7 @@
                                          Command="{Binding OpenWithPdfArchitectCommand}"
                                          CommandParameter="{Binding Job}" />
                                 <MenuItem Header="{Binding Translation.OpenDefaultProgram}"
-                                         Command="{Binding QuickActionOpenWithDefaultCommand}"
+                                         Command="{Binding OpenWithDefaultCommand}"
                                          CommandParameter="{Binding Job}" />
                                 <MenuItem Header="{Binding Translation.OpenExplorer}"
                                          Command="{Binding OpenExplorerCommand}"

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Codeuctivity.PdfAValidator</id>
+    <version>3.0.208</version>
+    <authors>Stefan Seeland</authors>
+    <license type="expression">AGPL-3.0-only</license>
+    <licenseUrl>https://licenses.nuget.org/AGPL-3.0-only</licenseUrl>
+    <icon>NugetIcon.png</icon>
+    <readme>nugetReadme.md</readme>
+    <projectUrl>https://github.com/Codeuctivity/PdfAValidatorApi</projectUrl>
+    <description>PdfAValidator is based on VeraPdf and is an open source conformance checker for PDF/A files. It is designed to help archives and libraries check that their PDF/A collections conform to the appropriate ISO 19005 archiving standard specification.</description>
+    <releaseNotes>Migrated to net8.0, dropped older targets</releaseNotes>
+    <tags>PdfAValidator Pdf PdfA VeraPdf Pdf/A Validate</tags>
+    <repository type="git" url="https://github.com/Codeuctivity/PdfAValidatorApi" commit="fe57694fc4bd0f4434420730acfbe052a7187b76" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="System.IO.Compression.ZipFile" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

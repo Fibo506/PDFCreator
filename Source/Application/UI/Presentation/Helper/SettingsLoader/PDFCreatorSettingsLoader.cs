@@ -7,6 +7,7 @@ using pdfforge.PDFCreator.Core.Printing.Printer;
 using pdfforge.PDFCreator.Core.Services.Translation;
 using pdfforge.PDFCreator.Core.SettingsManagement;
 using pdfforge.PDFCreator.Core.SettingsManagement.DefaultSettings;
+using pdfforge.PDFCreator.Core.SettingsManagement.Helper;
 using pdfforge.PDFCreator.Core.SettingsManagement.SettingsLoading;
 using pdfforge.PDFCreator.Core.SettingsManagementInterface;
 using pdfforge.PDFCreator.Utilities;
@@ -19,6 +20,7 @@ public class PDFCreatorSettingsLoader : SettingsLoader
     private readonly EditionHelper _editionHelper;
     private readonly IPrinterMappingsHelper _printerMappingsHelper;
     private readonly ITranslationHelper _translationHelper;
+    private readonly IHotFolderConfigsHelper _hotFolderConfigsHelper;
 
     public PDFCreatorSettingsLoader(ISettingsMover settingsMover,
         IInstallationPathProvider installationPathProvider,
@@ -32,20 +34,24 @@ public class PDFCreatorSettingsLoader : SettingsLoader
         ISharedSettingsLoader sharedSettingsLoader,
         IBaseSettingsBuilder baseSettingsBuilder,
         IGpoSettings gpoSettings,
-        IPrinterMappingsHelper printerMappingsHelper)
+        IPrinterMappingsHelper printerMappingsHelper,
+        IHotFolderConfigsHelper hotFolderConfigsHelper)
         : base(settingsMover, installationPathProvider, defaultSettingsBuilder, migrationStorageFactory, actionOrderHelper, settingsBackup, sharedSettingsLoader, baseSettingsBuilder, gpoSettings)
     {
         _printerHelper = printerHelper;
         _editionHelper = editionHelper;
         _printerMappingsHelper = printerMappingsHelper;
         _translationHelper = translationHelper;
+        _hotFolderConfigsHelper = hotFolderConfigsHelper;
     }
 
     protected override void ProcessBeforeSaving(PdfCreatorSettings settings)
     { }
 
     protected override void ProcessAfterSaving(PdfCreatorSettings settings)
-    { }
+    {
+        HotFolderMigrationHelper.RemoveOldHotFolderIfNeeded();
+    }
 
     protected override void PrepareForLoading()
     { }
@@ -55,6 +61,7 @@ public class PDFCreatorSettingsLoader : SettingsLoader
         _translationHelper.TranslateProfileList(settings.ConversionProfiles);
         CheckLanguage(settings);
         _printerMappingsHelper.CheckPrinterMappings(settings);
+        _hotFolderConfigsHelper.CheckHotFolderConfigs(settings);
         CheckUpdateInterval(settings);
     }
 

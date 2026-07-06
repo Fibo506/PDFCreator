@@ -19,6 +19,7 @@ public class PrinterMappingWrapper : INotifyPropertyChanged
         PrinterMapping = printerMapping;
         PrinterName = printerMapping.PrinterName;
         Profile = profiles.FirstOrDefault(p => p.ConversionProfile.Guid == printerMapping.ProfileGuid);
+        IsHotFolder = printerMapping.IsHotFolder;
     }
 
     public PrinterMapping PrinterMapping { get; }
@@ -50,6 +51,8 @@ public class PrinterMappingWrapper : INotifyPropertyChanged
     {
         get { return PrinterName != null && PrinterName == PrimaryPrinter; }
     }
+
+    public bool IsHotFolder { get; set; }
 
     public string PrimaryPrinter
     {
